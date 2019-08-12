@@ -15,7 +15,7 @@
                            <p>Enter Destination</p>
                          </div>
                        </div>
-                  <form role="form" enctype="multipart/form-data" @submit.prevent="addItineraryday()">
+                  <form role="form" enctype="multipart/form-data" @submit="addItineraryday">
 
                       <div class="card-body">
                         <div class="rows">
@@ -46,14 +46,10 @@
                           </div>
                          </div>
                         </div>
-                            
                       </div>
                     </div>
-                      
                   </form>
-                    
                 </div>
-
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -71,7 +67,6 @@
                 })
 
         },
-       
         data(){
 
             return {
@@ -96,26 +91,26 @@
             next() {
               this.step++;
             },
-             addItineraryday()
+             addItineraryday(e)
             {
                // Submit the form via a itinerary request
-                this.form.post(`/add-itinerarydays/${this.$route.params.id}`)
-                  .then((response)=>{
-                    console.log(response.data)
-                   /* console.log(this.daytitle)
-                    console.log(this.daydescription)
-                  */  /*   this.$router.push('/itinerary-list')
+                e.preventDefault();
+                let currentObj = this;
+                 axios.post(`http://localhost:8000/api/itineraryday/create/${this.$route.params.id}`, {
+                    title: this.daytitle,
+                    description: this.daydescription
+                })
+                .then(function (response) {
+                    currentObj.$router.push('/itinerary-list')
                         toast({
                             type: 'success',
-                            title: 'Itinerary Updated successfully'
-                        })*/
-                    })
-                    .catch(()=>{
-
-                    })
+                            title: 'ItineraryDay Added successfully'
+                        })
+                })
+                .catch(function (error) {
+                    currentObj.output = error;
+                });
             },
-                
-           
         }
     }
 </script>

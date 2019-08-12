@@ -29956,6 +29956,10 @@ select {
   opacity: 0;
 }
 
+#adminmain .content {
+  background-color: #f4f6f9;
+}
+
 #adminmain .input-group-text {
   height: 53px;
   background-color: #e1e1e1e1;
@@ -30020,6 +30024,10 @@ select {
   padding: 10px 30px;
 }
 
+#adminmain .container_admin_body #example_length select {
+  padding-left: 7px;
+}
+
 #adminmain .container_admin_body #example_filter input[type='search'] {
   border-radius: 4px;
   height: 29px;
@@ -30046,6 +30054,11 @@ select {
   font-size: 15px;
   background-color: white;
   border: none;
+}
+
+#adminmain .container_admin_body td .fas,
+#adminmain .container_admin_body th .fas {
+  float: right;
 }
 
 #adminmain .container_admin_body th {
@@ -30100,24 +30113,6 @@ select {
   background-color: #a59e9e;
   color: white;
   text-decoration: none;
-}
-
-#adminmain .container_admin_body .buttonload {
-  background-color: #4CAF50;
-  /* Green background */
-  border: none;
-  /* Remove borders */
-  color: white;
-  /* White text */
-  padding: 12px 24px;
-  /* Some padding */
-  font-size: 16px;
-  /* Set a font-size */
-}
-
-#adminmain .container_admin_body .buttonload .fa-spin {
-  margin-left: -12px;
-  margin-right: 8px;
 }
 
 #adminmain .container_admin_body .dataTables_length {

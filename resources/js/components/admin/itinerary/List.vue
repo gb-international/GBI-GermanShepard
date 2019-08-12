@@ -53,9 +53,9 @@
        {
 
        getData(){
-        axios.get('/itinerary')
+        axios.get('http://localhost:8000/api/itinerarys')
           .then((response) => {
-              this.itineraryData = response.data.itineraries;
+              this.itineraryData = response.data.data;
               // this.dataTable.rows.add(response.data).draw();
               setTimeout(() => $('#example').DataTable(), 1000);
 

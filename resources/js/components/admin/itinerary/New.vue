@@ -69,14 +69,23 @@
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col-sm-4">
+                          <div class="col-sm-6">
                             <div class="form-group" >
                                 <input @change = "changePhoto($event)" name="photo" type="file" :class="{ 'is-invalid': form.errors.has('photo') }">
                                 <img :src="form.photo" alt="" width="80" height="80">
                                 <has-error :form="form" field="photo"></has-error>
                             </div>
                           </div>
-                          <div class="col-sm-8">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <input @change = "changeDetailPhoto($event)" name="detail_photo" type="file" :class="{ 'is-invalid': form.errors.has('detail_photo') }">
+                                <img :src="form.detail_photo" alt="" width="80" height="80">
+                                <has-error :form="form" field="detail_photo"></has-error>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row text-center">
+                          <div class="col-sm-12">
                             <div class="form-group">
                               <button type="submit" class="btn btn-primary itrn_add_btn">SAVE & CONTINUE</button>
                             </div>
@@ -104,6 +113,7 @@
                 description: '',
                 tourtype: '',
                 photo:'',
+                detail_photo:''
                 })
             }
         },
@@ -112,7 +122,6 @@
 
             changePhoto(event){
                 let file = event.target.files[0];
-
                  if(file.size>1048576){
                      swal({
                          type: 'error',
@@ -124,18 +133,32 @@
                      let reader = new FileReader();
                      reader.onload = event => {
                          this.form.photo = event.target.result
-                         console.log(event.target.result)
                      };
                      reader.readAsDataURL(file);
                  }
-
+            },
+            changeDetailPhoto(event){
+              let file = event.target.files[0];
+                 if(file.size>1048576){
+                     swal({
+                         type: 'error',
+                         title: 'Oops...',
+                         text: 'Something went wrong!',
+                         footer: '<a href>Why do I have this issue?</a>'
+                     })
+                 }else{
+                     let reader = new FileReader();
+                     reader.onload = event => {
+                         this.form.detail_photo = event.target.result
+                     };
+                     reader.readAsDataURL(file);
+                 }
             },
             addItinerary()
             {
                 // Submit the form via a itinerary request
-                this.form.post('/add-itinerary')
+                this.form.post('http://localhost:8000/api/itinerary/create')
                   .then((response)=>{
-                    console.log(response.data)
                        this.$router.push(`/add-days-itinerary/${response.data.id}`)
                         toast({
                             type: 'success',

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use App\Http\Resources\ItineraryDayCollection;
 use Auth;
 use Image;
 use App\Itinerary;
@@ -11,6 +12,7 @@ use App\Itineraryday;
 
 class ItineraryDayController extends Controller
 {
+	
     public function storeDayitinerary(Request $request, $id)
     {
     	return $request->all();

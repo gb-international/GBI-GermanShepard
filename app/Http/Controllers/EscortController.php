@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\EscortCollection;
 use Auth;
 use Image;
 use App\Escort;
@@ -10,6 +11,11 @@ use App\Escort;
 
 class EscortController extends Controller
 {
+    // For the testing api 
+    public function index(){
+        return new EscortCollection(Escort::all());
+    }
+    //End function for the testing api 
     public function allEscort()
 	{
 		$escort = Escort::orderBy('id', 'DESC')->get();

@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <meta name="csrf-token" content="{{ csrf_token() }}">    
     <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"> -->
-
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -75,7 +73,7 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item has-treeview">
-                        <router-link to="/" class="nav-link dashboard_color">
+                        <router-link to="/dashboard" class="nav-link dashboard_color" id="dashboard_id">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>Dashboard</p>
                         </router-link>
@@ -301,10 +299,14 @@
 
 <!-- ./wrapper -->
 
-
-
-
 <script src="{{ asset('js/admin/app.js') }}"></script>
+<script>
+$(document).ready(function(){
+  $("#dashboard_id").click();
+
+});
+</script>
+
 <!-- <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script> -->
 <!-- <script type="text/javascript">
   $(document).ready(function() {

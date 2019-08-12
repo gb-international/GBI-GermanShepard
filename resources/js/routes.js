@@ -10,7 +10,7 @@ import ListItinerary from './components/front/ListItinerary.vue'
 
 
 // ADMIN PANEL
-
+import AdminDashboard from './components/admin/Dashboard.vue'
 // Post
 import PostList from './components/admin/post/List.vue'
 import AddPost from './components/admin/post/New.vue'
@@ -58,8 +58,8 @@ import SalesAdd from './components/admin/sales/New.vue'
 
 export const routes = [
     {
-        path:'/admin',
-        component:AdminHome
+        path:'/admin/dashboard',
+        component:AdminDashboard
     },
     
     {
