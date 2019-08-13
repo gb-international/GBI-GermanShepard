@@ -110876,7 +110876,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -110887,6 +110887,14 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -110962,12 +110970,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             // Create a new form instance
             step: 1,
             index: '',
-            daytitle: [],
+            daysource: [],
+            daydestination: [],
             daydescription: [],
             form: new Form({
                 noofdays: '',
                 id: '',
-                daytitle: this.daytitle,
+                daysource: this.daysource,
+                daydestination: this.daydestination,
                 daydescription: this.daydescription
             })
         };
@@ -110985,9 +110995,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             e.preventDefault();
             var currentObj = this;
             axios.post('http://localhost:8000/api/itineraryday/create/' + this.$route.params.id, {
-                title: this.daytitle,
+                source: this.daysource,
+                destination: this.daydestination,
                 description: this.daydescription
             }).then(function (response) {
+                console.log(response);
                 currentObj.$router.push('/itinerary-list');
                 toast({
                     type: 'success',
@@ -111032,13 +111044,13 @@ var render = function() {
                             _c("h1", [_vm._v("Day " + _vm._s(index + 1))]),
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col-sm-8" }, [
+                              _c("div", { staticClass: "col-sm-6" }, [
                                 _c(
                                   "div",
                                   { staticClass: "form-group" },
                                   [
                                     _c("label", { attrs: { for: "titleId" } }, [
-                                      _vm._v("Title " + _vm._s(index + 1))
+                                      _vm._v("Source " + _vm._s(index + 1))
                                     ]),
                                     _vm._v(" "),
                                     _c("input", {
@@ -111046,23 +111058,24 @@ var render = function() {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.daytitle[index + 1],
-                                          expression: "daytitle[index+1]"
+                                          value: _vm.daysource[index + 1],
+                                          expression: "daysource[index+1]"
                                         }
                                       ],
                                       staticClass: "form-control",
                                       class: {
                                         "is-invalid": _vm.form.errors.has(
-                                          "daytitle"
+                                          "daysource"
                                         )
                                       },
                                       attrs: {
                                         type: "text",
-                                        placeholder: "Enter Title",
-                                        name: "daytitle[]"
+                                        placeholder: "Enter Source",
+                                        name: "daysource[]",
+                                        required: ""
                                       },
                                       domProps: {
-                                        value: _vm.daytitle[index + 1]
+                                        value: _vm.daysource[index + 1]
                                       },
                                       on: {
                                         input: function($event) {
@@ -111070,7 +111083,7 @@ var render = function() {
                                             return
                                           }
                                           _vm.$set(
-                                            _vm.daytitle,
+                                            _vm.daysource,
                                             index + 1,
                                             $event.target.value
                                           )
@@ -111081,7 +111094,65 @@ var render = function() {
                                     _c("has-error", {
                                       attrs: {
                                         form: _vm.form,
-                                        field: "daytitle"
+                                        field: "daysource"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-6" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "form-group" },
+                                  [
+                                    _c("label", { attrs: { for: "titleId" } }, [
+                                      _vm._v("Destination " + _vm._s(index + 1))
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.daydestination[index + 1],
+                                          expression: "daydestination[index+1]"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      class: {
+                                        "is-invalid": _vm.form.errors.has(
+                                          "daydestination"
+                                        )
+                                      },
+                                      attrs: {
+                                        type: "text",
+                                        placeholder: "Enter Destination",
+                                        name: "daydestination[]",
+                                        required: ""
+                                      },
+                                      domProps: {
+                                        value: _vm.daydestination[index + 1]
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.daydestination,
+                                            index + 1,
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("has-error", {
+                                      attrs: {
+                                        form: _vm.form,
+                                        field: "daydestination"
                                       }
                                     })
                                   ],
@@ -111118,7 +111189,8 @@ var render = function() {
                                   attrs: {
                                     placeholder: "Enter Description",
                                     rows: "6",
-                                    name: "daydescription[]"
+                                    name: "daydescription[]",
+                                    required: ""
                                   },
                                   domProps: {
                                     value: _vm.daydescription[index + 1]
@@ -112098,7 +112170,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -112208,6 +112280,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "New",
@@ -112216,6 +112290,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             // Create a new form instance
             rows: [{ 'source': '', 'destination': '', 'last_button': '1' }],
             city_button: 1,
+            counter: 2,
+            current_counter: 1,
             form: new Form({
                 source: '',
                 destination: '',
@@ -112230,10 +112306,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         addRow: function addRow() {
+            this.current_counter = this.current_counter + 1;
             this.city_button = this.city_button + 1;
             this.rows.push({ 'source': '', 'destination': '', 'last_button': this.city_button });
         },
         deleteRow: function deleteRow(index) {
+            this.current_counter = this.current_counter - 1;
             this.rows.splice(index, 1);
         },
         changePhoto: function changePhoto(event) {
@@ -112392,29 +112470,39 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
-                    _vm.city_button == row["last_button"]
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "btn itrn_add_btn",
-                            attrs: { type: "button" },
-                            on: { click: _vm.addRow }
-                          },
-                          [_vm._v("ADD ANOTHER CITY")]
-                        )
-                      : _c(
-                          "button",
-                          {
-                            staticClass: "btn cross_btn",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                _vm.deleteRow(index)
+                    _vm.current_counter <= _vm.counter
+                      ? _c("div", { staticClass: "buttons" }, [
+                          _vm.city_button == row["last_button"]
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "btn itrn_add_btn",
+                                  attrs: { type: "button" },
+                                  on: { click: _vm.addRow }
+                                },
+                                [_vm._v("ADD ANOTHER CITY")]
+                              )
+                            : _vm._e()
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.city_button != row["last_button"]
+                      ? _c("div", { staticClass: "buttons" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn cross_btn",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  _vm.deleteRow(index)
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("X")]
-                        )
+                            },
+                            [_vm._v("X")]
+                          )
+                        ])
+                      : _vm._e()
                   ])
                 ])
               }),
@@ -114437,7 +114525,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -114508,34 +114596,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "New",
-  data: function data() {
-    return {
-      // Create a new form instance
-      form: new Form({
-        name: '',
-        salaryPerday: '',
-        phoneno: '',
-        email: '',
-        address: ''
-      })
-    };
-  },
+    name: "New",
+    data: function data() {
+        return {
+            // Create a new form instance
+            form: new Form({
+                name: '',
+                salaryPerday: '',
+                phoneno: '',
+                email: '',
+                address: ''
+            })
+        };
+    },
 
-  methods: {
-    addEscort: function addEscort() {
-      var _this = this;
+    methods: {
+        addEscort: function addEscort() {
+            var _this = this;
 
-      this.form.post('/add-escort').then(function (response) {
-        console.log(response.data);
-        _this.$router.push('/escort-list');
-        toast({
-          type: 'success',
-          title: 'Escort Added successfully'
-        });
-      }).catch(function () {});
+            this.form.post('http://localhost:8000/api/escort/create').then(function (response) {
+                _this.$router.push('/escort-list');
+                toast({
+                    type: 'success',
+                    title: 'Escort Added successfully'
+                });
+            }).catch(function () {});
+        }
     }
-  }
 });
 
 /***/ }),
@@ -114996,7 +115083,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        axios.get('escort/' + this.$route.params.id).then(function (response) {
+        axios.get('http://localhost:8000/api/escort/edit/' + this.$route.params.id).then(function (response) {
             _this.form.fill(response.data.escort);
         });
     },
@@ -116277,7 +116364,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       oddclass: false,
       evenclass: true,
-      itineraryData: {}
+      hotelData: {}
     };
   },
   created: function created() {
@@ -116289,8 +116376,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     getData: function getData() {
       var _this = this;
 
-      axios.get('/itinerary').then(function (response) {
-        _this.itineraryData = response.data.itineraries;
+      axios.get('http://localhost:8000/api/hotels').then(function (response) {
+        _this.hotelData = response.data.data;
         // this.dataTable.rows.add(response.data).draw();
         setTimeout(function () {
           return $('#example').DataTable();
@@ -116337,7 +116424,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.itineraryData, function(itinerary) {
+                _vm._l(_vm.hotelData, function(hotel) {
                   return _c(
                     "tr",
                     {
@@ -116346,14 +116433,14 @@ var render = function() {
                     },
                     [
                       _c("td", { staticClass: "sorting_1" }, [
-                        _vm._v(_vm._s(itinerary.source))
+                        _vm._v(_vm._s(hotel.name))
                       ]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(itinerary.destination))]),
+                      _c("td", [_vm._v(_vm._s(hotel.location))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(itinerary.noofdays))]),
+                      _c("td", [_vm._v(_vm._s(hotel.type))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(itinerary.source))])
+                      _c("td", [_vm._v(_vm._s(hotel.phoneno))])
                     ]
                   )
                 })

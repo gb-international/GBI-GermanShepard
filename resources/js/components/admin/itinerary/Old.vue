@@ -23,10 +23,12 @@
                             </div>
                           </div>
                           <div class="col-sm-4">
-                            
-                            <button v-if="city_button == row['last_button']" type="button" class="btn itrn_add_btn" @click="addRow">ADD ANOTHER CITY</button>
-
-                            <button v-else="city_button != row['last_button']" type="button" class="btn cross_btn"  @click="deleteRow(index)">X</button>
+                            <div class="buttons" v-if="current_counter <= counter">
+                              <button v-if="city_button == row['last_button']" type="button" class="btn itrn_add_btn" @click="addRow">ADD ANOTHER CITY</button>
+                             </div>
+                            <div class="buttons" v-if="city_button != row['last_button']">
+                              <button type="button" class="btn cross_btn"  @click="deleteRow(index)">X</button>
+                            </div>
                           </div>
                         </div>
                         <div class="row">
@@ -105,6 +107,8 @@
               // Create a new form instance
               rows: [{ 'source': '', 'destination': '','last_button':'1'}],
               city_button:1,
+              counter:2,
+              current_counter:1,
               form: new Form({
                 source: '',
                 destination: '',
@@ -119,10 +123,12 @@
         methods:
         {
           addRow: function() {
+            this.current_counter = this.current_counter+1;
             this.city_button=this.city_button+1;
             this.rows.push({'source': '', 'destination': '','last_button':this.city_button});
           },
           deleteRow: function(index) {
+            this.current_counter = this.current_counter-1;
             this.rows.splice(index,1);
           },
             changePhoto(event){

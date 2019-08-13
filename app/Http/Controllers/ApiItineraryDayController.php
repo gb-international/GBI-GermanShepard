@@ -13,16 +13,19 @@ class ApiItineraryDayController extends Controller
 		return new ItineraryDayCollection(Itineraryday::all());
 	}
 	public function create(Request $request,$id){
-		$title = $request->input('title');
+		$source = $request->input('source');
+		$destination = $request->input('destination');
 		$description = $request->input('description');
-		array_shift($title);
+		array_shift($source);
+		array_shift($destination);
 		array_shift($description);
 
 		$itinerary = new Itineraryday();
 		$itinerary->itinerary_id = $id;
 		//$itinerary->user_id = '4';//Auth::user()->id;
-		$itinerary->title = json_encode($title);
-		$itinerary->description = json_encode($description);
+		$itinerary->source = implode(",",$source);
+		$itinerary->destination = implode(",",$destination);
+		$itinerary->description = implode(",,",$description);
 		$itinerary->save();
 		return response()->json(['message'=>'Successfully Stored...']);
 	}

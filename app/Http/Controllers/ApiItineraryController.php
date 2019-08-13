@@ -14,11 +14,11 @@ class ApiItineraryController extends Controller
     }
     public function store(Request $request){
     	$this->validate($request, [
-            'source' => 'required|min:3|max:100',
-            'destination' => 'required|min:3|max:100',
+            'source' => 'required|min:2|max:100|alpha',
+            'destination' => 'required|min:3|max:100|alpha',
             'noofdays' => 'required|numeric|min:1|max:15',
-            'title' => 'required|min:5|max:100',
-            'description' => 'required',
+            'title' => 'required|min:3|max:100',
+            'description' => 'required|min:3',
             'tourtype' => 'required'
 	        ]);
 

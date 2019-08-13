@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateItinerarydaysTable extends Migration
+class CreateHotelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateItinerarydaysTable extends Migration
      */
     public function up()
     {
-        Schema::create('itinerarydays', function (Blueprint $table) {
+        Schema::create('hotels', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('itinerary_id')->unsigned()->nullable();
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->string('source');
-            $table->string('destination');
-            $table->string('description');
+            $table->string('hotelUid');
+            $table->string('type');
+            $table->string('name');
+            $table->string('location');
+            $table->string('price');
+            $table->string('phoneno');
+            $table->string('email');
+            $table->string('mealType');
             $table->enum('status', ['0', '1']);
             $table->timestamps();
         });
@@ -32,6 +35,6 @@ class CreateItinerarydaysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('itinerarydays');
+        Schema::dropIfExists('hotels');
     }
 }

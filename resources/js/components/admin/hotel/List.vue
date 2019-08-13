@@ -15,11 +15,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="itinerary in itineraryData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
-                            <td class="sorting_1">{{itinerary.source}}</td>
-                            <td>{{itinerary.destination}}</td>
-                            <td>{{itinerary.noofdays}}</td>
-                            <td>{{itinerary.source}}</td>
+                        <tr v-for="hotel in hotelData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
+                            <td class="sorting_1">{{hotel.name}}</td>
+                            <td>{{hotel.location}}</td>
+                            <td>{{hotel.type}}</td>
+                            <td>{{hotel.phoneno}}</td>
                         </tr>                 
 
                       </tbody>
@@ -40,7 +40,7 @@
           return{
             oddclass:false,
             evenclass:true,
-            itineraryData:{}
+            hotelData:{}
           }
         },
        
@@ -54,9 +54,9 @@
        {
 
        getData(){
-        axios.get('/itinerary')
+        axios.get('http://localhost:8000/api/hotels')
           .then((response) => {
-              this.itineraryData = response.data.itineraries;
+              this.hotelData = response.data.data;
               // this.dataTable.rows.add(response.data).draw();
               setTimeout(() => $('#example').DataTable(), 1000);
 

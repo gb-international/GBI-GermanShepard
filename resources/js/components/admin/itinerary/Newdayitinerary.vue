@@ -24,18 +24,26 @@
                             <div v-if="step === index+1">
                           <h1>Day {{ index+1 }}</h1>
                           <div class="row">
-                            <div class="col-sm-8">
-                             <div class="form-group">
-                                <label for="titleId">Title {{ index+1 }}</label>
+                            <div class="col-sm-6">
 
-                                <input type="text" class="form-control"  placeholder="Enter Title"  name="daytitle[]"  v-model="daytitle[index+1]" :class="{ 'is-invalid': form.errors.has('daytitle') }">
-                                <has-error :form="form" field="daytitle"></has-error>
+                              <div class="form-group">
+                                <label for="titleId">Source {{ index+1 }}</label>
+
+                                <input type="text" class="form-control" placeholder="Enter Source"  name="daysource[]"  v-model="daysource[index+1]" :class="{ 'is-invalid': form.errors.has('daysource') }" required="">
+                                <has-error :form="form" field="daysource"></has-error>
+                              </div>
                             </div>
-                          </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="titleId">Destination {{ index+1 }}</label>
+                                <input type="text" class="form-control" placeholder="Enter Destination"  name="daydestination[]"  v-model="daydestination[index+1]" :class="{ 'is-invalid': form.errors.has('daydestination') }" required="">
+                                <has-error :form="form" field="daydestination"></has-error>
+                              </div>
+                            </div>
                         </div>
                           <div class="form-group">
                               <label for="descriptionId">Description {{ index+1 }}</label>
-                              <textarea class="form-control" placeholder="Enter Description"  rows="6" name="daydescription[]" v-model="daydescription[index+1]"  :class="{ 'is-invalid': form.errors.has('daydescription') }"></textarea>
+                              <textarea class="form-control" placeholder="Enter Description"  rows="6" name="daydescription[]" v-model="daydescription[index+1]"  :class="{ 'is-invalid': form.errors.has('daydescription') }" required=""></textarea>
                               <has-error :form="form" field="daydescription"></has-error>
                           </div>
                           <div class="form-group text-center">
@@ -73,12 +81,14 @@
               // Create a new form instance
                step:1,
                index:'',
-               daytitle: [],
+               daysource: [],
+               daydestination:[],
                daydescription: [],
               form: new Form({
                 noofdays: '',	
                 id: '',
-                daytitle : this.daytitle,  
+                daysource : this.daysource,  
+                daydestination: this.daydestination,
                 daydescription: this.daydescription
                 })
             }
@@ -97,10 +107,12 @@
                 e.preventDefault();
                 let currentObj = this;
                  axios.post(`http://localhost:8000/api/itineraryday/create/${this.$route.params.id}`, {
-                    title: this.daytitle,
+                    source: this.daysource,
+                    destination:this.daydestination,
                     description: this.daydescription
                 })
                 .then(function (response) {
+                  console.log(response);
                     currentObj.$router.push('/itinerary-list')
                         toast({
                             type: 'success',

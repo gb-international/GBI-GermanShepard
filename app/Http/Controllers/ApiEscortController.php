@@ -7,12 +7,24 @@ use App\Escort;
 
 class ApiEscortController extends Controller
 {
-    public function store(Request $request)
+    public function create(Request $request)
     {
+      $this->validate($request, [
+            'name' => 'required|min:3|max:100|alpha',
+            'address' => 'required|min:3',
+            'email' => 'required',
+            'phoneno' => 'required|numeric|min:10|max|10',
+            'salaryPerday' => 'required|numeric|min:1|max:6'
+          ]);
+          $escort = new Escort();
+          $escort->name = $request->input('name');
+          $escort->salaryPerday = $request->input('salaryPerday');
+          $escort->phoneno = $request->input('phoneno');
+          $escort->email = $request->input('email');
+          $escort->address = $request->input('address');
 
-      
-
-      return response()->json('successfully added');
+          $escort->save();
+         return response()->json(['Message'=>'successfully added...']);
     }
 
     public function index()

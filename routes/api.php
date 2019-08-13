@@ -18,11 +18,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/escorts', 'ApiEscortController@index');
+Route::get('/escort/edit/{id}', 'ApiEscortController@edit');
+Route::post('/escort/create', 'ApiEscortController@create');
 
 Route::get('/itinerarys', 'ApiItineraryController@index');
 Route::post('/itinerary/create', 'ApiItineraryController@store');
+
 Route::get('/itineraryday','ApiItineraryDayController@index');
 Route::post('/itineraryday/create/{id}','ApiItineraryDayController@create');
+
+Route::get('hotels','ApiHotelController@index');
+Route::post('hotel/create','ApiHotelController@create');
 
 
 
