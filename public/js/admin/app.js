@@ -109212,7 +109212,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     getData: function getData() {
       var _this = this;
 
-      axios.get('http://localhost:8000/api/itinerarys').then(function (response) {
+      axios.get('/api/itinerarys').then(function (response) {
         _this.itineraryData = response.data.data;
         // this.dataTable.rows.add(response.data).draw();
         setTimeout(function () {
@@ -109598,7 +109598,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this3 = this;
 
             // Submit the form via a itinerary request
-            this.form.post('http://localhost:8000/api/itinerary/create').then(function (response) {
+            this.form.post('/api/itinerary/create').then(function (response) {
                 _this3.$router.push('/add-days-itinerary/' + response.data.id);
                 toast({
                     type: 'success',
@@ -110994,10 +110994,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             // Submit the form via a itinerary request
             e.preventDefault();
             var currentObj = this;
-            axios.post('http://localhost:8000/api/itineraryday/create/' + this.$route.params.id, {
-                source: this.daysource,
-                destination: this.daydestination,
-                description: this.daydescription
+            axios.post('/api/itineraryday/create/' + this.$route.params.id, {
+                day_source: this.daysource,
+                day_destination: this.daydestination,
+                day_description: this.daydescription
             }).then(function (response) {
                 console.log(response);
                 currentObj.$router.push('/itinerary-list');
@@ -111398,7 +111398,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -111471,53 +111471,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "List",
   data: function data() {
     return {
-      searchQuery: '',
-      searchDestination: '',
-      searchNoOfDays: '',
-      itineraryData: {}
+      day_source: [],
+      day_destination: [],
+      itineraryData: []
     };
   },
   created: function created() {
     var _this = this;
 
-    axios.get('/itinerary').then(function (response) {
-      _this.itineraryData = response.data.itineraries;
+    axios.get('api/itinerary/view/24').then(function (response) {
+      _this.itineraryData = response.data;
+      _this.day_source = response.data.day_source;
+      _this.day_destination = response.data.day_destination;
+      console.log(string_to_array('now'));
     });
   },
 
   computed: {
-    filteredResources: function filteredResources() {
-      var _this2 = this;
-
-      if (this.searchQuery) {
-        return this.itineraryData.filter(function (itinerary) {
-          return itinerary.source.startsWith(_this2.searchQuery);
-        });
-      } else if (this.searchDestination) {
-        return this.itineraryData.filter(function (itinerary) {
-          return itinerary.destination.startsWith(_this2.searchDestination);
-        });
-      } else if (this.searchNoOfDays) {
-        return this.itineraryData.filter(function (itinerary) {
-          return itinerary.noofdays.startsWith(_this2.searchNoOfDays);
-        });
-      } else {
-        return this.itineraryData;
-      }
+    string_to_array: function string_to_array(data) {
+      return 'hi';
     }
   },
 
   methods: {
     deleteItinerary: function deleteItinerary(id) {
-      var _this3 = this;
+      var _this2 = this;
 
       axios.get('/delete/' + id).then(function () {
-        _this3.$store.dispatch('getAllitinerary');
+        _this2.$store.dispatch('getAllitinerary');
         toast({
           type: 'success',
           title: 'Itinerary Deleted successfully'
@@ -111535,80 +111522,86 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("section", { staticClass: "content" }, [
+    _c("div", { staticClass: "row justify-content-around" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "container container_admin_body" }, [
+          _c("div", { staticClass: "card_view" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-3" }, [
+                _c("h5", [_vm._v("Source")]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.itineraryData.source))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-3" }, [
+                _c("h5", [_vm._v("Destination")]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.itineraryData.destination))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-3" }, [
+                _c("h5", [_vm._v("Number of Days")]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.itineraryData.noofdays))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-3" }, [
+                _c("h5", [_vm._v("Tour Type")]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.itineraryData.tourtype))])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-3" }, [
+                _c("h5", [_vm._v("Title")]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.itineraryData.title))])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-3" }, [
+                _c("h5", [_vm._v("Description")]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.itineraryData.description))])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1)
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "content" }, [
-      _c("div", { staticClass: "row justify-content-around" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "container container_admin_body" }, [
-            _c("div", { staticClass: "card_view" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-sm-3" }, [
-                  _c("h5", [_vm._v("Source")]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Enter Source")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-3" }, [
-                  _c("h5", [_vm._v("Destination")]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Enter Destiantion")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-3" }, [
-                  _c("h5", [_vm._v("Number of Days")]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Enter Transport ID")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-3" }, [
-                  _c("h5", [_vm._v("Tour Type")]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("National")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-sm-3" }, [
-                  _c("h5", [_vm._v("Title")]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Enter Title")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-sm-3" }, [
-                  _c("h5", [_vm._v("Description")]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Description")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-sm-3" }, [
-                  _c("h4", [_c("strong", [_vm._v("Day 01")])]),
-                  _vm._v(" "),
-                  _c("h5", [_vm._v("Title")]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Enter Title")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-sm-3" }, [
-                  _c("h5", [_vm._v("Description")]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Enter Description")])
-                ])
-              ])
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-3" }, [
+        _c("h4", [_c("strong", [_vm._v("Day 01")])]),
+        _vm._v(" "),
+        _c("h5", [_vm._v("Title")]),
+        _vm._v(" "),
+        _c("p", [_vm._v("Enter Title")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-3" }, [
+        _c("h5", [_vm._v("Description")]),
+        _vm._v(" "),
+        _c("p", [_vm._v("Enter Description")])
       ])
     ])
   }
@@ -114328,7 +114321,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     getData: function getData() {
       var _this = this;
 
-      axios.get('http://localhost:8000/api/escorts').then(function (response) {
+      axios.get('/api/escorts').then(function (response) {
         _this.escortData = response.data.data;
         // this.dataTable.rows.add(response.data).draw();
         setTimeout(function () {
@@ -114525,7 +114518,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -114614,7 +114607,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         addEscort: function addEscort() {
             var _this = this;
 
-            this.form.post('http://localhost:8000/api/escort/create').then(function (response) {
+            this.form.post('/api/escort/create').then(function (response) {
                 _this.$router.push('/escort-list');
                 toast({
                     type: 'success',
@@ -116376,7 +116369,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     getData: function getData() {
       var _this = this;
 
-      axios.get('http://localhost:8000/api/hotels').then(function (response) {
+      axios.get('/api/hotels').then(function (response) {
         _this.hotelData = response.data.data;
         // this.dataTable.rows.add(response.data).draw();
         setTimeout(function () {

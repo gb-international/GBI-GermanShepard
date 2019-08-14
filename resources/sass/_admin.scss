@@ -6,10 +6,12 @@
 	.btn{background-color:$admin-bg;border-radius:0px;
 		&:hover{border-radius: 4px;}
 	}
+	// Input box css
 	input[type='text'],input[type='email'],input[type='date'],textarea{border: 0px;background-color: $admin-top;font-size: 17px;color: #737879;}
 	input[type='text'],input[type='email'],input[type='date']{height: 53px;margin-bottom: 28px;}
 	.custom-radio,.custom-checkbox{margin-top: 14px;}
 	.cross_btn{margin-top: 37px;color: white;}
+	// Form
 	form{padding-top: 20px;}
 	.date_input{
 		[type="date"] {
@@ -58,6 +60,7 @@
 			 border-radius:0px;
 		}
 	}
+	// Itinerary List css
 	.itinerary_list{
 		padding:19px 0px 5px 10px;
 		box-shadow: 0 6px 5px rgba(0, 0, 0, 0.19), 0 7px 6px rgba(0, 0, 0, 0);
@@ -75,6 +78,7 @@
 			color: #403b3b;
 		}
 	}
+	// Admin body area
 	.container_admin_body{
 		#example_length select{
 			padding-left:7px;

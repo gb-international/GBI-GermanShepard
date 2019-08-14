@@ -5,35 +5,36 @@
             <div class="col-md-12">
               <div class="container container_admin_body">
                 <!-- Start Card -->        
+
                   <div class="card_view">
                     <div class="row">
                       <div class="col-sm-3">
                         <h5>Source</h5>
-                        <p>Enter Source</p>
+                        <p>{{itineraryData.source}}</p>
                       </div>
                       <div class="col-sm-3">
                         <h5>Destination</h5>
-                        <p>Enter Destiantion</p>
+                        <p>{{itineraryData.destination}}</p>
                       </div>
                       <div class="col-sm-3">
                         <h5>Number of Days</h5>
-                        <p>Enter Transport ID</p>
+                        <p>{{itineraryData.noofdays}}</p>
                       </div>
                       <div class="col-sm-3">
                         <h5>Tour Type</h5>
-                        <p>National</p>
+                        <p>{{itineraryData.tourtype}}</p>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-sm-3">
                         <h5>Title</h5>
-                        <p>Enter Title</p>
+                        <p>{{itineraryData.title}}</p>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-sm-3">
                         <h5>Description</h5>
-                        <p>Description</p>
+                        <p>{{itineraryData.description}}</p>
                       </div>
                     </div>
                     <div class="row">
@@ -65,38 +66,23 @@
         name: "List",
         data(){
           return{
-            searchQuery:'',
-            searchDestination:'',
-            searchNoOfDays:'',
-            itineraryData:{}
+            day_source:[],
+            day_destination:[],
+            itineraryData:[]
           }
         },
        
        created() {
-          axios.get('/itinerary').then(response => {
-            this.itineraryData = response.data.itineraries;
+          axios.get('api/itinerary/view/24').then(response => {
+            this.itineraryData = response.data;
+            this.day_source = response.data.day_source;
+            this.day_destination = response.data.day_destination;
+            console.log(string_to_array('now'));
           });
         },
         computed:{
-            filteredResources:function() {
-              if (this.searchQuery) {
-                return this.itineraryData.filter((itinerary) => {
-                  return itinerary.source.startsWith(this.searchQuery);
-                })
-              }
-              else if(this.searchDestination){
-                return this.itineraryData.filter((itinerary) => {
-                  return itinerary.destination.startsWith(this.searchDestination);
-                })
-              }
-              else if(this.searchNoOfDays){
-                return this.itineraryData.filter((itinerary) => {
-                  return itinerary.noofdays.startsWith(this.searchNoOfDays);
-                })
-              }
-              else {
-                return this.itineraryData;
-              }
+            string_to_array(data){
+              return 'hi';
             }
         },
 

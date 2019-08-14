@@ -106,10 +106,10 @@
                // Submit the form via a itinerary request
                 e.preventDefault();
                 let currentObj = this;
-                 axios.post(`http://localhost:8000/api/itineraryday/create/${this.$route.params.id}`, {
-                    source: this.daysource,
-                    destination:this.daydestination,
-                    description: this.daydescription
+                 axios.post(`/api/itineraryday/create/${this.$route.params.id}`, {
+                    day_source: this.daysource,
+                    day_destination:this.daydestination,
+                    day_description: this.daydescription
                 })
                 .then(function (response) {
                   console.log(response);

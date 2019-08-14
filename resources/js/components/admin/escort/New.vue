@@ -73,7 +73,7 @@
         },
         methods:{
           addEscort(){
-            this.form.post('http://localhost:8000/api/escort/create')
+            this.form.post('/api/escort/create')
               .then((response)=>{
                    this.$router.push(`/escort-list`)
                     toast({
@@ -82,7 +82,6 @@
                     })
                 })
                 .catch(()=>{
-
                 })
           }
         }

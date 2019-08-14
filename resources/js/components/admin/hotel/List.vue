@@ -54,7 +54,7 @@
        {
 
        getData(){
-        axios.get('http://localhost:8000/api/hotels')
+        axios.get('/api/hotels')
           .then((response) => {
               this.hotelData = response.data.data;
               // this.dataTable.rows.add(response.data).draw();

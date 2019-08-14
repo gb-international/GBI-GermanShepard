@@ -157,7 +157,7 @@
             addItinerary()
             {
                 // Submit the form via a itinerary request
-                this.form.post('http://localhost:8000/api/itinerary/create')
+                this.form.post('/api/itinerary/create')
                   .then((response)=>{
                        this.$router.push(`/add-days-itinerary/${response.data.id}`)
                         toast({

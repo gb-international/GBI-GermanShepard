@@ -16,10 +16,10 @@ class CreateItinerarydaysTable extends Migration
         Schema::create('itinerarydays', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('itinerary_id')->unsigned()->nullable();
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->string('source');
-            $table->string('destination');
-            $table->string('description');
+            //$table->integer('user_id')->unsigned()->nullable();
+            $table->string('day_source');
+            $table->string('day_destination');
+            $table->text('day_description');
             $table->enum('status', ['0', '1']);
             $table->timestamps();
         });

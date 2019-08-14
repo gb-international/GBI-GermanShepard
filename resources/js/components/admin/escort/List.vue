@@ -54,7 +54,7 @@
        {
 
        getData(){
-        axios.get('http://localhost:8000/api/escorts')
+        axios.get('/api/escorts')
           .then((response) => {
               this.escortData = response.data.data;
               // this.dataTable.rows.add(response.data).draw();

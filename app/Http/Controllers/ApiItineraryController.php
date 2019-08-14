@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Resources\ItineraryCollection;
 use Illuminate\Http\Request;
+use DB;
 use App\Itinerary;
 use Auth;
 use Image;
@@ -14,8 +15,8 @@ class ApiItineraryController extends Controller
     }
     public function store(Request $request){
     	$this->validate($request, [
-            'source' => 'required|min:2|max:100|alpha',
-            'destination' => 'required|min:3|max:100|alpha',
+            'source' => 'required|min:2|max:100',
+            'destination' => 'required|min:3|max:100',
             'noofdays' => 'required|numeric|min:1|max:15',
             'title' => 'required|min:3|max:100',
             'description' => 'required|min:3',
@@ -51,5 +52,16 @@ class ApiItineraryController extends Controller
 
 	        $itinerary->save();
 	       return response()->json(['id' => $itinerary->id, 'days' => $itinerary->noofdays], 200);
+    }
+
+    public function view($id){
+
+    	$data = DB::table('itineraries')
+    	->join('itinerarydays', function ($join) {
+            $join->on('itineraries.id', '=', 'itinerarydays.itinerary_id')
+            ->where('itinerarydays.itinerary_id','=',24);
+        })->first();
+        return response()->json($data);
+
     }
 }

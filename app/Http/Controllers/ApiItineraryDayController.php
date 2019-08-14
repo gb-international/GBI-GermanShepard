@@ -13,9 +13,9 @@ class ApiItineraryDayController extends Controller
 		return new ItineraryDayCollection(Itineraryday::all());
 	}
 	public function create(Request $request,$id){
-		$source = $request->input('source');
-		$destination = $request->input('destination');
-		$description = $request->input('description');
+		$source = $request->input('day_source');
+		$destination = $request->input('day_destination');
+		$description = $request->input('day_description');
 		array_shift($source);
 		array_shift($destination);
 		array_shift($description);
@@ -23,9 +23,9 @@ class ApiItineraryDayController extends Controller
 		$itinerary = new Itineraryday();
 		$itinerary->itinerary_id = $id;
 		//$itinerary->user_id = '4';//Auth::user()->id;
-		$itinerary->source = implode(",",$source);
-		$itinerary->destination = implode(",",$destination);
-		$itinerary->description = implode(",,",$description);
+		$itinerary->day_source = implode(",",$source);
+		$itinerary->day_destination = implode(",",$destination);
+		$itinerary->day_description = implode(",,",$description);
 		$itinerary->save();
 		return response()->json(['message'=>'Successfully Stored...']);
 	}

@@ -10,11 +10,11 @@ class ApiEscortController extends Controller
     public function create(Request $request)
     {
       $this->validate($request, [
-            'name' => 'required|min:3|max:100|alpha',
+            'name' => 'required|min:3|max:100',
             'address' => 'required|min:3',
             'email' => 'required',
-            'phoneno' => 'required|numeric|min:10|max|10',
-            'salaryPerday' => 'required|numeric|min:1|max:6'
+            'phoneno' => 'required',
+            'salaryPerday' => 'required|numeric'
           ]);
           $escort = new Escort();
           $escort->name = $request->input('name');
