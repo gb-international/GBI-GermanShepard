@@ -7,9 +7,11 @@ use App\Http\Resources\HotelCollection;
 use App\hotel;
 class ApiHotelController extends Controller
 {
-    public function index(){
+  // Fetch the all data of the hotel 
+  public function index(){
 		return new HotelCollection(hotel::all());
 	}
+  // Create a new data for the hotel
 	 public function create(Request $request)
     {
       $this->validate($request, [

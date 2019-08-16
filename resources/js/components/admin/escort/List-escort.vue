@@ -1,4 +1,7 @@
-<!-- List all itinerary template -->
+<!--
+This Template is for listing for the Escort profile using function to get the 
+data from the api to display the data about the Escort from the backend .
+-->
 <template>
     <section class="content">
         <div class="row justify-content-around" >
@@ -8,18 +11,18 @@
                   <table id="example" class="display table table-striped table-bordered nowrap" style="width:100%">
                     <thead>
                         <tr>
-                            <th>TRANSPORT NAME <i class="fas fa-sort"></i></th>
-                            <th>LOCATION <i class="fas fa-sort"></i></th>
-                            <th>TYPE <i class="fas fa-sort"></i></th>
+                            <th>NAME<i class="fas fa-sort"></i></th>
+                            <th>SALARY PEAR DAY <i class="fas fa-sort"></i></th>
                             <th>CONTACT NO <i class="fas fa-sort"></i></th>
+                            <th>EMAIL <i class="fas fa-sort"></i></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="itinerary in itineraryData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
-                            <td class="sorting_1">{{itinerary.source}}</td>
-                            <td>{{itinerary.destination}}</td>
-                            <td>{{itinerary.noofdays}}</td>
-                            <td>{{itinerary.source}}</td>
+                        <tr v-for="escort in escortData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
+                            <td class="sorting_1">{{escort.name}}</td>
+                            <td>{{escort.salaryPerday}}</td>
+                            <td>{{escort.phoneno}}</td>
+                            <td>{{escort.email}}</td>
                         </tr>                 
 
                       </tbody>
@@ -40,7 +43,7 @@
           return{
             oddclass:false,
             evenclass:true,
-            itineraryData:{}
+            escortData:{}
           }
         },
        
@@ -54,9 +57,9 @@
        {
 
        getData(){
-        axios.get('/itinerary')
+        axios.get('/api/escorts')
           .then((response) => {
-              this.itineraryData = response.data.itineraries;
+              this.escortData = response.data.data;
               // this.dataTable.rows.add(response.data).draw();
               setTimeout(() => $('#example').DataTable(), 1000);
 

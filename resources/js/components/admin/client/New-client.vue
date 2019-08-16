@@ -1,11 +1,15 @@
-<!-- add new itinerary template -->
+<!-- 
+
+This template helps us to create a new Client it takes the data from the form and sumbit with the help of the api
+to submit the data we are using a function.
+
+ -->
 <template>
     <section class="content">
         <div class="container-fluid">
             <div class="row justify-content-around">
-                <!-- left column -->
                 <div class="col-md-12">
-                    <form role="form" enctype="multipart/form-data" @submit.prevent="addEscort()">
+                    <form role="form" enctype="multipart/form-data" @submit.prevent="addClient()">
                       <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group">
@@ -16,10 +20,10 @@
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="salaryPerday">Salary Per Day</label>
-                                <input type="text" class="form-control" v-model="form.salaryPerday" :class="{ 'is-invalid': form.errors.has('salaryPerday') }"  placeholder="Enter Salary Per Day" name="salaryPerday">
-                                <has-error :form="form" field="salaryPerday"></has-error>
-                            </div>
+                            <label for="email">Email</label>
+                              <input type="email" class="form-control" v-model="form.email" :class="{ 'is-invalid': form.errors.has('email') }"  placeholder="Enter Email" name="email">
+                            <has-error :form="form" field="email"></has-error>
+                          </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
@@ -30,18 +34,28 @@
                           </div>
                       </div>
                       <div class="row">
-                        <div class="col-sm-4">
-                          <div class="form-group">
-                            <label for="email">Email</label>
-                              <input type="email" class="form-control" v-model="form.email" :class="{ 'is-invalid': form.errors.has('phoneno') }"  placeholder="Enter Email" name="email">
-                            <has-error :form="form" field="email"></has-error>
-                          </div>
-                        </div>
                         <div class="col-sm-8">
                           <div class="form-group">
                             <label for="address">Address</label>
                             <input type="text" class="form-control"  placeholder="Enter Address"  name="address" v-model="form.address" :class="{ 'is-invalid': form.errors.has('address') }">
                             <has-error :form="form" field="address"></has-error>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group date_input">
+                            <label for="dob">DOB</label>
+                              <input type="date" class="form-control" placeholder="Enter dob" name="journy" v-model="form.dob" :class="{ 'is-invalid': form.errors.has('dob') }">
+                              
+                              <has-error :form="form" field="dob"></has-error>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label for="school">School Name</label>
+                              <input type="text" class="form-control" v-model="form.schoolName" :class="{ 'is-invalid': form.errors.has('schoolName') }"  placeholder="Enter School Name" name="schoolName">
+                            <has-error :form="form" field="schoolName"></has-error>
                           </div>
                         </div>
                       </div>
@@ -51,8 +65,7 @@
                     </form>
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
 </template>
 
@@ -64,18 +77,20 @@
               // Create a new form instance
               form: new Form({
                 name: '',
-                salaryPerday: '',
-                phoneno: '',
                 email: '',
-                address: ''
+                phoneno: '',
+                address: '',
+                dob: '',
+                school:''
                 })
             }
         },
         methods:{
-          addEscort(){
-            this.form.post('/api/escort/create')
+          addClient(){
+            this.form.post('/add-client')
               .then((response)=>{
-                   this.$router.push(`/escort-list`)
+                console.log(response.data);
+                   this.$router.push(`/client-list`)
                     toast({
                         type: 'success',
                         title: 'Escort Added successfully'

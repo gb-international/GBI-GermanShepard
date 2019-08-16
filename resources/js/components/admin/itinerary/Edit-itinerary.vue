@@ -42,7 +42,7 @@
                                   </div>
 
                                   <!-- Default inline 2-->
-                                  <div class="custom-control custom-radio custom-control-inline">
+           ;                       <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" class="custom-control-input" value="International" id="InternationalId" name="tourtype" v-model="form.tourtype">
                                     <label class="custom-control-label" for="InternationalId">International</label>
                                   </div>

@@ -10,10 +10,13 @@ use Image;
 
 class ApiItineraryController extends Controller
 {
+	// Fetch all the data of the Itinerary
     public function index(){
-    	return new ItineraryCollection(Itinerary::orderBy('id','desc')->get());
+
+    	return new ItineraryCollection(Itinerary::select('id','source','destination','title','photo','detail_photo','noofdays','description','tourtype')->orderBy('id','desc')->get());
     }
-    public function store(Request $request){
+    // Create a new Data 
+    public function create(Request $request){
     	$this->validate($request, [
             'source' => 'required|min:2|max:100',
             'destination' => 'required|min:3|max:100',
@@ -53,15 +56,13 @@ class ApiItineraryController extends Controller
 	        $itinerary->save();
 	       return response()->json(['id' => $itinerary->id, 'days' => $itinerary->noofdays], 200);
     }
-
+    // view the data for the particular id
     public function view($id){
 
-    	$data = DB::table('itineraries')
-    	->join('itinerarydays', function ($join) {
-            $join->on('itineraries.id', '=', 'itinerarydays.itinerary_id')
-            ->where('itinerarydays.itinerary_id','=',24);
-        })->first();
-        return response()->json($data);
-
+		$data = DB::table('itineraries')		    
+		    ->leftjoin('itinerarydays', 'itinerarydays.itinerary_id', '=', 'itineraries.id')
+		    ->where('itineraries.id', $id)
+		    ->first();
+           return response()->json($data);
     }
 }

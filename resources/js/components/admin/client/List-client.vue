@@ -1,4 +1,7 @@
-<!-- List all client template -->
+<!--
+This Template is for listing for the Client profile using function to get the 
+data from the api to display the data about the client from the backend .
+-->
 <template>
     <section class="content">
         <div class="row justify-content-around" >

@@ -1,4 +1,9 @@
-<!-- add new itinerary template -->
+<!-- 
+
+This template helps us to create a new Transport it takes the data from the form and sumbit with the help of the api
+to submit the data we are using a function.
+
+ -->
 <template>
     <section class="content">
         <div class="container-fluid">
@@ -9,37 +14,28 @@
                       <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="hotelId">Hotel ID</label>
-                                <input type="text" class="form-control" name="hotelId" v-model="form.hotelId" :class="{ 'is-invalid': form.errors.has('hotelId') }" placeholder="Enter Hotel Type" >
-                                 <has-error :form="form" field="hotelId"></has-error>
+                                <label for="transportId">Transport ID</label>
+                                <input type="text" class="form-control" name="transportId" v-model="form.transportId" :class="{ 'is-invalid': form.errors.has('transportId') }" placeholder="Enter Transport Type" >
+                                 <has-error :form="form" field="transportId"></has-error>
                             </div>
                           </div>
-                          <div class="col-sm-8">
+                          <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="hotelName">Hotel Name</label>
-                                <input type="text" class="form-control" v-model="form.hotelName" :class="{ 'is-invalid': form.errors.has('hotelName') }"  placeholder="Enter Hotel Name" name="hotelName">
-                                <has-error :form="form" field="hotelName"></has-error>
+                                <label for="transportName">Transport Name</label>
+                                <input type="text" class="form-control" v-model="form.transportName" :class="{ 'is-invalid': form.errors.has('transportName') }"  placeholder="Enter Transport Name" name="transportName">
+                                <has-error :form="form" field="transportName"></has-error>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" class="form-control" v-model="form.location" :class="{ 'is-invalid': form.errors.has('location') }"  placeholder="Enter Location" name="location">
+                                <has-error :form="form" field="location"></has-error>
                             </div>
                           </div>
                         </div>
 
-
-
                         <div class="row">
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="mealType">Location</label>
-                                <input type="text" class="form-control" v-model="form.location" :class="{ 'is-invalid': form.errors.has('location') }"  placeholder="Enter Location" name="location">
-                                <has-error :form="form" field="mealType"></has-error>
-                            </div>                          
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="price">Meal Type</label>
-                                <input type="text" class="form-control"  placeholder="Enter Meal Type"  name="price" v-model="form.mealType" :class="{ 'is-invalid': form.errors.has('mealType') }">
-                                <has-error :form="form" field="price"></has-error>
-                            </div>
-                          </div>
                           <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="price">Price</label>
@@ -47,8 +43,6 @@
                                 <has-error :form="form" field="price"></has-error>
                             </div>
                           </div>
-                        </div>
-                        <div class="row">
                           <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="contactNo">Contact Number</label>
@@ -89,7 +83,7 @@
               // Create a new form instance
               form: new Form({
                 source: '',
-                hotelName: '',
+                transportName: '',
                 location: '',
                 title: '',
                 description: '',

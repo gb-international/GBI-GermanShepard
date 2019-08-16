@@ -1,17 +1,20 @@
-<!-- List all itinerary template -->
+<!--
+This Template is for listing for the Transport profile using function to get the 
+data from the api to display the data about the transport from the backend .
+-->
 <template>
     <section class="content">
         <div class="row justify-content-around" >
             <div class="col-md-12">
               <div class="container container_admin_body">
                   <!-- Start Card -->
-                  <table id="example" class="display table nowrap" style="width:100%">
+                  <table id="example" class="display table table-striped table-bordered nowrap" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Source <i class="fas fa-sort"></i></th>
-                            <th>Destination <i class="fas fa-sort"></i></th>
-                            <th>No. of Days <i class="fas fa-sort"></i></th>
-                            <th>Tour type <i class="fas fa-sort"></i></th>
+                            <th>TRANSPORT NAME <i class="fas fa-sort"></i></th>
+                            <th>LOCATION <i class="fas fa-sort"></i></th>
+                            <th>TYPE <i class="fas fa-sort"></i></th>
+                            <th>CONTACT NO <i class="fas fa-sort"></i></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -20,7 +23,8 @@
                             <td>{{itinerary.destination}}</td>
                             <td>{{itinerary.noofdays}}</td>
                             <td>{{itinerary.source}}</td>
-                        </tr>
+                        </tr>                 
+
                       </tbody>
                 </table>
                 </div>                          
@@ -53,45 +57,29 @@
        {
 
        getData(){
-        axios.get('/api/itinerarys')
+        axios.get('/itinerary')
           .then((response) => {
-              this.itineraryData = response.data.data;
+              this.itineraryData = response.data.itineraries;
               // this.dataTable.rows.add(response.data).draw();
               setTimeout(() => $('#example').DataTable(), 1000);
 
           })
           .catch((error) => {
-              if (error.response.status == 401) {
-                  alert('User session has expired. Please login again.');
-                  
+              if (error.response.status == 401) {                  
               }
           });
-
-
-          
        },
-         deleteescort(id){
-              var uri = '/delete-escort/'+id;
-              swal.fire({
-              title: 'Are you sure?',
-              text: "You won't be able to revert this!",
-              type: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Yes, delete it!'
-              }).then((result) => {
-                if (result.value) {
-                  swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                  )
-                    axios.get(uri).then(response => {
-                     this.escortData.splice(this.escortData.indexOf(id), 1);
-                  });
-                }
-              });
+        deleteItinerary(id){
+        axios.get('/hotel/'+id)
+        .then(()=>{
+        this.$store.dispatch('getAllHotel')
+        toast({
+        type: 'success',
+        title: 'Itinerary Deleted successfully'
+        })
+        })
+        .catch(()=>{
+        })
         }
        } 
     }

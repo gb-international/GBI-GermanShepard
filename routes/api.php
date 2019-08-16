@@ -23,7 +23,7 @@ Route::post('/escort/create', 'ApiEscortController@create');
 
 // Itinerary Api
 Route::get('/itinerarys', 'ApiItineraryController@index');
-Route::post('/itinerary/create', 'ApiItineraryController@store');
+Route::post('/itinerary/create', 'ApiItineraryController@create');
 Route::get('/itinerary/view/{id}','ApiItineraryController@view');
 
 // Itinerary Day

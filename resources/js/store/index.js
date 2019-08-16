@@ -8,8 +8,13 @@ export default {
         latestpost:[],
         itinerary:[],
         itinerarydays:[],
+        alldata:[],
     },
+    //getAllData();
     getters:{
+        getAllData(state){
+            return state.alldata
+        },
         getCategory(state){
             return state.category
         },
@@ -34,7 +39,14 @@ export default {
         }
 
     },
+    //getAllTableData();
     actions:{
+        getAllTableData(context){
+            axios.get('/api/escorts')
+                .then((response)=>{
+                    context.commit('sales',response.data)
+                })
+            },
         allCategory(context){
             axios.get('/category')
                 .then((response)=>{
@@ -99,6 +111,9 @@ export default {
        
     },
     mutations:{
+        sales(state,data){
+            return state.alldata = data
+        },
         categoreis(state,data){
             return state.category = data
         },

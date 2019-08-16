@@ -1,4 +1,9 @@
-<!-- add new itinerary template -->
+<!-- 
+
+This template helps us to create a new Itinerary it takes the data from the form and sumbit with the help of the api
+to submit the data we are using a function.
+
+ -->
 <template>
     <section class="content">
         <div class="container-fluid">

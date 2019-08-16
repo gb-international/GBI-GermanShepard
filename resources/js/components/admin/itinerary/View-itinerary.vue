@@ -1,12 +1,17 @@
-<!-- List all itinerary template -->
+<!-- 
+
+This is template is for the viewing the itineraray with the help of the id of the itinerary 
+It takes id from the url and get the data from the api .
+
+-->
 <template>
     <section class="content">
         <div class="row justify-content-around" >
             <div class="col-md-12">
               <div class="container container_admin_body">
                 <!-- Start Card -->        
-
                   <div class="card_view">
+                    <!-- This row will show the itinerary detail -->
                     <div class="row">
                       <div class="col-sm-3">
                         <h5>Source</h5>
@@ -25,29 +30,34 @@
                         <p>{{itineraryData.tourtype}}</p>
                       </div>
                     </div>
+                  
                     <div class="row">
-                      <div class="col-sm-3">
+                      <div class="col-sm-12">
                         <h5>Title</h5>
                         <p>{{itineraryData.title}}</p>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-sm-3">
+                      <div class="col-sm-12">
                         <h5>Description</h5>
                         <p>{{itineraryData.description}}</p>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h4><strong>Day 01</strong></h4>
-                        <h5>Title</h5>
-                        <p>Enter Title</p>
+                    <!-- This div will show the itinerary days and its description -->
+                    <div v-for="i in day">
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <h4><strong>Day {{i}}</strong></h4>
+                          <h5>Title</h5>
+                          <p>{{day_source[i-1]}} - {{day_destination[i-1]}}</p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h5>Description</h5>
-                        <p>Enter Description</p>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <h5>Description</h5>
+                          <p>{{day_description[i-1]}}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -66,24 +76,24 @@
         name: "List",
         data(){
           return{
+            day:0,
             day_source:[],
             day_destination:[],
+            day_description:[],
             itineraryData:[]
           }
         },
        
        created() {
-          axios.get('api/itinerary/view/24').then(response => {
-            this.itineraryData = response.data;
-            this.day_source = response.data.day_source;
-            this.day_destination = response.data.day_destination;
-            console.log(string_to_array('now'));
+          axios.get(`api/itinerary/view/${this.$route.params.id}`).then(response => {
+            this.itineraryData = response.data; // add data to the itineraryData
+            this.day_source = response.data.day_source.split(","); // Split data to make it array 
+            this.day_destination = response.data.day_destination.split(","); 
+            this.day_description = response.data.day_description.split(",,");// Split data to make it array
+            this.day = this.day_description.length; // get lenght to run the for loop till the lenght of the array
           });
         },
         computed:{
-            string_to_array(data){
-              return 'hi';
-            }
         },
 
        methods:

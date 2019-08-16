@@ -9,9 +9,11 @@ use App\Itineraryday;
 
 class ApiItineraryDayController extends Controller
 {
+	// Fetch all the data of the itinerary Day
     public function index(){
 		return new ItineraryDayCollection(Itineraryday::all());
 	}
+	// Create a new itineraryday 
 	public function create(Request $request,$id){
 		$source = $request->input('day_source');
 		$destination = $request->input('day_destination');

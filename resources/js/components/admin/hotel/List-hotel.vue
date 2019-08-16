@@ -1,4 +1,7 @@
-<!-- List all itinerary template -->
+<!--
+This Template is for listing for the Hotel profile using function to get the 
+data from the api to display the data about the Hotel from the backend .
+-->
 <template>
     <section class="content">
         <div class="row justify-content-around" >
@@ -8,20 +11,19 @@
                   <table id="example" class="display table table-striped table-bordered nowrap" style="width:100%">
                     <thead>
                         <tr>
-                            <th>NAME <i class="fas fa-sort"></i></th>
-                            <th>LOCATION <i class="fas fa-sort"></i></th>
-                            <th>TARGET ACHIEVED <i class="fas fa-sort"></i></th>
-                            <th>CONTACT NO <i class="fas fa-sort"></i></th>
+                            <th>HOTEL NAME  <i class="fas fa-sort"></i></th>
+                            <th>LOCATION  <i class="fas fa-sort"></i></th>
+                            <th>TYPE  <i class="fas fa-sort"></i></th>
+                            <th>CONTACT NO.  <i class="fas fa-sort"></i></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="itinerary in itineraryData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
-                            <td class="sorting_1">{{itinerary.source}}</td>
-                            <td>{{itinerary.destination}}</td>
-                            <td>{{itinerary.noofdays}}</td>
-                            <td>{{itinerary.source}}</td>
+                        <tr v-for="hotel in hotelData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
+                            <td class="sorting_1">{{hotel.name}}</td>
+                            <td>{{hotel.location}}</td>
+                            <td>{{hotel.type}}</td>
+                            <td>{{hotel.phoneno}}</td>
                         </tr>                 
-
                       </tbody>
                 </table>
                 </div>                          
@@ -40,7 +42,7 @@
           return{
             oddclass:false,
             evenclass:true,
-            itineraryData:{}
+            hotelData:{}
           }
         },
        
@@ -54,9 +56,9 @@
        {
 
        getData(){
-        axios.get('/itinerary')
+        axios.get('/api/hotels')
           .then((response) => {
-              this.itineraryData = response.data.itineraries;
+              this.hotelData = response.data.data;
               // this.dataTable.rows.add(response.data).draw();
               setTimeout(() => $('#example').DataTable(), 1000);
 
