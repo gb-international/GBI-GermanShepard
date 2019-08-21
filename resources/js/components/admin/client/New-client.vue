@@ -93,7 +93,7 @@ to submit the data we are using a function.
                    this.$router.push(`/client-list`)
                     toast({
                         type: 'success',
-                        title: 'Escort Added successfully'
+                        title: 'Client Added successfully'
                     })
                 })
                 .catch(()=>{

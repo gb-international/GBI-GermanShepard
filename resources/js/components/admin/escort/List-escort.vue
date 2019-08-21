@@ -18,7 +18,8 @@ data from the api to display the data about the Escort from the backend .
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="escort in escortData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
+
+                        <tr v-for="escort in alldata" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
                             <td class="sorting_1">{{escort.name}}</td>
                             <td>{{escort.salaryPerday}}</td>
                             <td>{{escort.phoneno}}</td>
@@ -27,7 +28,7 @@ data from the api to display the data about the Escort from the backend .
 
                       </tbody>
                 </table>
-                </div>                          
+                </div>
                 <!-- end -->
             </div>
         </div>
@@ -35,7 +36,6 @@ data from the api to display the data about the Escort from the backend .
     </section>
     <!-- /.content -->
 </template>
-
 <script>
     export default {
         name: "List",
@@ -46,28 +46,33 @@ data from the api to display the data about the Escort from the backend .
             escortData:{}
           }
         },
-       
-       created() {
-        this.getData();  
+// Get all the data
+        mounted(){
+          this.$store.dispatch('getAllData','/api/escorts')
         },
-        mounted:function(){
-          
+        computed:{
+
+          alldata(){
+            setTimeout(() => $('#example').DataTable(), 1000);
+            return this.$store.getters.getAllData
+          }
         },
+// End the process of the the fetching data
        methods:
        {
 
        getData(){
-        axios.get('/api/escorts')
-          .then((response) => {
-              this.escortData = response.data.data;
-              // this.dataTable.rows.add(response.data).draw();
-              setTimeout(() => $('#example').DataTable(), 1000);
+        // axios.get('/api/escorts')
+        //   .then((response) => {
+        //       this.escortData = response.data.data;
+        //       // this.dataTable.rows.add(response.data).draw();
+        //       setTimeout(() => $('#example').DataTable(), 1000);
 
-          })
-          .catch((error) => {
-              if (error.response.status == 401) {                  
-              }
-          });
+        //   })
+        //   .catch((error) => {
+        //       if (error.response.status == 401) {                  
+        //       }
+        //   });
        },
         deleteItinerary(id){
         axios.get('/hotel/'+id)

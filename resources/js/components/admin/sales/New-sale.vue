@@ -10,7 +10,7 @@ to submit the data we are using a function.
             <div class="row justify-content-around">
                 <!-- left column -->
                 <div class="col-md-12">
-                    <form role="form" enctype="multipart/form-data" @submit.prevent="addItinerary()">
+                    <form role="form" enctype="multipart/form-data" @submit.prevent="addSalesdp()">
                       <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group">
@@ -28,9 +28,9 @@ to submit the data we are using a function.
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="price">Target</label>
-                                <input type="text" class="form-control" v-model="form.price" :class="{ 'is-invalid': form.errors.has('price') }"  placeholder="Enter Price" name="price">
-                                <has-error :form="form" field="price"></has-error>
+                                <label for="salary">Salary</label>
+                                <input type="text" class="form-control" v-model="form.salary" :class="{ 'is-invalid': form.errors.has('salary') }"  placeholder="Enter salary" name="price">
+                                <has-error :form="form" field="salary"></has-error>
                             </div>
                           </div>
                         </div>
@@ -39,8 +39,8 @@ to submit the data we are using a function.
                           <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="Location">Location</label>
-                                <input type="text" class="form-control" v-model="form.mealType" :class="{ 'is-invalid': form.errors.has('mealType') }"  placeholder="Enter Location" name="mealType">
-                                <has-error :form="form" field="mealType"></has-error>
+                                <input type="text" class="form-control" v-model="form.location" :class="{ 'is-invalid': form.errors.has('location') }"  placeholder="Enter Location" name="location">
+                                <has-error :form="form" field="location"></has-error>
                             </div>                          
                           </div>
                           <div class="col-sm-8">
@@ -54,15 +54,15 @@ to submit the data we are using a function.
                         <div class="row">
                           <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="contactNo">Contact Number</label>
-                                <input type="text" class="form-control"  placeholder="Enter Contact Number"  name="contactNo" v-model="form.contactNo" :class="{ 'is-invalid': form.errors.has('contactNo') }">
-                                <has-error :form="form" field="contactNo"></has-error>
+                                <label for="phoneno">Contact Number</label>
+                                <input type="text" class="form-control"  placeholder="Enter Contact Number"  name="phoneno" v-model="form.phoneno" :class="{ 'is-invalid': form.errors.has('phoneno') }">
+                                <has-error :form="form" field="phoneno"></has-error>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" placeholder="Enter Email"  id="email" rows="5" name="email" v-model="form.description" :class="{ 'is-invalid': form.errors.has('email') }">
+                                <input type="email" class="form-control" placeholder="Enter Email"  id="email" rows="5" name="email" v-model="form.email" :class="{ 'is-invalid': form.errors.has('email') }">
                                 <has-error :form="form" field="email"></has-error>
                             </div>
                           </div>
@@ -92,15 +92,31 @@ to submit the data we are using a function.
             return {
               // Create a new form instance
               form: new Form({
-                source: '',
+                name: '',
+                phoneno: '',
+                email: '',
+                address: '',
+                salary: '',
                 position: '',
-                price: '',
-                title: '',
-                description: '',
-                tourtype: '',
-                photo:'',
+                location: '',
                 })
             }
+        },
+        methods:{
+          // Function to add the form data 
+          addSalesdp(){
+            this.form.post('/api/salesdp/create')
+              .then((response)=>{
+                   this.$router.push(`/sales-department-list`)
+                    toast({
+                        type: 'success',
+                        title: 'Sales Added successfully'
+                    })
+                })
+                .catch(()=>{
+                })
+          }
+          // End the function
         }
     }
 </script>

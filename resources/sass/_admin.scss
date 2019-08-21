@@ -107,6 +107,18 @@
 				.fas{
 					float: right;
 				}
+				a{
+					color: black;
+					display: block;
+					&:hover{
+						text-decoration: none;
+					}
+				}
+			}
+			.sorting_1{
+				&:hover{
+					  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+				}
 			}
 			th{background-color: black;color: white;}
 			tr { display: block;border-radius: 5px;}

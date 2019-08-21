@@ -22,7 +22,7 @@
                        
                           <div v-for="(item,index) in form.noofdays">
                             <div v-if="step === index+1">
-                          <h1>Day {{ index+1 }}</h1>
+                          <h3>Day {{ index+1 }}</h3>
                           <div class="row">
                             <div class="col-sm-6">
 

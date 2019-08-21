@@ -22,8 +22,10 @@ class CreateItinerariesTable extends Migration
             $table->string('photo');
             $table->string('detail_photo');            
             $table->Integer('noofdays');
-            $table->string('description');
+            $table->text('description');
             $table->string('tourtype');
+            $table->string('hotel_type');
+            $table->string('transport_type');
             $table->Integer('price')->nullable();
             $table->enum('status', ['0', '1']);
             $table->timestamps();

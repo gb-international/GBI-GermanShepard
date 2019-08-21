@@ -13,7 +13,7 @@ class ApiItineraryController extends Controller
 	// Fetch all the data of the Itinerary
     public function index(){
 
-    	return new ItineraryCollection(Itinerary::select('id','source','destination','title','photo','detail_photo','noofdays','description','tourtype')->orderBy('id','desc')->get());
+    	return new ItineraryCollection(Itinerary::select('id','source','destination','title','photo','detail_photo','noofdays','description','tourtype','hotel_type','transport_type')->orderBy('id','desc')->get());
     }
     // Create a new Data 
     public function create(Request $request){
@@ -23,7 +23,9 @@ class ApiItineraryController extends Controller
             'noofdays' => 'required|numeric|min:1|max:15',
             'title' => 'required|min:3|max:100',
             'description' => 'required|min:3',
-            'tourtype' => 'required'
+            'tourtype' => 'required',
+            'hoteltype' => 'required',
+            'transport' => 'required'
 	        ]);
 
 	    	$strpos = strpos($request->input('photo'),';');
@@ -49,12 +51,15 @@ class ApiItineraryController extends Controller
 	        $itinerary->noofdays = $request->input('noofdays');
 	        $itinerary->description = $request->input('description');
 	        $itinerary->tourtype = $request->input('tourtype');
+	        $itinerary->hotel_type = $request->input('hoteltype');
+	        $itinerary->transport_type = $request->input('transport');
 	        //$itinerary->user_id = '4';//Auth::user()->id;
 	        $itinerary->photo = $name;
 	        $itinerary->detail_photo = $name1;
 
 	        $itinerary->save();
 	       return response()->json(['id' => $itinerary->id, 'days' => $itinerary->noofdays], 200);
+    	
     }
     // view the data for the particular id
     public function view($id){

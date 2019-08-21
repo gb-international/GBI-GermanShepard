@@ -18,7 +18,7 @@ data from the api to display the data about the Hotel from the backend .
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="hotel in hotelData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
+                        <tr v-for="hotel in alldata" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
                             <td class="sorting_1">{{hotel.name}}</td>
                             <td>{{hotel.location}}</td>
                             <td>{{hotel.type}}</td>
@@ -45,28 +45,33 @@ data from the api to display the data about the Hotel from the backend .
             hotelData:{}
           }
         },
-       
-       created() {
-        this.getData();  
+// Get all the data
+       mounted(){
+          this.$store.dispatch('getAllData','/api/hotels')
         },
-        mounted:function(){
-          
+        computed:{
+
+          alldata(){
+            setTimeout(() => $('#example').DataTable(), 1000);
+            return this.$store.getters.getAllData
+          }
         },
+// End the process of the the fetching data
        methods:
        {
 
        getData(){
-        axios.get('/api/hotels')
-          .then((response) => {
-              this.hotelData = response.data.data;
-              // this.dataTable.rows.add(response.data).draw();
-              setTimeout(() => $('#example').DataTable(), 1000);
+        // axios.get('/api/hotels')
+        //   .then((response) => {
+        //       this.hotelData = response.data.data;
+        //       // this.dataTable.rows.add(response.data).draw();
+        //       setTimeout(() => $('#example').DataTable(), 1000);
 
-          })
-          .catch((error) => {
-              if (error.response.status == 401) {                  
-              }
-          });
+        //   })
+        //   .catch((error) => {
+        //       if (error.response.status == 401) {                  
+        //       }
+        //   });
        },
         deleteItinerary(id){
         axios.get('/hotel/'+id)

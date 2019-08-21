@@ -13,18 +13,17 @@ data from the api to display the data about the salesman from the backend .
                         <tr>
                             <th>NAME <i class="fas fa-sort"></i></th>
                             <th>LOCATION <i class="fas fa-sort"></i></th>
-                            <th>TARGET ACHIEVED <i class="fas fa-sort"></i></th>
+                            <th>EMAIL <i class="fas fa-sort"></i></th>
                             <th>CONTACT NO <i class="fas fa-sort"></i></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="itinerary in itineraryData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
-                            <td class="sorting_1">{{itinerary.source}}</td>
-                            <td>{{itinerary.destination}}</td>
-                            <td>{{itinerary.noofdays}}</td>
-                            <td>{{itinerary.source}}</td>
+                        <tr v-for="sales in alldata" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
+                            <td class="sorting_1">{{sales.name}}</td>
+                            <td>{{sales.location}}</td>
+                            <td>{{sales.email}}</td>
+                            <td>{{sales.phoneno}}</td>
                         </tr>                 
-
                       </tbody>
                 </table>
                 </div>                          
@@ -43,18 +42,21 @@ data from the api to display the data about the salesman from the backend .
           return{
             oddclass:false,
             evenclass:true,
-            itineraryData:{}
+            salesData:{}
           }
         },
-       
+// Get all the salesdp data
        mounted(){
-            this.$store.dispatch("allCategory")
+          this.$store.dispatch('getAllData','/api/salesdps')
         },
         computed:{
-           getallCategory(){
-            return this.$store.getters.getCategory
-           }
+
+          alldata(){
+            setTimeout(() => $('#example').DataTable(), 1000);
+            return this.$store.getters.getAllData
+          }
         },
+// End the process of getting all the data
         methods:{
             deletecategory(id){
                axios.get('/category/'+id)

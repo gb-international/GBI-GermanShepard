@@ -18,7 +18,7 @@ data from the api to display the data about the Itinerary from the backend .
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="itinerary in itineraryData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
+                        <tr v-for="itinerary in alldata" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
                             <td class="sorting_1">
                               <router-link :to="`/view-itinerary/${itinerary.id}`">{{itinerary.source}}</router-link>
                             </td>
@@ -48,33 +48,18 @@ data from the api to display the data about the Itinerary from the backend .
           }
         },
        
-       created() {
-        this.getData();  
+       mounted(){
+          this.$store.dispatch('getAllData','/api/itinerarys')
         },
-        mounted:function(){
-          
+        computed:{
+
+          alldata(){
+            setTimeout(() => $('#example').DataTable(), 1000);
+            return this.$store.getters.getAllData
+          }
         },
        methods:
        {
-
-       getData(){
-        axios.get('/api/itinerarys')
-          .then((response) => {
-              this.itineraryData = response.data.data;
-              // this.dataTable.rows.add(response.data).draw();
-              setTimeout(() => $('#example').DataTable(), 1000);
-
-          })
-          .catch((error) => {
-              if (error.response.status == 401) {
-                  alert('User session has expired. Please login again.');
-                  
-              }
-          });
-
-
-          
-       },
          deleteescort(id){
               var uri = '/delete-escort/'+id;
               swal.fire({

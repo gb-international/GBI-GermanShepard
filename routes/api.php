@@ -31,11 +31,14 @@ Route::get('/itineraryday','ApiItineraryDayController@index');
 Route::post('/itineraryday/create/{id}','ApiItineraryDayController@create');
 
 // Hotel
-Route::get('hotels','ApiHotelController@index');
-Route::post('hotel/create','ApiHotelController@create');
+Route::get('/hotels','ApiHotelController@index');
+Route::post('/hotel/create','ApiHotelController@create');
 
+// Salesdp;
+Route::get('/salesdps','ApiSalesdpController@index');
+Route::post('/salesdp/create','ApiSalesdpController@create');
 
-
-
-
+//Transport
+Route::get('/transports','ApiTransportController@index');
+Route::post('/transport/create','ApiTransportController@create');
 

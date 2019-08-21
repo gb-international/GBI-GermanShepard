@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEscortTable extends Migration
+class CreateSalesdpsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateEscortTable extends Migration
      */
     public function up()
     {
-        Schema::create('escorts', function (Blueprint $table) {
+        Schema::create('salesdps', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('salaryPerday');
-            $table->string('phoneno');
+            $table->string("phoneno");
             $table->string('email');
+            $table->string('salary');
             $table->text('address');
-            $table->string('status');
+            $table->string('position');
+            $table->string('location');
+            $table->enum('status', ['0', '1']);
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ class CreateEscortTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('escort');
+        Schema::dropIfExists('salesdps');
     }
 }

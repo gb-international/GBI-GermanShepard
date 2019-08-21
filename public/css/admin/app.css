@@ -30061,6 +30061,22 @@ select {
   float: right;
 }
 
+#adminmain .container_admin_body td a,
+#adminmain .container_admin_body th a {
+  color: black;
+  display: block;
+}
+
+#adminmain .container_admin_body td a:hover,
+#adminmain .container_admin_body th a:hover {
+  text-decoration: none;
+}
+
+#adminmain .container_admin_body .sorting_1:hover {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 #adminmain .container_admin_body th {
   background-color: black;
   color: white;
