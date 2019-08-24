@@ -1,5 +1,11 @@
 <?php
 
+      /************************************************
+      Template Type: Sales Department Controller for the Sales Department Api
+      Author:@Ajay
+
+      ****************************************************/
+
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Resources\SalesdpCollection;

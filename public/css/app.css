@@ -30061,6 +30061,22 @@ select {
   float: right;
 }
 
+#adminmain .container_admin_body td a,
+#adminmain .container_admin_body th a {
+  color: black;
+  display: block;
+}
+
+#adminmain .container_admin_body td a:hover,
+#adminmain .container_admin_body th a:hover {
+  text-decoration: none;
+}
+
+#adminmain .container_admin_body .sorting_1:hover {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 #adminmain .container_admin_body th {
   background-color: black;
   color: white;
@@ -30141,7 +30157,7 @@ select {
 
 #adminmain .card_view .row p {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   color: #403b3b;
 }
 
@@ -30340,6 +30356,51 @@ Admin Login page
 
 #admin_login #admin_login_form a {
   color: #d2c9c9;
+}
+
+.loginform form {
+  padding: 0px 20px 30px;
+  position: relative;
+}
+
+.loginform .btn {
+  background-color: white;
+  border: 2px solid skyblue;
+  border-radius: 0px;
+  margin-top: 44px;
+  padding: 11px;
+}
+
+.loginform .forget_link {
+  position: absolute;
+  right: 0px;
+  top: 70px;
+}
+
+.loginform input[type='text'],
+.loginform input[type='password'],
+.loginform .input-group-text {
+  border: none;
+  border-bottom: 2px solid #d4cdcd;
+  border-radius: 0px;
+  margin-top: 20px;
+}
+
+.loginform .input-group-text {
+  background-color: white;
+}
+
+.loginform .message {
+  margin-top: 20px;
+}
+
+.loginform .message a:hover {
+  color: skyblue;
+  text-decoration: none;
+}
+
+.loginform .modal-header {
+  border-bottom: 0px;
 }
 
 /*!

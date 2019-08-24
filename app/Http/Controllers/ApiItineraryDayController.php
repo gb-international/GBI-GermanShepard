@@ -1,5 +1,11 @@
 <?php
 
+      /************************************************
+      Template Type: Itinerary Day Controller for the Itinerary Day Api
+      Author:@Ajay
+
+      ****************************************************/
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -31,4 +37,22 @@ class ApiItineraryDayController extends Controller
 		$itinerary->save();
 		return response()->json(['message'=>'Successfully Stored...']);
 	}
+	// Edit Itinerary Day (id)
+	public function edit($id){
+    	return response()->json(Itineraryday::where('itinerary_id',$id)->first());
+    }
+    public function update(Request $request, $id){
+    	$itinerary =Itineraryday::where('itinerary_id', '=', $id)->first();
+   
+    	$source = $request->input('day_source');
+		$destination = $request->input('day_destination');
+		$description = $request->input('day_description');		
+		$itinerary->itinerary_id = $id;
+		//$itinerary->user_id = '4';//Auth::user()->id;
+		$itinerary->day_source = implode(",",$source);
+		$itinerary->day_destination = implode(",",$destination);
+		$itinerary->day_description = implode(",,",$description);
+		$itinerary->save();
+		return response()->json(['message'=>'Successfully Stored...']);
+    }
 }

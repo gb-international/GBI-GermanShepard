@@ -6,6 +6,11 @@ to submit the data we are using a function.
  -->
 <template>
     <section class="content">
+      <!--************************************************
+      Template Type: Add New Client
+      Author:@Ajay
+
+      ****************************************************-->
         <div class="container-fluid">
             <div class="row justify-content-around">
                 <div class="col-md-12">
@@ -53,7 +58,7 @@ to submit the data we are using a function.
                       <div class="row">
                         <div class="col-sm-4">
                           <div class="form-group">
-                            <label for="school">School Name</label>
+                            <label for="schoolName">School Name</label>
                               <input type="text" class="form-control" v-model="form.schoolName" :class="{ 'is-invalid': form.errors.has('schoolName') }"  placeholder="Enter School Name" name="schoolName">
                             <has-error :form="form" field="schoolName"></has-error>
                           </div>
@@ -81,15 +86,14 @@ to submit the data we are using a function.
                 phoneno: '',
                 address: '',
                 dob: '',
-                school:''
+                schoolName:''
                 })
             }
         },
         methods:{
           addClient(){
-            this.form.post('/add-client')
+            this.form.post('/api/client/create')
               .then((response)=>{
-                console.log(response.data);
                    this.$router.push(`/client-list`)
                     toast({
                         type: 'success',

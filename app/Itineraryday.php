@@ -1,5 +1,11 @@
 <?php
 
+      /************************************************
+      Template Type: Itinerary Day Model
+      Author:@Jyoti
+
+      ****************************************************/
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;

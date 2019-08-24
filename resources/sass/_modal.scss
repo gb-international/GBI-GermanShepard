@@ -1,0 +1,43 @@
+.loginform {
+	form{
+		padding: 0px 20px 30px;
+		position: relative;
+	}
+
+   .btn{
+   	background-color: white;
+   	border:2px solid skyblue;
+   	border-radius:0px;
+   	margin-top: 44px;
+   	padding:11px;
+   }
+   	.forget_link{
+		position: absolute;
+		right: 0px;
+		top: 70px;
+   	}
+ 
+   input[type='text'],input[type='password'],.input-group-text{
+   	border:none;
+   	border-bottom:2px solid #d4cdcd;
+   	border-radius:0px;
+   	margin-top: 20px;
+   }
+   .input-group-text{
+   	background-color: white;
+   }
+   .message{
+   	margin-top: 20px;
+   	a{
+   		&:hover{
+   			color: skyblue;
+   			text-decoration: none;
+   		}
+   	}
+   }
+   .modal-header{
+   	border-bottom:0px;
+
+   }
+
+}

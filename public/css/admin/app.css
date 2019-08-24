@@ -30048,7 +30048,7 @@ select {
 
 #adminmain .container_admin_body td,
 #adminmain .container_admin_body th {
-  min-width: 250px;
+  min-width: 200px;
   text-align: left;
   padding: 20px;
   font-size: 15px;
@@ -30356,6 +30356,51 @@ Admin Login page
 
 #admin_login #admin_login_form a {
   color: #d2c9c9;
+}
+
+.loginform form {
+  padding: 0px 20px 30px;
+  position: relative;
+}
+
+.loginform .btn {
+  background-color: white;
+  border: 2px solid skyblue;
+  border-radius: 0px;
+  margin-top: 44px;
+  padding: 11px;
+}
+
+.loginform .forget_link {
+  position: absolute;
+  right: 0px;
+  top: 70px;
+}
+
+.loginform input[type='text'],
+.loginform input[type='password'],
+.loginform .input-group-text {
+  border: none;
+  border-bottom: 2px solid #d4cdcd;
+  border-radius: 0px;
+  margin-top: 20px;
+}
+
+.loginform .input-group-text {
+  background-color: white;
+}
+
+.loginform .message {
+  margin-top: 20px;
+}
+
+.loginform .message a:hover {
+  color: skyblue;
+  text-decoration: none;
+}
+
+.loginform .modal-header {
+  border-bottom: 0px;
 }
 
 /*!

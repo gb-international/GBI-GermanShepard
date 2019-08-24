@@ -24,11 +24,16 @@ Route::post('/escort/create', 'ApiEscortController@create');
 // Itinerary Api
 Route::get('/itinerarys', 'ApiItineraryController@index');
 Route::post('/itinerary/create', 'ApiItineraryController@create');
+Route::get('/itinerary/edit/{id}','ApiItineraryController@edit');
 Route::get('/itinerary/view/{id}','ApiItineraryController@view');
+Route::post('/itinerary/update/{id}','ApiItineraryController@update');
+
 
 // Itinerary Day
 Route::get('/itineraryday','ApiItineraryDayController@index');
 Route::post('/itineraryday/create/{id}','ApiItineraryDayController@create');
+Route::get('/itineraryday/edit/{id}','ApiItineraryDayController@edit');
+Route::post('/itineraryday/update/{id}','ApiItineraryDayController@update');
 
 // Hotel
 Route::get('/hotels','ApiHotelController@index');
@@ -41,4 +46,10 @@ Route::post('/salesdp/create','ApiSalesdpController@create');
 //Transport
 Route::get('/transports','ApiTransportController@index');
 Route::post('/transport/create','ApiTransportController@create');
+
+// Cleint
+Route::get('/clients','ApiClientController@index');
+Route::post('/client/create','ApiClientController@create');
+
+
 

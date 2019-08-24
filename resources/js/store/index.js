@@ -1,6 +1,7 @@
 export default {
     state:{
         singlepost:[],
+        editdata:[],
         alldata:[], // All data from the api
     },
     // Getters help to fetch the data from the templates 
@@ -9,7 +10,9 @@ export default {
         getAllData(state){
             return state.alldata
         },
-
+        getEditData(state){
+            return state.editdata
+        }
     },
     //getAllTableData();
     actions:{
@@ -20,21 +23,21 @@ export default {
                     context.commit('alldata',response.data.data)
                 })
             },
-        getPostById(context,payload){
-            axios.get('/singlepost/'+payload)
+
+        getEditData(context,api){
+            axios.get(api)
                 .then((response)=>{
-                    context.commit('siglePost',response.data.post)
+                    context.commit('editdata',response.data)
                 })
-        },
-       
+        }       
     },
     mutations:{
         // Return alll the data related to the api call
         alldata(state,data){
             return state.alldata = data
         },
-        siglePost(state,payload){
-            return state.singlepost = payload
-        },
+        editdata(state,payload){
+            return state.editdata = payload
+        }
     }
 }

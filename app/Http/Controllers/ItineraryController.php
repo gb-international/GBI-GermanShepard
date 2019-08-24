@@ -19,16 +19,6 @@ class ItineraryController extends Controller
 		$itineraries = Itinerary::orderBy('id','desc')->get();
        	return response()->json([
            'itineraries'=>$itineraries ],200);
-
-
-
-
-  //      	$itineraries = Itinerary::with('user')
-		// ->where('user_id', '=', Auth::user()->id)
-		// ->orderBy('id','desc')->get();
-  //      	return response()->json([
-  //          'itineraries'=>$itineraries ],200);
-
 	}
 
 	public function allDaysitinerary($id){
@@ -51,24 +41,16 @@ class ItineraryController extends Controller
             'title' => 'required|min:5|max:100',
             'description' => 'required',
             'tourtype' => 'required'
+
 	        ]);
     	 
 	    	$strpos = strpos($request->photo,';');
 	        $sub = substr($request->photo,0,$strpos);
 	        $ex = explode('/',$sub)[1];
 	        $name = time().".".$ex;
-	        $img = Image::make($request->photo)->resize(190, 100);
+	        $img = Image::make($request->photo)->resize(200, 200);
 	        $upload_path = public_path()."/uploadimage/";
 	        $img->save($upload_path.$name);
-
-	    	$strpos = strpos($request->detail_photo,';');
-	        $sub = substr($request->detail_photo,0,$strpos);
-	        $ex = explode('/',$sub)[1];
-	        $name1 = 'bn'.time().".".$ex;
-	        $img = Image::make($request->detail_photo)->resize(22200, 450);
-	        $upload_path = public_path()."/uploadimage/";
-	        $img->save($upload_path.$name1);
-
 	        $itinerary = new Itinerary();
 	        $itinerary->source = $request->source;
 	        $itinerary->destination = $request->destination;
@@ -78,9 +60,10 @@ class ItineraryController extends Controller
 	        $itinerary->tourtype = $request->tourtype;
 	        $itinerary->user_id = Auth::user()->id;
 	        $itinerary->photo = $name;
-	        $itinerary->detail_photo = $name1;
 	        $itinerary->save();
+	     
 	       return response()->json(['id' => $itinerary->id, 'days' => $itinerary->noofdays], 200);
+
     }
 
 		//delete itinerary

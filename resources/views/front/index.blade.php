@@ -1,3 +1,9 @@
+<!--************************************************
+Template Type: Mention the functionality of template
+Author:@Ajay
+
+****************************************************-->
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -17,8 +23,6 @@
 
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/icon" href="{{ asset('assets/front/images/favicon.png') }}"/>
-        <!-- Font Awesome -->
-     <!--    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"> -->
           <!-- Bootstrap CSS -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
        <!-- Slick slider -->
@@ -77,19 +81,117 @@
           </ul>
         </li>
          <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
+         <li><a href="#" data-toggle="modal" data-target="#LoginForm"><i class="far fa-user"></i> Login</a></li>
       </ul>
     </nav>
+
+
+<div class="modal" id="LoginForm">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      <!-- Modal body -->
+      <div class="modal `-body loginform">
+        <div class="panel panel-login">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Enter User Name">
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Enter Password">
+                  </div>
+                  <a href="#" class="forget_link">Forget Password?</a>
+                  <button class="btn btn-default btn-block loginbutton">Login</button>
+                  <p class="text-center message">Don't have an Account?<a href="#" id="register-form-link">Register</a></p>
+                </form>
+                <form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+                  <div class="form-group">
+                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-6 col-sm-offset-3">
+                        <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-center message">Have an Account?<a href="#" class="active" id="login-form-link">Login</a></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="formRegister">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      <!-- Modal body -->
+      <div class="modal-body loginform">
+        <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter User Name">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter Password">
+          </div>
+          <a href="#" class="forget_link">Forget Password?</a>
+          <button class="btn btn-default btn-block loginbutton">Login</button>
+          <p class="text-center message">Don't have an Account? <a href="#" class="loginform" data-toggle="modal" data-target="#LoginForm">Login</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
   </div>
   </div>
 </section>
 
+
+
  @yield('content') 
-   <!-- <div id="app">
-  
-        {{--Vue Routing--}}
-        <home-main></home-main>
-   
-  </div> -->
 
 <footer id="footer">
     <div class="footer-top">
@@ -103,14 +205,14 @@
                 </ul>
             </div>
             <div class="single-footer">
-              <ul>
-                  
+              <ul>                  
                    <li>
                       <h3>GBI Holidays Pvt. ltd.</h3>
                       <p>G-32,DDA Commercial Complex</p>
                       <p>Sheikh Sarai Phase-1</p>
                       <p>New Delhi 110017</p>
                    </li>
+
                    <li>
                      <p><i class="fa fa-phone fa-lg" aria-hidden="true"></i> 011-41864453</p>
                      <p><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>csrikhi@gbinternational.in</p>
@@ -126,6 +228,7 @@
                     <a href="https://www.instagram.com/gbirikhi/">  <i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
                     <a href="#"> <i class="fa fa-youtube-play fa-lg" aria-hidden="true"></i></a>
                    </li>
+
                 </ul>
             </div>
         </div>
@@ -208,7 +311,6 @@
 <script type="text/javascript">
 /**/
 
- 
 </script>
 <script type="text/javascript">
   (function($) { // Begin jQuery
@@ -250,6 +352,45 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
+
+
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+            $('#imagePreview').hide();
+            $('#imagePreview').fadeIn(650);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$("#imageUpload").change(function() {
+    readURL(this);
+});
+
+$(function() {
+
+    $('#login-form-link').click(function(e) {
+    $("#login-form").delay(100).fadeIn(100);
+    $("#register-form").fadeOut(100);
+    $('#register-form-link').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+  });
+  $('#register-form-link').click(function(e) {
+    $("#register-form").delay(100).fadeIn(100);
+    $("#login-form").fadeOut(100);
+    $('#login-form-link').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+  });
+
+});
+
+
+
 </script>
  </body>
 </html>

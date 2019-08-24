@@ -49,8 +49,6 @@
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
           </form>
-          <!-- <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a> -->
         </div>
       </li>
     </ul>
@@ -285,13 +283,5 @@ $(document).ready(function(){
 });
 </script>
 
-<!-- <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script> -->
-<!-- <script type="text/javascript">
-  $(document).ready(function() {
-    $(".has-treeview").on("click",function(){
-      
-    });
-  });  
-</script> -->
 </body>
 </html>

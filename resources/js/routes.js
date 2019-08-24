@@ -19,7 +19,7 @@ import ItineraryView from './components/admin/itinerary/View-itinerary.vue'
 import ItineraryDepartment from './components/admin/itinerary/Department-itinerary.vue'
 import ItineraryOld from './components/admin/itinerary/Old-itinerary.vue'
 import ItineraryDay from './components/admin/itinerary/Day-itinerary.vue'
-
+import EditItineraryday from './components/admin/itinerary/Edit-itineraryday.vue'
 
 //escort
 import EscortList from './components/admin/escort/List-escort.vue'
@@ -73,14 +73,22 @@ export const routes = [
         path:'/edit-itinerary/:itineraryid',
         component:EditItinerary
     },
+
+    {
+        path:'/edit-itineraryday/:itineraryid',
+        component:EditItineraryday
+    },
+
     {
         path:'/add-days-itinerary/:id',
         component:AddDayItineraryList
     },
+    
     {
         path:'/view-itinerary/:id',
         component:ItineraryView
     },
+
     {
         path:'/itinerary-department',
         component:ItineraryDepartment

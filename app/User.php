@@ -1,5 +1,11 @@
 <?php
 
+      /************************************************
+      Template Type: Transport Model
+      Author:@Jyoti
+
+      ****************************************************/
+
 namespace App;
 
 use Illuminate\Notifications\Notifiable;

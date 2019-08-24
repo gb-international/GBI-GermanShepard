@@ -4,6 +4,11 @@ data from the api to display the data about the Itinerary from the backend .
 -->
 <template>
     <section class="content">
+      <!--************************************************
+      Template Type: Itinerary List
+      Author:@Ajay
+
+      ****************************************************-->
         <div class="row justify-content-around" >
             <div class="col-md-12">
               <div class="container container_admin_body">
@@ -15,6 +20,7 @@ data from the api to display the data about the Itinerary from the backend .
                             <th>Destination <i class="fas fa-sort"></i></th>
                             <th>No. of Days <i class="fas fa-sort"></i></th>
                             <th>Tour type <i class="fas fa-sort"></i></th>
+                            <th>Action <i class="fas fa-cog"></i></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,6 +31,9 @@ data from the api to display the data about the Itinerary from the backend .
                             <td>{{itinerary.destination}}</td>
                             <td>{{itinerary.noofdays}}</td>
                             <td>{{itinerary.source}}</td>
+                            <td>
+                              <router-link :to="`edit-itinerary/${itinerary.id}`">Edit</router-link>
+                            </td>
                         </tr>
                       </tbody>
                 </table>
@@ -88,6 +97,3 @@ data from the api to display the data about the Itinerary from the backend .
 
 
 </script>
-
-<style scoped>
-</style>

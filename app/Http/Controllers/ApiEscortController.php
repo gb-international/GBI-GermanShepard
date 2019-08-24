@@ -1,5 +1,11 @@
 <?php
 
+      /************************************************
+      Template Type: Escort Controller for the Escort Api
+      Author:@Ajay
+
+      ****************************************************/
+
 namespace App\Http\Controllers;
 use App\Http\Resources\EscortCollection;
 use Illuminate\Http\Request;

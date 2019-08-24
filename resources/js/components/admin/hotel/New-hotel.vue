@@ -7,6 +7,11 @@ to submit the data we are using a function.
 <template>
     <section class="content">
         <div class="container-fluid">
+          <!--************************************************
+            Template Type: Adding New Hotel
+            Author:@Ajay
+
+            ****************************************************-->
             <div class="row justify-content-around">
                 <!-- left column -->
                 <div class="col-md-12">
@@ -161,4 +166,4 @@ to submit the data we are using a function.
 
 <style scoped>
 
-</style>
+</style>  

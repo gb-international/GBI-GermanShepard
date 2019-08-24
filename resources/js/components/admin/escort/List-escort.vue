@@ -4,6 +4,10 @@ data from the api to display the data about the Escort from the backend .
 -->
 <template>
     <section class="content">
+<!--************************************************
+      Template Type: Escorts List
+      Author:@Ajay
+ ****************************************************-->
         <div class="row justify-content-around" >
             <div class="col-md-12">
               <div class="container container_admin_body">
@@ -36,6 +40,7 @@ data from the api to display the data about the Escort from the backend .
     </section>
     <!-- /.content -->
 </template>
+
 <script>
     export default {
         name: "List",
@@ -60,20 +65,6 @@ data from the api to display the data about the Escort from the backend .
 // End the process of the the fetching data
        methods:
        {
-
-       getData(){
-        // axios.get('/api/escorts')
-        //   .then((response) => {
-        //       this.escortData = response.data.data;
-        //       // this.dataTable.rows.add(response.data).draw();
-        //       setTimeout(() => $('#example').DataTable(), 1000);
-
-        //   })
-        //   .catch((error) => {
-        //       if (error.response.status == 401) {                  
-        //       }
-        //   });
-       },
         deleteItinerary(id){
         axios.get('/hotel/'+id)
         .then(()=>{
@@ -91,6 +82,3 @@ data from the api to display the data about the Escort from the backend .
 
 
 </script>
-
-<style scoped>
-</style>

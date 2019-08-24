@@ -1,5 +1,11 @@
 <?php
 
+      /************************************************
+      Template Type: Hotel Controller for the Hotel Api
+      Author:@Ajay
+
+      ****************************************************/
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

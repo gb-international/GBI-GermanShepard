@@ -1,5 +1,11 @@
 <?php
 
+      /************************************************
+      Template Type: Itinerary Model
+      Author:@Ajay
+
+      ****************************************************/
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;

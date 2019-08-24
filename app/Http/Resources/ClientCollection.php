@@ -1,7 +1,7 @@
 <?php
 
       /************************************************
-      Template Type: Collection Resource for the Itinerary
+      Template Type: Collection Resource for the client
       Author:@Ajay
 
       ****************************************************/
@@ -10,7 +10,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class ItineraryCollection extends ResourceCollection
+class ClientCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -21,10 +21,5 @@ class ItineraryCollection extends ResourceCollection
     public function toArray($request)
     {
         return parent::toArray($request);
-        // return  [
-        //     'id' => $this->id,
-        //     'source' => $this->source,
-        //     'destination' => $this->destination
-        // ];
     }
 }
