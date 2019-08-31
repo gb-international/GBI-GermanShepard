@@ -1,93 +1,63 @@
 import AdminHome from './components/admin/AdminHome.vue'
-import CategoryList from './components/admin/category/List.vue'
-import AddCategory from './components/admin/category/New.vue'
-import EditCategory from './components/admin/category/Edit.vue'
 
 // FrontEnd Component
 import FrontHome from './components/front/layouts/FrontHome.vue'
 import ExploreList from './components/front/ExploreList.vue'
+import ExploreDetail from './components/front/ExploreDetail.vue'
 import ListItinerary from './components/front/ListItinerary.vue'
+import Search from './components/front/Search.vue'
+
 
 
 // ADMIN PANEL
+import AdminDashboard from './components/admin/Dashboard.vue'
 
-// Post
-import PostList from './components/admin/post/List.vue'
-import AddPost from './components/admin/post/New.vue'
-import EditPost from './components/admin/post/Edit.vue'
 
 // Itinerary
-import ItineraryList from './components/admin/itinerary/List.vue'
-import AddItinerary from './components/admin/itinerary/New.vue'
-import EditItinerary from './components/admin/itinerary/Edit.vue'
+import ItineraryList from './components/admin/itinerary/List-itinerary.vue'
+import AddItinerary from './components/admin/itinerary/New-itinerary.vue'
+import EditItinerary from './components/admin/itinerary/Edit-itinerary.vue'
 import AddDayItineraryList from './components/admin/itinerary/Newdayitinerary.vue'
-import ItineraryView from './components/admin/itinerary/View.vue'
-import ItineraryDepartment from './components/admin/itinerary/Department.vue'
-import ItineraryOld from './components/admin/itinerary/Old.vue'
-import ItineraryTable from './components/admin/itinerary/Table.vue'
-import ItineraryDay from './components/admin/itinerary/Day.vue'
+import ItineraryView from './components/admin/itinerary/View-itinerary.vue'
+import ItineraryDepartment from './components/admin/itinerary/Department-itinerary.vue'
+import ItineraryOld from './components/admin/itinerary/Old-itinerary.vue'
+import ItineraryDay from './components/admin/itinerary/Day-itinerary.vue'
 
 
 //escort
-import EscortList from './components/admin/escort/List.vue'
-import AddEscort from './components/admin/escort/New.vue'
-import EditEscort from './components/admin/escort/Edit.vue'
+import EscortList from './components/admin/escort/List-escort.vue'
+import AddEscort from './components/admin/escort/New-escort.vue'
+import EditEscort from './components/admin/escort/Edit-escort.vue'
 
 
 // Client
-import Clients from './components/admin/client/List.vue'
-import AddClient from './components/admin/client/New.vue'
+import Clients from './components/admin/client/List-client.vue'
+import AddClient from './components/admin/client/New-client.vue'
 
 
 //Hotel
-import HotelList from './components/admin/hotel/List.vue'
-import HotelAdd from './components/admin/hotel/New.vue' 
+import HotelList from './components/admin/hotel/List-hotel.vue'
+import HotelAdd from './components/admin/hotel/New-hotel.vue' 
 
 
 //Transport
-import TransportList from './components/admin/transport/List.vue'
-import TransportAdd from './components/admin/transport/New.vue'
+import TransportList from './components/admin/transport/List-transport.vue'
+import TransportAdd from './components/admin/transport/New-transport.vue'
 
 
 //SALES department
-import SalesList from './components/admin/sales/List.vue'
-import SalesAdd from './components/admin/sales/New.vue'
+import SalesList from './components/admin/sales/List-sale.vue'
+import SalesAdd from './components/admin/sales/New-sale.vue'
 
 
 
 
 export const routes = [
     {
-        path:'/admin',
-        component:AdminHome
+        path:'/admin/dashboard',
+        component:AdminDashboard
     },
     
-    {
-        path:'/category-list',
-        component:CategoryList
-    },
-    {
-        path:'/add-category',
-        component:AddCategory
-    },
-    {
-        path:'/edit-category/:categoryid',
-        component:EditCategory
-    },
-    // Post
-    {
-        path:'/post-list',
-        component:PostList
-    },
-    {
-        path:'/add-post',
-        component:AddPost
-    },
-    {
-        path:'/edit-post/:postid',
-        component:EditPost
-    },
-
       // itinerary
     {
         path:'/itinerary-list',
@@ -111,17 +81,14 @@ export const routes = [
         component:AddDayItineraryList
     },
     {
-        path:'/view-itinerary',
+        path:'/view-itinerary/:id',
         component:ItineraryView
     },
     {
         path:'/itinerary-department',
         component:ItineraryDepartment
     },
-    {
-        path:'/table',
-        component:ItineraryTable
-    },
+
     {
         path:'/day',
         component:ItineraryDay
@@ -188,10 +155,17 @@ export const routes = [
         component:ExploreList
     },
     {
+        path:'/explore-datail/:id',
+        component:ExploreDetail
+    },
+    {
         path:'/lists',
         component:ListItinerary
     },
-    
+    {
+        path:'/search',
+        component:Search
+    }
 
 ];
 

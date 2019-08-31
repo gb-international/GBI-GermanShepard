@@ -166,6 +166,7 @@ box-shadow: 0 0 3px #CC0000;
 			display: block;
 			margin: 0 auto;
 			font-family: $font-family-raleway;
+			padding-top: 27px;
 		}
 
 }
@@ -663,13 +664,14 @@ box-shadow: 0 0 3px #CC0000;
 	width:100%;
 		h1 {
 	 	color:$text-black;
-	 	font-size:$dourstoryh-font-size;
+	 	font-size:$mourstoryh1-font-size;
 	 	margin-bottom: 21px;
 	 	font-family: $fontfamily;
+	 	font-weight: 600;
 	}
 	h2{
 		color: $text-grey;
-		font-size:$dourstoryh2-font-size;
+		font-size: $mourstoryh2-font-size;
 		margin-bottom: 21px;
 		font-family: $fontfamily;
 	}
@@ -695,7 +697,7 @@ box-shadow: 0 0 3px #CC0000;
 		font-size:$dourstoryh-font-size;
 		display: inline-block;
 		text-align: justify;
-		
+		font-family: $fontfamily;
 
 	}
 .ourstory-content
@@ -710,13 +712,13 @@ box-shadow: 0 0 3px #CC0000;
 	{
 		color: $text-grey;
 		font-size:$dourstoryh2-font-size;
-		
+		font-family: $fontfamily;
 	}
 	p
 	 {
 		color: lighten($text-black, 50%);
 		font-size:$dourstoryp-font-size;
-			
+		font-family: $fontfamily;	
 		}
 	img 
 		{
@@ -732,7 +734,7 @@ box-shadow: 0 0 3px #CC0000;
 {
 	width:100%;
 	background-color: $oustorywhitebgcolor;
-	height: 460px;
+	height: 520px;
 	margin-bottom: 10px;
 
 .ourstory-content
@@ -744,22 +746,25 @@ box-shadow: 0 0 3px #CC0000;
 	
 	h1
 	{
-		color: lighten($text-black, 50%);
+		color: $text-grey;
 		font-size:$dourstoryh-font-size;
 		display: inline-block;
 		text-align: justify;
-		
+		font-family: $fontfamily;
+		padding-top: 15px;
 	}
 	h2
 	{
 		color: $text-grey;
 		font-size:$mourstoryh2-font-size;
 		margin-top: 17px;
+		font-family: $fontfamily;
 	}
 	p
 	 {
 		color: lighten($text-black, 50%);
 		font-size:$dourstoryp-font-size;
+		font-family: $fontfamily;
 		}
 	img 
 		{
@@ -775,12 +780,12 @@ box-shadow: 0 0 3px #CC0000;
 {
 	width: 100%;
 	background-color: $oustorybgcolor;
-	height: 1030px;
+	height: 1060px;
 	
 	h1
 		{
 		color: $text-grey;
-	 	font-size: $dourstoryh-font-size;
+	 	font-size: $mourstoryh1-font-size;
 	 	display: inline-block;
 		text-align: center;
 		width: 100%;
@@ -808,7 +813,12 @@ box-shadow: 0 0 3px #CC0000;
 		
 	}
 }
-
+.experience-heading
+	 {
+		color:$text-black;
+	 	font-size:$mourstoryh-font-size;
+	 	
+		}
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -950,7 +960,7 @@ box-shadow: 0 0 3px #CC0000;
 		font-size:$mourstoryh2-font-size;
 		margin-bottom: 15px;
 		margin-top: 25px;
-		font-weight: 600;
+		/* font-weight: 600; */
 	}
 	p{
 		color: lighten($text-black, 50%);
@@ -1001,6 +1011,7 @@ box-shadow: 0 0 3px #CC0000;
 			display: block;
 			margin: 0 auto;
 			float: right;
+			padding-top: 30px;
 		}
 
 }
@@ -1044,18 +1055,24 @@ box-shadow: 0 0 3px #CC0000;
 		{
 			display: block;
 			margin: 0 auto;
-			padding-top: 70px;
+			padding-top: 6px;
 			float: left;
 		}
 
 }
 }
-
+.cards-img
+{
+	padding-top: 20px;
+	width: 80px;
+	margin: 0 auto;
+}
 .about-story-face
 {
 	width:100%;
 	background-color:$oustorybgcolor;
 	height:410px;
+	margin-top: 20px;
 	
 	h1
 		{

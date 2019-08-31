@@ -57,26 +57,26 @@
       <div class="nav-mobile"><a id="nav-toggle" href="javascript:void(0);"><span></span></a></div>
       <ul class="nav-list">
         <li>
-          <a href="{{ route('explore-destination') }}">Explore Destination</a>
+          <a href="{{ route('explore-destination') }}" class="{{ Request::segment(1) === 'explore-destination' ? 'active' : null }}">Explore Destination</a>
         </li>
          <li>
           <a href="javascript:void(0);">Resources</a>
           <ul class="nav-dropdown">
-            <li><a href="{{ route('travel-and-education') }}">Travel & Education</a></li>
-            <li><a href="{{ route('safety-and-security') }}">Safety & Security</a></li>
-            <li><a href="{{ route('faq') }}">FAQ</a></li>
+            <li><a href="{{ route('travel-and-education') }}" class="{{ Request::segment(1) === 'travel-and-education' ? 'active' : null }}">Travel & Education</a></li>
+            <li><a href="{{ route('safety-and-security') }}" class="{{ Request::segment(1) === 'safety-and-security' ? 'active' : null }}">Safety & Security</a></li>
+            <li><a href="{{ route('faq') }}" class="{{ Request::segment(1) === 'faq' ? 'active' : null }}">FAQ</a></li>
           </ul>
         </li>
-         <li><a href="https://gowithgbi.wordpress.com/" target="_blank">GBI Travel Blog</a></li>
+         <li><a href="https://gowithgbi.wordpress.com/">GBI Travel Blog</a></li>
         <li>
           <a href="javascript:void(0);">About Us</a>
           <ul class="nav-dropdown">
-            <li><a href="{{ route('ourstory') }}">Our Story</a></li>
-            <li><a href="{{ route('how-we-work') }}">How We Work</a></li>
-            <li><a href="{{ route('join-our-team') }}">Join Our Team</a></li>
+            <li><a href="{{ route('ourstory') }}" class="{{ Request::segment(1) === 'ourstory' ? 'active' : null }}">Our Story</a></li>
+            <li><a href="{{ route('how-we-work') }}" class="{{ Request::segment(1) === 'how-we-work' ? 'active' : null }}">How We Work</a></li>
+            <li><a href="{{ route('join-our-team') }}" class="{{ Request::segment(1) === 'join-our-team' ? 'active' : null }}">Join Our Team</a></li>
           </ul>
         </li>
-         <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
+         <li><a href="{{ route('contact-us') }}" class="{{ Request::segment(1) === 'contact-us' ? 'active' : null }}">Contact Us</a></li>
       </ul>
     </nav>
   </div>
@@ -148,28 +148,28 @@
   </footer>
          <div class="col-md-12 m-bottom">
             <div class="navbar-bottom">
-                 <a href="{{ url('/') }}" class="active">
+                <a href="{{ url('/') }}" class="{{ Request::segment(1) === '' ? 'active' : null }}">
                   <div class="nav-font">
                     <i class="fas fa-home"></i>
                     </div>
                     <div class="nav-font"> home
                     </div>
                   </a>
-                  <a href="{{ route('explore-destination') }}">
+                  <a href="{{ route('explore-destination') }}" class="{{ Request::segment(1) === 'explore-destination' ? 'active' : null }}">
                   <div class="nav-font">
                     <i class="fas fa-map-marked-alt"></i>
                     </div>
                     <div class="nav-font"> explore
                     </div>
                   </a>
-                  <a href="{{ route('explore-destination') }}">
+                  <a href="tel:+9810055102" class="{{ Request::segment(1) === 'call' ? 'active' : null }}">
                   <div class="nav-font">
                     <i class="fas fa-phone tranform-icon"></i>
                     </div>
                     <div class="nav-font"> call
                     </div>
                   </a>
-                  <a href="#home">
+                  <a href="#profile" class="{{ Request::segment(1) === 'profile' ? 'active' : null }}">
                   <div class="nav-font">
                     <i class="fas fa-user-alt"></i>
                     </div>

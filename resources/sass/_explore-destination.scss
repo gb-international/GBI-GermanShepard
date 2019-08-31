@@ -1,20 +1,76 @@
 /* explore-destination css*/
+.clear {
+
+    clear: both;
+    margin-bottom: 27px !important;
+
+}
+.m-t-5
+{
+	margin-top: 5px;
+}
+.bccolor
+{
+    // background-color: red;  
+  height: 450px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  bottom: 395px;
+  text-align: center;
+  margin-bottom: -400px;
+  overflow: hidden;
+}
 .banner-img
 {
 	width: 100%;
 	padding-top: 4PX;
-	margin-bottom: -80px;
+	
 }
 
+.top-m-7
+{
+	margin-top: 7px;
+}
 .imgcircle
 {
 	height: 70px;
 	border-radius: 50%;
 	width: 70px;
 }
+
+.serch-explo-menu
+{
+	li
+	{
+		margin-bottom: 0px !important;
+	}
+	.active
+	{
+		color: #ffffff !important;
+		background-color: #00aeefa8 !important;
+		border-color: #00aeefa8 !important;
+		border-radius: 0px 0px 0 0 !important;
+	}
+	a:hover
+	{
+		background-color: #00aeefa8 !important;
+		color: #ffffff !important;
+		border-color: #00aeefa8 !important;
+		border-radius: 0px !important;
+	}
+}
+
+.upcom-pack
+{
+	border-bottom: 0px solid #dee2e6 !important;
+
+}
+	
 .border-none
 {
 	margin-right: 0px!important;
+	border-radius: 0px solid #ddd !important;
 }
 .bg-color-tour
 {
@@ -30,13 +86,17 @@
 }
 .border-color-tour
 {
-	border-bottom: 1px solid #dee2e6;
-	border-left: 1px solid #dee2e6;
-	border-right: 1px solid #dee2e6;
 	border-radius: 0px 5px 5px 5px;
 	padding: 20px;
+	border: 0px solid #ddd !important;
+
 }
 
+.upcom-head
+	{
+		color: #666666 !important;
+	}
+	
 .upcomin-days-tour
 {
 	position: relative;
@@ -47,7 +107,7 @@
 		font-size: 15px;
 		font-weight: 700;
 		color: $fa-icon-color;
-		padding-top: 2px;
+		padding-top: 7px;
 		font-family: $fontfamily;
 		text-transform: capitalize;
 	}
@@ -59,32 +119,35 @@
 	}
 
 }
+
 .nav-sreach-explo
 {
 	position: relative;
-	bottom: 320px;
+	/* bottom: 320px; */
 	
 }
 
 .serch-explo-menu
 {
-	border-bottom: 1px solid #88b5c633 !important;
+	border-bottom: 0px solid #88b5c633 !important;
 
 	li
 	{
-		background-color: #00aeefa8;
+		/* background-color: #ffffff; */
 	}
 	a 
 	{
-		color: #fff;
+		color: #000;
 		font-weight: 700;
+		background-color: $backbroundcolor !important;
+		border-radius: 0px 0px 0 0 !important;
 	}
 }
 .explor-content
 {
 	padding-bottom: 11px;
 	background-color: #00aeefa8;
-	border-radius: 5px;
+	border-radius: 0px 0px 5px 5px;
 }
 .button-explo
 {
@@ -111,7 +174,7 @@ select {
   outline: 0;
   box-shadow: none;
   border: 0 !important;
-  background: #fff;
+  background: $backbroundcolor;
   background-image: none;
 }
 /* Remove IE arrow */
@@ -125,14 +188,14 @@ select::-ms-expand {
   /* width: 160px; */
  /* height: 3em; */
   line-height: 3;
-  background: #fff;
+  background: $backbroundcolor;
   overflow: hidden;
   border-radius: .25em;
 }
 select {
   flex: 1;
   padding: 0 .5em;
-  color: #666;
+  color: $text-greycolor;
   cursor: pointer;
 }
 /* Arrow */
@@ -142,7 +205,7 @@ select {
   top: 0;
   right: 0;
   padding: 0 1em;
-  background: #fff;
+  background: $backbroundcolor;
   cursor: pointer;
   pointer-events: none;
   -webkit-transition: .25s all ease;
@@ -159,12 +222,21 @@ select {
    padding-right: 5 !important;
 }
 
+.explor-content
+{
+	input[type="text"], select, textarea
+	{
+		border: 0px solid #ccc !important;
+	}
+}
+
 /*end select css*/
 /* start explor list */
 .card-radis-list
 {
 	border-radius: 10px !important;
 	background-color: $card-back-color !important;
+	border: 0px solid rgba(0, 0, 0, 0.125) !important;
 }
 
 .card-horizontal {
@@ -246,7 +318,52 @@ router-link:hover
 	border-radius: 5px !important;
 }
 /* end explor list */
+/*start exploe detail page */
+.textexp{
+  text-align: justify !important;
+}
+.card{
+border: 0px solid gray !important;
+padding-: 10px;
+color: #000;
 
+}
+.card:hover{
+  text-decoration: none;
+  }
+  a:hover
+  {
+    text-decoration: none;
+  }
+  .explor-head
+  {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  .headback
+  {
+    background-color: $explor-text-bgcolor;
+    color: $text-white;
+    padding: 10px;
+    border: 1px solid $explor-text-bgcolor;
+    border-radius: 35px; 
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: capitalize;
+  }
+  .main-head
+  {
+    font-size: 25px;
+    font-weight: 600;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+/*end exploe detail page */
 @media (max-width: 320px) {
 
 .search-source
@@ -359,14 +476,23 @@ router-link:hover
 	padding: 13px 15px 13px 18px;
 	background-color: #fff;
 }
-.banner-img
-{
-	height: 470px;
+.banner-img {
+
+    height: 450px;
+    margin-bottom: -22px;
+
 }
 .serch-button
 {
 	position: absolute;
 	bottom: 380px;
+}
+.explor-content
+{
+	.btn-block
+	{
+		font-size: 16px;
+	}
 }
 /* start explor list */
 
@@ -395,24 +521,19 @@ router-link:hover
 .nav-sreach-explo
 {
 	position: relative;
-	bottom: 300px;
+	/* bottom: 300px; */
 	
 }
 .button-explo
 {
-	margin-top: -260px;
+	/* margin-top: -260px; */
 
 	button
 	{
 		padding: 7px 80px;
 	}
 }
-.banner-img
-{
-	height: 600px;
-	margin-bottom: -250px;
-	
-}
+
 .explor-content
 {
 	.input-p
@@ -420,6 +541,12 @@ router-link:hover
 		padding: 2px;
 	}
 }
+
+.nopadding {
+   padding-left: 5 !important;
+   padding-right: 5 !important;
+}
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -428,6 +555,15 @@ router-link:hover
     height: 35px;
 	border-radius: 50%;
 	width: 70px;
+}
+.nopadding {
+   padding-left: 5 !important;
+   padding-right: 5 !important;
+}
+.padding-head
+{
+	padding: 4px !important;
+	left: 0px !important;
 }
 .upcomin-days-tour
 {
@@ -451,7 +587,7 @@ router-link:hover
 .nav-sreach-explo
 {
 	position: relative;
-	bottom: 300px;
+	/* bottom: 300px; */
 	
 }
 .button-explo
@@ -463,11 +599,16 @@ router-link:hover
 		padding: 7px 80px;
 	}
 }
-.banner-img
-{
-	height: 500px;
-	margin-bottom: -140px;
-	
+.banner-img {
+
+    height: 433px;
+	margin-bottom: 1px;
+
+}
+.top-m-7 {
+
+    margin-top: -80px;
+
 }
 .explor-content
 {

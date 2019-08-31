@@ -1005,14 +1005,20 @@ padding-top: 10px;
 
 h4{
 text-align: center;
-font-size: $mch-font-size;
+font-size: $mch2-font-size;
 color: lighten($text-black, 50%);
 margin-bottom: 25px;
 font-family: $fontfamily;
 }
 }
+.card-title
+{
+	text-align: center;
+	font-weight: 600;
+	font-size: $mch2-font-size;
+}
 .card-imgs {
-    width: 150px;
+    width: 85px;
     margin: 0 auto;
   }
 
@@ -1544,7 +1550,8 @@ color: $text-black;
 font-family: $fontfamily;
 width: 80%;
 margin: 0 auto;
-padding-bottom: 15px;
+padding-bottom: 10px;
+padding-top: 35px;
 }
 
 h4{
@@ -1574,7 +1581,7 @@ display: block;
 text-align: center;
 color: $text-black;
 font-size: $dvpanelh-font-size;
-margin-top: 37px;
+margin-top: 15px;
 font-family: $fontfamily;
 }
 .content-video p {
@@ -1584,7 +1591,7 @@ font-size: $dvpanelp-font-size;
 font-family: $fontfamily;
 }
 .content-video article {
-padding: 50px;
+  padding: 50px 50px 15px 50px;
 }
 /* testimonials*/
 .testimonials {
@@ -1623,7 +1630,7 @@ color: $text-black;
 text-align: center;
 text-transform: uppercase;
 font-size: $dcustomerfh-font-size;
-padding-bottom: 20px;
+padding-bottom: 0px;
 font-family: $fontfamily;
 }
 .testimonials-block {
@@ -1713,7 +1720,7 @@ text-align: center;
 color: $text-black;
 font-size: $dvpanelh-font-size;
 font-family: $fontfamily;
-margin-bottom: 20px;
+margin-bottom: 6px;
 
 }
 .gallary  p

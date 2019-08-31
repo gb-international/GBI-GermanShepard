@@ -9,6 +9,11 @@
 	width: 100%;
 }
 }
+.safe-seu-img
+{
+	width: 100%;
+	padding-top: 4PX;
+}
 .edutravel-content
 {
 	padding-bottom: 5px;
@@ -20,6 +25,7 @@
 		padding-top: 32px;
 		font-weight: 600;
 		padding: 10px;
+		font-family: $fontfamily;
 	}
 	p 
 	{
@@ -28,6 +34,7 @@
 		margin-bottom: 20px;
 		text-align: justify;
 		padding: 10px;
+		font-family: $fontfamily;
 	}
 }
 .section-edu
@@ -40,7 +47,7 @@
 	{
 		color: $text-grey;
 		font-size: $dedutravelh-font-size;
-		margin-bottom: 15px;
+		margin-bottom: 20px;
 		padding-top: 32px;
 		text-align: center;
 		width: 70%;
@@ -59,7 +66,7 @@
 		float: left;
 			img
 			{
-				margin-top: 10px;
+				margin-top: 20px;
 				margin-bottom: 10px;
 				display: inline-block;
 			}
@@ -73,6 +80,7 @@
 				width: 100%;
 				display: block;
 				font-family: $fontfamily;
+				font-weight: 700;
 			}
 			p 
 			{
@@ -199,7 +207,7 @@ h1 {
 	{
 		color: $text-grey;
 		font-size: $medutravelh2-font-size;
-		margin-bottom: 15px;
+		margin-bottom: 20px;
 		padding-top: 32px;
 		text-align: center;
 		width: 80%;
@@ -218,7 +226,7 @@ h1 {
 		border-top: 1px solid #ddd;
 			img
 			{
-				margin-top: 15px;
+				margin-top: 20px;
 				margin-bottom: 15px;
 				display: inline-block;
 			}
@@ -358,7 +366,7 @@ h1 {
 	{
 		color: $text-grey;
 		font-size: $medutravelh2-font-size;
-		margin-bottom: 15px;
+		margin-bottom: 20px;
 		padding-top: 32px;
 		text-align: center;
 		width: 80%;
@@ -377,7 +385,7 @@ h1 {
 		border-top: 1px solid #ddd;
 			img
 			{
-				margin-top: 15px;
+				margin-top: 20px;
 				margin-bottom: 15px;
 				display: inline-block;
 			}
@@ -516,7 +524,7 @@ h1 {
 	{
 		color: $text-grey;
 		font-size: $medutravelh2-font-size;
-		margin-bottom: 15px;
+		margin-bottom: 20px;
 		padding-top: 32px;
 		text-align: center;
 		width: 80%;
@@ -535,7 +543,7 @@ h1 {
 		border-top: 1px solid #ddd;
 			img
 			{
-				margin-top: 15px;
+				margin-top: 20px;
 				margin-bottom: 15px;
 				display: inline-block;
 			}
@@ -573,7 +581,10 @@ h1 {
 }
 }
 @media (max-width: 767px) {
-
+.safe-seu-img
+{
+	height: 150px;
+}
 .edutravel-heading
 { 
 	padding-left: 0px;
@@ -618,7 +629,7 @@ h1 {
 	{
 		color: $text-grey;
 		font-size: $medutravelh2-font-size;
-		margin-bottom: 15px;
+		margin-bottom: 20px;
 		padding-top: 32px;
 		text-align: center;
 		width: 80%;
@@ -637,7 +648,7 @@ h1 {
 		border-top: 1px solid #ddd;
 			img
 			{
-				margin-top: 15px;
+				margin-top: 20px;
 				margin-bottom: 15px;
 				display: inline-block;
 			}
@@ -682,18 +693,19 @@ h1 {
 	text-align: justify;
 	h1 {
 	 	color:$text-black;
-	 	font-size:$mourstoryh-font-size;
+	 	font-size:$mourstoryh1-font-size;
 	 	margin-bottom: 0px;
 	 	font-family: $fontfamily;
-	 	padding: 10px;
+	 	padding: 0px;
 	 	text-align: center;
+	 	font-weight: 600;
 	}
 	h2{
 		color: $text-grey;
 		font-size:$mourstoryh2-font-size;
 		margin-bottom: 15px;
 		font-family: $fontfamily;
-		padding: 10px;
+		text-align: center;
 	}
 	p{
 		color: lighten($text-black, 50%);
@@ -734,7 +746,7 @@ h1 {
 @media (min-width: 768px) and (max-width: 1024px) {
 .edutravel-heading
 { 
-	padding-left: 18px;
+	padding-left: 0px;
 	padding-right: 50px;
 
 	h1 {
@@ -774,7 +786,7 @@ h1 {
 	{
 		color: $text-grey;
 		font-size: $dedutravelh-font-size;
-		margin-bottom: 15px;
+		margin-bottom: 20px;
 		padding-top: 32px;
 		text-align: center;
 		width: 70%;
@@ -882,7 +894,7 @@ h1 {
 @media (min-width: 1025px) and (max-width: 1280px) {
 .edutravel-heading
 { 
-	padding-left: 18px;
+	padding-left: 0px;
 	padding-right: 77px;
 
 	h1 {
@@ -918,12 +930,13 @@ h1 {
 	width: 100%;
 	margin: 0 auto;
 	height: 300px;
+	padding-bottom: 20px;
 
 	h2 
 	{
 		color: $text-grey;
 		font-size: $dedutravelh-font-size;
-		margin-bottom: 15px;
+		margin-bottom: 30px;
 		padding-top: 32px;
 		text-align: center;
 		width: 70%;
@@ -941,7 +954,7 @@ h1 {
 		float: left;
 			img
 			{
-				margin-top: 10px;
+				margin-top: 20px;
 				margin-bottom: 15px;
 				display: inline-block;
 			}
@@ -1030,92 +1043,92 @@ h1 {
 }
 
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+// @media (min-width: 1025px) and (max-width: 1280px) {
 
-.edutravel-heading
-{ h1 {
+// .edutravel-heading
+// { h1 {
 
-    color: $text-black;
-    font-size: $dedutravelh-font-size;
-    padding: 20px;
-	width: 100%;
-}
-}
-.edutravel-content
-{
-	padding-bottom: 5px;
-	h2
-	{
-		color: $text-grey;
-		font-size: $dedutravelp-font-size;
-		margin-bottom: 15px;
-		padding-top: 32px;
-	}
-	p 
-	{
-		color: $text-grey;
-		font-size: $dedutravelp-font-size;
-		margin-bottom: 20px;
-		text-align: justify;
-	}
-}
-.section-edu
-{
-	width: 100%;
-	margin: 0 auto;
-	height: 300px;
+//     color: $text-black;
+//     font-size: $dedutravelh-font-size;
+//     padding: 20px;
+// 	width: 100%;
+// }
+// }
+// .edutravel-content
+// {
+// 	padding-bottom: 5px;
+// 	h2
+// 	{
+// 		color: $text-grey;
+// 		font-size: $dedutravelp-font-size;
+// 		margin-bottom: 15px;
+// 		padding-top: 32px;
+// 	}
+// 	p 
+// 	{
+// 		color: $text-grey;
+// 		font-size: $dedutravelp-font-size;
+// 		margin-bottom: 20px;
+// 		text-align: justify;
+// 	}
+// }
+// .section-edu
+// {
+// 	width: 100%;
+// 	margin: 0 auto;
+// 	height: 300px;
 
-	h2 
-	{
-		color: $text-grey;
-		font-size: $dedutravelh-font-size;
-		margin-bottom: 15px;
-		padding-top: 32px;
-		text-align: center;
-		width: 70%;
-		display: block;
-		margin-left: 169px;
-		font-family: $fontfamily;
-	}
+// 	h2 
+// 	{
+// 		color: $text-grey;
+// 		font-size: $dedutravelh-font-size;
+// 		margin-bottom: 20px;
+// 		padding-top: 32px;
+// 		text-align: center;
+// 		width: 70%;
+// 		display: block;
+// 		margin-left: 169px;
+// 		font-family: $fontfamily;
+// 	}
 
-	.edu-blockcontent
-	{
-		width: 33.33%;
-		height: 300px;
-		margin: 0 auto;
-		text-align: center;
-		float: left;
-			img
-			{
-				margin-top: 10px;
-				margin-bottom: 15px;
-				display: inline-block;
-			}
-			h3
-			{
-				color: $text-grey;
-				font-size: $dedutravelp-font-size;
-				margin-bottom: 5px;
-				padding-top: 10px;
-				text-align: center;
-				width: 100%;
-				display: block;
-				font-family: $fontfamily;
-			}
-			p 
-			{
-			color: $text-grey;
-			font-size: $dedutravelp-font-size;
-			margin-bottom: 20px;
-			text-align: center;
-    		padding: 12px;
-    		font-family: $fontfamily;
-			}
+// 	.edu-blockcontent
+// 	{
+// 		width: 33.33%;
+// 		height: 300px;
+// 		margin: 0 auto;
+// 		text-align: center;
+// 		float: left;
+// 			img
+// 			{
+// 				margin-top: 20px;
+// 				margin-bottom: 15px;
+// 				display: inline-block;
+// 			}
+// 			h3
+// 			{
+// 				color: $text-grey;
+// 				font-size: $dedutravelp-font-size;
+// 				margin-bottom: 5px;
+// 				padding-top: 10px;
+// 				text-align: center;
+// 				width: 100%;
+// 				display: block;
+// 				font-family: $fontfamily;
+// 			}
+// 			p 
+// 			{
+// 			color: $text-grey;
+// 			font-size: $dedutravelp-font-size;
+// 			margin-bottom: 20px;
+// 			text-align: center;
+//     		padding: 12px;
+//     		font-family: $fontfamily;
+// 			}
 
 			
-	}
-}
-}
+// 	}
+// }
+// }
 
 
 

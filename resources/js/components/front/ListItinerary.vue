@@ -1,64 +1,75 @@
 <!-- List all itinerary template -->
 <template>
-	<div id="listitinerary">
-		<div class="container">
-      <div class="col-xs-12">
-        <div>
-                      <button class="button btn-xs btn-success" @click="addRow">+</button>
-                  </div>
-                  <table>
-                     <tbody>
-                      <tr v-for="(row, index) in rows" :row="row">
-                          <td>
-                              <input type="text" class="form-control nopadding text-center" v-model="row[0]">
-                          </td>
-                          <td>
-                              <input type="text" class="form-control nopadding text-center">
-                          </td>
-                          <td>
-                              <input type="text" class="form-control nopadding text-center">
-                          </td>
-                          <td>
-                              <input type="text" class="form-control nopadding text-center">
-                          </td>
-                          <td>
-                            <button type="button" class="text-center button btn-xs btn-danger" v-on:click="removeRow(index)">-</button>
-                          </td>
-                      </tr>
-                    </tbody>
-                  </table>
-       
-      </div>
-    </div>
-	</div>
-	
+  <div id="listitinerary">
+      <input type="text" v-model="search" placeholder="search">
+    <ul>
+      <li v-for="result in filteredCoins">
+      {{ result.source }} 
+    </li>
+</ul>
+  
+</v-layout>
+
+  </div>
+  
 </template>
 
 <script>
-	export default {
-        name: "ListItinerary",
-         data(){
+ export default {
+  name: "ListItinerary",
+    data() {
+    return {
+      data: [],
+      search: ''
+    };
+  },
+ computed: {
+      filteredCoins () {
+        if (!this.search) return this.data
+        return this.data.filter((result) => {
+          return result.source.toLowerCase().includes(this.search.toLowerCase());
+        });
+      }
+    },
+    created () {
+      axios.get('/api/search').then(response => {
+        this.data = response.data.data;
+       console.log(response.data.data);
+      });
+    }
 
-            return {
-              // Create a new form instance
-              rows: [{
-		        row: []
-		      }]
-            }
-        },
-        methods:
-        {
-           addRow() {
-            this.rows.push({
-	          row: []
-	        });
-	      },
-	      removeRow: function(index) {
-	        console.log("Removing", index);
-	        this.rows.splice(index, 1);
-	      }          
-           
-        }
+
+
+    
     }
 </script>
-<style scoped></style>
+
+<style scoped>
+.autocomplete {
+  position: relative;
+  width: 130px;
+}
+
+.autocomplete-results {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #eeeeee;
+  height: 120px;
+  overflow: auto;
+  width: 100%;
+}
+
+.autocomplete-result {
+  list-style: none;
+  text-align: left;
+  padding: 4px 2px;
+  cursor: pointer;
+}
+
+.autocomplete-result.is-active,
+.autocomplete-result:hover {
+  background-color: #4aae9b;
+  color: white;
+}
+
+</style>

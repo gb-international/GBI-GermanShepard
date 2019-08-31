@@ -14,7 +14,6 @@
 @import 'sections';
 @import 'responsive';
 @import 'explore-destination';
-@import 'admin';
 
 
 // Bootstrap
@@ -33,4 +32,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.error404
+{
+	margin: auto;
+	margin-bottom: 5px;
+	margin-top: 2px;
+}
 

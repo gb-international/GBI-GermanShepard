@@ -1,24 +1,31 @@
 // Navigation Variables
-$content-width: 1124px;
+$content-width: 1140px;
 $breakpoint: 899px;
 $nav-height: 85px;
 $nav-background: #ffffff;
 $nav-font-color: #000000;
 $link-hover-color: #dddddd;
-
+$bottom-nav-bgcolor: #ebebeb;
+$bottom-nav-icon: #666666;
 
 
 // Outer navigation wrapper
 .navigation {
   height: $nav-height;
   background: $nav-background;
+  max-width: $content-width;
 
 }
+
+.active
+  {
+    color: #41ace0 !important;
+  }
 
 .sticky {
   position: fixed;
   top: 0;
-  width: 85%;
+  width: 86%;
   background-color: #ffffff;
   z-index: 55;
 }
@@ -50,6 +57,7 @@ a {
 // Navigation 
 .nav-custom {
   nav {
+
   float: right;
   ul {
     list-style: none;
@@ -104,7 +112,7 @@ a {
 }
 .navbar-bottom 
 {
-	display: none;
+  display: none;
 }
 /* Mobile navigation */
 
@@ -155,7 +163,6 @@ a {
 }
 
 
-
 }
 @media only screen and (max-width: 898px) {
   // Hamburger nav visible on mobile only
@@ -165,7 +172,7 @@ a {
   .nav-custom {
     nav {
    width: 100%;
-    padding: $nav-height 0 15px;
+    padding: 71px 0 14px;
     ul {
       display: none;
       li {
@@ -182,13 +189,6 @@ a {
   }
   }
   
-  .sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #ffffff;
-  z-index: 55;
-}
   .nav-dropdown {
     position: static;
   }
@@ -199,7 +199,7 @@ a {
   .nav-list {
     display: block !important;
    /*  position: absolute;
-   	z-index: 10; */
+    z-index: 10; */
   }
 }
 #nav-toggle {
@@ -249,7 +249,7 @@ a {
 /*start bottom menu*/
 .navbar-bottom {
   overflow: hidden;
-  background-color: #666666;
+  background-color: $bottom-nav-bgcolor;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -259,7 +259,7 @@ a {
 .navbar-bottom a {
   float: left;
   display: block;
-  color: #ffffff;
+  color: $bottom-nav-icon;
   text-align: center;
   padding: 4px 12px;
   text-decoration: none;
@@ -267,11 +267,11 @@ a {
 }
 .nav-font
 {
-	font-size: 14px;
+  font-size: 14px;
 }
 
 .navbar-bottom a:hover {
-  background: #00aeef;
+  background: none;
   color: black;
   text-decoration: none;
 }
@@ -280,7 +280,7 @@ a:hover {
   text-decoration: none;
 }
 .navbar-bottom a.active {
-  background-color: #666666;
+  background-color: $bottom-nav-bgcolor;
   color: #00aeef;
 }
 /*end bottom menu*/
@@ -290,7 +290,7 @@ a:hover {
 /*start bottom menu*/
 .navbar-bottom {
   overflow: hidden;
-  background-color: #666666;
+  background-color: $bottom-nav-bgcolor;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -300,7 +300,7 @@ a:hover {
 .navbar-bottom a {
   float: left;
   display: block;
-  color: #ffffff;
+  color: $bottom-nav-icon;
   text-align: center;
   padding: 4px 12px;
   text-decoration: none;
@@ -308,11 +308,11 @@ a:hover {
 }
 .nav-font
 {
-	font-size: 14px;
+  font-size: 14px;
 }
 
 .navbar-bottom a:hover {
-  background: #00aeef;
+  background: none;
   color: black;
   text-decoration: none;
 }
@@ -321,7 +321,7 @@ a:hover {
   text-decoration: none;
 }
 .navbar-bottom a.active {
-  background-color: #666666;
+  background-color: $bottom-nav-bgcolor;
   color: #00aeef;
 }
 /*end bottom menu*/
@@ -331,7 +331,7 @@ a:hover {
 /*start bottom menu*/
 .navbar-bottom {
   overflow: hidden;
-  background-color: #666666;
+  background-color: $bottom-nav-bgcolor;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -341,7 +341,7 @@ a:hover {
 .navbar-bottom a {
   float: left;
   display: block;
-  color: #ffffff;
+  color: $bottom-nav-icon;
   text-align: center;
   padding: 4px 12px;
   text-decoration: none;
@@ -349,11 +349,11 @@ a:hover {
 }
 .nav-font
 {
-	font-size: 14px;
+  font-size: 14px;
 }
 
 .navbar-bottom a:hover {
-  background: #00aeef;
+  background: none;
   color: black;
   text-decoration: none;
 }
@@ -362,7 +362,7 @@ a:hover {
   text-decoration: none;
 }
 .navbar-bottom a.active {
-  background-color: #666666;
+  background-color: $bottom-nav-bgcolor;
   color: #00aeef;
 }
 /*end bottom menu*/
@@ -372,7 +372,7 @@ a:hover {
 /*start bottom menu*/
 .navbar-bottom {
   overflow: hidden;
-  background-color: #666666;
+  background-color: $bottom-nav-bgcolor;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -382,7 +382,7 @@ a:hover {
 .navbar-bottom a {
   float: left;
   display: block;
-  color: #ffffff;
+  color: $bottom-nav-icon;
   text-align: center;
   padding: 4px 12px;
   text-decoration: none;
@@ -390,11 +390,11 @@ a:hover {
 }
 .nav-font
 {
-	font-size: 14px;
+  font-size: 14px;
 }
 
 .navbar-bottom a:hover {
-  background: #00aeef;
+  background: none;
   color: black;
   text-decoration: none;
 }
@@ -403,7 +403,7 @@ a:hover {
   text-decoration: none;
 }
 .navbar-bottom a.active {
-  background-color: #666666;
+  background-color: $bottom-nav-bgcolor;
   color: #00aeef;
 }
 /*end bottom menu*/
@@ -413,7 +413,7 @@ a:hover {
 /*start bottom menu*/
 .navbar-bottom {
   overflow: hidden;
-  background-color: #666666;
+  background-color: $bottom-nav-bgcolor;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -423,7 +423,7 @@ a:hover {
 .navbar-bottom a {
   float: left;
   display: block;
-  color: #ffffff;
+  color: $bottom-nav-icon;
   text-align: center;
   padding: 4px 12px;
   text-decoration: none;
@@ -431,11 +431,11 @@ a:hover {
 }
 .nav-font
 {
-	font-size: 14px;
+  font-size: 14px;
 }
 
 .navbar-bottom a:hover {
-  background: #00aeef;
+  background: none;
   color: black;
   text-decoration: none;
 }
@@ -444,9 +444,217 @@ a:hover {
   text-decoration: none;
 }
 .navbar-bottom a.active {
-  background-color: #666666;
+  background-color: $bottom-nav-bgcolor;
   color: #00aeef;
 }
 /*end bottom menu*/
 }
 
+/* start bottom menu nav bar */
+@media (max-width: 320px) {
+/*start bottom menu*/
+.navbar-bottom {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: $bottom-nav-bgcolor;
+   color: white;
+   text-align: center;
+   display: block;
+   overflow: hidden;
+   z-index: 22;
+}
+
+.navbar-bottom a {
+  background-color: $bottom-nav-bgcolor;
+  width: 24.33%;
+  color: $bottom-nav-icon;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 17px;
+  float: left;
+}
+.nav-font
+{
+  font-size: 14px;
+}
+
+.navbar-bottom a:hover {
+  background: none;
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+.navbar-bottom a.active {
+  background-color: $bottom-nav-bgcolor;
+  color: #00aeef;
+}
+/*end bottom menu*/
+}
+
+@media (max-width: 360px) {
+/*start bottom menu*/
+.nav-font
+{
+  font-size: 14px;
+}
+
+.navbar-bottom a:hover {
+  background: none;
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+.navbar-bottom a.active {
+  background-color: $bottom-nav-bgcolor;
+  color: #00aeef;
+}
+/*end bottom menu*/
+}
+
+@media (max-width: 480px) {
+/*start bottom menu*/
+
+.nav-font
+{
+  font-size: 14px;
+}
+
+.navbar-bottom a:hover {
+  background: none;
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+.navbar-bottom a.active {
+  background-color: $bottom-nav-bgcolor;
+  color: #00aeef;
+}
+/*end bottom menu*/
+}
+
+@media (max-width: 640px) {
+/*start bottom menu*/
+.navbar-bottom a {
+  background-color: $bottom-nav-bgcolor;
+  width: 24.33%;
+  color: $bottom-nav-icon;
+  text-align: center;
+  text-decoration: none;
+}
+.nav-font
+{
+  font-size: 14px;
+}
+
+.navbar-bottom a:hover {
+  background: none;
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+.navbar-bottom a.active {
+  background-color: $bottom-nav-bgcolor;
+  color: #00aeef;
+}
+/*end bottom menu*/
+}
+
+@media (max-width: 767px) {
+/*start bottom menu*/
+.navbar-bottom {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: $bottom-nav-bgcolor;
+   color: white;
+   text-align: center;
+   display: block;
+   overflow: hidden;
+   z-index: 22;
+}
+
+.navbar-bottom a {
+  background-color: $bottom-nav-bgcolor;
+  width: 24.33%;
+  color: $bottom-nav-icon;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 17px;
+  float: left;
+}
+
+
+.nav-font
+{
+  font-size: 14px;
+  padding-top: 4px;
+  text-transform: capitalize;
+
+  .fa, .fas
+  {
+    font-size: 20px;
+  }
+}
+
+.navbar-bottom a:hover {
+  background: none;
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+.navbar-bottom a.active {
+  background-color: $bottom-nav-bgcolor;
+  color: #00aeef;
+}
+
+.tranform-icon
+{
+  transform: rotate(85deg);
+  -ms-transform: rotate(85deg); /* IE 9 */
+  -webkit-transform: rotate(85deg); /* Safari prior 9.0 */
+}
+/*end bottom menu*/
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+.m-bottom {
+  display: none;
+}
+.nav-custom nav
+{
+  padding-right: 55px;
+}
+
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+  .sticky {
+  position: fixed;
+  top: 0;
+  width: 93%;
+  background-color: #ffffff;
+  z-index: 55;
+}
+
+}

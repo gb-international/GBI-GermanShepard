@@ -63,17 +63,7 @@ Route::group(['middleware' => ['auth']], function () {
    Route::post('/add-itinerarydays/{id}','ItineraryDayController@storeDayitinerary');
 });
 
-
-
-Route::get('/blogpost','BlogController@get_all_blog_post');
-Route::get('/singlepost/{id}','BlogController@getpost_by_id');
-Route::get('/categories','BlogController@get_all_category');
-Route::get('/categorypost/{id}','BlogController@get_all_post_by_cat_id');
-Route::get('/search','BlogController@search_post');
-Route::get('/latestpost','BlogController@latest_post');
-
-
-/*start frony end router*/
+/*start front end router*/
 Route::get('/home', 'ItineraryresourcesController@index')->name('home');
 Route::post('/location', 'ItineraryresourcesController@getLocation')->name('location');
 
@@ -89,4 +79,8 @@ Route::get('/join-our-team', 'JoinourteamController@joinTeam')->name('join-our-t
 Route::post('/join-our-team/send', 'JoinourteamController@resumeSend')->name('resume.send');
 Route::get('/explore-destination', 'ExploredestinationController@expdestination')->name('explore-destination');
 
+
+Route::get('vuejs/autocomplete', 'VueJSController@autocomplete');
+
+Route::get('vuejs/autocomplete/search', 'VueJSController@autocompleteSearch');
 /*end front router*/

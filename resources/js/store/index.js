@@ -1,130 +1,50 @@
 export default {
     state:{
-        category:[],
-        post:[],
-        blogpost:[],
         singlepost:[],
-        allcategories:[],
-        latestpost:[],
-        itinerary:[],
-        itinerarydays:[],
+        alldata:[], // All data from the api
     },
+    // Getters help to fetch the data from the templates 
     getters:{
-        getCategory(state){
-            return state.category
+        // Return All the data related to the api
+        getAllData(state){
+            return state.alldata
         },
-        getAllPost(state){
-            return state.post
-        },
-        getblogPost(state){
-            return state.blogpost
-        },
-        singlepost(state){
-            return state.singlepost
-        },
-        allcategories(state){
-            return state.allcategories
-        },
-        latestpost(state){
-            return state.latestpost
-        },
-        getAllItinerary(state)
-        {
-        	return state.itinerary
-        }
 
     },
+    //getAllTableData();
     actions:{
-        allCategory(context){
-            axios.get('/category')
+        // Get all the data from the api
+        getAllData(context,api){
+            axios.get(api)
                 .then((response)=>{
-                    context.commit('categoreis',response.data.categories)
+                    context.commit('alldata',response.data.data)
                 })
-        },
-        gelAllPost(context){
-            axios.get('/post')
-                .then((response)=>{
-                    console.log(response.data)
-                    context.commit('allpost',response.data.posts)
-                })
-        },
-        getblogPost(context){
-            axios.get('/blogpost')
-                .then((response)=>{
-                    // console.log(response.data)
-                    context.commit('getblogPost',response.data.posts)
-                })
-        },
+            },
         getPostById(context,payload){
             axios.get('/singlepost/'+payload)
                 .then((response)=>{
                     context.commit('siglePost',response.data.post)
                 })
         },
-        allcategories(context){
-            axios.get('/categories')
-                .then((response)=>{
-
-                    context.commit('allcategories',response.data.categories)
-                })
-        },
-        getPostByCatId(context,payload){
-            axios.get('/categorypost/'+payload)
-                .then((response)=>{
-                    console.log(response.data.posts)
-                    context.commit('getPostByCatId',response.data.posts)
-                })
-        },
         SearchPost(context,payload){
-            axios.get('/search?s='+payload)
+            axios.get('api/search?s='+payload)
                 .then((response)=>{
-                    context.commit('getSearchPost',response.data.posts)
+                    context.commit('getSearchPost',response.data.data)
                 })
 
-        },
-        latestPost(context){
-            axios.get('/latestpost')
-                .then((response)=>{
-                    // console.log(response.data)
-                    context.commit('latestpost',response.data.posts)
-                })
-        },
-         gelAllitinerary(context){
-            axios.get('/itinerary')
-                .then((response)=>{
-                    console.log(response.data)
-                    context.commit('allitineraries',response.data.itineraries)
-                })
         },
        
     },
     mutations:{
-        categoreis(state,data){
-            return state.category = data
-        },
-        allpost(state,payload){
-            return state.post = payload
-        },
-        getblogPost(state,payload){
-            return state.blogpost = payload
+        // Return alll the data related to the api call
+        alldata(state,data){
+            return state.alldata = data
         },
         siglePost(state,payload){
             return state.singlepost = payload
         },
-        allcategories(state,payload){
-            return state.allcategories = payload
-        },
-        getPostByCatId(state,payload){
-            state.blogpost = payload
-        },
         getSearchPost(state,payload){
-            state.blogpost = payload
+            state.alldata = payload
         },
-        latestpost(state,payload){
-            state.latestpost = payload
-        },
-        allitineraries(state,data){
-            return state.itinerary = data
-        }
     }
 }

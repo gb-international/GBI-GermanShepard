@@ -54,7 +54,7 @@
                  </tr>
                  <tr>
                   <td><img class="ic-mail" src="{{ asset('assets/front/images/email_icon.png') }}"></td>
-                  <td>info@gbinternational.in<br>reservations@gbinternational.com</td>
+                  <td>info@gbinternational.in<br>reservations@gbinternational.in</td>
                  </tr>
                  </tbody>
             </table>
