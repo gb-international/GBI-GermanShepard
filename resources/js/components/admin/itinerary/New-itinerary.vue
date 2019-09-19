@@ -7,6 +7,12 @@ to submit the data we are using a function.
 <template>
     <section class="content">
         <div class="container-fluid">
+      <!--************************************************
+
+      Template Type: Add New Itinerary
+      Author:@Ajay
+
+      ****************************************************-->
             <div class="row justify-content-around">
                 <!-- left column -->
                 <div class="col-md-12">
@@ -126,6 +132,7 @@ to submit the data we are using a function.
                                 <has-error :form="form" field="photo"></has-error>
                             </div>
                           </div>
+
                           <div class="col-sm-6">
                             <div class="form-group">
                               <input @change = "changeDetailPhoto($event)" name="detail_photo" type="file" :class="{ 'is-invalid': form.errors.has('detail_photo') }">
@@ -134,6 +141,7 @@ to submit the data we are using a function.
                             </div>
                           </div>
                         </div>
+
                         <div class="row text-center">
                           <div class="col-sm-12">
                             <div class="form-group">
@@ -167,7 +175,7 @@ to submit the data we are using a function.
                 description: '',
                 tourtype: '',
                 hoteltype: '',
-                transport: '',
+                transport_type: '',
                 photo:'',
                 detail_photo:''
                 })
@@ -215,14 +223,16 @@ to submit the data we are using a function.
             {
                 // Add transport to the transport type 
                 if(this.transport_flight == true){ // if flight is checked then add to the transport
-                  this.form.transport += 'flight';
+                  this.form.transport_type += 'flight';
                 }
                 if(this.transport_train == true){ // if train is checked then add to the transport
-                  this.form.transport += ' train';
+                  this.form.transport_type += ' train';
                 }
                 if(this.transport_bus == true){ // if bus is checked then add to the transport
-                  this.form.transport += ' bus';
+                  this.form.transport_type += ' bus';
                 }
+                 // Set noofdays in the local storage to make it avaliable to the daypage....
+                localStorage.setItem("noofdays",this.form.noofdays);
                 // Submit form 
                 this.form.post('/api/itinerary/create')
                   .then((response)=>{

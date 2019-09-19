@@ -7,6 +7,11 @@ to submit the data we are using a function.
 <template>
     <section class="content">
         <div class="container-fluid">
+      <!--************************************************
+      Template Type: Add New Sales Dep.
+      Author:@Ajay
+
+      ****************************************************-->
             <div class="row justify-content-around">
                 <!-- left column -->
                 <div class="col-md-12">
@@ -110,7 +115,7 @@ to submit the data we are using a function.
                    this.$router.push(`/sales-department-list`)
                     toast({
                         type: 'success',
-                        title: 'Escort Added successfully'
+                        title: 'Sales Added successfully'
                     })
                 })
                 .catch(()=>{

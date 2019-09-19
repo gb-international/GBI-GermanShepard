@@ -5,22 +5,22 @@
              <img class="top-img" v-bind:src="'assets/front/images/faq_banner.jpg'">
          </section>
          <div class="container">
-            <div class="row ">
-              <div class="col-lg-12">
+            <div class="row">
+              
                 <!--start card -->
                 <h1 class="main-head">{{itineraryData.title}}</h1>
-                <div class="col-lg-4 mt-3" v-for="i in day">
+                <div class="actual-grid" v-for="i in day">
+                <div class="col mt-3" >
                      <div class="card card-body shadow-none">
                         <h4 class="card-title headback">day {{i}}</h4>
                         <h1 class="explor-head">{{day_source[i-1]}} - {{day_destination[i-1]}}</h1>
                         <p class="card-text textexp">{{day_description[i-1]}}</p>
-                      
-                      </div>
+                     </div>
                </div>
-                
+               </div> 
 
                 <!-- end card-->
-               </div>
+              
             </div>
             <!-- /.row -->
         </div><!-- /.container-->
@@ -55,6 +55,7 @@
         },
 
         }
+
 </script>
 
 <style scoped>

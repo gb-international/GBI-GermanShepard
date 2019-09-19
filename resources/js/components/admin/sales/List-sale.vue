@@ -4,6 +4,11 @@ data from the api to display the data about the salesman from the backend .
 -->
 <template>
     <section class="content">
+      <!--************************************************
+      Template Type: Sales List
+      Author:@Ajay
+
+      ****************************************************-->
         <div class="row justify-content-around" >
             <div class="col-md-12">
               <div class="container container_admin_body">
@@ -72,7 +77,6 @@ data from the api to display the data about the salesman from the backend .
                    })
             },
             deleteSelected(){
-                console.log(this.categoryItem)
                axios.get('/deletecategory/'+this.categoryItem)
                    .then(()=>{
                        this.categoryItem = []
@@ -100,6 +104,3 @@ data from the api to display the data about the salesman from the backend .
 
 
 </script>
-
-<style scoped>
-</style>

@@ -6,6 +6,11 @@ It takes id from the url and get the data from the api .
 -->
 <template>
     <section class="content">
+      <!--************************************************
+      Template Type: View Itinerary Deatails
+      Author:@Ajay
+
+      ****************************************************-->
         <div class="row justify-content-around" >
             <div class="col-md-12">
               <div class="container container_admin_body">
@@ -116,6 +121,3 @@ It takes id from the url and get the data from the api .
 
 
 </script>
-
-<style scoped>
-</style>

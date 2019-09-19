@@ -1,5 +1,11 @@
 <?php
 
+      /************************************************
+      Template Type: Collection Resource for the Escort
+      Author:@Ajay
+
+      ****************************************************/
+
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;

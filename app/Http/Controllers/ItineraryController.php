@@ -19,16 +19,6 @@ class ItineraryController extends Controller
 		$itineraries = Itinerary::orderBy('id','desc')->get();
        	return response()->json([
            'itineraries'=>$itineraries ],200);
-
-
-
-
-  //      	$itineraries = Itinerary::with('user')
-		// ->where('user_id', '=', Auth::user()->id)
-		// ->orderBy('id','desc')->get();
-  //      	return response()->json([
-  //          'itineraries'=>$itineraries ],200);
-
 	}
 
 	public function allDaysitinerary($id){

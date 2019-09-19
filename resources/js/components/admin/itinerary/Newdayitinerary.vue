@@ -2,6 +2,12 @@
 <template>
     <section class="content">
         <div class="container-fluid">
+      <!--************************************************
+          
+        Template Type: Add New Itinerary Day information
+        Author:@Ajay
+
+      ****************************************************-->
             <div class="row justify-content-around">
                 <!-- left column -->
                 <div class="col-md-12">
@@ -20,8 +26,7 @@
                       <div class="card-body">
                         <div class="rows">
                        
-                          <div v-for="(item,index) in form.noofdays">
-                            <div v-if="step === index+1">
+                          <div v-if="step >= index+1">
                           <h3>Day {{ index+1 }}</h3>
                           <div class="row">
                             <div class="col-sm-6">
@@ -55,32 +60,23 @@
                          </div>
                         </div>
                       </div>
-                    </div>
                   </form>
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
 </template>
 
 <script>
    export default {
         name: "Newdayitinerary",
-         created(){
-            axios.get(`add-days-itinerary/${this.$route.params.id}`)
-                .then((response)=>{
-                    /*console.log(response.data)*/
-                    this.form.fill(response.data.itinerariesdays)
-                })
-
-        },
+         
         data(){
 
             return {
               // Create a new form instance
                step:1,
-               index:'',
+               index:0,
                daysource: [],
                daydestination:[],
                daydescription: [],
@@ -93,13 +89,18 @@
                 })
             }
         },
+        created(){
+            this.form.noofdays = localStorage.getItem("noofdays");
+        },
         methods:
         {
            prev() {
               this.step--;
+              this.index--;
             },
             next() {
               this.step++;
+              this.index++;
             },
              addItineraryday(e)
             {
@@ -126,7 +127,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>

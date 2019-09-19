@@ -1,13 +1,21 @@
 <template>
     <div id="frontmaster">
-        <router-view></router-view>
+    	<navbar :selectedOption="selectedOption"></navbar>
+    	<router-view></router-view>
     </div>
 </template>
 
 <script>
+
     export default {
-        name: "FrontMaster"
+        name: "FrontMaster",
+        data(){
+          return{
+          	selectedOption:'asdfasdf'
+          }
+        }
     }
+
 </script>
 
 <style scoped>

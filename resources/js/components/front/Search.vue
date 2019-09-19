@@ -37,7 +37,9 @@
     return {
       isOpen: false,
       results: [],
+      resultsdata: [],
       search: "",
+      searchdata: "",
       isLoading: false,
       arrowCounter: 0
     };
@@ -45,6 +47,7 @@
   created () {
       axios.get('/api/search').then(response => {
         this.results = response.data.data;
+        this.resultsdata = response.data.data;
        console.log(response.data.data);
       });
     },
@@ -86,7 +89,8 @@
       }
     },
     onEnter() {
-      this.search = this.results[this.arrowCounter];
+      console.log(this.filteredSource);
+      this.search = this.filteredSource[this.arrowCounter];
       this.isOpen = false;
       this.arrowCounter = -1;
     },

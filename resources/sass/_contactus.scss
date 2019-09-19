@@ -19,6 +19,7 @@
 		padding: 20px;
 		}
 		
+	
 		.lable-title 
 			{
 				color: #fff;
@@ -41,7 +42,17 @@
 			text-align: center;
 			color: $text-white;
 		}
-	 		
+		
+		input[type="text"], select, textarea{
+
+			height: 45px;	
+		}
+		
+	 	.alignbtn
+			{
+			  text-align: center;
+			  margin-top: 55px;
+			}	
 }
 
 	.contact-address {
@@ -149,6 +160,7 @@ input[type="submit"]:hover{
     border-radius: 4px;
     cursor: pointer;
     border: solid 1px $text-white;
+
 
 }
 .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
@@ -819,6 +831,7 @@ input[type="submit"]:hover{
 input[type="submit"]
 {
 	margin-top: 15px;
+
 }
 }
 @media (min-width: 768px) and (max-width: 1024px) {

@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
+use Session;
+use App\UserMoreInfo;
+use App\User;
+use App\Tour;
+use App\Itinerary;
 class HomeController extends Controller
 {
     /**
@@ -25,10 +30,4 @@ class HomeController extends Controller
     {
         return view('admin.adminmaster');
     }
-//    public function all_category(){
-//        $categories = Category::all();
-//        return response()->json([
-//            'categories'=>$categories
-//        ],200);
-//    }
 }

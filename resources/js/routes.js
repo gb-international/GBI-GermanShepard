@@ -6,8 +6,18 @@ import ExploreList from './components/front/ExploreList.vue'
 import ExploreDetail from './components/front/ExploreDetail.vue'
 import ListItinerary from './components/front/ListItinerary.vue'
 import Search from './components/front/Search.vue'
-
-
+import ExploreDestination from './components/front/ExploreDestination.vue'
+import Faq from './components/front/Faq.vue'
+import SafetySecurity from './components/front/SafetySecurity.vue'
+import TravelEducation from './components/front/TravelEducation.vue'
+import OurStory from './components/front/OurStory.vue'
+import HowWework from './components/front/HowWework.vue'
+import JoinOurTeam from './components/front/JoinOurTeam.vue'
+import ContactUs from './components/front/ContactUs.vue'
+import Login from './components/front/user/Login.vue'
+import Dashboard from './components/front/user/Dashboard.vue'
+import TourList from './components/front/user/Tour-list.vue'
+import Logout from './components/front/user/Logout.vue'
 
 // ADMIN PANEL
 import AdminDashboard from './components/admin/Dashboard.vue'
@@ -17,6 +27,7 @@ import AdminDashboard from './components/admin/Dashboard.vue'
 import ItineraryList from './components/admin/itinerary/List-itinerary.vue'
 import AddItinerary from './components/admin/itinerary/New-itinerary.vue'
 import EditItinerary from './components/admin/itinerary/Edit-itinerary.vue'
+import EditItineraryday from './components/admin/itinerary/Edit-itineraryday.vue'
 import AddDayItineraryList from './components/admin/itinerary/Newdayitinerary.vue'
 import ItineraryView from './components/admin/itinerary/View-itinerary.vue'
 import ItineraryDepartment from './components/admin/itinerary/Department-itinerary.vue'
@@ -75,6 +86,10 @@ export const routes = [
     {
         path:'/edit-itinerary/:itineraryid',
         component:EditItinerary
+    },
+    {
+        path:'/edit-itineraryday/:itineraryid',
+        component:EditItineraryday
     },
     {
         path:'/add-days-itinerary/:id',
@@ -165,6 +180,54 @@ export const routes = [
     {
         path:'/search',
         component:Search
+    },
+    {
+        path:'/explore-destination',
+        component:ExploreDestination
+    },
+    {
+        path:'/faq',
+        component:Faq
+    },
+    {
+        path:'/safety-security',
+        component:SafetySecurity
+    },
+    {
+       path:'/travel-education',
+       component:TravelEducation 
+    },
+    {
+        path:'/our-story',
+        component:OurStory
+    },
+    {
+        path:'/how-we-work',
+        component:HowWework
+    },
+    {
+        path:'/join-our-team',
+        component:JoinOurTeam
+    },
+    {
+        path:'/contact-us',
+        component:ContactUs
+    },
+    {
+        path:'/login',
+        component:Login
+    },
+    {
+        path:'/dashboard',
+        component:Dashboard
+    },
+    {
+        path:'/tour-list',
+        component:TourList
+    },
+    {
+        path:'/logout',
+        component:Logout
     }
 
 ];

@@ -7,18 +7,17 @@ to submit the data we are using a function.
 <template>
     <section class="content">
         <div class="container-fluid">
+          <!--************************************************
+            Template Type: Adding New Hotel
+            Author:@Ajay
+
+            ****************************************************-->
             <div class="row justify-content-around">
                 <!-- left column -->
                 <div class="col-md-12">
                     <form role="form" enctype="multipart/form-data" @submit.prevent="addHotel()">
                       <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="hotelUId">Hotel ID</label>
-                                <input type="text" class="form-control" name="hotelUId" v-model="form.hotelUId" :class="{ 'is-invalid': form.errors.has('hotelUId') }" placeholder="Enter Hotel ID" >
-                                 <has-error :form="form" field="hotelUId"></has-error>
-                            </div>
-                          </div>
+                        
                           <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="name">Hotel Name</label>
@@ -28,27 +27,40 @@ to submit the data we are using a function.
                           </div>
 
                           <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="type">Hotel Type</label>
-                                <input type="text" class="form-control" v-model="form.type" :class="{ 'is-invalid': form.errors.has('type') }"  placeholder="Enter Hotel Name" name="type">
-                                <has-error :form="form" field="type"></has-error>
+                            <div class="form-group aligen_top_input">
+                              <label for="type">Hotel Type</label><br>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="hotelRadio" name="type" v-model="form.type" :class="{ 'is-invalid': form.errors.has('type') }" value="3">
+                                <label class="custom-control-label" for="hotelRadio">3 Star</label>
+                              </div>
+                              <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="hotelRadio1" name="type"  v-model="form.type" :class="{ 'is-invalid': form.errors.has('type') }" value="4">
+                                <label class="custom-control-label" for="hotelRadio1">4 Star</label>
+                              </div> 
+                              <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="hotelRadio2" name="type"  v-model="form.type" :class="{ 'is-invalid': form.errors.has('type') }" value="5">
+                                <label class="custom-control-label" for="hotelRadio2">5 Star</label>
+                              </div> 
+                              <has-error :form="form" field="type"></has-error>
                             </div>
+                          </div>
+                          
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" class="form-control" v-model="form.location" :class="{ 'is-invalid': form.errors.has('location') }"  placeholder="Enter Location" name="location">
+                                <has-error :form="form" field="location"></has-error>
+                            </div>                          
                           </div>
 
                         </div>
                         <div class="row">
+                          
                           <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="mealType">Location</label>
-                                <input type="text" class="form-control" v-model="form.location" :class="{ 'is-invalid': form.errors.has('location') }"  placeholder="Enter Location" name="location">
+                                <label for="mealType">Meal Type</label>
+                                <input type="text" class="form-control"  placeholder="Enter Meal Type"  name="mealType" v-model="form.mealType" :class="{ 'is-invalid': form.errors.has('mealType') }">
                                 <has-error :form="form" field="mealType"></has-error>
-                            </div>                          
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="price">Meal Type</label>
-                                <input type="text" class="form-control"  placeholder="Enter Meal Type"  name="price" v-model="form.mealType" :class="{ 'is-invalid': form.errors.has('mealType') }">
-                                <has-error :form="form" field="price"></has-error>
                             </div>
                           </div>
                           <div class="col-sm-4">
@@ -58,15 +70,16 @@ to submit the data we are using a function.
                                 <has-error :form="form" field="price"></has-error>
                             </div>
                           </div>
-                        </div>
-                        <div class="row">
                           <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="contactNo">Contact Number</label>
-                                <input type="text" class="form-control"  placeholder="Enter Contact Number"  name="contactNo" v-model="form.contactNo" :class="{ 'is-invalid': form.errors.has('contactNo') }">
-                                <has-error :form="form" field="contactNo"></has-error>
+                                <label for="phoneno">Contact Number</label>
+                                <input type="text" class="form-control"  placeholder="Enter Contact Number"  name="phoneno" v-model="form.phoneno" :class="{ 'is-invalid': form.errors.has('phoneno') }">
+                                <has-error :form="form" field="phoneno"></has-error>
                             </div>
                           </div>
+                        </div>
+                        <div class="row">
+                          
                           <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="email">Email</label>
@@ -99,7 +112,6 @@ to submit the data we are using a function.
             return {
               // Create a new form instance
               form: new Form({
-                hotelUId: '',
                 type: '',
                 name: '',
                 location: '',
@@ -138,11 +150,10 @@ to submit the data we are using a function.
                 // Submit the form via a itinerary request
                 this.form.post('/api/hotel/create')
                   .then((response)=>{
-                    console.log(response.data)
-                       this.$router.push(`/add-days-itinerary/${response.data.id}`)
+                       this.$router.push(`/hotel-list/`)
                         toast({
                             type: 'success',
-                            title: 'Itinerary Added successfully'
+                            title: 'Hotel Added successfully'
                         })
                     })
                     .catch(()=>{
@@ -155,4 +166,4 @@ to submit the data we are using a function.
 
 <style scoped>
 
-</style>
+</style>  

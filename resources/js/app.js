@@ -6,6 +6,31 @@ window.Vue = require('vue');
 import 'v-markdown-editor/dist/index.css';
 import Editor from 'v-markdown-editor'
 Vue.use(Editor);
+
+// Vue Session
+import VueSession from 'vue-session'
+Vue.use(VueSession);
+
+
+///slider
+import Vue from 'vue';
+import VueCarousel from '@chenfengyuan/vue-carousel';
+
+Vue.use(VueCarousel);
+// Or
+Vue.component(VueCarousel.name, VueCarousel);
+// Or
+Vue.component('vue-carousel', VueCarousel);
+//slider
+import { CarouselPlugin } from 'bootstrap-vue'
+Vue.use(CarouselPlugin)
+
+
+//responsive vue tag
+import responsive  from 'vue-responsive'
+Vue.use(responsive)
+
+
 // Support vuex
 import Vuex from 'vuex'
 Vue.use(Vuex)
@@ -24,7 +49,7 @@ import {routes} from './routes';
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('admin-main', require('./components/admin/AdminMaster.vue'));
 Vue.component('home-main', require('./components/front/layouts/FrontMaster.vue'));
-
+Vue.component('navbar',require('./components/front/layouts/Navbar.vue'));
 // V-form
 import { Form, HasError, AlertError } from 'vform'
 

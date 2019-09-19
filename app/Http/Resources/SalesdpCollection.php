@@ -1,5 +1,11 @@
 <?php
 
+      /************************************************
+      Template Type: Collection Resource for the Salesdp
+      Author:@Ajay
+
+      ****************************************************/
+
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;

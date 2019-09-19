@@ -71,7 +71,7 @@
             }
         },
         created(){
-            axios.get(`http://localhost:8000/api/escort/edit/${this.$route.params.id}`)
+            axios.get(`/api/escort/edit/${this.$route.params.id}`)
                 .then((response)=>{
                     this.form.fill(response.data.escort)
                 })

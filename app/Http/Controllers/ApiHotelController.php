@@ -1,5 +1,11 @@
 <?php
 
+      /************************************************
+      Template Type: Hotel Controller for the Hotel Api
+      Author:@Ajay
+
+      ****************************************************/
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -15,7 +21,6 @@ class ApiHotelController extends Controller
 	 public function create(Request $request)
     {
       $this->validate($request, [
-      		  'hotelUId'=>'required',
             'name' => 'required|min:3|max:100',
             'location'=>'required',
             'price'=>'required',
@@ -25,19 +30,18 @@ class ApiHotelController extends Controller
             
             'mealType' => 'required'
           ]);
-          // $hotel = new hotel();
-          // $hotel->hotelUid = $request->input('hotelUid');
-          // $hotel->type = 'International';
-          // $hotel->name = $request->input('name');
+          $hotel = new hotel();
+          $hotel->type = $request->input('type');
+          $hotel->name = $request->input('name');
           
-          // $hotel->location = $request->input('location');
-          // $hotel->price = $request->input('price');
+          $hotel->location = $request->input('location');
+          $hotel->price = $request->input('price');
 
-          // $hotel->phoneno = $request->input('phoneno');
-          // $hotel->email = $request->input('email');
-          // $hotel->mealType = $request->input('mealType');
+          $hotel->phoneno = $request->input('phoneno');
+          $hotel->email = $request->input('email');
+          $hotel->mealType = $request->input('mealType');
 
-          // $hotel->save();
-         return response()->json(['Message'=> $request]);
+          $hotel->save();
+         return response()->json(['Message'=> 'Successfully Added...']);
     }
 }

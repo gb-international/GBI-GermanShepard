@@ -1,4 +1,8 @@
-
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 .title {
 display: inline;
 float: left;
@@ -98,7 +102,7 @@ padding: 50px;
 display: inline;
 float: left;
 width: 100%;
-margin-top: 8px;
+margin-top: 45px;
 margin-bottom: 40px;
 }
 .column {
@@ -388,7 +392,7 @@ margin-right: 0px;
 }
 .single-footer
 {
-padding: 0px 0px 7px 10px;
+padding: 0px 0px 7px 85px;
 }
 .footer-content {
 width: 100%;

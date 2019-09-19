@@ -4,6 +4,13 @@ data from the api to display the data about the transport from the backend .
 -->
 <template>
     <section class="content">
+      
+      <!--************************************************
+      Template Type: Transport List
+      Author:@Ajay
+
+      ****************************************************-->
+
         <div class="row justify-content-around" >
             <div class="col-md-12">
               <div class="container container_admin_body">
@@ -18,11 +25,11 @@ data from the api to display the data about the transport from the backend .
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="itinerary in itineraryData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
-                            <td class="sorting_1">{{itinerary.source}}</td>
-                            <td>{{itinerary.destination}}</td>
-                            <td>{{itinerary.noofdays}}</td>
-                            <td>{{itinerary.source}}</td>
+                        <tr v-for="transport in alldata" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
+                            <td class="sorting_1">{{transport.transName}}</td>
+                            <td>{{transport.transLocation}}</td>
+                            <td>{{transport.transType}}</td>
+                            <td>{{transport.transContact}}</td>
                         </tr>                 
 
                       </tbody>
@@ -42,40 +49,32 @@ data from the api to display the data about the transport from the backend .
         data(){
           return{
             oddclass:false,
-            evenclass:true,
-            itineraryData:{}
+            evenclass:true
           }
         },
        
-       created() {
-        this.getData();  
+       // Get all the salesdp data
+       mounted(){
+          this.$store.dispatch('getAllData','/api/transports')
         },
-        mounted:function(){
-          
+        computed:{
+
+          alldata(){
+            setTimeout(() => $('#example').DataTable(), 1000);
+            return this.$store.getters.getAllData
+          }
         },
+// End the process of getting all the data
        methods:
        {
 
-       getData(){
-        axios.get('/itinerary')
-          .then((response) => {
-              this.itineraryData = response.data.itineraries;
-              // this.dataTable.rows.add(response.data).draw();
-              setTimeout(() => $('#example').DataTable(), 1000);
-
-          })
-          .catch((error) => {
-              if (error.response.status == 401) {                  
-              }
-          });
-       },
-        deleteItinerary(id){
+        deleteTransport(id){
         axios.get('/hotel/'+id)
         .then(()=>{
         this.$store.dispatch('getAllHotel')
         toast({
         type: 'success',
-        title: 'Itinerary Deleted successfully'
+        title: 'transport Deleted successfully'
         })
         })
         .catch(()=>{
@@ -86,6 +85,3 @@ data from the api to display the data about the transport from the backend .
 
 
 </script>
-
-<style scoped>
-</style>

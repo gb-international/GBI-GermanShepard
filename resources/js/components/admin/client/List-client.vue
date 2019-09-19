@@ -4,80 +4,65 @@ data from the api to display the data about the client from the backend .
 -->
 <template>
     <section class="content">
+      <!--************************************************
+      Template Type: Client List
+      Author:@Ajay
+
+      ****************************************************-->
         <div class="row justify-content-around" >
             <div class="col-md-12">
-              <div class="container">                <!-- Start Card -->
-               
-                <br>
-                  <div class="card itinerary_list" v-for="client in filteredResources">
-                    <div class="row">
-                      <div class="col-sm-2">
-                        <h5>NAME</h5>
-                        <P>{{client.name}}</P>
-                      </div>
-                      <div class="col-sm-2">
-                        <h5>Phone Number</h5>
-                        <p>{{client.phoneno}}</p>
-                      </div>
-                      <div class="col-sm-3">
-                        <h5>Email.</h5>
-                        <p>{{client.email}}</p>
-                      </div>
-                      <div class="col-sm-2">
-                        <h5>Address</h5>
-                        <p>{{client.address}}</p>
-                       </div>
-                       <div class="col-sm-2">
-                        <h5>School Name</h5>
-                        <p>{{client.schoolName}}</p>
-                       </div>
-                        
-                       <div class="col-sm-1">
-                        
-                         <router-link :to="`edit-client/${client.id}`"><i class="fas fa-pen"></i></router-link>
-                         <a href="" @click.prevent="deleteclient(client.id)"><i class="fas fa-trash"></i></a>
-                       </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                  </div>
-                  <!-- End card -->
+              <div class="container container_admin_body">
+                  <!-- Start Card -->
+                  <table id="example" class="display table table-striped table-bordered nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>NAME<i class="fas fa-sort"></i></th>
+                            <th>PHONE NO. <i class="fas fa-sort"></i></th>
+                            <th>EMAIL<i class="fas fa-sort"></i></th>
+                            <th>SCHOOL NAME <i class="fas fa-sort"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr v-for="client in alldata" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}">
+                            <td class="sorting_1">{{client.name}}</td>
+                            <td>{{client.phoneno}}</td>
+                            <td>{{client.email}}</td>
+                            <td>{{client.schoolName}}</td>
+                        </tr>                 
+
+                      </tbody>
+                </table>
                 </div>
+                <!-- end -->
             </div>
         </div>
+        <p id="post"></p>
     </section>
     <!-- /.content -->
 </template>
 
 <script>
     export default {
-        name: "List",
-       data() {
-          return {
-            // Our data object that holds the Laravel paginator data
-            currentPageIndex: 0,
-            clientData: {}
+       name: "List",
+        data(){
+          return{
+            oddclass:false,
+            evenclass:true,
           }
         },
-
-       created() {
-          axios.get('/client').then(response => {
-            this.clientData = response.data.client;
-          });
+// Get all the data
+        mounted(){
+          this.$store.dispatch('getAllData','/api/clients')
         },
         computed:{
-            filteredResources:function() {
-              if (this.searchKey) {
-                return this.clientData.filter((client) => {
-                  return client.name.startsWith(this.searchKey);
-                })
-              }
-              
-              else {
-                return this.clientData;
-              }
-            }
+
+          alldata(){
+            setTimeout(() => $('#example').DataTable(), 1000);
+            return this.$store.getters.getAllData
+          }
         },
+// End the process of the the fetching data
        methods:
        {
         deleteclient(id){
@@ -108,6 +93,3 @@ data from the api to display the data about the client from the backend .
 
 
 </script>
-
-<style scoped>
-</style>

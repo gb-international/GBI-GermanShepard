@@ -20,6 +20,7 @@
                 </div>
                 </div>   
                 <div class="col-lg-12">
+                 <div class="row">
                 <!--start card explore list dynamic tour itinerary list-->
                 <div class="col-lg-6 mt-3" v-for="itinerary in alldata">
                  <div class="card card-radis-list">
@@ -29,7 +30,7 @@
                         <img :src="`uploadimage/${itinerary.photo}`" alt="{itinerary.title}" />
                       </div>
                          <div class="card-content">
-                          <h1>{{itinerary.title | sortlength(30,"...")}}</h1> 
+                          <h1>{{itinerary.title | sortlength(25,"...")}}</h1> 
                           <p>{{itinerary.noofdays}} Days Tour</p>
                           <table class="table-s">
                                <tbody>
@@ -54,7 +55,7 @@
                  </div>
                 </div>
                 
-
+                </div>
                 <!-- end card-->
                </div>
             </div>

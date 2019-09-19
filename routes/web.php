@@ -11,16 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('public/index');
-});
 
 
 Auth::routes();
 
 Route::get('/admin', 'HomeController@index')->name('home');
-
-//Route::get('/{anypath}','HomeController@index')->where('path','.*');
 
 Route::group(['middleware' => ['auth']], function () {
     //Category
@@ -63,21 +58,27 @@ Route::group(['middleware' => ['auth']], function () {
    Route::post('/add-itinerarydays/{id}','ItineraryDayController@storeDayitinerary');
 });
 
+
+// User login
+
+
+  Route::get('/init','FrontController@init');
+  Route::post('/user-login','FrontController@checklogin');
+  Route::post('/user-register','FrontController@UserRegister');
+  Route::post('/user-logout','FrontController@logout');
+
+
+
+
+
+// End user login
+
 /*start front end router*/
-Route::get('/home', 'ItineraryresourcesController@index')->name('home');
 Route::post('/location', 'ItineraryresourcesController@getLocation')->name('location');
 
-Route::get('/', function () { return view('front.home'); });
-Route::get('/ourstory', 'ItineraryresourcesController@ourStories')->name('ourstory');
-Route::get('/how-we-work', 'ItineraryresourcesController@howWework')->name('how-we-work');
-Route::get('/travel-and-education', 'ItineraryresourcesController@travelEducation')->name('travel-and-education');
-Route::get('/safety-and-security', 'ItineraryresourcesController@safetySecurity')->name('safety-and-security');
-Route::get('/faq', 'ItineraryresourcesController@faq')->name('faq');
-Route::get('/contact-us', 'ContactMassageController@contact')->name('contact-us');
+
 Route::post('/contact-us/send', 'ContactMassageController@store')->name('contact.store');
-Route::get('/join-our-team', 'JoinourteamController@joinTeam')->name('join-our-team');
 Route::post('/join-our-team/send', 'JoinourteamController@resumeSend')->name('resume.send');
-Route::get('/explore-destination', 'ExploredestinationController@expdestination')->name('explore-destination');
 
 
 Route::get('vuejs/autocomplete', 'VueJSController@autocomplete');

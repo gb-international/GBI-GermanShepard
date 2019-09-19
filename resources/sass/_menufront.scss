@@ -25,7 +25,7 @@ $bottom-nav-icon: #666666;
 .sticky {
   position: fixed;
   top: 0;
-  width: 86%;
+  width: 90%;
   background-color: #ffffff;
   z-index: 55;
 }
@@ -198,6 +198,7 @@ a {
 @media screen and (min-width: $breakpoint) {
   .nav-list {
     display: block !important;
+    
    /*  position: absolute;
     z-index: 10; */
   }
@@ -410,6 +411,7 @@ a:hover {
 }
 
 @media (max-width: 767px) {
+  
 /*start bottom menu*/
 .navbar-bottom {
   overflow: hidden;
@@ -652,7 +654,7 @@ a:hover {
   .sticky {
   position: fixed;
   top: 0;
-  width: 93%;
+  width: 96%;
   background-color: #ffffff;
   z-index: 55;
 }

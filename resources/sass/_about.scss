@@ -84,9 +84,9 @@ box-shadow: 0 0 3px #CC0000;
 
 .about-story-face
 {
-	width:100%;
-	background-color:$oustorybgcolor;
-	height:410px;
+	width: 100%;
+	background-color: $oustorybgcolor;
+	height: 370px;
 	
 	h1
 		{
@@ -144,7 +144,7 @@ box-shadow: 0 0 3px #CC0000;
 	display: inline-block;
 	text-align: justify;
 	float: right;
-	
+	padding-top: 30px;
 	
 	h2
 	{
@@ -166,7 +166,7 @@ box-shadow: 0 0 3px #CC0000;
 			display: block;
 			margin: 0 auto;
 			font-family: $font-family-raleway;
-			padding-top: 27px;
+			
 		}
 
 }
@@ -186,6 +186,7 @@ box-shadow: 0 0 3px #CC0000;
 		font-size:$dourstoryh-font-size;
 		display: inline-block;
 		text-align: justify;
+		padding-top: 26px;
 		
 	}
 
@@ -195,7 +196,7 @@ box-shadow: 0 0 3px #CC0000;
 	display: inline-block;
 	text-align: justify;
 	float: left;
-
+	padding-top: 18px;
 
 	h2
 	{
@@ -698,6 +699,7 @@ box-shadow: 0 0 3px #CC0000;
 		display: inline-block;
 		text-align: justify;
 		font-family: $fontfamily;
+		padding: 0px 0px 0px 0px;
 
 	}
 .ourstory-content
@@ -706,7 +708,7 @@ box-shadow: 0 0 3px #CC0000;
 	display: inline-block;
 	text-align: justify;
 	float: right;
-	
+	padding-top: 18px;
 	
 	h2
 	{
@@ -757,7 +759,7 @@ box-shadow: 0 0 3px #CC0000;
 	{
 		color: $text-grey;
 		font-size:$mourstoryh2-font-size;
-		margin-top: 17px;
+		margin-top: 0px;
 		font-family: $fontfamily;
 	}
 	p
@@ -983,7 +985,7 @@ box-shadow: 0 0 3px #CC0000;
 		font-size:$dourstoryh-font-size;
 		display: inline-block;
 		text-align: justify;
-		padding: 52px 0px 4px 11px;
+		padding: 27px 0px 4px 0px;
 	}
 .ourstory-content
 {
@@ -991,7 +993,7 @@ box-shadow: 0 0 3px #CC0000;
 	display: inline-block;
 	text-align: justify;
 	float: left;
-	
+	padding-top: 0px;
 
 	
 	h2
@@ -1023,6 +1025,7 @@ box-shadow: 0 0 3px #CC0000;
 	background-color:$oustorywhitebgcolor;
 	height:300px;
 	margin-bottom: 10px;
+	
 
 .ourstory-content
 {
@@ -1030,6 +1033,7 @@ box-shadow: 0 0 3px #CC0000;
 	display: inline-block;
 	text-align: justify;
 	float: right;
+	padding-top: 20px;
 	
 	h1
 	{
@@ -1037,6 +1041,7 @@ box-shadow: 0 0 3px #CC0000;
 		font-size:$dourstoryh-font-size;
 		display: inline-block;
 		text-align: justify;
+		padding-top: 20px;
 		
 	}
 	h2
@@ -1055,7 +1060,6 @@ box-shadow: 0 0 3px #CC0000;
 		{
 			display: block;
 			margin: 0 auto;
-			padding-top: 6px;
 			float: left;
 		}
 
@@ -1070,8 +1074,8 @@ box-shadow: 0 0 3px #CC0000;
 .about-story-face
 {
 	width:100%;
-	background-color:$oustorybgcolor;
-	height:410px;
+	background-color: $oustorybgcolor;
+	height: 370px;
 	margin-top: 20px;
 	
 	h1
