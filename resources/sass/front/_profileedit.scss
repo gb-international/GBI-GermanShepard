@@ -1,0 +1,59 @@
+
+.profile_button{
+	background: $primary !important;
+	color: white !important;
+    border: none !important;
+    padding: 11px 70px !important;
+    font-weight: 600 !important;
+    margin: 25px 0px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+        &:hover{
+        	background-color: #959595 !important;
+        }
+}
+
+
+
+
+#user_edit_form{
+	.user_edit_image{
+		margin: auto;
+	}	
+	form{
+		width: 100%;
+		label{
+			color: #999999;
+		}
+		
+		input{
+			//placeholder = #b2b2b2
+			color: #333333;
+			border: none;
+			font-weight: 500;
+			font-size: 16px;
+		    background: #e1e1e1;
+		    border-radius: 2px;
+		    padding: 22px 10px;
+
+		    ::placeholder {
+			  color: #b2b2b2;
+			  opacity: 1; /* Firefox */
+			}
+
+			:-ms-input-placeholder { /* Internet Explorer 10-11 */
+			 color: #b2b2b2;
+			}
+
+			::-ms-input-placeholder { /* Microsoft Edge */
+			 color: #b2b2b2;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 950px){
+	#user_edit_form{
+		padding: 30px;
+	}
+}
+

@@ -1,92 +1,93 @@
 <template>
-    <div id="homecomponent">
+  <div id="homecomponent">
        <!-- Start slider area -->
     
-		<div class="slidehome"><div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-		  <div class="carousel-inner">
-		    <div class="carousel-item active">
-		      <img class="d-block w-100" id="bannerimg1" :src="`assets/front/images/banner.jpg`" alt="GBI slide">
-		    </div>
-		    <div class="carousel-item">
-		      <img class="d-block w-100" id="bannerimg2" :src="`assets/front/images/banner1.jpg`" alt="GBI slide">
-		    </div>
-		    <div class="carousel-item">
-		      <img class="d-block w-100" id="bannerimg3" :src="`assets/front/images/banner2.jpg`" alt="GBI slide">
-		    </div>
+		<div class="slidehome">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" id="bannerimg1" :src="`assets/front/images/banner.jpg`" alt="GBI slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" id="bannerimg2" :src="`assets/front/images/banner1.jpg`" alt="GBI slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" id="bannerimg3" :src="`assets/front/images/banner2.jpg`" alt="GBI slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
 		  </div>
-		  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		    <span class="sr-only">Previous</span>
-		  </a>
-		  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-		    <span class="sr-only">Next</span>
-		  </a>
 		</div>
-		</div>
-  <!-- End Slider area -->
+    <!-- End Slider area -->
   
 
     <!-- Start Services -->
-      <div class="container">
-       <div class="card-titles">
-         <h1>Our Travel Programs</h1>
-          <h4>Immerge in a Riveting Journey</h4>
-       </div> 
-        
+    <div class="container">
+      <div class="card-titles">
+        <h1>Our Travel Programs</h1>
+        <h4>Immerge in a Riveting Journey</h4>
+      </div> 
+      
+      <div class="card-deck">
+        <div class="card card-1">
+          <img class="card-imgs" :src="`assets/front/images/upcoming.png`">
+          <div class="card-body">
+            <h5 class="card-title">Upcoming Tours</h5>
+            <p class="card-text">Stimulate the craze within you and gear up for more excitement. Get ready to embrace fun and adventure as part of your next getaway.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        <div class="card card-1">
+            <img class="card-imgs" :src="`assets/front/images/Adventure_tours.png`">
+          <div class="card-body">
+            <h5 class="card-title">Adventure Tours</h5>
+            <p class="card-text">Shake up your routine and challenge the adventure within. Ramp up your personal fun quotient and experience a rugged new fitness challenge.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        <div class="card card-1">
+          <img class="card-imgs" :src="`assets/front/images/populartour.png`">
+          <div class="card-body">
+            <h5 class="card-title">Popular Tours</h5>
+            <p class="card-text">Gear up to be awe-stuck by the land of fantasy, contrast and fascinating splendor. There is no dearth of stunning beaches, deserts or mountain ranges.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        </div>
         <div class="card-deck">
+        <div class="card card-1">
+          <img class="card-imgs" :src="`assets/front/images/europe.png`">
+          <div class="card-body">
+            <h5 class="card-title">Europe</h5>
+            <p class="card-text">From the serenity of Switzerland to the stunning Eiffel tower in Paris, get connected to the histories and cultures of Europe for a lifetime.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        <div class="card card-1">
+          <img class="card-imgs" :src="`assets/front/images/asia.png`">
+          <div class="card-body">
+            <h5 class="card-title">Asia</h5>
+            <p class="card-text">Explore the desert ruins and mega-malls of the Middle East to the magnificent monuments in South Asia and technology capitals of East Asia.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
           <div class="card card-1">
-           <img class="card-imgs" :src="`assets/front/images/upcoming.png`">
-            <div class="card-body">
-              <h5 class="card-title">Upcoming Tours</h5>
-              <p class="card-text">Stimulate the craze within you and gear up for more excitement. Get ready to embrace fun and adventure as part of your next getaway.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-          <div class="card card-1">
-             <img class="card-imgs" :src="`assets/front/images/Adventure_tours.png`">
-            <div class="card-body">
-              <h5 class="card-title">Adventure Tours</h5>
-              <p class="card-text">Shake up your routine and challenge the adventure within. Ramp up your personal fun quotient and experience a rugged new fitness challenge.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-          <div class="card card-1">
-            <img class="card-imgs" :src="`assets/front/images/populartour.png`">
-            <div class="card-body">
-              <h5 class="card-title">Popular Tours</h5>
-              <p class="card-text">Gear up to be awe-stuck by the land of fantasy, contrast and fascinating splendor. There is no dearth of stunning beaches, deserts or mountain ranges.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-          </div>
-         <div class="card-deck">
-          <div class="card card-1">
-            <img class="card-imgs" :src="`assets/front/images/europe.png`">
-            <div class="card-body">
-              <h5 class="card-title">Europe</h5>
-              <p class="card-text">From the serenity of Switzerland to the stunning Eiffel tower in Paris, get connected to the histories and cultures of Europe for a lifetime.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-          <div class="card card-1">
-            <img class="card-imgs" :src="`assets/front/images/asia.png`">
-            <div class="card-body">
-              <h5 class="card-title">Asia</h5>
-              <p class="card-text">Explore the desert ruins and mega-malls of the Middle East to the magnificent monuments in South Asia and technology capitals of East Asia.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-           <div class="card card-1">
-            <img class="card-imgs" :src="`assets/front/images/usa.png`">
-            <div class="card-body">
-              <h5 class="card-title">USA</h5>
-              <p class="card-text">Traverse the arid deserts in the south, the beautiful pacific coastline in the west, the stunning rocky mountains in the north and spectacular cities in the east.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
+          <img class="card-imgs" :src="`assets/front/images/usa.png`">
+          <div class="card-body">
+            <h5 class="card-title">USA</h5>
+            <p class="card-text">Traverse the arid deserts in the south, the beautiful pacific coastline in the west, the stunning rocky mountains in the north and spectacular cities in the east.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           </div>
         </div>
       </div>
+    </div>
     <!-- End Services -->
 
     <!-- Start Video -->
@@ -97,15 +98,11 @@
         <h1>GB International!!</h1>
       </article>
       
-   <div class="content">
-  
-  <div class="rwd-media">
-  	 <iframe class="embed-responsive-item" src="https://s3.amazonaws.com/www.gowithgbi.com/GBIvideo.mp4" allowfullscreen></iframe>
-   </div>
-
-  
-  
-</div>
+      <div class="content">      
+        <div class="rwd-media">
+          <iframe class="embed-responsive-item" src="https://s3.amazonaws.com/www.gowithgbi.com/GBIvideo.mp4" allowfullscreen></iframe>
+        </div>
+      </div>
     </section>
    <!-- <section class="video">
       
@@ -119,10 +116,8 @@
           <div class="col-md-12">
             <div class="testimonials-area">
               <h1>Client Appreciation</h1>
-
               <div class="testimonials-block">
                 <ul class="testimonial-slide">
-
                   <li>
                     <img class="rt-img" :src="`assets/front/images/img-2.jpg`" alt="img">
                     <p>Often the dates for the trips and the number of students fluctuated but you patiently take everything in your stride. Your smooth organization skills always render hassle free transport from picking to drop. Added to this, the hotels you select are very good, comfortable and secure. </p>
@@ -189,7 +184,8 @@
           </div>
           </article>
     </section>
-    </div>
+
+  </div>
 </template>
 
 <script>

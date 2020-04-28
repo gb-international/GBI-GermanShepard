@@ -1,86 +1,76 @@
-
-require('./bootstrap');
-window.Vue = require('vue');
-
-// editor support
-import 'v-markdown-editor/dist/index.css';
-import Editor from 'v-markdown-editor'
+require("./bootstrap"), 
+window.Vue = require("vue");
+import "v-markdown-editor/dist/index.css";
+import Editor from "v-markdown-editor";
 Vue.use(Editor);
-
-// Vue Session
-import VueSession from 'vue-session'
+import VueSession from "vue-session";
 Vue.use(VueSession);
+import Permissions from "./mixins/Permissions";
+Vue.mixin(Permissions);
+import Vue from "vue";
+import VueCarousel from "@chenfengyuan/vue-carousel";
+Vue.use(VueCarousel), Vue.component(VueCarousel.name, VueCarousel), Vue.component("vue-carousel", VueCarousel);
+import {
+    CarouselPlugin
+} from "bootstrap-vue";
+Vue.use(CarouselPlugin);
+import responsive from "vue-responsive";
+Vue.use(responsive);
+import Vuex from "vuex";
+Vue.use(Vuex);
+import storeData from "./store/index";
+const store = new Vuex.Store(storeData);
+import { filter } from "./filter";
+import VueRouter from "vue-router";
+Vue.use(VueRouter);
 
 
-///slider
-import Vue from 'vue';
-import VueCarousel from '@chenfengyuan/vue-carousel';
-
-Vue.use(VueCarousel);
-// Or
-Vue.component(VueCarousel.name, VueCarousel);
-// Or
-Vue.component('vue-carousel', VueCarousel);
-//slider
-import { CarouselPlugin } from 'bootstrap-vue'
-Vue.use(CarouselPlugin)
 
 
-//responsive vue tag
-import responsive  from 'vue-responsive'
-Vue.use(responsive)
+
+let token = document.head.querySelector('meta[name="csrf-token"]');
 
 
-// Support vuex
-import Vuex from 'vuex'
-Vue.use(Vuex)
-import storeData from "./store/index"
-const store = new Vuex.Store(
-    storeData
-)
-//support moment js
-import {filter} from './filter'
-// vue router
-import VueRouter from 'vue-router'
-Vue.use(VueRouter)
 
-import {routes} from './routes';
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('admin-main', require('./components/admin/AdminMaster.vue'));
-Vue.component('home-main', require('./components/front/layouts/FrontMaster.vue'));
-Vue.component('navbar',require('./components/front/layouts/Navbar.vue'));
-// V-form
-import { Form, HasError, AlertError } from 'vform'
+import { routes } from "./routes";
+import vueHeadful from "vue-headful";
 
-Vue.component(HasError.name, HasError)
-Vue.component(AlertError.name, AlertError)
-window.Form = Form;
-// Sweet alert 2
-import swal from 'sweetalert2'
+Vue.component("vue-headful", vueHeadful),
+Vue.component("admin-main", require("./components/admin/AdminMaster.vue")),
+Vue.component("home-main", require("./components/front/layouts/App.vue")),
+Vue.component("gbi-navbar", require("./components/front/layouts/Navbar.vue")),
+Vue.component("gbi-footer", require("./components/front/layouts/Footer.vue")),
+Vue.component("login", require("./components/front/user/Login.vue"));
+
+
+
+import {
+    Form,
+    HasError,
+    AlertError
+} from "vform";
+Vue.component(HasError.name, HasError), Vue.component(AlertError.name, AlertError), window.Form = Form;
+import swal from "sweetalert2";
 window.swal = swal;
+
+
 const toast = swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000
+    toast: !0,
+    position: "top-end",
+    showConfirmButton: !1,
+    timer: 3e3
 });
 
-window.toast = toast
+
+window.toast = toast;
 
 const router = new VueRouter({
-    routes, // short for `routes: routes`
-    mode:'hash',
-
-})
-
-
-
-const app = new Vue({
-    el: '#app',
-    router,
-    store,
-     
-
+    mode: "history",
+    routes: routes
+}),
+app = new Vue({
+    el: "#app",
+    router: router,
+    store: store
 });
-

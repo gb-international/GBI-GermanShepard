@@ -13,19 +13,6 @@
     </ul>
 
   </div>
-
-  <!-- <div class="autocomplete">
-    <input type="text" @input="onChange" v-model="search" @keyup.down="onArrowDown" @keyup.up="onArrowUp" @keyup.enter="onEnter" />
-    <ul id="autocomplete-results" v-show="isOpen" class="autocomplete-results">
-      <li class="loading" v-if="isLoading">
-        Loading results...
-      </li>
-      <li v-else v-for="(result, i) in filteredSource" :key="i" @click="setResult(result.source)" class="autocomplete-result" :class="{ 'is-active': i === arrowCounter }">
-        {{ result.source }}
-      </li>
-    </ul>
-
-  </div> -->
 	</div>
 	
 </template>
@@ -48,7 +35,6 @@
       axios.get('/api/search').then(response => {
         this.results = response.data.data;
         this.resultsdata = response.data.data;
-       console.log(response.data.data);
       });
     },
     computed: {
@@ -89,7 +75,6 @@
       }
     },
     onEnter() {
-      console.log(this.filteredSource);
       this.search = this.filteredSource[this.arrowCounter];
       this.isOpen = false;
       this.arrowCounter = -1;

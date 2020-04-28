@@ -1,7 +1,7 @@
 <template>
   
     <div class="container">
-      <div id="itinerary_detail_list">
+      <div id="itinerary_detail_list" v-if="alldata">
           <div class="row" v-for="item in alldata">
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
@@ -39,7 +39,10 @@
             </div>
             <div class="col-sm-2"></div>
           </div>
-        </div>
+      </div>
+      <div class="text-center" v-else>
+          <h1>You Don't Have Active Tour</h1>
+      </div>
     </div>
 </template>
 

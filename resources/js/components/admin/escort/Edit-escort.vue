@@ -2,7 +2,6 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row justify-content-around">
-                <!-- left column -->
                 <div class="col-md-12">
                     <form role="form" enctype="multipart/form-data" @submit.prevent="updateEscort()">
                         <div class="row">
@@ -57,43 +56,43 @@
 </template>
 
 <script>
-    export default {
-        name: "Edit",
-        data(){
-            return{
-                form: new Form({
-                    name:'',
-                    salaryPerday:'',
-                    phoneno:'',
-                    email:'',
-                    address:''
-                })
-            }
-        },
-        created(){
-            axios.get(`/api/escort/edit/${this.$route.params.id}`)
-                .then((response)=>{
-                    this.form.fill(response.data.escort)
-                })
-
-        },
-        methods:{
-            updateEscort(){
-                this.form.post(`/update-escort/${this.$route.params.id}`)
-                  .then((response)=>{
-                       this.$router.push('/escort-list')
-                        toast({
-                            type: 'success',
-                            title: 'Escort Updated successfully'
-                        })
-                    })
-                    .catch(()=>{
-
-                    })
-            }
+export default {
+    name: "Edit",
+    data(){
+        return{
+            form: new Form({
+                name:'',
+                salaryPerday:'',
+                phoneno:'',
+                email:'',
+                address:''
+            })
         }
+    },
+    created(){
+        this.escortData();
+    },
+    methods:{
+        escortData(){
+            axios.get(`/api/escort/${this.$route.params.id}/edit`).then((response)=>{
+                this.form.fill(response.data);
+            })
+        },
+        updateEscort(){
+        this.form.put(`/api/escort/${this.$route.params.id}`).then((response)=>{
+               this.$router.push('/escort-list')
+                toast({
+                    type: 'success',
+                    title: 'Escort Updated successfully'
+                })
+            })
+            .catch(()=>{
 
+            })
+        }
     }
+
+}
 </script>
 
 <style scoped>

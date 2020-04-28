@@ -17,11 +17,13 @@ class CreateItinerarydaysTable extends Migration
             $table->increments('id');
             $table->integer('itinerary_id')->unsigned()->nullable();
             //$table->integer('user_id')->unsigned()->nullable();
+            $table->string('day')->nullable();
             $table->string('day_source');
             $table->string('day_destination');
             $table->text('day_description');
-            $table->enum('status', ['0', '1']);
+            $table->enum('status', ['0', '1'])->default('1');
             $table->timestamps();
+        $table->foreign('itinerary_id')->references('id')->on('itineraries')->onDelete('cascade');
         });
     }
 

@@ -20,7 +20,9 @@ class CreateEscortTable extends Migration
             $table->string('phoneno');
             $table->string('email');
             $table->text('address');
-            $table->string('status');
+            $table->string('id_card_number')->nullable();
+            $table->string('id_photo')->nullable();
+            $table->string('status')->default('1');;
             $table->timestamps();
         });
     }

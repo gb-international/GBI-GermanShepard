@@ -1,8 +1,17 @@
 <template>
     <div id="howwework">
-    	<!-- start banner area -->
+        <vue-headful
+            title="How GBI Works"
+            description="Steps taken by GBI to make research Oriented Travel Programs"
+        />	
+      <!-- start banner area -->
     <section class="banner-block">
-        <img id="howwework" class="top-img" alt="how-we-work" :src="`assets/front/images/howwework.jpg`" />
+      <div class="text_on_image">
+          <img id="safetyimg" class="top-img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/how-we-work.jpg`">
+          <div class="content">
+            <p class="heading">HOW WE WORK</p>             
+          </div>
+      </div>
     </section>  
   <!-- End banner area -->
   <!-- Start main content -->
@@ -32,85 +41,84 @@
       <h1 class="experience-heading"> YOUR EXPERIENCE INCLUDES</h1>
   <div class="container">
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`assets/front/images/img/airfare.png`" alt="airfare GBI">
+        <img class="cards-img" :src="`/assets/front/images/img/airfare.png`" alt="airfare GBI">
         <div class="card-block p-top-10">
-          <h4 class="card-title">AIRFARE AND TRANSPORTATION</h4>
-          <p class="card-text">Round-trip airfares, railway fares and comfortable ac coach </p>
+          <h4 class="card-title">Airfare And Transportation</h4>
+          <p class="card-text p-l-r">Round-trip airfares, railway fares and comfortable ac coach </p>
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`assets/front/images/img/hotel.png`" alt="hotel GBI">
+        <img class="cards-img" :src="`/assets/front/images/img/hotel.png`" alt="hotel GBI">
         <div class="card-block p-top-10">
-          <h4 class="card-title">HOTEL</h4>
-          <h4 class="card-title"></h4>
-          <p class="card-text">Overnight stays in hotels with private washroom</p>
+          <h4 class="card-title">Hotel</h4>
+          <p class="card-text p-l-r">Overnight stays in hotels with private washroom</p>
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`assets/front/images/img/reginoal.png`" alt="reginoal">
+        <img class="cards-img" :src="`/assets/front/images/img/reginoal.png`" alt="reginoal">
         <div class="card-block p-top-10">
-          <h4 class="card-title">REGIONAL-STYLE MEAL</h4>
-          <p class="card-text">Includes three-time lip-smacking regional style meal</p>
+          <h4 class="card-title">Regional-Style Meal</h4>
+          <p class="card-text p-l-r">Includes three-time lip-smacking regional style meal</p>
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`assets/front/images/img/gudided.png`" alt="gudided">
+        <img class="cards-img" :src="`/assets/front/images/img/gudided.png`" alt="gudided">
         <div class="card-block p-top-10">
-          <h4 class="card-title">GUIDED SIGHTSEEING</h4>
-          <p class="card-text">Experience sightseeing with expert tour guides</p>
+          <h4 class="card-title">Guided Sightseeing</h4>
+          <p class="card-text p-l-r">Experience sightseeing with expert tour guides</p>
          </div>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`assets/front/images/img/entrance.png`" alt="entrance">
+        <img class="cards-img" :src="`/assets/front/images/img/entrance.png`" alt="entrance">
         <div class="card-block p-top-10">
-          <h4 class="card-title">ENTRANCES</h4>
-          <p class="card-text">Includes entry fees of both domestic as well as international sight scenes.</p>
+          <h4 class="card-title">Entrances</h4>
+          <p class="card-text p-l-r">Includes entry fees of both domestic as well as international sight scenes.</p>
          </div>
       </div>
     </div>
-     <div class="col-lg-4">
+     <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`assets/front/images/img/experiential.png`" alt="experiential">
+        <img class="cards-img" :src="`/assets/front/images/img/experiential.png`" alt="experiential">
         <div class="card-block p-top-10">
-          <h4 class="card-title">EXPERIENTIAL LEARNING</h4>
-          <p class="card-text">We compliment classroom learning with a touch of the real</p>
+          <h4 class="card-title">Experiential Learning</h4>
+          <p class="card-text p-l-r">We compliment classroom learning with a touch of the real</p>
          </div>
       </div>
     </div>
-     <div class="col-lg-4">
+     <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`assets/front/images/img/emergency-support.png`" alt="emergency-support">
+        <img class="cards-img" :src="`/assets/front/images/img/emergency-support.png`" alt="emergency-support">
         <div class="card-block p-top-10">
-          <h4 class="card-title">EMERGENCY SUPPORT</h4>
-          <p class="card-text">We provide 24 hours safety and security to our students</p>
+          <h4 class="card-title">Emergency Support</h4>
+          <p class="card-text p-l-r">We provide 24 hours safety and security to our students</p>
          </div>
       </div>
     </div>
-     <div class="col-lg-4">
+     <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`assets/front/images/img/continous.png`" alt="continous">
+        <img class="cards-img" :src="`/assets/front/images/img/continous.png`" alt="continous">
         <div class="card-block p-top-10">
-          <h4 class="card-title">CONTINUOUS SUPPORT</h4>
-          <p class="card-text">Our GBI team will keep assisting you in every step of your journey with us.</p>
+          <h4 class="card-title">Continuous Support</h4>
+          <p class="card-text p-l-r">Our GBI team will keep assisting you in every step of your journey with us.</p>
          </div>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`assets/front/images/img/finely.png`" alt="finely">
+        <img class="cards-img" :src="`/assets/front/images/img/finely.png`" alt="finely">
         <div class="card-block p-top-10">
-          <h4 class="card-title">FINELY CURATED PROGRAMS</h4>
-          <p class="card-text">Our team offers a number of tour programs covering a wide array of topics.</p>
+          <h4 class="card-title">Finely Curated Programs</h4>
+          <p class="card-text p-l-r">Our team offers a number of tour programs covering a wide array of topics.</p>
          </div>
       </div>
     </div>

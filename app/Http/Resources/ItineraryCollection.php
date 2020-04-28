@@ -20,11 +20,11 @@ class ItineraryCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
-        // return  [
-        //     'id' => $this->id,
-        //     'source' => $this->source,
-        //     'destination' => $this->destination
-        // ];
+      return parent::toArray($request);
+      // return  [
+      //       'id' => 'd',
+      //       'source' => $request->source,
+      //       'destination' => $request->destination
+      //   ];
     }
 }

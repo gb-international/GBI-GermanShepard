@@ -18,61 +18,110 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-// Escort Api
-Route::get('/escorts', 'ApiEscortController@index');
-Route::get('/escort/edit/{id}', 'ApiEscortController@edit');
-Route::post('/escort/create', 'ApiEscortController@create');
+Route::namespace('Admin')->group(function (){
 
-// Itinerary Api
-Route::get('/itinerarys', 'ApiItineraryController@index');
-Route::post('/itinerary/create', 'ApiItineraryController@create');
-Route::get('/itinerary/edit/{id}','ApiItineraryController@edit');
-Route::get('/itinerary/view/{id}','ApiItineraryController@view');
-Route::post('/itinerary/update/{id}','ApiItineraryController@update');
+	Route::namespace('Transport')->group(function(){
+		Route::resource('bus', 'BusController');
+		Route::resource('train', 'TrainController');
+		Route::resource('flight', 'FlightController');
+	});
+
+	Route::namespace('Location')->group(function(){
+		Route::resource('country','CountryController');
+		Route::resource('city','CityController');
+		Route::resource('state','StateController');
+		Route::get('/sightseeings','SightseeingController@index');
+		Route::get('/sightseeings/edit/{id}','SightseeingController@edit');
+	});
+
+	Route::namespace('Itinerary')->group(function(){
+		Route::resource('itinerary','ItineraryController');
+	});
+
+	Route::namespace('Tour')->group(function(){
+		Route::resource('tour','TourController');
+	});
+
+	Route::namespace('Hotel')->group(function(){
+		Route::resource('hotel','HotelController');
+	});
+	Route::namespace('School')->group(function(){
+		Route::resource('school','SchoolController');
+		Route::resource('student','StudentController');
+	});
+
+	Route::namespace('Escort')->group(function(){
+		Route::resource('escort','EscortController');
+	});
+
+	Route::namespace('RoleAndPermission')->group(function(){
+		Route::resource('role','RoleController');
+		Route::resource('permission','PermissionController');
+	});
+
+	Route::namespace('Reservation')->group(function(){
+		Route::resource('bookedescorts','BookedescortController');
+		Route::resource('bookedhotels','BookedhotelController');
+		Route::resource('bookedflights','BookedflightController');
+		Route::resource('bookedtrains','BookedtrainController');
+		Route::resource('bookedbuses','BookedbusController');
+	});
+	Route::namespace('GbiMember')->group(function(){
+		Route::get('/members','GBIMemberController@index');
+		Route::post('/members/create','GBIMemberController@register');
+		Route::post('/members/destroy/{user}',"GBIMemberController@destroy");
+		Route::get('/members/salesman',"GBIMemberController@memberType");
+	});
+	Route::namespace('Account')->group(function(){
+		Route::get('/accounts','AccountController@index');
+	});
+	Route::namespace('Encyclopedia')->group(function(){
+		Route::resource('encyclopedias','EncyclopediaController');
+		Route::resource('encyclopediacomments','EncyclopediacommentController');
+	});
+	
+});
+
+// front
+
+Route::namespace('Front')->group(function(){
+
+	Route::get('/upcoming_tour/{limit}','ItineraryController@upcoming_tour');
+	Route::post('/search-itinerary','ItineraryController@searchItinerary');
+	Route::get('/search','ItineraryController@search_post');
+
+	Route::post('/user-logout','FrontUserController@logout');
+	Route::get('/tour-list/{id}','FrontUserController@user_tour_list');
+	Route::get('/userdata/{id}','FrontUserController@userdata');
+	Route::get('/tour-list/{id}','FrontUserController@user_tour_list');
+	Route::post('/join-our-team/send', 'JoinourteamController@resumeSend');
+	
+	// Front user controller 
+	Route::post('login-user', 'UserController@login');
+	Route::post('register-user', 'UserController@register');
+	Route::group(['middleware' => 'auth:api'], function(){
+		Route::post('details', 'UserController@details');
+		Route::post('/user-show', 'UserController@show');
+		Route::post('/user-update','UserController@update');
+		Route::post('/update-user-image','UserController@UserImage');
+		// Comments
+		Route::post('/encyclopedia-comments','EncyclopediaController@PostComment');
+	});
+	// Otp
+	Route::post('/sendotp','OtpController@send_otp');
+	Route::post('/otpverify','OtpController@otp_verify');
+	Route::post('/sendlink','EmailController@send_link_email');
+
+	// Encyclopedia
+	Route::get('/encyclopedia-list','EncyclopediaController@index');
+	Route::get('/encyclopedia/{slug}','EncyclopediaController@view');
+	Route::get('/ency-comments/{id}','EncyclopediaController@GetComment');
+});
 
 
-// Itinerary Day
-Route::get('/itineraryday','ApiItineraryDayController@index');
-Route::post('/itineraryday/create/{id}','ApiItineraryDayController@create');
-Route::get('/itineraryday/edit/{id}','ApiItineraryDayController@edit');
-Route::post('/itineraryday/update/{id}','ApiItineraryDayController@update');
-
-// Hotel
-Route::get('/hotels','ApiHotelController@index');
-Route::post('/hotel/create','ApiHotelController@create');
-
-// Salesdp;
-Route::get('/salesdps','ApiSalesdpController@index');
-Route::post('/salesdp/create','ApiSalesdpController@create');
-
-//Transport
-Route::get('/transports','ApiTransportController@index');
-Route::post('/transport/create','ApiTransportController@create');
-
-// Cleint
-Route::get('/clients','ApiClientController@index');
-Route::post('/client/create','ApiClientController@create');
-
-// Tour Api
-Route::get('/user-tour-list','ApiTourController@user_tour_list');
-
-// Front User
-Route::post('/login','ApiFrontUserController@checklogin');
-Route::post('/register','ApiFrontUserController@UserRegister');
-Route::post('/user-logout','ApiFrontUserController@logout');
-Route::get('/userdata/{id}','ApiFrontUserController@userdata');
-Route::get('/popular_detination','ApiFrontUserController@popular_detination');
-Route::post('/imageupdate/{id}','ApiFrontUserController@UserImage');
-Route::get('/tour-list/{id}','ApiFrontUserController@user_tour_list');
 
 
 
-
-
-
-/* serach api route*/
-Route::get('/search','ApiItineraryController@search_post');
-Route::get('/search-all','ApiItineraryController@SearchAll');
 
 
 

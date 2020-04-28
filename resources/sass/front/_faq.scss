@@ -1,0 +1,752 @@
+/*  start faq css */
+.searchbarfaq
+{
+	width: 100%;
+	margin: 0 auto;
+	display: inline-block;
+	position: relative;
+	bottom: 338px;
+
+	h1
+	{
+		position: relative;
+		top: 172px;
+		font-size: 33px;
+		color: $text-white;
+	}
+.searchbar-faq
+	{		
+		position: absolute;
+		top: 185px;
+		width: 93%;
+		height: 40px;
+		// left: 297px;
+	}
+
+		.input-aligment{
+			
+			margin: 0 auto;
+			text-align: center;
+			display: block;
+		}
+}
+
+/* new code*/
+.faq_banner_image{
+	position: relative;
+	.search_faq{
+	    width: 100%;
+	    position: absolute;
+	    top: 30%;
+	    margin: auto;
+		.search_section{
+			.col-8{
+				margin: auto;
+				p{
+					font-size:20px;
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+/* End New Code*/
+
+.ques-content
+{
+	font-weight: 700;
+	font-family: $fontfamily;
+}
+.faq-question
+{
+width: 100%;
+margin: 0 auto;
+display: inline-block;
+margin-bottom: 30px;
+font-family: Raleway;	
+font-size: 17px;	
+h3
+{
+	width: 100%;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	padding-top: 25px;
+	padding-bottom: 10px;
+	font-size: $defaqh-font-size;
+	color: $text-grey;
+}
+
+	.faq-content-search
+		{
+			width: 100%;
+			float: left;
+			display: inline-block;
+		   	padding: 20px;
+
+				ul li
+		   	{
+		   		font-size: $defaq3-font-size;
+				color: $text-grey;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+		   	
+
+		   	 a 
+		   	{
+		   		font-size: $defaqli-font-size;
+				color: $primarycolor;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+		   	}
+		   	 p
+		   	{
+		   		padding-left: 26px;
+		   		font-family: $fontfamily;
+		   	}
+		   	
+		   }
+		}
+		.td-font 
+				{
+					font-family: $fontfamily;
+				}
+
+}
+
+/* RESPONSIVE STYLE */
+@media (max-width: 320px) {
+
+.searchbarfaq
+{
+	width: 100%;
+
+	h1
+	{
+		position: absolute;
+		top: 106px;
+		// left: 77px;
+		color: $text-white;
+		font-size: 12px;
+	}
+.searchbar-faq
+	{
+		
+		position: absolute;
+		top: 134px;
+		width: 100%;
+		// left: 59px;
+		// max-width: 233px;
+	
+	}
+}
+.faq-question
+{
+	width: 100%;
+	margin: 0 auto;
+	display: inline-block;
+	margin-bottom: 30px;
+
+	
+	h3
+	{
+		width: 100%;
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		padding-top: 25px;
+		padding-bottom: 10px;
+		font-size: $defaq3-font-size;
+		color: $text-grey;
+	}
+	
+	.faq-content-search
+		{
+			width: 100%;
+			float: left;
+			display: inline-block;
+		   	padding: 15px;
+		   	text-align: justify;
+
+				ul li
+		   	{
+		   		font-size: $defaq3-font-size;
+				color: $text-grey;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+		   	
+
+		   	 a 
+		   	{
+		   		font-size: $mfaqli-font-size;
+				color: $primarycolor;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+				text-align: justify;
+		   	}
+		   	 p
+		   	{
+		   		padding-left: 26px;
+		   	}
+		   }
+		}
+
+}
+
+}
+@media (max-width: 360px) {
+
+
+
+
+
+
+	.searchbarfaq
+{
+	width: 50%;
+
+	h1
+	{
+		position: absolute;
+		top: 106px;
+		// left: 77px;
+		color: $text-white;
+		font-size: 12px;
+	}
+.searchbar-faq
+	{
+		
+		position: absolute;
+		top: 134px;
+		// left: 59px;
+		// max-width: 233px;
+	
+	}
+}
+.faq-question
+{
+	width: 100%;
+	margin: 0 auto;
+	display: inline-block;
+	margin-bottom: 30px;
+
+	
+	h3
+	{
+		width: 100%;
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		padding-top: 25px;
+		padding-bottom: 10px;
+		font-size: $defaq3-font-size;
+		color: $text-grey;
+	}
+	
+	.faq-content-search
+		{
+			width: 100%;
+			float: left;
+			display: inline-block;
+		   	padding: 15px;
+		   	text-align: justify;
+
+				ul li
+		   	{
+		   		font-size: $defaq3-font-size;
+				color: $text-grey;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+		   	
+
+		   	 a 
+		   	{
+		   		font-size: $mfaqli-font-size;
+				color: $primarycolor;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+				text-align: justify;
+		   	}
+		   	 p
+		   	{
+		   		padding-left: 26px;
+		   	}
+		   }
+		}
+
+}
+}
+@media (max-width: 480px) {
+
+
+
+/* new code*/
+.faq_banner_image{
+	position: relative;
+	.search_faq{
+	    width: 100%;
+	    position: absolute;
+	    top: 4%;
+	    margin: auto;
+		.search_section{
+			.col-8{
+				margin: auto;
+				p{
+					font-style: 13px;
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+/* End New Code*/
+
+
+
+
+
+	
+.searchbarfaq
+{
+	width: 100%;
+
+	h1
+	{
+		position: absolute;
+		top: 106px;
+		// left: 95px;
+		color: $text-white;
+		font-size: 12px;
+	}
+.searchbar-faq
+	{
+		
+		position: absolute;
+		top: 134px;
+		// left: 74px;
+		// max-width: 245px;
+		width: 100%;
+	
+	}
+}
+.faq-question
+{
+	width: 100%;
+	margin: 0 auto;
+	display: inline-block;
+	margin-bottom: 30px;
+
+	
+	h3
+	{
+		width: 100%;
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		padding-top: 25px;
+		padding-bottom: 10px;
+		font-size: $defaq3-font-size;
+		color: $text-grey;
+	}
+	
+	.faq-content-search
+		{
+			width: 100%;
+			float: left;
+			display: inline-block;
+		   	padding: 15px;
+		   	text-align: justify;
+
+				ul li
+		   	{
+		   		font-size: $defaq3-font-size;
+				color: $text-grey;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+		   	
+
+		   	 a 
+		   	{
+		   		font-size: $mfaqli-font-size;
+				color: $primarycolor;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+				text-align: justify;
+		   	}
+		   	 p
+		   	{
+		   		padding-left: 26px;
+		   	}
+		   }
+		}
+
+}
+}
+@media (max-width: 640px) {
+.searchbarfaq
+{
+	width: 100%;
+
+	h1
+	{
+		position: absolute;
+		top: 106px;
+		// left: 85px;
+		color: $text-white;
+		font-size: 12px;
+	}
+.searchbar-faq
+	{
+		
+		position: absolute;
+		top: 134px;
+		// left: 54px !important;
+		// max-width: 233px;
+		width: 100%;
+	}
+}
+.faq-question
+{
+	width: 100%;
+	margin: 0 auto;
+	display: inline-block;
+	margin-bottom: 30px;
+
+	
+	h3
+	{
+		width: 100%;
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		padding-top: 25px;
+		padding-bottom: 10px;
+		font-size: $defaq3-font-size;
+		color: $text-grey;
+	}
+	
+	.faq-content-search
+		{
+			width: 100%;
+			float: left;
+			display: inline-block;
+		   	padding: 15px;
+		   	text-align: justify;
+
+				ul li
+		   	{
+		   		font-size: $defaq3-font-size;
+				color: $text-grey;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+		   	
+
+		   	 a 
+		   	{
+		   		font-size: $mfaqli-font-size;
+				color: $primarycolor;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+				text-align: justify;
+		   	}
+		   	 p
+		   	{
+		   		padding-left: 26px;
+		   	}
+		   }
+		}
+
+}
+}
+@media (max-width: 767px) {
+
+
+/* new code*/
+.faq_banner_image{
+	position: relative;
+	.search_faq{
+	    width: 100%;
+	    position: absolute;
+	    top: 7%;
+	    margin: auto;
+		.search_section{
+			.col-8{
+				margin: auto;
+				p{
+					font-size:14px;
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+/* End New Code*/
+
+
+
+
+
+
+
+
+
+.searchbarfaq
+{
+	width: 100%;
+
+	h1
+	{
+		position: absolute;
+		top: 237px;
+		// left: 82px;
+		color: $text-white;
+		font-size: 12px;
+	}
+.searchbar-faq
+	{
+		
+		position: absolute;
+		top: 264px;
+		// left: 119px;
+		// max-width: 233px;
+	
+	}
+}
+.faq-question
+{
+	width: 100%;
+	margin: 0 auto;
+	display: inline-block;
+	margin-bottom: 30px;
+
+	
+	h3
+	{
+		width: 100%;
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		padding-top: 25px;
+		padding-bottom: 10px;
+		font-size: $defaq3-font-size;
+		color: $text-grey;
+	}
+	
+	.faq-content-search
+		{
+			width: 100%;
+			float: left;
+			display: inline-block;
+		   	padding: 15px;
+		   	text-align: justify;
+
+				ul li
+		   	{
+		   		font-size: $defaq3-font-size;
+				color: $text-grey;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+		   		
+
+		   	 a 
+		   	{
+		   		font-size: $mfaqli-font-size;
+				color: $primarycolor;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+				text-align: justify;
+		   	}
+		   	 p
+		   	{
+		   		padding-left: 26px;
+		   	}
+		   }
+		}
+
+}
+
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+
+
+/* new code*/
+.faq_banner_image{
+	position: relative;
+	.search_faq{
+	    width: 100%;
+	    position: absolute;
+	    top: 20%;
+	    margin: auto;
+		.search_section{
+			.col-8{
+				margin: auto;
+				p{
+					font-size:15px;
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+/* End New Code*/
+
+.searchbarfaq
+{
+	width: 100%;
+
+	h1
+	{
+		position: absolute;
+		top: 208px;
+		// left: 188px;
+		color: $text-white;
+		font-size: 20px;
+	}
+.searchbar-faq
+	{
+		
+		position: absolute;
+		top: 238px;
+		// left: 170px;
+		// max-width: 465px;
+	
+	}
+}
+.faq-question
+{
+	width: 100%;
+	margin: 0 auto;
+	display: inline-block;
+	margin-bottom: 30px;
+
+	
+	h3
+	{
+		width: 100%;
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		padding-top: 25px;
+		padding-bottom: 10px;
+		font-size: $defaq3-font-size;
+		color: $text-grey;
+	}
+	
+	.faq-content-search
+		{
+			width: 100%;
+			float: left;
+			display: inline-block;
+		   	padding: 30px;
+
+				ul li
+		   	{
+		   		font-size: $defaq3-font-size;
+				color: $text-grey;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+		   	
+
+		   	 a 
+		   	{
+		   		font-size: $defaqli-font-size;
+				color: $primarycolor;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+				text-decoration: none;
+		   	}
+		   	 p
+		   	{
+		   		padding-left: 26px;
+		   	}
+		   }
+		}
+
+}
+
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+.searchbarfaq
+{
+	width: 80%;
+
+	h1
+	{
+		position: absolute;
+		top: 171px;
+		// left: 325px;
+		color: $text-white;
+		font-family: $font-family-raleway;
+		font-size: 23px;
+	}
+.searchbar-faq
+	{
+		
+		position: absolute;
+		top: 210px;
+		// left: 300px;
+		// max-width: 492px;
+	
+	}
+}
+.faq-question
+{
+	width: 100%;
+	margin: 0 auto;
+	display: inline-block;
+	margin-bottom: 30px;
+
+	
+	h3
+	{
+		width: 100%;
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		padding-top: 25px;
+		padding-bottom: 10px;
+		font-size: $defaqh-font-size;
+		color: $text-grey;
+		font-family: $font-family-raleway;
+	}
+	
+	.faq-content-search
+		{
+			width: 100%;
+			float: left;
+			display: inline-block;
+		   	padding: 20px;
+
+				ul li
+		   	{
+		   		font-size: $defaq3-font-size;
+				color: $text-grey;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+		   	
+
+		   	 a 
+		   	{
+		   		font-size: $defaqli-font-size;
+				color: $primarycolor;
+				font-family: $fontfamily;
+				padding-bottom: 10px;
+		   	}
+		   	 p
+		   	{
+		   		padding-left: 26px;
+		   	}
+		   }
+		}
+
+}
+}
+
+
+
+
+/*  end faq css */

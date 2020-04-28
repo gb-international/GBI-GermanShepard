@@ -2,25 +2,22 @@
     <!-- start banner area display image for itinerary days detail  -->
     <div id="explorelist">
     	<section class="banner-block">
-             <img class="top-img" v-bind:src="'assets/front/images/faq_banner.jpg'">
+             <img class="top-img" :src="`/uploadimage/${itineraryData.detail_photo}`">
          </section>
+         {{editData}}
          <div class="container">
-            <div class="row">
-              
-                <!--start card -->
-                <h1 class="main-head">{{itineraryData.title}}</h1>
-                <div class="actual-grid" v-for="i in day">
-                <div class="col mt-3" >
-                     <div class="card card-body shadow-none">
-                        <h4 class="card-title headback">day {{i}}</h4>
-                        <h1 class="explor-head">{{day_source[i-1]}} - {{day_destination[i-1]}}</h1>
-                        <p class="card-text textexp">{{day_description[i-1]}}</p>
-                     </div>
-               </div>
-               </div> 
+            <h1 class="main-head">{{itineraryData.title}}</h1>
+            <p class="description" v-html="description"></p>
 
-                <!-- end card-->
-              
+            <div class="row" id="explore_detail_part">
+
+              <div class="col-sm-4" v-for="data in itineraryData.itinerarydays">
+
+                <h4 class="day_tab">Day {{ data.day}}</h4>
+                <h1 class="explor-head" v-if="data.day_source != data.day_destination">{{data.day_source.toUpperCase() }} - {{data.day_destination.toUpperCase()}}</h1>
+                <h1 class="explor-head" v-else>{{ data.day_source.toUpperCase() }}</h1>
+                <div class="card-text" v-html="data.day_description"></div>
+              </div>           
             </div>
             <!-- /.row -->
         </div><!-- /.container-->
@@ -35,29 +32,32 @@
         data(){
           return{
             day:0,
-            day_source:[],
-            day_destination:[],
-            day_description:[],
+            description:'',
             itineraryData:[]
           }
         },
        
-       created() {
-          axios.get(`api/itinerary/view/${this.$route.params.id}`).then(response => {
-            this.itineraryData = response.data; // add data to the itineraryData
-            this.day_source = response.data.day_source.split(","); // Split data to make it array 
-            this.day_destination = response.data.day_destination.split(","); 
-            this.day_description = response.data.day_description.split(",,");// Split data to make it array
-            this.day = this.day_description.length; // get lenght to run the for loop till the lenght of the array
-          });
+        mounted(){
+          this.$store.dispatch('getEditData',`/api/itinerary/${this.$route.params.id}`)
         },
         computed:{
-        },
-
+          editData(){
+            this.itineraryData = this.$store.getters.getEditData;// Fill the form with the data
+          }
         }
+  }
 
 </script>
 
 <style scoped>
+
+.main-head{
+  text-decoration: underline;
+}
+.description{
+      font-size: 17px;
+    font-family: raleway;
+}
+
 
 </style>

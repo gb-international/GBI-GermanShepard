@@ -22,36 +22,40 @@
                 <div class="col-lg-12">
                  <div class="row">
                 <!--start card explore list dynamic tour itinerary list-->
-                <div class="col-lg-6 mt-3" v-for="itinerary in alldata">
+                <div class="col-lg-6" v-for="itinerary in alldata">
                  <div class="card card-radis-list">
-                    <router-link :to="`/explore-datail/${itinerary.id}`">
+                    <router-link :to="`/explore-detail/${itinerary.id}`">
                      <div class="card-horizontal">
                         <div class="card-image">
-                        <img :src="`uploadimage/${itinerary.photo}`" alt="{itinerary.title}" />
-                      </div>
+                          <img :src="`uploadimage/${itinerary.photo}`" alt="{itinerary.title}" />
+                        </div>
                          <div class="card-content">
-                          <h1>{{itinerary.title | sortlength(25,"...")}}</h1> 
-                          <p>{{itinerary.noofdays}} Days Tour</p>
-                          <table class="table-s">
+                           <h1>{{itinerary.title | sortlength(35,"")}}</h1> 
+                           <p>{{itinerary.noofdays}} Days Tour</p>
+                              <table class="table-s">
                                <tbody>
-                                <tr>
-                                <td><i class="fas fa-hotel"></i></td>
-                                <td><i class="fas fa-train"></i></td>
-                                <td><i class="fas fa-bus"></i></td>
-                                <td><i class="fas fa-utensils"></i></td>
-                                </tr>
-                                <tr>
-                                  <td><span class="icon-i">Hotel</span></td>
-                                  <td> <span class="icon-i">Train</span></td>
-                                  <td><span class="icon-i">Bus</span></td>
-                                  <td><span class="icon-i">Dinner</span></td>
-                                </tr>
+                                
+                                    <tr>
+                                      <td v-if="itinerary.hotel_type != '0'"><i class="fas fa-hotel"></i></td>
+                                      <td v-if="itinerary.train == 1"><i class="fas fa-train icon-train-list"></i></td>
+                                      <td v-if="itinerary.bus =='1'"><i class="fas fa-bus"></i></td>
+                                      <td v-if="itinerary.flight== '1'"><i class="fas fa-plane"></i></td>
+                                      <td v-if="itinerary.food != '0'"><i class="fas fa-utensils"></i></td>
+                                    </tr>
+                                    <tr>
+                                      <td v-if="itinerary.hotel_type != '0'"><span class="icon-i icon-hotel-list">Hotel</span></td>
+                                      <td v-if="itinerary.train== '1'"> <span class="icon-i">Train</span></td>
+                                      <td v-if="itinerary.bus== '1'"><span class="icon-i icon-bus-list">Bus</span></td>
+                                      <td v-if="itinerary.flight== '1'"><span class="icon-i icon-plane-list">Flight</span></td>
+                                      <td v-if="itinerary.food != '0'"><span class="icon-i">Food</span></td>
+                                    </tr>
+                                   
                                
                               </tbody>
                             </table>
                         </div>
                      </div>
-                 </router-link>
+                    </router-link>
                  </div>
                 </div>
                 
@@ -61,7 +65,6 @@
             </div>
             <!-- /.row -->
         </div><!-- /.container-->
-       
             
     </div>
 </template>
@@ -78,7 +81,7 @@ import _ from 'lodash'
         },
        // get api data itinerary data
        mounted(){
-          this.$store.dispatch('getAllData','/api/itinerarys')
+          this.$store.dispatch('getAllData','/api/itinerary')
         },
         //fetch all data function itinerary
         computed:{

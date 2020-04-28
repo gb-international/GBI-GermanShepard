@@ -15,13 +15,13 @@ class CreateToursTable extends Migration
     {
         Schema::create('tours', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('itinerary_id');
-            $table->string('client_id');
-            $table->string('student_id');
-            $table->string('tour_code');
+            $table->string('tour_id');
+            $table->bigInteger('itinerary_id')->unsigned();
+            $table->string('school_id');
             $table->string('tour_start_date');
             $table->string('tour_end_date');
-            $table->enum('tour_status', ['0', '1'])->default('0');
+            $table->string('tour_price')->nullable();
+            $table->enum('status', ['0', '1'])->default('1');
             $table->timestamps();
         });
     }

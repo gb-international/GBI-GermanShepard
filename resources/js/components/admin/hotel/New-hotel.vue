@@ -15,9 +15,11 @@ to submit the data we are using a function.
             <div class="row justify-content-around">
                 <!-- left column -->
                 <div class="col-md-12">
-                    <form role="form" enctype="multipart/form-data" @submit.prevent="addHotel()">
-                      <div class="row">
-                        
+                  <form role="form" enctype="multipart/form-data" @submit.prevent="addHotel()">
+
+
+
+                    <div class="row">        
                           <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="name">Hotel Name</label>
@@ -47,39 +49,14 @@ to submit the data we are using a function.
                           
                           <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="location">Location</label>
-                                <input type="text" class="form-control" v-model="form.location" :class="{ 'is-invalid': form.errors.has('location') }"  placeholder="Enter Location" name="location">
-                                <has-error :form="form" field="location"></has-error>
-                            </div>                          
-                          </div>
-
-                        </div>
-                        <div class="row">
-                          
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="mealType">Meal Type</label>
-                                <input type="text" class="form-control"  placeholder="Enter Meal Type"  name="mealType" v-model="form.mealType" :class="{ 'is-invalid': form.errors.has('mealType') }">
-                                <has-error :form="form" field="mealType"></has-error>
-                            </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="price">Price</label>
-                                <input type="text" class="form-control"  placeholder="Enter price"  name="price" v-model="form.price" :class="{ 'is-invalid': form.errors.has('price') }">
-                                <has-error :form="form" field="price"></has-error>
-                            </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="form-group">
                                 <label for="phoneno">Contact Number</label>
                                 <input type="text" class="form-control"  placeholder="Enter Contact Number"  name="phoneno" v-model="form.phoneno" :class="{ 'is-invalid': form.errors.has('phoneno') }">
                                 <has-error :form="form" field="phoneno"></has-error>
                             </div>
                           </div>
                         </div>
+
                         <div class="row">
-                          
                           <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="email">Email</label>
@@ -87,16 +64,158 @@ to submit the data we are using a function.
                                 <has-error :form="form" field="email"></has-error>
                             </div>
                           </div>
+
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="room">Rooms</label>
+                                <input type="number" class="form-control" placeholder="Enter No. of Room in hotel"  id="room" name="room" v-model="form.room" :class="{ 'is-invalid': form.errors.has('room') }">
+                                <has-error :form="form" field="room"></has-error>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input type="text" class="form-control" placeholder="Enter State"  id="state" name="state" v-model="form.state" :class="{ 'is-invalid': form.errors.has('state') }">
+                                <has-error :form="form" field="state"></has-error>
+                            </div>
+                          </div>
+
                         </div>
+
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="city">City</label>
+                              <input type="text" class="form-control" placeholder="Enter City"  id="city" name="city" v-model="form.city" :class="{ 'is-invalid': form.errors.has('city') }">
+                                <has-error :form="form" field="city"></has-error>
+                              </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="address">Address</label>
+                              <input type="text" class="form-control" placeholder="Enter Address"  id="address" name="address" v-model="form.address" :class="{ 'is-invalid': form.errors.has('address') }">
+                                <has-error :form="form" field="address"></has-error>
+                              </div>
+                          </div>                          
+                        </div>
+
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="apai_single">APAI-Single (Price)</label>
+                              <input type="text" class="form-control" placeholder="Enter apai_single"  id="apai_single" name="apai_single" v-model="form.apai_single" :class="{ 'is-invalid': form.errors.has('apai_single') }">
+                                <has-error :form="form" field="apai_single"></has-error>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="apai_double">APAI-Double (Price)</label>
+                              <input type="text" class="form-control" placeholder="Enter apai_double"  id="apai_double" name="apai_double" v-model="form.apai_double" :class="{ 'is-invalid': form.errors.has('apai_double') }">
+                                <has-error :form="form" field="apai_double"></has-error>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="apai_triple">APAI-Triple (Price)</label>
+                              <input type="text" class="form-control" placeholder="Enter apai_triple"  id="apai_triple" name="apai_triple" v-model="form.apai_triple" :class="{ 'is-invalid': form.errors.has('apai_triple') }">
+                                <has-error :form="form" field="apai_triple"></has-error>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="apai_quad">APAI-quad (Price)</label>
+                              <input type="text" class="form-control" placeholder="Enter apai_quad"  id="apai_quad" name="apai_quad" v-model="form.apai_quad" :class="{ 'is-invalid': form.errors.has('apai_quad') }">
+                                <has-error :form="form" field="apai_quad"></has-error>
+                              </div>
+                          </div>
+                        </div>
+<!-- MAPAI -->
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="mapai_single">MAPAI-Single (Price)</label>
+                              <input type="text" class="form-control" placeholder="Enter mapai_single"  id="mapai_single" name="mapai_single" v-model="form.mapai_single" :class="{ 'is-invalid': form.errors.has('mapai_single') }">
+                                <has-error :form="form" field="mapai_single"></has-error>
+                              </div>
+                          </div>
+
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="mapai_double">MAPAI-Double (Price)</label>
+                              <input type="text" class="form-control" placeholder="Enter mapai_double"  id="mapai_double" name="mapai_double" v-model="form.mapai_double" :class="{ 'is-invalid': form.errors.has('mapai_double') }">
+                                <has-error :form="form" field="mapai_double"></has-error>
+                              </div>
+                          </div>
+
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="mapai_triple">MAPAI-Triple (Price)</label>
+                              <input type="text" class="form-control" placeholder="Enter mapai_triple"  id="mapai_triple" name="mapai_triple" v-model="form.mapai_triple" :class="{ 'is-invalid': form.errors.has('mapai_triple') }">
+                                <has-error :form="form" field="mapai_triple"></has-error>
+                              </div>
+                          </div>
+
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="mapai_quad">MAPAI-quad (Price)</label>
+                              <input type="text" class="form-control" placeholder="Enter mapai_quad"  id="mapai_quad" name="mapai_quad" v-model="form.mapai_quad" :class="{ 'is-invalid': form.errors.has('mapai_quad') }">
+                                <has-error :form="form" field="mapai_quad"></has-error>
+                              </div>
+                          </div>
+                        </div>
+
+<!-- CPAI -->
+                        
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="cpai_single">CPAI-Single (Price)</label>
+                              <input type="text" class="form-control" placeholder="Enter cpai_single"  id="cpai_single" name="cpai_single" v-model="form.cpai_single" :class="{ 'is-invalid': form.errors.has('cpai_single') }">
+                                <has-error :form="form" field="cpai_single"></has-error>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="cpai_double">CPAI-Double (Price)</label>
+                              <input type="text" class="form-control" placeholder="Enter cpai_double"  id="cpai_double" name="cpai_double" v-model="form.cpai_double" :class="{ 'is-invalid': form.errors.has('cpai_double') }">
+                                <has-error :form="form" field="cpai_double"></has-error>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="cpai_triple">CPAI-Triple (Price)</label>
+                              <input type="text" class="form-control" placeholder="Enter cpai_triple"  id="cpai_triple" name="cpai_triple" v-model="form.cpai_triple" :class="{ 'is-invalid': form.errors.has('cpai_triple') }">
+                                <has-error :form="form" field="cpai_triple"></has-error>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="cpai_quad">CPAI-quad (Price)</label>
+                              <input type="text" class="form-control" placeholder="Enter cpai_quad"  id="cpai_quad" name="cpai_quad" v-model="form.cpai_quad" :class="{ 'is-invalid': form.errors.has('cpai_quad') }">
+                                <has-error :form="form" field="cpai_quad"></has-error>
+                            </div>
+                          </div>
+                        </div>
+
+
                         <div class="row">
                           <div class="col-sm-4"></div>
                           <div class="col-sm-4">
                             <div class="form-group text-center">
-                              <button type="submit" class="btn btn-primary btn-block itrn_add_btn">SAVE</button>
+                              <button type="submit" class="btn btn-primary btn-block itrn_add_btn">SUBMIT</button>
                             </div>
                           </div>
                           <div class="col-sm-4"></div>
-                        </div>                        
+                        </div>
+                                                
                     </form>
                 </div>
             </div>
@@ -106,62 +225,71 @@ to submit the data we are using a function.
 </template>
 
 <script>
-   export default {
-        name: "New",
-        data(){
-            return {
-              // Create a new form instance
-              form: new Form({
-                type: '',
-                name: '',
-                location: '',
-                price: '',
-                phoneno: '',
-                email: '',
-                mealType:'',
-                })
-            }
-        },
-        methods:
-        {
+export default {
+  name: "New",
+  data(){
+    return {
+      // Create a new form instance
+      form: new Form({
+        type: '',
+        name: '',
+        state: '',
+        city: '',
+        room: '',
+        phoneno: '',
+        email: '',
+        address:'',
 
-            changePhoto(event){
-                let file = event.target.files[0];
+        apai_single: '',
+        apai_double: '',
+        apai_triple: '',
+        apai_quad: '',
 
-                 if(file.size>1048576){
-                     swal({
-                         type: 'error',
-                         title: 'Oops...',
-                         text: 'Something went wrong!',
-                         footer: '<a href>Why do I have this issue?</a>'
-                     })
-                 }else{
-                     let reader = new FileReader();
-                     reader.onload = event => {
-                         this.form.photo = event.target.result
-                         console.log(event.target.result)
-                     };
-                     reader.readAsDataURL(file);
-                 }
+        mapai_single: '',
+        mapai_double: '',
+        mapai_triple: '',
+        mapai_quad: '',
 
-            },
-            addHotel()
-            {
-                // Submit the form via a itinerary request
-                this.form.post('/api/hotel/create')
-                  .then((response)=>{
-                       this.$router.push(`/hotel-list/`)
-                        toast({
-                            type: 'success',
-                            title: 'Hotel Added successfully'
-                        })
-                    })
-                    .catch(()=>{
-
-                    })
-            }
-        }
+        cpai_single: '',
+        cpai_double: '',
+        cpai_triple: '',
+        cpai_quad: '',
+        })
     }
+  },
+  methods:
+  {
+    changePhoto(event){
+      let file = event.target.files[0];
+       if(file.size>1048576){
+           swal({
+               type: 'error',
+               title: 'Oops...',
+               text: 'Something went wrong!',
+               footer: '<a href>Why do I have this issue?</a>'
+           })
+       }else{
+           let reader = new FileReader();
+           reader.onload = event => {
+               this.form.photo = event.target.result
+               console.log(event.target.result)
+           };
+           reader.readAsDataURL(file);
+       }
+    },
+    addHotel()
+    {
+      // Submit the form via a itinerary request
+      this.form.post('/api/hotel').then((response)=>{
+         this.$router.push(`/hotel-list/`)
+          toast({
+              type: 'success',
+              title: 'Hotel Added successfully'
+          })
+      }).catch(()=>{})
+    }
+  }
+}
 </script>
 
 <style scoped>

@@ -24,11 +24,15 @@ class CreateItinerariesTable extends Migration
             $table->Integer('noofdays');
             $table->text('description');
             $table->string('tourtype');
-            $table->string('hotel_type');
-            $table->string('transport_type');
+            $table->string('hotel_type')->nullable();
+            $table->string('bus')->nullable();
+            $table->string('train')->nullable();
+            $table->string('flight')->nullable();
+            $table->string('food');
             $table->Integer('price')->nullable();
-            $table->enum('status', ['0', '1']);
+            $table->enum('status', ['0', '1'])->default('1');
             $table->timestamps();
+
         });
     }
 

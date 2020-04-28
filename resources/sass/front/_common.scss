@@ -1,0 +1,38 @@
+.link{
+	cursor: pointer;
+}
+.text_on_image{
+	position: relative;
+	.content{
+		position: absolute;
+		top: 40%;
+		left: 10%;
+		color: white;
+		background: transparent;
+		.heading{
+			font-size: 30px;
+			margin-bottom: 0px;
+		}
+		.sub{
+
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.top-img{
+	    height: 145px;
+	}  
+	.text_on_image{
+		.content{
+			top: 26%;
+			left: 5%;
+			.heading{
+				font-size: 15px;
+			}
+			.sub{
+				font-size: 8px;
+			}
+		}
+	} 
+}

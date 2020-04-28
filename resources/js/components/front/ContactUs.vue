@@ -1,20 +1,27 @@
 <template>
-    <div id="contactus">
-    	<!-- start banner area -->
+  <div id="contactus">
+    <vue-headful
+            title="Contact GBI Team "
+            description="GBI is always ready to answer travel queries posted by its clients"
+        />
+    <!-- start banner area -->
     <section class="banner-block">
-        <img id="contact-us" class="top-img" :src="`assets/front/images/banner_contact.jpg`">
+      <div class="text_on_image">
+          <img id="safetyimg" class="top-img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/contact-us.jpg`">
+          <div class="content">
+            <p class="heading">CONTACT US</p>             
+          </div>
+      </div>
+
      </section>  
   <!-- End banner area -->
- <main>
-
-  <!-- Start main content --> 
- 
+    <main>
 
     <!-- Start how we work -->
       <div class="row">
       <div class="col-lg-12 pa-t-15">
 
-     <article class="contactus">
+     <article class="container contactus">
      <div class="row">
            <div class="col-lg-6">
          <div class="col-lg-12">
@@ -52,7 +59,7 @@
             </div>
 
          <div class="col-lg-12">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.1110823555123!2d77.22139051508042!3d28.536380682455928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2214a7825c5%3A0xbef6ae1702026f1c!2sGB+International!5e0!3m2!1sen!2sin!4v1554198180729!5m2!1sen!2sin" width="100%" height="210" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.1110823555123!2d77.22139051508042!3d28.536380682455928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2214a7825c5%3A0xbef6ae1702026f1c!2sGB+International!5e0!3m2!1sen!2sin!4v1554198180729!5m2!1sen!2sin" width="100%" height="190" frameborder="0" style="border:0" allowfullscreen></iframe>
       </div>
       </div>
 
@@ -61,30 +68,33 @@
        <div class="title-contact"><h2>Contact Us</h2></div>
          <!--form contact us-->
         
-        <form role="form"  @submit.prevent="sendmail">
+         <form role="form" enctype="multipart/form-data" @submit.prevent="sendmail()">
          
          <div class="form-fullwidth">
           <label class="lable-title">Name</label>
-          <input type="text" id="fname" v-model="form.name" name="name" class="form-control { 'is-invalid': form.errors.has('name') }" placeholder="Name">
-           <has-error :form="form" field="name"></has-error>
+         <input type="text" class="form-control" id="name" placeholder="Name" v-model="form.name" name="name" :class="{ 'is-invalid': form.errors.has('name') }">
+       <!--  <has-error :form="form" field="name"></has-error> -->
          
         </div>
        <div class="form-fullwidth">
         <label class="lable-title">E-Mail</label>
-         <input type="text" id="email" v-model="form.email" name="email" class="form-control { 'is-invalid': form.errors.has('email') }" placeholder="E-Mail">
-         
+        <input type="text" class="form-control" id="email" placeholder="Email" v-model="form.email" name="email" :class="{ 'is-invalid': form.errors.has('email') }">
+       
+          
         </div>
         <div class="form-fullwidth">
           <label class="lable-title">Mobile</label>
-          <input type="text" id="contactno" v-model="form.mobile" name="mobile" class="form-control { 'is-invalid': form.errors.has('mobile') }" placeholder="Mobile">
+        <input type="text" class="form-control" id="mobile" placeholder="Mobile" v-model="form.mobile" name="mobile" :class="{ 'is-invalid': form.errors.has('mobile') }">
         
         </div>
         <div class="form-fullwidth">
           <label class="lable-title">Message</label>
-            <textarea id="subject" v-model="form.messagecon" name="messagecon" rows="3" cols="40" class="form-control { 'is-invalid': form.errors.has('messagecon') }" placeholder="Message....."></textarea>
+            <textarea id="messagecon" v-model="form.messagecon" name="messagecon" rows="5" cols="40" class="form-control { 'is-invalid': form.errors.has('messagecon') }" placeholder="Message....."></textarea>
+            
             
           </div>
            <div class="form-fullwidth alignbtn">
+
           <input type="submit" value="Submit" name="submit">
         </div>
        </form>
@@ -103,28 +113,26 @@
 </template>
 
 <script>
-    export default {
-        name: "ContactUs",
-        data(){
-            return{
-                form: new Form({
-                    form:{},
-                })
-            }
-        },
-         methods:{
-         	 sendmail(){
-             	 	this.form.post('/send',
-                    {name:this.form.name,email:this.form.email,mobile:this.form.mobile,messagecon:this.form.messagecon})
-                   .then(response => {
-                     console.log(response);
-                       this.success = response.data.success;
-                      
-                  })
-
-            }
-         }
+export default {
+  name: "ContactUs",
+  data(){
+    return{
+       form: new Form({
+          name:'',
+          email:'',
+          mobile:'',
+          messagecon:'',         
+      })
     }
+  },
+  methods:{
+   	sendmail(){
+     	this.form.post('/contact-us/send').then((response)=>{
+            swal({ text: 'Successfully send mail!', width: 300, })
+      }).catch(()=>{ })
+    }
+  }
+}
 </script>
 
 <style scoped>
