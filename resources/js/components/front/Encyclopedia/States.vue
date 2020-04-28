@@ -62,6 +62,7 @@ export default {
     stateList(){
       axios.get('/api/encyclopedia-list').then((response)=>{
         this.state_list = response.data;
+        console.log(this.state_list);
       });
     },
     SelectBox(){
@@ -77,10 +78,11 @@ export default {
   },
   computed: {
     resultQuery(){
+
       if(this.searchQuery){
-      return this.state_list.filter((item)=>{
-        return this.searchQuery.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
-      })
+        return this.state_list.filter((item)=>{
+          return this.searchQuery.toLowerCase().split(' ').every(v => item.state_name.toLowerCase().includes(v))
+        })
       }else{
         return this.state_list;
       }

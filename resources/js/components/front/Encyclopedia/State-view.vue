@@ -102,11 +102,12 @@
                       </h4>
                       <p>{{ comment.body }}</p>
 
-                      <div class="my-4 pt-1 d-flex justify-content-between">
+                      <!-- <div class="my-4 pt-1 d-flex justify-content-between">
                         <div>
-                          <i class="far fa-thumbs-up text-action text-success mr-3" data-toggle="tooltip" data-placement="top" aria-hidden="true"></i> <i class="far fa-thumbs-down text-action text-danger mr-3" data-toggle="tooltip" data-placement="top"  aria-hidden="true"></i> <span class="font-small font-weight-light">4 likes</span></div>
+                          <i class="far fa-thumbs-up text-action text-success mr-3" data-toggle="tooltip" data-placement="top" aria-hidden="true"></i><span class="font-small font-weight-light">4 likes</span>
+                        </div>
 
-                      </div>
+                      </div> -->
 
                       <!-- Reply form -->
     
