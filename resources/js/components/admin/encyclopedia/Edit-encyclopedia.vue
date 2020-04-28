@@ -346,7 +346,8 @@ export default {
       console.log(this.form.files);
        var api = `/api/encyclopedias/${this.$route.params.id}`;
        this.form.put(api).then((response)=>{
-             this.$router.push(`/encyclopedia-list`)
+        
+             this.$router.push(`/itinerary-list`)
               toast({
                   type: 'success',
                   title: 'Itinerary Updated successfully'

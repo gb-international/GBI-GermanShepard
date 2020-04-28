@@ -270,7 +270,8 @@ export default {
     {
       this.form.post('/api/encyclopedias')
         .then((response)=>{
-             this.$router.push(`/encyclopedia-list`)
+          console.log(response);
+             this.$router.push(`/itinerary-list`)
               toast({
                   type: 'success',
                   title: 'Itinerary Added successfully'
