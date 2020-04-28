@@ -1,6 +1,6 @@
 <template>
   <div id="fronthome">
-    <!-- <div class="slidehome">
+      <!-- <div class="slidehome">
         <carousel :data="['Slide 1', 'Slide 2', 'Slide 3']"></carousel>
     </div> -->
       <div class="slidehome"><div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
