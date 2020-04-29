@@ -14,10 +14,7 @@ use Mail;
 
 class ContactMassageController extends Controller
 {
-    public function contact()
-    {
-      return view('front.contact-us');
-    }
+
     public function store(Request $request)
     {
     	$this->validate($request, [
@@ -25,7 +22,6 @@ class ContactMassageController extends Controller
     		'email' => 'required|email',
     		'mobile' => 'required|numeric|min:10',
     		'messagecon' => 'required',
-
     	]);
     	$data = array(
     			'email'=>$request->email,
@@ -33,14 +29,11 @@ class ContactMassageController extends Controller
     			'mobile'=>$request->mobile,
     			'messagecon'=>$request->messagecon
     			);
-
     		//Mail::send('email.contactmail', $data, function($message) use ($data){
     		//	$message->from($data['email']);
     		//	$message->to('jyoti_shaw@gbinternational.in');
     		//	$message->subject($data['name']);
-
     		//});
     	Mail::to($data['email'])->send( new SendMail($data['messagecon'], $data['mobile'], $data['name'], $data['email']));
-    
     }
 }

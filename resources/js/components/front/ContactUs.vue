@@ -127,7 +127,7 @@ export default {
   },
   methods:{
    	sendmail(){
-     	this.form.post('/contact-us/send').then((response)=>{
+     	this.form.post('/api/contact-us/send').then((response)=>{
             swal({ text: 'Successfully send mail!', width: 300, })
       }).catch(()=>{ })
     }

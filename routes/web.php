@@ -22,7 +22,6 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/send-otp/{phoneo}/{mssage}','OtpController@send_sms');
         Route::get('/reset/{link}','EmailController@reset_email_password');
         Route::post('/submitpassword','EmailController@submit_password');
-        Route::post('/contact-us/send', 'ContactMassageController@store');
     });
     Route::namespace('Admin')->group(function(){
         Route::group(['middleware' => ['auth']], function () {

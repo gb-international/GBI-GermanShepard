@@ -20,10 +20,6 @@ use Illuminate\Http\Request;
 
 class JoinourteamController extends Controller
 {
-    public function joinTeam()
-    {
-    	return view('front.join-our-team');
-    }
     public function resumeSend(Request $request)
     {
     	$this->validate($request, [
@@ -72,7 +68,7 @@ class JoinourteamController extends Controller
 			'messagescon'=>$request->messagescon
 			);
 
-    	 Mail::to('jyoti_shaw@gbinternational.in')->send( new SendMailresume ($data['firstname'], $data['lastname'], $data['email'], $data['contactno'], $data['address'], $data['state'], $data['city'], $data['zipcode'], $data['postvancy'], $data['messagescon'], $url));
+    	 Mail::to('ajay_yadav@gbinternational.in')->send( new SendMailresume ($data['firstname'], $data['lastname'], $data['email'], $data['contactno'], $data['address'], $data['state'], $data['city'], $data['zipcode'], $data['postvancy'], $data['messagescon'], $url));
      //    return redirect()->back()->with('success','send mail successfully');
     }
 

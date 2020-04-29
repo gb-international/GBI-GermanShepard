@@ -144,7 +144,7 @@ export default {
       },
       
       sendmailResume(){
-        this.form.post('api/join-our-team/send')
+        this.form.post('/api/join-our-team/send')
         .then((response)=>{
             this.form.reset();
             this.filename = '';
