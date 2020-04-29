@@ -1,33 +1,37 @@
 <template>
   <!-- Remove this dummy_height when you add some data to this page -->
   <div class="States">
-    <div class="bg-banner">
-      <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="form-group">
-              <model-select :options="options" v-model="searchQuery" placeholder="From"></model-select>
-            </div>
-        </div>
-      </div>
-      
-    </div>
-
-    <hr>
     <div class="container">
-      <div class="row"v-if="state_list.length" >
-
-        <div class="col-sm-4 states_card" v-for="state in resultQuery">
-          <router-link :to="`/encyclopedia/${state.slug}`">
-            <div class="card">
-              <img class="card-img-top" :src="getImgUrl(state.thumbnail)" alt="Card image">
-              <div class="card-img-overlay text-center">
-                 <p class="card-text text-white">{{ state.state_name }}</p>
+      <div class="bg-banner">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+              <div class="form-group">
+                <model-select :options="options" v-model="searchQuery" placeholder="Search encyclopedia..."></model-select>
               </div>
-            </div>
-          </router-link>
+          </div>
         </div>
-
+        
       </div>
+      <br>
+
+    
+      <div class="container">
+        <div class="row"v-if="state_list.length" >
+
+          <div class="col-sm-4 states_card" v-for="state in resultQuery">
+            <router-link :to="`/encyclopedia/${state.slug}`">
+              <div class="card">
+                <img class="card-img-top" :src="getImgUrl(state.thumbnail)" alt="Card image">
+                <div class="card-img-overlay text-center">
+                   <p class="card-text text-white">{{ state.state_name }}</p>
+                </div>
+              </div>
+            </router-link>
+          </div>
+
+        </div>
+      </div>
+      <br>
     </div>
   </div>
 </template>

@@ -31442,6 +31442,10 @@ a:hover {
   margin-bottom: 0px;
 }
 
+.ui.selection.dropdown {
+  min-width: 100% !important;
+}
+
 @media (max-width: 767px) {
   .top-img {
     height: 145px;

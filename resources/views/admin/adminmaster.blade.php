@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Admin Panel</title>
+    <title>GBI-Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <meta name="csrf-token" content="{{ csrf_token() }}">    
     <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
@@ -110,8 +110,8 @@
                     @canany(['list tour','add tour','edit tour','delete tour'])
                     <li class="nav-item has-treeview">
                       <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-hotel"></i>
-                        <p> Tour Detail <i class="right fas fa-angle-right"></i>
+                        <i class="nav-icon fas fa-bus"></i>
+                        <p> Tour <i class="right fas fa-angle-right"></i>
                         </p>
                       </a>
                       <ul class="nav nav-treeview">
@@ -142,7 +142,7 @@
                       <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-hotel"></i>
                         <p>
-                          Hotel Detail
+                          Hotel
                           <i class="right fas fa-angle-right"></i>
                         </p>
                       </a>
@@ -326,6 +326,44 @@
                     </li>
                     @endcanany
 
+                    @can(['city','state','country'])
+                    <li class="nav-item has-treeview">
+                      <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-map-marker-alt"></i>
+                        <p> Location <i class="right fas fa-angle-right"></i>
+                        </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+
+                        @can('city')
+                        <li class="nav-item">
+                          <router-link to="/list-city" class="nav-link">
+                            <p> City </p>
+                          </router-link>
+                        </li>
+                        @endcan
+
+                        @can('state')
+                        <li class="nav-item">
+                          <router-link to="/list-state" class="nav-link">
+                            <p> State </p>
+                          </router-link>
+                        </li>
+                        @endcan
+                        
+                        @can('city')
+                        <li class="nav-item">
+                          <router-link to="/country-list" class="nav-link">
+                            <p> Country</p>
+                          </router-link>
+                        </li>
+                        @endcan
+
+                      </ul>
+                    </li>
+                    @endcan
+
+
                     @can(['website'])
                     <li class="nav-item has-treeview">
                       <a href="#" class="nav-link">
@@ -357,37 +395,14 @@
                     </li>
                     @endcan
 
-                    @canany(['setting','roles','permissions','city','country'])
+                    @canany(['setting','roles','permissions'])
                     <li class="nav-item has-treeview">
                       <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-hotel"></i>
+                        <i class="nav-icon fas fa-cog"></i>
                         <p> Setting <i class="right fas fa-angle-right"></i>
                         </p>
                       </a>
-                      <ul class="nav nav-treeview">
-
-                        @can('city')
-                        <li class="nav-item">
-                          <router-link to="/list-city" class="nav-link">
-                            <p> City</p>
-                          </router-link>
-                        </li>
-                        @endcan
-                        @can('state')
-                        <li class="nav-item">
-                          <router-link to="/list-state" class="nav-link">
-                            <p> State </p>
-                          </router-link>
-                        </li>
-                        @endcan
-                        
-                        @can('city')
-                        <li class="nav-item">
-                          <router-link to="/country-list" class="nav-link">
-                            <p> Country</p>
-                          </router-link>
-                        </li>
-                        @endcan
+                      <ul class="nav nav-treeview">                        
                         
                         @can('role')
                         <li class="nav-item">
@@ -457,7 +472,7 @@
 
 
 $(document).ready(function(){
-  
+
 });
 
 

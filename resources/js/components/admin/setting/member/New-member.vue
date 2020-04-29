@@ -112,7 +112,7 @@ export default {
   },
 
   created(){
-    axios.get('/api/roles').then((response)=>{
+    axios.get('/api/role').then((response)=>{
       setTimeout(() => $('#example').DataTable(), 1000);
       this.role_list = response.data;
     });

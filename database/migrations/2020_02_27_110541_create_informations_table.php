@@ -19,8 +19,8 @@ class CreateInformationsTable extends Migration
             $table->string('gbi_link')->nullable();
             $table->string('client_type')->nullable();
             $table->string('client_input')->nullable();
-            $table->string('phone_no');
-            $table->string('otp');
+            $table->string('phone_no')->nullable();
+            $table->string('otp')->nullable();
             $table->string('father_name')->nullable();
             $table->string('mother_name')->nullable();
             $table->string('dob')->nullable();

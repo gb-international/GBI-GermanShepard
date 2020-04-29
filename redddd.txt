@@ -118,18 +118,8 @@ Resources ki sbhi banner ke text ko dynamic krna h ....
 Join our team check the code....
 Contact us page
 Login emit and brodcasting.....
-
-
 Itinerary should be in word or pdf file, and updload it from the front end
-
-
-
-
-
-
 php.ini
-
-
   post_max_size=100M
   upload_max_filesize=100M
 
@@ -152,5 +142,28 @@ for($i=0;$i<count($data);$i++){
 }
 
 print_r($new);
+
+
+-----------------------------------
+
+Admin - role and permission 
+      - User dashboard
+
+
+
+29-02-2020
+
+search -> Source Destination based -----
+Type of tours :
+        1. table for type of tours
+        2. connect it one itinerary to many tour_type
+
+
+Explore destination
+  -> div mapping from Home page 
+  -> Explore destination show -> upcoming tour, Popular tours
+        if search ititnerary then show it above the upcoming tour
+        and don't hide upcoming tour
+
 
 

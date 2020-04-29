@@ -27,7 +27,7 @@ data from the api to display the data about the Hotel from the backend .
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="role in role_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list">
+                        <tr v-for="role in role_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list" v-if="role.name != 'SuperAdmin'">
                             <td>{{role.name}}</td>
                             <td class="edit_section">
 

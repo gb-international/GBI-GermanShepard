@@ -91,7 +91,7 @@ export default {
       this.has_permission = response.data.permissions;
     });
 
-    axios.get(`/api/permissions`).then((response)=>{
+    axios.get(`/api/permission`).then((response)=>{
       setTimeout(() => $('#example').DataTable(), 1000);
       this.permissions = response.data;
 
@@ -110,10 +110,6 @@ export default {
           this.items[j].id = false  ;
         }
       }
-
-
-
-      
     });
 
   },

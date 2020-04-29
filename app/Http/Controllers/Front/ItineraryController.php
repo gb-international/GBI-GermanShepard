@@ -38,6 +38,7 @@ class ItineraryController extends Controller
             'tourtype' => 'required',
             'noofday' => 'required'
         ]);
+        
         $source = $request->source;
         $destination = $request->destination;
         $tourtype = $request->tourtype;

@@ -50,9 +50,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\Encyclopedia\Encyclopediacomment');
     }
 
-    
-
-
     public function getAllPermissionsAttribute() {
       $permissions = [];
         foreach (Permission::all() as $permission) {
