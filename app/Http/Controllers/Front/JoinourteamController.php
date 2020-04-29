@@ -16,6 +16,7 @@ use Mail;
 use Image;
 use PDF;
 use Storage;
+use App\mail\sendMail;
 use Illuminate\Http\Request;
 
 class JoinourteamController extends Controller
@@ -92,4 +93,27 @@ class JoinourteamController extends Controller
         return response()->download(public_path('Appdividend.docx'));
        
     }
+
+    public function contactUs(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'mobile' => 'required|numeric|min:10',
+            'messagecon' => 'required',
+        ]);
+        $data = array(
+                'email'=>$request->email,
+                'name'=>$request->name,
+                'mobile'=>$request->mobile,
+                'messagecon'=>$request->messagecon
+                );
+            //Mail::send('email.contactmail', $data, function($message) use ($data){
+            //  $message->from($data['email']);
+            //  $message->to('jyoti_shaw@gbinternational.in');
+            //  $message->subject($data['name']);
+            //});
+        Mail::to($data['email'])->send( new SendMail($data['messagecon'], $data['mobile'], $data['name'], $data['email']));
+    }
+    
 }

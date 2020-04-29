@@ -95,7 +95,7 @@ Route::namespace('Front')->group(function(){
 	Route::get('/userdata/{id}','FrontUserController@userdata');
 	Route::get('/tour-list/{id}','FrontUserController@user_tour_list');
 	Route::post('/join-our-team/send', 'JoinourteamController@resumeSend');
-	Route::post('/contact-us/send', 'ContactMassageController@store');
+	Route::post('/contact-us/send', 'JoinourteamController@contactUs');
 	
 	// Front user controller 
 	Route::post('login-user', 'UserController@login');
