@@ -7,16 +7,17 @@ Purpose : Manage Itinerary
 namespace App\Http\Controllers\Admin\Itinerary;
 
 use App\Model\Itinerary\Itinerary;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
-use App\Http\Resources\ItineraryCollection;
-use DB;
 use App\Model\Itinerary\Itineraryday;
 use App\Model\Tour\Tour;
+use App\Model\Location\City;
+use App\Model\Tour\Tourtype;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\ItineraryCollection;
+use DB;
 use Auth;
 use Image;
-use App\Model\Location\City;
 
 class ItineraryController extends Controller
 {
@@ -63,7 +64,7 @@ class ItineraryController extends Controller
            'detail_photo' => 'mimes:jpeg,jpg,png,gif|required|max:10000', // max 10000kb           
         );
 
-// linux and windows file staructure image path error and uploadig error.
+        // linux and windows file staructure image path error and uploadig error.
 
 
             $strpos = strpos($request->input('photo'),';');
@@ -128,6 +129,7 @@ class ItineraryController extends Controller
     public function edit(Itinerary $itinerary)
     {
         $itinerary->itinerarydays;
+        $itinerary->tourtypes;
         return response()->json($itinerary);
     }
 

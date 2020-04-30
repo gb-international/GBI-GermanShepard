@@ -7,12 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Itinerary extends Model
 {
 
-    
-	// public function itineraryday()
-	// {
-	// 	return $this->hasOne('App\Itineraryday');
-	// }
-
 	public function itinerarydays()
 	{
 		return $this->hasMany('App\Model\Itinerary\Itineraryday');
@@ -22,4 +16,8 @@ class Itinerary extends Model
 	{
 		return $this->hasMany('App\Model\Tour\Tour');
 	}
+
+	public function tourtypes(){
+    	return $this->belongsToMany('App\Model\Tour\Tourtype');
+    }
 }

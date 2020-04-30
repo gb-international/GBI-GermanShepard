@@ -122,6 +122,7 @@
                           </router-link>
                         </li>
                         @endcan
+
                         @can('add hotels')
                         <li class="nav-item">
                           <router-link to="/add-tour" class="nav-link">
@@ -129,6 +130,16 @@
                           </router-link>
                         </li>
                         @endcan
+
+                        @can('tourtype')
+                        <li class="nav-item">
+                          <router-link to="/tourtype" class="nav-link">
+                            <p> Tour type </p>
+                          </router-link>
+                        </li>
+                        @endcan
+
+                        
 
                       </ul>
                     </li>

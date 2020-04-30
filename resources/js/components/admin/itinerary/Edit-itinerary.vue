@@ -129,6 +129,27 @@
                   </div>
                 </div>
               </div>
+
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="mode_of_transport">Tour category</label><br>
+
+                    <div class="custom-control custom-checkbox custom-control-inline" v-for="category in tour_type_list">
+                      <input type="checkbox" class="custom-control-input" :id="`cat`+category.id" true-value="1" false-value="0">
+                      <label class="custom-control-label" :for="`cat`+category.id">{{ category.name }}</label>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
               <div class="row  mb-30">  
                 <div class="col-sm-8">
                   <div class="form-group">
@@ -258,6 +279,8 @@ export default {
       itinerarydays:[],
       img_photo:'',
       img_detail_photo:'',
+      tour_type_list:[],
+
       form: new Form({
         source: '',
         destination: '',
@@ -273,6 +296,7 @@ export default {
         bus:'',
         flight:'',
         transport:'',
+        tourtypes:[],
         itinerarydays:[{ day:1,day_source:'',day_destination:'',day_description:'' },],
         })
       }
@@ -281,6 +305,7 @@ export default {
   created(){
     this.itineraryList();
     this.cityList();
+    this.tourTypeData();
   },
   watch:{
     'sources.value':function(){
@@ -298,6 +323,7 @@ export default {
       axios.get(`/api/itinerary/${this.$route.params.itineraryid}/edit`).then((response)=>{
         setTimeout(() => $('#example').DataTable(), 1000);
         this.form.fill(response.data);
+        console.log(this.form);
         var day_data = response.data.itinerarydays;
 
         this.sources.value = this.form.source;
@@ -325,6 +351,12 @@ export default {
           this.options.push({value:response.data.data[i].name,text:response.data.data[i].name})
         }
       });
+    },
+
+    tourTypeData(){
+      axios.get('/api/tourtype').then((response)=>{
+        this.tour_type_list = response.data;
+      })
     },
 
     changePhoto(event){

@@ -60,6 +60,10 @@ import TourAdd from './components/admin/tour/New-tour.vue'
 import TourEdit from './components/admin/tour/Edit-tour.vue'
 import TourView from './components/admin/tour/View-tour.vue'
 
+import Tourtype from './components/admin/tour/tourtype/List-tourtype.vue'
+import TourtypeAdd from './components/admin/tour/tourtype/New-tourtype.vue'
+import TourtypeEdit from './components/admin/tour/tourtype/Edit-tourtype.vue'
+
 // Booked Tour
 
 import BookedTours from './components/admin/bookedtour/List-reservation.vue'
@@ -192,6 +196,11 @@ export const routes = [
     { path:'/booked-tour-flight/:id', component:BookedFlight },
     { path:'/booked-tour-train/:id', component:BookedTrain },
     { path:'/booked-tour-bus/:id', component:BookedBus },
+
+    // Tour type
+    { path:'/tourtype',component:Tourtype},
+    { path:'/tourtype/:id',component:TourtypeEdit},
+    { path:'/tourtype-add',component:TourtypeAdd},
 
     { path:'/list-city', component:ListCity },
     { path:'/add-city', component:AddCity },

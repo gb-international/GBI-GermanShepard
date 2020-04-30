@@ -95,7 +95,6 @@ remove resources from encyclopedia from url.
 
 -------------------------------------------------------------------------
 
-20-04-2020
 
 Unit testing for the explore destination form ...
   1. Itinerary search with multi search based on title
@@ -148,11 +147,7 @@ print_r($new);
 
 Admin - role and permission 
       - User dashboard
-
-
-
 29-02-2020
-
 search -> Source Destination based -----
 Type of tours :
         1. table for type of tours
@@ -165,5 +160,9 @@ Explore destination
         if search ititnerary then show it above the upcoming tour
         and don't hide upcoming tour
 
-
+------------------------------------------------------------------
+api
+  -> Home page
+    -> 
+  -> explore Destination
 
