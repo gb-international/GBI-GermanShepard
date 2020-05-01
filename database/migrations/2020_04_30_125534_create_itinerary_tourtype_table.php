@@ -14,7 +14,6 @@ class CreateItineraryTourtypeTable extends Migration
     public function up()
     {
         Schema::create('itinerary_tourtype', function (Blueprint $table) {
-            $table->bigIncrements('id');
             $table->Integer('itinerary_id')->unsigned();
             $table->bigInteger('tourtype_id')->unsigned();
             $table->foreign('itinerary_id')->references('id')->on('itineraries')->onDelete('cascade');

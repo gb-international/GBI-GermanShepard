@@ -39,7 +39,7 @@
                         <div class="select">
                           <select  class="placeholder_color ui fluid search selection dropdown" name="typetour" @change="tourtypeOnChange($event)">
                             <option selected>Type of Tour</option>
-                            <option v-for="index in tourtype_option" :value="index">{{ index }}</option>
+                            <option v-for="index in tourtype_option" :value="index.id">{{ index.name }}</option>
                           </select>
                         </div>
                       </div>
@@ -219,7 +219,7 @@ export default {
       remove_disable_btn:true,
       multicity:false,
       noofdays_option:10,
-      tourtype_option:['Adventure','Historical','Cultural','Industrial Tour','Leisure'],
+      tourtype_option:[],
       options: [],
       sources: {value: '',text: ''},
       destinations: {value:'',text:''},
@@ -283,9 +283,16 @@ export default {
         this.upcoming_data = response.data;        
       });
 
+      this.tourTypeData();
+
     },
   methods:
   { 
+    tourTypeData(){
+      axios.get('/api/tourtype').then((response)=>{
+        this.tourtype_option = response.data;
+      })
+    },
 
     reset () {
         this.item = {}
