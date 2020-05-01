@@ -41,6 +41,7 @@ Route::namespace('Admin')->group(function (){
 	Route::namespace('Tour')->group(function(){
 		Route::resource('tour','TourController');
 		Route::resource('tourtype','TourtypeController');
+		Route::resource('tourprogram','TourprogramController');
 	});
 
 	Route::namespace('Hotel')->group(function(){

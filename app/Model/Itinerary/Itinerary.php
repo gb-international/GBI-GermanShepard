@@ -20,4 +20,8 @@ class Itinerary extends Model
 	public function tourtypes(){
     	return $this->belongsToMany('App\Model\Tour\Tourtype');
     }
+    public function tourprograms(){
+    	return $this->belongsToMany('App\Model\Tour\Tourprogram');
+    }
+    
 }

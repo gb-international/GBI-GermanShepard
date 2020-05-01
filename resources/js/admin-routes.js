@@ -64,6 +64,12 @@ import Tourtype from './components/admin/tour/tourtype/List-tourtype.vue'
 import TourtypeAdd from './components/admin/tour/tourtype/New-tourtype.vue'
 import TourtypeEdit from './components/admin/tour/tourtype/Edit-tourtype.vue'
 
+import Tourprogram from './components/admin/website/home/List-tourprogram.vue'
+import TourprogramAdd from './components/admin/website/home/New-tourprogram.vue'
+import TourprogramEdit from './components/admin/website/home/Edit-tourprogram.vue'
+
+
+
 // Booked Tour
 
 import BookedTours from './components/admin/bookedtour/List-reservation.vue'
@@ -201,6 +207,13 @@ export const routes = [
     { path:'/tourtype',component:Tourtype},
     { path:'/tourtype/:id',component:TourtypeEdit},
     { path:'/tourtype-add',component:TourtypeAdd},
+
+    // Tour tourprogram
+    { path:'/tourprogram',component:Tourprogram},
+    { path:'/tourprogram/:id',component:TourprogramEdit},
+    { path:'/tourprogram-add',component:TourprogramAdd},
+
+    
 
     { path:'/list-city', component:ListCity },
     { path:'/add-city', component:AddCity },

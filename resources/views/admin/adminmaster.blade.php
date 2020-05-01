@@ -384,6 +384,14 @@
                       </a>
                       <ul class="nav nav-treeview">
 
+                        @can('tourprogram')
+                        <li class="nav-item">
+                          <router-link to="/tourprogram" class="nav-link">
+                            <p> Travel Programs </p>
+                          </router-link>
+                        </li>
+                        @endcan
+
                         @can('encyclopedia')
                         <li class="nav-item">
                           <router-link to="/encyclopedia-list" class="nav-link">
