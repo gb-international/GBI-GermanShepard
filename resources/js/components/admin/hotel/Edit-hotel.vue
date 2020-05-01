@@ -270,7 +270,6 @@ to submit the data we are using a function.
         // Submit the form via a itinerary request
         this.form.put(`/api/hotel/${this.$route.params.id}`)
           .then((response)=>{
-            console.log(response);
              this.$router.push(`/hotel-list/`)
               toast({
                   type: 'success',

@@ -104,6 +104,13 @@ class ItineraryController extends Controller
                 $dayModels[] = new Itineraryday($data);
             }
            $itinerary->itinerarydays()->saveMany($dayModels);
+           // Tour Type
+           $dayModels = [];
+           foreach ($request->tourtypes as $data) {
+                $dayModels[] = new Tourtype($data);
+           }
+           $itinerary->tourtypes()->saveMany($dayModels);
+           
 
            return response()->json(['success'=>'Successfully added']);
     }
@@ -209,14 +216,20 @@ class ItineraryController extends Controller
         $itinerary->save();   
 
         // Itinerary Day
-        
         $itinerary->itinerarydays()->delete();
-
         $dayModels = [];
         foreach ($request->itinerarydays as $data) {
             $dayModels[] = new Itineraryday($data);
         }
-       $itinerary->itinerarydays()->saveMany($dayModels); 
+       $itinerary->itinerarydays()->saveMany($dayModels);
+
+       // Itinerary tour type
+        $itinerary->tourtypes()->delete();
+        $dayModels = [];
+        foreach ($request->tourtypes as $data) {
+            $dayModels[] = new Tourtype($data);
+        }
+       $itinerary->tourtypes()->saveMany($dayModels); 
 
         return response()->json(['message'=>'Successfully Addedd']);
     }

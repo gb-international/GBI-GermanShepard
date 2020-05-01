@@ -132,14 +132,19 @@
 
 
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                   <div class="form-group">
                     <label for="mode_of_transport">Tour category</label><br>
 
-                    <div class="custom-control custom-checkbox custom-control-inline" v-for="category in tour_type_list">
-                      <input type="checkbox" class="custom-control-input" :id="`cat`+category.id" true-value="1" false-value="0">
-                      <label class="custom-control-label" :for="`cat`+category.id">{{ category.name }}</label>
-                    </div>
+                    <multiselect
+                      v-model="form.tourtypes"
+                      :options="tour_type_list"
+                      :multiple="true"
+                      :close-on-select="true"
+                      placeholder="Pick some"
+                      label="name"
+                      track-by="name">
+                    </multiselect>
 
                   </div>
                 </div>
@@ -259,12 +264,13 @@
 import 'vue-search-select/dist/VueSearchSelect.css'
 import { ModelSelect } from 'vue-search-select'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Multiselect from 'vue-multiselect'
 
 
 export default {
   name: "Edit",
     components: {
-      ModelSelect
+      ModelSelect,Multiselect
     },
   data(){
     return {
@@ -280,6 +286,8 @@ export default {
       img_photo:'',
       img_detail_photo:'',
       tour_type_list:[],
+
+      selected: null,
 
       form: new Form({
         source: '',
@@ -301,6 +309,7 @@ export default {
         })
       }
   },
+
 
   created(){
     this.itineraryList();
@@ -467,3 +476,4 @@ input[type='file']{
 
 
 </style>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>

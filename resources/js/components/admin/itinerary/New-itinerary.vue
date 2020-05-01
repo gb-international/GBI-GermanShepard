@@ -134,6 +134,25 @@ to submit the data we are using a function.
                   </div>
                 </div>
               </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="mode_of_transport">Tour category</label><br>
+
+                    <multiselect
+                      v-model="form.tourtypes"
+                      :options="tour_type_list"
+                      :multiple="true"
+                      :close-on-select="true"
+                      placeholder="Pick some"
+                      label="name"
+                      track-by="name">
+                    </multiselect>
+
+                  </div>
+                </div>
+              </div>
               <!-- Title and description for the itinerary -->
               <div class="row">
                 <div class="col-sm-8">
@@ -249,11 +268,12 @@ to submit the data we are using a function.
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import 'vue-search-select/dist/VueSearchSelect.css'
 import { ModelSelect } from 'vue-search-select'
+import Multiselect from 'vue-multiselect'
 
 export default {
   name: "New",
   components: {
-    ModelSelect
+    ModelSelect,Multiselect
   },
   data(){
     return {
@@ -261,6 +281,9 @@ export default {
       editorConfig: {// The configuration of the editor.
       },
       options: [],
+      tour_type_list:[],
+      selected: null,
+
       form: new Form({
         source: {'value':'','text':''},
         destination: {'value':'','text':''},
@@ -276,12 +299,14 @@ export default {
         bus: '',
         train: '',
         transport:'',
+        tourtypes:[],
         itinerarydays:[{ day:1,day_source:{'value':'','text':''},day_destination:{'value':'','text':''},day_description:'' },],
       })
     }
   },
   created(){
     this.cityList();
+    this.tourTypeData();
   },
 
   methods:{
@@ -291,6 +316,11 @@ export default {
           this.options.push({value:response.data.data[i].name,text:response.data.data[i].name})
         }
       });
+    },
+    tourTypeData(){
+      axios.get('/api/tourtype').then((response)=>{
+        this.tour_type_list = response.data;
+      })
     },
     changePhoto(event){
       let file = event.target.files[0];
@@ -401,5 +431,6 @@ input[type='file']{
   min-height: 200px !important;
  }
 
-
 </style>
+
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
