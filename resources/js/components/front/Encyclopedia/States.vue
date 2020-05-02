@@ -1,20 +1,18 @@
 <template>
   <!-- Remove this dummy_height when you add some data to this page -->
   <div class="States">
-    <div class="container">
-      <div class="bg-banner">
-        <div class="row">
-          <div class="col-md-8 offset-md-2">
-              <div class="form-group">
-                <model-select :options="options" v-model="searchQuery" placeholder="Search encyclopedia..."></model-select>
-              </div>
-          </div>
+    <div class="bg-banner">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group">
+              <model-select :options="options" v-model="searchQuery" placeholder="Search encyclopedia..."></model-select>
+            </div>
         </div>
-        
       </div>
-      <br>
-
-    
+      
+    </div>
+    <br>
+    <div class="container">    
       <div class="container">
         <div class="row"v-if="state_list.length" >
 

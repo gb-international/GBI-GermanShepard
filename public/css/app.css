@@ -26411,6 +26411,7 @@ input[type='submit'] {
   margin-top: 20px;
   margin-bottom: 10px;
   display: inline-block;
+  width: 120px;
 }
 
 .section-edu .edu-blockcontent h3 {
@@ -42700,7 +42701,7 @@ i {
 
 #frontmaster,
 #myHeader {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 

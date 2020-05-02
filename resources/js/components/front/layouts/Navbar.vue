@@ -1,6 +1,6 @@
 <template>
-  <div id="frontmaster">
-    <section class="navigation" id="myHeader">
+  <section class="navigation" id="myHeader">
+    <div class="container">
       <div class="nav-container">
         <div class="brand">
           <router-link :to="`/`" > <img src="/assets/front/images/logo.png" alt="GBI Logo"></router-link>
@@ -56,25 +56,26 @@
           </nav>
         </div>
       </div>
+    </div>
 
-      <div class="modal" id="LoginForm">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="closebutton">
-              <button type="button" class="close"  data-dismiss="modal" style="padding: 5px 13px 0px 0px !important;">&times;</button>
-            </div>
-            <!-- Modal body -->
-            <div class="modal-body loginform">
-              <login></login>
-            </div>
+    <div class="modal" id="LoginForm">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="closebutton">
+            <button type="button" class="close"  data-dismiss="modal" style="padding: 5px 13px 0px 0px !important;">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body loginform">
+            <login></login>
           </div>
         </div>
       </div>
+    </div>
 
 
-    </section>
-  </div>
+  </section>
+
 </template>
 
 <script>
