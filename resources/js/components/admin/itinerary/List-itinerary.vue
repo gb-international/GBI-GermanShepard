@@ -88,7 +88,7 @@ export default {
     },
 
     deleteitinerary(id){
-      var uri = 'api/itinerary/'+id;
+      var uri = '/api/itinerary/'+id;
       swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -100,6 +100,7 @@ export default {
       }).then((result) => {
         if (result.value) {
           axios.delete(uri).then((response)=>{
+            console.log(response);
              this.getItinerary()
                   //response contains your data sent front your controller/route
               })

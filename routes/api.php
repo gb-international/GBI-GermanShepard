@@ -98,6 +98,8 @@ Route::namespace('Front')->group(function(){
 	Route::get('/tour-list/{id}','FrontUserController@user_tour_list');
 	Route::post('/join-our-team/send', 'JoinourteamController@resumeSend');
 	Route::post('/contact-us/send', 'JoinourteamController@contactUs');
+	// website
+	Route::get('/travel-programs','WebsiteController@travel_programs');
 	
 	// Front user controller 
 	Route::post('login-user', 'UserController@login');

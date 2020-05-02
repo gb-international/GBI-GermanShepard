@@ -243,6 +243,7 @@ class ItineraryController extends Controller
      */
     public function destroy(Itinerary $itinerary)
     {
+ 
         $itinerary->delete();
         return response()->json('successfully deleted');
     }

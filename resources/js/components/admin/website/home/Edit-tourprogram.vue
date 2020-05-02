@@ -73,7 +73,7 @@ to submit the data we are using a function.
               <div class="row text-center">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
-                  <router-link :to="`/encyclopedia-list`" class="btn btn-primary itrn_add_btn back_btn">Back</router-link>
+                  <router-link :to="`/tourprogram`" class="btn btn-primary itrn_add_btn back_btn">Back</router-link>
                 </div>
                 <div class="col-sm-4">
                   <div class="form-group">
@@ -161,18 +161,13 @@ export default {
       // Change whitespace to "-"
       this.form.slug = slug.replace(/\s+/g, '-');
     },
-
-    getImgUrl(img){
-      return '/images/tourprogram/'+img;
-    },
-
     addItinerary()
     {
       console.log(this.form);
 
        var api = `/api/tourprogram/${this.$route.params.id}`;
        this.form.put(api).then((response)=>{
-             // this.$router.push(`/tourprogram`)
+             this.$router.push(`/tourprogram`)
              console.log(response);
               toast({
                   type: 'success',
