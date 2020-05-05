@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Website;
 use App\Model\Website;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class WebsiteController extends Controller
 {
@@ -15,7 +16,7 @@ class WebsiteController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Website::get());
     }
 
     /**
@@ -70,7 +71,15 @@ class WebsiteController extends Controller
      */
     public function update(Request $request, Website $website)
     {
-        //
+        $validate = $this->validate($request, [
+          'video' => 'required',
+        ]);
+        
+        // $video = $this->uploadVideo($request->input('video'));
+        $website->video = $request->input('video');
+        $website->save();
+        return response()->json('Successfull');
+        
     }
 
     /**
@@ -83,4 +92,13 @@ class WebsiteController extends Controller
     {
         //
     }
+
+    // public function uploadVideo($data){
+    //     $filename = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($data, 0, strpos($data, ';')))[1])[1];
+    //     $explode = explode(',', $data); // explode file 
+    //     $data = base64_decode($explode[1]);
+    //     $url =  public_path().'/assets/front/' . $filename;
+    //     file_put_contents($url , $data);
+    //     return $filename;
+    // } 
 }

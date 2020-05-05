@@ -6,13 +6,13 @@
       <div class="slidehome"><div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="img-fluid" id="bannerimg1" :src="`assets/front/images/banner.jpg`" alt="GBI slide">
+          <img class="img-fluid banner_img" id="bannerimg1" :src="`assets/front/images/banner.jpg`" alt="GBI slide">
         </div>
         <div class="carousel-item">
-           <img class="img-fluid" id="bannerimg2" :src="`assets/front/images/banner1.jpg`" alt="GBI slide">
+           <img class="img-fluid banner_img" id="bannerimg2" :src="`assets/front/images/banner1.jpg`" alt="GBI slide">
         </div>
         <div class="carousel-item">
-           <img class="img-fluid" id="bannerimg3" :src="`assets/front/images/banner2.jpg`" alt="GBI slide">
+           <img class="img-fluid banner_img" id="bannerimg3" :src="`assets/front/images/banner2.jpg`" alt="GBI slide">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -60,12 +60,11 @@
         <!-- <h4>GB International!!</h4> -->
       </article>      
       <div class="content mt-35">  
-        <div class="rwd-media">
-          <!-- <iframe src="https://player.vimeo.com/video/60814695?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="448" height="200" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> -->
-           <video width="400" controls controlsList="nodownload">
-            <source src="/assets/front/youtube-video.mp4" type="video/mp4">
+        <div class="rwd-media" v-if="video_data" v-html="video_data">
+           <!-- <video width="400" controls controlsList="nodownload">
+            <source :src="video_data" type="video/mp4">
             Your browser does not support HTML5 video.
-          </video>
+          </video> -->
         </div>       
       </div>
     </section>
@@ -81,6 +80,7 @@ export default {
     data(){
       return {
         travel_programs:[],
+        video_data:'',
       }
     },
     created(){
@@ -90,7 +90,11 @@ export default {
       TravelPorgrams(){
         axios.get('/api/travel-programs').then((response)=>{
           this.travel_programs = response.data;
-        })
+        });
+        axios.get('/api/website').then((response)=>{
+          this.video_data = response.data[0].video;
+        });
+        
       }
     }
 }

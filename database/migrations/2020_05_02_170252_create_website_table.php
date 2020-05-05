@@ -15,6 +15,7 @@ class CreateWebsiteTable extends Migration
     {
         Schema::create('websites', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('video')->nullable();
             $table->timestamps();
         });
     }

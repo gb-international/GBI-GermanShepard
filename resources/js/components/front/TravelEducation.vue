@@ -1,9 +1,19 @@
 <template>
     <div id="traveleducation">
+    	      <vue-headful
+      title="Travel and Education"
+    description="@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one "
+    keywords="@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs"
+    image=""
+    lang="en_US"
+    ogLocale="en_US,en_UK"
+    url="https://www.gowithgbi.com/resources/travel-education"
+   />
+
        <!-- start banner area -->
 		    <section class="banner-block">
 			    <div class="text_on_image">
-			        <img id="traveleduimg" class="top-img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/travel-and-education.jpg`">
+			        <img id="traveleduimg" class="top-img banner_img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/travel-and-education.jpg`">
 			        <div class="content">
 			        	<p class="heading">Travel & Education</p>		        	
 			        	<!-- <span class="sub">Travel to conquer Space & time</span> -->

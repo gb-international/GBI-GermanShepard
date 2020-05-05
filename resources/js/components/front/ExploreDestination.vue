@@ -1,5 +1,16 @@
 <template>
-  <div id="fronthome">
+
+  <div id="exploreDestination">
+     <vue-headful
+    title="GBI Explore Destination"
+    description="@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button"
+    keywords="@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs"
+    image=""
+    lang="en_US"
+    ogLocale="en_US,en_UK"
+    url="https://www.gowithgbi.com/resources/explore-destination"
+   />  
+
     <main>
       <div class="parent_banner_div">
         <div class="banner-block explore_banner_img">
@@ -257,7 +268,7 @@ import SearchExplor from './SearchExplor.vue'
 import 'vue-search-select/dist/VueSearchSelect.css'
 import { ModelSelect } from 'vue-search-select'
 export default {
-  name: "FrontHome",
+  name: "exploreDestination",
     components: {
     'searchexplor': SearchExplor,
     ModelSelect

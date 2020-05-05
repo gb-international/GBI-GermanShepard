@@ -1,9 +1,14 @@
 <template>
   <div id="contactus">
     <vue-headful
-            title="Contact GBI Team "
-            description="GBI is always ready to answer travel queries posted by its clients"
+            title="GBI Contact Us "
+            description="Connect With GB International for organizing your educational travel plans any where any time"
+            keyword="@GoWithGBI,GB International,Connect With GB International,Email Us,Talk To Us,Need a travel solution"
+            url="https://www.gowithgbi.com/contact-us"
+            ogLocale="en_US"
+            lang="en_US,en_UK"
         />
+
     <!-- start banner area -->
     <section class="banner-block">
       <div class="text_on_image">

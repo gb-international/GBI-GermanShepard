@@ -1,7 +1,16 @@
 <template>
   <div id="homecomponent">
        <!-- Start slider area -->
-    
+      <vue-headful
+    title="Go With GBI Home Page"
+    description="@GoWithGBI welcomes you abode to start a new journey to explore and gain practical exposure about the culture,tradition ,historical and scientific explorations of different regions and continents across the globe "
+    keywords="@GoWithGBI,GBI Welcomes you abode,GBI Home Page,learn,explore,discover,dream travel journeys,dream,educational programs,corporate events,team building programs,international programs,domestic programs"
+    image=""
+    lang="en_US"
+    ogLocale="en_US,en_UK"
+    url="https://www.gowithgbi.com/"
+   />
+
 		<div class="slidehome">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">

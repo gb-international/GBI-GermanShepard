@@ -1,5 +1,15 @@
   <template>
       <div id="joinOurteam">
+                <vue-headful
+      title="Join Our Team"
+    description="@GoWithGBI Lets travel together and make the world a better place .Join our brilliant minds "
+    keywords="@GoWithGBI,join our team,explore Your career with GBI,exciting journey,research oriented process,challenges,explore your travel instinct,discover ,travel passion,learn,explore,discover"
+    image=""
+    lang="en_US"
+    ogLocale="en_US,en_UK"
+    url="https://www.gowithgbi.com/about-us/join-our-team"
+     />
+
         <main>
         <!-- start banner area -->
         <section class="banner-block">

@@ -408,6 +408,14 @@
                         </li>
                         @endcan
 
+                        @can('homepage')
+                        <li class="nav-item">
+                          <router-link to="/homepage" class="nav-link">
+                            <p>Homepage</p>
+                          </router-link>
+                        </li>
+                        @endcan
+
                         
                        
                       </ul>

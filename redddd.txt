@@ -121,6 +121,7 @@ Itinerary should be in word or pdf file, and updload it from the front end
 php.ini
   post_max_size=100M
   upload_max_filesize=100M
+  max_execution_time=600 // 10 minuts
 
   
   sudo chown -Rf /var/www/html/GBI_Edu_Travel_App/public/encyclopedia/pdf
@@ -166,3 +167,14 @@ api
     -> 
   -> explore Destination
 
+------------------------------------------------------------
+
+modification
+    - updated at in itinerary listing in tour booking
+    - concatnation day in same dropdown
+
+school name in tour llisting
+Tour code = GBI
+
+Tour code = check the relationship and remove the tourcode foreign id in another table.
+because tour code can be changed by admin

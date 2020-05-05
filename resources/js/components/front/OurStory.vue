@@ -1,9 +1,15 @@
 <template>
   <div id="ourstory">
-     <vue-headful
-      title="GBI Success Story"
-      description="How GBI was Founded and the path taken by GBI founder to achieve the Educational Travel Dream"
-    />       
+         <vue-headful
+      title="About Us"
+    description="@GoWithGBI Story On How GBI believes in its core values and implement the same  to make your educational travel program a successful one "
+    keywords="@GoWithGBI,Our Story,about us,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs"
+    image=""
+    lang="en_US"
+    ogLocale="en_US,en_UK"
+    url="https://www.gowithgbi.com/about-us/our-story"
+   />
+    
  <!-- start banner area -->
     <section class="banner-block">
       <div class="text_on_image">

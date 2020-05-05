@@ -160,5 +160,54 @@ $(document).ready(function(){
 
 
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["TravelAgency","EducationalOrganization"],
+  "name": "GB INTERNATIONAL",
+    "description": "GB International is an educational travel partner for those who are looking out to explore and learn about new destinations ,cultural heritage  and scientific explorations across the globe",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "G32 TRIVENI COMMERCIAL COMPLEX SHEIKH SARAI 1",
+    "addressLocality": "NEW DELHI",
+    "addressRegion": "Delhi",
+    "postalCode": "110017"
+        
+  },
+  "image": "https://www.gowithgbi.com/assets/front/images/logo.png",
+  "email": "info@gbinternational.in",
+  "telePhone": ["+919717922240","01141864453","01126011683"],
+  "url": "https://www.gowithgbi.com",
+    "sameAs" : [
+    "https://www.facebook.com/gowithgbi",
+    "https://www.twitter.com/gowithgbi",
+    "https://instagram.com/gowithgbi",
+    "https://www.youtube.com/channel/UCYaTBxhqqXaMOUNZiAqvI_A/about?view_as=subscriber"
+  ],
+  "paymentAccepted": [ "cash", "check", "credit card", "invoice" ],
+  "openingHours": "Mo,Tu,We,Th,Fr,Sa 09:00-18:00",
+  "openingHoursSpecification": [ {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "opens": "09:00",
+    "closes": "18:00"
+  } ],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "28.5364",
+    "longitude": "77.2236"
+  },
+    "hasMap": "https://g.page/GoWithGbi?share",
+  "priceRange":"Rs1000-Rs10,000"
+}
+</script>
  </body>
 </html>

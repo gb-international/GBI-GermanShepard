@@ -1,9 +1,15 @@
 <template>
     <div id="howwework">
-        <vue-headful
-            title="How GBI Works"
-            description="Steps taken by GBI to make research Oriented Travel Programs"
-        />	
+             <vue-headful
+      title="How We Work"
+    description="@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one "
+    keywords="@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs"
+    image=""
+    lang="en_US"
+    ogLocale="en_US,en_UK"
+    url="https://www.gowithgbi.com/about-us/how-we-work"
+   />
+	
       <!-- start banner area -->
     <section class="banner-block">
       <div class="text_on_image">
