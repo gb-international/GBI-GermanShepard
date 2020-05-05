@@ -106,20 +106,20 @@ class HotelController extends Controller
           'email' => 'required',
           'room'=>'required|numeric|min:1',
 
-          'apai_single' => 'required',
-          'apai_double' => 'required',
-          'apai_triple' => 'required',
-          'apai_quad' => 'required',
+          'apai_single' => '',
+          'apai_double' => '',
+          'apai_triple' => '',
+          'apai_quad' => '',
 
-          'mapai_single' => 'required',
-          'mapai_double' => 'required',
-          'mapai_triple' => 'required',
-          'mapai_quad' => 'required',
+          'mapai_single' => '',
+          'mapai_double' => '',
+          'mapai_triple' => '',
+          'mapai_quad' => '',
 
-          'cpai_single' => 'required',
-          'cpai_double' => 'required',
-          'cpai_triple' => 'required',
-          'cpai_quad' => 'required',
+          'cpai_single' => '',
+          'cpai_double' => '',
+          'cpai_triple' => '',
+          'cpai_quad' => '',
           
       ]);
     }

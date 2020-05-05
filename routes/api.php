@@ -81,6 +81,9 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('encyclopedias','EncyclopediaController');
 		Route::resource('encyclopediacomments','EncyclopediacommentController');
 	});
+	Route::namespace('Website')->group(function(){
+		Route::resource('website','WebsiteController');
+	});
 	
 });
 
@@ -88,7 +91,7 @@ Route::namespace('Admin')->group(function (){
 
 Route::namespace('Front')->group(function(){
 
-	Route::get('/upcoming_tour/{limit}','ItineraryController@upcoming_tour');
+	Route::get('/travel-program/{slug}','ItineraryController@travelProgram');
 	Route::post('/search-itinerary','ItineraryController@searchItinerary');
 	Route::get('/search','ItineraryController@search_post');
 

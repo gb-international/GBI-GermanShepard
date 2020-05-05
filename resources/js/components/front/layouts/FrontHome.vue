@@ -37,7 +37,7 @@
        <div class="row">
          <div class="col-sm-4" v-for="program in travel_programs">
            <div class="card card-1">
-             <router-link :to="`/upcoming-tour`">
+             <router-link :to="`/explore-destination`">
                <img class="" :src="`/images/tourprogram/`+program.image">
                 <div class="card-body">
                   <h5 class="card-title">{{ program.title }}</h5>
@@ -56,10 +56,10 @@
     <section class="content-video">
       <!-- class="video-section" -->
       <article class="card-titles">
-        <h1>Hola!! Come Let's Explore</h1>
-        <h4>GB International!!</h4>
+        <h1>Join our adventures at GB International</h1>
+        <!-- <h4>GB International!!</h4> -->
       </article>      
-      <div class="content">  
+      <div class="content mt-35">  
         <div class="rwd-media">
           <!-- <iframe src="https://player.vimeo.com/video/60814695?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="448" height="200" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> -->
            <video width="400" controls controlsList="nodownload">

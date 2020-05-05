@@ -12,7 +12,7 @@
             <div class="row search_section">
               <div class="col-8">
                 <p>Frequently Asked Questions (FAQ)</p> 
-	             <input type="text" class="form-control" placeholder="Search for Questions.." title="Type in a name">
+	             <input type="text" class="form-control" placeholder="Got a question? Shoot at us" title="Type in a name">
 	            </div>
             </div>
 	        </div>

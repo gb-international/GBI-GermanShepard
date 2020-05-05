@@ -128,7 +128,7 @@ export default {
   methods:
   {
     schoolData(){
-      axios.get(`/api/schools`).then(response => {
+      axios.get(`/api/school`).then(response => {
         if(response.data){
           this.school_list = response.data.data;
         }

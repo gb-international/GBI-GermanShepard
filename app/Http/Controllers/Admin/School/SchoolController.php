@@ -102,7 +102,7 @@ class SchoolController extends Controller
             'country_name' => 'required',
             'finance_email_id' => 'required',
             'principle_email_id' => 'required',
-            'mobile' => 'required|numeric|digits:10',
+            'mobile' => 'required|numeric',
             'pincode' => 'required|numeric|min:1',
             'address' => 'required',
       ]);

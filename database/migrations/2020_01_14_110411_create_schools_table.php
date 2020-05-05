@@ -23,6 +23,8 @@ class CreateSchoolsTable extends Migration
             $table->string('pincode')->nullable();
             $table->string('finance_email_id')->nullable();
             $table->string('principle_email_id')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }

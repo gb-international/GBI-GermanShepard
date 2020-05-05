@@ -83,7 +83,7 @@
 
                 <form class="form" @submit.prevent="addComment()">
                   <div class="form-group">
-                    <textarea class="form-control" rows="3" v-model="form.body" placeholder="Add your review" :class="{ 'is-invalid': form.errors.has('body') }"></textarea>
+                    <textarea class="form-control" rows="3" v-model="form.body" placeholder="Share your experiences and insights with us" :class="{ 'is-invalid': form.errors.has('body') }"></textarea>
                     <has-error :form="form" field="body"></has-error>
                     <div class="row">
                       <div class="col text-right">

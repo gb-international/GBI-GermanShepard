@@ -9,6 +9,8 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Itinerary\Itinerary;
+use App\Model\Tour\Tourprogram;
+
 use DB;
 
 class ItineraryController extends Controller
@@ -66,11 +68,23 @@ class ItineraryController extends Controller
     }
 
 
-    public function upcoming_tour($limit=6){
-         $data = Itinerary::select(['id','title','noofdays','hotel_type','train','bus','flight','food','photo'])
-                ->where('status','1')
-                ->take($limit)
-                ->get();
-        return response()->json($data);
+    public function travelProgram($slug){
+        $tour = Tourprogram::with('itinerary')->where('slug',$slug)->first();
+        $tour_data = [];
+        foreach($tour->itinerary as $itinerary){
+            $data = [];
+            $data['id'] = $itinerary->id;
+            $data['title'] = $itinerary->title;
+            $data['noofdays'] = $itinerary->noofdays;
+            $data['hotel_type'] = $itinerary->hotel_type;
+            $data['train'] = $itinerary->train;
+            $data['bus'] = $itinerary->bus;
+            $data['flight'] = $itinerary->flight;
+            $data['food'] = $itinerary->food;
+            $data['photo'] = $itinerary->photo;
+            array_push($tour_data,$data);
+        }
+        
+        return response()->json($tour_data);
     }
 }

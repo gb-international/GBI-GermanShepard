@@ -25,20 +25,20 @@
                       <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
                           <model-select :options="options"
                               v-model="sources"
-                              placeholder="From">
+                              placeholder="Leave from">
                           </model-select>
                       </div>
                       <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
                          <model-select :options="options"
                             v-model="destinations"
-                            placeholder="To">
+                            placeholder="Arrive at">
                         </model-select>
                       </div>
 
                       <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
                         <div class="select">
                           <select  class="placeholder_color ui fluid search selection dropdown" name="typetour" @change="tourtypeOnChange($event)">
-                            <option selected>Type of Tour</option>
+                            <option selected>In mood for</option>
                             <option v-for="index in tourtype_option" :value="index.id">{{ index.name }}</option>
                           </select>
                         </div>
@@ -46,7 +46,7 @@
                       <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
                         <div class="select">
                           <select  class="selectpicker ui selection dropdown" name="noofday" @change="noofdaysOnChange($event)">
-                            <option selected>No of Days</option>
+                            <option selected>No. of days</option>
                             <option v-for="index in noofdays_option" :value="index">{{ index }}</option>
                           </select>
                         </div>
@@ -61,13 +61,13 @@
                       <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
                         <model-select :options="options"
                             v-model="multi_source"
-                            placeholder="From">
+                            placeholder="Leave from">
                         </model-select>
                       </div>
                       <div class="col-6 col-sm-4 col-lg-4 input-p nopadding"> 
                         <model-select :options="options"
                             v-model="multi_destination"
-                            placeholder="To">
+                            placeholder="Arrive at">
                         </model-select>
                       </div>
                     </div>
@@ -78,13 +78,13 @@
                           <div class="col-6 col-sm-6 input-p nopadding"> 
                             <model-select :options="options"
                                 v-model="row['source']"
-                                placeholder="From">
+                                placeholder="Leave from">
                             </model-select>
                           </div>
                           <div class="col-6 col-sm-6 input-p nopadding"> 
                             <model-select :options="options"
                                 v-model="row['destination']"
-                                placeholder="To"
+                                placeholder="Arrive at"
                                 >
                             </model-select>
                           </div>
@@ -111,7 +111,7 @@
                       <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
                         <div class="select">
                           <select  class="placeholder_color ui fluid search selection dropdown" name="typetour" @change="tourtypeOnChange($event)">
-                            <option selected>Type of Tour</option>
+                            <option selected>In mood for</option>
                             <option v-for="index in tourtype_option" :value="index">{{ index }}</option>
                           </select>
                         </div>
@@ -119,7 +119,7 @@
                       <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
                         <div class="select">
                           <select  class="selectpicker ui selection dropdown" name="noofday" @change="noofdaysOnChange($event)">
-                            <option selected>No of Days</option>
+                            <option selected>No. of days</option>
                             <option v-for="index in noofdays_option" :value="index">{{ index }}</option>
                           </select>
                         </div>
@@ -140,17 +140,15 @@
       </div>
       <!-- /.row -->
       <div class="container">
-        <div class="row mt-20">
+        <div class="row mt-10 p-20">
         <!--start card explore list dynamic tour itinerary list-->
           <searchexplor :allSearchdata="allSearchdata"></searchexplor> 
           <!-- end card-->
           <div class="col-lg-12 p-0" v-if="allSearchdata == ''">
-            <h3 class="text-center">Upcoming Tour</h3>
-            <!-- Tab panes -->
-            <div class="tab-content">
-              <div id="Upcoming" class="container tab-pane active bg-color-tour border-color-tour">
+            <h4 class="text-center">UPCOMING TOUR</h4>
+
               <!-- new code -->
-              <div class="row">
+              <div class="row mt-35">
                 <div class="col-lg-6" v-for="(itinerary,index) in upcoming_data">
                   <div class="card card-radis-list">
                     <router-link :to="`/explore-detail/${itinerary.id}`">
@@ -190,13 +188,65 @@
                 <div class="col-lg-12 nopadding m-b-15">  
                   <router-link to="/explore-list" class="listexplore">View More</router-link>
                 </div>
-              </div>
-              <div class="clear"></div>
-              </div>
           </div>               
         </div>
         <!-- /.row -->
       </div><!-- /.container-->
+
+      <!-- /.row -->
+      <div class="container">
+        <div class="row p-20">
+          <!-- end card-->
+          <div class="col-lg-12 p-0" v-if="allSearchdata == ''">
+            <h4 class="text-center">POPULAR TOUR</h4>
+
+              <!-- new code -->
+              <div class="row mt-35">
+                <div class="col-lg-6" v-for="(itinerary,index) in popular_data">
+                  <div class="card card-radis-list">
+                    <router-link :to="`/explore-detail/${itinerary.id}`">
+                     <div class="card-horizontal">
+                        <div class="card-image">
+                          <img :src="`/uploadimage/${itinerary.photo}`" alt="{itinerary.title}" />
+                        </div>
+                         <div class="card-content">
+                           <h1>{{itinerary.title | sortlength(35,"")}}</h1> 
+                           <p>{{itinerary.noofdays}} Days Tour</p>
+                              <table class="table-s">
+                               <tbody>
+                                <tr>
+                                  <td v-if="itinerary.hotel_type != '0'"><i class="fas fa-hotel"></i></td>
+                                  <td v-if="itinerary.train == 1"><i class="fas fa-train icon-train-list"></i></td>
+                                  <td v-if="itinerary.bus =='1'"><i class="fas fa-bus"></i></td>
+                                  <td v-if="itinerary.flight== '1'"><i class="fas fa-plane"></i></td>
+                                  <td v-if="itinerary.food != '0'"><i class="fas fa-utensils"></i></td>
+                                </tr>
+                                <tr>
+                                  <td v-if="itinerary.hotel_type != '0'"><span class="icon-i icon-hotel-list">Hotel</span></td>
+                                  <td v-if="itinerary.train== '1'"> <span class="icon-i">Train</span></td>
+                                  <td v-if="itinerary.bus== '1'"><span class="icon-i icon-bus-list">Bus</span></td>
+                                  <td v-if="itinerary.flight== '1'"><span class="icon-i icon-plane-list">Flight</span></td>
+                                  <td v-if="itinerary.food != '0'"><span class="icon-i">Food</span></td>
+                                </tr>
+                               
+                              </tbody>
+                            </table>
+                        </div>
+                     </div>
+                    </router-link>
+                  </div>
+                </div>
+              </div>
+               <!-- End my code -->
+                <div class="col-lg-12 nopadding m-b-15">  
+                  <router-link to="/explore-list" class="listexplore">View More</router-link>
+                </div>
+          </div>               
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-->
+
+      
       <div class="clear"></div>
     </main>    
   </div>
@@ -243,6 +293,7 @@ export default {
       noofday:'',
       tourtype:'',
       upcoming_data:'',
+      popular_data:'',
       searchForm: new Form({
         source:[],
         destination:[],
@@ -279,20 +330,27 @@ export default {
           this.options.push({value:response.data.data[i].name,text:response.data.data[i].name})
         }
       });
-      axios.get('/api/upcoming_tour/6').then(response => {
+      axios.get('/api/travel-program/upcoming-tour').then(response => {
         this.upcoming_data = response.data;        
       });
 
       this.tourTypeData();
+      this.popularTour();
 
     },
   methods:
   { 
+    popularTour(){
+      axios.get('/api/travel-program/popular-tour').then((response)=>{
+        this.popular_data = response.data;
+      })
+    },
     tourTypeData(){
       axios.get('/api/tourtype').then((response)=>{
         this.tourtype_option = response.data;
       })
     },
+    
 
     reset () {
         this.item = {}

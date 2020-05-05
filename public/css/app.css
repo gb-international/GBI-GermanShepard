@@ -29465,7 +29465,7 @@ select {
 
 .card-image {
   width: 200px;
-  height: 120px;
+  height: 116px;
   display: block;
 }
 
@@ -29626,11 +29626,11 @@ a:hover {
   }
 
   .card .card-content {
-    padding: 6px 1px !important;
+    padding: 6px 8px !important;
   }
 
   .card-content {
-    width: 200px;
+    width: 100%;
   }
 
   .card-content .fa,
@@ -30161,6 +30161,11 @@ a:hover {
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.dashboard-body-part-one #rowbody .col .rowdata1 img,
+.dashboard-body-part-one #rowbody .col .rowdata2 img {
+  width: 38px;
+}
+
 .dashboard-body-part-one #rowbody .col .rowdata1 {
   background-image: -webkit-gradient(linear, left top, right top, from(#ffce6d), to(#fe885e));
   background-image: linear-gradient(90deg, #ffce6d, #fe885e);
@@ -30204,6 +30209,11 @@ a:hover {
 .booksection #data a {
   color: grey;
   text-decoration: none;
+}
+
+.booksection #data img {
+  width: 55px;
+  height: auto;
 }
 
 .booksection #data img:hover {
@@ -30697,6 +30707,30 @@ a:hover {
 
 .link {
   cursor: pointer;
+}
+
+.mt-35 {
+  margin-top: 35px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.m-60 {
+  margin-top: 60px;
 }
 
 .text_on_image {

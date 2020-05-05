@@ -1,8 +1,8 @@
 <template>
   <article>
       <div class="card-titles">
-        <h1>Let's Peep Into Some</h2>
-          <h4>Amazing Memories of GBI</h4>
+        <h1>Our Journey Scrapbook</h2>
+          <h4>Living the moments and cherishing the memories</h4>
         </h1>
       </div>
       <div class="column">
