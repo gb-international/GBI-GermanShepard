@@ -123,7 +123,7 @@
                         <div class="select">
                           <select  class="placeholder_color ui fluid search selection dropdown" name="typetour" @change="tourtypeOnChange($event)">
                             <option selected>In mood for</option>
-                            <option v-for="index in tourtype_option" :value="index">{{ index }}</option>
+                            <option v-for="index in tourtype_option" :value="index">{{ index.name}}</option>
                           </select>
                         </div>
                       </div>
@@ -131,7 +131,7 @@
                         <div class="select">
                           <select  class="selectpicker ui selection dropdown" name="noofday" @change="noofdaysOnChange($event)">
                             <option selected>No. of days</option>
-                            <option v-for="index in noofdays_option" :value="index">{{ index }}</option>
+                            <option v-for="index in tourtype_option" :value="index.id">{{ index.name }}</option>
                           </select>
                         </div>
                       </div>

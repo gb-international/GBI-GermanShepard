@@ -183,3 +183,4 @@ view Tour details.
 
 
 
+php artisan down --message="Upgrading Database" --retry=60

@@ -14,11 +14,8 @@
     <meta http-equiv="expires" content="exercise date in seconds"/>
     <meta http-equiv="expires" content="0"/> <meta http-equiv="expires" content="43200"/>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/icon" href="{{ asset('assets/front/images/favicon.png') }}"/>    <!-- Font Awesome --><!-- Ajay Added Bootstrap CSS -->
-
-
+    <link rel="shortcut icon" type="image/icon" href="{{ asset('assets/front/images/favicon.png') }}"/> 
     <link rel="stylesheet" href="{{ asset('assets/front/css/bootstrap.min.css') }}">
-  
    <!-- Slick slider -->
     <link href="{{ asset('assets/front/css/slickcss.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/front/css/reset.css') }}" rel="stylesheet">

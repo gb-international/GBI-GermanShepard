@@ -1,9 +1,9 @@
 <template>
-    <div class="container">
+    <div class="container"  v-if="userinfo">
        <div class="user_dashboard_profile">
         <router-link :to="`/profile-edit`" class="user_edit"><i class="fas fa-user-edit"></i></router-link>
           <div class="row">
-            <div class="col-lg-2 text-center image" v-if="userinfo.information['photo']">
+            <div class="col-lg-2 text-center image">
               <img :src="'/uploadimage/'+userinfo.information['photo']" class="img img-circle" alt="">
             </div>
             <div class="col-lg-10">
@@ -96,7 +96,7 @@
           
         </div>
         <!-- Popular Destination Carousel -->
-        <h5 class="title_section">Popular Destination <a href="#" class="view_link">View More</a></h5>
+        <h5 class="title_section">Popular Destination <router-link class="view_link" :to="`/explore-list`">View more</router-link></h5>
         <div class="popular_destination">
           <div class="row">
 
@@ -242,9 +242,10 @@ export default {
     // Upcoming data
     
     upComingData(){
-      axios.get('/api/upcoming_tour/6').then((response)=>{
-        this.upcoming_list = response.data;
-      })
+      axios.get('/api/travel-program/upcoming-tour').then(response => {
+        this.upcoming_list = response.data; 
+     
+      });
     },
 
     getImgUrl(img){
