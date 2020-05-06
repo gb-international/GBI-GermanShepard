@@ -69,7 +69,7 @@ It takes id from the url and get the data from the api .
           }
         },
         mounted(){
-          this.$store.dispatch('getEditData',`/api/hotel/edit/${this.$route.params.id}`)
+          this.$store.dispatch('getEditData',`/api/hotel/${this.$route.params.id}/edit`)
         },
         computed:{
           viewData(){

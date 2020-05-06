@@ -240,7 +240,7 @@ import XLSX from 'xlsx';
           this.total_row.push({'school_id':this.school_id});          
           var path = `/api/student`;
           axios.post(path, this.total_row).then(response => {
-            console.log(response);
+            this.$router.push('/students');
             toast({
               type: 'success',
               title: 'Successfully Updated !!!'

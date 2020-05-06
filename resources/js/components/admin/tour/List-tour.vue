@@ -77,7 +77,6 @@ export default {
       axios.get(`/api/tour`).then((response)=>{
         setTimeout(() => $('#example').DataTable(), 1000);
         this.tour_data = response.data.data;
-        console.log(this.tour_data);
       })
     },
     deletetour(id){
