@@ -63,4 +63,7 @@ Gowithgbi.com
 							. Role
 							. permission
 							. GBI member ( create new user for gbi )
+// commands for uploading
+	. taking backup of project
+		sudo zip -r GBI_Travel_Backup/GBI_Edu_Backup130120.zip GBI_Edu_Travel
 
