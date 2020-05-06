@@ -12,7 +12,7 @@ data from the api to display the data about the encyclopedia from the backend .
             <div class="col-md-12">
               <div class="container container_admin_body">
                 <div class="top_btn">
-                  <router-link :to="`/encyclopedia-add`">Comment</router-link>
+                  <!-- <router-link :to="`/encyclopedia-add`">Comment</router-link> -->
                 </div>
                   <!-- Start Card -->
                   <table id="example" class="display table table-striped table-bordered nowrap" style="width:100%">
@@ -31,14 +31,8 @@ data from the api to display the data about the encyclopedia from the backend .
                             <td>{{ encyclopedia.body }}</td>
                             <td>{{ encyclopedia.created_at }}</td>
                             <td class="edit_section">
-                              <router-link :to="`encyclopedia/${encyclopedia.id}`" class="edit_link">
-                                <span class="badge badge-primary"><i class="fas fa-pencil-alt"></i></span>
-                              </router-link>
                               <a href="" class="delete_link" @click.prevent = "deleteencyclopedia(encyclopedia.id)" ><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
 
-                              <router-link :to="`/encyclopedia-view/${encyclopedia.id}`" class="edit_link">
-                                <span class="badge badge-primary" title="View Itinerary"><i class="fas fa-eye"></i></span>
-                              </router-link>
                             </td>
                         </tr>                 
 
@@ -89,7 +83,6 @@ export default {
       }).then((result) => {
         if (result.value) {
           axios.delete(uri).then((response)=>{
-            console.log(response);
             this.encyclopediaData();
                 
           })

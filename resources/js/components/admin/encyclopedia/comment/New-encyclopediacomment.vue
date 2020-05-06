@@ -283,10 +283,9 @@ export default {
     addItinerary()
     {
       // Submit form 
-      console.log(this.form);
       this.form.post('/api/encyclopedias')
         .then((response)=>{
-          console.log(response);
+
              // this.$router.push(`/itinerary-list`)
               toast({
                   type: 'success',

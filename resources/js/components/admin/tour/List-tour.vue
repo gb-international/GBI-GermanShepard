@@ -17,6 +17,7 @@ data from the api to display the data about the Hotel from the backend .
             <thead>
               <tr>
                 <th>CODE  <i class="fas fa-sort"></i></th>
+                <th>School  <i class="fas fa-sort"></i></th>
                 <th>START DATE  <i class="fas fa-sort"></i></th>
                 <th>END DATE.  <i class="fas fa-sort"></i></th>
                 <th>PRICE  <i class="fas fa-sort"></i></th>
@@ -25,7 +26,8 @@ data from the api to display the data about the Hotel from the backend .
             </thead>
             <tbody>
               <tr v-for="tour in tour_data" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list">
-                <td>{{tour.tour_id}}</td>
+                <td>{{ tour.tour_id }}</td>
+                <td>{{ tour.school.school_name }} ({{ tour.school.city_name }})</td>
                 <td>{{tour.tour_start_date }} </td>
                 <td>{{ tour.tour_end_date }}</td>
                 <td>{{ tour.tour_price }}</td>
@@ -75,6 +77,7 @@ export default {
       axios.get(`/api/tour`).then((response)=>{
         setTimeout(() => $('#example').DataTable(), 1000);
         this.tour_data = response.data.data;
+        console.log(this.tour_data);
       })
     },
     deletetour(id){

@@ -92,7 +92,7 @@ export default {
       }).then((result) => {
         if (result.value) {
           axios.delete(uri).then((response)=>{
-            console.log(response);
+
             this.encyclopediaData();
                 
           })

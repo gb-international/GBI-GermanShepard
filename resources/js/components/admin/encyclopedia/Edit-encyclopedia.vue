@@ -343,7 +343,7 @@ export default {
     addItinerary()
     {
       // Submit form 
-      console.log(this.form.files);
+
        var api = `/api/encyclopedias/${this.$route.params.id}`;
        this.form.put(api).then((response)=>{
              this.$router.push(`/encyclopedia-list`)

@@ -26,7 +26,7 @@ class TourController extends Controller
      */
     public function index()
     {
-        return new TourCollection(Tour::get());
+        return new TourCollection(Tour::with('school')->get());
     }
 
     /**
@@ -71,7 +71,7 @@ class TourController extends Controller
         
         $data = ['itinerary'=>$tour->itinerary,'school'=>$tour->school,'tour'=>$tour,'escort'=>$escorts,'train'=>$trains,'flight'=>$flights,'hotel'=>$hotels,'bus'=>$buses];
         
-
+        
         return response()->json($data);
     }
 

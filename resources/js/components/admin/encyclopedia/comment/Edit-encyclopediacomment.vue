@@ -338,7 +338,6 @@ export default {
       // Submit form 
        var api = `/api/encyclopedias/${this.$route.params.id}`;
        this.form.put(api).then((response)=>{
-          console.log(response);
              // this.$router.push(`/itinerary-list`)
               toast({
                   type: 'success',

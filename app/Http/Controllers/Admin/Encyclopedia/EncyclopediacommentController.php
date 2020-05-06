@@ -81,6 +81,7 @@ class EncyclopediacommentController extends Controller
      */
     public function destroy(Encyclopediacomment $encyclopediacomment)
     {
-        //
+        $encyclopediacomment->delete();
+        return response()->json('successfull deleted');
     }
 }

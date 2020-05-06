@@ -176,5 +176,10 @@ modification
 school name in tour llisting
 Tour code = GBI
 
-Tour code = check the relationship and remove the tourcode foreign id in another table.
-because tour code can be changed by admin
+view Tour details.
+
+------------------------------------------------------------
+
+
+
+
