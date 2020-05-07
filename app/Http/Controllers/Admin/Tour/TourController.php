@@ -1,11 +1,7 @@
 <?php
-/* 
-Created by : Ajay yadav 
-Purpose : Manage tour of gbi 
-
-*/
+/* created by : Ajay yadav 
+Purpose : Manage tour of gbi  */
 namespace App\Http\Controllers\Admin\Tour;
-
 use App\Model\Tour\Tour;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

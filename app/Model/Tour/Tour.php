@@ -3,7 +3,8 @@
 namespace App\Model\Tour;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Model\Itinerary\itinerary;
+use App\Model\Itinerary\Itinerary;
+
 
 class Tour extends Model
 {

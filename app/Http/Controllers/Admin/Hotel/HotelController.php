@@ -102,7 +102,7 @@ class HotelController extends Controller
           'state'=>'required',
           'city' =>'required',
           'address' => 'required',
-          'phoneno' => 'required|numeric|digits:10',
+          'phoneno' => 'required',
           'email' => 'required',
           'room'=>'required|numeric|min:1',
 

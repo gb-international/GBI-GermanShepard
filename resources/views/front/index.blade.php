@@ -14,15 +14,15 @@
     <meta http-equiv="expires" content="exercise date in seconds"/>
     <meta http-equiv="expires" content="0"/> <meta http-equiv="expires" content="43200"/>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/icon" href="{{ secure_asset('assets/front/images/favicon.png') }}"/> 
-    <link rel="stylesheet" href="{{ secure_asset('assets/front/css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" type="image/icon" href="{{ asset('assets/front/images/favicon.png') }}"/> 
+    <link rel="stylesheet" href="{{ asset('assets/front/css/bootstrap.min.css') }}">
    <!-- Slick slider -->
-    <link href="{{ secure_asset('assets/front/css/slickcss.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('assets/front/css/reset.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/front/css/slickcss.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/front/css/reset.css') }}" rel="stylesheet">
     <!-- Fonts -->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" /> 
     <!-- css stylesheet -->
-    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> --}}
     {{-- Global site tag (gtag.js) - Google Analytics --}}
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138734768-1"></script>
@@ -76,15 +76,15 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
   <!-- Slick slider-->
-    <script type="text/javascript" src="{{ secure_asset('assets/front/js/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/front/js/slick.min.js') }}"></script>
     <!-- Custom js -->
-    <script type="text/javascript" src="{{ secure_asset('assets/front/js/custom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/front/js/custom.js') }}"></script>
     <script src="https://use.fontawesome.com/26d5579a34.js" type="text/javascript" ></script>
-    <script type="text/javascript" src="{{ secure_asset('assets/front/js/storage.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/front/js/storage.js') }}"></script>
 
 
-    <script type="text/javascript" src="{{ secure_asset('assets/front/js/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ secure_asset('assets/front/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/front/js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/front/js/bootstrap.min.js') }}"></script>
      {{-- Ajay Added Bootstrap CDN --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
