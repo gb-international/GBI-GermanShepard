@@ -13,7 +13,7 @@
        <!-- start banner area -->
 		    <section class="banner-block">
 			    <div class="text_on_image">
-			        <img id="traveleduimg" class="top-img banner_img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/travel-and-education.jpg`">
+			        <img id="traveleduimg" class="top-img banner_img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/travel-education.webp`">
 			        <div class="content">
 			        	<p class="heading">Travel & Education</p>		        	
 			        	<!-- <span class="sub">Travel to conquer Space & time</span> -->

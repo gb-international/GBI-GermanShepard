@@ -274,6 +274,7 @@ export default {
   created:function(){
     this.stateData();
     this.states();
+    this.scrollToTop();
   },
   methods: {
 

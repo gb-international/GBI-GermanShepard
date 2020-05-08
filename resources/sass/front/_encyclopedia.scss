@@ -97,3 +97,21 @@
   }
 }
 
+.encyclopedia_search{
+  background-image: url('/assets/front/banner/encyclopedia1.webp') !important;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 11% 0%;
+      .ui.selection.dropdown{
+        min-height: 41px;
+
+      }
+      .search_filter{
+        padding: 0px 20px;
+      }
+      .encyclopedia-content{
+        padding-left: 30px;
+        color: white;
+        font-weight: 400;
+      }
+}

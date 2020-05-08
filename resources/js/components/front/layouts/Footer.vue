@@ -31,7 +31,7 @@
                         <li>
                         <h3>Connect With Us</h3>
                         <a href="https://www.facebook.com/gowithgbi/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
-                        <a href="https://twitter.com/gowithgbi"> <i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/gowithgbi"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
                         <a href="https://www.linkedin.com/company/13592478/admin/"> <i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
                         <a href="https://wordpress.com/view/gowithgbi.wordpress.com"> <i class="fa fa-wordpress fa-lg" aria-hidden="true"></i></a>
                         <a href="https://www.instagram.com/gbirikhi/">  <i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
@@ -46,7 +46,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="footer-bottom-area">
-                  <p class="copy-right">&copy; 2019 GBI Holidays Pvt. ltd. All right reserved.</p>
+                  <p class="copy-right">©{{ new Date().getFullYear() }} GBI Holidays Pvt. ltd. All right reserved.</p>
                 </div>
                 <div class="footer-bottom-term">
                   <p class="copy-left"><a herf="#"> Terms & Condition</a></p>
@@ -79,13 +79,13 @@
                 <div class="nav-font"> call
                 </div>
               </a>
-              <router-link :to="`/home`" >
+              <a href="#" @click="LoginModel()">
                 <div class="nav-font">
                   <i class="fas fa-user-alt"></i>
                   </div>
                   <div class="nav-font"> profile
                 </div>
-              </router-link>                 
+              </a>                 
           </div>
       </div>
       <!-- End Footer -->
@@ -99,6 +99,16 @@ export default {
   data(){
     return {
 
+    }
+  },
+  methods:{
+    LoginModel:function(){
+      if(this.$session.get('login') == undefined){
+        $("#loginButton").click();
+        return false;
+      }else{
+        this.$router.push('/dashboard');
+      }
     }
   }
     

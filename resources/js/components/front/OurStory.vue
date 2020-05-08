@@ -13,7 +13,7 @@
  <!-- start banner area -->
     <section class="banner-block">
       <div class="text_on_image">
-          <img id="safetyimg" class="top-img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/our-story.jpg`">
+          <img id="safetyimg" class="top-img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/our-story.webp`">
           <div class="content">
             <p class="heading">OUR STORY</p>             
           </div>

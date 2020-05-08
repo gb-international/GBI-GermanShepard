@@ -6,13 +6,13 @@
       <div class="slidehome"><div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="img-fluid banner_img" id="bannerimg1" :src="`assets/front/images/banner.jpg`" alt="GBI slide">
+          <img class="img-fluid banner_img" id="bannerimg1" :src="`assets/front/banner/banner.webp`" alt="GBI slide">
         </div>
         <div class="carousel-item">
-           <img class="img-fluid banner_img" id="bannerimg2" :src="`assets/front/images/banner1.jpg`" alt="GBI slide">
+           <img class="img-fluid banner_img" id="bannerimg2" :src="`assets/front/banner/banner1.webp`" alt="GBI slide">
         </div>
         <div class="carousel-item">
-           <img class="img-fluid banner_img" id="bannerimg3" :src="`assets/front/images/banner2.jpg`" alt="GBI slide">
+           <img class="img-fluid banner_img" id="bannerimg3" :src="`assets/front/banner/banner2.webp`" alt="GBI slide">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

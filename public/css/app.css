@@ -23029,6 +23029,7 @@ a {
   .brand img {
     height: 50px;
     padding-left: 12px;
+    width: 180px;
   }
 
   .navbar-bottom {
@@ -29089,16 +29090,16 @@ article {
 }
 
 .explore_banner_img {
-  background-image: url("/assets/front/images/gif.gif") !important;
+  background-image: url("https://gbi-assets.s3.ap-south-1.amazonaws.com/explore-dest.webp") !important;
   background-repeat: no-repeat;
-  background-size: 100% 100vh;
+  background-size: cover;
   padding: 11% 0%;
 }
 
 .explore_list_search {
-  background-image: url("/assets/front/images/gif.gif") !important;
+  background-image: url("https://gbi-assets.s3.ap-south-1.amazonaws.com/explore-dest.webp") !important;
   background-repeat: no-repeat;
-  background-size: 100% 100vh;
+  background-size: cover;
   padding: 11% 0%;
 }
 
@@ -30718,6 +30719,27 @@ a:hover {
   text-decoration: none;
 }
 
+.encyclopedia_search {
+  background-image: url("/assets/front/banner/encyclopedia1.webp") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 11% 0%;
+}
+
+.encyclopedia_search .ui.selection.dropdown {
+  min-height: 41px;
+}
+
+.encyclopedia_search .search_filter {
+  padding: 0px 20px;
+}
+
+.encyclopedia_search .encyclopedia-content {
+  padding-left: 30px;
+  color: white;
+  font-weight: 400;
+}
+
 .link {
   cursor: pointer;
 }
@@ -30747,7 +30769,7 @@ a:hover {
 }
 
 .banner_img {
-  background-size: 100% 100vh;
+  background-size: cover;
 }
 
 .text_on_image {

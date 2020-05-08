@@ -1,6 +1,6 @@
 <template>
     <div id="howwework">
-             <vue-headful
+    <vue-headful
       title="How We Work"
     description="@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one "
     keywords="@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs"
@@ -13,7 +13,7 @@
       <!-- start banner area -->
     <section class="banner-block">
       <div class="text_on_image">
-          <img id="safetyimg" class="top-img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/how-we-work.jpg`">
+          <img id="safetyimg" class="top-img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/how-we-work.webp`">
           <div class="content">
             <p class="heading">HOW WE WORK</p>             
           </div>

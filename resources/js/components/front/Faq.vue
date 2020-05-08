@@ -12,7 +12,7 @@
 
     	<section class="banner-block">
 	      <div class="col-sm-12 text-center faq_banner_image">
-	        <img id="faq_image" class="top-img" :src="`/assets/front/images/faq_banner.jpg`">
+	        <img id="faq_image" class="top-img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/faq.webp`">
 
 	        <div class="search_faq input-aligment">
             <div class="row search_section">

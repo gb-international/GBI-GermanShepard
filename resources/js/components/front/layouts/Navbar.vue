@@ -7,13 +7,15 @@
         </div>
         <div class="nav-custom">
           <nav>
-            <div class="nav-mobile"><a id="nav-toggle" href="javascript:void(0);"><span></span></a></div>
+            <div class="nav-mobile">
+              <a id="nav-toggle" href="javascript:void(0);"><span></span></a>
+            </div>
             <ul class="nav-list">
-              <li @click="activate_menu(1)" :class="{ active : active_el == 1 }">
+              <li @click="activate_menu(1)" :class="{ nav_active : nav_active_el == 1 }">
                 <router-link :to="`/explore-destination`" >Explore Destintion</router-link>
               </li>
 
-              <li @click="activate_menu(6)" :class="{ active : active_el == 6 }">
+              <li @click="activate_menu(6)" :class="{ nav_active : nav_active_el == 6 }">
                 <a href="javascript:void(0);">Resources</a>
                 <ul class="nav-dropdown">
                   <li><router-link :to="`/resources/travel-education`">Travel & Education</router-link></li>
@@ -23,8 +25,8 @@
                 </ul>
               </li>
               
-                <li><a href="https://gowithgbi.wordpress.com/">GBI Travel Blog</a></li>
-              <li @click="activate_menu(9)" :class="{ active : active_el == 9 }">
+              <li><a href="https://gowithgbi.wordpress.com/">GBI Travel Blog</a></li>
+              <li @click="activate_menu(9)" :class="{ nav_active : nav_active_el == 9 }">
                 <a href="javascript:void(0);">About Us</a>
                 <ul class="nav-dropdown">
                   <li><router-link :to="`/about-us/our-story`">Our Story</router-link></li>
@@ -33,7 +35,7 @@
                   <li><router-link :to="`/about-us/image-gallery`">Image Gallery</router-link></li>
                 </ul>
               </li>
-              <li @click="activate_menu(4)" :class="{ active : active_el == 4 }">
+              <li @click="activate_menu(4)" :class="{ nav_active : nav_active_el == 4 }">
                 <router-link :to="`/contact-us`" >Contact Us</router-link>
               </li>
 
@@ -44,7 +46,7 @@
               
               <li class="dashboard_link" v-else-if="dashboard == '1'" @click="toggleClass()">
                 <a href="javascript:void(0);">User Name</a>
-                <ul class="nav-dropdown" v-bind:class="[isActive ? 'show' : 'hide']">
+                <ul class="nav-dropdown" v-bind:class="[isnav_active ? 'show' : 'hide']">
                   <li><router-link :to="`/dashboard`">Dashboard</router-link></li>
                   <li><router-link :to="`/tour-list`">Booked</router-link></li>            
                   <li><router-link :to="`/payment`">Payment</router-link></li>        
@@ -83,21 +85,21 @@ export default {
   name: "Navbar",
   data(){
     return{
-      active_el:0,
+      nav_active_el:0,
       login:'0',
       dashboard:false,
       countDown:0,
-      isActive:false,
+      isnav_active:false,
       logincheck: localStorage.getItem("login"),
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     }
   },
     methods: {
       toggleClass(){
-        if(this.isActive == false){
-          this.isActive = true;
+        if(this.isnav_active == false){
+          this.isnav_active = true;
         }else{
-          this.isActive = false;
+          this.isnav_active = false;
         }
       },
       logout(){
@@ -121,7 +123,7 @@ export default {
       });
       },
       activate_menu:function(el){
-          this.active_el = el;
+          this.nav_active_el = el;
       }
     },
     computed :{
@@ -157,7 +159,7 @@ ul > li:hover {
   cursor:pointer;
 }
 
-.active{
+.nav_active{
   border-bottom: 2px solid grey;
 }
 </style>
