@@ -9,12 +9,14 @@
     ogLocale="en_US,en_UK"
     url="https://www.gowithgbi.com/about-us/join-our-team"
      />
+     <div class="text_on_image">
+      <section class="banner-block career_banner"></section>  
+      <div class="content">
+        <p class="heading">JOIN OUR TEAM</p>             
+      </div>      
+    </div>
 
         <main>
-        <!-- start banner area -->
-        <section class="banner-block">
-            <img id="jointeamimg" class="top-img" :src="`/assets/front/images/career.jpg`">
-        </section>  
         <!-- End banner area -->
         <section>
          <article class="join-team">          

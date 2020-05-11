@@ -1,6 +1,6 @@
 <template>
   <div id="ourstory">
-         <vue-headful
+  <vue-headful
       title="About Us"
     description="@GoWithGBI Story On How GBI believes in its core values and implement the same  to make your educational travel program a successful one "
     keywords="@GoWithGBI,Our Story,about us,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs"
@@ -9,19 +9,17 @@
     ogLocale="en_US,en_UK"
     url="https://www.gowithgbi.com/about-us/our-story"
    />
-    
- <!-- start banner area -->
-    <section class="banner-block">
-      <div class="text_on_image">
-          <img id="safetyimg" class="top-img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/our-story.webp`">
-          <div class="content">
-            <p class="heading">OUR STORY</p>             
-          </div>
+
+
+   <!-- start banner area -->
+    <div class="text_on_image">
+      <section class="banner-block ourstory_banner"></section>  
+      <div class="content">
+        <p class="heading">OUR STORY</p>
       </div>
-    </section>  
+    </div> 
   <!-- End banner area -->
-  <!-- Start main content -->
-    <!-- Start how we work -->
+
   <div class="container">
       <div class="col-lg-12">
      <article class="how-we-work">
@@ -106,8 +104,8 @@
         </div>
   </div>
 </template>
-
 <script>
+
     export default {
         name: "OurStory"  
     }

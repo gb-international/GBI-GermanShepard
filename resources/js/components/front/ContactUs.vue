@@ -10,15 +10,12 @@
     />
 
     <!-- start banner area -->
-    <section class="banner-block">
-      <div class="text_on_image">
-          <img id="safetyimg" class="top-img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/contact-us.webp`">
-          <div class="content">
-            <p class="heading">CONTACT US</p>             
-          </div>
-      </div>
-
-     </section>  
+    <div class="text_on_image">
+      <section class="banner-block contact_us_banner"></section>  
+      <div class="content">
+        <p class="heading">CONTACT US</p>             
+      </div>      
+    </div>
   <!-- End banner area -->
     <main>
 

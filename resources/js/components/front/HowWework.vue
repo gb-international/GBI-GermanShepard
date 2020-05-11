@@ -9,21 +9,16 @@
     ogLocale="en_US,en_UK"
     url="https://www.gowithgbi.com/about-us/how-we-work"
    />
-	
-      <!-- start banner area -->
-    <section class="banner-block">
-      <div class="text_on_image">
-          <img id="safetyimg" class="top-img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/how-we-work.webp`">
-          <div class="content">
-            <p class="heading">HOW WE WORK</p>             
-          </div>
-      </div>
-    </section>  
-  <!-- End banner area -->
-  <!-- Start main content -->
- 
 
-    <!-- Start how we work -->
+   <!-- start banner area -->
+    <div class="text_on_image">
+      <section class="banner-block howwework_banner"></section>  
+      <div class="content">
+        <p class="heading">HOW WE WORK</p>             
+      </div>      
+    </div> 
+  <!-- End banner area -->
+
      <article class="how-we-work">
       <div class="container">
       <div class="row">

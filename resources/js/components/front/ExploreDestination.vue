@@ -10,145 +10,146 @@
     ogLocale="en_US,en_UK"
     url="https://www.gowithgbi.com/resources/explore-destination"
    />  
-
-    <main>
-      <div class="parent_banner_div">
-        <div class="banner-block explore_banner_img">
-         <!-- <img class="banner-img" v-bind:src="'assets/front/images/explorserach.png'"> -->
-          <div class="container bccolor">
-            <div class="col-md-12">
-              <!-- From Start -->
+   <div class="text_on_image explore_bg_img">
+      <section class="banner-block explore_banner"></section>  
+      <div class="content">
+     
+        <div class="container-fluid mb-30">
+          <div class="row">
+            <div class="col-sm-12">
               <form role="form">
                 <div class="nav-sreach-explo"> 
                   <ul class="nav nav-tabs serch-explo-menu">
                     <li class="nav-item">
                       <a class="nav-link active border-none" data-toggle="tab" href="#home" v-on:click="multicity = !multicity">Oneway</a>
-                   </li>
-                   <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                       <a class="nav-link border-none" data-toggle="tab" href="#menu1" v-on:click="multicity = !multicity">Multicity</a>
-                   </li>
+                    </li>
                   </ul>                 
-                <!-- start single location Tab panes serach bar for source and destination-->
-                <div class="tab-content explor-content">
-                  <div id="home" class="container tab-pane active"><br>
-                    <div class="row p-0 parent_padding">
+                  <!-- start single location Tab panes serach bar for source and destination-->
+                  <div class="tab-content explor-content">
+                    <div id="home" class="container tab-pane active"><br>
+                      <div class="row p-0 parent_padding">
 
-                      <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
-                          <model-select :options="options"
-                              v-model="sources"
-                              placeholder="Leave from">
-                          </model-select>
-                      </div>
-                      <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
-                         <model-select :options="options"
-                            v-model="destinations"
-                            placeholder="Arrive at">
-                        </model-select>
-                      </div>
-
-                      <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
-                        <div class="select">
-                          <select  class="placeholder_color ui fluid search selection dropdown" name="typetour" @change="tourtypeOnChange($event)">
-                            <option selected>In mood for</option>
-                            <option v-for="index in tourtype_option" :value="index.id">{{ index.name }}</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
-                        <div class="select">
-                          <select  class="selectpicker ui selection dropdown" name="noofday" @change="noofdaysOnChange($event)">
-                            <option selected>No. of days</option>
-                            <option v-for="index in noofdays_option" :value="index">{{ index }}</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- end single location Tab panes serach bar for source and destination-->
-                  <!-- start multiple location Tab panes serach bar for source and destination-->
-
-                  <div id="menu1" class="container tab-pane"><br>
-                    <div class="row p-0 parent_padding">
-                      <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
-                        <model-select :options="options"
-                            v-model="multi_source"
-                            placeholder="Leave from">
-                        </model-select>
-                      </div>
-                      <div class="col-6 col-sm-4 col-lg-4 input-p nopadding"> 
-                        <model-select :options="options"
-                            v-model="multi_destination"
-                            placeholder="Arrive at">
-                        </model-select>
-                      </div>
-                    </div>
-                   
-                    <div class="row p-0 parent_padding">
-                      <div class="col-lg-8" v-for="(row, index) in rows">
-                        <div class="row">
-                          <div class="col-6 col-sm-6 input-p nopadding"> 
+                        <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
                             <model-select :options="options"
-                                v-model="row['source']"
+                                v-model="sources"
                                 placeholder="Leave from">
                             </model-select>
-                          </div>
-                          <div class="col-6 col-sm-6 input-p nopadding"> 
-                            <model-select :options="options"
-                                v-model="row['destination']"
-                                placeholder="Arrive at"
-                                >
-                            </model-select>
-                          </div>
                         </div>
-                      </div>
-                      <div class="col-lg-2">
-                        <div class="row button_group">
-                          <div class="col-12"> 
-                            <div class="buttons save_btn" v-if="city_button == current_counter">
-                              <button v-if="city_button == current_counter" type="button" class="btn btn-default multi_city_btn" v-bind:class="{ disable : save_disable_btn }" @click="addRow"><i class="fas fa-plus"></i></button>
-                            </div>
-                          
-                            <div class="buttons remove_btn" v-if="city_button == current_counter">
-                              <button type="button" class="btn text-center btn-default multi_city_btn"  v-bind:class="{ disable : remove_disable_btn }" @click="deleteRow(current_counter-1)"><i class="fas fa-minus"></i></button>
-                              </div>
-                          </div>
+                        <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
+                           <model-select :options="options"
+                              v-model="destinations"
+                              placeholder="Arrive at">
+                          </model-select>
                         </div>
-                      </div>
-                    </div>
-                  
 
-                    <!-- tyype of tour and no of days -->
-                    <div class="row parent_padding">
-                      <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
-                        <div class="select">
-                          <select  class="placeholder_color ui fluid search selection dropdown" name="typetour" @change="tourtypeOnChange($event)">
-                            <option selected>In mood for</option>
-                            <option v-for="index in tourtype_option" :value="index">{{ index.name}}</option>
-                          </select>
+                        <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
+                          <div class="select">
+                            <select  class="placeholder_color ui fluid search selection dropdown" name="typetour" @change="tourtypeOnChange($event)">
+                              <option selected>In mood for</option>
+                              <option v-for="index in tourtype_option" :value="index.id">{{ index.name }}</option>
+                            </select>
+                          </div>
                         </div>
-                      </div>
-                      <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
-                        <div class="select">
-                          <select  class="selectpicker ui selection dropdown" name="noofday" @change="noofdaysOnChange($event)">
-                            <option selected>No. of days</option>
-                            <option v-for="index in tourtype_option" :value="index.id">{{ index.name }}</option>
-                          </select>
+                        <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
+                          <div class="select">
+                            <select  class="selectpicker ui selection dropdown" name="noofday" @change="noofdaysOnChange($event)">
+                              <option selected>No. of days</option>
+                              <option v-for="index in noofdays_option" :value="index">{{ index }}</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div><!--End menu1-->
-                  <!-- end multiple location Tab panes serach bar for source and destination-->
-                </div>   
+                      <!-- end single location Tab panes serach bar for source and destination-->
+                      <!-- start multiple location Tab panes serach bar for source and destination-->
+
+                    <div id="menu1" class="container tab-pane"><br>
+                      <div class="row p-0 parent_padding">
+                        <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
+                          <model-select :options="options"
+                              v-model="multi_source"
+                              placeholder="Leave from">
+                          </model-select>
+                        </div>
+                        <div class="col-6 col-sm-4 col-lg-4 input-p nopadding"> 
+                          <model-select :options="options"
+                              v-model="multi_destination"
+                              placeholder="Arrive at">
+                          </model-select>
+                        </div>
+                      </div>
+                     
+                      <div class="row p-0 parent_padding">
+                        <div class="col-lg-8" v-for="(row, index) in rows">
+                          <div class="row">
+                            <div class="col-6 col-sm-6 input-p nopadding"> 
+                              <model-select :options="options"
+                                  v-model="row['source']"
+                                  placeholder="Leave from">
+                              </model-select>
+                            </div>
+                            <div class="col-6 col-sm-6 input-p nopadding"> 
+                              <model-select :options="options"
+                                  v-model="row['destination']"
+                                  placeholder="Arrive at"
+                                  >
+                              </model-select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-2">
+                          <div class="row button_group">
+                            <div class="col-12"> 
+                              <div class="buttons save_btn" v-if="city_button == current_counter">
+                                <button v-if="city_button == current_counter" type="button" class="btn btn-default multi_city_btn" v-bind:class="{ disable : save_disable_btn }" @click="addRow"><i class="fas fa-plus"></i></button>
+                              </div>
+                            
+                              <div class="buttons remove_btn" v-if="city_button == current_counter">
+                                <button type="button" class="btn text-center btn-default multi_city_btn"  v-bind:class="{ disable : remove_disable_btn }" @click="deleteRow(current_counter-1)"><i class="fas fa-minus"></i></button>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+
+                      <!-- tyype of tour and no of days -->
+                      <div class="row parent_padding">
+                        <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
+                          <div class="select">
+                            <select  class="placeholder_color ui fluid search selection dropdown" name="typetour" @change="tourtypeOnChange($event)">
+                              <option selected>In mood for</option>
+                              <option v-for="index in tourtype_option" :value="index">{{ index.name}}</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
+                          <div class="select">
+                            <select  class="selectpicker ui selection dropdown" name="noofday" @change="noofdaysOnChange($event)">
+                              <option selected>No. of days</option>
+                              <option v-for="index in tourtype_option" :value="index.id">{{ index.name }}</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!--End menu1-->
+                    <!-- end multiple location Tab panes serach bar for source and destination-->
+                  </div>   
                 </div>
                   <p class="text-center">
                    <button class="btn btn-defalt btn-lg center-block profile_button" @click.prevent="searchAll()" type="submit" @click="show = !show">Search</button>
                  </p>
-              </form>
-              <!-- From End -->
+              </form> 
             </div>
-          </div>
-        </div>
-      </div>
+          </div>        
+        </div>           
+      </div>      
+    </div>
+
+    <main>
       <!-- /.row -->
       <div class="container">
         <div class="row mt-10 p-20">
@@ -552,4 +553,11 @@ option{
   word-wrap:normal;
 }
 
+@media only screen and (max-width: 680px) {
+.explore_banner{
+    height: 480px;
+  }
+.content{ top: 11% !important; }
+
+}
 </style>

@@ -23,6 +23,7 @@ const store = new Vuex.Store(storeData);
 import { filter } from "./filter";
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
+import vueHeadful from "vue-headful";
 
 
 
@@ -34,7 +35,6 @@ let token = document.head.querySelector('meta[name="csrf-token"]');
 
 
 import { routes } from "./routes";
-import vueHeadful from "vue-headful";
 
 Vue.component("vue-headful", vueHeadful),
 Vue.component("admin-main", require("./components/admin/AdminMaster.vue")),

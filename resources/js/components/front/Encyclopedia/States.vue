@@ -1,29 +1,32 @@
 <template>
   <!-- Remove this dummy_height when you add some data to this page -->
   <div class="States">
-    <section class="banner-block encyclopedia_search mb-20">
-      <!-- <img class="top-img" v-bind:src="'assets/front/images/faq_banner.jpg'"> -->
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="encyclopedia-content">
-              <h1 class="heading">Encyclopedia</h1>             
-              <span class="sub">Explore and embrace the vibrancy of cultures and traditions of the beautiful countries and states of the globe</span>              
+
+    <div class="text_on_image">
+      <section class="banner-block encyclopedia_banner"></section>  
+      <div class="content encyclopedia">
+     
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="encyclopedia-content">
+                <h1 class="heading">Encyclopedia</h1>             
+                <span class="sub">Explore and embrace the vibrancy of cultures and traditions of the beautiful countries and states of the globe</span>              
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6 search_filter">
-            <!--  serach itinerary list in serach bar-->
-            <div class="search-p-top">
-              <div class="input-group">
-                  <model-select :options="options" v-model="searchQuery" placeholder="Search encyclopedia..."></model-select>
-                </div>
+            <div class="col-sm-6 search_filter">
+              <!--  serach itinerary list in serach bar-->
+              <div class="search-p-top">
+                <div class="input-group">
+                    <model-select :options="options" v-model="searchQuery" placeholder="Search encyclopedia..."></model-select>
+                  </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-2"></div>         
-        </div>        
-      </div>
-    </section>
-    
+            <div class="col-sm-2"></div>         
+          </div>        
+        </div>           
+      </div>      
+    </div>
 
     <br>
     <div class="container">    

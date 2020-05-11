@@ -194,3 +194,15 @@ php artisan down --message="Upgrading Database" --retry=60
 hotel details display
 tour display
 tour air booking ke time par
+
+
+---------------------------------
+
+320 - 680
+- desktop version images and mobile version images
+- 
+
+----------------------------
+Meta tag
+explore destination
+mobile image and desktop images

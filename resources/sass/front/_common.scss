@@ -22,12 +22,13 @@
 .banner_img{
 	background-size: cover;
 }
+
 .text_on_image{
 	position: relative;
 	.content{
 		position: absolute;
 		top: 40%;
-		left: 10%;
+		left: 6%;
 		color: white;
 		background: transparent;
 		.heading{
@@ -39,6 +40,7 @@
 		}
 	}
 }
+
 
 .ui.selection.dropdown{
 	min-width: 100% !important;
@@ -54,21 +56,4 @@ a{
 	  text-decoration:none;
 	  color: black;
 	}
-}
-@media (max-width: 767px) {
-	.top-img{
-	    height: 145px;
-	}  
-	.text_on_image{
-		.content{
-			top: 26%;
-			left: 5%;
-			.heading{
-				font-size: 15px;
-			}
-			.sub{
-				font-size: 8px;
-			}
-		}
-	} 
 }

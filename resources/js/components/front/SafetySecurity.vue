@@ -10,18 +10,16 @@
     url="https://www.gowithgbi.com/about-us/safety-security"
    />
 
-        <!-- start banner area -->
-    <section class="banner-block">
-        <div class="text_on_image">
-              <img id="safetyimg" class="top-img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/safety-security.webp`">
-              <div class="content">
-                <p class="heading">Safety & Security</p>             
-                <!-- <span class="sub">Your safety our priority</span> -->
-              </div>
-          </div>
-    </section>  
+
+   <!-- start banner area -->
+    <div class="text_on_image">
+      <section class="banner-block safety_banner"></section>  
+      <div class="content">
+        <p class="heading">SAFETY & SECURITY</p>             
+      </div>      
+    </div> 
   <!-- End banner area -->
-  <!-- Start main content --> 
+
    <div class="container">
       <!-- Start how we work -->
      <div class="safety-security">

@@ -10,21 +10,30 @@
     url="https://www.gowithgbi.com/resources/faq"
    />
 
-    	<section class="banner-block">
-	      <div class="col-sm-12 text-center faq_banner_image">
-	        <img id="faq_image" class="top-img" :src="`https://gbi-assets.s3.ap-south-1.amazonaws.com/faq.webp`">
-
-	        <div class="search_faq input-aligment">
-            <div class="row search_section">
-              <div class="col-8">
-                <p>Frequently Asked Questions (FAQ)</p> 
-	             <input type="text" class="form-control" placeholder="Got a question? Shoot at us" title="Type in a name">
-	            </div>
+   <div class="text_on_image">
+      <section class="banner-block faq_banner"></section>  
+      <div class="content">
+     
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="content">
+                <h1 class="heading">Frequently Asked Questions (FAQ)</h1>                           
+              </div>
             </div>
-	        </div>
-
-	      </div>
-      </section> 
+            <div class="col-sm-6 search_filter">
+              <!--  serach itinerary list in serach bar-->
+              <div class="search-p-top mt-35">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Got a question? Shoot at us" title="Type in a name">
+                  </div>
+              </div>
+            </div>
+            <div class="col-sm-2"></div>         
+          </div>        
+        </div>           
+      </div>      
+    </div>
          <!-- Start how we work -->
      	<section class="faq-question">
         <h3>Confused? Need not worry, we have answers to your queries.</h3>
