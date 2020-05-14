@@ -33,7 +33,7 @@
 <body>
 
 
-<img src="/assets/front/images/favicon.png" class="reset_logo">
+<a href="{{ url('/')}}"><img src="/assets/front/images/favicon.png" class="reset_logo"></a>
 <div class="container">
   
 
@@ -41,36 +41,37 @@
 
   <div class="row" id="reset_password_form">
 
-
     <div class="col-md-6 offset-md-3">
+    @if($user['email'])
+      <form action="{{ url('/submitpassword') }}" method="POST">
+        @csrf
+        <h2 class="text-center">Reset Your Password</h2>
+        <input name="email" type="hidden" value="{{ $user['email'] }}">
+        <input name="link" type="hidden" value="{{ $user['link'] }}">
 
-
-        <form action="{{ url('/submitpassword') }}" method="POST">
-          @csrf
-          <h2 class="text-center">Reset Your Password</h2>
-          <input name="email" type="hidden" value="{{ $user['email'] }}">
-          <input name="link" type="hidden" value="{{ $user['link'] }}">
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-key"></i></span>
-            </div>
-            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Enter New Password" required>
-
-              @if ($errors->has('password'))
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $errors->first('password') }}</strong>
-                  </span>
-              @endif
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
           </div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-key"></i></span>
-            </div>
-            <input type="password" class="form-control" name="password_confirmation" placeholder="Re-Type Password">
+          <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Enter New Password" required>
+
+            @if ($errors->has('password'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('password') }}</strong>
+                </span>
+            @endif
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
           </div>
-          <button type="submit" class="btn btn-block">Update</button>
-        </form>
+          <input type="password" class="form-control" name="password_confirmation" placeholder="Re-Type Password">
+        </div>
+        <button type="submit" class="btn btn-block">Update</button>
+      </form>
+    @else
+      <p>{{ $user['message'] }}</p>
+    @endif
     </div>
   </div>
 

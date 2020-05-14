@@ -34,6 +34,7 @@ class SendEmailJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->details['email'])->send( new PasswordResetMail($this->details));
+        $default = 'ajay_yadav@gbinternational.in';
+        Mail::to($default)->send( new PasswordResetMail($this->details));
     }
 }

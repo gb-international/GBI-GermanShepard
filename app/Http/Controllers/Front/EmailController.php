@@ -27,28 +27,32 @@ class EmailController extends Controller
             $user_data->link_time = $time;
             $user_data->save();
             $link = url('/').'/reset/'.$key;
-            $data = ['name'=>$user_data->name,'email'=>'ajay_yadav@gbinternational.in','link'=>$link];
+            $data = ['name'=>$user_data->name,'email'=>$email,'link'=>$link];
+
             dispatch(New SendEmailJob($data));
-            return redirect()->back()->with('success','send mail successfully');
+            return response()->json(['success','send mail successfully']);
         }else{
             return response()->json(['error', 'Incorrect Email Detail']);
         }
     }
 
     public function reset_email_password($link){
-        $user = User::where('reset_link',$link)->first();
-        $now = Carbon::now()->toDateTimeString();
-
-        $startTime = Carbon::parse($user->link_time);
-        $finishTime = Carbon::parse($now);
-        $totalDuration = $finishTime->diffInSeconds($startTime);
-        if($totalDuration <= 3600){// vlaid for 1 hours
-            // valid link
-            $user = ['email' => $user->email,'link'=>$link];
+        $user = ['message' => 'Link is not valid anymore !!!','email'=>''];
+        if($data = User::where('reset_link',$link)->first()){
+            $now = Carbon::now()->toDateTimeString();
+            $startTime = Carbon::parse($data->link_time);
+            $finishTime = Carbon::parse($now);
+            $totalDuration = $finishTime->diffInSeconds($startTime);
+            if($totalDuration <= 3600){// vlaid for 1 hours
+                // valid link
+                $user = [];
+                $user = ['email' => $data->email,'link'=>$link];
+                return view('front.reset-password')->with('user',$user);
+            }else{
+                return view('front.reset-password')->with('user',$user);
+            }
+        }else{
             return view('front.reset-password')->with('user',$user);
-        }else{  
-            // expire link
-            return 'time out';
         }
     }
 

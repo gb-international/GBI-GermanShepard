@@ -288,3 +288,7 @@ img {
     font-size: 15px;
     text-align: center;
 }
+
+.center{
+    margin:0 auto;
+}

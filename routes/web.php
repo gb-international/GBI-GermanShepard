@@ -14,6 +14,18 @@ Route::get('/', function(){
     return view('front.index');
 });
 
+Route::get('/check',function(){
+   $data = []; // Empty array
+
+    Mail::send('email.welcome', $data, function($message){
+        $message->to('ajay_yadav@gbinternationl.in', 'Jon Doe')->subject('Welcome!');
+    });
+
+    dd('exit');
+
+});
+
+
 Route::group(['middleware' => ['web']], function () {
     Auth::routes();
     Route::get('/admin', 'HomeController@index')->name('home');
@@ -23,7 +35,6 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/reset/{link}','EmailController@reset_email_password');
         Route::post('/submitpassword','EmailController@submit_password');
     });
-    
     Route::namespace('Admin')->group(function(){
         Route::group(['middleware' => ['auth']], function () {
             Route::namespace('Account')->group(function (){
