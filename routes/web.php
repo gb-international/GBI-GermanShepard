@@ -23,6 +23,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/reset/{link}','EmailController@reset_email_password');
         Route::post('/submitpassword','EmailController@submit_password');
     });
+    
     Route::namespace('Admin')->group(function(){
         Route::group(['middleware' => ['auth']], function () {
             Route::namespace('Account')->group(function (){
