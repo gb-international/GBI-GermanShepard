@@ -3,7 +3,7 @@
     <div class="container">
       <div class="nav-container">
         <div class="brand">
-          <router-link :to="`/`" > <img src="/assets/front/images/logo.png" alt="GBI Logo"></router-link>
+          <router-link :to="`/`" > <img src="/assets/front/images/logo.png" loading="lazy" alt="GBI Logo"></router-link>
         </div>
         <div class="nav-custom">
           <nav>

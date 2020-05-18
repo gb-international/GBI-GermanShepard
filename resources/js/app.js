@@ -25,14 +25,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 import vueHeadful from "vue-headful";
 
-
-
-
-
 let token = document.head.querySelector('meta[name="csrf-token"]');
-
-
-
 
 import { routes } from "./routes";
 

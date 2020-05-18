@@ -34,7 +34,7 @@ data from the api to display the data about the encyclopedia from the backend .
                               <router-link :to="`tourprogram/${tourprogram.id}`" class="edit_link">
                                 <span class="badge badge-primary"><i class="fas fa-pencil-alt"></i></span>
                               </router-link>
-                              <a href="" class="delete_link" @click.prevent = "deletetourprogram(tourprogram.id)" ><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
+                              <!-- <a href="" class="delete_link" @click.prevent = "deletetourprogram(tourprogram.id)" ><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a> -->
 
                              
                             </td>

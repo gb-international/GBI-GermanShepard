@@ -1,3 +1,5 @@
+Header set Connection keep-alive
+
 State page ->
   day 1. search filter ( country and state ) user level design and admin level design
          admin - state tab like country
@@ -341,3 +343,9 @@ Show the current booking card
           On generation of travel code ask the school to share the code to students
           and add the same to their travel planner
                 
+
+
+
+SEO----
+  . Mobile 
+      . 

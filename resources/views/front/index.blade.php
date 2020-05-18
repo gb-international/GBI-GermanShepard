@@ -15,14 +15,9 @@
     <meta http-equiv="expires" content="exercise date in seconds"/>
     <meta http-equiv="expires" content="0"/> <meta http-equiv="expires" content="43200"/>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/icon" href="{{ asset('assets/front/images/favicon.png') }}"/> 
-    <link rel="stylesheet" href="{{ asset('assets/front/css/bootstrap.min.css') }}">
-   <!-- Slick slider -->
-    <link href="{{ asset('assets/front/css/slickcss.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/front/css/reset.css') }}" rel="stylesheet">
-    <!-- Fonts -->
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" /> 
+    <link rel="shortcut icon" type="image/icon" href="{{ asset('assets/front/images/favicon.png') }}"/>  
     <!-- css stylesheet -->
+    <link rel="preload" href="{{ asset('assets/front/css/bootstrap.min.css') }}" as="style">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> --}}
     {{-- Global site tag (gtag.js) - Google Analytics --}}
@@ -33,15 +28,12 @@
          gtag('js', new Date());
          gtag('config', 'UA-138734768-1');
     </script>
-
-     <!-- Fonts -->
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" /> 
     <!-- css stylesheet -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    {{-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> --}}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138734768-1"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138734768-1"></script>     
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138734768-1"></script>
+
     <meta property="og:title" content="G.B International is a travel educational specialist for young minds.">
     <meta property="og:site_name" content="gowithgbi.com">
     <meta property="og:url" content="https://www.gowithgbi.com/travel-and-education#/">
@@ -56,57 +48,37 @@
     <meta itemprop="description">
     <meta property="og:description">
     <meta name="twitter:description">
-
-
-
     <style type="text/css">
       body { padding-right: 0 !important }
     </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
 <body>
-
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNXQXSR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     
-  <div id="app">
-    <div>  
-      <div class="row">
-        <home-main></home-main>
-      </div>
+<div id="app">
+  <div>  
+    <div class="row">
+      <home-main></home-main>
     </div>
   </div>
+</div>
 
+<script>
+  window.Laravel = <?php echo json_encode([
+      'csrfToken' => csrf_token(),
+    ]); ?>
+</script>
 
-  <script>
-    window.Laravel = <?php echo json_encode([
-        'csrfToken' => csrf_token(),
-      ]); ?>
-  </script>
+<!-- vue JavaScript -->
+<script rel="preload" src="{{asset('js/app.js')}}" as="script"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 
-    <!-- vue JavaScript -->
-    <script src="{{asset('js/app.js')}}"></script>
-
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <!-- Slick slider-->
-    <script type="text/javascript" src="{{ asset('assets/front/js/slick.min.js') }}"></script>
-    <!-- Custom js -->
-    <script type="text/javascript" src="{{ asset('assets/front/js/custom.js') }}"></script>
-    <script src="https://use.fontawesome.com/26d5579a34.js" type="text/javascript" ></script>
-    <script type="text/javascript" src="{{ asset('assets/front/js/storage.js') }}"></script>
-
-
-    <script type="text/javascript" src="{{ asset('assets/front/js/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/front/js/bootstrap.min.js') }}"></script>
-     {{-- Ajay Added Bootstrap CDN --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
-
-
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{{-- <script rel="preload" src="{{ asset('assets/front/js/jquery.min.js') }}" as="script"></script> --}}
+<script src="{{ asset('assets/front/js/bootstrap.min.js') }}"></script>
 
 
 

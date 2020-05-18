@@ -166,7 +166,7 @@
                     <router-link :to="`/explore-detail/${itinerary.id}`">
                      <div class="card-horizontal">
                         <div class="card-image">
-                          <img :src="`/uploadimage/${itinerary.photo}`" alt="{itinerary.title}" />
+                          <img :src="`/uploadimage/${itinerary.photo}`" loading="lazy" alt="{itinerary.title}" />
                         </div>
                          <div class="card-content">
                            <h1>{{itinerary.title | sortlength(35,"")}}</h1> 
@@ -219,7 +219,7 @@
                     <router-link :to="`/explore-detail/${itinerary.id}`">
                      <div class="card-horizontal">
                         <div class="card-image">
-                          <img :src="`/uploadimage/${itinerary.photo}`" alt="{itinerary.title}" />
+                          <img :src="`/uploadimage/${itinerary.photo}`" loading="lazy" alt="{itinerary.title}" />
                         </div>
                          <div class="card-content">
                            <h1>{{itinerary.title | sortlength(35,"")}}</h1> 

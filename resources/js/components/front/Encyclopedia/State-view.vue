@@ -18,28 +18,28 @@
           <div class="card state_images">
             <div class="row">
               <div class="col-6">
-                <img :src="getImgUrl(state_data.image_one)">
+                <img :src="getImgUrl(state_data.image_one)" loading="lazy" :alt="state_data.state_name">
               </div>
               <div class="col-6">
-                <img :src="getImgUrl(state_data.image_two)">
+                <img :src="getImgUrl(state_data.image_two)" loading="lazy" :alt="state_data.state_name">
               </div>
               <div class="col-6">
-                <img :src="getImgUrl(state_data.image_three)">
+                <img :src="getImgUrl(state_data.image_three)" loading="lazy" :alt="state_data.state_name">
               </div>
               <div class="col-6">
-                <img :src="getImgUrl(state_data.image_four)">
+                <img :src="getImgUrl(state_data.image_four)" loading="lazy" :alt="state_data.state_name">
               </div>
               <div class="col-6">
-                <img :src="getImgUrl(state_data.image_five)">
+                <img :src="getImgUrl(state_data.image_five)" loading="lazy" :alt="state_data.state_name">
               </div>
               <div class="col-6">
-                <img :src="getImgUrl(state_data.image_six)">
+                <img :src="getImgUrl(state_data.image_six)" loading="lazy" :alt="state_data.state_name">
               </div>
               <div class="col-6">
-                <img :src="getImgUrl(state_data.image_seven)">
+                <img :src="getImgUrl(state_data.image_seven)" loading="lazy" :alt="state_data.state_name">
               </div>
               <div class="col-6">
-                <img :src="getImgUrl(state_data.image_eight)">
+                <img :src="getImgUrl(state_data.image_eight)" loading="lazy" :alt="state_data.state_name">
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@
               <div class="card_scroll states_card" v-for="state in state_list">
                 <p>
                   <div class="card">
-                    <img class="card-img-top" :src="getImgUrl(state.thumbnail)" alt="Card image">
+                    <img class="card-img-top" :src="getImgUrl(state.thumbnail)" loading="lazy" :alt="state.state_name">
                     <div class="card-img-overlay text-center">
                        <p class="card-text text-white"><router-link :to="`/encyclopedia/${state.slug}`">
                        {{state.state_name}}</router-link></p>

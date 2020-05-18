@@ -45,7 +45,7 @@
        		</div>
        		<div class="col-md-6 col-lg-5">
            <div class="ourstory-content">
-           	<img id="ourstoryimg1" :src="`/assets/front/images/mission.png`">
+           	<img id="ourstoryimg1" :src="`/assets/front/images/mission.png`" loading="lazy" alt="our story">
            </div>
        		</div>
           </div>
@@ -58,7 +58,7 @@
         <div class="row">
           <div class="col-md-6 col-lg-5">
           <div class="ourstory-content">
-             <img id="ourstoryimg2" :src="`/assets/front/images/vision.png`">
+             <img id="ourstoryimg2" :src="`/assets/front/images/vision.png`" loading="lazy" alt="our story">
             </div>
            </div>
            <div class="col-md-6 col-lg-7">
@@ -81,17 +81,17 @@
            <h1> FACES BEHIND GBI</h1>
 
           <div class="our-experience">
-             <img :src="`/assets/front/images/user.jpg`">
+             <img :src="`/assets/front/images/user.jpg`" loading="lazy" alt="ceo">
              <h2>Mr. Jasbir Singh Rikhi</h2>
              <p>CEO </p>
            </div>
            <div class="our-experience">
-             <img :src="`/assets/front/images/user.jpg`">
+             <img :src="`/assets/front/images/user.jpg`" loading="lazy" alt="Director Operations">
              <h2>Mr. Chanpreet Rikhi</h2>
              <p>Director  Operations </p>
            </div>
            <div class="our-experience">
-             <img :src="`/assets/front/images/user.jpg`">
+             <img :src="`/assets/front/images/user.jpg`" loading="lazy" alt="Assistant Director">
              <h2>Mrs. Gurpreet Kaur Rikhi</h2>
              <p>Assistant Director </p>
            </div>

@@ -49,42 +49,42 @@
 		</h2>
 		  <article class="edu-blockcontent">
 		     <div class="col-sm-12">
-		    <img :src="`/assets/front/images/img/edu1.png`">
+		    <img :src="`/assets/front/images/img/edu1.png`" loading="lazy" alt="science">
 		    <h3>Science and Tech Museum</h3>
 		    <p>Acknowledge about the human discoveries and learn how science and Tech have influenced the mundane reality of people</p>
 		  </div>
 		  </article>
 		  <article class="edu-blockcontent border-leftcontent">
 		     <div class="col-sm-12">
-		    <img :src="`/assets/front/images/img/edu2.png`">
+		    <img :src="`/assets/front/images/img/edu2.png`" loading="lazy" alt="flora">
 		    <h3>Flora and Fauna</h3>
 		    <p>Visit the National Parks, Theme Parks and take pleasure in the awe-inspiring natural wonders of the world</p>
 		  </div>
 		  </article>
 		  <article class="edu-blockcontent border-leftcontent">
 		     <div class="col-sm-12">
-		    <img :src="`/assets/front/images/img/edu3.png`">
+		    <img :src="`/assets/front/images/img/edu3.png`" loading="lazy" alt="adventure">
 		    <h3>Adventure and Activities</h3>
 		    <p>We indulge students in adventure activities like camping, Trekking, Rafting, Ziplining and many more</p>
 		  </div>
 		  </article>
 		  <article class="edu-blockcontent border-topcontent">
 		     <div class="col-sm-12">
-		    <img :src="`/assets/front/images/img/edu4.png`">
+		    <img :src="`/assets/front/images/img/edu4.png`" loading="lazy" alt="heritage">
 		    <h3>Heritage Arts and Crafts</h3>
 		    <p>Get a hands on experience of age old art and craft from long standing history popular across the world</p>
 		  </div>
 		  </article>
 		  <article class="edu-blockcontent border-topcontent border-leftcontent">
 		     <div class="col-sm-12">
-		    <img :src="`/assets/front/images/img/edu5.png`">
+		    <img :src="`/assets/front/images/img/edu5.png`" loading="lazy" alt="brand">
 		    <h3>Brand Factories</h3>
 		    <p>Visit to developed industries to help students gain a clear understanding of the nuances and strategies of setting up a successful business</p>
 		  </div>
 		  </article>
 		  <article class="edu-blockcontent border-topcontent border-leftcontent">
 		     <div class="col-sm-12">
-		    <img :src="`/assets/front/images/img/edu6.png`">
+		    <img :src="`/assets/front/images/img/edu6.png`" loading="lazy" alt="hisoty">
 		    <h3>History and Culture</h3>
 		    <p>Acknowledge the diverse culture reflected in distinct architectural styles, regional cuisines, traditional dance form and music.</p>
 		  </div>

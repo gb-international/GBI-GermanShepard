@@ -1,73 +1,40 @@
 
 // FrontEnd Component
 import FrontHome from './components/front/layouts/FrontHome.vue'
-import ExploreList from './components/front/ExploreList.vue'
-import ExploreDetail from './components/front/ExploreDetail.vue'
-import ListItinerary from './components/front/ListItinerary.vue'
-import Search from './components/front/Search.vue'
-import ExploreDestination from './components/front/ExploreDestination.vue'
-import Faq from './components/front/Faq.vue'
-import Encyclopedia from './components/front/Encyclopedia/States.vue'
-import ViewEncyclopedia from './components/front/Encyclopedia/State-view.vue'
-
-import SafetySecurity from './components/front/SafetySecurity.vue'
-import TravelEducation from './components/front/TravelEducation.vue'
-import OurStory from './components/front/OurStory.vue'
-import HowWework from './components/front/HowWework.vue'
-import JoinOurTeam from './components/front/JoinOurTeam.vue'
-import ImageGallery from './components/front/ImageGallery.vue'
-import ContactUs from './components/front/ContactUs.vue'
-import Login from './components/front/user/Login.vue'
-import Dashboard from './components/front/user/Dashboard.vue'
-import TourList from './components/front/user/Tour-list.vue'
-import ProfileEdit from './components/front/user/Profile_edit.vue'
-
-// Home Page Card Links
-
-import AdventureTour from './components/front/home-pages/Adventure-tour.vue'
-import Asia from './components/front/home-pages/Asia.vue'
-import Europe from './components/front/home-pages/Europe.vue'
-import PopularTour from './components/front/home-pages/Popular-tour.vue'
-import UpcomingTour from './components/front/home-pages/Upcoming-tour.vue'
-import Usa from './components/front/home-pages/Usa.vue'
-
-
-// Home page Card link End
-// 404
-import Error404 from './components/front/error/404.vue'
-
 
 export const routes = [
     // Frontend Route
     {  path:'/', component:FrontHome, },
-    { path: '/resources/faq',name:'resources.faq', component: Faq },
-    { path:'/explore-destination', component:ExploreDestination },
-    { path:'/resources/safety-security', component:SafetySecurity },
-    { path:'/resources/travel-education', component:TravelEducation },
-    { path:'/resources/encyclopedia', component:Encyclopedia},
-    { path:'/encyclopedia/:id', component:ViewEncyclopedia},
+    { path: '/resources/faq',name:'resources.faq', component:()=> System.import(/*webpackChunkName:"faq"*/ "./components/front/Faq.vue")},
+    { path:'/explore-destination', component: ()=> System.import(/*webpackChunkName:"explore"*/ "./components/front/ExploreDestination.vue") },
+    { path:'/resources/safety-security', component: ()=> System.import(/*webpackChunkName:"safety"*/ "./components/front/SafetySecurity.vue") },
+    { path:'/resources/travel-education', component: ()=> System.import(/*webpackChunkName:"education"*/ "./components/front/TravelEducation.vue") },
+    { path:'/resources/encyclopedia', component: ()=> System.import(/*webpackChunkName:"encyclopedia"*/ "./components/front/Encyclopedia/States.vue")},
+    { path:'/encyclopedia/:id', component: ()=> System.import(/*webpackChunkName:"encyclopedia-view"*/ "./components/front/Encyclopedia/State-view.vue")},
 
-    { path:'/contact-us',  component:ContactUs },    
-    { path:'/about-us/our-story', component:OurStory },
-    { path:'/about-us/how-we-work', component:HowWework  },
-    { path:'/about-us/join-our-team', component:JoinOurTeam },
-    { path:'/about-us/image-gallery', component:ImageGallery },
-    { path:'/explore-list', component:ExploreList },
-    { path:'/explore-detail/:id', component:ExploreDetail },
-    { path:'/lists', component:ListItinerary },
-    { path:'/search', component:Search },
-    { path:'/dashboard', component:Dashboard },
-    { path:'/tour-list',component:TourList },
-    { path:'/profile-edit', component:ProfileEdit },
-    { path:'/adventure-tour', component:AdventureTour },
-    { path:'/upcoming-tour', component:UpcomingTour },
-    { path:'/asia-tour', component:Asia },
-    { path:'/europe-tour', component:Europe },
-    { path:'/popular-tour', component:PopularTour },
-    { path:'/usa-tour',component:Usa },
+    { path:'/contact-us',  component: ()=> System.import(/*webpackChunkName:"contact-us"*/ "./components/front/ContactUs.vue") },    
+    { path:'/about-us/our-story', component: ()=> System.import(/*webpackChunkName:"our-story"*/ "./components/front/OurStory.vue") },
+    { path:'/about-us/how-we-work', component: ()=> System.import(/*webpackChunkName:"how-we-work"*/ "./components/front/HowWework.vue")  },
+    { path:'/about-us/join-our-team', component: ()=> System.import(/*webpackChunkName:"join-tour-team"*/ "./components/front/JoinOurTeam.vue")},
+    { path:'/about-us/image-gallery', component: ()=> System.import(/*webpackChunkName:"image-gallery"*/ "./components/front/ImageGallery.vue")},
+    { path:'/explore-list', component: ()=> System.import(/*webpackChunkName:"explore-list-by-id"*/ "./components/front/ExploreList.vue") },
+
+    { path:'/explore-detail/:id', component:()=> System.import(/*webpackChunkName:"explore-details"*/ "./components/front/ExploreDetail.vue") },
+    { path:'/lists', component:()=> System.import(/*webpackChunkName:"lists"*/ "./components/front/ListItinerary.vue") },
+    { path:'/search', component:()=> System.import(/*webpackChunkName:"search"*/ "./components/front/Search.vue") },
+    { path:'/dashboard', component:()=> System.import(/*webpackChunkName:"dashboard"*/ "./components/front/user/Dashboard.vue") },
+    { path:'/tour-list',component:()=> System.import(/*webpackChunkName:"tour-list"*/ "./components/front/user/Tour-list.vue") },
+    { path:'/profile-edit', component:()=> System.import(/*webpackChunkName:"profile-edit"*/ "./components/front/user/Profile_edit.vue") },
+
+    { path:'/adventure-tour', component:()=> System.import(/*webpackChunkName:"adventure-tour"*/ "./components/front/home-pages/Adventure-tour.vue") },
+    { path:'/upcoming-tour', component:()=> System.import(/*webpackChunkName:"upcoming-toup"*/ "./components/front/home-pages/Upcoming-tour.vue") },
+    { path:'/asia-tour', component:()=> System.import(/*webpackChunkName:"asia"*/ "./components/front/home-pages/Asia.vue") },
+    { path:'/europe-tour', component:()=> System.import(/*webpackChunkName:"europe"*/ "./components/front/home-pages/Europe.vue") },
+    { path:'/popular-tour', component:()=> System.import(/*webpackChunkName:"popular-tour"*/ "./components/front/home-pages/Popular-tour.vue") },
+    { path:'/usa-tour',component:()=> System.import(/*webpackChunkName:"usa"*/ "./components/front/home-pages/Usa.vue") },
 
     
-    { path:'*', component:Error404 }
+    { path:'*',component:()=> System.import(/*webpackChunkName:"404"*/ "./components/front/error/404.vue") }
 
 ];
 

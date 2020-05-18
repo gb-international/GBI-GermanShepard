@@ -7,13 +7,13 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="img-fluid banner_img image-slide-1" id="bannerimg1" alt="GBI slide">
+              <img  class="img-fluid banner_img image-slide-1" loading="lazy" id="bannerimg1" alt="GBI slide">
           </div>
         <div class="carousel-item">
-           <img class="img-fluid banner_img image-slide-2" id="bannerimg2" alt="GBI slide">
+           <img  class="img-fluid banner_img image-slide-2" loading="lazy" id="bannerimg2" alt="GBI slide">
         </div>
         <div class="carousel-item">
-           <img class="img-fluid banner_img image-slide-3" id="bannerimg3" alt="GBI slide">
+           <img  class="img-fluid banner_img image-slide-3" loading="lazy" id="bannerimg3" alt="GBI slide">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -35,11 +35,11 @@
           <h1>Our Travel Programs</h1>
           <h4>Immerge in a Riveting Journey</h4>
        </div> 
-       <div class="row">
+       <div class="row" v-if="travel_programs">
          <div class="col-sm-4" v-for="program in travel_programs">
            <div class="card card-1">
              <router-link :to="`/explore-destination`">
-               <img class="" :src="`/images/tourprogram/`+program.image">
+               <img  class="" :src="`/images/tourprogram/`+program.image"  loading="lazy" :alt="program.title">
                 <div class="card-body">
                   <h5 class="card-title">{{ program.title }}</h5>
                   <p class="card-text" v-html="program.description"></p>
@@ -60,12 +60,13 @@
         <h1>Join our adventures at GB International</h1>
         <!-- <h4>GB International!!</h4> -->
       </article>      
-      <div class="content mt-35">  
-        <div class="rwd-media" v-if="video_data" v-html="video_data">
-           <!-- <video width="400" controls controlsList="nodownload">
-            <source :src="video_data" type="video/mp4">
+      <div class="content mt-35" v-if="video_data.length > 0">  
+        <!-- <div class="rwd-media" v-if="video_data" v-html="video_data"> -->
+        <div class="rwd-media">
+           <video width="400" controls controlsList="nodownload">
+            <source :src="video_path" type="video/mp4">
             Your browser does not support HTML5 video.
-          </video> -->
+          </video>
         </div>       
       </div>
     </section>
@@ -82,6 +83,7 @@ export default {
       return {
         travel_programs:[],
         video_data:'',
+        video_path:'video/video.mp4',
       }
     },
     created(){

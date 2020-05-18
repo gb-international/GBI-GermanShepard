@@ -46,7 +46,7 @@
       
       <div class="card-deck">
         <div class="card card-1">
-          <img class="card-imgs" :src="`assets/front/images/upcoming.png`">
+          <img class="card-imgs" :src="`assets/front/images/upcoming.png`" alt="upcoming">
           <div class="card-body">
             <h5 class="card-title">Upcoming Tours</h5>
             <p class="card-text">Stimulate the craze within you and gear up for more excitement. Get ready to embrace fun and adventure as part of your next getaway.</p>

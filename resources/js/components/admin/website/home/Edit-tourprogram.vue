@@ -149,6 +149,7 @@ export default {
       let file = event.target.files[0];
        let reader = new FileReader();
        reader.onload = event => {
+          this.form.image = "";
            this.form.image = event.target.result
        };
        reader.readAsDataURL(file);

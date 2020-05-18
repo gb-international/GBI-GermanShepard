@@ -8,9 +8,9 @@
               <div class="single-footer">
                   <h3>ACCREDITAION & RECOGNITIONS</h3> 
                     <ul>
-                        <li><img class="footr-img" src="/assets/front/images/lato_logo.png" alt="GBI tourisum"></li>
-                        <li><img class="footr-img" src="/assets/front/images/telangana_tourisum.png" alt="telangana tourisum"></li>
-                        <li><img class="footr-img" src="/assets/front/images/mt_log.png" alt="minisrty of tourism"></li>
+                        <li><img  class="footr-img" src="/assets/front/images/lato_logo.png" alt="GBI tourisum" loading="lazy"></li>
+                        <li><img  class="footr-img" src="/assets/front/images/telangana_tourisum.png" alt="telangana tourisum" loading="lazy"></li>
+                        <li><img  class="footr-img" src="/assets/front/images/mt_log.png" alt="minisrty of tourism" loading="lazy"></li>
                     </ul>
               </div>
               <div class="single-footer">

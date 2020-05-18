@@ -1,6 +1,6 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
 // Variables
 @import 'variables';
@@ -10,7 +10,6 @@
 @import 'faq';
 @import 'form';
 @import 'resources';
-@import 'slider';
 @import 'sections';
 @import 'responsive';
 @import 'explore-destination';
@@ -24,14 +23,6 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-@import "~admin-lte/dist/css/adminlte.css";
-
-
-@import "~@fortawesome/fontawesome-free/css/fontawesome.css";
-@import "~@fortawesome/fontawesome-free/css/all.css";
-@import "~@fortawesome/fontawesome-free/css/brands.css";
-@import "~@fortawesome/fontawesome-free/css/regular.css";
-@import "~@fortawesome/fontawesome-free/css/solid.css"; 
 
 .navbar-laravel {
   background-color: #ffffff;

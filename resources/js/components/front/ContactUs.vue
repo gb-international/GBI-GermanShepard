@@ -21,7 +21,7 @@
 
     <!-- Start how we work -->
       <div class="row">
-      <div class="col-lg-12 pa-t-15">
+      <div class="col-lg-12 p-t-15">
 
      <article class="container contactus">
      <div class="row">
@@ -31,15 +31,15 @@
           <table class="table">
               <tbody>
                 <tr>
-                  <td><img :src="`assets/front/images/address_icon.png`"></td>
+                  <td><img :src="`assets/front/images/address_icon.png`"  loading="lazy" alt="address"></td>
                   <td>G-32,DDA Commercial Complex, Sheikh Sarai Phase-1, New Delhi 110017</td>
                  </tr>
                 <tr>
-                  <td><img :src="`assets/front/images/phone_icon.png`"></td>
+                  <td><img :src="`assets/front/images/phone_icon.png`"  loading="lazy" alt="address"></td>
                   <td>011-26017120, 26011683 ,<br> +91 9810055102</td>
                  </tr>
                  <tr>
-                  <td><img class="ic-mail" :src="`assets/front/images/email_icon.png`"></td>
+                  <td><img class="ic-mail" :src="`assets/front/images/email_icon.png`"  loading="lazy" alt="address"></td>
                   <td>info@gbinternational.in<br>reservations@gbinternational.in</td>
                  </tr>
                  </tbody>
@@ -48,11 +48,11 @@
              <table class="table">
               <tbody>
                 <tr>
-                  <td><img class="ic-add" :src="`assets/front/images/address_icon.png`"></td>
+                  <td><img class="ic-add" :src="`assets/front/images/address_icon.png`" loading="lazy" alt="address"></td>
                   <td>302, Zeenath Residency Srinagar Colony, Plot #29, Hyderabad - 500073 Andhra Pradesh</td>
                  </tr>
                 <tr>
-                  <td><img class="ic-cal-re" :src="`assets/front/images/phone_icon.png`"></td>
+                  <td><img class="ic-cal-re" :src="`assets/front/images/phone_icon.png`" loading="lazy" alt="number"></td>
                   <td>+91 9717922240,<br> +91 9810055102</td>
                  </tr>
                
@@ -61,7 +61,7 @@
             </div>
 
          <div class="col-lg-12">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.1110823555123!2d77.22139051508042!3d28.536380682455928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2214a7825c5%3A0xbef6ae1702026f1c!2sGB+International!5e0!3m2!1sen!2sin!4v1554198180729!5m2!1sen!2sin" width="100%" height="190" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.1110823555123!2d77.22139051508042!3d28.536380682455928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2214a7825c5%3A0xbef6ae1702026f1c!2sGB+International!5e0!3m2!1sen!2sin!4v1554198180729!5m2!1sen!2sin" width="100%" height="190" frameborder="0" loading="lazy" style="border:0" allowfullscreen></iframe>
       </div>
       </div>
 

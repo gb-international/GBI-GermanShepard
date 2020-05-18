@@ -4,7 +4,7 @@
         <router-link :to="`/profile-edit`" class="user_edit"><i class="fas fa-user-edit"></i></router-link>
           <div class="row">
             <div class="col-lg-2 text-center image">
-              <img :src="'/uploadimage/'+userinfo.information['photo']" class="img img-circle" alt="">
+              <img :src="'/uploadimage/'+userinfo.information['photo']" loading="lazy" class="img img-circle" alt="user profile">
             </div>
             <div class="col-lg-10">
               <div class="username">
@@ -58,7 +58,7 @@
                 <div class="col">
                   <router-link :to="`/tour-list`">     
                     <div class="rowdata1">
-                      <img src="assets/front/images/booked_320.png">
+                      <img src="assets/front/images/booked_320.png" loading="lazy">
                       <p class="icon_text">Booked Itinerary</p>
                     </div>
                   </router-link>
@@ -66,7 +66,7 @@
                 <div class="col">
                   <a href="#">
                     <div class="rowdata2">
-                      <img src="assets/front/images/payment_320.png">
+                      <img src="assets/front/images/payment_320.png" loading="lazy">
                       <p class="icon_text">Payments</p>
                     </div>
                   </a>
@@ -84,7 +84,7 @@
             <div class="states_card card_scroll" v-for="state in upcoming_list">
               <p>
                 <div class="card">
-                  <img class="card-img-top" :src="getImgUrl(state.photo)" alt="Card image">
+                  <img class="card-img-top" :src="getImgUrl(state.photo)" loading="lazy" alt="Card image">
                   <div class="card-img-overlay text-center">
                      <p class="card-text"><router-link class="text-white" :to="`/explore-detail/${state.id}`">
                      {{state.title}}</router-link></p>
@@ -113,7 +113,7 @@
         </div>
         <!-- Advertiment section -->
         <div class="advertismentpart">
-          <img src="https://placeit-assets.s3-accelerate.amazonaws.com/landing-pages/make-a-twitch-banner2/Twitch-Banner-Blue-1024x324.png">
+          <img src="https://placeit-assets.s3-accelerate.amazonaws.com/landing-pages/make-a-twitch-banner2/Twitch-Banner-Blue-1024x324.png" loading="lazy">
         </div>
         <!-- Book Section -->
         <div class="booksection">
@@ -123,19 +123,19 @@
               <div class="row" id="data">
                 <div class="col">
                   <a href="#">
-                    <img src="assets/front/images/ebook.png">
+                    <img src="assets/front/images/ebook.png" loading="lazy">
                     <p>E-Book</p>
                   </a>
                 </div>
                 <div class="col">
                   <a href="#">
-                    <img src="assets/front/images/quiz.png">
+                    <img src="assets/front/images/quiz.png" loading="lazy">
                     <p>Quiz</p>
                   </a>
                 </div>
                 <div class="col">
                   <a href="#">
-                    <img src="assets/front/images/feedback.png">
+                    <img src="assets/front/images/feedback.png" loading="lazy">
                     <p>Feedback</p>
                   </a>
                 </div>

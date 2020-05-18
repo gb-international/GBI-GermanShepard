@@ -15,7 +15,7 @@
 
 
     	<section class="banner-block">
-             <img class="top-img" :src="`/uploadimage/${itineraryData.detail_photo}`">
+             <img class="top-img" :src="`/uploadimage/${itineraryData.detail_photo}`" loading="lazy" alt="itinerary">
          </section>
          {{editData}}
          <div class="container">

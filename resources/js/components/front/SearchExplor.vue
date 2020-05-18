@@ -2,7 +2,7 @@
      <!-- start banner area display image for itinerary listing -->
      <div id="explorelist">
     	<section class="banner-block">
-             <img class="top-imgs" >
+             <img class="top-imgs" alt="image">
          </section>
          <div class="container">
             <div class="row ">
@@ -15,7 +15,7 @@
                     <router-link :to="`/explore-detail/${itinerary.id}`">
                      <div class="card-horizontal">
                         <div class="card-image">
-                        <img :src="`uploadimage/${itinerary.photo}`" alt="{itinerary.title}" />
+                        <img :src="`uploadimage/${itinerary.photo}`" loading="lazy" alt="{itinerary.title}" />
                       </div>
                          <div class="card-content">
                           <h1>{{itinerary.title | sortlength(25,"...")}}</h1> 

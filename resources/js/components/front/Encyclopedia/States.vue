@@ -36,7 +36,7 @@
           <div class="col-sm-4 states_card" v-for="state in resultQuery">
             <router-link :to="`/encyclopedia/${state.slug}`">
               <div class="card">
-                <img class="card-img-top" :src="getImgUrl(state.thumbnail)" alt="Card image">
+                <img class="card-img-top" :src="getImgUrl(state.thumbnail)" loading="lazy" alt="Encyclopedia image">
                 <div class="card-img-overlay text-center">
                    <p class="card-text text-white">{{ state.state_name }}</p>
                 </div>

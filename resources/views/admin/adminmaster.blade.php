@@ -6,8 +6,8 @@
     <title>GBI-Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <meta name="csrf-token" content="{{ csrf_token() }}">    
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"> -->
    
 </head>
 <body class="hold-transition sidebar-mini">

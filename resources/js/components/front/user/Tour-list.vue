@@ -15,7 +15,7 @@
                         </div>
 
                         <div class="list_img">
-                          <img src="https://thumbs.dreamstime.com/z/gambling-cards-hand-1652609.jpg">
+                          <img src="https://thumbs.dreamstime.com/z/gambling-cards-hand-1652609.jpg" loading="lazy" alt="list">
                         </div>
                       </div>
                     </div>
@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="list_img">
-                          <img src="https://thumbs.dreamstime.com/z/gambling-cards-hand-1652609.jpg">
+                          <img src="https://thumbs.dreamstime.com/z/gambling-cards-hand-1652609.jpg" loading="lazy" alt="thumb">
                         </div>
                       </div>
                     </div>
