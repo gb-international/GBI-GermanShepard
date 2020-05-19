@@ -30,6 +30,7 @@ class UserController extends Controller{
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
             $user = Auth::user(); 
             $success['token'] =  $user->createToken('MyApp')->accessToken; 
+            $success['status'] = $user->status;
             return response()->json(['success' => $success], $this-> successStatus); 
         } 
         else{ 
@@ -159,4 +160,9 @@ class UserController extends Controller{
         $information = $user->information;
         return response()->json(['success' => $user], $this-> successStatus); 
     }
+
+
+
+    /// user more information on model from model
+    
 }

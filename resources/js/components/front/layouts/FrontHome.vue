@@ -37,7 +37,7 @@
        </div> 
        <div class="row" v-if="travel_programs">
          <div class="col-sm-4" v-for="program in travel_programs">
-           <div class="card card-1">
+           <div class="card card-1 mb-15">
              <router-link :to="`/explore-destination`">
                <img  class="" :src="`/images/tourprogram/`+program.image"  loading="lazy" :alt="program.title">
                 <div class="card-body">

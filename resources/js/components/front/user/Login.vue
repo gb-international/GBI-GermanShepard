@@ -343,7 +343,12 @@ export default {
               $('#LoginForm').modal('hide');
               $('.modal-backdrop').remove();
               this.loginform.reset();
-              this.$router.push('/explore-destination')
+              console.log(response.data.success.status);
+              if(response.data.success.status == 0){
+               this.$router.push('/user-information'); 
+              }else{
+                this.$router.push('/explore-destination');
+              }
             }
             toast({
                 type: 'success',

@@ -349,3 +349,34 @@ Show the current booking card
 SEO----
   . Mobile 
       . 
+
+=====================================================================================
+
+
+
+1.  if student
+      student or Teacher/Principal/Dean (dropdown)
+      if student
+        select your education Institution ( show school in dropdown)
+
+      1.1 school id
+      1.2 select school from db.
+
+  Teacher/Principal/Dean
+    affiliation id
+
+design same ( student and teacher)
+
+  GBI Travel Magazine
+  GBI  Travel Blogs
+  Travel Encyclopedia
+  Explore your travel Skills
+  Travel History
+
+----------
+Information Table
+  add these columns
+    user_profession
+    school_id
+    institution_code
+

@@ -107,6 +107,7 @@ Route::namespace('Front')->group(function(){
 	// Front user controller 
 	Route::post('login-user', 'UserController@login');
 	Route::post('register-user', 'UserController@register');
+	Route::get('school-list','WebsiteController@school');
 	Route::group(['middleware' => 'auth:api'], function(){
 		Route::post('details', 'UserController@details');
 		Route::post('/user-show', 'UserController@show');

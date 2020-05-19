@@ -22,6 +22,7 @@ export const routes = [
     { path:'/explore-detail/:id', component:()=> System.import(/*webpackChunkName:"explore-details"*/ "./components/front/ExploreDetail.vue") },
     { path:'/lists', component:()=> System.import(/*webpackChunkName:"lists"*/ "./components/front/ListItinerary.vue") },
     { path:'/search', component:()=> System.import(/*webpackChunkName:"search"*/ "./components/front/Search.vue") },
+    { path:'/user-information', component:()=> System.import(/*webpackChunkName:"user-info"*/ "./components/front/user/User-information.vue") },
     { path:'/dashboard', component:()=> System.import(/*webpackChunkName:"dashboard"*/ "./components/front/user/Dashboard.vue") },
     { path:'/tour-list',component:()=> System.import(/*webpackChunkName:"tour-list"*/ "./components/front/user/Tour-list.vue") },
     { path:'/profile-edit', component:()=> System.import(/*webpackChunkName:"profile-edit"*/ "./components/front/user/Profile_edit.vue") },

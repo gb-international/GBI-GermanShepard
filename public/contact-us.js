@@ -1,1 +1,656 @@
-webpackJsonp([22],{712:function(t,e,a){var s=a(713);"string"==typeof s&&(s=[[t.i,s,""]]),s.locals&&(t.exports=s.locals);a(4)("1b7de3c4",s,!0,{})},713:function(t,e,a){(t.exports=a(3)(!1)).push([t.i,"",""])},714:function(t,e,a){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default={name:"ContactUs",data:function(){return{form:new Form({name:"",email:"",mobile:"",messagecon:""})}},methods:{sendmail:function(){this.form.post("/api/contact-us/send").then(function(t){swal({text:"Thank you for contacting us!",width:300})}).catch(function(){})}}}},715:function(t,e){t.exports={render:function(){var t=this,e=t.$createElement,a=t._self._c||e;return a("div",{attrs:{id:"contactus"}},[a("vue-headful",{attrs:{title:"GBI Contact Us ",description:"Connect With GB International for organizing your educational travel plans any where any time",keyword:"@GoWithGBI,GB International,Connect With GB International,Email Us,Talk To Us,Need a travel solution",url:"https://www.gowithgbi.com/contact-us",ogLocale:"en_US",lang:"en_US,en_UK"}}),t._v(" "),t._m(0),t._v(" "),a("main",[a("div",{staticClass:"row"},[a("div",{staticClass:"col-lg-12 p-t-15"},[a("article",{staticClass:"container contactus"},[a("div",{staticClass:"row"},[a("div",{staticClass:"col-lg-6"},[a("div",{staticClass:"col-lg-12"},[a("h2",[t._v("HEAD OFFICE")]),t._v(" "),a("table",{staticClass:"table"},[a("tbody",[a("tr",[a("td",[a("img",{attrs:{src:"assets/front/images/address_icon.png",loading:"lazy",alt:"address"}})]),t._v(" "),a("td",[t._v("G-32,DDA Commercial Complex, Sheikh Sarai Phase-1, New Delhi 110017")])]),t._v(" "),a("tr",[a("td",[a("img",{attrs:{src:"assets/front/images/phone_icon.png",loading:"lazy",alt:"address"}})]),t._v(" "),t._m(1)]),t._v(" "),a("tr",[a("td",[a("img",{staticClass:"ic-mail",attrs:{src:"assets/front/images/email_icon.png",loading:"lazy",alt:"address"}})]),t._v(" "),t._m(2)])])]),t._v(" "),t._m(3),t._v(" "),a("table",{staticClass:"table"},[a("tbody",[a("tr",[a("td",[a("img",{staticClass:"ic-add",attrs:{src:"assets/front/images/address_icon.png",loading:"lazy",alt:"address"}})]),t._v(" "),a("td",[t._v("302, Zeenath Residency Srinagar Colony, Plot #29, Hyderabad - 500073 Andhra Pradesh")])]),t._v(" "),a("tr",[a("td",[a("img",{staticClass:"ic-cal-re",attrs:{src:"assets/front/images/phone_icon.png",loading:"lazy",alt:"number"}})]),t._v(" "),t._m(4)])])])]),t._v(" "),t._m(5)]),t._v(" "),a("div",{staticClass:"col-lg-6"},[a("article",{staticClass:"contact-form"},[t._m(6),t._v(" "),a("form",{attrs:{role:"form",enctype:"multipart/form-data"},on:{submit:function(e){return e.preventDefault(),t.sendmail()}}},[a("div",{staticClass:"form-fullwidth"},[a("label",{staticClass:"lable-title"},[t._v("Name")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model",value:t.form.name,expression:"form.name"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("name")},attrs:{type:"text",id:"name",placeholder:"Name",name:"name"},domProps:{value:t.form.name},on:{input:function(e){e.target.composing||t.$set(t.form,"name",e.target.value)}}})]),t._v(" "),a("div",{staticClass:"form-fullwidth"},[a("label",{staticClass:"lable-title"},[t._v("E-Mail")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model",value:t.form.email,expression:"form.email"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("email")},attrs:{type:"text",id:"email",placeholder:"Email",name:"email"},domProps:{value:t.form.email},on:{input:function(e){e.target.composing||t.$set(t.form,"email",e.target.value)}}})]),t._v(" "),a("div",{staticClass:"form-fullwidth"},[a("label",{staticClass:"lable-title"},[t._v("Mobile")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model",value:t.form.mobile,expression:"form.mobile"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("mobile")},attrs:{type:"text",id:"mobile",placeholder:"Mobile",name:"mobile"},domProps:{value:t.form.mobile},on:{input:function(e){e.target.composing||t.$set(t.form,"mobile",e.target.value)}}})]),t._v(" "),a("div",{staticClass:"form-fullwidth"},[a("label",{staticClass:"lable-title"},[t._v("Message")]),t._v(" "),a("textarea",{directives:[{name:"model",rawName:"v-model",value:t.form.messagecon,expression:"form.messagecon"}],staticClass:"form-control { 'is-invalid': form.errors.has('messagecon') }",attrs:{id:"messagecon",name:"messagecon",rows:"5",cols:"40",placeholder:"Message....."},domProps:{value:t.form.messagecon},on:{input:function(e){e.target.composing||t.$set(t.form,"messagecon",e.target.value)}}})]),t._v(" "),t._m(7)])])])])])])]),t._v(" "),a("div",{staticClass:"clear"})])],1)},staticRenderFns:[function(){var t=this.$createElement,e=this._self._c||t;return e("div",{staticClass:"text_on_image"},[e("section",{staticClass:"banner-block contact_us_banner"}),this._v(" "),e("div",{staticClass:"content"},[e("p",{staticClass:"heading"},[this._v("CONTACT US")])])])},function(){var t=this.$createElement,e=this._self._c||t;return e("td",[this._v("011-26017120, 26011683 ,"),e("br"),this._v(" +91 9810055102")])},function(){var t=this.$createElement,e=this._self._c||t;return e("td",[this._v("info@gbinternational.in"),e("br"),this._v("reservations@gbinternational.in")])},function(){var t=this.$createElement,e=this._self._c||t;return e("div",{staticClass:"headline"},[e("h2",[this._v("REGIONAL OFFICE")])])},function(){var t=this.$createElement,e=this._self._c||t;return e("td",[this._v("+91 9717922240,"),e("br"),this._v(" +91 9810055102")])},function(){var t=this.$createElement,e=this._self._c||t;return e("div",{staticClass:"col-lg-12"},[e("iframe",{staticStyle:{border:"0"},attrs:{src:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.1110823555123!2d77.22139051508042!3d28.536380682455928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2214a7825c5%3A0xbef6ae1702026f1c!2sGB+International!5e0!3m2!1sen!2sin!4v1554198180729!5m2!1sen!2sin",width:"100%",height:"190",frameborder:"0",loading:"lazy",allowfullscreen:""}})])},function(){var t=this.$createElement,e=this._self._c||t;return e("div",{staticClass:"title-contact"},[e("h2",[this._v("Contact Us")])])},function(){var t=this.$createElement,e=this._self._c||t;return e("div",{staticClass:"form-fullwidth alignbtn"},[e("input",{attrs:{type:"submit",value:"Submit",name:"submit"}})])}]}},788:function(t,e,a){var s=a(1)(a(714),a(715),!1,function(t){a(712)},"data-v-4262ce38",null);t.exports=s.exports}});
+webpackJsonp([22],{
+
+/***/ 917:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(996)
+}
+var normalizeComponent = __webpack_require__(5)
+/* script */
+var __vue_script__ = __webpack_require__(998)
+/* template */
+var __vue_template__ = __webpack_require__(999)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-4ccde2dd"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/front/ContactUs.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4ccde2dd", Component.options)
+  } else {
+    hotAPI.reload("data-v-4ccde2dd", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 996:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(997);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(13)("5a43f981", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4ccde2dd\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ContactUs.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4ccde2dd\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ContactUs.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 997:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(12)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 998:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ContactUs",
+  data: function data() {
+    return {
+      form: new Form({
+        name: '',
+        email: '',
+        mobile: '',
+        messagecon: ''
+      })
+    };
+  },
+
+  methods: {
+    sendmail: function sendmail() {
+      this.form.post('/api/contact-us/send').then(function (response) {
+        swal({ text: 'Thank you for contacting us!', width: 300 });
+      }).catch(function () {});
+    }
+  }
+});
+
+/***/ }),
+
+/***/ 999:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "contactus" } },
+    [
+      _c("vue-headful", {
+        attrs: {
+          title: "GBI Contact Us ",
+          description:
+            "Connect With GB International for organizing your educational travel plans any where any time",
+          keyword:
+            "@GoWithGBI,GB International,Connect With GB International,Email Us,Talk To Us,Need a travel solution",
+          url: "https://www.gowithgbi.com/contact-us",
+          ogLocale: "en_US",
+          lang: "en_US,en_UK"
+        }
+      }),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("main", [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-12 p-t-15" }, [
+            _c("article", { staticClass: "container contactus" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-6" }, [
+                  _c("div", { staticClass: "col-lg-12" }, [
+                    _c("h2", [_vm._v("HEAD OFFICE")]),
+                    _vm._v(" "),
+                    _c("table", { staticClass: "table" }, [
+                      _c("tbody", [
+                        _c("tr", [
+                          _c("td", [
+                            _c("img", {
+                              attrs: {
+                                src: "assets/front/images/address_icon.png",
+                                loading: "lazy",
+                                alt: "address"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "G-32,DDA Commercial Complex, Sheikh Sarai Phase-1, New Delhi 110017"
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _c("img", {
+                              attrs: {
+                                src: "assets/front/images/phone_icon.png",
+                                loading: "lazy",
+                                alt: "address"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(1)
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _c("img", {
+                              staticClass: "ic-mail",
+                              attrs: {
+                                src: "assets/front/images/email_icon.png",
+                                loading: "lazy",
+                                alt: "address"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(2)
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("table", { staticClass: "table" }, [
+                      _c("tbody", [
+                        _c("tr", [
+                          _c("td", [
+                            _c("img", {
+                              staticClass: "ic-add",
+                              attrs: {
+                                src: "assets/front/images/address_icon.png",
+                                loading: "lazy",
+                                alt: "address"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "302, Zeenath Residency Srinagar Colony, Plot #29, Hyderabad - 500073 Andhra Pradesh"
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _c("img", {
+                              staticClass: "ic-cal-re",
+                              attrs: {
+                                src: "assets/front/images/phone_icon.png",
+                                loading: "lazy",
+                                alt: "number"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(4)
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(5)
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6" }, [
+                  _c("article", { staticClass: "contact-form" }, [
+                    _vm._m(6),
+                    _vm._v(" "),
+                    _c(
+                      "form",
+                      {
+                        attrs: { role: "form", enctype: "multipart/form-data" },
+                        on: {
+                          submit: function($event) {
+                            $event.preventDefault()
+                            return _vm.sendmail()
+                          }
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "form-fullwidth" }, [
+                          _c("label", { staticClass: "lable-title" }, [
+                            _vm._v("Name")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.name,
+                                expression: "form.name"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("name")
+                            },
+                            attrs: {
+                              type: "text",
+                              id: "name",
+                              placeholder: "Name",
+                              name: "name"
+                            },
+                            domProps: { value: _vm.form.name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "name", $event.target.value)
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-fullwidth" }, [
+                          _c("label", { staticClass: "lable-title" }, [
+                            _vm._v("E-Mail")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.email,
+                                expression: "form.email"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("email")
+                            },
+                            attrs: {
+                              type: "text",
+                              id: "email",
+                              placeholder: "Email",
+                              name: "email"
+                            },
+                            domProps: { value: _vm.form.email },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "email", $event.target.value)
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-fullwidth" }, [
+                          _c("label", { staticClass: "lable-title" }, [
+                            _vm._v("Mobile")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.mobile,
+                                expression: "form.mobile"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("mobile")
+                            },
+                            attrs: {
+                              type: "text",
+                              id: "mobile",
+                              placeholder: "Mobile",
+                              name: "mobile"
+                            },
+                            domProps: { value: _vm.form.mobile },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "mobile",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-fullwidth" }, [
+                          _c("label", { staticClass: "lable-title" }, [
+                            _vm._v("Message")
+                          ]),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.messagecon,
+                                expression: "form.messagecon"
+                              }
+                            ],
+                            staticClass:
+                              "form-control { 'is-invalid': form.errors.has('messagecon') }",
+                            attrs: {
+                              id: "messagecon",
+                              name: "messagecon",
+                              rows: "5",
+                              cols: "40",
+                              placeholder: "Message....."
+                            },
+                            domProps: { value: _vm.form.messagecon },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "messagecon",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(7)
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "clear" })
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text_on_image" }, [
+      _c("section", { staticClass: "banner-block contact_us_banner" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "content" }, [
+        _c("p", { staticClass: "heading" }, [_vm._v("CONTACT US")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _vm._v("011-26017120, 26011683 ,"),
+      _c("br"),
+      _vm._v(" +91 9810055102")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _vm._v("info@gbinternational.in"),
+      _c("br"),
+      _vm._v("reservations@gbinternational.in")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "headline" }, [
+      _c("h2", [_vm._v("REGIONAL OFFICE")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _vm._v("+91 9717922240,"),
+      _c("br"),
+      _vm._v(" +91 9810055102")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12" }, [
+      _c("iframe", {
+        staticStyle: { border: "0" },
+        attrs: {
+          src:
+            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.1110823555123!2d77.22139051508042!3d28.536380682455928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2214a7825c5%3A0xbef6ae1702026f1c!2sGB+International!5e0!3m2!1sen!2sin!4v1554198180729!5m2!1sen!2sin",
+          width: "100%",
+          height: "190",
+          frameborder: "0",
+          loading: "lazy",
+          allowfullscreen: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "title-contact" }, [
+      _c("h2", [_vm._v("Contact Us")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-fullwidth alignbtn" }, [
+      _c("input", {
+        attrs: { type: "submit", value: "Submit", name: "submit" }
+      })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4ccde2dd", module.exports)
+  }
+}
+
+/***/ })
+
+});

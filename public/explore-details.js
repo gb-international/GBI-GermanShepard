@@ -1,1 +1,258 @@
-webpackJsonp([21],{736:function(t,e,a){var i=a(737);"string"==typeof i&&(i=[[t.i,i,""]]),i.locals&&(t.exports=i.locals);a(4)("1e4ef057",i,!0,{})},737:function(t,e,a){(t.exports=a(3)(!1)).push([t.i,".main-head[data-v-db0cfd92]{text-decoration:underline}.description[data-v-db0cfd92]{font-size:17px;font-family:raleway}",""])},738:function(t,e,a){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default={name:"ExploreDetail",data:function(){return{day:0,description:"",itineraryData:[]}},mounted:function(){this.$store.dispatch("getEditData","/api/itinerary/"+this.$route.params.id)},computed:{editData:function(){this.itineraryData=this.$store.getters.getEditData}}}},739:function(t,e){t.exports={render:function(){var t=this,e=t.$createElement,a=t._self._c||e;return a("div",{attrs:{id:"explorelist"}},[a("vue-headful",{attrs:{title:"GBI Explore Destination",description:"@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button",keywords:"@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs",image:"",lang:"en_US",ogLocale:"en_US,en_UK",url:"https://www.gowithgbi.com/resources/explore-destination"}}),t._v(" "),a("section",{staticClass:"banner-block"},[a("img",{staticClass:"top-img",attrs:{src:"/uploadimage/"+t.itineraryData.detail_photo,loading:"lazy",alt:"itinerary"}})]),t._v("\n      "+t._s(t.editData)+"\n      "),a("div",{staticClass:"container"},[a("h1",{staticClass:"main-head"},[t._v(t._s(t.itineraryData.title))]),t._v(" "),a("p",{staticClass:"description",domProps:{innerHTML:t._s(t.description)}}),t._v(" "),a("div",{staticClass:"row",attrs:{id:"explore_detail_part"}},t._l(t.itineraryData.itinerarydays,function(e){return a("div",{staticClass:"col-sm-4"},[a("h4",{staticClass:"day_tab"},[t._v("Day "+t._s(e.day))]),t._v(" "),e.day_source!=e.day_destination?a("h1",{staticClass:"explor-head"},[t._v(t._s(e.day_source.toUpperCase())+" - "+t._s(e.day_destination.toUpperCase()))]):a("h1",{staticClass:"explor-head"},[t._v(t._s(e.day_source.toUpperCase()))]),t._v(" "),a("div",{staticClass:"card-text",domProps:{innerHTML:t._s(e.day_description)}})])}),0)])],1)},staticRenderFns:[]}},794:function(t,e,a){var i=a(1)(a(738),a(739),!1,function(t){a(736)},"data-v-db0cfd92",null);t.exports=i.exports}});
+webpackJsonp([21],{
+
+/***/ 1020:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(1021);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(13)("45168cbb", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3cb0d243\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ExploreDetail.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3cb0d243\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ExploreDetail.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 1021:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(12)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.main-head[data-v-3cb0d243]{\n  text-decoration: underline;\n}\n.description[data-v-3cb0d243]{\n      font-size: 17px;\n    font-family: raleway;\n}\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 1022:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ExploreDetail",
+  data: function data() {
+    return {
+      day: 0,
+      description: '',
+      itineraryData: []
+    };
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('getEditData', '/api/itinerary/' + this.$route.params.id);
+  },
+
+  computed: {
+    editData: function editData() {
+      this.itineraryData = this.$store.getters.getEditData; // Fill the form with the data
+    }
+  }
+});
+
+/***/ }),
+
+/***/ 1023:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "explorelist" } },
+    [
+      _c("vue-headful", {
+        attrs: {
+          title: "GBI Explore Destination",
+          description:
+            "@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button",
+          keywords:
+            "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs",
+          image: "",
+          lang: "en_US",
+          ogLocale: "en_US,en_UK",
+          url: "https://www.gowithgbi.com/resources/explore-destination"
+        }
+      }),
+      _vm._v(" "),
+      _c("section", { staticClass: "banner-block" }, [
+        _c("img", {
+          staticClass: "top-img",
+          attrs: {
+            src: "/uploadimage/" + _vm.itineraryData.detail_photo,
+            loading: "lazy",
+            alt: "itinerary"
+          }
+        })
+      ]),
+      _vm._v("\n      " + _vm._s(_vm.editData) + "\n      "),
+      _c("div", { staticClass: "container" }, [
+        _c("h1", { staticClass: "main-head" }, [
+          _vm._v(_vm._s(_vm.itineraryData.title))
+        ]),
+        _vm._v(" "),
+        _c("p", {
+          staticClass: "description",
+          domProps: { innerHTML: _vm._s(_vm.description) }
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row", attrs: { id: "explore_detail_part" } },
+          _vm._l(_vm.itineraryData.itinerarydays, function(data) {
+            return _c("div", { staticClass: "col-sm-4" }, [
+              _c("h4", { staticClass: "day_tab" }, [
+                _vm._v("Day " + _vm._s(data.day))
+              ]),
+              _vm._v(" "),
+              data.day_source != data.day_destination
+                ? _c("h1", { staticClass: "explor-head" }, [
+                    _vm._v(
+                      _vm._s(data.day_source.toUpperCase()) +
+                        " - " +
+                        _vm._s(data.day_destination.toUpperCase())
+                    )
+                  ])
+                : _c("h1", { staticClass: "explor-head" }, [
+                    _vm._v(_vm._s(data.day_source.toUpperCase()))
+                  ]),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "card-text",
+                domProps: { innerHTML: _vm._s(data.day_description) }
+              })
+            ])
+          }),
+          0
+        )
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3cb0d243", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 923:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(1020)
+}
+var normalizeComponent = __webpack_require__(5)
+/* script */
+var __vue_script__ = __webpack_require__(1022)
+/* template */
+var __vue_template__ = __webpack_require__(1023)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-3cb0d243"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/front/ExploreDetail.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3cb0d243", Component.options)
+  } else {
+    hotAPI.reload("data-v-3cb0d243", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ })
+
+});

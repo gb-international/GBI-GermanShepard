@@ -1,1 +1,261 @@
-webpackJsonp([13],{671:function(e,t,s){var i=s(672);"string"==typeof i&&(i=[[e.i,i,""]]),i.locals&&(e.exports=i.locals);s(4)("5e77d1c3",i,!0,{})},672:function(e,t,s){(e.exports=s(3)(!1)).push([e.i,"",""])},673:function(e,t,s){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={name:"SafetySecurity"}},674:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,s=e._self._c||t;return s("div",{attrs:{id:"safetysecurity"}},[s("vue-headful",{attrs:{title:"Safety and Security",description:"@GoWithGBI aims to provide complete safety of its travellers during the education programs,GBI team members assuers the safety of passengers and is known for it ",keywords:"@GoWithGBI,travel safety tips,our security policies,GBI strict policies,GBI terms and conditions,safe travel",image:"",lang:"en_US",ogLocale:"en_US,en_UK",url:"https://www.gowithgbi.com/about-us/safety-security"}}),e._v(" "),e._m(0),e._v(" "),s("div",{staticClass:"container"},[s("div",{staticClass:"safety-security"},[s("div",{staticClass:"col-lg-12"},[s("div",{staticClass:"row"},[e._m(1),e._v(" "),s("div",{staticClass:"col-md-6 col-lg-6"},[s("img",{staticClass:"safe-seu-img ",attrs:{id:"safetyimg1",src:"/assets/front/images/safety_security.jpg",loading:"lazy",alt:"safety security"}})])]),e._v(" "),s("h2",[e._v("We Put Efforts to Make Your Trip Worth Breathe Taking")]),e._v(" "),s("p",[e._v("Students are accompanied by experienced and friendly travel guide ensuring their safety and security. Our guides have been carefully selected for their sensitivity and knowledge of the destination. Besides their day-to-day responsibilities, they are also trained to deal with an unforeseen circumstance. They work with all efforts to transform every experience into effective learning.")])])]),e._v(" "),s("div",{staticClass:"clear"})])],1)},staticRenderFns:[function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"text_on_image"},[t("section",{staticClass:"banner-block safety_banner"}),this._v(" "),t("div",{staticClass:"content"},[t("p",{staticClass:"heading"},[this._v("SAFETY & SECURITY")])])])},function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"col-md-6 col-lg-6"},[t("h1",[this._v("Safety and Security")]),this._v(" "),t("h2",[this._v("Your Safety Our Responsibility")]),this._v(" "),t("p",[this._v("We curate and execute our programs in such a way that can enhance one’s living skills through the experience they gather while moving out of their comfort zone. We appreciate and understand the concern showed by parents and the institution towards the safety, security and comfort of the students during the proposed educational tour. We, therefore, intend to provide a worry-free experience.  Our extensive experience, customized itineraries and risk management standards with safety protocols strive to deliver a hassle-free tour under the guidance of our trained escorts.")])])}]}},784:function(e,t,s){var i=s(1)(s(673),s(674),!1,function(e){s(671)},"data-v-878f0276",null);e.exports=i.exports}});
+webpackJsonp([13],{
+
+/***/ 913:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(954)
+}
+var normalizeComponent = __webpack_require__(5)
+/* script */
+var __vue_script__ = __webpack_require__(956)
+/* template */
+var __vue_template__ = __webpack_require__(957)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-62bb5c7a"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/front/SafetySecurity.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-62bb5c7a", Component.options)
+  } else {
+    hotAPI.reload("data-v-62bb5c7a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 954:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(955);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(13)("b68fb56c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-62bb5c7a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SafetySecurity.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-62bb5c7a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SafetySecurity.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 955:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(12)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 956:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "SafetySecurity"
+});
+
+/***/ }),
+
+/***/ 957:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "safetysecurity" } },
+    [
+      _c("vue-headful", {
+        attrs: {
+          title: "Safety and Security",
+          description:
+            "@GoWithGBI aims to provide complete safety of its travellers during the education programs,GBI team members assuers the safety of passengers and is known for it ",
+          keywords:
+            "@GoWithGBI,travel safety tips,our security policies,GBI strict policies,GBI terms and conditions,safe travel",
+          image: "",
+          lang: "en_US",
+          ogLocale: "en_US,en_UK",
+          url: "https://www.gowithgbi.com/about-us/safety-security"
+        }
+      }),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "safety-security" }, [
+          _c("div", { staticClass: "col-lg-12" }, [
+            _c("div", { staticClass: "row" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                _c("img", {
+                  staticClass: "safe-seu-img ",
+                  attrs: {
+                    id: "safetyimg1",
+                    src: "/assets/front/images/safety_security.jpg",
+                    loading: "lazy",
+                    alt: "safety security"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("h2", [
+              _vm._v("We Put Efforts to Make Your Trip Worth Breathe Taking")
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Students are accompanied by experienced and friendly travel guide ensuring their safety and security. Our guides have been carefully selected for their sensitivity and knowledge of the destination. Besides their day-to-day responsibilities, they are also trained to deal with an unforeseen circumstance. They work with all efforts to transform every experience into effective learning."
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "clear" })
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text_on_image" }, [
+      _c("section", { staticClass: "banner-block safety_banner" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "content" }, [
+        _c("p", { staticClass: "heading" }, [_vm._v("SAFETY & SECURITY")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+      _c("h1", [_vm._v("Safety and Security")]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Your Safety Our Responsibility")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "We curate and execute our programs in such a way that can enhance one’s living skills through the experience they gather while moving out of their comfort zone. We appreciate and understand the concern showed by parents and the institution towards the safety, security and comfort of the students during the proposed educational tour. We, therefore, intend to provide a worry-free experience.  Our extensive experience, customized itineraries and risk management standards with safety protocols strive to deliver a hassle-free tour under the guidance of our trained escorts."
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-62bb5c7a", module.exports)
+  }
+}
+
+/***/ })
+
+});

@@ -1,1 +1,331 @@
-webpackJsonp([12],{744:function(e,t,n){var o=n(745);"string"==typeof o&&(o=[[e.i,o,""]]),o.locals&&(e.exports=o.locals);n(4)("223198ee",o,!0,{})},745:function(e,t,n){(e.exports=n(3)(!1)).push([e.i,"#app[data-v-e6a2791a]{font-family:Avenir,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:#2c3e50;margin-top:60px}.autocomplete[data-v-e6a2791a]{position:relative;width:130px}.autocomplete-results[data-v-e6a2791a]{padding:0;margin:0;border:1px solid #eee;height:120px;overflow:auto;width:100%}.autocomplete-result[data-v-e6a2791a]{list-style:none;text-align:left;padding:4px 2px;cursor:pointer}.autocomplete-result.is-active[data-v-e6a2791a],.autocomplete-result[data-v-e6a2791a]:hover{background-color:#00aeefa8;color:#fff}",""])},746:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={name:"search",data:function(){return{isOpen:!1,results:[],resultsdata:[],search:"",searchdata:"",isLoading:!1,arrowCounter:0}},created:function(){var e=this;axios.get("/api/search").then(function(t){e.results=t.data.data,e.resultsdata=t.data.data})},computed:{filteredSource:function(){var e=this;return this.search?this.results.filter(function(t){return t.source.toLowerCase().includes(e.search.toLowerCase())}):this.results}},methods:{onChange:function(){this.$emit("input",this.search),this.isAsync?this.isLoading=!0:this.isOpen=!0},setResult:function(e){this.search=e,this.isOpen=!1},onArrowDown:function(e){this.arrowCounter<this.filteredSource.length&&(this.arrowCounter=this.arrowCounter+1)},onArrowUp:function(){this.arrowCounter>0&&(this.arrowCounter=this.arrowCounter-1)},onEnter:function(){this.search=this.filteredSource[this.arrowCounter],this.isOpen=!1,this.arrowCounter=-1},handleClickOutside:function(e){this.$el.contains(e.target)||(this.isOpen=!1,this.arrowCounter=-1)}},watch:{items:function(e,t){e.length!==t.length&&(this.results=e,this.isLoading=!1)}},mounted:function(){document.addEventListener("click",this.handleClickOutside)},destroyed:function(){document.removeEventListener("click",this.handleClickOutside)}}},747:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",[n("div",{staticClass:"autocomplete"},[n("input",{directives:[{name:"model",rawName:"v-model",value:e.search,expression:"search"}],attrs:{type:"text"},domProps:{value:e.search},on:{input:[function(t){t.target.composing||(e.search=t.target.value)},e.onChange],keyup:[function(t){return!t.type.indexOf("key")&&e._k(t.keyCode,"down",40,t.key,["Down","ArrowDown"])?null:e.onArrowDown(t)},function(t){return!t.type.indexOf("key")&&e._k(t.keyCode,"up",38,t.key,["Up","ArrowUp"])?null:e.onArrowUp(t)},function(t){return!t.type.indexOf("key")&&e._k(t.keyCode,"enter",13,t.key,"Enter")?null:e.onEnter(t)}]}}),e._v(" "),n("ul",{directives:[{name:"show",rawName:"v-show",value:e.isOpen,expression:"isOpen"}],staticClass:"autocomplete-results",attrs:{id:"autocomplete-results"}},[e.isLoading?n("li",{staticClass:"loading"},[e._v("\n        Loading results...\n      ")]):e._l(e.filteredSource,function(t,o){return n("li",{key:o,staticClass:"autocomplete-result",class:{"is-active":o===e.arrowCounter},on:{click:function(n){return e.setResult(t.source)}}},[e._v("\n        "+e._s(t.source)+"\n      ")])})],2)])])},staticRenderFns:[]}},796:function(e,t,n){var o=n(1)(n(746),n(747),!1,function(e){n(744)},"data-v-e6a2791a",null);e.exports=o.exports}});
+webpackJsonp([12],{
+
+/***/ 1028:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(1029);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(13)("739f9885", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b470d39\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Search.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b470d39\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Search.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 1029:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(12)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#app[data-v-0b470d39] {\r\n  font-family: \"Avenir\", Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  color: #2c3e50;\r\n  margin-top: 60px;\n}\n.autocomplete[data-v-0b470d39] {\r\n  position: relative;\r\n  width: 130px;\n}\n.autocomplete-results[data-v-0b470d39] {\r\n  padding: 0;\r\n  margin: 0;\r\n  border: 1px solid #eeeeee;\r\n  height: 120px;\r\n  overflow: auto;\r\n  width: 100%;\n}\n.autocomplete-result[data-v-0b470d39] {\r\n  list-style: none;\r\n  text-align: left;\r\n  padding: 4px 2px;\r\n  cursor: pointer;\n}\n.autocomplete-result.is-active[data-v-0b470d39],\r\n.autocomplete-result[data-v-0b470d39]:hover {\r\n  background-color: #00aeefa8;\r\n  color: white;\n}\r\n\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 1030:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "search",
+  data: function data() {
+    return {
+      isOpen: false,
+      results: [],
+      resultsdata: [],
+      search: "",
+      searchdata: "",
+      isLoading: false,
+      arrowCounter: 0
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/api/search').then(function (response) {
+      _this.results = response.data.data;
+      _this.resultsdata = response.data.data;
+    });
+  },
+
+  computed: {
+    filteredSource: function filteredSource() {
+      var _this2 = this;
+
+      if (!this.search) return this.results;
+      return this.results.filter(function (result) {
+        return result.source.toLowerCase().includes(_this2.search.toLowerCase());
+      });
+    }
+  },
+  methods: {
+    onChange: function onChange() {
+      // Let's warn the parent that a change was made
+      this.$emit("input", this.search);
+
+      // Is the data given by an outside ajax request?
+      if (this.isAsync) {
+        this.isLoading = true;
+      } else {
+        // Let's search our flat array
+        // this.filterResults();
+        this.isOpen = true;
+      }
+    },
+    setResult: function setResult(result) {
+      this.search = result;
+      this.isOpen = false;
+    },
+    onArrowDown: function onArrowDown(evt) {
+      if (this.arrowCounter < this.filteredSource.length) {
+        this.arrowCounter = this.arrowCounter + 1;
+      }
+    },
+    onArrowUp: function onArrowUp() {
+      if (this.arrowCounter > 0) {
+        this.arrowCounter = this.arrowCounter - 1;
+      }
+    },
+    onEnter: function onEnter() {
+      this.search = this.filteredSource[this.arrowCounter];
+      this.isOpen = false;
+      this.arrowCounter = -1;
+    },
+    handleClickOutside: function handleClickOutside(evt) {
+      if (!this.$el.contains(evt.target)) {
+        this.isOpen = false;
+        this.arrowCounter = -1;
+      }
+    }
+  },
+  watch: {
+    items: function items(val, oldValue) {
+      // actually compare them
+      if (val.length !== oldValue.length) {
+        this.results = val;
+        this.isLoading = false;
+      }
+    }
+  },
+  mounted: function mounted() {
+    document.addEventListener("click", this.handleClickOutside);
+  },
+  destroyed: function destroyed() {
+    document.removeEventListener("click", this.handleClickOutside);
+  }
+});
+
+/***/ }),
+
+/***/ 1031:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "autocomplete" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.search,
+            expression: "search"
+          }
+        ],
+        attrs: { type: "text" },
+        domProps: { value: _vm.search },
+        on: {
+          input: [
+            function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.search = $event.target.value
+            },
+            _vm.onChange
+          ],
+          keyup: [
+            function($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "down", 40, $event.key, [
+                  "Down",
+                  "ArrowDown"
+                ])
+              ) {
+                return null
+              }
+              return _vm.onArrowDown($event)
+            },
+            function($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "up", 38, $event.key, ["Up", "ArrowUp"])
+              ) {
+                return null
+              }
+              return _vm.onArrowUp($event)
+            },
+            function($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              return _vm.onEnter($event)
+            }
+          ]
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "ul",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.isOpen,
+              expression: "isOpen"
+            }
+          ],
+          staticClass: "autocomplete-results",
+          attrs: { id: "autocomplete-results" }
+        },
+        [
+          _vm.isLoading
+            ? _c("li", { staticClass: "loading" }, [
+                _vm._v("\n        Loading results...\n      ")
+              ])
+            : _vm._l(_vm.filteredSource, function(result, i) {
+                return _c(
+                  "li",
+                  {
+                    key: i,
+                    staticClass: "autocomplete-result",
+                    class: { "is-active": i === _vm.arrowCounter },
+                    on: {
+                      click: function($event) {
+                        return _vm.setResult(result.source)
+                      }
+                    }
+                  },
+                  [_vm._v("\n        " + _vm._s(result.source) + "\n      ")]
+                )
+              })
+        ],
+        2
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0b470d39", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 925:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(1028)
+}
+var normalizeComponent = __webpack_require__(5)
+/* script */
+var __vue_script__ = __webpack_require__(1030)
+/* template */
+var __vue_template__ = __webpack_require__(1031)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-0b470d39"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/front/Search.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0b470d39", Component.options)
+  } else {
+    hotAPI.reload("data-v-0b470d39", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ })
+
+});
