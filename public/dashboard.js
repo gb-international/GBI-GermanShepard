@@ -1,17 +1,16 @@
-webpackJsonp([2],{
+webpackJsonp([3],{
 
-/***/ 1032:
+/***/ 1040:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_slick_carousel__ = __webpack_require__(936);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_slick_carousel__ = __webpack_require__(937);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_slick_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_slick_carousel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_slick_carousel_dist_vue_slick_carousel_css__ = __webpack_require__(937);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_slick_carousel_dist_vue_slick_carousel_css__ = __webpack_require__(938);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_slick_carousel_dist_vue_slick_carousel_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_slick_carousel_dist_vue_slick_carousel_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_slick_carousel_dist_vue_slick_carousel_theme_css__ = __webpack_require__(939);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_slick_carousel_dist_vue_slick_carousel_theme_css__ = __webpack_require__(940);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_slick_carousel_dist_vue_slick_carousel_theme_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_slick_carousel_dist_vue_slick_carousel_theme_css__);
-//
 //
 //
 //
@@ -246,6 +245,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         headers: { Authorization: 'Bearer ' + this.$session.get("access_token") }
       }).then(function (response) {
         _this.userinfo = response.data.success;
+        if (_this.userinfo.status == 0) {
+          _this.$router.push('/user-information');
+        }
       }).catch(function (error) {
         _this.handleError(error);
       });
@@ -287,7 +289,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 1033:
+/***/ 1041:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -295,239 +297,243 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.userinfo
-    ? _c("div", { staticClass: "container" }, [
-        _c(
-          "div",
-          { staticClass: "user_dashboard_profile" },
-          [
-            _c(
-              "router-link",
-              { staticClass: "user_edit", attrs: { to: "/profile-edit" } },
-              [_c("i", { staticClass: "fas fa-user-edit" })]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-2 text-center image" }, [
-                _c("img", {
-                  staticClass: "img img-circle",
-                  attrs: {
-                    src: "/uploadimage/" + _vm.userinfo.information["photo"],
-                    loading: "lazy",
-                    alt: "user profile"
-                  }
-                })
-              ]),
+    ? _c("div", [
+        _c("div", { staticClass: "user_dashboard_profile" }, [
+          _c(
+            "div",
+            { staticClass: "container" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "user_edit", attrs: { to: "/profile-edit" } },
+                [_c("i", { staticClass: "fas fa-user-edit" })]
+              ),
               _vm._v(" "),
-              _c("div", { staticClass: "col-lg-10" }, [
-                _c("div", { staticClass: "username" }, [
-                  _c("h3", [_vm._v(_vm._s(_vm.userinfo.name))]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      _vm._s(_vm.userinfo.information["state"]) +
-                        " " +
-                        _vm._s(_vm.userinfo.information["country"])
-                    )
-                  ])
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-2 text-center image" }, [
+                  _c("img", {
+                    staticClass: "img img-circle",
+                    attrs: {
+                      src: "/uploadimage/" + _vm.userinfo.information["photo"],
+                      loading: "lazy",
+                      alt: "user profile"
+                    }
+                  })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-lg-5" }, [
-                    _c("div", { staticClass: "userinfo" }, [
-                      _c("div", { staticClass: "userinfoFirst" }, [
-                        _vm.userinfo.information["client_type"] == "student"
-                          ? _c("p", [_vm._v("School Name")])
-                          : _vm.userinfo.information["client_type"] ==
-                            "corporate"
-                          ? _c("p", [_vm._v("Corporate Name")])
-                          : _c("p", [_vm._v("Occupation Name")]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "bottom_text" }, [
-                          _vm._v(
-                            _vm._s(_vm.userinfo.information["client_input"])
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "userinfoSecond" }, [
-                        _c("p", [_vm._v("User Type")]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "bottom_text" }, [
-                          _vm._v(
-                            _vm._s(_vm.userinfo.information["client_type"])
-                          )
-                        ])
-                      ])
+                _c("div", { staticClass: "col-lg-10" }, [
+                  _c("div", { staticClass: "username" }, [
+                    _c("h3", [_vm._v(_vm._s(_vm.userinfo.name))]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        _vm._s(_vm.userinfo.information["state"]) +
+                          " " +
+                          _vm._s(_vm.userinfo.information["country"])
+                      )
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-7" }, [
-                    _c("div", { staticClass: "userinfo" }, [
-                      _c("div", { staticClass: "userinfoFirst" }, [
-                        _c("p", [_vm._v("User Id")]),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-lg-5" }, [
+                      _c("div", { staticClass: "userinfo" }, [
+                        _c("div", { staticClass: "userinfoFirst" }, [
+                          _vm.userinfo.information["client_type"] == "student"
+                            ? _c("p", [_vm._v("School Name")])
+                            : _vm.userinfo.information["client_type"] ==
+                              "corporate"
+                            ? _c("p", [_vm._v("Corporate Name")])
+                            : _c("p", [_vm._v("Occupation Name")]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "bottom_text" }, [
+                            _vm._v(
+                              _vm._s(_vm.userinfo.information["client_input"])
+                            )
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", { staticClass: "bottom_text" }, [
-                          _vm._v(_vm._s(_vm.userinfo["email"]))
+                        _c("div", { staticClass: "userinfoSecond" }, [
+                          _c("p", [_vm._v("User Type")]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "bottom_text" }, [
+                            _vm._v(
+                              _vm._s(_vm.userinfo.information["client_type"])
+                            )
+                          ])
                         ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "userinfoSecond" }, [
-                        _c("p", [_vm._v("Mobile Number")]),
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-7" }, [
+                      _c("div", { staticClass: "userinfo" }, [
+                        _c("div", { staticClass: "userinfoFirst" }, [
+                          _c("p", [_vm._v("User Id")]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "bottom_text" }, [
+                            _vm._v(_vm._s(_vm.userinfo["email"]))
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", { staticClass: "bottom_text" }, [
-                          _vm._v(_vm._s(_vm.userinfo.information["phone_no"]))
+                        _c("div", { staticClass: "userinfoSecond" }, [
+                          _c("p", [_vm._v("Mobile Number")]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "bottom_text" }, [
+                            _vm._v(_vm._s(_vm.userinfo.information["phone_no"]))
+                          ])
                         ])
                       ])
                     ])
                   ])
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "logout",
-                attrs: { href: "#" },
-                on: { click: _vm.logout }
-              },
-              [_vm._v("Logout")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { attrs: { id: "dashboard_body" } }, [
-          _c("div", { staticClass: "dashboard-body-part-one" }, [
-            _c("div", { attrs: { id: "rowbody" } }, [
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  { staticClass: "col" },
-                  [
-                    _c("router-link", { attrs: { to: "/tour-list" } }, [
-                      _c("div", { staticClass: "rowdata1" }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/front/images/booked_320.png",
-                            loading: "lazy"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "icon_text" }, [
-                          _vm._v("Booked Itinerary")
-                        ])
-                      ])
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(0)
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("h5", { staticClass: "title_section" }, [
-            _vm._v("Upcoming Event")
-          ]),
-          _vm._v(" "),
-          _c("ul"),
-          _vm._v(" "),
-          _vm.upcoming_list.length > 0
-            ? _c(
-                "div",
-                { staticClass: "dashboard-body-part-two-2" },
-                [
-                  _c(
-                    "VueSlickCarousel",
-                    _vm._b(
-                      { attrs: { arrows: true, dots: true } },
-                      "VueSlickCarousel",
-                      _vm.settings,
-                      false
-                    ),
-                    _vm._l(_vm.upcoming_list, function(state) {
-                      return _c(
-                        "div",
-                        { staticClass: "states_card card_scroll" },
-                        [
-                          _c("p"),
-                          _c("div", { staticClass: "card" }, [
-                            _c("img", {
-                              staticClass: "card-img-top",
-                              attrs: {
-                                src: _vm.getImgUrl(state.photo),
-                                loading: "lazy",
-                                alt: "Card image"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "card-img-overlay text-center" },
-                              [
-                                _c(
-                                  "p",
-                                  { staticClass: "card-text" },
-                                  [
-                                    _c(
-                                      "router-link",
-                                      {
-                                        staticClass: "text-white",
-                                        attrs: {
-                                          to: "/explore-detail/" + state.id
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                 " +
-                                            _vm._s(state.title)
-                                        )
-                                      ]
-                                    )
-                                  ],
-                                  1
-                                )
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("p")
-                        ]
-                      )
-                    }),
-                    0
-                  )
-                ],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "h5",
-            { staticClass: "title_section" },
-            [
-              _vm._v("Popular Destination "),
+              ]),
+              _vm._v(" "),
               _c(
-                "router-link",
-                { staticClass: "view_link", attrs: { to: "/explore-list" } },
-                [_vm._v("View more")]
+                "a",
+                {
+                  staticClass: "logout",
+                  attrs: { href: "#" },
+                  on: { click: _vm.logout }
+                },
+                [_vm._v("Logout")]
               )
             ],
             1
-          ),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _vm._m(3),
-          _vm._v(" "),
-          _vm._m(4),
-          _vm._v(" "),
-          _vm._m(5)
-        ])
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "container", attrs: { id: "dashboard_body" } },
+          [
+            _c("div", { staticClass: "dashboard-body-part-one" }, [
+              _c("div", { attrs: { id: "rowbody" } }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col" },
+                    [
+                      _c("router-link", { attrs: { to: "/tour-list" } }, [
+                        _c("div", { staticClass: "rowdata1" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/front/images/booked_320.png",
+                              loading: "lazy"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "icon_text" }, [
+                            _vm._v("Booked Itinerary")
+                          ])
+                        ])
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm._m(0)
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("h5", { staticClass: "title_section" }, [
+              _vm._v("Upcoming Event")
+            ]),
+            _vm._v(" "),
+            _vm.upcoming_list.length > 0
+              ? _c(
+                  "div",
+                  { staticClass: "dashboard-body-part-two-2" },
+                  [
+                    _c(
+                      "VueSlickCarousel",
+                      _vm._b(
+                        { attrs: { arrows: true, dots: true } },
+                        "VueSlickCarousel",
+                        _vm.settings,
+                        false
+                      ),
+                      _vm._l(_vm.upcoming_list, function(state) {
+                        return _c(
+                          "div",
+                          { staticClass: "states_card card_scroll" },
+                          [
+                            _c("p"),
+                            _c("div", { staticClass: "card" }, [
+                              _c("img", {
+                                staticClass: "card-img-top",
+                                attrs: {
+                                  src: _vm.getImgUrl(state.photo),
+                                  loading: "lazy",
+                                  alt: "Card image"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "card-img-overlay text-center" },
+                                [
+                                  _c(
+                                    "p",
+                                    { staticClass: "card-text" },
+                                    [
+                                      _c(
+                                        "router-link",
+                                        {
+                                          staticClass: "text-white",
+                                          attrs: {
+                                            to: "/explore-detail/" + state.id
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                 " +
+                                              _vm._s(state.title)
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p")
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "h5",
+              { staticClass: "title_section" },
+              [
+                _vm._v("Popular Destination "),
+                _c(
+                  "router-link",
+                  { staticClass: "view_link", attrs: { to: "/explore-list" } },
+                  [_vm._v("View more")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _vm._m(5)
+          ]
+        )
       ])
     : _vm._e()
 }
@@ -659,15 +665,15 @@ if (false) {
 
 /***/ }),
 
-/***/ 926:
+/***/ 927:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(1032)
+var __vue_script__ = __webpack_require__(1040)
 /* template */
-var __vue_template__ = __webpack_require__(1033)
+var __vue_template__ = __webpack_require__(1041)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -707,7 +713,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 936:
+/***/ 937:
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -12877,13 +12883,13 @@ module.exports = isSymbol;
 
 /***/ }),
 
-/***/ 937:
+/***/ 938:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(938);
+var content = __webpack_require__(939);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -12909,7 +12915,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 938:
+/***/ 939:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(false);
@@ -12924,13 +12930,13 @@ exports.push([module.i, ".slick-track[data-v-e4caeaf8]{position:relative;top:0;l
 
 /***/ }),
 
-/***/ 939:
+/***/ 940:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(940);
+var content = __webpack_require__(941);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -12956,7 +12962,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 940:
+/***/ 941:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(false);

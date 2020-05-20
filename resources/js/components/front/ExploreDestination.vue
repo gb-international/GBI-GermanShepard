@@ -162,7 +162,7 @@
               <!-- new code -->
               <div class="row mt-35">
                 <div class="col-lg-6" v-for="(itinerary,index) in upcoming_data">
-                  <div class="card card-radis-list">
+                  <div class="card card-radis-list mb-10">
                     <router-link :to="`/explore-detail/${itinerary.id}`">
                      <div class="card-horizontal">
                         <div class="card-image">
@@ -215,7 +215,7 @@
               <!-- new code -->
               <div class="row mt-35">
                 <div class="col-lg-6" v-for="(itinerary,index) in popular_data">
-                  <div class="card card-radis-list">
+                  <div class="card card-radis-list mb-10">
                     <router-link :to="`/explore-detail/${itinerary.id}`">
                      <div class="card-horizontal">
                         <div class="card-image">

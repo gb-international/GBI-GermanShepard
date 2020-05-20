@@ -2,6 +2,7 @@
     "/404.js": "/404.js",
     "/encyclopedia-view.js": "/encyclopedia-view.js",
     "/explore.js": "/explore.js",
+    "/user-info.js": "/user-info.js",
     "/dashboard.js": "/dashboard.js",
     "/encyclopedia.js": "/encyclopedia.js",
     "/usa.js": "/usa.js",
@@ -28,6 +29,5 @@
     "/js/admin/admin.js": "/js/admin/admin.js",
     "/css/admin/app.css": "/css/admin/app.css",
     "/css/app.css": "/css/app.css",
-    "/js/app.js": "/js/app.js",
-    "/user-info.js": "/user-info.js"
+    "/js/app.js": "/js/app.js"
 }

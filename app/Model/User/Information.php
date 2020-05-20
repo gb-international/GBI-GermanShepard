@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Information extends Model
 {
     protected $table = 'informations';
+    protected $fillable = ['user_profession','school_id','institution_code'];
 
     public function user()
     {

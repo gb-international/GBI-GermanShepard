@@ -1,8 +1,9 @@
 <template>
-  <div class="container" id="user_inform_model">
-    <div class="row  justify-content-center">
+  <div id="user_inform_model">
+    <div class="row justify-content-center">
       <div class="col-sm-7">
-        <div class="user-model card">
+        <div class="user-model card p-20 mt-15">
+          <label>Three Step Verification</label>
             <form-wizard @on-complete="onComplete"
                   @on-loading="setLoading"
                   @on-validate="handleValidation"
@@ -22,7 +23,7 @@
 
                 <div class="form-group">
                   <label>Select Your Educational Institution</label>
-                  <select class="form-control" v-mode="institution">
+                  <select class="form-control" v-model="institution">
                     <option v-for="school in school_list" :value="school.id">{{ school.school_name }}</option>
                   </select>
                 </div>
@@ -73,9 +74,6 @@ export default {
     }
   },
   created() {
-    // if(this.$session.get('login') == undefined){
-    //   this.$router.push('/')
-    // }
     axios.get('/api/school-list').then((response)=>{
       this.school_list = response.data;
       console.log(response);
@@ -96,7 +94,15 @@ export default {
     },
  methods:{
   onComplete: function(){
-    alert('yo yo');
+    var data = 
+      {user_profession : this.profession,
+      school_id : this.institution,
+      institution_code : this.institution_code};
+    axios.post("/api/user-infp-update", data, { headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }}).then(response => {
+          this.$router.push('/dashboard');
+        }).catch(error => {
+          this.handleError(error);
+        });
   },
   setLoading: function(value) {
       this.loadingWizard = value
@@ -130,26 +136,6 @@ export default {
       }, 500)
     })
   },
-  
-  updateUserData(){
-
-      var data = this.form;
-      axios.post("/api/user-update", data, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`
-          }
-        })
-        .then(response => {
-          toast({
-              type: 'success',
-              title: 'Profile Image updated!!'
-          }) 
-        })
-        .catch(error => {
-          this.handleError(error);
-        });
-
-    }
   } 
 }
 
@@ -181,5 +167,9 @@ span.error{
 }
 .wizard-icon{
   font-size: 15px !important;
+}
+select,input{
+  border:1px solid lightgrey !important;
+  height: 45px;
 }
 </style>

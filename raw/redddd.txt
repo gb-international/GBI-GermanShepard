@@ -380,3 +380,5 @@ Information Table
     school_id
     institution_code
 
+    make form in vuejs add those variables in those form and submit post request to laravel.
+    

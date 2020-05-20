@@ -164,5 +164,16 @@ class UserController extends Controller{
 
 
     /// user more information on model from model
-    
+    public function infoUpdate(Request $request){
+        $user = Auth::user();
+        $user->status = 1;
+
+        $information = Information::where('user_id', $user->id)->first();
+
+        $information->user_profession = $request->user_profession;
+        $information->school_id = $request->school_id;
+        $information->institution_code = $request->institution_code;
+        $user->save();
+        return response()->json('success');
+    }
 }

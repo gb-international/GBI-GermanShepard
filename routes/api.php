@@ -111,6 +111,7 @@ Route::namespace('Front')->group(function(){
 	Route::group(['middleware' => 'auth:api'], function(){
 		Route::post('details', 'UserController@details');
 		Route::post('/user-show', 'UserController@show');
+		Route::post('/user-infp-update', 'UserController@infoUpdate');
 		Route::post('/user-update','UserController@update');
 		Route::post('/update-user-image','UserController@UserImage');
 		// Comments

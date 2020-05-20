@@ -1,6 +1,7 @@
 <template>
-    <div class="container"  v-if="userinfo">
+    <div v-if="userinfo">
        <div class="user_dashboard_profile">
+        <div class="container">
         <router-link :to="`/profile-edit`" class="user_edit"><i class="fas fa-user-edit"></i></router-link>
           <div class="row">
             <div class="col-lg-2 text-center image">
@@ -47,11 +48,12 @@
           </div>
           <a href="#" class="logout" @click="logout">Logout</a>
         </div>
+      </div>
 
 
       <!-- Booked Button -->
 
-      <div id="dashboard_body">
+      <div class="container" id="dashboard_body">
         <div class="dashboard-body-part-one">
           <div id="rowbody">
              <div class="row">
@@ -75,9 +77,6 @@
           </div>
         </div>
          <h5 class="title_section">Upcoming Event</h5>
-         <ul >
-            
-         </ul>
         <!-- Upcoming Event Carousel -->
         <div class="dashboard-body-part-two-2" v-if="upcoming_list.length > 0">  
           <VueSlickCarousel :arrows="true" :dots="true" v-bind="settings">
@@ -234,6 +233,9 @@ export default {
           headers: { Authorization: `Bearer ${this.$session.get("access_token")}` }
         }).then(response => {
             this.userinfo = response.data.success;
+            if(this.userinfo.status == 0){
+              this.$router.push('/user-information');
+            }
           }).catch(error => {
            this.handleError(error);
       });

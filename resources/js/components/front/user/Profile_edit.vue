@@ -1,9 +1,7 @@
 <template>
-    <div class="container" id="user_edit_form">
-
+    <div id="user_edit_form">
       <div class="text-center">
         <div class="avatar-upload user_edit_image">
-          
            <form role="form" enctype="multipart/form-data">
               <div class="avatar-edit">
                   <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" @change="onChange" />
@@ -19,9 +17,10 @@
           </div>
       </div>
       <!-- user Edit form -->
-      <div class="row">
+      <div class="container">
+        <div class="row">
        
-        <form role="form" enctype="multipart/form-data" @submit.prevent="updateUserData()">
+          <form role="form" enctype="multipart/form-data" @submit.prevent="updateUserData()">
           <div class="row">
             <div class="col-sm-4">
               <div class="form-group">
@@ -51,7 +50,7 @@
               </div>
             </div>
             <div class="col-sm-4">
-    <!-- Radio buttons -->
+          <!-- Radio buttons -->
               <div class="form-group user_input_field">
                 <div>
                   <label>User Type</label><br><br>
@@ -75,25 +74,25 @@
                   <lable class="danger text-danger">{{ form.errors.get("client_type") }}</lable>
                 </div>
               </div>
-            </div>
+              </div>
           </div>
             
           <div class="row">
             <div class="col-sm-4">
-  <!-- school name -->
+             <!-- school name -->
               <div class="form-group" v-if="this.client_input_box == '1'">
                 <label>School name</label>
                 <input type="text" class="form-control" v-model="form.client_input" :class="{ 'is-invalid': form.errors.has('client_input') }"  placeholder="Enter School Name" name="client_input">
                     <has-error :form="form" field="client_input"></has-error>
               </div>
-  <!-- school name -->
+               <!-- school name -->
               <div class="form-group" v-if="this.client_input_box == '2'">
                 <label>Corporate Name</label>
                 <input type="text" class="form-control" v-model="form.client_input" :class="{ 'is-invalid': form.errors.has('client_input') }"  placeholder="Enter Corporate Name" name="client_input">
                     <has-error :form="form" field="client_input"></has-error>
               </div>
               
-  <!-- school name -->
+              <!-- school name -->
               <div class="form-group" v-if="this.client_input_box == '3'">
                <label>Occupation Name</label>
                 <input type="text" class="form-control" v-model="form.client_input" :class="{ 'is-invalid': form.errors.has('client_input') }"  placeholder="Enter Your Occupation" name="client_input">
@@ -190,6 +189,9 @@
 
         </form>
       </div>
+    </div>
+
+
     </div>
 </template>
 
