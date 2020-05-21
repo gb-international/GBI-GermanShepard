@@ -18,6 +18,8 @@
           <div class="card state_images">
             <div class="row">
               <div class="col-6">
+                
+
                 <img :src="getImgUrl(state_data.image_one)" loading="lazy" :alt="state_data.state_name">
               </div>
               <div class="col-6">

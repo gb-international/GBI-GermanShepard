@@ -1,16 +1,25 @@
 webpackJsonp([3],{
 
-/***/ 1040:
+/***/ 1041:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_slick_carousel__ = __webpack_require__(937);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_slick_carousel__ = __webpack_require__(938);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_slick_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_slick_carousel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_slick_carousel_dist_vue_slick_carousel_css__ = __webpack_require__(938);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_slick_carousel_dist_vue_slick_carousel_css__ = __webpack_require__(939);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_slick_carousel_dist_vue_slick_carousel_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_slick_carousel_dist_vue_slick_carousel_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_slick_carousel_dist_vue_slick_carousel_theme_css__ = __webpack_require__(940);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_slick_carousel_dist_vue_slick_carousel_theme_css__ = __webpack_require__(941);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_slick_carousel_dist_vue_slick_carousel_theme_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_slick_carousel_dist_vue_slick_carousel_theme_css__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -289,7 +298,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 1041:
+/***/ 1042:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -311,14 +320,26 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-lg-2 text-center image" }, [
-                  _c("img", {
-                    staticClass: "img img-circle",
-                    attrs: {
-                      src: "/uploadimage/" + _vm.userinfo.information["photo"],
-                      loading: "lazy",
-                      alt: "user profile"
-                    }
-                  })
+                  _c(
+                    "figure",
+                    {
+                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                      staticClass: "image__wrapper"
+                    },
+                    [
+                      _c("ImageSpinner", { staticClass: "image__spinner" }),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "image__item img img-circle",
+                        attrs: {
+                          "data-url":
+                            "/uploadimage/" + _vm.userinfo.information["photo"],
+                          alt: "user profile"
+                        }
+                      })
+                    ],
+                    1
+                  )
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-10" }, [
@@ -459,14 +480,29 @@ var render = function() {
                           [
                             _c("p"),
                             _c("div", { staticClass: "card" }, [
-                              _c("img", {
-                                staticClass: "card-img-top",
-                                attrs: {
-                                  src: _vm.getImgUrl(state.photo),
-                                  loading: "lazy",
-                                  alt: "Card image"
-                                }
-                              }),
+                              _c(
+                                "figure",
+                                {
+                                  directives: [
+                                    { name: "lazyload", rawName: "v-lazyload" }
+                                  ],
+                                  staticClass: "image__wrapper card_image_ency"
+                                },
+                                [
+                                  _c("ImageSpinner", {
+                                    staticClass: "image__spinner"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("img", {
+                                    staticClass: "image__item card-img-top",
+                                    attrs: {
+                                      "data-url": "/uploadimage/" + state.photo,
+                                      alt: "image"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
                               _vm._v(" "),
                               _c(
                                 "div",
@@ -665,15 +701,15 @@ if (false) {
 
 /***/ }),
 
-/***/ 927:
+/***/ 928:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(1040)
+var __vue_script__ = __webpack_require__(1041)
 /* template */
-var __vue_template__ = __webpack_require__(1041)
+var __vue_template__ = __webpack_require__(1042)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -713,7 +749,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 937:
+/***/ 938:
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -12883,13 +12919,13 @@ module.exports = isSymbol;
 
 /***/ }),
 
-/***/ 938:
+/***/ 939:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(939);
+var content = __webpack_require__(940);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -12915,7 +12951,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 939:
+/***/ 940:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(false);
@@ -12930,13 +12966,13 @@ exports.push([module.i, ".slick-track[data-v-e4caeaf8]{position:relative;top:0;l
 
 /***/ }),
 
-/***/ 940:
+/***/ 941:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(941);
+var content = __webpack_require__(942);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -12962,7 +12998,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 941:
+/***/ 942:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(false);

@@ -31,7 +31,11 @@
          <p>We curate and execute our programs in such a way that can enhance one’s living skills through the experience they gather while moving out of their comfort zone. We appreciate and understand the concern showed by parents and the institution towards the safety, security and comfort of the students during the proposed educational tour. We, therefore, intend to provide a worry-free experience.  Our extensive experience, customized itineraries and risk management standards with safety protocols strive to deliver a hassle-free tour under the guidance of our trained escorts.</p>
        </div>
         <div class="col-md-6 col-lg-6">
-        <img class="safe-seu-img " id="safetyimg1" :src="`/assets/front/images/safety_security.jpg`" loading="lazy" alt="safety security">
+          <figure v-lazyload class="image__wrapper">
+            <ImageSpinner class="image__spinner" />
+            <img id="safetyimg1" class="image__item safe-seu-img" :data-url="`/assets/front/images/safety_security.jpg`" alt="GBI safety security">
+          </figure>
+
        </div>
        </div>
           <h2>We Put Efforts to Make Your Trip Worth Breathe Taking</h2>

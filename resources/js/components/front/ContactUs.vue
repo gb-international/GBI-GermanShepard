@@ -29,30 +29,55 @@
          <div class="col-lg-12">
           <h2>HEAD OFFICE</h2>
           <table class="table">
-              <tbody>
+            <tbody>
                 <tr>
-                  <td><img :src="`assets/front/images/address_icon.png`"  loading="lazy" alt="address"></td>
-                  <td>G-32,DDA Commercial Complex, Sheikh Sarai Phase-1, New Delhi 110017</td>
-                 </tr>
+                  <td>
+                    <figure v-lazyload class="image__wrapper">
+                      <ImageSpinner class="image__spinner" />
+                      <img class="image__item" :data-url="`assets/front/images/address_icon.png`" alt="address">
+                    </figure>
+                    </td>
+                    <td>G-32,DDA Commercial Complex, Sheikh Sarai Phase-1, New Delhi 110017</td>
+                </tr>
                 <tr>
-                  <td><img :src="`assets/front/images/phone_icon.png`"  loading="lazy" alt="address"></td>
+                  <td>
+                    <figure v-lazyload class="image__wrapper">
+                      <ImageSpinner class="image__spinner" />
+                      <img class="image__item" :data-url="`assets/front/images/phone_icon.png`" alt="address">
+                    </figure>
+                   </td>
                   <td>011-26017120, 26011683 ,<br> +91 9810055102</td>
                  </tr>
                  <tr>
-                  <td><img class="ic-mail" :src="`assets/front/images/email_icon.png`"  loading="lazy" alt="address"></td>
+                  <td>
+                    <figure v-lazyload class="image__wrapper">
+                      <ImageSpinner class="image__spinner" />
+                      <img class="image__item ic-mail" :data-url="`assets/front/images/email_icon.png`" alt="address">
+                    </figure>
+                    </td>
                   <td>info@gbinternational.in<br>reservations@gbinternational.in</td>
                  </tr>
-                 </tbody>
+               </tbody>
             </table>
             <div class="headline"><h2>REGIONAL OFFICE</h2></div>
              <table class="table">
               <tbody>
                 <tr>
-                  <td><img class="ic-add" :src="`assets/front/images/address_icon.png`" loading="lazy" alt="address"></td>
+                  <td>
+                    <figure v-lazyload class="image__wrapper">
+                      <ImageSpinner class="image__spinner" />
+                      <img class="image__item ic-add" :data-url="`assets/front/images/address_icon.png`" alt="address">
+                    </figure>
+                    </td>
                   <td>302, Zeenath Residency Srinagar Colony, Plot #29, Hyderabad - 500073 Andhra Pradesh</td>
                  </tr>
                 <tr>
-                  <td><img class="ic-cal-re" :src="`assets/front/images/phone_icon.png`" loading="lazy" alt="number"></td>
+                  <td>
+                    <figure v-lazyload class="image__wrapper">
+                      <ImageSpinner class="image__spinner" />
+                      <img class="image__item ic-cal-re" :data-url="`assets/front/images/phone_icon.png`" alt="number">
+                    </figure>
+                  </td>
                   <td>+91 9717922240,<br> +91 9810055102</td>
                  </tr>
                

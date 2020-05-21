@@ -1,12 +1,12 @@
 webpackJsonp([19],{
 
-/***/ 1005:
+/***/ 1006:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1006);
+var content = __webpack_require__(1007);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -27,7 +27,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 1006:
+/***/ 1007:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(false);
@@ -35,18 +35,53 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 1007:
+/***/ 1008:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -189,7 +224,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 1008:
+/***/ 1009:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -227,14 +262,25 @@ var render = function() {
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
               _c("div", { staticClass: "card-container" }, [
-                _c("img", {
-                  staticClass: "cards-img",
-                  attrs: {
-                    src: "/assets/front/images/img/airfare.png",
-                    loading: "lazy",
-                    alt: "airfare GBI"
-                  }
-                }),
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item cards-img",
+                      attrs: {
+                        "data-url": "/assets/front/images/img/airfare.png",
+                        alt: "airfare GBI"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _vm._m(2)
               ])
@@ -242,14 +288,25 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
               _c("div", { staticClass: "card-container" }, [
-                _c("img", {
-                  staticClass: "cards-img",
-                  attrs: {
-                    src: "/assets/front/images/img/hotel.png",
-                    loading: "lazy",
-                    alt: "hotel GBI"
-                  }
-                }),
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item cards-img",
+                      attrs: {
+                        "data-url": "/assets/front/images/img/hotel.png",
+                        alt: "hotel GBI"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _vm._m(3)
               ])
@@ -257,14 +314,25 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
               _c("div", { staticClass: "card-container" }, [
-                _c("img", {
-                  staticClass: "cards-img",
-                  attrs: {
-                    src: "/assets/front/images/img/reginoal.png",
-                    loading: "lazy",
-                    alt: "reginoal"
-                  }
-                }),
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item cards-img",
+                      attrs: {
+                        "data-url": "/assets/front/images/img/reginoal.png",
+                        alt: "reginoal GBI"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _vm._m(4)
               ])
@@ -272,14 +340,25 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
               _c("div", { staticClass: "card-container" }, [
-                _c("img", {
-                  staticClass: "cards-img",
-                  attrs: {
-                    src: "/assets/front/images/img/gudided.png",
-                    loading: "lazy",
-                    alt: "gudided"
-                  }
-                }),
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item cards-img",
+                      attrs: {
+                        "data-url": "/assets/front/images/img/gudided.png",
+                        alt: "gudided GBI"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _vm._m(5)
               ])
@@ -287,14 +366,25 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
               _c("div", { staticClass: "card-container" }, [
-                _c("img", {
-                  staticClass: "cards-img",
-                  attrs: {
-                    src: "/assets/front/images/img/entrance.png",
-                    loading: "lazy",
-                    alt: "entrance"
-                  }
-                }),
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item cards-img",
+                      attrs: {
+                        "data-url": "/assets/front/images/img/entrance.png",
+                        alt: "entrance GBI"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _vm._m(6)
               ])
@@ -302,14 +392,25 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
               _c("div", { staticClass: "card-container" }, [
-                _c("img", {
-                  staticClass: "cards-img",
-                  attrs: {
-                    src: "/assets/front/images/img/experiential.png",
-                    loading: "lazy",
-                    alt: "experiential"
-                  }
-                }),
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item cards-img",
+                      attrs: {
+                        "data-url": "/assets/front/images/img/experiential.png",
+                        alt: "experiential GBI"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _vm._m(7)
               ])
@@ -317,14 +418,26 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
               _c("div", { staticClass: "card-container" }, [
-                _c("img", {
-                  staticClass: "cards-img",
-                  attrs: {
-                    src: "/assets/front/images/img/emergency-support.png",
-                    loading: "lazy",
-                    alt: "emergency-support"
-                  }
-                }),
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item cards-img",
+                      attrs: {
+                        "data-url":
+                          "/assets/front/images/img/emergency-support.png",
+                        alt: "emergency-support GBI"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _vm._m(8)
               ])
@@ -332,14 +445,25 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
               _c("div", { staticClass: "card-container" }, [
-                _c("img", {
-                  staticClass: "cards-img",
-                  attrs: {
-                    src: "/assets/front/images/img/continous.png",
-                    loading: "lazy",
-                    alt: "continous"
-                  }
-                }),
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item cards-img",
+                      attrs: {
+                        "data-url": "/assets/front/images/img/continous.png",
+                        alt: "continous GBI"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _vm._m(9)
               ])
@@ -347,14 +471,25 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
               _c("div", { staticClass: "card-container" }, [
-                _c("img", {
-                  staticClass: "cards-img",
-                  attrs: {
-                    src: "/assets/front/images/img/finely.png",
-                    loading: "lazy",
-                    alt: "finely"
-                  }
-                }),
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item cards-img",
+                      attrs: {
+                        "data-url": "/assets/front/images/img/finely.png",
+                        alt: "finely GBI"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _vm._m(10)
               ])
@@ -541,19 +676,19 @@ if (false) {
 
 /***/ }),
 
-/***/ 919:
+/***/ 920:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(1005)
+  __webpack_require__(1006)
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(1007)
+var __vue_script__ = __webpack_require__(1008)
 /* template */
-var __vue_template__ = __webpack_require__(1008)
+var __vue_template__ = __webpack_require__(1009)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */

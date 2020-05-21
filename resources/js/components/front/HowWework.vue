@@ -44,7 +44,11 @@
   <div class="row">
     <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`/assets/front/images/img/airfare.png`" loading="lazy" alt="airfare GBI">
+        <figure v-lazyload class="image__wrapper">
+          <ImageSpinner class="image__spinner" />
+          <img class="image__item cards-img" :data-url="`/assets/front/images/img/airfare.png`" alt="airfare GBI">
+        </figure>
+
         <div class="card-block p-top-10">
           <h4 class="card-title">Airfare And Transportation</h4>
           <p class="card-text p-l-r">Round-trip airfares, railway fares and comfortable ac coach </p>
@@ -53,7 +57,11 @@
     </div>
     <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`/assets/front/images/img/hotel.png`" loading="lazy" alt="hotel GBI">
+        <figure v-lazyload class="image__wrapper">
+          <ImageSpinner class="image__spinner" />
+          <img class="image__item cards-img" :data-url="`/assets/front/images/img/hotel.png`" alt="hotel GBI">
+        </figure>
+
         <div class="card-block p-top-10">
           <h4 class="card-title">Hotel</h4>
           <p class="card-text p-l-r">Overnight stays in hotels with private washroom</p>
@@ -62,7 +70,10 @@
     </div>
     <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`/assets/front/images/img/reginoal.png`" loading="lazy" alt="reginoal">
+        <figure v-lazyload class="image__wrapper">
+          <ImageSpinner class="image__spinner" />
+          <img class="image__item cards-img" :data-url="`/assets/front/images/img/reginoal.png`" alt="reginoal GBI">
+        </figure>
         <div class="card-block p-top-10">
           <h4 class="card-title">Regional-Style Meal</h4>
           <p class="card-text p-l-r">Includes three-time lip-smacking regional style meal</p>
@@ -71,7 +82,11 @@
     </div>
     <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`/assets/front/images/img/gudided.png`" loading="lazy" alt="gudided">
+        <figure v-lazyload class="image__wrapper">
+          <ImageSpinner class="image__spinner" />
+          <img class="image__item cards-img" :data-url="`/assets/front/images/img/gudided.png`" alt="gudided GBI">
+        </figure>
+
         <div class="card-block p-top-10">
           <h4 class="card-title">Guided Sightseeing</h4>
           <p class="card-text p-l-r">Experience sightseeing with expert tour guides</p>
@@ -80,7 +95,11 @@
     </div>
     <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`/assets/front/images/img/entrance.png`" loading="lazy" alt="entrance">
+        <figure v-lazyload class="image__wrapper">
+          <ImageSpinner class="image__spinner" />
+          <img class="image__item cards-img" :data-url="`/assets/front/images/img/entrance.png`" alt="entrance GBI">
+        </figure>
+
         <div class="card-block p-top-10">
           <h4 class="card-title">Entrances</h4>
           <p class="card-text p-l-r">Includes entry fees of both domestic as well as international sight scenes.</p>
@@ -89,7 +108,11 @@
     </div>
      <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`/assets/front/images/img/experiential.png`" loading="lazy" alt="experiential">
+        <figure v-lazyload class="image__wrapper">
+          <ImageSpinner class="image__spinner" />
+          <img class="image__item cards-img" :data-url="`/assets/front/images/img/experiential.png`" alt="experiential GBI">
+        </figure>
+
         <div class="card-block p-top-10">
           <h4 class="card-title">Experiential Learning</h4>
           <p class="card-text p-l-r">We compliment classroom learning with a touch of the real</p>
@@ -98,7 +121,11 @@
     </div>
      <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`/assets/front/images/img/emergency-support.png`" loading="lazy" alt="emergency-support">
+        <figure v-lazyload class="image__wrapper">
+          <ImageSpinner class="image__spinner" />
+          <img class="image__item cards-img" :data-url="`/assets/front/images/img/emergency-support.png`" alt="emergency-support GBI">
+        </figure>
+
         <div class="card-block p-top-10">
           <h4 class="card-title">Emergency Support</h4>
           <p class="card-text p-l-r">We provide 24 hours safety and security to our students</p>
@@ -107,7 +134,11 @@
     </div>
      <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`/assets/front/images/img/continous.png`" loading="lazy" alt="continous">
+        <figure v-lazyload class="image__wrapper">
+          <ImageSpinner class="image__spinner" />
+          <img class="image__item cards-img" :data-url="`/assets/front/images/img/continous.png`" alt="continous GBI">
+        </figure>
+
         <div class="card-block p-top-10">
           <h4 class="card-title">Continuous Support</h4>
           <p class="card-text p-l-r">Our GBI team will keep assisting you in every step of your journey with us.</p>
@@ -116,7 +147,11 @@
     </div>
     <div class="col-md-6 col-lg-4">
       <div class="card-container">
-        <img class="cards-img" :src="`/assets/front/images/img/finely.png`" loading="lazy" alt="finely">
+        <figure v-lazyload class="image__wrapper">
+          <ImageSpinner class="image__spinner" />
+          <img class="image__item cards-img" :data-url="`/assets/front/images/img/finely.png`" alt="finely GBI">
+        </figure>
+
         <div class="card-block p-top-10">
           <h4 class="card-title">Finely Curated Programs</h4>
           <p class="card-text p-l-r">Our team offers a number of tour programs covering a wide array of topics.</p>

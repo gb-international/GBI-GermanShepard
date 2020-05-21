@@ -1,18 +1,18 @@
 webpackJsonp([12],{
 
-/***/ 914:
+/***/ 915:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(959)
+  __webpack_require__(960)
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(961)
+var __vue_script__ = __webpack_require__(962)
 /* template */
-var __vue_template__ = __webpack_require__(962)
+var __vue_template__ = __webpack_require__(963)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52,13 +52,13 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 959:
+/***/ 960:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(960);
+var content = __webpack_require__(961);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -79,7 +79,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 960:
+/***/ 961:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(false);
@@ -87,18 +87,38 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 961:
+/***/ 962:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -204,7 +224,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 962:
+/***/ 963:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -246,13 +266,25 @@ var render = function() {
             _vm._v(" "),
             _c("article", { staticClass: "edu-blockcontent" }, [
               _c("div", { staticClass: "col-sm-12" }, [
-                _c("img", {
-                  attrs: {
-                    src: "/assets/front/images/img/edu1.png",
-                    loading: "lazy",
-                    alt: "science"
-                  }
-                }),
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item",
+                      attrs: {
+                        "data-url": "/assets/front/images/img/edu1.png",
+                        alt: "GBI science"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c("h3", [_vm._v("Science and Tech Museum")]),
                 _vm._v(" "),
@@ -269,13 +301,25 @@ var render = function() {
               { staticClass: "edu-blockcontent border-leftcontent" },
               [
                 _c("div", { staticClass: "col-sm-12" }, [
-                  _c("img", {
-                    attrs: {
-                      src: "/assets/front/images/img/edu2.png",
-                      loading: "lazy",
-                      alt: "flora"
-                    }
-                  }),
+                  _c(
+                    "figure",
+                    {
+                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                      staticClass: "image__wrapper"
+                    },
+                    [
+                      _c("ImageSpinner", { staticClass: "image__spinner" }),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "image__item",
+                        attrs: {
+                          "data-url": "/assets/front/images/img/edu2.png",
+                          alt: "GBI flora"
+                        }
+                      })
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c("h3", [_vm._v("Flora and Fauna")]),
                   _vm._v(" "),
@@ -293,13 +337,25 @@ var render = function() {
               { staticClass: "edu-blockcontent border-leftcontent" },
               [
                 _c("div", { staticClass: "col-sm-12" }, [
-                  _c("img", {
-                    attrs: {
-                      src: "/assets/front/images/img/edu3.png",
-                      loading: "lazy",
-                      alt: "adventure"
-                    }
-                  }),
+                  _c(
+                    "figure",
+                    {
+                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                      staticClass: "image__wrapper"
+                    },
+                    [
+                      _c("ImageSpinner", { staticClass: "image__spinner" }),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "image__item",
+                        attrs: {
+                          "data-url": "/assets/front/images/img/edu3.png",
+                          alt: "GBI adventure"
+                        }
+                      })
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c("h3", [_vm._v("Adventure and Activities")]),
                   _vm._v(" "),
@@ -317,13 +373,25 @@ var render = function() {
               { staticClass: "edu-blockcontent border-topcontent" },
               [
                 _c("div", { staticClass: "col-sm-12" }, [
-                  _c("img", {
-                    attrs: {
-                      src: "/assets/front/images/img/edu4.png",
-                      loading: "lazy",
-                      alt: "heritage"
-                    }
-                  }),
+                  _c(
+                    "figure",
+                    {
+                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                      staticClass: "image__wrapper"
+                    },
+                    [
+                      _c("ImageSpinner", { staticClass: "image__spinner" }),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "image__item",
+                        attrs: {
+                          "data-url": "/assets/front/images/img/edu4.png",
+                          alt: "GBI heritage"
+                        }
+                      })
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c("h3", [_vm._v("Heritage Arts and Crafts")]),
                   _vm._v(" "),
@@ -344,13 +412,25 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "col-sm-12" }, [
-                  _c("img", {
-                    attrs: {
-                      src: "/assets/front/images/img/edu5.png",
-                      loading: "lazy",
-                      alt: "brand"
-                    }
-                  }),
+                  _c(
+                    "figure",
+                    {
+                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                      staticClass: "image__wrapper"
+                    },
+                    [
+                      _c("ImageSpinner", { staticClass: "image__spinner" }),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "image__item",
+                        attrs: {
+                          "data-url": "/assets/front/images/img/edu5.png",
+                          alt: "GBI brand"
+                        }
+                      })
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c("h3", [_vm._v("Brand Factories")]),
                   _vm._v(" "),
@@ -371,13 +451,25 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "col-sm-12" }, [
-                  _c("img", {
-                    attrs: {
-                      src: "/assets/front/images/img/edu6.png",
-                      loading: "lazy",
-                      alt: "hisoty"
-                    }
-                  }),
+                  _c(
+                    "figure",
+                    {
+                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                      staticClass: "image__wrapper"
+                    },
+                    [
+                      _c("ImageSpinner", { staticClass: "image__spinner" }),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "image__item",
+                        attrs: {
+                          "data-url": "/assets/front/images/img/edu6.png",
+                          alt: "GBI history"
+                        }
+                      })
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c("h3", [_vm._v("History and Culture")]),
                   _vm._v(" "),

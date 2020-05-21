@@ -36,7 +36,10 @@
           <div class="col-sm-4 states_card" v-for="state in resultQuery">
             <router-link :to="`/encyclopedia/${state.slug}`">
               <div class="card">
-                <img class="card-img-top" :src="getImgUrl(state.thumbnail)" loading="lazy" alt="Encyclopedia image">
+                <figure v-lazyload class="image__wrapper card_image_ency">
+                  <ImageSpinner class="image__spinner" />
+                  <img class="image__item card-img-top" :data-url="getImgUrl(state.thumbnail)" alt="GBI Encyclopedia">
+                </figure>
                 <div class="card-img-overlay text-center">
                    <p class="card-text text-white">{{ state.state_name }}</p>
                 </div>

@@ -1,6 +1,177 @@
 webpackJsonp([23],{
 
 /***/ 1000:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ContactUs",
+  data: function data() {
+    return {
+      form: new Form({
+        name: '',
+        email: '',
+        mobile: '',
+        messagecon: ''
+      })
+    };
+  },
+
+  methods: {
+    sendmail: function sendmail() {
+      this.form.post('/api/contact-us/send').then(function (response) {
+        swal({ text: 'Thank you for contacting us!', width: 300 });
+      }).catch(function () {});
+    }
+  }
+});
+
+/***/ }),
+
+/***/ 1001:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -39,13 +210,30 @@ var render = function() {
                       _c("tbody", [
                         _c("tr", [
                           _c("td", [
-                            _c("img", {
-                              attrs: {
-                                src: "assets/front/images/address_icon.png",
-                                loading: "lazy",
-                                alt: "address"
-                              }
-                            })
+                            _c(
+                              "figure",
+                              {
+                                directives: [
+                                  { name: "lazyload", rawName: "v-lazyload" }
+                                ],
+                                staticClass: "image__wrapper"
+                              },
+                              [
+                                _c("ImageSpinner", {
+                                  staticClass: "image__spinner"
+                                }),
+                                _vm._v(" "),
+                                _c("img", {
+                                  staticClass: "image__item",
+                                  attrs: {
+                                    "data-url":
+                                      "assets/front/images/address_icon.png",
+                                    alt: "address"
+                                  }
+                                })
+                              ],
+                              1
+                            )
                           ]),
                           _vm._v(" "),
                           _c("td", [
@@ -57,13 +245,30 @@ var render = function() {
                         _vm._v(" "),
                         _c("tr", [
                           _c("td", [
-                            _c("img", {
-                              attrs: {
-                                src: "assets/front/images/phone_icon.png",
-                                loading: "lazy",
-                                alt: "address"
-                              }
-                            })
+                            _c(
+                              "figure",
+                              {
+                                directives: [
+                                  { name: "lazyload", rawName: "v-lazyload" }
+                                ],
+                                staticClass: "image__wrapper"
+                              },
+                              [
+                                _c("ImageSpinner", {
+                                  staticClass: "image__spinner"
+                                }),
+                                _vm._v(" "),
+                                _c("img", {
+                                  staticClass: "image__item",
+                                  attrs: {
+                                    "data-url":
+                                      "assets/front/images/phone_icon.png",
+                                    alt: "address"
+                                  }
+                                })
+                              ],
+                              1
+                            )
                           ]),
                           _vm._v(" "),
                           _vm._m(1)
@@ -71,14 +276,30 @@ var render = function() {
                         _vm._v(" "),
                         _c("tr", [
                           _c("td", [
-                            _c("img", {
-                              staticClass: "ic-mail",
-                              attrs: {
-                                src: "assets/front/images/email_icon.png",
-                                loading: "lazy",
-                                alt: "address"
-                              }
-                            })
+                            _c(
+                              "figure",
+                              {
+                                directives: [
+                                  { name: "lazyload", rawName: "v-lazyload" }
+                                ],
+                                staticClass: "image__wrapper"
+                              },
+                              [
+                                _c("ImageSpinner", {
+                                  staticClass: "image__spinner"
+                                }),
+                                _vm._v(" "),
+                                _c("img", {
+                                  staticClass: "image__item ic-mail",
+                                  attrs: {
+                                    "data-url":
+                                      "assets/front/images/email_icon.png",
+                                    alt: "address"
+                                  }
+                                })
+                              ],
+                              1
+                            )
                           ]),
                           _vm._v(" "),
                           _vm._m(2)
@@ -92,14 +313,30 @@ var render = function() {
                       _c("tbody", [
                         _c("tr", [
                           _c("td", [
-                            _c("img", {
-                              staticClass: "ic-add",
-                              attrs: {
-                                src: "assets/front/images/address_icon.png",
-                                loading: "lazy",
-                                alt: "address"
-                              }
-                            })
+                            _c(
+                              "figure",
+                              {
+                                directives: [
+                                  { name: "lazyload", rawName: "v-lazyload" }
+                                ],
+                                staticClass: "image__wrapper"
+                              },
+                              [
+                                _c("ImageSpinner", {
+                                  staticClass: "image__spinner"
+                                }),
+                                _vm._v(" "),
+                                _c("img", {
+                                  staticClass: "image__item ic-add",
+                                  attrs: {
+                                    "data-url":
+                                      "assets/front/images/address_icon.png",
+                                    alt: "address"
+                                  }
+                                })
+                              ],
+                              1
+                            )
                           ]),
                           _vm._v(" "),
                           _c("td", [
@@ -111,14 +348,30 @@ var render = function() {
                         _vm._v(" "),
                         _c("tr", [
                           _c("td", [
-                            _c("img", {
-                              staticClass: "ic-cal-re",
-                              attrs: {
-                                src: "assets/front/images/phone_icon.png",
-                                loading: "lazy",
-                                alt: "number"
-                              }
-                            })
+                            _c(
+                              "figure",
+                              {
+                                directives: [
+                                  { name: "lazyload", rawName: "v-lazyload" }
+                                ],
+                                staticClass: "image__wrapper"
+                              },
+                              [
+                                _c("ImageSpinner", {
+                                  staticClass: "image__spinner"
+                                }),
+                                _vm._v(" "),
+                                _c("img", {
+                                  staticClass: "image__item ic-cal-re",
+                                  attrs: {
+                                    "data-url":
+                                      "assets/front/images/phone_icon.png",
+                                    alt: "number"
+                                  }
+                                })
+                              ],
+                              1
+                            )
                           ]),
                           _vm._v(" "),
                           _vm._m(4)
@@ -413,19 +666,19 @@ if (false) {
 
 /***/ }),
 
-/***/ 917:
+/***/ 918:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(997)
+  __webpack_require__(998)
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(999)
+var __vue_script__ = __webpack_require__(1000)
 /* template */
-var __vue_template__ = __webpack_require__(1000)
+var __vue_template__ = __webpack_require__(1001)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -465,13 +718,13 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 997:
+/***/ 998:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(998);
+var content = __webpack_require__(999);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -492,7 +745,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 998:
+/***/ 999:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(false);
@@ -500,156 +753,10 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
-
-/***/ }),
-
-/***/ 999:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ContactUs",
-  data: function data() {
-    return {
-      form: new Form({
-        name: '',
-        email: '',
-        mobile: '',
-        messagecon: ''
-      })
-    };
-  },
-
-  methods: {
-    sendmail: function sendmail() {
-      this.form.post('/api/contact-us/send').then(function (response) {
-        swal({ text: 'Thank you for contacting us!', width: 300 });
-      }).catch(function () {});
-    }
-  }
-});
 
 /***/ })
 

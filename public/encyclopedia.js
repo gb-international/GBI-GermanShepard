@@ -5050,19 +5050,19 @@ module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u20
 
 /***/ }),
 
-/***/ 915:
+/***/ 916:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(963)
+  __webpack_require__(964)
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(965)
+var __vue_script__ = __webpack_require__(966)
 /* template */
-var __vue_template__ = __webpack_require__(966)
+var __vue_template__ = __webpack_require__(967)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -5102,13 +5102,13 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 963:
+/***/ 964:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(964);
+var content = __webpack_require__(965);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -5129,7 +5129,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 964:
+/***/ 965:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(false);
@@ -5144,7 +5144,7 @@ exports.push([module.i, "\nimg[data-v-a9fa3820]{\r\n  opacity:\n}\r\n", ""]);
 
 /***/ }),
 
-/***/ 965:
+/***/ 966:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5153,6 +5153,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_search_select_dist_VueSearchSelect_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_search_select_dist_VueSearchSelect_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_search_select__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_search_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_search_select__);
+//
+//
+//
 //
 //
 //
@@ -5275,7 +5278,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 966:
+/***/ 967:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -5340,14 +5343,29 @@ var render = function() {
                       { attrs: { to: "/encyclopedia/" + state.slug } },
                       [
                         _c("div", { staticClass: "card" }, [
-                          _c("img", {
-                            staticClass: "card-img-top",
-                            attrs: {
-                              src: _vm.getImgUrl(state.thumbnail),
-                              loading: "lazy",
-                              alt: "Encyclopedia image"
-                            }
-                          }),
+                          _c(
+                            "figure",
+                            {
+                              directives: [
+                                { name: "lazyload", rawName: "v-lazyload" }
+                              ],
+                              staticClass: "image__wrapper card_image_ency"
+                            },
+                            [
+                              _c("ImageSpinner", {
+                                staticClass: "image__spinner"
+                              }),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "image__item card-img-top",
+                                attrs: {
+                                  "data-url": _vm.getImgUrl(state.thumbnail),
+                                  alt: "GBI Encyclopedia"
+                                }
+                              })
+                            ],
+                            1
+                          ),
                           _vm._v(" "),
                           _c(
                             "div",

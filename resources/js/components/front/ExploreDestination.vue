@@ -166,7 +166,11 @@
                     <router-link :to="`/explore-detail/${itinerary.id}`">
                      <div class="card-horizontal">
                         <div class="card-image">
-                          <img :src="`/uploadimage/${itinerary.photo}`" loading="lazy" alt="{itinerary.title}" />
+                          <figure v-lazyload class="image__wrapper">
+                            <ImageSpinner class="image__spinner" />
+                            <img class="image__item" :data-url="`/uploadimage/${itinerary.photo}`" :alt="itinerary.title">
+                          </figure>
+
                         </div>
                          <div class="card-content">
                            <h1>{{itinerary.title | sortlength(35,"")}}</h1> 
@@ -219,7 +223,10 @@
                     <router-link :to="`/explore-detail/${itinerary.id}`">
                      <div class="card-horizontal">
                         <div class="card-image">
-                          <img :src="`/uploadimage/${itinerary.photo}`" loading="lazy" alt="{itinerary.title}" />
+                          <figure v-lazyload class="image__wrapper">
+                            <ImageSpinner class="image__spinner" />
+                            <img class="image__item" :data-url="`/uploadimage/${itinerary.photo}`" :alt="itinerary.title">
+                          </figure>
                         </div>
                          <div class="card-content">
                            <h1>{{itinerary.title | sortlength(35,"")}}</h1> 

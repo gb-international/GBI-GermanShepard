@@ -24,6 +24,10 @@ import { filter } from "./filter";
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
 import vueHeadful from "vue-headful";
+import LazyLoadDirective from "./components/partials/LazyLoadDirective";
+// development warning can be disabled as follows
+Vue.config.productionTip = false;
+Vue.directive("lazyload", LazyLoadDirective);
 
 let token = document.head.querySelector('meta[name="csrf-token"]');
 
