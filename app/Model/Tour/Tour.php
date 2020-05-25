@@ -9,7 +9,7 @@ use App\Model\Itinerary\Itinerary;
 class Tour extends Model
 {
     protected $fillable = [
-        'tour_id','itinerary_id','school_id', 'tour_start_date','tour_end_date','tour_price','status'
+        'tour_id','travel_code','itinerary_id','school_id', 'tour_start_date','tour_end_date','tour_price','status'
     ];
 
     public function itinerary(){
@@ -38,5 +38,10 @@ class Tour extends Model
     {
         return $this->hasMany('App\Model\Reservation\Bookedflight');
     }
+
+    public function travel(){
+        return $this->belongsTo('App\User','travel_code');
+    }
+
 
 }

@@ -98,7 +98,6 @@ Route::namespace('Front')->group(function(){
 	Route::post('/user-logout','FrontUserController@logout');
 	Route::get('/tour-list/{id}','FrontUserController@user_tour_list');
 	Route::get('/userdata/{id}','FrontUserController@userdata');
-	Route::get('/tour-list/{id}','FrontUserController@user_tour_list');
 	Route::post('/join-our-team/send', 'JoinourteamController@resumeSend');
 	Route::post('/contact-us/send', 'JoinourteamController@contactUs');
 	// website
@@ -111,9 +110,12 @@ Route::namespace('Front')->group(function(){
 	Route::group(['middleware' => 'auth:api'], function(){
 		Route::post('details', 'UserController@details');
 		Route::post('/user-show', 'UserController@show');
-		Route::post('/user-infp-update', 'UserController@infoUpdate');
+		Route::post('/user-info-update', 'UserController@infoUpdate');
 		Route::post('/user-update','UserController@update');
 		Route::post('/update-user-image','UserController@UserImage');
+
+		Route::post('/tour-list', 'UserController@tourList');
+		Route::post('/tour-travel-save', 'UserController@tourListSave');
 		// Comments
 		Route::post('/encyclopedia-comments','EncyclopediaController@PostComment');
 	});

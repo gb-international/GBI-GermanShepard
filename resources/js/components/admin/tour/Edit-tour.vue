@@ -26,6 +26,16 @@ to submit the data we are using a function.
                                 <has-error :form="form" field="tour_id"></has-error>
                             </div>
                           </div>
+
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="travel_code">School Travel Code</label>
+                                <input type="text" class="form-control" v-model="form.travel_code" :class="{ 'is-invalid': form.errors.has('travel_code') }"  placeholder="Enter Travel Code to share with school">
+                                <has-error :form="form" field="travel_code"></has-error>
+                            </div>
+                          </div>
+
+                          
                           
                           <div class="col-sm-4">
                             <div class="form-group">
@@ -110,6 +120,7 @@ to submit the data we are using a function.
               tours:[],
               form: new Form({
                 tour_id: '',
+                travel_code:'',
                 itinerary_id:'',
                 school_id: '',
                 tour_start_date: '',

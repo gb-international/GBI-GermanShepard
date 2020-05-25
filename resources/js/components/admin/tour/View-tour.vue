@@ -20,18 +20,25 @@ It takes id from the url and get the data from the api .
 
             <br>
             <div class="row" v-if="tour_view.itinerary">
-              <div class="col-sm-3">
+              <div class="col-sm-6">
                 <h5>Itinerary Title</h5>
                 <p>{{tour_view.itinerary.title }}</p>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-4">
                 <h5>School Name</h5>
                 <p>{{tour_view.school.school_name}}</p>
               </div>
-              <div class="col-sm-3">
+
+              <div class="col-sm-2">
                 <h5>Tour Code</h5>
                 <p>{{tour_view.tour.tour_id}}</p>
               </div>
+              <br>
+              <div class="col-sm-3">
+                <h5>School Travel Code</h5>
+                <p>{{tour_view.tour.travel_code}}</p>
+              </div>
+              
               <div class="col-sm-3">
                 <h5>Tour Start Date</h5>
                 <p>{{tour_view.tour.tour_start_date}}</p>

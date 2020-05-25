@@ -39,7 +39,7 @@ Vue.component("home-main", require("./components/front/layouts/App.vue")),
 Vue.component("gbi-navbar", require("./components/front/layouts/Navbar.vue")),
 Vue.component("gbi-footer", require("./components/front/layouts/Footer.vue")),
 Vue.component("login", require("./components/front/user/Login.vue"));
-
+Vue.component("ImageSpinner",require("./components/partials/ImageSpinner.vue"));
 
 
 import {

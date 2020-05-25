@@ -1,6 +1,6 @@
 
 <template>
-    <div v-if="isVisible" class="loader-overlay">
+    <div class="loader-overlay">
         <div class="loader"></div>
         <span class="text" v-html="text"></span>
     </div>

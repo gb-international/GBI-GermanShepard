@@ -151,7 +151,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var data = { user_profession: this.profession,
         school_id: this.institution,
         institution_code: this.institution_code };
-      axios.post("/api/user-infp-update", data, { headers: { Authorization: 'Bearer ' + localStorage.getItem("access_token") } }).then(function (response) {
+      axios.post("/api/user-info-update", data, { headers: { Authorization: 'Bearer ' + localStorage.getItem("access_token") } }).then(function (response) {
         _this2.$router.push('/dashboard');
       }).catch(function (error) {
         _this2.handleError(error);

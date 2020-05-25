@@ -382,3 +382,17 @@ Information Table
 
     make form in vuejs add those variables in those form and submit post request to laravel.
     
+
+
+
+
+
+
+create a different table for student add it also in tour section
+    ( create a new column in users tabel travel_id )
+          -> user_id, tour_code 
+
+  . user will fill tour code on dashboard ( booked tour par click krne pr pop up will ask travelcode )
+
+
+

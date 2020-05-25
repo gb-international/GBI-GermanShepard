@@ -114,6 +114,7 @@ class TourController extends Controller
             'school_id' => 'required',
             'itinerary_id' => 'required',
             'tour_id' => 'required',
+            'travel_code' => 'required',
             'tour_start_date' => 'required',
             'tour_end_date' => 'required',
             'tour_price' => 'required',

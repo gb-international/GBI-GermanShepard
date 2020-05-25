@@ -50,13 +50,18 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\Encyclopedia\Encyclopediacomment');
     }
 
+    public function UserTravel(){
+        return $this->hasMany('App\Model\Tour\TourUser','user_id')->orderBy('created_at','DESC');
+    }
+
     public function getAllPermissionsAttribute() {
-      $permissions = [];
+        $permissions = [];
         foreach (Permission::all() as $permission) {
-          if (Auth::user()->can($permission->name)) {
-            $permissions[] = $permission->name;
-          }
+            if (Auth::user()->can($permission->name)) {
+                $permissions[] = $permission->name;
+            }
         }
         return $permissions;
     }
+
 }

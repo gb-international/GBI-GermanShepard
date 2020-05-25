@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; 
 use App\User;
 use App\Model\User\Information;
+use App\Model\Tour\TourUser;
+use App\Model\Tour\Tour;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use DB;
@@ -21,7 +23,7 @@ class UserController extends Controller{
     public $successStatus = 200;
     private $id = 'csrikhi@gbinternational.in';
     private $pwd = 'Roger224225g32@';
-/** 
+    /** 
      * login api 
      * 
      * @return \Illuminate\Http\Response 
@@ -37,7 +39,7 @@ class UserController extends Controller{
             return response()->json(['error'=>'Unauthorised'], 401); 
         } 
     }
-/** 
+    /** 
      * Register api 
      * 
      * @return \Illuminate\Http\Response 
@@ -160,9 +162,6 @@ class UserController extends Controller{
         $information = $user->information;
         return response()->json(['success' => $user], $this-> successStatus); 
     }
-
-
-
     /// user more information on model from model
     public function infoUpdate(Request $request){
         $user = Auth::user();
@@ -175,5 +174,29 @@ class UserController extends Controller{
         $information->institution_code = $request->institution_code;
         $user->save();
         return response()->json('success');
+    }
+    public function tourList(Request $request){
+        $user = Auth::user();
+        $travel = $user->UserTravel->first();
+        $tour = Tour::with('itinerary','itinerary.itinerarydays')->where("travel_code",$travel->travel_code)->get();
+        return response()->json($tour);        
+    }
+
+    public function tourListSave(Request $request){
+        $this->validate($request, [ 
+            'travel_code' => 'required',
+        ]);
+        $user = Auth::user();
+        $data = ['user_id'=>$user->id,'travel_code'=>$request->travel_code];
+        $travel = TourUser::where($data)->get();
+        if(count($travel) != 0){
+            return response()->json('error');
+        }
+        $tour = Tour::where('travel_code',$request->travel_code)->get();
+        if(count($tour) == 0){
+            return response()->json('error');
+        }        
+        TourUser::create($data);
+        return response()->json(['success'=>"success"]);   
     }
 }

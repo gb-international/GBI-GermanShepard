@@ -167,6 +167,7 @@
                      <div class="card-horizontal">
                         <div class="card-image">
                           <figure v-lazyload class="image__wrapper">
+                            
                             <ImageSpinner class="image__spinner" />
                             <img class="image__item" :data-url="`/uploadimage/${itinerary.photo}`" :alt="itinerary.title">
                           </figure>

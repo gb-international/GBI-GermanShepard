@@ -98,7 +98,7 @@ export default {
       {user_profession : this.profession,
       school_id : this.institution,
       institution_code : this.institution_code};
-    axios.post("/api/user-infp-update", data, { headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }}).then(response => {
+    axios.post("/api/user-info-update", data, { headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }}).then(response => {
           this.$router.push('/dashboard');
         }).catch(error => {
           this.handleError(error);

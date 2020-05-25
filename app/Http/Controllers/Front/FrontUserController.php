@@ -67,17 +67,6 @@ class FrontUserController extends Controller
         $more->save();
         return response()->json('Successfully Registered !!!');
     }
-
-    // Get the user Tour list 
-    public function user_tour_list($id){
-
-    	$data = Tour::leftjoin('itineraries', 'itineraries.id', '=', 'tours.itinerary_id')
-    	->select('itineraries.source','itineraries.destination','itineraries.title','itineraries.photo','tours.id','tours.tour_start_date','tours.tour_end_date','tours.status')
-		    ->where('tours.client_id',$id)->orderBy('tours.id')->get();
-
-		return response()->json($data);
-    }
-
     public function userdata($id){
     	//$id = Auth::user()->id;
     	if(isset($id)){

@@ -22333,6 +22333,15 @@ a:hover {
   margin-top: 60px;
 }
 
+#itinerary_detail_list {
+  min-height: 140px;
+}
+
+.input-border {
+  border: 1px solid lightgrey !important;
+  height: 45px;
+}
+
 .banner_img {
   background-size: cover;
 }
