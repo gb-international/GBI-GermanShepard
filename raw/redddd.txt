@@ -396,3 +396,10 @@ create a different table for student add it also in tour section
 
 
 
+iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+
+add column image in hotel
+show hotel
+show icons to user dashboard.
+
+

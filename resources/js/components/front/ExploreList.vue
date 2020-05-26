@@ -9,8 +9,7 @@
               <!--  serach itinerary list in serach bar-->
               <div class="col-10 search-p-top">
                 <div class="input-group">
-                    <input class="form-control border-secondary py-2 explo-list-search" v-model="keyword" @keyup="RealSearch" type="search" placeholder="Search your itinerary"> 
-                         <i class="fa fa-search icon-search"></i>
+                    <input class="form-control border-secondary py-2 h-45 explo-list-search" v-model="keyword" @keyup="RealSearch" type="search" placeholder="Search your itinerary"> 
                   </div>
               </div>
             </div>

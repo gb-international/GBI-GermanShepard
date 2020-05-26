@@ -95,9 +95,8 @@ data from the api to display the data about the Hotel from the backend .
           }).then((result) => {
             if (result.value) {
               axios.delete(uri).then((response)=>{
-                this.$store.dispatch('getAllData','/api/hotels')
-                      //response contains your data sent front your controller/route
-                  })
+                this.hotelData();
+              })
               swal.fire(
                 'Deleted!',
                 'Your file has been deleted.',

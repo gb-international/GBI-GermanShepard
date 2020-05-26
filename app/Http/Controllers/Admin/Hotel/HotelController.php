@@ -9,7 +9,7 @@ use App\Http\Resources\HotelCollection;
 use App\Model\Hotel\hotel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Image;
 class HotelController extends Controller
 {
     /**
@@ -40,7 +40,23 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        hotel::create($this->validateHotel($request));
+       $hotel = hotel::create($this->validateHotel($request));
+
+       if($request->image!=$hotel->image){
+            $strpos = strpos($request->image,';');
+            $sub = substr($request->image,0,$strpos);
+            $ex = explode('/',$sub)[1];
+            $name = time().".".$ex;
+            $img = Image::make($request->image)->resize(210, 120);
+            $upload_path = public_path()."/images/hotel/";
+            $image = $upload_path. $hotel->image;
+            $img->save($upload_path.$name);
+        }else{
+            $name = $hotel->image;
+        }
+        $hotel->image = $name;
+        $hotel->save();
+
         return response()->json(['Message'=> 'Successfully Added...']);
     }
 
@@ -75,7 +91,28 @@ class HotelController extends Controller
      */
     public function update(Request $request, hotel $hotel)
     {
+
         $data = $hotel->update($this->validateHotel($request));
+        if($request->image!=$hotel->image){
+            $strpos = strpos($request->image,';');
+            $sub = substr($request->image,0,$strpos);
+            $ex = explode('/',$sub)[1];
+            $name = time().".".$ex;
+            $img = Image::make($request->image)->resize(210, 120);
+            $upload_path = public_path()."/images/hotel/";
+            $image = $upload_path. $hotel->image;
+            $img->save($upload_path.$name);
+
+            if(file_exists($image)){
+                @unlink($image);
+            }
+        }else{
+            $name = $hotel->image;
+        }
+        $hotel->image = $name;
+        $hotel->save();
+
+
         return response()->json(['message'=>$data]);
     }
 

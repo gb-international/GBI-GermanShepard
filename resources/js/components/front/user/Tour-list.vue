@@ -2,27 +2,36 @@
   <div class="container" id="itinerary_detail_list">
     <a data-toggle="modal" id="tourModel" data-target="#tourCode" class="btn btn-info text-white float-right"> Enter Tour Code </a>
     <div v-if="alldata.length">
-
-         <h1 class="main-head">{{itineraryData.title}}</h1>
-         <div class="text-center description">
-          <p v-html="itineraryData.description"></p>            
-         </div>
-
-          <div class="row" id="explore_detail_part">
-
-            <div class="col-sm-4" v-for="data in itineraryData.itinerarydays">
-
-              <h4 class="day_tab">Day {{ data.day}}</h4>
-              <h1 class="explor-head" v-if="data.day_source != data.day_destination">{{data.day_source.toUpperCase() }} - {{data.day_destination.toUpperCase()}}</h1>
-              <h1 class="explor-head" v-else>{{ data.day_source.toUpperCase() }}</h1>
-              <div class="card-text" v-html="data.day_description"></div>
-            </div>           
-
-        </div>
+      <h1 class="main-head">{{itineraryData.title}}</h1>
+      <div class="text-center description">
+        <p v-html="itineraryData.description"></p>            
+      </div>
+      <div class="row" id="explore_detail_part">
+        <div class="col-sm-4" v-for="data in itineraryData.itinerarydays">
+          <h4 class="day_tab">Day {{ data.day}}</h4>
+          <h1 class="explor-head" v-if="data.day_source != data.day_destination">{{data.day_source.toUpperCase() }} - {{data.day_destination.toUpperCase()}}</h1>
+          <h1 class="explor-head" v-else>{{ data.day_source.toUpperCase() }}</h1>
+          <div class="card-text" v-html="data.day_description"></div>
+        </div>           
+      </div>
     </div>
     <div class="text-center" v-else>
       <h3 class="text-center">You Don't Have Active Tour</h3>
     </div>
+
+    <div class="row">
+      <div class="text-center">THINGS TO CARRY</div>
+      <div class="col-sm-4">
+        
+      </div>
+    </div>
+
+
+
+
+
+
+
 
     <div class="modal fade" id="tourCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">

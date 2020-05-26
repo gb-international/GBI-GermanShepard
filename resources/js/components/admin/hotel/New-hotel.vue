@@ -84,7 +84,8 @@ to submit the data we are using a function.
                         </div>
 
                         <div class="row">
-                          <div class="col-sm-6">
+
+                          <div class="col-sm-4">
                             <div class="form-group">
                               <label for="city">City</label>
                               <input type="text" class="form-control" placeholder="Enter City"  id="city" name="city" v-model="form.city" :class="{ 'is-invalid': form.errors.has('city') }">
@@ -92,10 +93,26 @@ to submit the data we are using a function.
                               </div>
                           </div>
 
-                          <div class="col-sm-6">
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="image">Image</label><br>
+                              <input @change = "changeDetailPhoto($event)" name="image" type="file" :class="{ 'is-invalid': form.errors.has('image') }">
+                                <has-error :form="form" field="image"></has-error>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label for="image"></label><br>
+                                <img :src="img_image" alt="" class="image">
+                                <has-error :form="form" field="image"></has-error>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-8">
                             <div class="form-group">
                               <label for="address">Address</label>
-                              <input type="text" class="form-control" placeholder="Enter Address"  id="address" name="address" v-model="form.address" :class="{ 'is-invalid': form.errors.has('address') }">
+                              <textarea class="form-control" placeholder="Enter Address"  id="address" name="address" v-model="form.address" :class="{ 'is-invalid': form.errors.has('address') }"></textarea>
                                 <has-error :form="form" field="address"></has-error>
                               </div>
                           </div>                          
@@ -230,11 +247,13 @@ export default {
   data(){
     return {
       // Create a new form instance
+      img_image:'',
       form: new Form({
         type: '',
         name: '',
         state: '',
         city: '',
+        image:'',
         room: '',
         phoneno: '',
         email: '',
@@ -259,23 +278,23 @@ export default {
   },
   methods:
   {
-    changePhoto(event){
+    changeDetailPhoto(event){
       let file = event.target.files[0];
-       if(file.size>1048576){
-           swal({
-               type: 'error',
-               title: 'Oops...',
-               text: 'Something went wrong!',
-               footer: '<a href>Why do I have this issue?</a>'
-           })
-       }else{
-           let reader = new FileReader();
-           reader.onload = event => {
-               this.form.photo = event.target.result
-               console.log(event.target.result)
-           };
-           reader.readAsDataURL(file);
-       }
+         if(file.size>10048576){
+             swal({
+                 type: 'error',
+                 title: 'Oops...',
+                 text: 'Something went wrong!',
+                 footer: '<a href>Why do I have this issue?</a>'
+             })
+         }else{
+             let reader = new FileReader();
+             reader.onload = event => {
+                 this.form.image = event.target.result
+                 this.img_image = this.form.image;
+             };
+             reader.readAsDataURL(file);
+         }
     },
     addHotel()
     {
@@ -293,5 +312,7 @@ export default {
 </script>
 
 <style scoped>
-
+.image{
+  width: 100%;
+}
 </style>  
