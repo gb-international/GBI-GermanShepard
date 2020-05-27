@@ -21974,60 +21974,84 @@ a:hover {
   }
 }
 
-#itinerary_detail_list .active {
-  background-color: #91c95a;
-}
-
-#itinerary_detail_list .active h2,
-#itinerary_detail_list .active p {
-  color: #236f49;
-}
-
-#itinerary_detail_list .active span {
-  color: white;
-}
-
-#itinerary_detail_list .inactive {
-  background-color: #e1e1e1;
-  color: #646464;
-}
-
-#itinerary_detail_list .inactive span {
-  color: #949494;
-}
-
-#itinerary_detail_list .list {
-  border-radius: 4px;
-}
-
-#itinerary_detail_list .list p {
-  font-size: 15px;
-}
-
-#itinerary_detail_list .list h2 {
-  font-size: 20px;
-}
-
-#itinerary_detail_list .list span {
-  font-size: 12px;
-}
-
-#itinerary_detail_list .list .list_text {
+#itinerary_detail_list .list_text {
   padding: 20px 25px;
   width: 70%;
   float: left;
 }
 
-#itinerary_detail_list .list .list_img {
+#itinerary_detail_list .list_img {
   padding: 0px  3px 2px;
   width: 30%;
   float: right;
 }
 
-#itinerary_detail_list .list .list_img img {
+#itinerary_detail_list .list_img img {
   border-radius: 4px;
   width: 94%;
   margin-top: 3px;
+}
+
+#itinerary_detail_list .hotel-section .hotel-card {
+  padding: 10px;
+  border: 1px solid lightgrey;
+}
+
+#itinerary_detail_list .hotel-section .hotel-card p {
+  margin: 3px 0px !important;
+  font-size: 13px;
+}
+
+#itinerary_detail_list .hotel-section .hotel-card span {
+  float: right;
+}
+
+#itinerary_detail_list .hotel-section .hotel-card .hotel_info {
+  margin-top: 9px;
+}
+
+#itinerary_detail_list .hotel-section .hotel-card .star-rating {
+  color: gold;
+  display: inline-block;
+  font-size: 12px;
+  position: relative;
+  -webkit-transform: translate(-6px);
+          transform: translate(-6px);
+}
+
+#itinerary_detail_list .hotel-section .hotel-card .star-rating__max,
+#itinerary_detail_list .hotel-section .hotel-card .star-rating__current {
+  position: absolute;
+  top: 0;
+}
+
+#itinerary_detail_list .hotel-section .hotel-card .star-rating__current {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#itinerary_detail_list .things-to-carrry {
+  text-align: center;
+}
+
+#itinerary_detail_list .things-to-carrry .col-sm-4 {
+  border: 1px solid lightgrey;
+}
+
+#itinerary_detail_list .things-to-carrry .item {
+  padding: 30px;
+}
+
+#itinerary_detail_list .things-to-carrry .item p {
+  margin-top: 10px;
+}
+
+#itinerary_detail_list .things-to-carrry .item .bottel {
+  width: 35px;
+}
+
+#itinerary_detail_list .things-to-carrry .item .common {
+  width: 70px;
 }
 
 @media screen and (min-width: 340px) and (max-width: 800px) {
@@ -34482,5 +34506,11 @@ i {
 
 .how-we-work {
   padding: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  #frontmaster {
+    margin-bottom: 40px;
+  }
 }
 

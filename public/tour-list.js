@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n.main-head[data-v-3c548480]{\n  text-decoration: underline;\n}\n.description[data-v-3c548480]{\n  width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.main-head[data-v-3c548480]{\n  text-decoration: underline;\n}\n.description[data-v-3c548480]{\n  width: 100%;\n}\n\n", ""]);
 
 // exports
 
@@ -108,14 +108,84 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
+// import StarRating from './components/partials/StarRating.vue';
 /* harmony default export */ __webpack_exports__["default"] = ({
+
   name: "Tour-detail",
+
   data: function data() {
     return {
+      max: 5,
+      current: 3,
       oddclass: false,
       evenclass: true,
       itineraryData: {},
+      hotelData: '',
       alldata: [],
       form: new Form({
         travel_code: ''
@@ -129,7 +199,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     this.tourListData();
   },
 
+
   methods: {
+    dateFormat: function dateFormat(date) {
+      return new Date(date).toDateString();
+    },
+
+    getRating: function getRating(current) {
+      return current / this.max * 100;
+    },
+    integer: function integer(num) {
+      return parseInt(num);
+    },
     tourListData: function tourListData() {
       var _this = this;
 
@@ -137,11 +218,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       axios.post("/api/tour-list", data, {
         headers: { Authorization: 'Bearer ' + localStorage.getItem("access_token") } }).then(function (response) {
         _this.alldata = response.data;
+        console.log(response);
         if (response.data.length == 0) {
           $("#tourModel").click();
         } else {
           _this.alldata = response.data;
           _this.itineraryData = response.data[0].itinerary;
+          _this.hotelData = response.data[0].bookedhotels;
         }
       }).catch(function (error) {
         _this.handleError(error);
@@ -184,10 +267,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container", attrs: { id: "itinerary_detail_list" } },
-    [
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { attrs: { id: "itinerary_detail_list" } }, [
       _c(
         "a",
         {
@@ -202,7 +283,7 @@ var render = function() {
       ),
       _vm._v(" "),
       _vm.alldata.length
-        ? _c("div", [
+        ? _c("div", { attrs: { id: "roadmap" } }, [
             _c("h1", { staticClass: "main-head" }, [
               _vm._v(_vm._s(_vm.itineraryData.title))
             ]),
@@ -250,6 +331,89 @@ var render = function() {
           ]),
       _vm._v(" "),
       _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "hotel-section" }, [
+        _c("h3", { staticClass: "text-center" }, [
+          _vm._v("YOU WILL STAY HERE")
+        ]),
+        _vm._v(" "),
+        _vm.hotelData
+          ? _c(
+              "div",
+              { staticClass: "row justify-content-center" },
+              _vm._l(_vm.hotelData, function(hotel) {
+                return _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "hotel-card" }, [
+                    _c("img", {
+                      attrs: { src: "/images/hotel/1590495923.png" }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col hotel_info" }, [
+                        _c("p", [
+                          _c("b", [_vm._v("Hotel Name")]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _c(
+                              "div",
+                              { staticClass: "star-rating" },
+                              [
+                                _vm._l(_vm.max, function(n) {
+                                  return _c("span", [_vm._v("☆")])
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "star-rating__current",
+                                    style: {
+                                      width:
+                                        _vm.getRating(hotel.hotel.type) + "%"
+                                    }
+                                  },
+                                  _vm._l(
+                                    _vm.integer(hotel.hotel.type),
+                                    function(n) {
+                                      return _c("span", [_vm._v("★")])
+                                    }
+                                  ),
+                                  0
+                                )
+                              ],
+                              2
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(_vm._s(hotel.hotel.name)),
+                          _c("span", [
+                            _c("b", [_vm._v("Check in date")]),
+                            _vm._v(
+                              ": " + _vm._s(_vm.dateFormat(hotel.check_in))
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("b", [_vm._v("Days stay")]),
+                          _vm._v(" : 2 "),
+                          _c("span", [
+                            _c("b", [_vm._v("Check out date")]),
+                            _vm._v(
+                              ": " + _vm._s(_vm.dateFormat(hotel.check_out))
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              }),
+              0
+            )
+          : _vm._e()
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -330,18 +494,86 @@ var render = function() {
           )
         ]
       )
-    ]
-  )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "text-center" }, [_vm._v("THINGS TO CARRY")]),
+    return _c("div", { staticClass: "things-to-carrry" }, [
+      _c("h3", { staticClass: "text-center" }, [_vm._v("THINGS TO CARRY")]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-4" })
+      _c("div", { staticClass: "row align-items-center" }, [
+        _c("div", { staticClass: "col-sm-4" }, [
+          _c("div", { staticClass: "item" }, [
+            _c("img", {
+              staticClass: "bottel",
+              attrs: { src: "/images/tour/bottel.png" }
+            }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Water Bottel")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-4" }, [
+          _c("div", { staticClass: "item text-center" }, [
+            _c("img", {
+              staticClass: "common",
+              attrs: { src: "/images/tour/shoes.png" }
+            }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Light Shoes")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-4" }, [
+          _c("div", { staticClass: "item" }, [
+            _c("img", {
+              staticClass: "common",
+              attrs: { src: "/images/tour/tourch.png" }
+            }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Tourch")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-4" }, [
+          _c("div", { staticClass: "item text-center" }, [
+            _c("img", {
+              staticClass: "common",
+              attrs: { src: "/images/tour/towel.png" }
+            }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Towel")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-4" }, [
+          _c("div", { staticClass: "item" }, [
+            _c("img", {
+              staticClass: "common",
+              attrs: { src: "/images/tour/umbrelaa.png" }
+            }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Umbrelaa")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-4" }, [
+          _c("div", { staticClass: "item" }, [
+            _c("img", {
+              staticClass: "common",
+              attrs: { src: "/images/tour/jacket.png" }
+            }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Jacket")])
+          ])
+        ])
+      ])
     ])
   },
   function() {
