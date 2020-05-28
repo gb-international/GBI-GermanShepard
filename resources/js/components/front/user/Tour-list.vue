@@ -63,6 +63,7 @@
             </div>
           </div>
         </div>
+<<<<<<< HEAD
               
       </div>  
 
@@ -86,6 +87,31 @@
 
                   <p>{{ hotel.hotel.name }}<span><b>Check in date</b>: {{ dateFormat(hotel.check_in) }}</span></p>
                   <p><b>Days stay</b> : 2 <span><b>Check out date</b>: {{ dateFormat(hotel.check_out) }}</span></p>
+=======
+
+
+        <div class="airline-section mb-35">
+          <h3 class="text-center mb-35">AIRLINES DETAILS</h3>
+          <div class="row justify-content-center" v-if="hotelData">
+            <div class="col-sm-4" v-for="hotel in hotelData">
+              <div class="hotel-card">
+                <img src="/images/hotel/1590495923.png">
+                <div class="row">
+                  <div class="col hotel_info">
+                    <div class="rating-hotel">
+                      <p><b>Hotel Name</b> <label><div class="star-rating">
+                          <span v-for="n in max">&star;</span>
+                            <div class="star-rating__current" :style="{width: getRating(hotel.hotel.type) + '%'}">
+                              <span v-for="n in integer(hotel.hotel.type)">&starf;</span>
+                            </div>
+                          </div></label>
+                      </p>                    
+                    </div>
+
+                    <p>{{ hotel.hotel.name }}<label><b>Check in date</b>: {{ dateFormat(hotel.check_in) }}</label></p>
+                    <p><b>Days stay</b> : {{ days(hotel.check_in,hotel.check_out) }} <label><b>Check out date</b>: {{ dateFormat(hotel.check_out) }}</label></p>
+                  </div>
+>>>>>>> a844d94c... 'ad'
                 </div>
               </div>
             </div>

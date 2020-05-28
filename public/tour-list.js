@@ -172,6 +172,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 // import StarRating from './components/partials/StarRating.vue';
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -263,362 +289,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ 1051:
 /***/ (function(module, exports, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { attrs: { id: "itinerary_detail_list" } }, [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-info text-white float-right",
-          attrs: {
-            "data-toggle": "modal",
-            id: "tourModel",
-            "data-target": "#tourCode"
-          }
-        },
-        [_vm._v(" Enter Tour Code ")]
-      ),
-      _vm._v(" "),
-      _vm.alldata.length
-        ? _c("div", { attrs: { id: "roadmap" } }, [
-            _c("h1", { staticClass: "main-head" }, [
-              _vm._v(_vm._s(_vm.itineraryData.title))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-center description" }, [
-              _c("p", {
-                domProps: { innerHTML: _vm._s(_vm.itineraryData.description) }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "row", attrs: { id: "explore_detail_part" } },
-              _vm._l(_vm.itineraryData.itinerarydays, function(data) {
-                return _c("div", { staticClass: "col-sm-4" }, [
-                  _c("h4", { staticClass: "day_tab" }, [
-                    _vm._v("Day " + _vm._s(data.day))
-                  ]),
-                  _vm._v(" "),
-                  data.day_source != data.day_destination
-                    ? _c("h1", { staticClass: "explor-head" }, [
-                        _vm._v(
-                          _vm._s(data.day_source.toUpperCase()) +
-                            " - " +
-                            _vm._s(data.day_destination.toUpperCase())
-                        )
-                      ])
-                    : _c("h1", { staticClass: "explor-head" }, [
-                        _vm._v(_vm._s(data.day_source.toUpperCase()))
-                      ]),
-                  _vm._v(" "),
-                  _c("div", {
-                    staticClass: "card-text",
-                    domProps: { innerHTML: _vm._s(data.day_description) }
-                  })
-                ])
-              }),
-              0
-            )
-          ])
-        : _c("div", { staticClass: "text-center" }, [
-            _c("h3", { staticClass: "text-center" }, [
-              _vm._v("You Don't Have Active Tour")
-            ])
-          ]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "hotel-section" }, [
-        _c("h3", { staticClass: "text-center" }, [
-          _vm._v("YOU WILL STAY HERE")
-        ]),
-        _vm._v(" "),
-        _vm.hotelData
-          ? _c(
-              "div",
-              { staticClass: "row justify-content-center" },
-              _vm._l(_vm.hotelData, function(hotel) {
-                return _c("div", { staticClass: "col-sm-4" }, [
-                  _c("div", { staticClass: "hotel-card" }, [
-                    _c("img", {
-                      attrs: { src: "/images/hotel/1590495923.png" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col hotel_info" }, [
-                        _c("p", [
-                          _c("b", [_vm._v("Hotel Name")]),
-                          _vm._v(" "),
-                          _c("span", [
-                            _c(
-                              "div",
-                              { staticClass: "star-rating" },
-                              [
-                                _vm._l(_vm.max, function(n) {
-                                  return _c("span", [_vm._v("☆")])
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "star-rating__current",
-                                    style: {
-                                      width:
-                                        _vm.getRating(hotel.hotel.type) + "%"
-                                    }
-                                  },
-                                  _vm._l(
-                                    _vm.integer(hotel.hotel.type),
-                                    function(n) {
-                                      return _c("span", [_vm._v("★")])
-                                    }
-                                  ),
-                                  0
-                                )
-                              ],
-                              2
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(_vm._s(hotel.hotel.name)),
-                          _c("span", [
-                            _c("b", [_vm._v("Check in date")]),
-                            _vm._v(
-                              ": " + _vm._s(_vm.dateFormat(hotel.check_in))
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _c("b", [_vm._v("Days stay")]),
-                          _vm._v(" : 2 "),
-                          _c("span", [
-                            _c("b", [_vm._v("Check out date")]),
-                            _vm._v(
-                              ": " + _vm._s(_vm.dateFormat(hotel.check_out))
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              }),
-              0
-            )
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "tourCode",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "myModalLabel",
-            "aria-hidden": "true"
-          }
-        },
-        [
-          _c(
-            "div",
-            { staticClass: "modal-dialog", attrs: { role: "document" } },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c(
-                  "form",
-                  {
-                    staticClass: "form",
-                    attrs: { method: "post" },
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.UserTourSave()
-                      }
-                    }
-                  },
-                  [
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "modal-body" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("label", { attrs: { for: "tour_code" } }, [
-                          _vm._v("Travel Code")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.travel_code,
-                              expression: "form.travel_code"
-                            }
-                          ],
-                          staticClass: "form-control input-border",
-                          attrs: {
-                            type: "text",
-                            placeholder: "Enter travel code",
-                            required: ""
-                          },
-                          domProps: { value: _vm.form.travel_code },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "travel_code",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(2)
-                  ]
-                )
-              ])
-            ]
-          )
-        ]
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "things-to-carrry" }, [
-      _c("h3", { staticClass: "text-center" }, [_vm._v("THINGS TO CARRY")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row align-items-center" }, [
-        _c("div", { staticClass: "col-sm-4" }, [
-          _c("div", { staticClass: "item" }, [
-            _c("img", {
-              staticClass: "bottel",
-              attrs: { src: "/images/tour/bottel.png" }
-            }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Water Bottel")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-4" }, [
-          _c("div", { staticClass: "item text-center" }, [
-            _c("img", {
-              staticClass: "common",
-              attrs: { src: "/images/tour/shoes.png" }
-            }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Light Shoes")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-4" }, [
-          _c("div", { staticClass: "item" }, [
-            _c("img", {
-              staticClass: "common",
-              attrs: { src: "/images/tour/tourch.png" }
-            }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Tourch")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-4" }, [
-          _c("div", { staticClass: "item text-center" }, [
-            _c("img", {
-              staticClass: "common",
-              attrs: { src: "/images/tour/towel.png" }
-            }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Towel")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-4" }, [
-          _c("div", { staticClass: "item" }, [
-            _c("img", {
-              staticClass: "common",
-              attrs: { src: "/images/tour/umbrelaa.png" }
-            }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Umbrelaa")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-4" }, [
-          _c("div", { staticClass: "item" }, [
-            _c("img", {
-              staticClass: "common",
-              attrs: { src: "/images/tour/jacket.png" }
-            }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Jacket")])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", id: "CloseModel", "data-dismiss": "modal" }
-        },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Save")]
-      )
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
+module.exports={render:function(){},staticRenderFns:[]}
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
