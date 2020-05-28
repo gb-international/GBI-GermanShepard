@@ -21974,22 +21974,38 @@ a:hover {
   }
 }
 
-#itinerary_detail_list .list_text {
-  padding: 20px 25px;
-  width: 70%;
-  float: left;
+#itinerary_detail_list #roadmap ul.timeline {
+  list-style-type: none;
+  position: relative;
 }
 
-#itinerary_detail_list .list_img {
-  padding: 0px  3px 2px;
-  width: 30%;
-  float: right;
+#itinerary_detail_list #roadmap ul.timeline:before {
+  content: ' ';
+  background: #d4d9df;
+  display: inline-block;
+  position: absolute;
+  left: 29px;
+  width: 2px;
+  height: 100%;
+  z-index: 400;
 }
 
-#itinerary_detail_list .list_img img {
-  border-radius: 4px;
-  width: 94%;
-  margin-top: 3px;
+#itinerary_detail_list #roadmap ul.timeline > li {
+  margin: 20px 0;
+  padding-left: 60px;
+}
+
+#itinerary_detail_list #roadmap ul.timeline > li:before {
+  content: ' ';
+  background: white;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #22c0e8;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  z-index: 400;
 }
 
 #itinerary_detail_list .hotel-section .hotel-card {
@@ -22002,8 +22018,10 @@ a:hover {
   font-size: 13px;
 }
 
-#itinerary_detail_list .hotel-section .hotel-card span {
+#itinerary_detail_list .hotel-section .hotel-card label {
   float: right;
+  margin-bottom: 0px !important;
+  font-weight: normal;
 }
 
 #itinerary_detail_list .hotel-section .hotel-card .hotel_info {
@@ -22013,7 +22031,7 @@ a:hover {
 #itinerary_detail_list .hotel-section .hotel-card .star-rating {
   color: gold;
   display: inline-block;
-  font-size: 12px;
+  font-size: 15px;
   position: relative;
   -webkit-transform: translate(-6px);
           transform: translate(-6px);
@@ -22035,7 +22053,7 @@ a:hover {
 }
 
 #itinerary_detail_list .things-to-carrry .col-sm-4 {
-  border: 1px solid lightgrey;
+  min-height: 160px;
 }
 
 #itinerary_detail_list .things-to-carrry .item {
@@ -22044,63 +22062,46 @@ a:hover {
 
 #itinerary_detail_list .things-to-carrry .item p {
   margin-top: 10px;
+  font-style: normal;
 }
 
 #itinerary_detail_list .things-to-carrry .item .bottel {
-  width: 35px;
+  width: 18px;
 }
 
 #itinerary_detail_list .things-to-carrry .item .common {
-  width: 70px;
+  width: 45px;
 }
 
-@media screen and (min-width: 340px) and (max-width: 800px) {
+#itinerary_detail_list .things-to-carrry .item .shoes {
+  margin-top: 24px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 800px) {
   #itinerary_detail_list {
     padding: 5px;
   }
 
-  #itinerary_detail_list .list p {
-    font-size: 13px;
+  #itinerary_detail_list .shoes {
+    margin-top: 25px !important;
   }
 
-  #itinerary_detail_list .list h2 {
-    font-size: 16px;
+  #itinerary_detail_list .things-to-carrry .mb-bottom {
+    border-bottom: 1px solid lightgrey;
   }
 
-  #itinerary_detail_list .list span {
-    font-size: 10px;
-  }
-
-  #itinerary_detail_list .list .list_text {
-    padding: 10px 20px;
-    width: 60%;
-  }
-
-  #itinerary_detail_list .list .list_img {
-    width: 40%;
-    padding: 0px;
-  }
-
-  #itinerary_detail_list .list .list_img img {
-    padding-right: 5px;
-    margin-top: 0px;
+  #itinerary_detail_list .things-to-carrry .mb-right {
+    border-right: 1px solid lightgrey;
   }
 }
 
-@media screen and (min-width: 800px) and (max-width: 1024px) {
-  #itinerary_detail_list .list .list_text {
-    width: 60%;
-    float: left;
+@media screen and (min-width: 800px) {
+  #itinerary_detail_list .bottom-border {
+    border-bottom: 1px solid lightgrey;
   }
 
-  #itinerary_detail_list .list .list_img {
-    width: 40%;
-    float: right;
-  }
-
-  #itinerary_detail_list .list .list_img img {
-    border-radius: 4px;
-    width: 94%;
+  #itinerary_detail_list .border-right {
+    border-right: 1px solid lightgrey;
   }
 }
 

@@ -1,21 +1,35 @@
 #itinerary_detail_list{
-	.list_text{
-		padding: 20px 25px;
-		width: 70%;
-	    float: left;
-	}
-	.list_img{
-		padding: 0px  3px 2px;
-		width: 30%;
-	    float: right;
-		img{
-			border-radius:4px;
-			width: 94%;
-			margin-top: 3px;
-		}
-	}
 	#roadmap{
-
+		ul.timeline {
+		    list-style-type: none;
+		    position: relative;
+		}
+		ul.timeline:before {
+		    content: ' ';
+		    background: #d4d9df;
+		    display: inline-block;
+		    position: absolute;
+		    left: 29px;
+		    width: 2px;
+		    height: 100%;
+		    z-index: 400;
+		}
+		ul.timeline > li {
+		    margin: 20px 0;
+		    padding-left: 60px;
+		}
+		ul.timeline > li:before {
+		    content: ' ';
+		    background: white;
+		    display: inline-block;
+		    position: absolute;
+		    border-radius: 50%;
+		    border: 3px solid #22c0e8;
+		    left: 20px;
+		    width: 20px;
+		    height: 20px;
+		    z-index: 400;
+		}
 	}
 	.hotel-section{
 		.hotel-card{
@@ -23,8 +37,10 @@
 				margin:3px 0px !important;
 				font-size: 13px;
 			}
-			span{
+			label{
 				float: right;
+				margin-bottom: 0px !important;
+				font-weight: normal;
 			}
 			padding: 10px;
     		border: 1px solid lightgrey;
@@ -35,7 +51,7 @@
 			  .star-rating {
 			    color: gold;
 			    display: inline-block;
-			    font-size: 12px;
+			    font-size: 15px;
 			    position: relative;
 			    transform: translate(-6px);
 			  }
@@ -55,61 +71,49 @@
 	.things-to-carrry{
 		text-align: center;
 		.col-sm-4{
-			border:1px solid lightgrey;
+			min-height: 160px;
 		}
 		.item{
 
 			padding: 30px;
-			p{ margin-top: 10px; }
+			p{ 
+				margin-top: 10px; 
+				font-style: normal;
+			}
 			.bottel{
-				width: 35px;
+				width: 18px;
 			}
 			.common{
-				width: 70px;
+				width: 45px;
+			}
+			.shoes{
+				margin-top: 24px;
 			}
 		}
 	}
 }
 
-@media screen and (min-width: 340px) and (max-width: 800px){
+@media screen and (min-width: 300px) and (max-width: 800px){
 	#itinerary_detail_list{
 		padding: 5px;
-		.list{
-			p{font-size: 13px;}
-			h2{ font-size: 16px; }
-			span{ font-size: 10px; }
-		    .list_text{
-		    	padding: 10px 20px;
-		    	width: 60%;
-		    }
-			.list_img{
-				width: 40%;
-				padding: 0px;
-				img{
-					padding-right: 5px;
-					margin-top: 0px;
-				}
-			}
+		.shoes{
+			margin-top: 25px !important;
+		}
+		.things-to-carrry{
+			.mb-bottom{ border-bottom: 1px solid lightgrey; }
+			.mb-right{ border-right:1px solid lightgrey; }
 		}
     }
 }
 
-@media screen and (min-width: 800px) and (max-width:1024px){
+@media screen and (min-width: 800px){
 	#itinerary_detail_list{
-		.list{
-			.list_text{
-				width: 60%;
-			    float: left;
-			}
-
-			.list_img{
-				width: 40%;
-			    float: right;
-				img{
-					border-radius:4px;
-					width: 94%;
-				}
-			}
+		.bottom-border{
+			border-bottom:1px solid lightgrey;			
+		}
+		.border-right
+		{
+			border-right:1px solid lightgrey;
 		}	
 	}
 }

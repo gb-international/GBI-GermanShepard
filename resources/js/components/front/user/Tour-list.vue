@@ -1,93 +1,96 @@
 <template>  
   <div class="container">
      <div id="itinerary_detail_list">
-      <a data-toggle="modal" id="tourModel" data-target="#tourCode" class="btn btn-info text-white float-right"> Enter Tour Code </a>
-      <div v-if="alldata.length" id="roadmap">
+      <div v-if="alldata.length" id="roadmap" class="mb-35">
 
-        <h1 class="main-head">{{itineraryData.title}}</h1>
-        <div class="text-center description">
-          <p v-html="itineraryData.description"></p>            
-        </div>
-        <div class="row" id="explore_detail_part">
-          <div class="col-sm-4" v-for="data in itineraryData.itinerarydays">
-            <h4 class="day_tab">Day {{ data.day}}</h4>
-            <h1 class="explor-head" v-if="data.day_source != data.day_destination">{{data.day_source.toUpperCase() }} - {{data.day_destination.toUpperCase()}}</h1>
-            <h1 class="explor-head" v-else>{{ data.day_source.toUpperCase() }}</h1>
-            <div class="card-text" v-html="data.day_description"></div>
-          </div>           
-        </div>
-      </div>
-      <div class="text-center" v-else>
-        <h3 class="text-center">You Don't Have Active Tour</h3>
-      </div>
-
-      <div class="things-to-carrry">
-        <h3 class="text-center">THINGS TO CARRY</h3>
-        <div class="row align-items-center">
-          <div class="col-sm-4">
-            <div class="item">
-              <img src="/images/tour/bottel.png" class="bottel">
-              <p>Water Bottel</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="item text-center">
-              <img src="/images/tour/shoes.png" class="common">
-              <p>Light Shoes</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="item">
-              <img src="/images/tour/tourch.png" class="common">
-              <p>Tourch</p>
-            </div>
-          </div>
-        </div>
         <div class="row">
-          <div class="col-sm-4">
-            <div class="item text-center">
-              <img src="/images/tour/towel.png" class="common">
-              <p>Towel</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="item">
-              <img src="/images/tour/umbrelaa.png" class="common">
-              <p>Umbrelaa</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="item">
-              <img src="/images/tour/jacket.png" class="common">
-              <p>Jacket</p>
-            </div>
+          <div class="col-md-6 offset-md-2">
+            <h4>TOUR PATH</h4>
+            <ul class="timeline">
+              <li v-for="data in itineraryData.itinerarydays">
+                <span v-if="data.day_source != data.day_destination"><b>{{data.day_source.toUpperCase() }} - {{data.day_destination.toUpperCase()}}</b></span>
+                <a target="_blank" href="https://www.totoprayogo.com/#" v-else>{{ data.day_source.toUpperCase() }}</a>
+                <span class="float-right">Day {{ data.day}}</span>
+                <p v-html="data.day_description"></p>
+              </li>
+            </ul>
           </div>
         </div>
-<<<<<<< HEAD
-              
-      </div>  
+
+        <div class="things-to-carrry mb-35">
+          <h3 class="text-center mb-35">THINGS TO CARRY</h3>
+
+          <div class="row align-items-center">
+            <div class="col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom">
+              <div class="item">
+                <img src="/images/tour/bottel.png" class="bottel">
+                <p>Water Bottel</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom">
+              <div class="item text-center">
+                <img src="/images/tour/shoes.png" class="common shoes">
+                <p>Light Shoes</p>
+              </div>
+            </div>
+            <hr>
+            <div class="col-md-4 col-sm-6 col-6 bottom-border mb-bottom mb-right">
+              <div class="item">
+                <img src="/images/tour/tourch.png" class="common">
+                <p>Tourch</p>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-6 border-right mb-bottom">
+              <div class="item text-center">
+                <img src="/images/tour/towel.png" class="common">
+                <p>Towel</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-6 border-right">
+              <div class="item">
+                <img src="/images/tour/umbrelaa.png" class="common">
+                <p>Umbrelaa</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-6">
+              <div class="item">
+                <img src="/images/tour/jacket.png" class="common">
+                <p>Jacket</p>
+              </div>
+            </div>
+          </div>
+                
+        </div>  
 
 
-      <div class="hotel-section">
-        <h3 class="text-center">YOU WILL STAY HERE</h3>
-        <div class="row justify-content-center" v-if="hotelData">
+        <div class="hotel-section mb-35">
+          <h3 class="text-center mb-35">YOU WILL STAY HERE</h3>
+          <div class="row justify-content-center" v-if="hotelData">
 
-          <div class="col-sm-4" v-for="hotel in hotelData">
-            <div class="hotel-card">
-              <img src="/images/hotel/1590495923.png">
-              <div class="row">
-                <div class="col hotel_info">
-                  <p><b>Hotel Name</b> <span><div class="star-rating">
-                      <span v-for="n in max">&star;</span>
-                        <div class="star-rating__current" :style="{width: getRating(hotel.hotel.type) + '%'}">
-                          <span v-for="n in integer(hotel.hotel.type)">&starf;</span>
-                        </div>
-                      </div></span>
-                  </p>
+            <div class="col-sm-4" v-for="hotel in hotelData">
+              <div class="hotel-card">
+                <img src="/images/hotel/1590495923.png">
+                <div class="row">
+                  <div class="col hotel_info">
+                    <div class="rating-hotel">
+                      <p><b>Hotel Name</b> <label><div class="star-rating">
+                          <span v-for="n in max">&star;</span>
+                            <div class="star-rating__current" :style="{width: getRating(hotel.hotel.type) + '%'}">
+                              <span v-for="n in integer(hotel.hotel.type)">&starf;</span>
+                            </div>
+                          </div></label>
+                      </p>                    
+                    </div>
 
-                  <p>{{ hotel.hotel.name }}<span><b>Check in date</b>: {{ dateFormat(hotel.check_in) }}</span></p>
-                  <p><b>Days stay</b> : 2 <span><b>Check out date</b>: {{ dateFormat(hotel.check_out) }}</span></p>
-=======
+                    <p>{{ hotel.hotel.name }}<label><b>Check in date</b>: {{ dateFormat(hotel.check_in) }}</label></p>
+                    <p><b>Days stay</b> : {{ days(hotel.check_in,hotel.check_out) }} <label><b>Check out date</b>: {{ dateFormat(hotel.check_out) }}</label></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>      
+        </div>
 
 
         <div class="airline-section mb-35">
@@ -111,14 +114,21 @@
                     <p>{{ hotel.hotel.name }}<label><b>Check in date</b>: {{ dateFormat(hotel.check_in) }}</label></p>
                     <p><b>Days stay</b> : {{ days(hotel.check_in,hotel.check_out) }} <label><b>Check out date</b>: {{ dateFormat(hotel.check_out) }}</label></p>
                   </div>
->>>>>>> a844d94c... 'ad'
                 </div>
               </div>
             </div>
-          </div>
-          
-        </div>      
-      </div>  
+          </div>      
+        </div>
+
+         
+
+
+
+      </div>
+      <div class="text-center" v-else>
+        <a data-toggle="modal" id="tourModel" data-target="#tourCode" class="btn btn-info text-white float-right"> Enter Tour Code </a>
+        <h3 class="text-center">You Don't Have Active Tour</h3>
+      </div>
 
       <div class="modal fade" id="tourCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -186,6 +196,17 @@ export default {
     integer(num){
       return parseInt(num);
     },
+
+    days(date1,date2){
+      var date1 = new Date(date1);
+      var date2 = new Date(date2);
+      var diffTime = Math.abs(date2 - date1);
+      var diff = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      return diff-1;
+    },
+
+
+
     tourListData(){
       var data = [];
       axios.post("/api/tour-list", data, {
