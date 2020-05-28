@@ -160,7 +160,6 @@
 </template>
 
 <script>
-// import StarRating from './components/partials/StarRating.vue';
 export default {
 
   name: "Tour-detail",
@@ -204,7 +203,7 @@ export default {
       var diff = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       return diff-1;
     },
-    
+
     tourListData(){
       var data = [];
       axios.post("/api/tour-list", data, {

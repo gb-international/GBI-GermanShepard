@@ -209,7 +209,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-// import StarRating from './components/partials/StarRating.vue';
 /* harmony default export */ __webpack_exports__["default"] = ({
 
   name: "Tour-detail",
