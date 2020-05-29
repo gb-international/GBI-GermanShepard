@@ -95,32 +95,46 @@
 
         <div class="airline-section mb-35">
           <h3 class="text-center mb-35">AIRLINES DETAILS</h3>
-          <div class="row justify-content-center" v-if="hotelData">
-            <div class="col-sm-4" v-for="hotel in hotelData">
-              <div class="hotel-card">
-                <img src="/images/hotel/1590495923.png">
-                <div class="row">
-                  <div class="col hotel_info">
-                    <div class="rating-hotel">
-                      <p><b>Hotel Name</b> <label><div class="star-rating">
-                          <span v-for="n in max">&star;</span>
-                            <div class="star-rating__current" :style="{width: getRating(hotel.hotel.type) + '%'}">
-                              <span v-for="n in integer(hotel.hotel.type)">&starf;</span>
-                            </div>
-                          </div></label>
-                      </p>                    
-                    </div>
+          <hr>
+          <div class="row align-items-center">
+            <div class="col-md-3 col">
+              <p>BLR <b>BANGALORE,INDIA</b></p>
+              <P>took off from <b class="text-info">Bengaluru Int'l - BLR</b></P>
+              <p>WEDNESDAY 06-NOV-2020 10:29 IST</p>
+            </div>
 
-                    <p>{{ hotel.hotel.name }}<label><b>Check in date</b>: {{ dateFormat(hotel.check_in) }}</label></p>
-                    <p><b>Days stay</b> : {{ days(hotel.check_in,hotel.check_out) }} <label><b>Check out date</b>: {{ dateFormat(hotel.check_out) }}</label></p>
-                  </div>
+            <div class="col-md-6 col-sm-6 col-xm-12 order-xm-3">
+              <i class="fas fa-plane-departure"></i>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%">
                 </div>
               </div>
             </div>
-          </div>      
+
+            <div class="col-md-3 col text-right">
+              <p>BLR <b>BANGALORE,INDIA</b></p>
+              <P>took off from <b class="text-info">Bengaluru Int'l - BLR</b></P>
+              <p>WEDNESDAY 06-NOV-2020 10:29 IST</p>
+            </div>
+          </div>     
         </div>
 
-         
+        <div class="map-section mb-35">
+          <h3 class="text-center mb-35">LIVE LOCATION</h3>    
+          <div class="row">
+            <div class="col-sm-3 card">
+              
+            </div>
+            <div class="col-sm-9">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448183.73907005717!2d76.81307299667618!3d28.646677259922765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1590745497079!5m2!1sen!2sin" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="weather-section mb-35">
+          <h3 class="text-center mb-35">WEATHER REPORT</h3>    
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448183.73907005717!2d76.81307299667618!3d28.646677259922765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1590745497079!5m2!1sen!2sin" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>        
 
 
 

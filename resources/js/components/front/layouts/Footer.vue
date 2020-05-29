@@ -29,13 +29,25 @@
                         </li>
                         
                         <li>
-                        <h3>Connect With Us</h3>
-                        <a href="https://www.facebook.com/gowithgbi/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
-                        <a href="https://twitter.com/gowithgbi"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
-                        <a href="https://www.linkedin.com/company/13592478/admin/"> <i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
-                        <a href="https://wordpress.com/view/gowithgbi.wordpress.com"> <i class="fa fa-wordpress fa-lg" aria-hidden="true"></i></a>
-                        <a href="https://www.instagram.com/gbirikhi/">  <i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
-                        <a href="#"> <i class="fa fa-youtube-play fa-lg" aria-hidden="true"></i></a>
+                          <h3>Connect With Us</h3>
+                          <a href="https://www.facebook.com/gowithgbi/">
+                            <i class="fab fa-facebook-f fa-lg" aria-hidden="true"></i>
+                          </a>
+                          <a href="https://twitter.com/gowithgbi">
+                            <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+                          </a>
+                          <a href="https://www.linkedin.com/company/13592478/admin/">
+                            <i class="fab fa-linkedin-in fa-lg" aria-hidden="true"></i>
+                          </a>
+                          <a href="https://wordpress.com/view/gowithgbi.wordpress.com">
+                            <i class="fab fa-wordpress fa-lg" aria-hidden="true"></i>
+                          </a>
+                          <a href="https://www.instagram.com/gbirikhi/">
+                            <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
+                          </a>
+                          <a href="#">
+                            <i class="fab fa-youtube fa-lg" aria-hidden="true"></i>
+                          </a>
                         </li>
                     </ul>
               </div>
@@ -117,5 +129,7 @@ export default {
 </script>
 
 <style scoped>
-
+.fab{
+  margin-right: 13px;
+}
 </style>

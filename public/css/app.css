@@ -22077,6 +22077,32 @@ a:hover {
   margin-top: 24px;
 }
 
+#itinerary_detail_list .airline-section p {
+  margin: 5px;
+}
+
+#itinerary_detail_list .airline-section .progress {
+  height: 0.5em;
+}
+
+#itinerary_detail_list .airline-section .fas {
+  font-weight: 1000;
+  font-size: 14px;
+  color: lightgrey;
+  margin-right: 0px !important;
+  margin-left: 40%;
+}
+
+#itinerary_detail_list .map-section iframe {
+  width: 100%;
+  height: 400px;
+}
+
+#itinerary_detail_list .weather-section iframe {
+  width: 100%;
+  height: 300px;
+}
+
 @media screen and (min-width: 300px) and (max-width: 800px) {
   #itinerary_detail_list {
     padding: 5px;
@@ -22360,6 +22386,10 @@ a:hover {
 
 .h-45 {
   height: 45px !important;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 #itinerary_detail_list {

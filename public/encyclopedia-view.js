@@ -4,7 +4,7 @@ webpackJsonp([0],{
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = function() {
-  return new Worker(__webpack_require__.p + "4661bc8d81bebfd06d61.worker.js");
+  return new Worker(__webpack_require__.p + "1853cc2ba9d672e88897.worker.js");
 };
 
 /***/ }),
