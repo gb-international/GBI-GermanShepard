@@ -14246,12 +14246,18 @@ bh=banner header |bp=banner para |ch=content header|cp=content para|cardh=card h
 }
 
 #adminmain .container_admin_body #example_length {
-  width: 74%;
+  width: 50% !important;
   float: left;
 }
 
 #adminmain .container_admin_body #example_length select {
-  padding-left: 7px;
+  padding-left: 7px !important;
+  height: 35px !important;
+}
+
+#adminmain .container_admin_body #example_filter {
+  width: 20% !important;
+  float: right;
 }
 
 #adminmain .container_admin_body #example_filter input[type='search'] {

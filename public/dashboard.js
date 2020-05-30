@@ -433,7 +433,7 @@ var render = function() {
                     "div",
                     { staticClass: "col" },
                     [
-                      _c("router-link", { attrs: { to: "/tour-list" } }, [
+                      _c("router-link", { attrs: { to: "/tour-detail" } }, [
                         _c("div", { staticClass: "rowdata1" }, [
                           _c("img", {
                             attrs: {
@@ -705,7 +705,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(5)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(1046)
 /* template */
@@ -12933,7 +12933,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(114)(content, options);
+var update = __webpack_require__(45)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -12954,7 +12954,7 @@ if(false) {
 /***/ 945:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(12)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // imports
 
 
@@ -12980,7 +12980,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(114)(content, options);
+var update = __webpack_require__(45)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -13001,7 +13001,7 @@ if(false) {
 /***/ 947:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(12)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // imports
 
 

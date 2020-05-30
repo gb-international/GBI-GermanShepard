@@ -67,7 +67,7 @@
           <div> 
             <div class="custom-control custom-radio custom-control-inline student">
               <input type="radio" class="custom-control-input" id="student" value="student" name="client_type"  v-model="registerForm.client_type" v-on:change="changeClientType('student')">
-              <label class="custom-control-label" for="student">Student</label>
+              <label class="custom-control-label" for="student">Education Institutions</label>
             </div>
 
             <!-- Default inline 2-->
@@ -343,6 +343,7 @@ export default {
               $('#LoginForm').modal('hide');
               $('.modal-backdrop').remove();
               this.loginform.reset();
+              
               console.log(response.data.success.status);
               if(response.data.success.status == 0){
                this.$router.push('/user-information'); 

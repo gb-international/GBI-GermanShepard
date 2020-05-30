@@ -24,7 +24,7 @@ export const routes = [
     { path:'/search', component:()=> System.import(/*webpackChunkName:"search"*/ "./components/front/Search.vue") },
     { path:'/user-information', component:()=> System.import(/*webpackChunkName:"user-info"*/ "./components/front/user/User-information.vue") },
     { path:'/dashboard', component:()=> System.import(/*webpackChunkName:"dashboard"*/ "./components/front/user/Dashboard.vue") },
-    { path:'/tour-list',component:()=> System.import(/*webpackChunkName:"tour-list"*/ "./components/front/user/Tour-list.vue") },
+    { path:'/tour-detail',component:()=> System.import(/*webpackChunkName:"tour-detail"*/ "./components/front/user/Tour-detail.vue") },
     { path:'/profile-edit', component:()=> System.import(/*webpackChunkName:"profile-edit"*/ "./components/front/user/Profile_edit.vue") },
 
     { path:'/adventure-tour', component:()=> System.import(/*webpackChunkName:"adventure-tour"*/ "./components/front/home-pages/Adventure-tour.vue") },

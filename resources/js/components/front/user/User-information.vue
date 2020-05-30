@@ -141,35 +141,5 @@ export default {
 
 </script>
 <style>
-span.error{
-  color:#e74c3c;
-  font-size:13px;
-  display:flex;
-}
-.wizard-btn{
-  background: white !important;
-  border-color: gray !important;
-  color: grey !important;
-  border-radius: 0px !important;
-  padding: 10px !important;
-  width: 235px !important;
-  margin-top: 25px !important;
-}
-.wizard-header{
-  display: none !important;
-}
-.wizard-nav-pills a{
-  padding-top: 16px !important;
-}
-.wizard-icon-circle{
-  width: 35px !important;
-  height: 35px !important;
-}
-.wizard-icon{
-  font-size: 15px !important;
-}
-select,input{
-  border:1px solid lightgrey !important;
-  height: 45px;
-}
+
 </style>

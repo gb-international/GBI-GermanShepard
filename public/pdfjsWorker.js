@@ -56525,7 +56525,7 @@ function () {
 /******/ ]);
 });
 //# sourceMappingURL=pdf.worker.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(385).Buffer, __webpack_require__(25), __webpack_require__(65)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(213).Buffer, __webpack_require__(20), __webpack_require__(38)))
 
 /***/ })
 

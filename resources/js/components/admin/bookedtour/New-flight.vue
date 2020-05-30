@@ -37,20 +37,23 @@ data from the api to display the data about the Hotel from the backend .
                       <div class="col-sm-4">
                         <div class="form-group">
                             <label for="source">Source</label>
-                            <input type="text" class="form-control" v-model="form.source" :class="{ 'is-invalid': form.errors.has('source') }"  placeholder="Enter Source" name="source">
-                            <has-error :form="form" field="source"></has-error>
+                            <select class="form-control" v-model="form.source">
+                              <option v-for="city in city_list" :value="city.name">{{ city.name }}</option>
+                            </select>
+                            <!-- <city-select v-model="form.source"></city-select> -->
+                           <has-error :form="form" field="source"></has-error>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div class="form-group">
                             <label for="destination">Destination</label>
-                            <input type="text" class="form-control" v-model="form.destination" :class="{ 'is-invalid': form.errors.has('destination') }"  placeholder="Enter Destination" name="destination">
-                            <has-error :form="form" field="destination"></has-error>
+                            
+                            <select class="form-control" v-model="form.destination">
+                              <option v-for="city in city_list" :value="city.name">{{ city.name }}</option>
+                            </select>
+                           <has-error :form="form" field="destination"></has-error>
                         </div>
                       </div>
-                
-
-
 
                     <div class="col-sm-4">
                       <div class="form-group">
@@ -102,14 +105,18 @@ data from the api to display the data about the Hotel from the backend .
     <!-- /.content -->
 </template>
 <script>
-
+import CitySelect from '../../partials/City-select.vue'
     export default {
-        name: "List",
+        name: "BookedFlight",
+        components: {
+          'city-select': CitySelect,
+        },
         data(){
           return{
             row_input:'',
             flight_list:'',
             tour:'',
+            city_list:'',
             form: new Form({
               tour_id: '',
               tour_code: '',
@@ -129,21 +136,27 @@ data from the api to display the data about the Hotel from the backend .
             if(response.data){
               this.flight_list = response.data;
             }
-          })
+          });
 
           axios.get(`/api/tour/${this.$route.params.id}/edit`).then(response => {
             this.tour = response.data;  
-          })
+          });
+
+          this.cityList();
 
         },
 // End the process of the the fetching data
        methods:
        {
+        cityList(){
+          axios.get(`/api/city`).then(response => {
+            this.city_list = response.data.data;  
+          });
+        },
         addFlight(){
           var path = `/api/bookedflights`;
           this.form.tour_id = this.$route.params.id;
           this.form.tour_code = this.tour.tour_id;
-          // this.form.push({'tour_id':idid,'tour_code':this.tour.tour_id});
           this.form.post(path).then((response)=>{
             console.log(response);
               if(response.data == 1){

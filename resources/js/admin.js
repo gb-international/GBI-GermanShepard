@@ -1,6 +1,7 @@
 
 require('./bootstrap');
 window.Vue = require('vue');
+import Vue from 'vue';
 
 // editor support
 import 'v-markdown-editor/dist/index.css';
@@ -14,41 +15,17 @@ Vue.use(VueSession);
 import Permissions from './mixins/Permissions';
 Vue.mixin(Permissions);
 
-///slider
-import Vue from 'vue';
-import VueCarousel from '@chenfengyuan/vue-carousel';
-
-Vue.use(VueCarousel);
-// Or
-Vue.component(VueCarousel.name, VueCarousel);
-// Or
-Vue.component('vue-carousel', VueCarousel);
-//slider
-import { CarouselPlugin } from 'bootstrap-vue'
-Vue.use(CarouselPlugin)
-
 //responsive vue tag
 import responsive  from 'vue-responsive'
 Vue.use(responsive)
 
-
-
-
-
 import CKEditor from '@ckeditor/ckeditor5-vue';
 
 Vue.use( CKEditor );
-
-
-
-
-
-
-
-
 // Support vuex
 import Vuex from 'vuex'
 Vue.use(Vuex)
+
 import storeData from "./store/index"
 const store = new Vuex.Store(
     storeData

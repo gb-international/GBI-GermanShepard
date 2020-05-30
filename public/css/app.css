@@ -22202,6 +22202,47 @@ a:hover {
   }
 }
 
+#user_inform_model span.error {
+  color: #e74c3c;
+  font-size: 13px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#user_inform_model button {
+  background: white !important;
+  border-color: gray !important;
+  color: grey !important;
+  border-radius: 0px !important;
+  padding: 10px !important;
+  width: 235px !important;
+  margin-top: 25px !important;
+}
+
+#user_inform_model .wizard-header {
+  display: none !important;
+}
+
+#user_inform_model .wizard-nav-pills a {
+  padding-top: 16px !important;
+}
+
+#user_inform_model .wizard-icon-circle {
+  width: 35px !important;
+  height: 35px !important;
+}
+
+#user_inform_model .wizard-icon {
+  font-size: 15px !important;
+}
+
+#user_inform_model select,
+#user_inform_model input {
+  border: 1px solid lightgrey !important;
+  height: 45px;
+}
+
 .mt-30 {
   margin-top: 30px;
 }
@@ -22390,6 +22431,14 @@ a:hover {
 
 .w-100 {
   width: 100%;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.text-upper {
+  text-transform: uppercase;
 }
 
 #itinerary_detail_list {

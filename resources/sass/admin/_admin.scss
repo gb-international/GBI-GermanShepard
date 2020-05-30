@@ -111,14 +111,17 @@
 	// Admin body area
 	.container_admin_body{
 		#example_length{
-			width: 74%;
+			width: 50% !important;
             float: left;
 		    select{
-			    padding-left:7px;
+			    padding-left:7px !important;
+			    height: 35px !important;
 			}
 		}
 		padding: 10px 30px;
 		#example_filter{
+			width: 20% !important;
+			float: right;
 			input[type='search']{
 				border-radius: 4px;
                 height: 29px;

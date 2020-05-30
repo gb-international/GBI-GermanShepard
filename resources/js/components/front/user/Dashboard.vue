@@ -62,7 +62,7 @@
           <div id="rowbody">
              <div class="row">
                 <div class="col">
-                  <router-link :to="`/tour-list`">     
+                  <router-link :to="`/tour-detail`">     
                     <div class="rowdata1">
 
                       <img src="assets/front/images/booked_320.png" loading="lazy">

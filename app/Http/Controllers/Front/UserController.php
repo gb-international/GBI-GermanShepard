@@ -178,7 +178,7 @@ class UserController extends Controller{
     public function tourList(Request $request){
         $user = Auth::user();
         $travel = $user->UserTravel->first();
-        $tour = Tour::with('itinerary','itinerary.itinerarydays','bookedhotels','bookedhotels.hotel',)->where("travel_code",$travel->travel_code)->get();
+        $tour = Tour::with('itinerary','itinerary.itinerarydays','bookedhotels','bookedhotels.hotel','bookedflights','bookedflights.flight')->where("travel_code",$travel->travel_code)->get();
         return response()->json($tour);        
     }
 

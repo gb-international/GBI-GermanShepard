@@ -58,7 +58,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="footer-bottom-area">
-                  <p class="copy-right">©{{ new Date().getFullYear() }} GBI Holidays Pvt. ltd. All right reserved.</p>
+                  <p class="copy-right">Â©{{ new Date().getFullYear() }} GBI Holidays Pvt. ltd. All right reserved.</p>
                 </div>
                 <div class="footer-bottom-term">
                   <p class="copy-left"><a herf="#"> Terms & Condition</a></p>
