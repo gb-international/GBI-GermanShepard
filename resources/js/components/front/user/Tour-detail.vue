@@ -3,7 +3,7 @@
      <div id="itinerary_detail_list">
       <div v-if="alldata.length" id="roadmap" class="mb-35 w-100">
 
-        <div class="row">
+        <div class="row w-100">
           <div class="col-md-6 offset-md-2">
             <h4>TOUR PATH</h4>
             <ul class="timeline">
@@ -100,9 +100,9 @@
           <div v-for="air in alldata[0].bookedflights">
             <div class="row align-items-center">
               <div class="col-md-3 col">
-                <p>{{ air.flight.code }} <b class="text-upper"> {{ air.source }}</b></p>
+                <p><b class="underline">{{ air.flight.code }} </b><b class="text-upper"> {{ air.source }}</b></p>
                 <P>took off from <b class="text-info">{{ air.source }}</b></P>
-                <p>{{ dateFormat(air.departure )}}</p>
+                <p>{{ timeFormat(air.departure) }}</p>
               </div>
 
               <div class="col-md-6 col-sm-6 col-xm-12 order-xm-3">
@@ -114,9 +114,9 @@
               </div>
 
               <div class="col-md-3 col text-right">
-                <p>{{ air.flight.code }} <b class="text-upper"> {{ air.destination }}</b></p>
+                <p><b class="underline">{{ air.flight.code }}</b> <b class="text-upper"> {{ air.destination }}</b></p>
                 <P>took off from <b class="text-info">{{ air.destination }}</b></P>
-                <p>{{ dateFormat(air.arrival )}}</p>
+                <p>{{ timeFormat(air.arrival) }}</p>
               </div>
             </div>
             <hr>
@@ -208,6 +208,19 @@ export default {
     dateFormat(date){
       return new Date(date).toDateString();
     },
+    timeFormat(date){
+      var str = new Date(date).toDateString();
+      date =  new Date(date);
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var ampm = hours >= 12 ? 'pm' : 'am';
+      hours = hours % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+      minutes = minutes < 10 ? '0'+minutes : minutes;
+      var strTime = hours + ':' + minutes + ' ' + ampm;
+      return str +' '+strTime;
+    },
+    
     getRating: function(current) {
       return (current / this.max) * 100
     },

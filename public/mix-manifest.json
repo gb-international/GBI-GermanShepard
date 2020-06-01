@@ -5,7 +5,7 @@
     "/user-info.js": "/user-info.js",
     "/dashboard.js": "/dashboard.js",
     "/encyclopedia.js": "/encyclopedia.js",
-    "/tour-list.js": "/tour-list.js",
+    "/tour-detail.js": "/tour-detail.js",
     "/usa.js": "/usa.js",
     "/upcoming-toup.js": "/upcoming-toup.js",
     "/popular-tour.js": "/popular-tour.js",
@@ -29,6 +29,5 @@
     "/js/admin/admin.js": "/js/admin/admin.js",
     "/css/admin/app.css": "/css/admin/app.css",
     "/css/app.css": "/css/app.css",
-    "/js/app.js": "/js/app.js",
-    "/tour-detail.js": "/tour-detail.js"
+    "/js/app.js": "/js/app.js"
 }

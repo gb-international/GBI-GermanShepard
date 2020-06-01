@@ -31,14 +31,14 @@ data from the api to display the data about the Hotel from the backend .
                       <div class="col-sm-4">
                         <div class="form-group">
                             <label for="source">Source</label>
-                            <input type="text" class="form-control" v-model="form.source" :class="{ 'is-invalid': form.errors.has('source') }"  placeholder="Enter Source" name="source">
+                            <city-select @update:option="SourceUpdate"></city-select>
                             <has-error :form="form" field="source"></has-error>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div class="form-group">
                             <label for="destination">Destination</label>
-                            <input type="text" class="form-control" v-model="form.destination" :class="{ 'is-invalid': form.errors.has('destination') }"  placeholder="Enter Destination" name="destination">
+                            <city-select @update:option="DestinationUpdate"></city-select>
                             <has-error :form="form" field="destination"></has-error>
                         </div>
                       </div>
@@ -96,9 +96,10 @@ data from the api to display the data about the Hotel from the backend .
     <!-- /.content -->
 </template>
 <script>
-
+import CitySelect from '../../partials/City-select.vue'
     export default {
         name: "List",
+        components:{ CitySelect },
         data(){
           return{
             row_input:'',
@@ -156,6 +157,14 @@ data from the api to display the data about the Hotel from the backend .
 
             })
         },
+
+        SourceUpdate(value){
+          this.form.source = value;
+        },
+        DestinationUpdate(value){
+          this.form.destination = value;
+        },
+
         goBack(){
           this.$router.push(`/booked-tour/${this.$route.params.id}`);
         }, 

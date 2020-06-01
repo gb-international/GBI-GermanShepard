@@ -1,7 +1,8 @@
 <template>
     <div>
-        <select class="form-control">
-            <option v-for="city in list" :value="city.name" v-model="value" @change="SelectedItem(city.name)">{{ city.name }}</option>
+        <select class="form-control" v-model="selectedCity" v-on:change="optionChanged">
+            <option disabled>Please Select City</option>
+            <option v-for="city in list" :value="city.name">{{ city.name }}</option>
         </select>
     </div>
 </template>
@@ -12,11 +13,8 @@ export default {
     data(){
         return{
             list:[],
-            value:''
+            selectedCity:''
         }
-    },
-    created: function() {
-        this.$parent.$on('update', this.setValue);
     },
     created(){
         axios.get('/api/city').then(response=>{
@@ -24,9 +22,9 @@ export default {
         });
     },
     methods: {
-     setValue: function(value) {
-            this.value = value;
-        }
+        optionChanged(){
+            this.$emit("update:option",this.selectedCity);
+        },
     }
 }
 </script>

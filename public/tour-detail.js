@@ -1,64 +1,12 @@
 webpackJsonp([5],{
 
-/***/ 1089:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(1090)
-}
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(1092)
-/* template */
-var __vue_template__ = __webpack_require__(1093)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-64b3f033"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/front/user/Tour-detail.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-64b3f033", Component.options)
-  } else {
-    hotAPI.reload("data-v-64b3f033", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 1090:
+/***/ 1051:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1091);
+var content = __webpack_require__(1052);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -79,7 +27,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 1091:
+/***/ 1052:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(5)(false);
@@ -94,7 +42,7 @@ exports.push([module.i, "\n.main-head[data-v-64b3f033]{\n  text-decoration: unde
 
 /***/ }),
 
-/***/ 1092:
+/***/ 1053:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -310,6 +258,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     dateFormat: function dateFormat(date) {
       return new Date(date).toDateString();
     },
+    timeFormat: function timeFormat(date) {
+      var str = new Date(date).toDateString();
+      date = new Date(date);
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var ampm = hours >= 12 ? 'pm' : 'am';
+      hours = hours % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      var strTime = hours + ':' + minutes + ' ' + ampm;
+      return str + ' ' + strTime;
+    },
+
 
     getRating: function getRating(current) {
       return current / this.max * 100;
@@ -373,7 +334,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 1093:
+/***/ 1054:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -384,7 +345,7 @@ var render = function() {
     _c("div", { attrs: { id: "itinerary_detail_list" } }, [
       _vm.alldata.length
         ? _c("div", { staticClass: "mb-35 w-100", attrs: { id: "roadmap" } }, [
-            _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "row w-100" }, [
               _c("div", { staticClass: "col-md-6 offset-md-2" }, [
                 _c("h4", [_vm._v("TOUR PATH")]),
                 _vm._v(" "),
@@ -546,7 +507,9 @@ var render = function() {
                             { staticClass: "col-md-3 col" },
                             [
                               _c("p", [
-                                _vm._v(_vm._s(air.flight.code) + " "),
+                                _c("b", { staticClass: "underline" }, [
+                                  _vm._v(_vm._s(air.flight.code) + " ")
+                                ]),
                                 _c("b", { staticClass: "text-upper" }, [
                                   _vm._v(" " + _vm._s(air.source))
                                 ])
@@ -560,7 +523,7 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _c("p", [
-                                _vm._v(_vm._s(_vm.dateFormat(air.departure)))
+                                _vm._v(_vm._s(_vm.timeFormat(air.departure)))
                               ])
                             ],
                             1
@@ -573,7 +536,10 @@ var render = function() {
                             { staticClass: "col-md-3 col text-right" },
                             [
                               _c("p", [
-                                _vm._v(_vm._s(air.flight.code) + " "),
+                                _c("b", { staticClass: "underline" }, [
+                                  _vm._v(_vm._s(air.flight.code))
+                                ]),
+                                _vm._v(" "),
                                 _c("b", { staticClass: "text-upper" }, [
                                   _vm._v(" " + _vm._s(air.destination))
                                 ])
@@ -587,7 +553,7 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _c("p", [
-                                _vm._v(_vm._s(_vm.dateFormat(air.arrival)))
+                                _vm._v(_vm._s(_vm.timeFormat(air.arrival)))
                               ])
                             ],
                             1
@@ -930,6 +896,58 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-64b3f033", module.exports)
   }
 }
+
+/***/ }),
+
+/***/ 937:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(1051)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(1053)
+/* template */
+var __vue_template__ = __webpack_require__(1054)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-64b3f033"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/front/user/Tour-detail.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-64b3f033", Component.options)
+  } else {
+    hotAPI.reload("data-v-64b3f033", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
 
 /***/ })
 

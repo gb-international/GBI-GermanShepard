@@ -5050,19 +5050,19 @@ exports.push([module.i, "/*!\n * # Semantic UI 2.4.0 - Dropdown\n */.ui.dropdown
 
 /***/ }),
 
-/***/ 921:
+/***/ 924:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(969)
+  __webpack_require__(972)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(971)
+var __vue_script__ = __webpack_require__(974)
 /* template */
-var __vue_template__ = __webpack_require__(972)
+var __vue_template__ = __webpack_require__(975)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -5102,13 +5102,13 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 969:
+/***/ 972:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(970);
+var content = __webpack_require__(973);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -5129,7 +5129,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 970:
+/***/ 973:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(5)(false);
@@ -5144,7 +5144,7 @@ exports.push([module.i, "\nimg[data-v-a9fa3820]{\r\n  opacity:\n}\r\n", ""]);
 
 /***/ }),
 
-/***/ 971:
+/***/ 974:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5278,7 +5278,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 972:
+/***/ 975:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {

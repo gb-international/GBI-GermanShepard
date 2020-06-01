@@ -37,20 +37,14 @@ data from the api to display the data about the Hotel from the backend .
                       <div class="col-sm-4">
                         <div class="form-group">
                             <label for="source">Source</label>
-                            <select class="form-control" v-model="form.source">
-                              <option v-for="city in city_list" :value="city.name">{{ city.name }}</option>
-                            </select>
-                            <!-- <city-select v-model="form.source"></city-select> -->
+                            <city-select @update:option="SourceUpdate"></city-select>
                            <has-error :form="form" field="source"></has-error>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div class="form-group">
                             <label for="destination">Destination</label>
-                            
-                            <select class="form-control" v-model="form.destination">
-                              <option v-for="city in city_list" :value="city.name">{{ city.name }}</option>
-                            </select>
+                            <city-select @update:option="DestinationUpdate"></city-select>
                            <has-error :form="form" field="destination"></has-error>
                         </div>
                       </div>
@@ -78,8 +72,7 @@ data from the api to display the data about the Hotel from the backend .
                         <has-error :form="form" field="price"></has-error>
                       </div>
                     </div>
-                    
-                    
+                   
                   </div>
                   <div class="row">
                     <div class="col-sm-2"></div>
@@ -108,9 +101,7 @@ data from the api to display the data about the Hotel from the backend .
 import CitySelect from '../../partials/City-select.vue'
     export default {
         name: "BookedFlight",
-        components: {
-          'city-select': CitySelect,
-        },
+        components: { CitySelect },
         data(){
           return{
             row_input:'',
@@ -133,21 +124,15 @@ import CitySelect from '../../partials/City-select.vue'
 // Get all the data
         created(){
           axios.get(`/api/flight`).then(response => {
-            if(response.data){
-              this.flight_list = response.data;
-            }
+            if(response.data){ this.flight_list = response.data; }
           });
-
           axios.get(`/api/tour/${this.$route.params.id}/edit`).then(response => {
             this.tour = response.data;  
           });
 
-          this.cityList();
-
         },
 // End the process of the the fetching data
-       methods:
-       {
+       methods: {
         cityList(){
           axios.get(`/api/city`).then(response => {
             this.city_list = response.data.data;  
@@ -176,6 +161,14 @@ import CitySelect from '../../partials/City-select.vue'
 
             })
         },
+
+        SourceUpdate(value){
+          this.form.source = value;
+        },
+        DestinationUpdate(value){
+          this.form.destination = value;
+        },
+        
 
         goBack(){
           this.$router.push(`/booked-tour/${this.$route.params.id}`);

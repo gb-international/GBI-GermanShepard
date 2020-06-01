@@ -1,6 +1,6 @@
 <template>
   <div id="user_inform_model">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center w-100">
       <div class="col-sm-7">
         <div class="user-model card p-20 mt-15">
           <label>Three Step Verification</label>
