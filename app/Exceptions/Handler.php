@@ -31,6 +31,8 @@ class Handler extends ExceptionHandler
      *
      * @param  \Exception  $exception
      * @return void
+     *
+     * @throws \Exception
      */
     public function report(Exception $exception)
     {
@@ -42,27 +44,12 @@ class Handler extends ExceptionHandler
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Exception  $exception
-     * @return \Illuminate\Http\Response
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws \Exception
      */
     public function render($request, Exception $exception)
     {
-
-        if ($this->isHttpException($exception)) {
-            if ($exception->getStatusCode() == 404) {
-                return response()->view('errors.404', [], 404);
-            }
-             
-           else if ($exception->getStatusCode() == 500) {
-                return response()->view('errors.500', [], 500);
-            }
-
-            else if($exception->getStatusCode() == 503){
-                return response()->view('errors.503',[], 503);
-            }
-             else {
-                return parent::render($request, $e);
-            }
-         }
         return parent::render($request, $exception);
     }
 }

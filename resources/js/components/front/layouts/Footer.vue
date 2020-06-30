@@ -1,7 +1,5 @@
 <template>
   <div class="">
-
-    <!-- Footer -->
       <footer id="footer">
         <div class="footer-top">
           <div class="footer-content">
@@ -68,68 +66,13 @@
           </div>
         </div>
       </footer>
-      <div class="col-md-12 m-bottom">
-          <div class="navbar-bottom">
-            <router-link :to="`/`" >
-              <div class="nav-font">
-                <i class="fas fa-home"></i>
-                </div>
-                <div class="nav-font"> home
-                </div>
-              </router-link>
-              <router-link :to="`/explore-destination`" >
-              <div class="nav-font">
-                <i class="fas fa-map-marked-alt"></i>
-                </div>
-                <div class="nav-font"> explore
-                </div>
-              </router-link>
-              <a href="tel:+9810055102" class="">
-              <div class="nav-font">
-                <i class="fas fa-phone tranform-icon"></i>
-                </div>
-                <div class="nav-font"> call
-                </div>
-              </a>
-              <a href="#" @click="LoginModel()">
-                <div class="nav-font">
-                  <i class="fas fa-user-alt"></i>
-                  </div>
-                  <div class="nav-font"> profile
-                </div>
-              </a>                 
-          </div>
-      </div>
-      <!-- End Footer -->
-    
   </div>
 </template>
 
 <script>
 export default {
-  name: "Navbar",
-  data(){
-    return {
-
-    }
-  },
-  methods:{
-    LoginModel:function(){
-      if(this.$session.get('login') == undefined){
-        $("#loginButton").click();
-        return false;
-      }else{
-        this.$router.push('/dashboard');
-      }
-    }
-  }
+  name:"Footer"
     
 }
 
 </script>
-
-<style scoped>
-.fab{
-  margin-right: 13px;
-}
-</style>

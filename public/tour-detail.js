@@ -1,52 +1,14 @@
-webpackJsonp([5],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["tour-detail"],{
 
-/***/ 1051:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(1052);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(7)("51f6136a", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-64b3f033\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Tour-detail.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-64b3f033\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Tour-detail.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 1052:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(5)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.main-head[data-v-64b3f033]{\n  text-decoration: underline;\n}\n.description[data-v-64b3f033]{\n  width: 100%;\n}\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 1053:
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/user/Tour-detail.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/front/user/Tour-detail.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -227,11 +189,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-
   name: "Tour-detail",
-
   data: function data() {
     return {
       max: 5,
@@ -250,10 +209,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     if (localStorage.getItem('login') == '0') {
       this.$router.push('/login');
     }
+
     this.tourListData();
   },
-
-
   methods: {
     dateFormat: function dateFormat(date) {
       return new Date(date).toDateString();
@@ -266,12 +224,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var ampm = hours >= 12 ? 'pm' : 'am';
       hours = hours % 12;
       hours = hours ? hours : 12; // the hour '0' should be '12'
+
       minutes = minutes < 10 ? '0' + minutes : minutes;
       var strTime = hours + ':' + minutes + ' ' + ampm;
       return str + ' ' + strTime;
     },
-
-
     getRating: function getRating(current) {
       return current / this.max * 100;
     },
@@ -290,8 +247,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       var data = [];
       axios.post("/api/tour-list", data, {
-        headers: { Authorization: 'Bearer ' + localStorage.getItem("access_token") } }).then(function (response) {
+        headers: {
+          Authorization: "Bearer ".concat(localStorage.getItem("access_token"))
+        }
+      }).then(function (response) {
         _this.alldata = response.data[0];
+
         if (response.data.length == 0) {
           $("#tourModel").click();
         } else {
@@ -300,16 +261,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           _this.hotelData = response.data[0].bookedhotels;
           console.log(_this.alldata[0].bookedflights);
         }
-      }).catch(function (error) {
+      })["catch"](function (error) {
         _this.handleError(error);
       });
     },
     UserTourSave: function UserTourSave() {
       var _this2 = this;
 
-      var data = { 'travel_code': this.form.travel_code };
+      var data = {
+        'travel_code': this.form.travel_code
+      };
       axios.post("/api/tour-travel-save", data, {
-        headers: { Authorization: 'Bearer ' + localStorage.getItem("access_token") } }).then(function (response) {
+        headers: {
+          Authorization: "Bearer ".concat(localStorage.getItem("access_token"))
+        }
+      }).then(function (response) {
         // this.alldata = response.data;
         if (response.data == 'error') {
           swal.fire({
@@ -323,9 +289,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             title: 'Welcome on your tour',
             type: 'success'
           });
+
           _this2.tourListData();
         }
-      }).catch(function (error) {
+      })["catch"](function (error) {
         _this2.handleError(error);
       });
     }
@@ -334,9 +301,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 1054:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/user/Tour-detail.vue?vue&type=template&id=64b3f033&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/front/user/Tour-detail.vue?vue&type=template&id=64b3f033& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -889,66 +864,78 @@ var staticRenderFns = [
   }
 ]
 render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-64b3f033", module.exports)
-  }
-}
+
+
 
 /***/ }),
 
-/***/ 937:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./resources/js/components/front/user/Tour-detail.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/front/user/Tour-detail.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(1051)
-}
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(1053)
-/* template */
-var __vue_template__ = __webpack_require__(1054)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-64b3f033"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Tour_detail_vue_vue_type_template_id_64b3f033___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tour-detail.vue?vue&type=template&id=64b3f033& */ "./resources/js/components/front/user/Tour-detail.vue?vue&type=template&id=64b3f033&");
+/* harmony import */ var _Tour_detail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tour-detail.vue?vue&type=script&lang=js& */ "./resources/js/components/front/user/Tour-detail.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Tour_detail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Tour_detail_vue_vue_type_template_id_64b3f033___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Tour_detail_vue_vue_type_template_id_64b3f033___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
 )
-Component.options.__file = "resources/js/components/front/user/Tour-detail.vue"
 
 /* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-64b3f033", Component.options)
-  } else {
-    hotAPI.reload("data-v-64b3f033", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
+if (false) { var api; }
+component.options.__file = "resources/js/components/front/user/Tour-detail.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
-module.exports = Component.exports
+/***/ }),
+
+/***/ "./resources/js/components/front/user/Tour-detail.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/front/user/Tour-detail.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Tour_detail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Tour-detail.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/user/Tour-detail.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Tour_detail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/front/user/Tour-detail.vue?vue&type=template&id=64b3f033&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/front/user/Tour-detail.vue?vue&type=template&id=64b3f033& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tour_detail_vue_vue_type_template_id_64b3f033___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Tour-detail.vue?vue&type=template&id=64b3f033& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/user/Tour-detail.vue?vue&type=template&id=64b3f033&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tour_detail_vue_vue_type_template_id_64b3f033___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tour_detail_vue_vue_type_template_id_64b3f033___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ })
 
-});
+}]);

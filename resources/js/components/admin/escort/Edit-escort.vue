@@ -56,8 +56,12 @@
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
 export default {
     name: "Edit",
+    components:{Form,
+  'has-error': HasError
+  },
     data(){
         return{
             form: new Form({
@@ -81,8 +85,8 @@ export default {
         updateEscort(){
         this.form.put(`/api/escort/${this.$route.params.id}`).then((response)=>{
                this.$router.push('/escort-list')
-                toast({
-                    type: 'success',
+                this.$toast.fire({
+                    icon: 'success',
                     title: 'Escort Updated successfully'
                 })
             })

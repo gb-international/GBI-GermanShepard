@@ -25,7 +25,7 @@ data from the api to display the data about the Hotel from the backend .
               </tr>
             </thead>
             <tbody>
-              <tr v-for="flight in flightData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list">
+              <tr v-for="flight in flightData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list" :key="flight.id">
                   <td>{{flight.code}}</td>
                   <td>{{flight.name }} </td>
                   <td class="edit_section">
@@ -77,7 +77,7 @@ export default {
 
      deleteflight(id){
         var uri = 'api/flight/'+id;
-        swal.fire({
+        this.$swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         type: 'warning',
@@ -90,7 +90,7 @@ export default {
             axios.delete(uri).then((response)=>{
               this.getFlight();
             })
-            swal.fire(
+            this.$swal.fire(
               'Deleted!',
               'Your file has been deleted.',
               'success'

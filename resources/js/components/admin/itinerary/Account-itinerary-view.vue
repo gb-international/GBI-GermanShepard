@@ -111,8 +111,12 @@ to submit the data we are using a function.
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
 export default {
-  name: "EditSale",
+  name: "EditSaleAccountItinerary",
+  components:{Form,
+  'has-error': HasError
+  },
   data(){
     return {
       // Create a new form instance
@@ -144,7 +148,7 @@ export default {
     // Function to add the form data 
     editSalesdp(){
       if(this.booking_fieldz == false){
-        swal.fire(
+        this.$swal.fire(
           'Enter Booking ID',
           'Booking Id should be Unique.',
           'alert'
@@ -172,8 +176,8 @@ export default {
         this.form.post(`/account/update/${this.$route.params.id}`)
           .then((response)=>{
                this.$router.push(`/account-itinerary`)
-                toast({
-                    type: 'success',
+                this.$toast.fire({
+                    icon: 'success',
                     title: 'Successfully Updated !!!'
                 })
             })
@@ -189,8 +193,8 @@ export default {
         this.form.post(`/account/update/${this.$route.params.id}`)
           .then((response)=>{
              this.$router.push(`/account-itinerary`)
-              toast({
-                  type: 'error',
+              this.$toast.fire({
+                  icon: 'error',
                   title: 'Successfully Canceled !!!'
               })
           })

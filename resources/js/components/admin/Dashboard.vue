@@ -2,11 +2,11 @@
     <div>
         <!-- Main content -->
         <section class="content">
-
+          
         <h3 class="text-center">GBI Dashboard</h3> 
         <div class="row">
           <div class="col-sm-6">
-            
+ 
           </div>
           <div class="col-sm-6 notification_list">
             <div class="card">
@@ -14,7 +14,7 @@
                 <h6>Notifications <span class="badge badge-success pull-right">{{ unread }}</span></h6>
                 <hr>
                 <div class="text-center" v-if="notifications.length == 0">***** You have no notification *****</div>
-                <div class="list" v-for="notify in notifications">
+                <div class="list" v-for="notify in notifications" :key="notify.id">
         
                   <div class="alert alert-secondary" v-if="notify.read_at">
                     <router-link :to="`/view-itinerary/${notify.data.itinerary_id}`" class="edit_link">
@@ -110,7 +110,7 @@ export default {
 
      deletetour(id){
         var uri = 'api/tours/destroy/'+id;
-        swal.fire({
+        this.$swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         type: 'warning',
@@ -124,13 +124,11 @@ export default {
             axios.post(uri).then((response)=>{
               this.$store.dispatch('getAllData','/api/schools')
                 })
-            swal.fire(
+            this.$swal.fire(
               'Deleted!',
               'Your file has been deleted.',
               'success'
-            )
-
-             
+            )             
           }
         });
       }

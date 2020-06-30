@@ -30,7 +30,7 @@ to submit the data we are using a function.
                   <div class="form-group">
                       <label for="seater">Seater </label>
                       <select class="from-control" v-model="form.seater">
-                        <option v-for="seat in seater" :value="seat">{{ seat }}</option>
+                        <option v-for="seat in seater" :value="seat" :key="seat.id">{{ seat }}</option>
                       </select>
                       <has-error :form="form" field="seater"></has-error>
                   </div>
@@ -40,7 +40,7 @@ to submit the data we are using a function.
                   <div class="form-group">
                       <label for="seat_type">Seat type</label>
                       <select class="from-control" v-model="form.seat_type">
-                          <option v-for="seat in seat_type" :value="seat">{{ seat }}</option>
+                          <option v-for="seat in seat_type" :value="seat" :key="seat.id">{{ seat }}</option>
                       </select>
                       <has-error :form="form" field="seat_type"></has-error>
                   </div>
@@ -78,8 +78,12 @@ to submit the data we are using a function.
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
 export default {
   name: "New",
+  components:{Form,
+  'has-error': HasError
+  },
   data(){
     return {
       // Create a new form instance
@@ -102,8 +106,8 @@ export default {
       this.form.post('/api/bus')
         .then((response)=>{
              this.$router.push(`/bus-list/`)
-              toast({
-                  type: 'success',
+              this.$toast.fire({
+                  icon: 'success',
                   title: 'School Added successfully'
               })
           })

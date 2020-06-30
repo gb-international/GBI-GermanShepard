@@ -60,7 +60,7 @@ to submit the data we are using a function.
                         <div class="form-group">
                             <label for="client_id">School Name</label>
                             <select class="form-control" v-model="form.client_id" :class="{ 'is-invalid': form.errors.has('client_id') }">
-                              <option v-for="school in SchoolData" :value="school.id">{{ school.school_name }}</option>
+                              <option v-for="school in SchoolData" :value="school.id" :key="school.id">{{ school.school_name }}</option>
                             </select>
                             <has-error :form="form" field="client_id"></has-error>
                         </div>                          
@@ -86,8 +86,12 @@ to submit the data we are using a function.
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
    export default {
-    name: "New",
+    name: "NewItineraryAccount",
+    components:{Form,
+  'has-error': HasError
+  },
     data(){
       return {
         // Create a new form instance
@@ -125,15 +129,15 @@ to submit the data we are using a function.
         this.form.post(api)
           .then((response)=>{
             if(response.data == 'error'){
-              swal.fire({
+              this.$swal.fire({
                 title: 'opps',
                 text: "Something Wrong Try again",
                 type: 'error',
               });
             }else{
               this.$router.push('/itinerary-from-account')
-                toast({
-                    type: 'success',
+                this.$toast.fire({
+                    icon: 'success',
                     title: 'Successfull'
                 })
             }// End if else part

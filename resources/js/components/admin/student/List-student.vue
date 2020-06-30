@@ -23,7 +23,7 @@ data from the api to display the data about the Hotel from the backend .
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="student in student_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list">
+                <tr v-for="student in student_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list" :key="student.id">
                     <td>{{ student.first_name }} {{ student.last_name}}</td>
 
                     <td>{{ student.school.school_name }} </td>
@@ -52,7 +52,7 @@ data from the api to display the data about the Hotel from the backend .
 
 <script>
 export default {
-  name: "List",
+  name: "ListStudent",
   data(){
     return{
       oddclass:false,
@@ -72,7 +72,7 @@ export default {
     },
    deletestudent(id){
       var uri = 'api/student/'+id;
-      swal.fire({
+      this.$swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
       type: 'warning',
@@ -85,7 +85,7 @@ export default {
           axios.delete(uri).then((response)=>{
             this.studentData();
           })
-          swal.fire(
+          this.$swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'

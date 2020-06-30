@@ -125,8 +125,8 @@
 	.active
 	{
 		color: #ffffff !important;
-		background-color: #00aeefa8 !important;
-		border-color: #00aeefa8 !important;
+		background-color: rgba(43, 188, 255, 0.8) !important;
+		border-color: rgba(43, 188, 255, 0.8) !important;
 		border-radius: 0px 0px 0 0 !important;
 	}
 	a:hover
@@ -224,7 +224,7 @@
 .explor-content
 {
 	// padding: 0px 10px 10px;
-	background-color: #00aeefa8;
+	background-color: rgba(43, 188, 255, 0.8);
 	border-radius: 0px 0px 5px 5px;
 }
 .button-explo
@@ -428,6 +428,7 @@ padding: 5px 25px !important;
 p 
 {
 	color: $fa-icon-color;
+	margin-bottom: 5px;;
 }
 router-link:hover
 {
@@ -436,7 +437,7 @@ router-link:hover
 
 .fa, .fas
 {
-	font-size: 25px;
+	font-size: 20px;
 	padding-right: 30px;
 	color: $fa-icon-color;
 }
@@ -519,7 +520,7 @@ a {
 
 .card{
 border: 0px solid gray !important;
-padding-: 10px;
+
 color: #000;
 
 }

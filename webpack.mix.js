@@ -1,24 +1,19 @@
-const mix = require('laravel-mix');
-require('laravel-mix-purgecss');
 
 
+let mix = require('laravel-mix');
 
-// mix.js('resources/js/admin.js', 'public/js/admin')
-//    .js('resources/js/app.js','public/js')
-//    .sass('resources/sass/admin/app.scss', 'public/css/admin')
+// mix.js('resources/js/entry-client.js', 'public/js')
+//    .js('resources/js/entry-server.js', 'public/js')
 //    .sass('resources/sass/front/app.scss', 'public/css');
 
+// mix.webpackConfig({
+//    resolve: {
+//       alias: {
+//          'vue$': 'vue/dist/vue.runtime.common.js'
+//       }
+//    }
+// });
+
+
 mix.js('resources/js/admin.js', 'public/js/admin')
-   .js('resources/js/app.js','public/js')
    .sass('resources/sass/admin/app.scss', 'public/css/admin')
-   .sass('resources/sass/front/app.scss', 'public/css');
-   // .purgeCss({
-   // 		enabled: true,
-   // });
-   
-
-
-
-
-
-

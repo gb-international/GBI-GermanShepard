@@ -26,7 +26,7 @@ data from the api to display the data about the encyclopedia from the backend .
                     </thead>
                     <tbody>
 
-                        <tr v-for="encyclopedia in encyclopedia_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list">
+                        <tr v-for="encyclopedia in encyclopedia_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list" :key="encyclopedia.id">
                             <td>{{encyclopedia.encyclopedia_id}}</td>
                             <td>{{ encyclopedia.body }}</td>
                             <td>{{ encyclopedia.created_at }}</td>
@@ -72,7 +72,7 @@ export default {
 
     deleteencyclopedia(id){
       var uri = '/api/encyclopediacomments/'+id;
-      swal.fire({
+      this.$swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
       type: 'warning',
@@ -86,7 +86,7 @@ export default {
             this.encyclopediaData();
                 
           })
-          swal.fire(
+          this.$swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'

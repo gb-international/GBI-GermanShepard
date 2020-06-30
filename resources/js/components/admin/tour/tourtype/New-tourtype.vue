@@ -7,23 +7,29 @@ to submit the data we are using a function.
 <template>
   <section class="content">
     <div class="container-fluid">
-        <!--************************************************
+      <!--************************************************
           Template Type: Adding New Hotel
           Author:@Ajay
 
-          ****************************************************-->
+      ****************************************************-->
       <div class="row justify-content-around">
         <!-- left column -->
         <div class="col-md-12">
           <form role="form" enctype="multipart/form-data" @submit.prevent="AddSchool()">
-            <div class="row">        
+            <div class="row">
               <div class="col-sm-8">
                 <div class="form-group">
-                    <label for="name">tourtype Name</label>
-                    <input type="text" class="form-control"  placeholder="Enter tourtype Name" v-model="form.name" :class="{ 'is-invalid': form.errors.has('name') }">
-                    <has-error :form="form" field="name"></has-error>
+                  <label for="name">tourtype Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter tourtype Name"
+                    v-model="form.name"
+                    :class="{ 'is-invalid': form.errors.has('name') }"
+                  />
+                  <has-error :form="form" field="name"></has-error>
                 </div>
-              </div>                        
+              </div>
             </div>
 
             <div class="row">
@@ -40,53 +46,56 @@ to submit the data we are using a function.
                 </div>
               </div>
               <div class="col-sm-2"></div>
-            </div> 
+            </div>
           </form>
         </div>
       </div>
       <!-- /.row -->
-   </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.container-fluid -->
   </section>
 </template>
 
 <script>
- export default {
-  name: "New",
-  data(){
+import { Form, HasError } from "vform";
+export default {
+  name: "NewTourType",
+components:{Form,
+  'has-error': HasError
+  },
+  data() {
     return {
       // Create a new form instance
       form: new Form({
-        name:'',
+        name: ""
       })
-    }
+    };
   },
-  methods:
-  {
-
-    AddSchool()
-    {
+  methods: {
+    AddSchool() {
       var path = `/api/tourtype`;
-      this.form.post(path).then(response => {
-        this.$router.push(`/tourtype`);        
-        toast({
-          type: 'success',
-          title: 'Successfully Updated !!!'
+      this.form
+        .post(path)
+        .then(response => {
+          this.$router.push(`/tourtype`);
+          this.$toast.fire({
+            icon: "success",
+            title: "Successfully Updated !!!"
+          });
         })
-      })
-      .catch(error => {
-        if (error.response.status === 422) {
-          this.errors = error.response.data.errors || {};
-        }
-      });
+        .catch(error => {
+          if (error.response.status === 422) {
+            this.errors = error.response.data.errors || {};
+          }
+        });
     },
 
-    goBack(){
+    goBack() {
       this.$router.push(`/tourtype`);
-    },
+    }
   }
-}
+};
 </script>
 
 <style scoped>
-
 </style>  

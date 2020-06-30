@@ -75,7 +75,7 @@ to submit the data we are using a function.
                   <div class="form-group">
                     <label for="RoleName">Role Assign</label>
                     <select class="form-control" v-model="form.RoleName" :class="{ 'is-invalid': form.errors.has('RoleName') }">
-                      <option v-for="role in role_list" :value="role.name"> {{ role.name }} </option>
+                      <option v-for="role in role_list" :value="role.name" :key="role.id"> {{ role.name }} </option>
                     </select>
                     <has-error :form="form" field="RoleName"></has-error>
                   </div>
@@ -92,8 +92,12 @@ to submit the data we are using a function.
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
 export default {
-  name: "New",
+  name: "NewMember",
+  components:{Form,
+  'has-error': HasError
+  },
   data(){
     return {
       role_list:[],
@@ -123,8 +127,8 @@ export default {
       this.form.post('/api/members/create').then((response)=>{
         this.$router.push(`/list-member`)
         console.log(response);
-        toast({
-            type: 'success',
+        this.$toast.fire({
+            icon: 'success',
             title: 'Client Added successfully'
         })
       })

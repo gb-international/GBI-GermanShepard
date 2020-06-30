@@ -22,7 +22,7 @@ data from the api to display the data about the Hotel from the backend .
                         <div class="form-group">
                           <label for="train_id">Train</label>
                           <select class="form-control" v-model="form.train_id">
-                              <option v-for="train in train_list" :value="train.id">{{ train.name }}</option>
+                              <option v-for="train in train_list" :value="train.id" :key="train.id">{{ train.name }}</option>
                             </select>
                            <has-error :form="form" field="train_id"></has-error>
                         </div>
@@ -96,10 +96,11 @@ data from the api to display the data about the Hotel from the backend .
     <!-- /.content -->
 </template>
 <script>
+import { Form, HasError } from 'vform'
 import CitySelect from '../../partials/City-select.vue'
     export default {
         name: "List",
-        components:{ CitySelect },
+        components:{ CitySelect,Form,'has-error':HasError },
         data(){
           return{
             row_input:'',
@@ -141,15 +142,15 @@ import CitySelect from '../../partials/City-select.vue'
           this.form.post(path).then((response)=>{
             console.log(response);
               if(response.data == 1){
-                toast({
-                  type: 'error',
+                this.$toast.fire({
+                  icon: 'error',
                   title: 'Already Booked !!!'
                 })
               return false;
               }
                // this.$router.push(`/hotel-list/`)
-                toast({
-                    type: 'success',
+                this.$toast.fire({
+                    icon: 'success',
                     title: 'Flight Added successfully'
                 })
             })

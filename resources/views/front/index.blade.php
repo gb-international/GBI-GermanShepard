@@ -57,15 +57,22 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNXQXSR"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+
+
+ {!! $ssr !!}
+  <script src="{{ asset('js/entry-client.js') }}" type="text/javascript"></script>
+
+
+
     
-<div id="app">
+{{-- <div id="app">
   <div>  
     <div class="row">
       <home-main></home-main>
     </div>
   </div>
 </div>
-
+ --}}
 <script>
   window.Laravel = <?php echo json_encode([
       'csrfToken' => csrf_token(),
@@ -73,7 +80,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 
 <!-- vue JavaScript -->
-<script rel="preload" src="{{asset('js/app.js')}}" as="script"></script>
+<script rel="preload" src="{{asset('js/entry-client.js')}}" as="script"></script>
+
+
+
+
+
+
+
+
+
+
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

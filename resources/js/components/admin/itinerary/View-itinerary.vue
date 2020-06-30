@@ -49,7 +49,7 @@ It takes id from the url and get the data from the api .
                 </div>
               </div>
               <!-- This div will show the itinerary days and its description -->
-              <div v-for="data in itineraryData.itinerarydays">
+              <div v-for="data in itineraryData.itinerarydays" :key="data.id">
                 <hr>
                 <div class="row">
                   <div class="col-sm-12">
@@ -79,7 +79,7 @@ It takes id from the url and get the data from the api .
 
 <script>
     export default {
-        name: "List",
+        name: "ListItinerary",
         data(){
           return{
             day:0,
@@ -104,8 +104,8 @@ It takes id from the url and get the data from the api .
           axios.get('/delete/'+id)
           .then(()=>{
           this.$store.dispatch('getAllitinerary')
-          toast({
-          type: 'success',
+          this.$toast.fire({
+          icon: 'success',
           title: 'Itinerary Deleted successfully'
           })
           })

@@ -53,7 +53,7 @@ data from the api to display the data about the Hotel from the backend .
 
 <script>
 export default {
-  name: "List",
+  name: "ListTrain",
   data(){
     return{
       oddclass:false,
@@ -77,7 +77,7 @@ export default {
 
      deleteTrain(id){
         var uri = 'api/train/'+id;
-        swal.fire({
+        this.$swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         type: 'warning',
@@ -90,7 +90,7 @@ export default {
             axios.delete(uri).then((response)=>{
               this.getTrain();
             })
-            swal.fire(
+            this.$swal.fire(
               'Deleted!',
               'Your file has been deleted.',
               'success'

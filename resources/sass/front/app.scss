@@ -4,7 +4,7 @@
 
 // Variables
 @import 'variables';
-@import 'menufront';
+@import 'navbar';
 @import 'about';
 @import 'contactus';
 @import 'faq';
@@ -20,11 +20,18 @@
 @import 'encyclopedia';
 @import 'common';
 @import 'images';
+@import 'extra';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
-@import "~admin-lte/dist/css/adminlte.css";
+// @import '~bootstrap/scss/bootstrap';
+// @import "~admin-lte/dist/css/adminlte.css";
 
+@import '~vue-search-select/dist/VueSearchSelect.css';
+@import '~vue-slick-carousel/dist/vue-slick-carousel.css';
+@import '~vue-slick-carousel/dist/vue-slick-carousel-theme.css';
+@import '~sweetalert2/dist/sweetalert2.min.css';
+@import '~vue-form-wizard/dist/vue-form-wizard.min.css';
+@import '~sweetalert2/dist/sweetalert2.min.css';
 
 
 .navbar-laravel {

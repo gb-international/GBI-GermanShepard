@@ -50,8 +50,12 @@ to submit the data we are using a function.
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
  export default {
-  name: "New",
+  name: "NewCountry",
+  components:{Form,
+  'has-error': HasError
+  },
   data(){
     return {
       // Create a new form instance
@@ -68,8 +72,8 @@ to submit the data we are using a function.
       var path = `/api/country`;
       this.form.post(path).then(response => {
         this.$router.push(`/country-list`);        
-        toast({
-          type: 'success',
+        this.$toast.fire({
+          icon: 'success',
           title: 'Successfully Updated !!!'
         })
       })

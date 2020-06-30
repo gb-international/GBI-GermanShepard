@@ -38,8 +38,12 @@
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
 export default {
-    name: "Edit",
+    name: "EditTourType",
+    components:{Form,
+  'has-error': HasError
+  },
     data(){
         return{
             form: new Form({
@@ -59,8 +63,8 @@ export default {
         updateTourtype(){
         this.form.put(`/api/tourtype/${this.$route.params.id}`).then((response)=>{
                this.$router.push('/tourtype')
-                toast({
-                    type: 'success',
+                this.$toast.fire({
+                    icon: 'success',
                     title: 'Tourtype Updated successfully'
                 })
             })

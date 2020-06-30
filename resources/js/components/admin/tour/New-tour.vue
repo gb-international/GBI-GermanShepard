@@ -39,7 +39,7 @@ to submit the data we are using a function.
                         <label for="itinerary_id">Itinerary</label>
 
                         <select class="form-control" v-model="form.itinerary_id">
-                          <option v-for="data in itinerary_list" :value="data.id">{{ data.title }}</option>
+                          <option v-for="data in itinerary_list" :value="data.id" :key="data.id">{{ data.title }}</option>
                         </select>
                         <div class="error" v-if="form.errors.has('itinerary_id')">
                           <label class="danger text-danger">{{ form.errors.get("itinerary_id") }}</label>
@@ -52,7 +52,7 @@ to submit the data we are using a function.
                         <label for="itinerary_id">School</label>
 
                         <select class="form-control" v-model="form.school_id">
-                          <option v-for="data in school_list" :value="data.id">{{ data.school_name }}</option>
+                          <option v-for="data in school_list" :value="data.id" :key="data.id">{{ data.school_name }}</option>
                         </select>
                         <div class="error" v-if="form.errors.has('school_id')">
                           <label class="danger text-danger">{{ form.errors.get("school_id") }}</label>
@@ -108,8 +108,12 @@ to submit the data we are using a function.
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
 export default {
-  name: "New",
+  name: "NewTour",
+  components:{Form,
+  'has-error': HasError
+  },
   data(){
     return {
       // Create a new form instance
@@ -172,8 +176,8 @@ export default {
       // Submit the form via a itinerary request
       this.form.post('/api/tour').then((response)=>{
         this.$router.push(`/tours/`)
-        toast({
-            type: 'success',
+        this.$toast.fire({
+            icon: 'success',
             title: 'School Added successfully'
         })
         }).catch(()=>{

@@ -51,8 +51,12 @@ data from the api to display the data about the encyclopedia from the backend .
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
 export default {
   name: "List",
+  components:{Form,
+  'has-error': HasError
+  },
   data(){
     return{
       oddclass:false,
@@ -82,8 +86,8 @@ export default {
              console.log(response);
              this.video_data = '';
              this.videoData();
-              toast({
-                  type: 'success',
+              this.$toast.fire({
+                  icon: 'success',
                   title: 'Itinerary Updated successfully'
               })
            }).catch(()=>{})
@@ -91,7 +95,7 @@ export default {
 
     deletetourprogram(id){
       var uri = '/api/tourprogram/'+id;
-      swal.fire({
+      this.$swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
       type: 'warning',
@@ -106,7 +110,7 @@ export default {
             this.encyclopediaData();
                 
           })
-          swal.fire(
+          this.$swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'

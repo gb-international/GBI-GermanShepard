@@ -56,8 +56,12 @@ to submit the data we are using a function.
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
 export default {
   name: "New",
+  components:{Form,
+  'has-error': HasError
+  },
   data(){
     return {
       // Create a new form instance
@@ -85,8 +89,8 @@ export default {
         .then((response)=>{
           console.log(response);
            this.$router.go(-1);
-            toast({
-                type: 'success',
+            this.$toast.fire({
+                icon: 'success',
                 title: 'Successfully Updated'
             })
           })

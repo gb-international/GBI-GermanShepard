@@ -24,7 +24,7 @@ data from the api to display the data about the Escort from the backend .
                     </thead>
                     <tbody>
 
-                        <tr v-for="escort in escort_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list">
+                        <tr v-for="escort in escort_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list" :key="escort.id">
                             <td>{{escort.name}}</td>
                             <td>{{escort.salaryPerday}}</td>
                             <td>{{escort.phoneno}}</td>
@@ -52,8 +52,10 @@ data from the api to display the data about the Escort from the backend .
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
 export default {
-  name: "List",
+  name: "ListEscort",
+  components:[Form,HasError],
   data(){
     return{
       oddclass:false,
@@ -75,7 +77,7 @@ export default {
 
      deleteescort(id){
       var uri = 'api/escort/'+id;
-      swal.fire({
+      this.$swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
       type: 'warning',
@@ -89,7 +91,7 @@ export default {
             this.escortData();
                 
               })
-          swal.fire(
+          this.$swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'

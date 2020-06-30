@@ -29,6 +29,7 @@ class UserController extends Controller{
      * @return \Illuminate\Http\Response 
      */ 
     public function login(){ 
+        
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
             $user = Auth::user(); 
             $success['token'] =  $user->createToken('MyApp')->accessToken; 
@@ -178,8 +179,9 @@ class UserController extends Controller{
     public function tourList(Request $request){
         $user = Auth::user();
         $travel = $user->UserTravel->first();
+
         $tour = Tour::with('itinerary','itinerary.itinerarydays','bookedhotels','bookedhotels.hotel','bookedflights','bookedflights.flight')->where("travel_code",$travel->travel_code)->get();
-        return response()->json($tour);        
+        return response()->json($tour);
     }
 
     public function tourListSave(Request $request){
@@ -198,5 +200,9 @@ class UserController extends Controller{
         }        
         TourUser::create($data);
         return response()->json(['success'=>"success"]);   
+    }
+
+    public function userInfo(){
+        
     }
 }

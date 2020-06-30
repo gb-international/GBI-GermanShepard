@@ -76,8 +76,12 @@ to submit the data we are using a function.
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
    export default {
-    name: "New",
+    name: "EditMember",
+    components:{Form,
+    'has-error': HasError
+    },
     data(){
       return {
         // Create a new form instance
@@ -103,8 +107,8 @@ to submit the data we are using a function.
         this.form.post(`/api/client/update/${this.$route.params.id}`)
         .then((response)=>{
              this.$router.push(`/client-list`)
-              toast({
-                  type: 'success',
+              this.$toast.fire({
+                  icon: 'success',
                   title: 'Successfully Updated !!!'
               })
           })

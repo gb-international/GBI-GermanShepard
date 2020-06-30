@@ -253,7 +253,7 @@ export default {
 
     deleteBookedTrain(id){
       var uri = 'api/bookedtrains/'+id;
-      swal.fire({
+      this.$swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
       type: 'warning',
@@ -266,7 +266,7 @@ export default {
           axios.delete(uri).then((response)=>{
            this.getAllData();
          })
-          swal.fire(
+          this.$swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'
@@ -291,14 +291,14 @@ export default {
         axios.delete(uri).then((response)=>{
          this.getAllData();
        })
-        swal.fire('Deleted!','Your file has been deleted.','success')
+        this.$swal.fire('Deleted!','Your file has been deleted.','success')
       }
     });        
   },
 
   deleteBookedEscort(id){
       var uri = 'api/bookedescorts/'+id;
-      swal.fire({
+      this.$swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
       type: 'warning',
@@ -311,7 +311,7 @@ export default {
           axios.delete(uri).then((response)=>{
            this.getAllData();
          })
-          swal.fire(
+          this.$swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'
@@ -323,7 +323,7 @@ export default {
 
   deleteBookedFlight(id){
       var uri = 'api/bookedflights/'+id;
-      swal.fire({
+      this.$swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
       type: 'warning',
@@ -336,7 +336,7 @@ export default {
           axios.delete(uri).then((response)=>{
            this.getAllData();
          })
-          swal.fire(
+          this.$swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'
@@ -347,7 +347,7 @@ export default {
   },
   deleteBookedBus(id){
       var uri = 'api/bookedbuses/'+id;
-      swal.fire({
+      this.$swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
       type: 'warning',
@@ -360,7 +360,7 @@ export default {
           axios.delete(uri).then((response)=>{
            this.getAllData();
          })
-          swal.fire(
+          this.$swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'

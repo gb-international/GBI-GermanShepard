@@ -1,73 +1,43 @@
-require("./bootstrap"), 
-window.Vue = require("vue");
-import "v-markdown-editor/dist/index.css";
-import Editor from "v-markdown-editor";
-Vue.use(Editor);
-import VueSession from "vue-session";
-Vue.use(VueSession);
-import Permissions from "./mixins/Permissions";
-Vue.mixin(Permissions);
-import Vue from "vue";
-import VueCarousel from "@chenfengyuan/vue-carousel";
-Vue.use(VueCarousel), Vue.component(VueCarousel.name, VueCarousel), Vue.component("vue-carousel", VueCarousel);
-import {
-    CarouselPlugin
-} from "bootstrap-vue";
-Vue.use(CarouselPlugin);
-import responsive from "vue-responsive";
-Vue.use(responsive);
-import Vuex from "vuex";
-Vue.use(Vuex);
-import storeData from "./store/index";
-const store = new Vuex.Store(storeData);
-import { filter } from "./filter";
-import VueRouter from "vue-router";
-Vue.use(VueRouter);
+
+import App from './components/front/layouts/App.vue';
+import Vue from 'vue';
+import router from './router';
+import axios from 'axios';
+import Vuex from 'vuex';
 import vueHeadful from "vue-headful";
 import LazyLoadDirective from "./components/partials/LazyLoadDirective";
-// development warning can be disabled as follows
-Vue.config.productionTip = false;
+import { filter } from "./filter";
+import storeData from "./store/index";
+import EventBus from './store/EventBus';
+import VueSweetalert2 from 'vue-sweetalert2';
+
+
+Vue.use(VueSweetalert2);
+Vue.use(Vuex);
+Vue.prototype.$axios = axios
+Vue.prototype.$bus = EventBus
 Vue.directive("lazyload", LazyLoadDirective);
+const store = new Vuex.Store(storeData);
 
-let token = document.head.querySelector('meta[name="csrf-token"]');
+if (process.window == 'undefined') {
+    window.$ = window.jQuery = require('jquery')
+    const token = localStorage.token;
+    console.log(token);
+    if(token){
+        Vue.prototype.$axios.defaults.headers.common['Authorization'] = token
+    }
+}
 
-import { routes } from "./routes";
-
-Vue.component("vue-headful", vueHeadful),
-Vue.component("admin-main", require("./components/admin/AdminMaster.vue")),
-Vue.component("home-main", require("./components/front/layouts/App.vue")),
-Vue.component("gbi-navbar", require("./components/front/layouts/Navbar.vue")),
-Vue.component("gbi-footer", require("./components/front/layouts/Footer.vue")),
-Vue.component("login", require("./components/front/user/Login.vue"));
-Vue.component("ImageSpinner",require("./components/partials/ImageSpinner.vue"));
-
-
-import {
-    Form,
-    HasError,
-    AlertError
-} from "vform";
-Vue.component(HasError.name, HasError), Vue.component(AlertError.name, AlertError), window.Form = Form;
-import swal from "sweetalert2";
-window.swal = swal;
+Vue.config.productionTip = false;
+Vue.component("vue-headful", vueHeadful);
+Vue.component("ImageSpinner", require("./components/partials/ImageSpinner.vue").default);
+Vue.component("gbi-footer", require("./components/front/layouts/Footer.vue").default);
 
 
-const toast = swal.mixin({
-    toast: !0,
-    position: "top-end",
-    showConfirmButton: !1,
-    timer: 3e3
-});
 
 
-window.toast = toast;
-
-const router = new VueRouter({
-    mode: "history",
-    routes: routes
-}),
-app = new Vue({
-    el: "#app",
-    router: router,
-    store: store
+export default new Vue({
+    router,
+    store,
+    render: h => h(App)
 });

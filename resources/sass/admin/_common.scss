@@ -13,7 +13,8 @@
 .mb-20{
 	margin-bottom: 20px;
 }
-
+.mb-10{	margin-bottom: 10px;}
+.toggle_nv{ display: block;}
 // Margin top 25
 .m-60{
 	margin-top:60px;
@@ -125,5 +126,11 @@ form{padding-top: 20px;}
 	    	color: white;
 	    	text-decoration: none;
 	    }
+	}
+}
+
+#example_wrapper{
+	.row{
+		width: 100% !important;
 	}
 }

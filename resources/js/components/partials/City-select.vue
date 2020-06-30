@@ -1,30 +1,30 @@
 <template>
-    <div>
-        <select class="form-control" v-model="selectedCity" v-on:change="optionChanged">
-            <option disabled>Please Select City</option>
-            <option v-for="city in list" :value="city.name">{{ city.name }}</option>
-        </select>
-    </div>
+  <div>
+    <select class="form-control" v-model="selectedCity" v-on:change="optionChanged">
+      <option disabled>Please Select City</option>
+      <option v-for="city in list" :key="city.id" :value="city.name">{{ city.name }}</option>
+    </select>
+  </div>
 </template>
 
 <script>
 export default {
-    name:"CitySelect",
-    data(){
-        return{
-            list:[],
-            selectedCity:''
-        }
-    },
-    created(){
-        axios.get('/api/city').then(response=>{
-            this.list = response.data.data;
-        });
-    },
-    methods: {
-        optionChanged(){
-            this.$emit("update:option",this.selectedCity);
-        },
+  name: "CitySelect",
+  data() {
+    return {
+      list: [],
+      selectedCity: ""
+    };
+  },
+  created() {
+    axios.get("/api/city").then(response => {
+      this.list = response.data.data;
+    });
+  },
+  methods: {
+    optionChanged() {
+      this.$emit("update:option", this.selectedCity);
     }
-}
+  }
+};
 </script>

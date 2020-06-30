@@ -23,7 +23,7 @@ to submit the data we are using a function.
                   <div class="form-group">
                     <label for="state_name">State</label>
                     <select class="form-control" v-model="form.state_name" @change="slugCreate($event)">
-                      <option v-for="state in state_list" :value="state.name">{{ state.name }}</option>
+                      <option v-for="state in state_list" :value="state.name" :key="state.id">{{ state.name }}</option>
                     </select>
                      <has-error :form="form" field="state_name"></has-error>
                   </div>
@@ -171,7 +171,7 @@ to submit the data we are using a function.
                   <div class="form-group">
                     <label for="itinerary_one">Itinerary One</label>
                     <select class="form-control" v-model="form.itinerary_one">
-                      <option v-for="itinerary in itinerary_list" :value="itinerary.id">{{ itinerary.title }}</option>
+                      <option v-for="itinerary in itinerary_list" :value="itinerary.id" :key="itinerary.id">{{ itinerary.title }}</option>
                     </select>
                   </div>
                 </div>
@@ -179,7 +179,7 @@ to submit the data we are using a function.
                   <div class="form-group">
                     <label for="itinerary_two">Itinerary Two</label>
                     <select class="form-control" v-model="form.itinerary_two">
-                      <option v-for="itinerary in itinerary_list" :value="itinerary.id">{{ itinerary.title }}</option>
+                      <option v-for="itinerary in itinerary_list" :value="itinerary.id" :key="itinerary.id">{{ itinerary.title }}</option>
                     </select>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ to submit the data we are using a function.
                   <div class="form-group">
                     <label for="itinerary_three">Itinerary Three</label>
                     <select class="form-control" v-model="form.itinerary_three">
-                      <option v-for="itinerary in itinerary_list" :value="itinerary.id">{{ itinerary.title }}</option>
+                      <option v-for="itinerary in itinerary_list" :value="itinerary.id" :key="itinerary.id">{{ itinerary.title }}</option>
                     </select>
                   </div>
                 </div>
@@ -219,11 +219,12 @@ to submit the data we are using a function.
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import 'vue-search-select/dist/VueSearchSelect.css'
 import { ModelSelect } from 'vue-search-select'
+import { Form, HasError } from 'vform'
 
 export default {
   name: "New",
   components: {
-    ModelSelect
+    ModelSelect,Form,'has-error':HasError
   },
   data(){
     return {
@@ -339,8 +340,8 @@ export default {
        var api = `/api/encyclopedias/${this.$route.params.id}`;
        this.form.put(api).then((response)=>{
              // this.$router.push(`/itinerary-list`)
-              toast({
-                  type: 'success',
+              this.$toast.fire({
+                  icon: 'success',
                   title: 'Itinerary Added successfully'
               })
            }).catch(()=>{})

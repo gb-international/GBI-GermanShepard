@@ -11,19 +11,19 @@ It takes id from the url and get the data from the api .
     Author:@Ajay
 
     ****************************************************-->
-    <div class="row justify-content-around" >
+    <div class="row justify-content-around">
       <div class="col-md-12">
         <div class="container container_admin_body">
-          <!-- Start Card -->        
+          <!-- Start Card -->
           <div class="card_view">
             <!-- This row will show the itinerary detail -->
 
-            <br>
+            <br />
             <div class="row">
               <div class="col-sm-3">
                 <h5>Name</h5>
 
-                <p>{{viewData.first_name}} {{viewData.last_name}} </p>
+                <p>{{viewData.first_name}} {{viewData.last_name}}</p>
               </div>
               <div class="col-sm-3">
                 <h5>Gender</h5>
@@ -69,37 +69,35 @@ It takes id from the url and get the data from the api .
                 <h5>Updated At</h5>
                 <p>{{viewData.updated_at}}</p>
               </div>
-
-              
             </div>
           </div>
-            <!-- End card -->
-
-          </div>                          
-          <!-- end -->
+          <!-- End card -->
+        </div>
+        <!-- end -->
       </div>
     </div>
   </section>
-    <!-- /.content -->
+  <!-- /.content -->
 </template>
 
 <script>
-    export default {
-        name: "View",
-        data(){
-          return{
-            client_view:[]   
-          }
-        },
-        mounted(){
-          this.$store.dispatch('getEditData',`/api/student/${this.$route.params.id}`)
-        },
-        computed:{
-          viewData(){
-            return this.$store.getters.getEditData;// Fill the form with the data
-          }
-        }
+export default {
+  name: "ViewStudent",
+  data() {
+    return {
+      client_view: []
+    };
+  },
+  mounted() {
+    this.$store.dispatch(
+      "getEditData",
+      `/api/student/${this.$route.params.id}`
+    );
+  },
+  computed: {
+    viewData() {
+      return this.$store.getters.getEditData; // Fill the form with the data
     }
-
-
+  }
+};
 </script>

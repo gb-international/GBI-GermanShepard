@@ -19,7 +19,7 @@ data from the api to display the data about the transport from the backend .
               </div>
 
               <!-- Table  -->
-              <div class="transport_bottom" v-for="data in total_row">
+              <div class="transport_bottom" v-for="data in total_row" :key="data.id">
                 <div id="tabs" class="container">
                   <div class="tabs">
                     <a v-on:click="activetab=1" v-bind:class="[ activetab === 1 ? 'active' : '' ]">Flights</a>
@@ -34,7 +34,7 @@ data from the api to display the data about the transport from the backend .
                             <div class="form-group">
                               <label>Select Airline Name</label>
                               <select class="form-control" v-model="data[0].name">
-                                <option v-for="air in air_list" :value="air.transName">{{ air.transName }}</option>
+                                <option v-for="air in air_list" :value="air.transName" :key="air.id">{{ air.transName }}</option>
                               </select>
                             </div>
                           </div>
@@ -79,7 +79,7 @@ data from the api to display the data about the transport from the backend .
                             <div class="form-group">
                               <label>Select Train Name</label>
                               <select class="form-control" v-model="data[1].name">
-                                <option v-for="train in train_list" :value="train.transName">{{ train.transName }}</option>
+                                <option v-for="train in train_list" :value="train.transName" :key="train.id">{{ train.transName }}</option>
                               </select>
                             </div>
                           </div>
@@ -211,8 +211,8 @@ data from the api to display the data about the transport from the backend .
         updateData(){
           var path = `/tour_transport_add/${this.$route.params.id}`;
           axios.post(path, this.total_row).then(response => {
-            toast({
-              type: 'success',
+            this.$toast.fire({
+              icon: 'success',
               title: 'Successfully Updated !!!'
             })
           }).catch(error => {

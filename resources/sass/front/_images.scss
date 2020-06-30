@@ -1,34 +1,50 @@
 // Desktop version images
-.banner_img{ background-size: 100% 100%; display: inline-block;	}
+.banner_img{ 
+	background-size: 100% 100%; display: inline-block;	
+	.content{
+		top: 140px;
+	}
+}
+.banner_bg{
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 507px;
+	padding:0px;
+}
 @media only screen and (min-width: 680px) {
-	.image-slide-1{content:url('/assets/front/banner/banner.webp'); }
-	.image-slide-2{content:url('/assets/front/banner/banner1.webp'); }
-	.image-slide-3{content:url('/assets/front/banner/banner2.webp'); }
-	.contact_us_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/contact-us.webp'); }
-	.encyclopedia_banner{content:url('/assets/front/banner/encyclopedia1.webp'); }
-	.explore_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/explore-dest.webp'); }
-	.faq_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/faq.webp'); }
-	.howwework_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/how-we-work.webp'); }
-	.ourstory_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/our-story.webp'); }
-	.safety_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/safety-security.webp'); }
-	.education_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/travel-education.webp'); }
-	.career_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/career.webp'); }
+	.image-slide-1{ background-image:url('/assets/front/banner/banner.webp'); display: block; }
+	.image-slide-2{background-image:url('/assets/front/banner/banner1.webp'); display: block; }
+	.image-slide-3{background-image:url('/assets/front/banner/banner2.webp'); display: block; }
+
+	.contact_us_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/Contactus_Banner.jpg'); }
+
+	.encyclopedia_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/Encylopedia_Banner.jpg'); }
+	.explore_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/explore-dest.gif'); }
+	.faq_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/Faq_Banner.jpg'); }
+	.howwework_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/howwework_Banner.jpg'); }
+	.banner_ourstory{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/Ourstory_Banner.jpg'); }
+	.safety_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/safety%26security_Banner.jpg'); }
+	.education_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/education_tour_Banner.jpg'); }
+	.career_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/Career_Banner.jpg'); }
 }
 
 // Mobile version images
 @media only screen and (max-width: 680px) {
-	.image-slide-1{	content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/fb1_mb.webp');	}
-	.image-slide-2{	content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/fb2_mb.webp'); }
-	.image-slide-3{	content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/fb3_mb.webp'); }
-	.contact_us_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/contact-us_mb.webp'); }
-	.encyclopedia_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/encyclopedia_mb.webp'); }
-	.explore_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/explore-dest_mb.gif'); }
-	.faq_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/faq_mb.webp'); }
-	.howwework_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/how-we-work_mb.webp'); }
-	.ourstory_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/our-story_mb.webp'); }
-	.safety_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/safety_mb.webp'); }
-	.education_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/travel_education_mb.webp'); }
-	.career_banner{content:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/careers_mb.webp'); }
+	.image-slide-1{	background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/fb1_mb.webp');display: block;	}
+	.image-slide-2{	background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/fb2_mb.webp');display: block; }
+	.image-slide-3{	background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/fb3_mb.webp');display: block; }
+	.contact_us_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/contact_us_mb.jpg'); }
+	.encyclopedia_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/encyclopedia_mb.jpg'); }
+	.explore_banner{
+		background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/explore-dest_mb.gif');
+		background-size: 720px !important;
+	}
+	.faq_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/faq_mb.jpg'); }
+	.howwework_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/how_we_work_mb.jpg'); }
+	.banner_ourstory{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/our_story_mb.jpg'); }
+	.safety_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/safety_security_mb.jpg'); }
+	.education_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/travel+and++edu_mb.jpg'); }
+	.career_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/careers_mb.jpg'); }
 }
 
 
@@ -47,7 +63,7 @@
 	}  
 	.text_on_image{
 		.content{
-			top: 30%;
+			top: 18%;
 			left: 5%;
 			.heading{
 				font-size: 25px;
@@ -62,4 +78,8 @@
 	       padding: 19px 40px 0px 0px !important;
 	    }
 	} 
+	.banner_bg{
+		height: 270px;
+	}
+
 }

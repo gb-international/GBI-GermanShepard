@@ -4,6 +4,7 @@
 .mt-15{	margin-top:15px; }
 .mt-20{	margin-top:20px; }
 .mt-35{	margin-top:35px; }
+.mt-85{ margin-top:85px; }
 
 .mb-5{ margin-bottom: 5px; }
 .mb-10{	margin-bottom:10px; }
@@ -11,17 +12,27 @@
 .mb-20{	margin-bottom:20px; }
 .mb-35{	margin-bottom:35px; }
 
+.mr-5{ margin-right: 5px; }
+.mr-10{ margin-right: 10px; }
+.mr-20{ margin-right: 20px;}
+
+
+
+
 .p-20{ padding: 20px; }
 .p-t-15{ padding-top: 15px; }
 .m-60{ margin-top:60px; }
 
 .h-45{ height: 45px !important; }
-.w-100{ width: 100%; }
+.w-100{ width: 100% !important; }
+.w-45{ width: 45px; }
+.w-60{ width: 60px; }
+
 
 .underline{ text-decoration: underline; }
 .text-upper{  text-transform: uppercase; }
 
-
+.img-circle { border-radius: 50%;}
 
 #itinerary_detail_list{	min-height: 140px; }
 .input-border{ border:1px solid lightgrey !important; height: 45px; }
@@ -38,9 +49,6 @@
 		.heading{
 			font-size: 30px;
 			margin-bottom: 0px;
-		}
-		.sub{
-
 		}
 	}
 }
@@ -63,3 +71,22 @@ a{
 }
 
 .card_image_ency{ height: 154px; }
+
+.loadingspinner {
+	pointer-events: none;
+	width: 2.5em;
+	height: 2.5em;
+	border: 0.4em solid transparent;
+	border-color: #eee;
+	border-top-color: #3E67EC;
+	border-radius: 50%;
+	animation: loadingspin 1s linear infinite;
+	margin-left: 50%;
+	margin-top: 5px;
+}
+
+@keyframes loadingspin {
+	100% {
+			transform: rotate(360deg)
+	}
+}

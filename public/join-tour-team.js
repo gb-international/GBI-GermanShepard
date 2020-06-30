@@ -1,52 +1,14 @@
-webpackJsonp([18],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["join-tour-team"],{
 
-/***/ 1018:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(1019);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(7)("3657a074", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-f4b80604\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./JoinOurTeam.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-f4b80604\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./JoinOurTeam.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 1019:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(5)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\nbutton[data-v-f4b80604]:hover{\n\n  background-color: #eee;\n}\ninput[type=\"submit\"][data-v-f4b80604]:hover{\n\n    background-color: #3490dc;\n    color: white;\n    padding: 12px 35px;\n    border: none;\n    border-radius: 4px;\n    cursor: pointer;\n    border: solid 0px white;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 1020:
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/JoinOurTeam.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/front/JoinOurTeam.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -154,7 +116,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "JoinOurTeam",
   data: function data() {
@@ -175,17 +136,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       })
     };
   },
-
   methods: {
     onFileChange: function onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
+
       if (files[0].size > 2097152) {
         swal.fire('Alert!', 'Resume size should not be more than 2 MB', 'warning');
-
         return false;
       }
-      if (!files.length) return;
 
+      if (!files.length) return;
       this.createImage(files[0]);
       var fileData = event.target.files[0];
       this.filename = fileData.name;
@@ -194,9 +154,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var image = new Image();
       var reader = new FileReader();
       var vm = this;
+
       reader.onload = function (e) {
         vm.form.resume = e.target.result;
       };
+
       reader.readAsDataURL(file);
     },
     sendmailResume: function sendmailResume() {
@@ -204,10 +166,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       this.form.post('/api/join-our-team/send').then(function (response) {
         _this.form.reset();
-        _this.filename = '';
-        // this.$router.push('/home')
+
+        _this.filename = ''; // this.$router.push('/home')
+
         swal.fire('Successfully Submited!', 'Your resume has been sent to HR Deparment..', 'success');
-      }).catch(function () {});
+      })["catch"](function () {});
     } // end sendmailResume
 
   }
@@ -215,9 +178,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 1021:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/JoinOurTeam.vue?vue&type=template&id=f4b80604&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/front/JoinOurTeam.vue?vue&type=template&id=f4b80604& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -798,66 +769,78 @@ var staticRenderFns = [
   }
 ]
 render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-f4b80604", module.exports)
-  }
-}
+
+
 
 /***/ }),
 
-/***/ 929:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./resources/js/components/front/JoinOurTeam.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/front/JoinOurTeam.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(1018)
-}
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(1020)
-/* template */
-var __vue_template__ = __webpack_require__(1021)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-f4b80604"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _JoinOurTeam_vue_vue_type_template_id_f4b80604___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./JoinOurTeam.vue?vue&type=template&id=f4b80604& */ "./resources/js/components/front/JoinOurTeam.vue?vue&type=template&id=f4b80604&");
+/* harmony import */ var _JoinOurTeam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./JoinOurTeam.vue?vue&type=script&lang=js& */ "./resources/js/components/front/JoinOurTeam.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _JoinOurTeam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _JoinOurTeam_vue_vue_type_template_id_f4b80604___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _JoinOurTeam_vue_vue_type_template_id_f4b80604___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
 )
-Component.options.__file = "resources/js/components/front/JoinOurTeam.vue"
 
 /* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-f4b80604", Component.options)
-  } else {
-    hotAPI.reload("data-v-f4b80604", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
+if (false) { var api; }
+component.options.__file = "resources/js/components/front/JoinOurTeam.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
-module.exports = Component.exports
+/***/ }),
+
+/***/ "./resources/js/components/front/JoinOurTeam.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/front/JoinOurTeam.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinOurTeam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./JoinOurTeam.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/JoinOurTeam.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinOurTeam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/front/JoinOurTeam.vue?vue&type=template&id=f4b80604&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/front/JoinOurTeam.vue?vue&type=template&id=f4b80604& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinOurTeam_vue_vue_type_template_id_f4b80604___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./JoinOurTeam.vue?vue&type=template&id=f4b80604& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/JoinOurTeam.vue?vue&type=template&id=f4b80604&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinOurTeam_vue_vue_type_template_id_f4b80604___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinOurTeam_vue_vue_type_template_id_f4b80604___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ })
 
-});
+}]);

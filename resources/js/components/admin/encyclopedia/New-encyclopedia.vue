@@ -23,7 +23,7 @@ to submit the data we are using a function.
                   <div class="form-group">
                     <label for="state_name">State</label>
                     <select class="form-control" v-model="form.state_name" @change="slugCreate($event)">
-                      <option v-for="state in state_list" :value="state.name">{{ state.name }}</option>
+                      <option v-for="state in state_list" :value="state.name" :key="state.id">{{ state.name }}</option>
                     </select>
                      <has-error :form="form" field="state_name"></has-error>
                   </div>
@@ -202,11 +202,12 @@ to submit the data we are using a function.
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import 'vue-search-select/dist/VueSearchSelect.css'
 import { ModelSelect } from 'vue-search-select'
+import { Form, HasError } from 'vform'
 
 export default {
   name: "New",
   components: {
-    ModelSelect
+    ModelSelect,Form,'has-error':HasError
   },
   data(){
     return {
@@ -271,8 +272,8 @@ export default {
       this.form.post('/api/encyclopedias')
         .then((response)=>{
              this.$router.push(`/encyclopedia-list`)
-              toast({
-                  type: 'success',
+              this.$toast.fire({
+                  icon: 'success',
                   title: 'Itinerary Added successfully'
               })
            }).catch(()=>{})

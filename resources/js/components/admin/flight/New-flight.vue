@@ -58,8 +58,12 @@ to submit the data we are using a function.
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
 export default {
   name: "New",
+  components:{Form,
+  'has-error': HasError
+  },
   data(){
     return {
       // Create a new form instance
@@ -78,8 +82,8 @@ export default {
       this.form.post('/api/flight')
         .then((response)=>{
              this.$router.push(`/flight-list/`)
-              toast({
-                  type: 'success',
+              this.$toast.fire({
+                  icon: 'success',
                   title: 'School Added successfully'
               })
           })

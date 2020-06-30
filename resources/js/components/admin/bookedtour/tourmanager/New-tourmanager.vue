@@ -102,8 +102,8 @@ export default {
     updateData(){
       var path = `/api/bookedescorts`;
       if(this.escort_id == undefined){
-        toast({
-          type: 'error',
+        this.$toast.fire({
+          icon: 'error',
           title: 'Please Select Tour Manager !!!'
         })
         return false;
@@ -112,15 +112,15 @@ export default {
       var data = {'escort_id':this.escort_id,'tour_id':this.tour.id,'tour_code':this.tour.tour_id};
       axios.post(path, data).then(response => {
         if(response.data == 1){
-          toast({
-            type: 'error',
+          this.$toast.fire({
+            icon: 'error',
             title: 'Tour Manager already going on this tour !!!'
           })
           return false;
         }
 
-        toast({
-          type: 'success',
+        this.$toast.fire({
+          icon: 'success',
           title: 'Successfully Updated !!!'
         })
       }).catch(error => {

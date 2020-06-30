@@ -18,6 +18,7 @@ class ItineraryController extends Controller
     public function search_post(){
 
         $search = \Request::get('s');
+        $data = [];
         if($search!=null){
             $data = DB::table('itineraries')
                 ->where('source','LIKE',"%$search%")
@@ -27,7 +28,7 @@ class ItineraryController extends Controller
                 'data'=>$data
             ],200);
         }else{
-           return $this->index();
+           return $data;
         }
 
     }
@@ -86,5 +87,10 @@ class ItineraryController extends Controller
         }
         
         return response()->json($tour_data);
+    }
+    
+    public function list($count=6)
+    {
+        return response()->json(Itinerary::paginate($count));
     }
 }

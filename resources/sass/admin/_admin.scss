@@ -115,12 +115,12 @@
             float: left;
 		    select{
 			    padding-left:7px !important;
-			    height: 35px !important;
+				height: 35px !important;
+				margin: 0px 12px;
 			}
 		}
 		padding: 10px 30px;
 		#example_filter{
-			width: 20% !important;
 			float: right;
 			input[type='search']{
 				border-radius: 4px;
@@ -183,10 +183,8 @@
 		.dataTables_paginate{
 			float: right;margin-right: 0px;
 			.paginate_button{
-				border:1px solid grey;
 			    padding: 5px 10px;				    
 			    background: #cecece;
-			    color: black;
 			    border: none;
 			    margin-right: 2px;
 			    border-radius: 2px;
@@ -195,7 +193,8 @@
 			    	background-color: #a59e9e;
 				    color: white;
 				    text-decoration: none;
-			    }
+				}
+				a{ color: #2e3031; }
 			}
 		}
 	}

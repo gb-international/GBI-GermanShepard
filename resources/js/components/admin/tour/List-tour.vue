@@ -18,14 +18,14 @@ data from the api to display the data about the Hotel from the backend .
               <tr>
                 <th>CODE  <i class="fas fa-sort"></i></th>
                 <th>School  <i class="fas fa-sort"></i></th>
-                <th>START DATE  <i class="fas fa-sort"></i></th>
-                <th>END DATE.  <i class="fas fa-sort"></i></th>
+                <th>START <i class="fas fa-sort"></i></th>
+                <th>END  <i class="fas fa-sort"></i></th>
                 <th>PRICE  <i class="fas fa-sort"></i></th>
                 <th> <i class="fas fa-cog"></i></th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="tour in tour_data" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list">
+              <tr v-for="tour in tour_data" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list" :key="tour.id">
                 <td>{{ tour.tour_id }}</td>
                 <td>{{ tour.school.school_name }} ({{ tour.school.city_name }})</td>
                 <td>{{tour.tour_start_date }} </td>
@@ -60,7 +60,7 @@ data from the api to display the data about the Hotel from the backend .
 
 <script>
 export default {
-  name: "List",
+  name: "ListTour",
   data(){
     return{
       oddclass:false,
@@ -81,7 +81,7 @@ export default {
     },
     deletetour(id){
       var uri = 'api/tour/'+id;
-      swal.fire({
+      this.$swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
       type: 'warning',
@@ -95,7 +95,7 @@ export default {
             setTimeout(() => $('#example').DataTable(), 1000);
             this.TourData();
             })
-          swal.fire(
+          this.$swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'

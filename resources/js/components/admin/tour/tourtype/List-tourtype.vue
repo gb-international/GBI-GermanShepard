@@ -25,7 +25,7 @@ data from the api to display the data about the Hotel from the backend .
                   </tr>
               </thead>
               <tbody>
-                  <tr v-for="tourtype in tourtype_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list">
+                  <tr v-for="tourtype in tourtype_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list" :key="tourtype.id">
                       <td>{{tourtype.name}}</td>
                       <td class="edit_section">
 
@@ -50,7 +50,7 @@ data from the api to display the data about the Hotel from the backend .
 
 <script>
   export default {
-    name: "List",
+    name: "ListTourType",
     data(){
       return{
         oddclass:false,
@@ -70,7 +70,7 @@ data from the api to display the data about the Hotel from the backend .
     },
     deletetourtype(id){
       var uri = '/api/tourtype/'+id;
-      swal.fire({
+      this.$swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
       type: 'warning',
@@ -83,7 +83,7 @@ data from the api to display the data about the Hotel from the backend .
           axios.delete(uri).then((response)=>{
             this.tourtypeList();
           })
-          swal.fire(
+          this.$swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'

@@ -24,7 +24,7 @@ data from the api to display the data about the Itinerary from the backend .
                 </tr>
               </thead>
               <tbody>
-                  <tr v-for="itinerary in itinerary_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}"  class="row_list" v-if="itinerary.status != 'confirm'">
+                  <tr v-for="itinerary in itinerary_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}"  class="row_list" v-if="itinerary.status != 'confirm'" :key="itinerary.id">
                       <td>{{itinerary.title}}</td>
                       <td>{{itinerary.name}}</td>
                       <td>{{itinerary.price}} /-</td>
@@ -59,7 +59,7 @@ data from the api to display the data about the Itinerary from the backend .
 
 <script>
 export default {
-  name: "List",
+  name: "ListAccountItinerary",
   data(){
     return{
       oddclass:false,
@@ -82,7 +82,7 @@ export default {
 
      deleteitinerary(id){
       var uri = 'account/destroy/'+id;
-      swal.fire({
+      this.$swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
       type: 'warning',
@@ -97,7 +97,7 @@ export default {
             this.$store.dispatch('getAllData','/api/accounts')
                   //response contains your data sent front your controller/route
               })
-          swal.fire(
+          this.$swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'

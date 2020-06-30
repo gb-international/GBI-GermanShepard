@@ -23,7 +23,7 @@ data from the api to display the data about the Itinerary from the backend .
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="itinerary in itineraryData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list">
+                    <tr v-for="itinerary in itineraryData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list" :key="itinerary.id">
                         <td>{{itinerary.title}}</td>
                         <td>{{itinerary.noofdays}}</td>
                         <td>{{itinerary.price}} /-</td>
@@ -60,7 +60,7 @@ data from the api to display the data about the Itinerary from the backend .
 
 <script>
     export default {
-        name: "List",
+        name: "ListItineraryAccount",
         data(){
           return{
             oddclass:false,

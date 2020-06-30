@@ -22,11 +22,11 @@ It takes id from the url and get the data from the api .
                 <form class="form">
                   <div class="row">
                     <div class="col-sm-11">
-                      <div class="row" v-for="(data,index) in hotel_row">
+                      <div class="row" v-for="(data,index) in hotel_row" :key="data.id">
                         <div class="col-sm-3">
                           <label>Select Hotel</label>
                           <select class="form-control" v-model="data.hotel_id" @change="onChange(index,$event,'hotel')">
-                            <option v-for="hotel in hotel_list" :value="hotel.id">{{ hotel.name }}</option>
+                            <option v-for="hotel in hotel_list" :value="hotel.id" :key="hotel.id">{{ hotel.name }}</option>
                           </select>
                         </div>
                         <div class="col-sm-9">
@@ -157,11 +157,11 @@ It takes id from the url and get the data from the api .
                 <h6>Bus Price : </h6>
                 <div class="row">
                   <div class="col-sm-11">
-                    <div class="row" v-for="(bus_data,index) in bus_row">
+                    <div class="row" v-for="(bus_data,index) in bus_row" :key="bus_data.id">
                       <div class="col-sm-3">
                         <label>Select Bus</label>
                         <select class="form-control" v-model="bus_data.bus_id" @change="onChange(index,$event,'bus')">
-                          <option v-for="bus in bus_list" :value="bus.id">{{ bus.company_name }}</option>
+                          <option v-for="bus in bus_list" :value="bus.id" :key="bus.id">{{ bus.company_name }}</option>
                         </select>
                       </div>
                       <div class="col-sm-3">
@@ -196,11 +196,11 @@ It takes id from the url and get the data from the api .
                 <h6>Train Price : </h6>
                 <div class="row">
                   <div class="col-sm-11">
-                    <div class="row" v-for="(train_data,index) in train_row">
+                    <div class="row" v-for="(train_data,index) in train_row" :key="train_data.id">
                       <div class="col-sm-3">
                         <label>Select Train</label>
                         <select class="form-control" v-model="train_data.train_id" @change="onChange(index,$event,'train')">
-                          <option v-for="train in train_list" :value="train.id">{{ train.name }}</option>
+                          <option v-for="train in train_list" :value="train.id" :key="train.id">{{ train.name }}</option>
                         </select>
                       </div>
                       <div class="col-sm-3">
@@ -231,11 +231,11 @@ It takes id from the url and get the data from the api .
                 <h6>Flight Price : </h6>
                 <div class="row">
                   <div class="col-sm-11">
-                    <div class="row" v-for="(flight_data,index) in flight_row">
+                    <div class="row" v-for="(flight_data,index) in flight_row" :key="flight_data.id">
                       <div class="col-sm-3">
                         <label>Select Flight</label>
                         <select class="form-control" v-model="flight_data.flight_id" @change="onChange(index,$event,'flight')">
-                          <option v-for="flight in flight_list" :value="flight.id">{{ flight.name }}</option>
+                          <option v-for="flight in flight_list" :value="flight.id" :key="flight.id">{{ flight.name }}</option>
                         </select>
                       </div>
                       <div class="col-sm-3">
@@ -266,11 +266,11 @@ It takes id from the url and get the data from the api .
                 <h6>SightSeeing Price : </h6>
                 <div class="row">
                   <div class="col-sm-11">
-                    <div class="row" v-for="(sight_data,index) in sight_row">
+                    <div class="row" v-for="(sight_data,index) in sight_row" :key="sight_data.id">
                       <div class="col-sm-3">
                         <label>Select SightSeeing</label>
                         <select class="form-control" v-model="sight_data.sight_id" @change="onChange(index,$event,'sight')">
-                          <option v-for="sight in sight_list" :value="sight.id">{{ sight.name }}</option>
+                          <option v-for="sight in sight_list" :value="sight.id" :key="sight.id">{{ sight.name }}</option>
                         </select>
                       </div>
                       <div class="col-sm-3">
@@ -311,11 +311,11 @@ It takes id from the url and get the data from the api .
                 <h6>Escort Price : </h6>
                 <div class="row">
                   <div class="col-sm-11">
-                    <div class="row" v-for="(escort_data,index) in escort_row">
+                    <div class="row" v-for="(escort_data,index) in escort_row" :key="escort_data.id">
                       <div class="col-sm-3">
                         <label>Select Escort</label>
                         <select class="form-control" v-model="escort_data.escort_id" @change="onChange(index,$event,'escort')">
-                          <option v-for="sight in escort_list" :value="sight.id">{{ sight.name }}</option>
+                          <option v-for="sight in escort_list" :value="sight.id" :key="sight.it">{{ sight.name }}</option>
                         </select>
                       </div>
                       <div class="col-sm-3">
@@ -419,7 +419,7 @@ It takes id from the url and get the data from the api .
 
 <script>
     export default {
-        name: "List",
+        name: "ListCalculator",
         data(){
           return{
             showModal: false,

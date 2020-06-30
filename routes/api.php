@@ -94,6 +94,7 @@ Route::namespace('Front')->group(function(){
 	Route::get('/travel-program/{slug}','ItineraryController@travelProgram');
 	Route::post('/search-itinerary','ItineraryController@searchItinerary');
 	Route::get('/search','ItineraryController@search_post');
+	Route::get('/itinerary-list/{count?}','ItineraryController@list');
 
 	Route::post('/user-logout','FrontUserController@logout');
 	Route::get('/tour-list/{id}','FrontUserController@user_tour_list');
@@ -102,7 +103,6 @@ Route::namespace('Front')->group(function(){
 	Route::post('/contact-us/send', 'JoinourteamController@contactUs');
 	// website
 	Route::get('/travel-programs','WebsiteController@travel_programs');
-	
 	// Front user controller 
 	Route::post('login-user', 'UserController@login');
 	Route::post('register-user', 'UserController@register');
@@ -113,12 +113,14 @@ Route::namespace('Front')->group(function(){
 		Route::post('/user-info-update', 'UserController@infoUpdate');
 		Route::post('/user-update','UserController@update');
 		Route::post('/update-user-image','UserController@UserImage');
-
 		Route::post('/tour-list', 'UserController@tourList');
 		Route::post('/tour-travel-save', 'UserController@tourListSave');
 		// Comments
 		Route::post('/encyclopedia-comments','EncyclopediaController@PostComment');
 	});
+	Route::get('/flight-detail/{flightNumber}','WebsiteController@getFlightDetails');
+	Route::get('/current-weather/{city}','WebsiteController@getCurrentWeather');
+	Route::get('/forcast-weather/{city}','WebsiteController@getForcastWeather');
 	// Otp
 	Route::post('/sendotp','OtpController@send_otp');
 	Route::post('/otpverify','OtpController@otp_verify');

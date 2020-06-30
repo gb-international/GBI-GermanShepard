@@ -27,7 +27,7 @@ data from the api to display the data about the Hotel from the backend .
               </tr>
             </thead>
             <tbody>
-              <tr v-for="bus in busData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list">
+              <tr v-for="bus in busData" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list" :key="bus.id">
                   <td>{{bus.company_name}}</td>
                   <td>{{bus.seater }} </td>
                   <td>{{ bus.seat_type }}</td>
@@ -81,7 +81,7 @@ export default {
 
      deletebus(id){
         var uri = 'api/bus/'+id;
-        swal.fire({
+        this.$swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         type: 'warning',
@@ -94,7 +94,7 @@ export default {
             axios.delete(uri).then((response)=>{
               this.getBus();
             })
-            swal.fire(
+            this.$swal.fire(
               'Deleted!',
               'Your file has been deleted.',
               'success'

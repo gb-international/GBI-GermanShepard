@@ -19,7 +19,7 @@ data from the api to display the data about the Hotel from the backend .
                         <div class="form-group">
                           <label>TOUR MANAGER</label>
                           <select class="form-control" v-model.lazy="escort_id">
-                            <option v-for="data in alldata" :value="data.id">{{ data.name }}</option>
+                            <option v-for="data in alldata" :value="data.id" :key="data.id">{{ data.name }}</option>
                           </select>
                         </div>
                       </div>
@@ -96,8 +96,8 @@ data from the api to display the data about the Hotel from the backend .
           var data = {'escort':this.escort_id};
           axios.post(path, data).then(response => {
             console.log(response);
-            toast({
-              type: 'success',
+            this.$toast.fire({
+              icon: 'success',
               title: 'Successfully Updated !!!'
             })
           }).catch(error => {

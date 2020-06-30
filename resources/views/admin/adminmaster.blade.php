@@ -52,7 +52,7 @@
         <!-- Brand Logo -->
         <a href="/"  class="brand-link logo_link">
             <img src="{{asset('assets/admin/default/icon/logo.png')}}"
-                 alt="AdminLTE Logo"
+                 alt="GBI Logo"
                  class="brand-image">
             <span class="brand-text font-weight-light">.</span>
         </a>
@@ -63,7 +63,7 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item has-treeview">
+                    <li class="nav-item">
                         <router-link to="/" class="nav-link dashboard_color">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>Dashboard</p>
@@ -72,6 +72,7 @@
                     @canany(['add itineraries','edit itineraries','delete itineraries','account itineraries'])
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
+                        
                           <i class="nav-icon far fa-file-alt"></i>
                           <p>
                             Itinerary
@@ -499,7 +500,24 @@
 
 
 $(document).ready(function(){
-
+  $(".has-treeview").on("click",function(){
+    console.log('click');
+      if ($(this).hasClass("menu-open")) {
+        
+      }else{
+        $(this).addClass('menu-open');
+        $(this).find('ul').css("display","block");       
+      }
+  });
+  $(".fa-angle-right").on("click",function(){
+    console.log('close');
+    if ($('.has-treeview').hasClass("menu-open")) {
+      console.log('yes');
+        $('.has-treeview').removeClass("menu-open");
+        $('.has-treeview').find('ul').css("display","none");       
+        return false;
+      }
+  });
 });
 
 

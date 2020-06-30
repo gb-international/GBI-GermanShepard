@@ -95,11 +95,13 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import 'vue-search-select/dist/VueSearchSelect.css'
 import { ModelSelect } from 'vue-search-select'
 import Multiselect from 'vue-multiselect'
+import { Form, HasError } from 'vform'
+
 
 export default {
   name: "New",
   components: {
-    ModelSelect,Multiselect
+    ModelSelect,Multiselect,Form,'has-error':HasError
   },
   data(){
     return {
@@ -135,8 +137,8 @@ export default {
         .then((response)=>{
              this.$router.push(`/tourprogram`)
              console.log(response);
-              toast({
-                  type: 'success',
+              this.$toast.fire({
+                  icon: 'success',
                   title: 'Itinerary Added successfully'
               })
            }).catch(()=>{})

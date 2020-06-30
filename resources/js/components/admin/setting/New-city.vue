@@ -23,7 +23,7 @@ to submit the data we are using a function.
                                 <label for="country_name">Country name</label>
 
                                 <select class="form-control"  v-model.lazy="country_name">
-                                  <option v-for="data in country_list" :value="data.name">{{ data.name }}</option>
+                                  <option v-for="data in country_list" :value="data.name" :key="data.id">{{ data.name }}</option>
                                 </select>
                                 <has-error :form="form" field="country_name"></has-error>
                             </div>
@@ -63,8 +63,12 @@ to submit the data we are using a function.
 </template>
 
 <script>
+import { Form, HasError } from 'vform'
  export default {
-  name: "New",
+  name: "NewCity",
+  components:{Form,
+  'has-error': HasError
+  },
   data(){
     return {
       // Create a new form instance
@@ -91,8 +95,8 @@ to submit the data we are using a function.
     {
         // Submit the form via a itinerary request
        if(this.school_name == 0){
-          toast({
-            type: 'error',
+          this.$toast.fire({
+            icon: 'error',
             title: 'Please Select Country !!!'
           })
           return false;
@@ -102,8 +106,8 @@ to submit the data we are using a function.
         var path = `/api/city`;
         this.form.post(path).then(response => {
           this.form.name = '';
-          toast({
-            type: 'success',
+          this.$toast.fire({
+            icon: 'success',
             title: 'Successfully Updated !!!'
           })
         })
