@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div id="explorelist">
     <vue-headful
       title="GBI Explore Destination"

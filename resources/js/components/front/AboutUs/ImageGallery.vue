@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <article>
       <div class="card-titles">
         <h1>Our Journey Scrapbook</h1>

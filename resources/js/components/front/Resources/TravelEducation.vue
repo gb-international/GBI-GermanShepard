@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div id="traveleducation">
     <vue-headful
       title="Travel and Education"
@@ -36,7 +39,7 @@
         </section>
         <!-- End travel education -->
       </section>
-      <div class="col-sm-12">
+      <div class="col-sm-12 mb-30">
         <section class="section-edu">
           <h2>Real education happens outside the classroom and travel is the best way to learn. Get the opportunity to engage with the real.</h2>
           <article class="edu-blockcontent">

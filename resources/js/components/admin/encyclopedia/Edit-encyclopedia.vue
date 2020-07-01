@@ -8,10 +8,7 @@ to submit the data we are using a function.
   <section class="content">
     <div class="container-fluid">
       <!--************************************************
-
-    Template Type: Add New encyclopedia
     Author:@Ajay
-
       ****************************************************-->
       <div class="row justify-content-around">
         <!-- left column -->

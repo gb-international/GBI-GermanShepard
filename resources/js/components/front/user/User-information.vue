@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div id="user_inform_model">
     <div class="row justify-content-center w-100">
       <div class="col-sm-7">
@@ -82,17 +85,20 @@ export default {
   created() {
     this.$axios.get("/api/school-list").then(response => {
       this.school_list = response.data;
-      console.log(response);
     });
 
     var data = [];
     this.$axios
       .post("/api/user-show", data, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("access_token")}`
+          Authorization: `Bearer ${localStorage.getItem("token")}`
         }
       })
-      .then(response => {})
+      .then(response => {
+        if (response.data.success.status == 1) {
+            this.$router.push("/dashboard");
+          }
+      })
       .catch(error => {
         this.handleError(error);
       });
@@ -110,6 +116,7 @@ export default {
           headers: { Authorization: `Bearer ${localStorage.token}` }
         })
         .then(response => {
+          
           this.$router.push("/dashboard");
         })
         .catch(error => {

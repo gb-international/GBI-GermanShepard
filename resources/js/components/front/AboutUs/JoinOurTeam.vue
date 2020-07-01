@@ -1,4 +1,7 @@
   <template>
+        <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div id="joinOurteam">
     <vue-headful
       title="Join Our Team"

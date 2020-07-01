@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div id="faq">
     <vue-headful
       title="GBI Frequently Asked Question"

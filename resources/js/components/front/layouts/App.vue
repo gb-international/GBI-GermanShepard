@@ -1,18 +1,23 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div id="app">
     <nav class="navbar navbar-expand-md bg-white navbar-light fixed-top" id="navbar">
       <div class="container">
         <router-link class="navbar-brand" :to="`/`">
           <img src="/assets/front/images/logo.png" />
         </router-link>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapsibleNavbar"
-        >
-          <span class="navbar-toggler-icon"></span>
+
+
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar top-bar"></span>
+          <span class="icon-bar middle-bar"></span>
+          <span class="icon-bar bottom-bar"></span>				
         </button>
+
+
+
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
           <ul class="navbar-nav">
             <li
@@ -131,7 +136,7 @@
       </div>
     </div>
 
-    <div class="body-content mt-85">
+    <div class="body-content mt-85 pb-50">
       <router-view></router-view>
     </div>
     <gbi-footer></gbi-footer>

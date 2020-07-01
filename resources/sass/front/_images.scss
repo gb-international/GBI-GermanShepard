@@ -11,7 +11,7 @@
 	height: 507px;
 	padding:0px;
 }
-@media only screen and (min-width: 680px) {
+@media only screen and (min-width: 420px) {
 	.image-slide-1{ background-image:url('/assets/front/banner/banner.webp'); display: block; }
 	.image-slide-2{background-image:url('/assets/front/banner/banner1.webp'); display: block; }
 	.image-slide-3{background-image:url('/assets/front/banner/banner2.webp'); display: block; }
@@ -29,7 +29,7 @@
 }
 
 // Mobile version images
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 419px) {
 	.image-slide-1{	background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/fb1_mb.webp');display: block;	}
 	.image-slide-2{	background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/fb2_mb.webp');display: block; }
 	.image-slide-3{	background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/fb3_mb.webp');display: block; }

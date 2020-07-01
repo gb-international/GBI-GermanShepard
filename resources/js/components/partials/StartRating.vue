@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div class="star-rating">
     <span v-for="n in max" :key="n">&star;</span>
     <div class="star-rating__current" :style="{width: getRating + '%'}">

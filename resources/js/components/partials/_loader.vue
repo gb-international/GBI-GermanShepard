@@ -1,5 +1,8 @@
 
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div class="loader-overlay">
     <div class="loader"></div>
     <span class="text" v-html="text"></span>

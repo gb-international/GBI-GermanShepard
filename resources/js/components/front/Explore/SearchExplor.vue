@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <!-- start banner area display image for itinerary listing -->
   <div id="explorelist" class="serachExplor">
     <section class="banner-block">

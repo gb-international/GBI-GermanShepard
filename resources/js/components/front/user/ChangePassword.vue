@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <form role="form" id="password_form" @submit.prevent="UserPassword()">
     <div class="form-group">
       <label for="email_link">Email address:</label>

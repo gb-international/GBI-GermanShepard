@@ -72,7 +72,6 @@
                     @canany(['add itineraries','edit itineraries','delete itineraries','account itineraries'])
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                        
                           <i class="nav-icon far fa-file-alt"></i>
                           <p>
                             Itinerary
@@ -501,24 +500,19 @@
 
 $(document).ready(function(){
   $(".has-treeview").on("click",function(){
-    console.log('click');
-      if ($(this).hasClass("menu-open")) {
-        
-      }else{
+      if ($(this).hasClass("menu-open") == false) {
         $(this).addClass('menu-open');
         $(this).find('ul').css("display","block");       
       }
   });
+
   $(".fa-angle-right").on("click",function(){
-    console.log('close');
-    if ($('.has-treeview').hasClass("menu-open")) {
-      console.log('yes');
-        $('.has-treeview').removeClass("menu-open");
-        $('.has-treeview').find('ul').css("display","none");       
-        return false;
-      }
-  });
+    $(".has-treeview").removeClass("menu-open");
+    $(".has-treeview").find('ul').css("display","none");
+    return false;
+  }); 
 });
+
 
 
 

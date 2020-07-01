@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div class="register-component">
     <form id="register-form" action="#" method="post" role="form" @submit.prevent="registerUser()">
 

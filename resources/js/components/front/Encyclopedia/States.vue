@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <!-- Remove this dummy_height when you add some data to this page -->
   <div class="States">
     <div class="encyclopedia_banner text_on_image banner_bg explore_bg_img">

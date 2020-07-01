@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <!-- start banner area display image for itinerary listing -->
   <div id="explorelist">
     <section class="banner-block explore_list_search mb-20">
@@ -58,6 +61,7 @@ export default {
   // get api data itinerary data
   mounted() {
     this.$store.dispatch("getAllData", "/api/itinerary");
+    this.intersected();
   },
   //fetch all data function itinerary
   computed: {

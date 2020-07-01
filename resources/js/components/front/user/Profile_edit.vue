@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div id="user_edit_form">
     <div class="text-center">
       <div class="avatar-upload user_edit_image">

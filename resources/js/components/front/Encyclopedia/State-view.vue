@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div class="State" v-if="state_data">
     <section class="banner-block">
       <img id="traveleduimg" class="top-img" :src="getImgUrl(state_data.banner_image)" />
@@ -107,8 +110,8 @@
           </div>
         </div>
 
-        <div class="col-sm-12">
-          <div class="col-md-8 w-100">
+        <div class="col-sm-12 p-0">
+          <div class="col-md-8 w-100 p-0">
             <div class="comment_section w-100">
               <div class="container mt-3">
                 <h4>Reviews</h4>
@@ -137,14 +140,14 @@
                   :key="comment.id"
                 >
                   <div v-if="comment.parent_id == null">
-                    <div v-if="comment.user" class="media p-3">
+                    <div v-if="comment.user" class="media p-0">
                       <img
                         :src="getProfileImage(comment.user.information.photo)"
                         alt="John Doe"
                         class="mr-3 mt-3 rounded-circle w-45"
                       />
                       <div class="media-body">
-                        <h4>
+                        <h6>
                           {{ comment.user.name }}
                           <small class="text-small">
                             <i>{{ comment.created_at | dateFormat}}</i>
@@ -153,7 +156,7 @@
                             class="btn btn-outline-dark float-right replybtn"
                             @click="ReplyModal(comment.id)"
                           >Reply</button>
-                        </h4>
+                        </h6>
                         <p>{{ comment.body }}</p>
 
                         <div v-if="reply_modal == true && comment_id == comment.id">
@@ -178,19 +181,19 @@
                         </div>
 
                         <div v-for="reply in state_data.comments" :key="reply.id">
-                          <div class="media p-3" v-if="reply.parent_id == comment.id">
+                          <div class="media p-0" v-if="reply.parent_id == comment.id">
                             <img
                               :src="getProfileImage(comment.user.information.photo)"
                               alt="Jane Doe"
                               class="mr-3 mt-3 rounded-circle w-45"
                             />
                             <div class="media-body">
-                              <h4>
+                              <h6>
                                 {{ comment.user.name }}
                                 <small class="text-small">
                                   <i>{{ comment.created_at | dateFormat}}</i>
                                 </small>
-                              </h4>
+                              </h6>
                               <p>{{ reply.body }}</p>
                             </div>
                           </div>

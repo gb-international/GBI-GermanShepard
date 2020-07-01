@@ -34,6 +34,11 @@
 @import '~sweetalert2/dist/sweetalert2.min.css';
 
 
+#app{
+	width: 100%;
+	overflow: hidden;
+}
+
 .navbar-laravel {
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div id="fronthome">
     <div class="slidehome">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div class="content">
     <h3 class="text-center mb-35">WEATHER REPORT</h3>
     <div class="weather-parent bg-weather text-white" v-if="current.main">

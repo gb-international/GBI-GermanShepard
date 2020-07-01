@@ -1,4 +1,7 @@
 <template>
+      <!--************************************************
+      Author:@Ajay
+      ****************************************************-->
   <div class="row mt-35">
     <div class="col-lg-6" v-for="(itinerary,index) in list" :key="index">
       <div class="card card-radis-list mb-10">
