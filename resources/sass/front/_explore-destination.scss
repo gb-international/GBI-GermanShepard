@@ -567,7 +567,8 @@ color: #000;
 }
 }
 
-@media (max-width: 360px) {
+
+@media screen and (min-width: 320px) and (max-width: 360px){
 
 .search-source
 {
@@ -585,7 +586,7 @@ color: #000;
 }
 }
 
-@media (max-width: 480px) {
+@media screen and (min-width: 360px) and (max-width: 480px){
 
 .search-source
 {
@@ -602,8 +603,8 @@ color: #000;
 	background-color: #fff;
 }
 }
+@media screen and (min-width: 480px) and (max-width: 640px){
 
-@media (max-width: 640px) {
 .card-image img{
   height: 130px;
   width: 170px;
@@ -656,7 +657,7 @@ color: #000;
 }
 }
 
-@media (max-width: 767px) {
+@media screen and (min-width: 640px) and (max-width: 767px){
 
 
 #menu1{

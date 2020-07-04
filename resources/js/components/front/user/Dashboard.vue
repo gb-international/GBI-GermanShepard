@@ -30,7 +30,7 @@
                   <div class="userinfoFirst">
                     <p v-if="userinfo.information['client_type'] =='student'">School Name</p>
                     <p v-else-if="userinfo.information['client_type'] =='corporate'">Corporate Name</p>
-                    <p v-else="userinfo.information['client_type'] =='other'">Occupation Name</p>
+                    <p v-else>Occupation Name</p>
                     <p class="bottom_text">{{ userinfo.information['client_input'] }}</p>
                   </div>
                   <div class="userinfoSecond">

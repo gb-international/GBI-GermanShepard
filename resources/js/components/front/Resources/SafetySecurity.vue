@@ -3,7 +3,7 @@
       Author:@Ajay
       ****************************************************-->
   <div id="safetysecurity">
-    <vue-headful
+    <!-- <vue-headful
       title="Safety and Security"
       description="@GoWithGBI aims to provide complete safety of its travellers during the education programs,GBI team members assuers the safety of passengers and is known for it "
       keywords="@GoWithGBI,travel safety tips,our security policies,GBI strict policies,GBI terms and conditions,safe travel"
@@ -11,7 +11,7 @@
       lang="en_US"
       ogLocale="en_US,en_UK"
       url="https://www.gowithgbi.com/about-us/safety-security"
-    />
+    /> -->
 
     <div class="safety_banner text_on_image banner_bg">
       <div class="content">

@@ -283,8 +283,8 @@
     }
 }
 
+@media screen and (max-width: 767px) and (min-width: 350px) {
 
-@media screen and (max-width: 767px) {
 	.user_dashboard_profile,.dashboard-body-part-one,.dashboard-body-part-two-2,.advertismentpart,.booksection,.resent_search{
 	    margin-bottom: 10px;
     }
@@ -380,7 +380,7 @@
 }
 
 
-@media screen and (max-width: 900px){
+@media screen and (min-width: 900px){
 	.logout_section{
 		display: hide;
 	}

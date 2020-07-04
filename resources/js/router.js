@@ -23,7 +23,7 @@ import Error404 from  './components/front/error/404.vue'
 Vue.use(Router);
 
 let router = new Router({
-    mode: 'hash',
+    mode: 'history',
     routes: [
         { path: '/', component: Home, name: 'home' },
         { path: '/resources/faq', component: faq },

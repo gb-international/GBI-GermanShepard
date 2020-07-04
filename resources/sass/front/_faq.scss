@@ -195,12 +195,7 @@ h3
 }
 
 }
-@media (max-width: 360px) {
-
-
-
-
-
+@media screen and (min-width: 320px) and (max-width: 360px){
 
 	.searchbarfaq
 {
@@ -277,9 +272,7 @@ h3
 
 }
 }
-@media (max-width: 480px) {
-
-
+@media screen and (min-width: 360px) and (max-width: 480px){
 
 /* new code*/
 .faq_banner_image{
@@ -384,7 +377,7 @@ h3
 
 }
 }
-@media (max-width: 640px) {
+@media screen and (min-width: 480px) and (max-width: 640px){
 .searchbarfaq
 {
 	width: 100%;
@@ -460,8 +453,7 @@ h3
 
 }
 }
-@media (max-width: 767px) {
-
+@media screen and (min-width: 364px) and (max-width: 767px){
 
 /* new code*/
 .faq_banner_image{

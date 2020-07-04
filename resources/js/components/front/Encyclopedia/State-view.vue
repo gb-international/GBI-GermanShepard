@@ -2,6 +2,7 @@
       <!--************************************************
       Author:@Ajay
       ****************************************************-->
+  
   <div class="State" v-if="state_data">
     <section class="banner-block">
       <img id="traveleduimg" class="top-img" :src="getImgUrl(state_data.banner_image)" />

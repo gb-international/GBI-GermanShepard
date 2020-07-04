@@ -2127,9 +2127,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "HowWework"
+  name: "HowWework",
+  data: function data() {
+    return {};
+  }
 });
 
 /***/ }),
@@ -2143,6 +2145,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -2229,6 +2232,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
+//
 //
 //
 //
@@ -2637,6 +2641,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "OurStory"
 });
@@ -2654,6 +2659,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
+//
 //
 //
 //
@@ -2920,6 +2926,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+//
 //
 //
 //
@@ -3731,6 +3738,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -4087,6 +4095,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ExploreDetail",
   data: function data() {
@@ -4141,6 +4150,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -62559,277 +62569,256 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "howwework" } },
-    [
-      _c("vue-headful", {
-        attrs: {
-          title: "How We Work",
-          description:
-            "@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one ",
-          keywords:
-            "@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs",
-          image: "",
-          lang: "en_US",
-          ogLocale: "en_US,en_UK",
-          url: "https://www.gowithgbi.com/about-us/how-we-work"
-        }
-      }),
+  return _c("div", { attrs: { id: "howwework" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("section", { staticClass: "bgcolor-section p-bottom-20" }, [
+      _c("h1", { staticClass: "experience-heading" }, [
+        _vm._v("YOUR EXPERIENCE INCLUDES")
+      ]),
       _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c("section", { staticClass: "bgcolor-section p-bottom-20" }, [
-        _c("h1", { staticClass: "experience-heading" }, [
-          _vm._v("YOUR EXPERIENCE INCLUDES")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-6 col-lg-4" }, [
-              _c("div", { staticClass: "card-container" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item cards-img",
-                      attrs: {
-                        "data-url": "/assets/front/images/img/airfare.png",
-                        alt: "airfare GBI"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(2)
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6 col-lg-4" }, [
-              _c("div", { staticClass: "card-container" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item cards-img",
-                      attrs: {
-                        "data-url": "/assets/front/images/img/hotel.png",
-                        alt: "hotel GBI"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(3)
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6 col-lg-4" }, [
-              _c("div", { staticClass: "card-container" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item cards-img",
-                      attrs: {
-                        "data-url": "/assets/front/images/img/reginoal.png",
-                        alt: "reginoal GBI"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(4)
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6 col-lg-4" }, [
-              _c("div", { staticClass: "card-container" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item cards-img",
-                      attrs: {
-                        "data-url": "/assets/front/images/img/gudided.png",
-                        alt: "gudided GBI"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(5)
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6 col-lg-4" }, [
-              _c("div", { staticClass: "card-container" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item cards-img",
-                      attrs: {
-                        "data-url": "/assets/front/images/img/entrance.png",
-                        alt: "entrance GBI"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(6)
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6 col-lg-4" }, [
-              _c("div", { staticClass: "card-container" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item cards-img",
-                      attrs: {
-                        "data-url": "/assets/front/images/img/experiential.png",
-                        alt: "experiential GBI"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(7)
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6 col-lg-4" }, [
-              _c("div", { staticClass: "card-container" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item cards-img",
-                      attrs: {
-                        "data-url":
-                          "/assets/front/images/img/emergency-support.png",
-                        alt: "emergency-support GBI"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(8)
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6 col-lg-4" }, [
-              _c("div", { staticClass: "card-container" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item cards-img",
-                      attrs: {
-                        "data-url": "/assets/front/images/img/continous.png",
-                        alt: "continous GBI"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(9)
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6 col-lg-4" }, [
-              _c("div", { staticClass: "card-container" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item cards-img",
-                      attrs: {
-                        "data-url": "/assets/front/images/img/finely.png",
-                        alt: "finely GBI"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(10)
-              ])
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6 col-lg-4" }, [
+            _c("div", { staticClass: "card-container" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item cards-img",
+                    attrs: {
+                      "data-url": "/assets/front/images/img/airfare.png",
+                      alt: "airfare GBI"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(2)
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-4" }, [
+            _c("div", { staticClass: "card-container" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item cards-img",
+                    attrs: {
+                      "data-url": "/assets/front/images/img/hotel.png",
+                      alt: "hotel GBI"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(3)
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-4" }, [
+            _c("div", { staticClass: "card-container" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item cards-img",
+                    attrs: {
+                      "data-url": "/assets/front/images/img/reginoal.png",
+                      alt: "reginoal GBI"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(4)
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-4" }, [
+            _c("div", { staticClass: "card-container" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item cards-img",
+                    attrs: {
+                      "data-url": "/assets/front/images/img/gudided.png",
+                      alt: "gudided GBI"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(5)
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-4" }, [
+            _c("div", { staticClass: "card-container" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item cards-img",
+                    attrs: {
+                      "data-url": "/assets/front/images/img/entrance.png",
+                      alt: "entrance GBI"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(6)
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-4" }, [
+            _c("div", { staticClass: "card-container" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item cards-img",
+                    attrs: {
+                      "data-url": "/assets/front/images/img/experiential.png",
+                      alt: "experiential GBI"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(7)
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-4" }, [
+            _c("div", { staticClass: "card-container" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item cards-img",
+                    attrs: {
+                      "data-url":
+                        "/assets/front/images/img/emergency-support.png",
+                      alt: "emergency-support GBI"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(8)
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-4" }, [
+            _c("div", { staticClass: "card-container" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item cards-img",
+                    attrs: {
+                      "data-url": "/assets/front/images/img/continous.png",
+                      alt: "continous GBI"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(9)
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-4" }, [
+            _c("div", { staticClass: "card-container" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item cards-img",
+                    attrs: {
+                      "data-url": "/assets/front/images/img/finely.png",
+                      alt: "finely GBI"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(10)
             ])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "clear" })
-    ],
-    1
-  )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -63260,545 +63249,510 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "joinOurteam" } },
-    [
-      _c("vue-headful", {
-        attrs: {
-          title: "Join Our Team",
-          description:
-            "@GoWithGBI Lets travel together and make the world a better place .Join our brilliant minds ",
-          keywords:
-            "@GoWithGBI,join our team,explore Your career with GBI,exciting journey,research oriented process,challenges,explore your travel instinct,discover ,travel passion,learn,explore,discover",
-          image: "",
-          lang: "en_US",
-          ogLocale: "en_US,en_UK",
-          url: "https://www.gowithgbi.com/about-us/join-our-team"
-        }
-      }),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("main", [
-        _c("section", [
-          _c("article", { staticClass: "join-team" }, [
-            _c("div", { staticClass: "container" }, [
-              _c("h1", [_vm._v("JOIN OUR BRILLIANT MINDS")]),
-              _vm._v(" "),
-              _c(
-                "form",
-                {
-                  attrs: {
-                    role: "form",
-                    method: "POST",
-                    enctype: "multipart/form-data"
-                  },
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.sendmailResume()
-                    }
-                  }
+  return _c("div", { attrs: { id: "joinOurteam" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("main", [
+      _c("section", [
+        _c("article", { staticClass: "join-team" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("h1", [_vm._v("JOIN OUR BRILLIANT MINDS")]),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                attrs: {
+                  role: "form",
+                  method: "POST",
+                  enctype: "multipart/form-data"
                 },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "form-input" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.firstname,
-                            expression: "form.firstname"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        class: {
-                          "is-invalid": _vm.form.errors.has("firstname")
-                        },
-                        attrs: {
-                          type: "text",
-                          placeholder: "Enter first name",
-                          name: "firstname"
-                        },
-                        domProps: { value: _vm.form.firstname },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "firstname", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("has-error", {
-                        attrs: { form: _vm.form, field: "firstname" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-input" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.lastname,
-                            expression: "form.lastname"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        class: {
-                          "is-invalid": _vm.form.errors.has("lastname")
-                        },
-                        attrs: {
-                          type: "text",
-                          placeholder: "Enter last name",
-                          name: "lastname"
-                        },
-                        domProps: { value: _vm.form.lastname },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "lastname", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("has-error", {
-                        attrs: { form: _vm.form, field: "lastname" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-input" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.email,
-                            expression: "form.email"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        class: { "is-invalid": _vm.form.errors.has("email") },
-                        attrs: {
-                          type: "email",
-                          placeholder: "Enter Email",
-                          name: "email"
-                        },
-                        domProps: { value: _vm.form.email },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "email", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("has-error", {
-                        attrs: { form: _vm.form, field: "email" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-input" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.contactno,
-                            expression: "form.contactno"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        class: {
-                          "is-invalid": _vm.form.errors.has("contactno")
-                        },
-                        attrs: {
-                          type: "text",
-                          placeholder: "Enter contactno",
-                          name: "contactno"
-                        },
-                        domProps: { value: _vm.form.contactno },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "contactno", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("has-error", {
-                        attrs: { form: _vm.form, field: "contactno" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-input" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.address,
-                            expression: "form.address"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        class: { "is-invalid": _vm.form.errors.has("address") },
-                        attrs: {
-                          type: "text",
-                          placeholder: "Enter address",
-                          name: "address"
-                        },
-                        domProps: { value: _vm.form.address },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "address", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("has-error", {
-                        attrs: { form: _vm.form, field: "address" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-input" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.state,
-                            expression: "form.state"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        class: { "is-invalid": _vm.form.errors.has("state") },
-                        attrs: {
-                          type: "text",
-                          placeholder: "Enter state",
-                          name: "state"
-                        },
-                        domProps: { value: _vm.form.state },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "state", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("has-error", {
-                        attrs: { form: _vm.form, field: "state" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-input" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.city,
-                            expression: "form.city"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        class: { "is-invalid": _vm.form.errors.has("city") },
-                        attrs: {
-                          type: "text",
-                          placeholder: "Enter city",
-                          name: "city"
-                        },
-                        domProps: { value: _vm.form.city },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "city", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("has-error", {
-                        attrs: { form: _vm.form, field: "city" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-input" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.zipcode,
-                            expression: "form.zipcode"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        class: { "is-invalid": _vm.form.errors.has("zipcode") },
-                        attrs: {
-                          type: "text",
-                          placeholder: "Enter zipcode",
-                          name: "zipcode"
-                        },
-                        domProps: { value: _vm.form.zipcode },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "zipcode", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("has-error", {
-                        attrs: { form: _vm.form, field: "zipcode" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-input" },
-                    [
-                      _c(
-                        "select",
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.sendmailResume()
+                  }
+                }
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "form-input" },
+                  [
+                    _c("input", {
+                      directives: [
                         {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.postvancy,
-                              expression: "form.postvancy"
-                            }
-                          ],
-                          class: {
-                            "is-invalid": _vm.form.errors.has("postvancy")
-                          },
-                          attrs: { id: "postvancy", name: "postvancy" },
-                          on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.form,
-                                "postvancy",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            }
-                          }
-                        },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("Select Post")
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "option",
-                            {
-                              attrs: { value: "Business Development Executive" }
-                            },
-                            [_vm._v("Business Development Executive (Delhi)")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "option",
-                            {
-                              attrs: { value: "Business Development Executive" }
-                            },
-                            [_vm._v("Business Development Executive (Panjab)")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "option",
-                            {
-                              attrs: { value: "Business Development Executive" }
-                            },
-                            [
-                              _vm._v(
-                                "Business Development Executive (Hyderabad)"
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "option",
-                            { attrs: { value: "Software Developer" } },
-                            [_vm._v("Software Developer")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "option",
-                            {
-                              attrs: {
-                                value: "Business Lead Generation Executive"
-                              }
-                            },
-                            [_vm._v("Business Lead Generation Executive")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("has-error", {
-                        attrs: { form: _vm.form, field: "postvancy" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-fullwidth" }, [
-                    _c(
-                      "div",
-                      { staticClass: "upload-btn-wrapper" },
-                      [
-                        _c("button", { staticClass: "btn button3" }, [
-                          _vm._v("Select File")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          class: {
-                            "is-invalid": _vm.form.errors.has("resume")
-                          },
-                          attrs: {
-                            name: "resume",
-                            type: "file",
-                            accept: ".pdf, .doc, .docx"
-                          },
-                          on: { change: _vm.onFileChange }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "resume" }
-                        }),
-                        _vm._v(" "),
-                        _vm.filename
-                          ? _c("span", [_vm._v(_vm._s(_vm.filename))])
-                          : _vm._e()
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.firstname,
+                          expression: "form.firstname"
+                        }
                       ],
-                      1
-                    ),
+                      staticClass: "form-control",
+                      class: { "is-invalid": _vm.form.errors.has("firstname") },
+                      attrs: {
+                        type: "text",
+                        placeholder: "Enter first name",
+                        name: "firstname"
+                      },
+                      domProps: { value: _vm.form.firstname },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "firstname", $event.target.value)
+                        }
+                      }
+                    }),
                     _vm._v(" "),
-                    _vm._m(1)
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-fullwidth" },
-                    [
-                      _c("textarea", {
+                    _c("has-error", {
+                      attrs: { form: _vm.form, field: "firstname" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-input" },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.lastname,
+                          expression: "form.lastname"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: { "is-invalid": _vm.form.errors.has("lastname") },
+                      attrs: {
+                        type: "text",
+                        placeholder: "Enter last name",
+                        name: "lastname"
+                      },
+                      domProps: { value: _vm.form.lastname },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "lastname", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("has-error", {
+                      attrs: { form: _vm.form, field: "lastname" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-input" },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.email,
+                          expression: "form.email"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: { "is-invalid": _vm.form.errors.has("email") },
+                      attrs: {
+                        type: "email",
+                        placeholder: "Enter Email",
+                        name: "email"
+                      },
+                      domProps: { value: _vm.form.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "email", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("has-error", {
+                      attrs: { form: _vm.form, field: "email" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-input" },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.contactno,
+                          expression: "form.contactno"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: { "is-invalid": _vm.form.errors.has("contactno") },
+                      attrs: {
+                        type: "text",
+                        placeholder: "Enter contactno",
+                        name: "contactno"
+                      },
+                      domProps: { value: _vm.form.contactno },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "contactno", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("has-error", {
+                      attrs: { form: _vm.form, field: "contactno" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-input" },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.address,
+                          expression: "form.address"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: { "is-invalid": _vm.form.errors.has("address") },
+                      attrs: {
+                        type: "text",
+                        placeholder: "Enter address",
+                        name: "address"
+                      },
+                      domProps: { value: _vm.form.address },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "address", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("has-error", {
+                      attrs: { form: _vm.form, field: "address" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-input" },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.state,
+                          expression: "form.state"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: { "is-invalid": _vm.form.errors.has("state") },
+                      attrs: {
+                        type: "text",
+                        placeholder: "Enter state",
+                        name: "state"
+                      },
+                      domProps: { value: _vm.form.state },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "state", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("has-error", {
+                      attrs: { form: _vm.form, field: "state" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-input" },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.city,
+                          expression: "form.city"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: { "is-invalid": _vm.form.errors.has("city") },
+                      attrs: {
+                        type: "text",
+                        placeholder: "Enter city",
+                        name: "city"
+                      },
+                      domProps: { value: _vm.form.city },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "city", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("has-error", {
+                      attrs: { form: _vm.form, field: "city" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-input" },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.zipcode,
+                          expression: "form.zipcode"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: { "is-invalid": _vm.form.errors.has("zipcode") },
+                      attrs: {
+                        type: "text",
+                        placeholder: "Enter zipcode",
+                        name: "zipcode"
+                      },
+                      domProps: { value: _vm.form.zipcode },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "zipcode", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("has-error", {
+                      attrs: { form: _vm.form, field: "zipcode" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-input" },
+                  [
+                    _c(
+                      "select",
+                      {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.form.messagescon,
-                            expression: "form.messagescon"
+                            value: _vm.form.postvancy,
+                            expression: "form.postvancy"
                           }
                         ],
                         class: {
-                          "is-invalid": _vm.form.errors.has("messagescon")
+                          "is-invalid": _vm.form.errors.has("postvancy")
                         },
-                        attrs: {
-                          id: "messagescon",
-                          name: "messagescon",
-                          placeholder: "Write something.."
-                        },
-                        domProps: { value: _vm.form.messagescon },
+                        attrs: { id: "postvancy", name: "postvancy" },
                         on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
                             _vm.$set(
                               _vm.form,
-                              "messagescon",
-                              $event.target.value
+                              "postvancy",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
                             )
                           }
                         }
+                      },
+                      [
+                        _c("option", { attrs: { value: "" } }, [
+                          _vm._v("Select Post")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "option",
+                          {
+                            attrs: { value: "Business Development Executive" }
+                          },
+                          [_vm._v("Business Development Executive (Delhi)")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "option",
+                          {
+                            attrs: { value: "Business Development Executive" }
+                          },
+                          [_vm._v("Business Development Executive (Panjab)")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "option",
+                          {
+                            attrs: { value: "Business Development Executive" }
+                          },
+                          [_vm._v("Business Development Executive (Hyderabad)")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "option",
+                          { attrs: { value: "Software Developer" } },
+                          [_vm._v("Software Developer")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "option",
+                          {
+                            attrs: {
+                              value: "Business Lead Generation Executive"
+                            }
+                          },
+                          [_vm._v("Business Lead Generation Executive")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("has-error", {
+                      attrs: { form: _vm.form, field: "postvancy" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-fullwidth" }, [
+                  _c(
+                    "div",
+                    { staticClass: "upload-btn-wrapper" },
+                    [
+                      _c("button", { staticClass: "btn button3" }, [
+                        _vm._v("Select File")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        class: { "is-invalid": _vm.form.errors.has("resume") },
+                        attrs: {
+                          name: "resume",
+                          type: "file",
+                          accept: ".pdf, .doc, .docx"
+                        },
+                        on: { change: _vm.onFileChange }
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "messagescon" }
-                      })
+                        attrs: { form: _vm.form, field: "resume" }
+                      }),
+                      _vm._v(" "),
+                      _vm.filename
+                        ? _c("span", [_vm._v(_vm._s(_vm.filename))])
+                        : _vm._e()
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _vm._m(2)
-                ]
-              )
-            ])
+                  _vm._m(1)
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-fullwidth" },
+                  [
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.messagescon,
+                          expression: "form.messagescon"
+                        }
+                      ],
+                      class: {
+                        "is-invalid": _vm.form.errors.has("messagescon")
+                      },
+                      attrs: {
+                        id: "messagescon",
+                        name: "messagescon",
+                        placeholder: "Write something.."
+                      },
+                      domProps: { value: _vm.form.messagescon },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "messagescon", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("has-error", {
+                      attrs: { form: _vm.form, field: "messagescon" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(2)
+              ]
+            )
           ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "clear" })
-      ])
-    ],
-    1
-  )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "clear" })
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -63854,194 +63808,171 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "ourstory" } },
-    [
-      _c("vue-headful", {
-        attrs: {
-          title: "About Us",
-          description:
-            "@GoWithGBI Story On How GBI believes in its core values and implement the same  to make your educational travel program a successful one ",
-          keywords:
-            "@GoWithGBI,Our Story,about us,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs",
-          image: "",
-          lang: "en_US",
-          ogLocale: "en_US,en_UK",
-          url: "https://www.gowithgbi.com/about-us/our-story"
-        }
-      }),
+  return _c("div", { attrs: { id: "ourstory" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _vm._m(1),
       _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c("section", { staticClass: "bgcolor-section" }, [
-          _c("div", { staticClass: "col-lg-12" }, [
-            _c("article", { staticClass: "about-story" }, [
-              _c("div", { staticClass: "row" }, [
-                _vm._m(2),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6 col-lg-5" }, [
-                  _c("div", { staticClass: "ourstory-content" }, [
-                    _c(
-                      "figure",
-                      {
-                        directives: [
-                          { name: "lazyload", rawName: "v-lazyload" }
-                        ],
-                        staticClass: "image__wrapper"
-                      },
-                      [
-                        _c("ImageSpinner", { staticClass: "image__spinner" }),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "image__item ic-cal-re",
-                          attrs: {
-                            id: "ourstoryimg1",
-                            "data-url": "/assets/front/images/mission.png",
-                            alt: "our story"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ])
+      _c("section", { staticClass: "bgcolor-section" }, [
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c("article", { staticClass: "about-story" }, [
+            _c("div", { staticClass: "row" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6 col-lg-5" }, [
+                _c("div", { staticClass: "ourstory-content" }, [
+                  _c(
+                    "figure",
+                    {
+                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                      staticClass: "image__wrapper"
+                    },
+                    [
+                      _c("ImageSpinner", { staticClass: "image__spinner" }),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "image__item ic-cal-re",
+                        attrs: {
+                          id: "ourstoryimg1",
+                          "data-url": "/assets/front/images/mission.png",
+                          alt: "our story"
+                        }
+                      })
+                    ],
+                    1
+                  )
                 ])
               ])
             ])
           ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "whitebg-section" }, [
-          _c("div", { staticClass: "col-lg-12" }, [
-            _c("article", { staticClass: "about-vision pa-t-15" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6 col-lg-5" }, [
-                  _c("div", { staticClass: "ourstory-content" }, [
-                    _c(
-                      "figure",
-                      {
-                        directives: [
-                          { name: "lazyload", rawName: "v-lazyload" }
-                        ],
-                        staticClass: "image__wrapper"
-                      },
-                      [
-                        _c("ImageSpinner", { staticClass: "image__spinner" }),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "image__item",
-                          attrs: {
-                            id: "ourstoryimg2",
-                            "data-url": "/assets/front/images/vision.png",
-                            alt: "our story"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(3)
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "bgcolor-section" }, [
-          _c("div", { staticClass: "col-lg-12" }, [
-            _c("article", { staticClass: "about-story-face" }, [
-              _c("h1", [_vm._v("FACES BEHIND GBI")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "our-experience" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item",
-                      attrs: {
-                        "data-url": "/assets/front/images/user.jpg",
-                        alt: "ceo"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("h2", [_vm._v("Mr. Jasbir Singh Rikhi")]),
-                _vm._v(" "),
-                _c("p", [_vm._v("CEO")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "whitebg-section" }, [
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c("article", { staticClass: "about-vision pa-t-15" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-6 col-lg-5" }, [
+                _c("div", { staticClass: "ourstory-content" }, [
+                  _c(
+                    "figure",
+                    {
+                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                      staticClass: "image__wrapper"
+                    },
+                    [
+                      _c("ImageSpinner", { staticClass: "image__spinner" }),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "image__item",
+                        attrs: {
+                          id: "ourstoryimg2",
+                          "data-url": "/assets/front/images/vision.png",
+                          alt: "our story"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "our-experience" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item",
-                      attrs: {
-                        "data-url": "/assets/front/images/user.jpg",
-                        alt: "Director Operations"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("h2", [_vm._v("Mr. Chanpreet Rikhi")]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Director Operations")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "our-experience" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item",
-                      attrs: {
-                        "data-url": "/assets/front/images/user.jpg",
-                        alt: "Assistant Director"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("h2", [_vm._v("Mrs. Gurpreet Kaur Rikhi")]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Assistant Director")])
-              ])
+              _vm._m(3)
             ])
           ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "clear" })
-      ])
-    ],
-    1
-  )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "bgcolor-section" }, [
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c("article", { staticClass: "about-story-face" }, [
+            _c("h1", [_vm._v("FACES BEHIND GBI")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "our-experience" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item",
+                    attrs: {
+                      "data-url": "/assets/front/images/user.jpg",
+                      alt: "ceo"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("h2", [_vm._v("Mr. Jasbir Singh Rikhi")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("CEO")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "our-experience" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item",
+                    attrs: {
+                      "data-url": "/assets/front/images/user.jpg",
+                      alt: "Director Operations"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("h2", [_vm._v("Mr. Chanpreet Rikhi")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Director Operations")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "our-experience" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item",
+                    attrs: {
+                      "data-url": "/assets/front/images/user.jpg",
+                      alt: "Assistant Director"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("h2", [_vm._v("Mrs. Gurpreet Kaur Rikhi")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Assistant Director")])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "clear" })
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -64144,437 +64075,411 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "contactus" } },
-    [
-      _c("vue-headful", {
-        attrs: {
-          title: "GBI Contact Us ",
-          description:
-            "Connect With GB International for organizing your educational travel plans any where any time",
-          keyword:
-            "@GoWithGBI,GB International,Connect With GB International,Email Us,Talk To Us,Need a travel solution",
-          url: "https://www.gowithgbi.com/contact-us",
-          ogLocale: "en_US",
-          lang: "en_US,en_UK"
-        }
-      }),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("main", [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-12 p-t-15" }, [
-            _c("article", { staticClass: "container contactus" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-lg-6" }, [
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("h2", [_vm._v("HEAD OFFICE")]),
-                    _vm._v(" "),
-                    _c("table", { staticClass: "table" }, [
-                      _c("tbody", [
-                        _c("tr", [
-                          _c("td", [
-                            _c(
-                              "figure",
-                              {
-                                directives: [
-                                  { name: "lazyload", rawName: "v-lazyload" }
-                                ],
-                                staticClass: "image__wrapper"
-                              },
-                              [
-                                _c("ImageSpinner", {
-                                  staticClass: "image__spinner"
-                                }),
-                                _vm._v(" "),
-                                _c("img", {
-                                  staticClass: "image__item",
-                                  attrs: {
-                                    "data-url":
-                                      "assets/front/images/address_icon.png",
-                                    alt: "address"
-                                  }
-                                })
+  return _c("div", { attrs: { id: "contactus" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("main", [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-12 p-t-15" }, [
+          _c("article", { staticClass: "container contactus" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "col-lg-12" }, [
+                  _c("h2", [_vm._v("HEAD OFFICE")]),
+                  _vm._v(" "),
+                  _c("table", { staticClass: "table" }, [
+                    _c("tbody", [
+                      _c("tr", [
+                        _c("td", [
+                          _c(
+                            "figure",
+                            {
+                              directives: [
+                                { name: "lazyload", rawName: "v-lazyload" }
                               ],
-                              1
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              "G-32,DDA Commercial Complex, Sheikh Sarai Phase-1, New Delhi 110017"
-                            )
-                          ])
+                              staticClass: "image__wrapper"
+                            },
+                            [
+                              _c("ImageSpinner", {
+                                staticClass: "image__spinner"
+                              }),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "image__item",
+                                attrs: {
+                                  "data-url":
+                                    "assets/front/images/address_icon.png",
+                                  alt: "address"
+                                }
+                              })
+                            ],
+                            1
+                          )
                         ]),
                         _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [
-                            _c(
-                              "figure",
-                              {
-                                directives: [
-                                  { name: "lazyload", rawName: "v-lazyload" }
-                                ],
-                                staticClass: "image__wrapper"
-                              },
-                              [
-                                _c("ImageSpinner", {
-                                  staticClass: "image__spinner"
-                                }),
-                                _vm._v(" "),
-                                _c("img", {
-                                  staticClass: "image__item",
-                                  attrs: {
-                                    "data-url":
-                                      "assets/front/images/phone_icon.png",
-                                    alt: "address"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(1)
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [
-                            _c(
-                              "figure",
-                              {
-                                directives: [
-                                  { name: "lazyload", rawName: "v-lazyload" }
-                                ],
-                                staticClass: "image__wrapper"
-                              },
-                              [
-                                _c("ImageSpinner", {
-                                  staticClass: "image__spinner"
-                                }),
-                                _vm._v(" "),
-                                _c("img", {
-                                  staticClass: "image__item ic-mail",
-                                  attrs: {
-                                    "data-url":
-                                      "assets/front/images/email_icon.png",
-                                    alt: "address"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(2)
+                        _c("td", [
+                          _vm._v(
+                            "G-32,DDA Commercial Complex, Sheikh Sarai Phase-1, New Delhi 110017"
+                          )
                         ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(3),
-                    _vm._v(" "),
-                    _c("table", { staticClass: "table" }, [
-                      _c("tbody", [
-                        _c("tr", [
-                          _c("td", [
-                            _c(
-                              "figure",
-                              {
-                                directives: [
-                                  { name: "lazyload", rawName: "v-lazyload" }
-                                ],
-                                staticClass: "image__wrapper"
-                              },
-                              [
-                                _c("ImageSpinner", {
-                                  staticClass: "image__spinner"
-                                }),
-                                _vm._v(" "),
-                                _c("img", {
-                                  staticClass: "image__item ic-add",
-                                  attrs: {
-                                    "data-url":
-                                      "assets/front/images/address_icon.png",
-                                    alt: "address"
-                                  }
-                                })
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [
+                          _c(
+                            "figure",
+                            {
+                              directives: [
+                                { name: "lazyload", rawName: "v-lazyload" }
                               ],
-                              1
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              "302, Zeenath Residency Srinagar Colony, Plot #29, Hyderabad - 500073 Andhra Pradesh"
-                            )
-                          ])
+                              staticClass: "image__wrapper"
+                            },
+                            [
+                              _c("ImageSpinner", {
+                                staticClass: "image__spinner"
+                              }),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "image__item",
+                                attrs: {
+                                  "data-url":
+                                    "assets/front/images/phone_icon.png",
+                                  alt: "address"
+                                }
+                              })
+                            ],
+                            1
+                          )
                         ]),
                         _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [
-                            _c(
-                              "figure",
-                              {
-                                directives: [
-                                  { name: "lazyload", rawName: "v-lazyload" }
-                                ],
-                                staticClass: "image__wrapper"
-                              },
-                              [
-                                _c("ImageSpinner", {
-                                  staticClass: "image__spinner"
-                                }),
-                                _vm._v(" "),
-                                _c("img", {
-                                  staticClass: "image__item ic-cal-re",
-                                  attrs: {
-                                    "data-url":
-                                      "assets/front/images/phone_icon.png",
-                                    alt: "number"
-                                  }
-                                })
+                        _vm._m(1)
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [
+                          _c(
+                            "figure",
+                            {
+                              directives: [
+                                { name: "lazyload", rawName: "v-lazyload" }
                               ],
-                              1
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(4)
-                        ])
+                              staticClass: "image__wrapper"
+                            },
+                            [
+                              _c("ImageSpinner", {
+                                staticClass: "image__spinner"
+                              }),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "image__item ic-mail",
+                                attrs: {
+                                  "data-url":
+                                    "assets/front/images/email_icon.png",
+                                  alt: "address"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(2)
                       ])
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(5)
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("table", { staticClass: "table" }, [
+                    _c("tbody", [
+                      _c("tr", [
+                        _c("td", [
+                          _c(
+                            "figure",
+                            {
+                              directives: [
+                                { name: "lazyload", rawName: "v-lazyload" }
+                              ],
+                              staticClass: "image__wrapper"
+                            },
+                            [
+                              _c("ImageSpinner", {
+                                staticClass: "image__spinner"
+                              }),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "image__item ic-add",
+                                attrs: {
+                                  "data-url":
+                                    "assets/front/images/address_icon.png",
+                                  alt: "address"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            "302, Zeenath Residency Srinagar Colony, Plot #29, Hyderabad - 500073 Andhra Pradesh"
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [
+                          _c(
+                            "figure",
+                            {
+                              directives: [
+                                { name: "lazyload", rawName: "v-lazyload" }
+                              ],
+                              staticClass: "image__wrapper"
+                            },
+                            [
+                              _c("ImageSpinner", {
+                                staticClass: "image__spinner"
+                              }),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "image__item ic-cal-re",
+                                attrs: {
+                                  "data-url":
+                                    "assets/front/images/phone_icon.png",
+                                  alt: "number"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(4)
+                      ])
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6" }, [
-                  _c("article", { staticClass: "contact-form" }, [
-                    _vm._m(6),
-                    _vm._v(" "),
-                    _c(
-                      "form",
-                      {
-                        attrs: { role: "form", enctype: "multipart/form-data" },
-                        on: {
-                          submit: function($event) {
-                            $event.preventDefault()
-                            return _vm.sendmail()
-                          }
+                _vm._m(5)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("article", { staticClass: "contact-form" }, [
+                  _vm._m(6),
+                  _vm._v(" "),
+                  _c(
+                    "form",
+                    {
+                      attrs: { role: "form", enctype: "multipart/form-data" },
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.sendmail()
                         }
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "form-fullwidth" },
-                          [
-                            _c("label", { staticClass: "lable-title" }, [
-                              _vm._v("Name")
-                            ]),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.name,
-                                  expression: "form.name"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              class: {
-                                "is-invalid": _vm.form.errors.has("name")
-                              },
-                              attrs: {
-                                type: "text",
-                                id: "name",
-                                placeholder: "Name",
-                                name: "name"
-                              },
-                              domProps: { value: _vm.form.name },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "name",
-                                    $event.target.value
-                                  )
-                                }
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "form-fullwidth" },
+                        [
+                          _c("label", { staticClass: "lable-title" }, [
+                            _vm._v("Name")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.name,
+                                expression: "form.name"
                               }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "name" }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "form-fullwidth" },
-                          [
-                            _c("label", { staticClass: "lable-title" }, [
-                              _vm._v("E-Mail")
-                            ]),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.email,
-                                  expression: "form.email"
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("name")
+                            },
+                            attrs: {
+                              type: "text",
+                              id: "name",
+                              placeholder: "Name",
+                              name: "name"
+                            },
+                            domProps: { value: _vm.form.name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
                                 }
-                              ],
-                              staticClass: "form-control",
-                              class: {
-                                "is-invalid": _vm.form.errors.has("email")
-                              },
-                              attrs: {
-                                type: "text",
-                                id: "email",
-                                placeholder: "Email",
-                                name: "email"
-                              },
-                              domProps: { value: _vm.form.email },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "email",
-                                    $event.target.value
-                                  )
-                                }
+                                _vm.$set(_vm.form, "name", $event.target.value)
                               }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "email" }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "form-fullwidth" },
-                          [
-                            _c("label", { staticClass: "lable-title" }, [
-                              _vm._v("Mobile")
-                            ]),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.mobile,
-                                  expression: "form.mobile"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              class: {
-                                "is-invalid": _vm.form.errors.has("mobile")
-                              },
-                              attrs: {
-                                type: "text",
-                                id: "mobile",
-                                placeholder: "Mobile",
-                                name: "mobile"
-                              },
-                              domProps: { value: _vm.form.mobile },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "mobile",
-                                    $event.target.value
-                                  )
-                                }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "name" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-fullwidth" },
+                        [
+                          _c("label", { staticClass: "lable-title" }, [
+                            _vm._v("E-Mail")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.email,
+                                expression: "form.email"
                               }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "mobile" }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "form-fullwidth" },
-                          [
-                            _c("label", { staticClass: "lable-title" }, [
-                              _vm._v("Message")
-                            ]),
-                            _vm._v(" "),
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.messagecon,
-                                  expression: "form.messagecon"
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("email")
+                            },
+                            attrs: {
+                              type: "text",
+                              id: "email",
+                              placeholder: "Email",
+                              name: "email"
+                            },
+                            domProps: { value: _vm.form.email },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
                                 }
-                              ],
-                              staticClass:
-                                "form-control { 'is-invalid': form.errors.has('messagecon') }",
-                              attrs: {
-                                id: "messagecon",
-                                name: "messagecon",
-                                rows: "5",
-                                cols: "40",
-                                placeholder: "Message....."
-                              },
-                              domProps: { value: _vm.form.messagecon },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "messagecon",
-                                    $event.target.value
-                                  )
-                                }
+                                _vm.$set(_vm.form, "email", $event.target.value)
                               }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "messagecon" }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _vm._m(7)
-                      ]
-                    )
-                  ])
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "email" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-fullwidth" },
+                        [
+                          _c("label", { staticClass: "lable-title" }, [
+                            _vm._v("Mobile")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.mobile,
+                                expression: "form.mobile"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("mobile")
+                            },
+                            attrs: {
+                              type: "text",
+                              id: "mobile",
+                              placeholder: "Mobile",
+                              name: "mobile"
+                            },
+                            domProps: { value: _vm.form.mobile },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "mobile",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "mobile" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-fullwidth" },
+                        [
+                          _c("label", { staticClass: "lable-title" }, [
+                            _vm._v("Message")
+                          ]),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.messagecon,
+                                expression: "form.messagecon"
+                              }
+                            ],
+                            staticClass:
+                              "form-control { 'is-invalid': form.errors.has('messagecon') }",
+                            attrs: {
+                              id: "messagecon",
+                              name: "messagecon",
+                              rows: "5",
+                              cols: "40",
+                              placeholder: "Message....."
+                            },
+                            domProps: { value: _vm.form.messagecon },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "messagecon",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "messagecon" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _vm._m(7)
+                    ]
+                  )
                 ])
               ])
             ])
           ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "clear" })
-      ])
-    ],
-    1
-  )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "clear" })
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -65425,642 +65330,552 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "exploreDestination" } },
-    [
-      _c("vue-headful", {
-        attrs: {
-          title: "GBI Explore Destination",
-          description:
-            "@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button",
-          keywords:
-            "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs",
-          image: "",
-          lang: "en_US",
-          ogLocale: "en_US,en_UK",
-          url: "https://www.gowithgbi.com/resources/explore-destination"
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "explore_banner text_on_image banner_bg explore_bg_img"
-        },
-        [
-          _c("div", { staticClass: "content" }, [
-            _c("div", { staticClass: "container-fluid mb-30" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-sm-12" }, [
-                  _c("form", { attrs: { role: "form" } }, [
-                    _c("div", { staticClass: "nav-sreach-explo" }, [
+  return _c("div", { attrs: { id: "exploreDestination" } }, [
+    _c(
+      "div",
+      { staticClass: "explore_banner text_on_image banner_bg explore_bg_img" },
+      [
+        _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "container-fluid mb-30" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12" }, [
+                _c("form", { attrs: { role: "form" } }, [
+                  _c("div", { staticClass: "nav-sreach-explo" }, [
+                    _c("ul", { staticClass: "nav nav-tabs serch-explo-menu" }, [
+                      _c("li", { staticClass: "nav-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link active border-none",
+                            attrs: { "data-toggle": "tab", href: "#home" },
+                            on: {
+                              click: function($event) {
+                                _vm.multicity = !_vm.multicity
+                              }
+                            }
+                          },
+                          [_vm._v("Oneway")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "nav-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link border-none",
+                            attrs: { "data-toggle": "tab", href: "#menu1" },
+                            on: {
+                              click: function($event) {
+                                _vm.multicity = !_vm.multicity
+                              }
+                            }
+                          },
+                          [_vm._v("Multicity")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "tab-content explor-content" }, [
                       _c(
-                        "ul",
-                        { staticClass: "nav nav-tabs serch-explo-menu" },
+                        "div",
+                        {
+                          staticClass: "container tab-pane active",
+                          attrs: { id: "home" }
+                        },
                         [
-                          _c("li", { staticClass: "nav-item" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "nav-link active border-none",
-                                attrs: { "data-toggle": "tab", href: "#home" },
-                                on: {
-                                  click: function($event) {
-                                    _vm.multicity = !_vm.multicity
-                                  }
-                                }
-                              },
-                              [_vm._v("Oneway")]
-                            )
-                          ]),
+                          _c("br"),
                           _vm._v(" "),
-                          _c("li", { staticClass: "nav-item" }, [
+                          _c("div", { staticClass: "row p-0 parent_padding" }, [
                             _c(
-                              "a",
+                              "div",
                               {
-                                staticClass: "nav-link border-none",
-                                attrs: { "data-toggle": "tab", href: "#menu1" },
-                                on: {
-                                  click: function($event) {
-                                    _vm.multicity = !_vm.multicity
-                                  }
-                                }
+                                staticClass:
+                                  "col-6 col-sm-4 col-lg-4 input-p nopadding"
                               },
-                              [_vm._v("Multicity")]
+                              [
+                                _c("model-select", {
+                                  attrs: {
+                                    options: _vm.options,
+                                    placeholder: "Leave from"
+                                  },
+                                  model: {
+                                    value: _vm.sources,
+                                    callback: function($$v) {
+                                      _vm.sources = $$v
+                                    },
+                                    expression: "sources"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "col-6 col-sm-4 col-lg-4 input-p nopadding"
+                              },
+                              [
+                                _c("model-select", {
+                                  attrs: {
+                                    options: _vm.options,
+                                    placeholder: "Arrive at"
+                                  },
+                                  model: {
+                                    value: _vm.destinations,
+                                    callback: function($$v) {
+                                      _vm.destinations = $$v
+                                    },
+                                    expression: "destinations"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "col-6 col-sm-2 col-lg-2 input-p nopadding"
+                              },
+                              [
+                                _c("div", { staticClass: "select" }, [
+                                  _c(
+                                    "select",
+                                    {
+                                      staticClass:
+                                        "placeholder_color ui fluid search selection dropdown",
+                                      attrs: { name: "typetour" },
+                                      on: {
+                                        change: function($event) {
+                                          return _vm.tourtypeOnChange($event)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        { attrs: { selected: "" } },
+                                        [_vm._v("In mood for")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.tourtype_option, function(
+                                        index
+                                      ) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: index.id,
+                                            domProps: { value: index.id }
+                                          },
+                                          [_vm._v(_vm._s(index.name))]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  )
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "col-6 col-sm-2 col-lg-2 input-p nopadding"
+                              },
+                              [
+                                _c("div", { staticClass: "select" }, [
+                                  _c(
+                                    "select",
+                                    {
+                                      staticClass:
+                                        "selectpicker ui selection dropdown",
+                                      attrs: { name: "noofday" },
+                                      on: {
+                                        change: function($event) {
+                                          return _vm.noofdaysOnChange($event)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        { attrs: { selected: "" } },
+                                        [_vm._v("No. of days")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.noofdays_option, function(
+                                        index
+                                      ) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: index.id,
+                                            domProps: { value: index }
+                                          },
+                                          [_vm._v(_vm._s(index))]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  )
+                                ])
+                              ]
                             )
                           ])
                         ]
                       ),
                       _vm._v(" "),
-                      _c("div", { staticClass: "tab-content explor-content" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "container tab-pane active",
-                            attrs: { id: "home" }
-                          },
-                          [
-                            _c("br"),
-                            _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "container tab-pane",
+                          attrs: { id: "menu1" }
+                        },
+                        [
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row p-0 parent_padding" }, [
                             _c(
                               "div",
-                              { staticClass: "row p-0 parent_padding" },
+                              {
+                                staticClass:
+                                  "col-6 col-sm-4 col-lg-4 input-p nopadding"
+                              },
                               [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-6 col-sm-4 col-lg-4 input-p nopadding"
+                                _c("model-select", {
+                                  attrs: {
+                                    options: _vm.options,
+                                    placeholder: "Leave from"
                                   },
-                                  [
-                                    _c("model-select", {
-                                      attrs: {
-                                        options: _vm.options,
-                                        placeholder: "Leave from"
-                                      },
-                                      model: {
-                                        value: _vm.sources,
-                                        callback: function($$v) {
-                                          _vm.sources = $$v
-                                        },
-                                        expression: "sources"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-6 col-sm-4 col-lg-4 input-p nopadding"
-                                  },
-                                  [
-                                    _c("model-select", {
-                                      attrs: {
-                                        options: _vm.options,
-                                        placeholder: "Arrive at"
-                                      },
-                                      model: {
-                                        value: _vm.destinations,
-                                        callback: function($$v) {
-                                          _vm.destinations = $$v
-                                        },
-                                        expression: "destinations"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-6 col-sm-2 col-lg-2 input-p nopadding"
-                                  },
-                                  [
-                                    _c("div", { staticClass: "select" }, [
-                                      _c(
-                                        "select",
-                                        {
-                                          staticClass:
-                                            "placeholder_color ui fluid search selection dropdown",
-                                          attrs: { name: "typetour" },
-                                          on: {
-                                            change: function($event) {
-                                              return _vm.tourtypeOnChange(
-                                                $event
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "option",
-                                            { attrs: { selected: "" } },
-                                            [_vm._v("In mood for")]
-                                          ),
-                                          _vm._v(" "),
-                                          _vm._l(_vm.tourtype_option, function(
-                                            index
-                                          ) {
-                                            return _c(
-                                              "option",
-                                              {
-                                                key: index.id,
-                                                domProps: { value: index.id }
-                                              },
-                                              [_vm._v(_vm._s(index.name))]
-                                            )
-                                          })
-                                        ],
-                                        2
-                                      )
-                                    ])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-6 col-sm-2 col-lg-2 input-p nopadding"
-                                  },
-                                  [
-                                    _c("div", { staticClass: "select" }, [
-                                      _c(
-                                        "select",
-                                        {
-                                          staticClass:
-                                            "selectpicker ui selection dropdown",
-                                          attrs: { name: "noofday" },
-                                          on: {
-                                            change: function($event) {
-                                              return _vm.noofdaysOnChange(
-                                                $event
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "option",
-                                            { attrs: { selected: "" } },
-                                            [_vm._v("No. of days")]
-                                          ),
-                                          _vm._v(" "),
-                                          _vm._l(_vm.noofdays_option, function(
-                                            index
-                                          ) {
-                                            return _c(
-                                              "option",
-                                              {
-                                                key: index.id,
-                                                domProps: { value: index }
-                                              },
-                                              [_vm._v(_vm._s(index))]
-                                            )
-                                          })
-                                        ],
-                                        2
-                                      )
-                                    ])
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "container tab-pane",
-                            attrs: { id: "menu1" }
-                          },
-                          [
-                            _c("br"),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "row p-0 parent_padding" },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-6 col-sm-4 col-lg-4 input-p nopadding"
-                                  },
-                                  [
-                                    _c("model-select", {
-                                      attrs: {
-                                        options: _vm.options,
-                                        placeholder: "Leave from"
-                                      },
-                                      model: {
-                                        value: _vm.multi_source,
-                                        callback: function($$v) {
-                                          _vm.multi_source = $$v
-                                        },
-                                        expression: "multi_source"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-6 col-sm-4 col-lg-4 input-p nopadding"
-                                  },
-                                  [
-                                    _c("model-select", {
-                                      attrs: {
-                                        options: _vm.options,
-                                        placeholder: "Arrive at"
-                                      },
-                                      model: {
-                                        value: _vm.multi_destination,
-                                        callback: function($$v) {
-                                          _vm.multi_destination = $$v
-                                        },
-                                        expression: "multi_destination"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ]
+                                  model: {
+                                    value: _vm.multi_source,
+                                    callback: function($$v) {
+                                      _vm.multi_source = $$v
+                                    },
+                                    expression: "multi_source"
+                                  }
+                                })
+                              ],
+                              1
                             ),
                             _vm._v(" "),
                             _c(
                               "div",
-                              { staticClass: "row p-0 parent_padding" },
+                              {
+                                staticClass:
+                                  "col-6 col-sm-4 col-lg-4 input-p nopadding"
+                              },
                               [
-                                _vm._l(_vm.rows, function(row, index) {
-                                  return _c(
-                                    "div",
-                                    { key: index, staticClass: "col-lg-8" },
-                                    [
-                                      _c("div", { staticClass: "row" }, [
-                                        _c(
+                                _c("model-select", {
+                                  attrs: {
+                                    options: _vm.options,
+                                    placeholder: "Arrive at"
+                                  },
+                                  model: {
+                                    value: _vm.multi_destination,
+                                    callback: function($$v) {
+                                      _vm.multi_destination = $$v
+                                    },
+                                    expression: "multi_destination"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "row p-0 parent_padding" },
+                            [
+                              _vm._l(_vm.rows, function(row, index) {
+                                return _c(
+                                  "div",
+                                  { key: index, staticClass: "col-lg-8" },
+                                  [
+                                    _c("div", { staticClass: "row" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-6 col-sm-6 input-p nopadding"
+                                        },
+                                        [
+                                          _c("model-select", {
+                                            attrs: {
+                                              options: _vm.options,
+                                              placeholder: "Leave from"
+                                            },
+                                            model: {
+                                              value: row["source"],
+                                              callback: function($$v) {
+                                                _vm.$set(row, "source", $$v)
+                                              },
+                                              expression: "row['source']"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-6 col-sm-6 input-p nopadding"
+                                        },
+                                        [
+                                          _c("model-select", {
+                                            attrs: {
+                                              options: _vm.options,
+                                              placeholder: "Arrive at"
+                                            },
+                                            model: {
+                                              value: row["destination"],
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  row,
+                                                  "destination",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "row['destination']"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    ])
+                                  ]
+                                )
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-lg-2" }, [
+                                _c("div", { staticClass: "row button_group" }, [
+                                  _c("div", { staticClass: "col-12" }, [
+                                    _vm.city_button == _vm.current_counter
+                                      ? _c(
                                           "div",
-                                          {
-                                            staticClass:
-                                              "col-6 col-sm-6 input-p nopadding"
-                                          },
+                                          { staticClass: "buttons save_btn" },
                                           [
-                                            _c("model-select", {
-                                              attrs: {
-                                                options: _vm.options,
-                                                placeholder: "Leave from"
-                                              },
-                                              model: {
-                                                value: row["source"],
-                                                callback: function($$v) {
-                                                  _vm.$set(row, "source", $$v)
-                                                },
-                                                expression: "row['source']"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-6 col-sm-6 input-p nopadding"
-                                          },
-                                          [
-                                            _c("model-select", {
-                                              attrs: {
-                                                options: _vm.options,
-                                                placeholder: "Arrive at"
-                                              },
-                                              model: {
-                                                value: row["destination"],
-                                                callback: function($$v) {
-                                                  _vm.$set(
-                                                    row,
-                                                    "destination",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression: "row['destination']"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      ])
-                                    ]
-                                  )
-                                }),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-lg-2" }, [
-                                  _c(
-                                    "div",
-                                    { staticClass: "row button_group" },
-                                    [
-                                      _c("div", { staticClass: "col-12" }, [
-                                        _vm.city_button == _vm.current_counter
-                                          ? _c(
-                                              "div",
-                                              {
-                                                staticClass: "buttons save_btn"
-                                              },
-                                              [
-                                                _vm.city_button ==
-                                                _vm.current_counter
-                                                  ? _c(
-                                                      "button",
-                                                      {
-                                                        staticClass:
-                                                          "btn btn-default multi_city_btn",
-                                                        class: {
-                                                          disable:
-                                                            _vm.save_disable_btn
-                                                        },
-                                                        attrs: {
-                                                          type: "button"
-                                                        },
-                                                        on: {
-                                                          click: _vm.addRow
-                                                        }
-                                                      },
-                                                      [
-                                                        _c("i", {
-                                                          staticClass:
-                                                            "fas fa-plus"
-                                                        })
-                                                      ]
-                                                    )
-                                                  : _vm._e()
-                                              ]
-                                            )
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        _vm.city_button == _vm.current_counter
-                                          ? _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "buttons remove_btn"
-                                              },
-                                              [
-                                                _c(
+                                            _vm.city_button ==
+                                            _vm.current_counter
+                                              ? _c(
                                                   "button",
                                                   {
                                                     staticClass:
-                                                      "btn text-center btn-default multi_city_btn",
+                                                      "btn btn-default multi_city_btn",
                                                     class: {
                                                       disable:
-                                                        _vm.remove_disable_btn
+                                                        _vm.save_disable_btn
                                                     },
                                                     attrs: { type: "button" },
-                                                    on: {
-                                                      click: function($event) {
-                                                        return _vm.deleteRow(
-                                                          _vm.current_counter -
-                                                            1
-                                                        )
-                                                      }
-                                                    }
+                                                    on: { click: _vm.addRow }
                                                   },
                                                   [
                                                     _c("i", {
-                                                      staticClass:
-                                                        "fas fa-minus"
+                                                      staticClass: "fas fa-plus"
                                                     })
                                                   ]
                                                 )
+                                              : _vm._e()
+                                          ]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.city_button == _vm.current_counter
+                                      ? _c(
+                                          "div",
+                                          { staticClass: "buttons remove_btn" },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn text-center btn-default multi_city_btn",
+                                                class: {
+                                                  disable:
+                                                    _vm.remove_disable_btn
+                                                },
+                                                attrs: { type: "button" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.deleteRow(
+                                                      _vm.current_counter - 1
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fas fa-minus"
+                                                })
                                               ]
                                             )
-                                          : _vm._e()
-                                      ])
-                                    ]
+                                          ]
+                                        )
+                                      : _vm._e()
+                                  ])
+                                ])
+                              ])
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row parent_padding" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "col-6 col-sm-2 col-lg-2 input-p nopadding"
+                              },
+                              [
+                                _c("div", { staticClass: "select" }, [
+                                  _c(
+                                    "select",
+                                    {
+                                      staticClass:
+                                        "placeholder_color ui fluid search selection dropdown",
+                                      attrs: { name: "typetour" },
+                                      on: {
+                                        change: function($event) {
+                                          return _vm.tourtypeOnChange($event)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        { attrs: { selected: "" } },
+                                        [_vm._v("In mood for")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.tourtype_option, function(
+                                        index
+                                      ) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: index.id,
+                                            domProps: { value: index }
+                                          },
+                                          [_vm._v(_vm._s(index.name))]
+                                        )
+                                      })
+                                    ],
+                                    2
                                   )
                                 ])
-                              ],
-                              2
+                              ]
                             ),
                             _vm._v(" "),
-                            _c("div", { staticClass: "row parent_padding" }, [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "col-6 col-sm-2 col-lg-2 input-p nopadding"
-                                },
-                                [
-                                  _c("div", { staticClass: "select" }, [
-                                    _c(
-                                      "select",
-                                      {
-                                        staticClass:
-                                          "placeholder_color ui fluid search selection dropdown",
-                                        attrs: { name: "typetour" },
-                                        on: {
-                                          change: function($event) {
-                                            return _vm.tourtypeOnChange($event)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "option",
-                                          { attrs: { selected: "" } },
-                                          [_vm._v("In mood for")]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm._l(_vm.tourtype_option, function(
-                                          index
-                                        ) {
-                                          return _c(
-                                            "option",
-                                            {
-                                              key: index.id,
-                                              domProps: { value: index }
-                                            },
-                                            [_vm._v(_vm._s(index.name))]
-                                          )
-                                        })
-                                      ],
-                                      2
-                                    )
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "col-6 col-sm-2 col-lg-2 input-p nopadding"
-                                },
-                                [
-                                  _c("div", { staticClass: "select" }, [
-                                    _c(
-                                      "select",
-                                      {
-                                        staticClass:
-                                          "selectpicker ui selection dropdown",
-                                        attrs: { name: "noofday" },
-                                        on: {
-                                          change: function($event) {
-                                            return _vm.noofdaysOnChange($event)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "option",
-                                          { attrs: { selected: "" } },
-                                          [_vm._v("No. of days")]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm._l(_vm.tourtype_option, function(
-                                          index
-                                        ) {
-                                          return _c(
-                                            "option",
-                                            {
-                                              key: index.id,
-                                              domProps: { value: index.id }
-                                            },
-                                            [_vm._v(_vm._s(index.name))]
-                                          )
-                                        })
-                                      ],
-                                      2
-                                    )
-                                  ])
-                                ]
-                              )
-                            ])
-                          ]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "text-center" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "btn btn-defalt btn-lg center-block profile_button",
-                          attrs: { type: "submit" },
-                          on: {
-                            click: [
-                              function($event) {
-                                $event.preventDefault()
-                                return _vm.searchAll()
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "col-6 col-sm-2 col-lg-2 input-p nopadding"
                               },
-                              function($event) {
-                                _vm.show = !_vm.show
-                              }
-                            ]
-                          }
-                        },
-                        [_vm._v("Search")]
+                              [
+                                _c("div", { staticClass: "select" }, [
+                                  _c(
+                                    "select",
+                                    {
+                                      staticClass:
+                                        "selectpicker ui selection dropdown",
+                                      attrs: { name: "noofday" },
+                                      on: {
+                                        change: function($event) {
+                                          return _vm.noofdaysOnChange($event)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        { attrs: { selected: "" } },
+                                        [_vm._v("No. of days")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.tourtype_option, function(
+                                        index
+                                      ) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: index.id,
+                                            domProps: { value: index.id }
+                                          },
+                                          [_vm._v(_vm._s(index.name))]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  )
+                                ])
+                              ]
+                            )
+                          ])
+                        ]
                       )
                     ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-center" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "btn btn-defalt btn-lg center-block profile_button",
+                        attrs: { type: "submit" },
+                        on: {
+                          click: [
+                            function($event) {
+                              $event.preventDefault()
+                              return _vm.searchAll()
+                            },
+                            function($event) {
+                              _vm.show = !_vm.show
+                            }
+                          ]
+                        }
+                      },
+                      [_vm._v("Search")]
+                    )
                   ])
                 ])
               ])
             ])
           ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "explore_bg_img" }),
-      _vm._v(" "),
-      _c("main", [
-        _c("div", { staticClass: "container" }, [
-          _c(
-            "div",
-            { staticClass: "row mt-10 p-20" },
-            [
-              _c("searchexplor", {
-                attrs: { allSearchdata: _vm.allSearchdata }
-              }),
-              _vm._v(" "),
-              _vm.allSearchdata == ""
-                ? _c(
-                    "div",
-                    { staticClass: "col-lg-12 p-0" },
-                    [
-                      _c("h4", { staticClass: "text-center" }, [
-                        _vm._v("UPCOMING TOUR")
-                      ]),
-                      _vm._v(" "),
-                      _c("itinerary-list", {
-                        attrs: { list: _vm.upcoming_data }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col-lg-12 nopadding m-b-15" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "listexplore",
-                              attrs: { to: "/explore-list" }
-                            },
-                            [_vm._v("View More")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                : _vm._e()
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row p-20" }, [
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "explore_bg_img" }),
+    _vm._v(" "),
+    _c("main", [
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          { staticClass: "row mt-10 p-20" },
+          [
+            _c("searchexplor", { attrs: { allSearchdata: _vm.allSearchdata } }),
+            _vm._v(" "),
             _vm.allSearchdata == ""
               ? _c(
                   "div",
                   { staticClass: "col-lg-12 p-0" },
                   [
                     _c("h4", { staticClass: "text-center" }, [
-                      _vm._v("POPULAR TOUR")
+                      _vm._v("UPCOMING TOUR")
                     ]),
                     _vm._v(" "),
-                    _c("itinerary-list", { attrs: { list: _vm.popular_data } }),
+                    _c("itinerary-list", {
+                      attrs: { list: _vm.upcoming_data }
+                    }),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -66081,12 +65896,47 @@ var render = function() {
                   1
                 )
               : _vm._e()
-          ])
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row p-20" }, [
+          _vm.allSearchdata == ""
+            ? _c(
+                "div",
+                { staticClass: "col-lg-12 p-0" },
+                [
+                  _c("h4", { staticClass: "text-center" }, [
+                    _vm._v("POPULAR TOUR")
+                  ]),
+                  _vm._v(" "),
+                  _c("itinerary-list", { attrs: { list: _vm.popular_data } }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-lg-12 nopadding m-b-15" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "listexplore",
+                          attrs: { to: "/explore-list" }
+                        },
+                        [_vm._v("View More")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            : _vm._e()
         ])
       ])
-    ],
-    1
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -66110,78 +65960,59 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "explorelist" } },
-    [
-      _c("vue-headful", {
+  return _c("div", { attrs: { id: "explorelist" } }, [
+    _c("section", { staticClass: "banner-block" }, [
+      _c("img", {
+        staticClass: "top-img",
         attrs: {
-          title: "GBI Explore Destination",
-          description:
-            "@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button",
-          keywords:
-            "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs",
-          image: "",
-          lang: "en_US",
-          ogLocale: "en_US,en_UK",
-          url: "https://www.gowithgbi.com/resources/explore-destination"
+          src: "/uploadimage/" + _vm.itineraryData.detail_photo,
+          loading: "lazy",
+          alt: "itinerary"
         }
+      })
+    ]),
+    _vm._v("\n  " + _vm._s(_vm.editData) + "\n  "),
+    _c("div", { staticClass: "container" }, [
+      _c("h1", { staticClass: "main-head" }, [
+        _vm._v(_vm._s(_vm.itineraryData.title))
+      ]),
+      _vm._v(" "),
+      _c("p", {
+        staticClass: "description",
+        domProps: { innerHTML: _vm._s(_vm.description) }
       }),
       _vm._v(" "),
-      _c("section", { staticClass: "banner-block" }, [
-        _c("img", {
-          staticClass: "top-img",
-          attrs: {
-            src: "/uploadimage/" + _vm.itineraryData.detail_photo,
-            loading: "lazy",
-            alt: "itinerary"
-          }
-        })
-      ]),
-      _vm._v("\n  " + _vm._s(_vm.editData) + "\n  "),
-      _c("div", { staticClass: "container" }, [
-        _c("h1", { staticClass: "main-head" }, [
-          _vm._v(_vm._s(_vm.itineraryData.title))
-        ]),
-        _vm._v(" "),
-        _c("p", {
-          staticClass: "description",
-          domProps: { innerHTML: _vm._s(_vm.description) }
+      _c(
+        "div",
+        { staticClass: "row", attrs: { id: "explore_detail_part" } },
+        _vm._l(_vm.itineraryData.itinerarydays, function(data) {
+          return _c("div", { key: data.id, staticClass: "col-sm-4" }, [
+            _c("h4", { staticClass: "day_tab" }, [
+              _vm._v("Day " + _vm._s(data.day))
+            ]),
+            _vm._v(" "),
+            data.day_source != data.day_destination
+              ? _c("h1", { staticClass: "explor-head" }, [
+                  _vm._v(
+                    _vm._s(data.day_source.toUpperCase()) +
+                      " - " +
+                      _vm._s(data.day_destination.toUpperCase())
+                  )
+                ])
+              : _c("h1", { staticClass: "explor-head" }, [
+                  _vm._v(_vm._s(data.day_source.toUpperCase()))
+                ]),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "card-text",
+              domProps: { innerHTML: _vm._s(data.day_description) }
+            })
+          ])
         }),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row", attrs: { id: "explore_detail_part" } },
-          _vm._l(_vm.itineraryData.itinerarydays, function(data) {
-            return _c("div", { key: data.id, staticClass: "col-sm-4" }, [
-              _c("h4", { staticClass: "day_tab" }, [
-                _vm._v("Day " + _vm._s(data.day))
-              ]),
-              _vm._v(" "),
-              data.day_source != data.day_destination
-                ? _c("h1", { staticClass: "explor-head" }, [
-                    _vm._v(
-                      _vm._s(data.day_source.toUpperCase()) +
-                        " - " +
-                        _vm._s(data.day_destination.toUpperCase())
-                    )
-                  ])
-                : _c("h1", { staticClass: "explor-head" }, [
-                    _vm._v(_vm._s(data.day_source.toUpperCase()))
-                  ]),
-              _vm._v(" "),
-              _c("div", {
-                staticClass: "card-text",
-                domProps: { innerHTML: _vm._s(data.day_description) }
-              })
-            ])
-          }),
-          0
-        )
-      ])
-    ],
-    1
-  )
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -66440,451 +66271,420 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "faq" } },
-    [
-      _c("vue-headful", {
-        attrs: {
-          title: "GBI Frequently Asked Question",
-          description:
-            "@GoWithGBI helps you answer all your queries  regarding your travel program by just one click of a button",
-          keywords:
-            "@GoWithGBI,have a question,search for your answer,FAQ,Travel bookings queries,customer service,support helpdesk",
-          image: "",
-          lang: "en_US",
-          ogLocale: "en_US,en_UK",
-          url: "https://www.gowithgbi.com/resources/faq"
-        }
-      }),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _vm._m(2)
-    ],
-    1
-  )
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "faq_banner text_on_image banner_bg explore_bg_img" },
-      [
-        _c("div", { staticClass: "content" }, [
-          _c("div", { staticClass: "container-fluid" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c("div", { staticClass: "content" }, [
-                  _c("h1", { staticClass: "heading" }, [
-                    _vm._v("Frequently Asked Questions (FAQ)")
+    return _c("div", { attrs: { id: "faq" } }, [
+      _c(
+        "div",
+        { staticClass: "faq_banner text_on_image banner_bg explore_bg_img" },
+        [
+          _c("div", { staticClass: "content" }, [
+            _c("div", { staticClass: "container-fluid" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "content" }, [
+                    _c("h1", { staticClass: "heading" }, [
+                      _vm._v("Frequently Asked Questions (FAQ)")
+                    ])
                   ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6 search_filter" }, [
-                _c("div", { staticClass: "search-p-top mt-35" }, [
-                  _c("div", { staticClass: "input-group" }, [
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        placeholder: "Got a question? Shoot at us",
-                        title: "Type in a name"
-                      }
-                    })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-6 search_filter" }, [
+                  _c("div", { staticClass: "search-p-top mt-35" }, [
+                    _c("div", { staticClass: "input-group" }, [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Got a question? Shoot at us",
+                          title: "Type in a name"
+                        }
+                      })
+                    ])
                   ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-2" })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-2" })
+              ])
             ])
           ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text_on_image" }, [
-      _c("section", { staticClass: "banner-block faq_banner" }),
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "content" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "faq-question" }, [
-      _c("h3", [
-        _vm._v("Confused? Need not worry, we have answers to your queries.")
+      _c("div", { staticClass: "text_on_image" }, [
+        _c("section", { staticClass: "banner-block faq_banner" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "content" })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("article", { staticClass: "faq-content-search" }, [
-          _c("table", { attrs: { id: "myTables" } }, [
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v("What is GB International? How does it function?")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
-                  _vm._v(
-                    "GB International is an educational specialist that has been serving the academic sector since last 35 years. GBI has successfully served more than hundred educational institutions through organized educational tours."
-                  )
-                ]),
+      _c("section", { staticClass: "faq-question" }, [
+        _c("h3", [
+          _vm._v("Confused? Need not worry, we have answers to your queries.")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "container" }, [
+          _c("article", { staticClass: "faq-content-search" }, [
+            _c("table", { attrs: { id: "myTables" } }, [
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "GBI helps students gain practical knowledge by bringing them closer to different technological innovations, culture while imparting them more knowledge of what they get to learn in textbooks also provide learnings outside them."
-                  )
+                _c("td", [
+                  _vm._v("What is GB International? How does it function?")
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+              ]),
               _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _vm._v(
-                  "Cancellation and Refunds for International Tour (For Groups) , Cancellation and Refunds for International Tour (For Groups)"
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
-                  _vm._v(
-                    "If the tour is cancelled by any reason post reservation then 50 % of the total amount will be fortified."
-                  )
-                ]),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "If student cancels his/her trip 30 days prior to departure, 25% of the total amount is to be fortified; if 25-15 days prior to departure than 50% of the total amount and if cancellation is announced 7 days before departure than 100% of the balance amount will be fortified."
-                  )
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "GB International is an educational specialist that has been serving the academic sector since last 35 years. GBI has successfully served more than hundred educational institutions through organized educational tours."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "GBI helps students gain practical knowledge by bringing them closer to different technological innovations, culture while imparting them more knowledge of what they get to learn in textbooks also provide learnings outside them."
+                    )
+                  ])
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+              ]),
               _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _vm._v(
-                  "Cancellation and Refunds for Domestic Tour (For Groups)"
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
-                  _vm._v(
-                    "If the tour is cancelled by any reason, the 50% of the amount is to be fortified."
-                  )
-                ]),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
                 _vm._v(" "),
-                _c("p", [
+                _c("td", { staticClass: "td-font" }, [
                   _vm._v(
-                    "If the student cancels his/her trip post reservation 30 days prior to departure then 35% of the total amount is to be fortified."
+                    "Cancellation and Refunds for International Tour (For Groups) , Cancellation and Refunds for International Tour (For Groups)"
                   )
-                ]),
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v("30 days prior to departure charges would be 35%")
-                ]),
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "If the tour is cancelled by any reason post reservation then 50 % of the total amount will be fortified."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "If student cancels his/her trip 30 days prior to departure, 25% of the total amount is to be fortified; if 25-15 days prior to departure than 50% of the total amount and if cancellation is announced 7 days before departure than 100% of the balance amount will be fortified."
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v("20 days prior to departure charges would be 45%")
-                ]),
+                _c("td", { staticClass: "td-font" }, [
+                  _vm._v(
+                    "Cancellation and Refunds for Domestic Tour (For Groups)"
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v("14 days prior to departure charges would be 65%")
-                ]),
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "If the tour is cancelled by any reason, the 50% of the amount is to be fortified."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "If the student cancels his/her trip post reservation 30 days prior to departure then 35% of the total amount is to be fortified."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("30 days prior to departure charges would be 35%")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("20 days prior to departure charges would be 45%")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("14 days prior to departure charges would be 65%")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("06 days prior to departure charges would be 80%")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("days prior to departure charges would be 100%")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v("06 days prior to departure charges would be 80%")
-                ]),
+                _c("td", { staticClass: "td-font" }, [
+                  _vm._v("What are the various mode of payment available?")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v("days prior to departure charges would be 100%")
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "Student or school authority can make the payment through Cheque or Demand Draft. They can also do online payment through NEFT or RTGS but that has to be a one-time payment."
+                    )
+                  ])
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+              ]),
               _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _vm._v("What are the various mode of payment available?")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
-                  _vm._v(
-                    "Student or school authority can make the payment through Cheque or Demand Draft. They can also do online payment through NEFT or RTGS but that has to be a one-time payment."
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _vm._v(
-                  "What are the basic amenities that GB International provide on a tour?"
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
-                  _vm._v(
-                    "GB International’s services include - Transportation fare, stay in the hotel, meals, 24/7 presence of reliable travel guide, full-time tour director, free entrances/shows and guided sightseeing."
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _vm._v(
-                  "What are the goods and services that GB International does not include in its basic amenities?"
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
-                  _vm._v(
-                    "In case of increase in the cost of the land arrangements due to the fluctuations, in exchange rates, the passengers shall have to pay the difference before the departure of the tour. Apart from this, students has to bear their own personal expenses."
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _vm._v(
-                  "What are the documents required for an International tour?"
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
-                  _vm._v(
-                    "For an International tour, GBI requires a Valid Passport (minimum valid period required is 6 months), recent colored passport size photograph and students should have a valid photo Identity card of the school they study."
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _vm._v("What are the documents required for a domestic tour?")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
-                  _vm._v(
-                    "For a domestic tour, GBI requires a valid student Identity card and recent colored Passport size photograph."
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _vm._v(
-                  "How old do I have to be to travel on GB International journey?"
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
-                  _vm._v(
-                    "GBI takes students of any age provided that the school authority has no objection to send its students on an educational tour."
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _vm._v(
-                  "How is GB International different from any other educational tour company?"
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
-                  _vm._v(
-                    "GBI believes in imparting true educational value. Adventure and fun activities are considered to be a part of practical learning. On every tours, GBI strive to deliver well-defined learning objective."
-                  )
-                ]),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
                 _vm._v(" "),
-                _c("p", [
+                _c("td", { staticClass: "td-font" }, [
                   _vm._v(
-                    "GBI follows a personalized customer-centric approach, therefore, it provides informative learning shared memories safety and comfort all at a competitive rate. Maintenance of quality is set priority of GB International."
+                    "What are the basic amenities that GB International provide on a tour?"
                   )
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+              ]),
               _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _vm._v("How does GBI address on-going safety and security?")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
-                  _vm._v(
-                    "GBI is a government recognized company with stringent practices when it comes to student’s safety and security. Students are accompanied by experienced and sensitive travel guide who looks after the safety of the students 24/7, during the tour."
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _vm._v(
-                  "Does GBI have any consumer privacy policy? If yes, what are those?"
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
-                  _vm._v(
-                    "Yes, GBI has consumer privacy policy for it believe in keeping its customers safe and worry-free."
-                  )
-                ]),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Keeping in mind the comfort zone of the client, GBI try to take as limited information as possible, as permitted by the law. If any information needs to be shared internationally, GBI ensure that client’s privacy is maintained."
-                  )
-                ]),
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "GB International’s services include - Transportation fare, stay in the hotel, meals, 24/7 presence of reliable travel guide, full-time tour director, free entrances/shows and guided sightseeing."
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
                 _vm._v(" "),
-                _c("p", { staticClass: "td-font" }, [
+                _c("td", { staticClass: "td-font" }, [
                   _vm._v(
-                    "GBI avert its client on a timely basis, in regard to the personal information used."
+                    "What are the goods and services that GB International does not include in its basic amenities?"
                   )
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+              ]),
               _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _vm._v("How much does GBI charge for an International tour?")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "In case of increase in the cost of the land arrangements due to the fluctuations, in exchange rates, the passengers shall have to pay the difference before the departure of the tour. Apart from this, students has to bear their own personal expenses."
+                    )
+                  ])
+                ])
+              ]),
               _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
                   _vm._v(
-                    "The cost of the tour depends on the destination and the number of days planned by the client."
+                    "What are the documents required for an International tour?"
                   )
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+              ]),
               _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _vm._v("What are rights reserved under GBI?")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td-font" }, [
-                _c("p", [
-                  _vm._v(
-                    "Tour itineraries are subject to change without any prior notice. GBI reserves the right to accept, retain and decline any person as a member of a tour at any time of the scheduled trip without any notice."
-                  )
-                ]),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
                 _vm._v(" "),
-                _c("p", [
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "For an International tour, GBI requires a Valid Passport (minimum valid period required is 6 months), recent colored passport size photograph and students should have a valid photo Identity card of the school they study."
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _vm._v("What are the documents required for a domestic tour?")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "For a domestic tour, GBI requires a valid student Identity card and recent colored Passport size photograph."
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
                   _vm._v(
-                    "No refund is provided to a person, if he/she does not show up during the actual conduct of the tour."
+                    "How old do I have to be to travel on GB International journey?"
                   )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "GBI takes students of any age provided that the school authority has no objection to send its students on an educational tour."
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _vm._v(
+                    "How is GB International different from any other educational tour company?"
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "GBI believes in imparting true educational value. Adventure and fun activities are considered to be a part of practical learning. On every tours, GBI strive to deliver well-defined learning objective."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "GBI follows a personalized customer-centric approach, therefore, it provides informative learning shared memories safety and comfort all at a competitive rate. Maintenance of quality is set priority of GB International."
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _vm._v("How does GBI address on-going safety and security?")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "GBI is a government recognized company with stringent practices when it comes to student’s safety and security. Students are accompanied by experienced and sensitive travel guide who looks after the safety of the students 24/7, during the tour."
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _vm._v(
+                    "Does GBI have any consumer privacy policy? If yes, what are those?"
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "Yes, GBI has consumer privacy policy for it believe in keeping its customers safe and worry-free."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "Keeping in mind the comfort zone of the client, GBI try to take as limited information as possible, as permitted by the law. If any information needs to be shared internationally, GBI ensure that client’s privacy is maintained."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "td-font" }, [
+                    _vm._v(
+                      "GBI avert its client on a timely basis, in regard to the personal information used."
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _vm._v("How much does GBI charge for an International tour?")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "The cost of the tour depends on the destination and the number of days planned by the client."
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Que.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _vm._v("What are rights reserved under GBI?")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "ques-content" }, [_vm._v("Ans.")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td-font" }, [
+                  _c("p", [
+                    _vm._v(
+                      "Tour itineraries are subject to change without any prior notice. GBI reserves the right to accept, retain and decline any person as a member of a tour at any time of the scheduled trip without any notice."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "No refund is provided to a person, if he/she does not show up during the actual conduct of the tour."
+                    )
+                  ])
                 ])
               ])
             ])
@@ -66915,73 +66715,54 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "safetysecurity" } },
-    [
-      _c("vue-headful", {
-        attrs: {
-          title: "Safety and Security",
-          description:
-            "@GoWithGBI aims to provide complete safety of its travellers during the education programs,GBI team members assuers the safety of passengers and is known for it ",
-          keywords:
-            "@GoWithGBI,travel safety tips,our security policies,GBI strict policies,GBI terms and conditions,safe travel",
-          image: "",
-          lang: "en_US",
-          ogLocale: "en_US,en_UK",
-          url: "https://www.gowithgbi.com/about-us/safety-security"
-        }
-      }),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "safety-security" }, [
-          _c("div", { staticClass: "col-lg-12" }, [
-            _c("div", { staticClass: "row" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6 col-lg-6" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item safe-seu-img",
-                      attrs: {
-                        id: "safetyimg1",
-                        "data-url": "/assets/front/images/safety_security.jpg",
-                        alt: "GBI safety security"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ])
-            ]),
+  return _c("div", { attrs: { id: "safetysecurity" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "safety-security" }, [
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c("div", { staticClass: "row" }, [
+            _vm._m(1),
             _vm._v(" "),
-            _c("h2", [
-              _vm._v("We Put Efforts to Make Your Trip Worth Breathe Taking")
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Students are accompanied by experienced and friendly travel guide ensuring their safety and security. Our guides have been carefully selected for their sensitivity and knowledge of the destination. Besides their day-to-day responsibilities, they are also trained to deal with an unforeseen circumstance. They work with all efforts to transform every experience into effective learning."
+            _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item safe-seu-img",
+                    attrs: {
+                      id: "safetyimg1",
+                      "data-url": "/assets/front/images/safety_security.jpg",
+                      alt: "GBI safety security"
+                    }
+                  })
+                ],
+                1
               )
             ])
+          ]),
+          _vm._v(" "),
+          _c("h2", [
+            _vm._v("We Put Efforts to Make Your Trip Worth Breathe Taking")
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Students are accompanied by experienced and friendly travel guide ensuring their safety and security. Our guides have been carefully selected for their sensitivity and knowledge of the destination. Besides their day-to-day responsibilities, they are also trained to deal with an unforeseen circumstance. They work with all efforts to transform every experience into effective learning."
+            )
           ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "clear" })
-      ])
-    ],
-    1
-  )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "clear" })
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -67032,40 +66813,58 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "traveleducation" } },
-    [
-      _c("vue-headful", {
-        attrs: {
-          title: "Travel and Education",
-          description:
-            "@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one ",
-          keywords:
-            "@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs",
-          image: "",
-          lang: "en_US",
-          ogLocale: "en_US,en_UK",
-          url: "https://www.gowithgbi.com/resources/travel-education"
-        }
-      }),
+  return _c("div", { attrs: { id: "traveleducation" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _vm._m(1),
       _vm._v(" "),
-      _vm._m(0),
+      _vm._m(2),
       _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-12 mb-30" }, [
-          _c("section", { staticClass: "section-edu" }, [
-            _c("h2", [
-              _vm._v(
-                "Real education happens outside the classroom and travel is the best way to learn. Get the opportunity to engage with the real."
-              )
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "edu-blockcontent" }, [
+      _c("div", { staticClass: "col-sm-12 mb-30" }, [
+        _c("section", { staticClass: "section-edu" }, [
+          _c("h2", [
+            _vm._v(
+              "Real education happens outside the classroom and travel is the best way to learn. Get the opportunity to engage with the real."
+            )
+          ]),
+          _vm._v(" "),
+          _c("article", { staticClass: "edu-blockcontent" }, [
+            _c("div", { staticClass: "col-sm-12" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image__item",
+                    attrs: {
+                      "data-url": "/assets/front/images/img/edu1.png",
+                      alt: "GBI science"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Science and Tech Museum")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Acknowledge about the human discoveries and learn how science and Tech have influenced the mundane reality of people"
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "article",
+            { staticClass: "edu-blockcontent border-leftcontent" },
+            [
               _c("div", { staticClass: "col-sm-12" }, [
                 _c(
                   "figure",
@@ -67079,217 +66878,176 @@ var render = function() {
                     _c("img", {
                       staticClass: "image__item",
                       attrs: {
-                        "data-url": "/assets/front/images/img/edu1.png",
-                        alt: "GBI science"
+                        "data-url": "/assets/front/images/img/edu2.png",
+                        alt: "GBI flora"
                       }
                     })
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _c("h3", [_vm._v("Science and Tech Museum")]),
+                _c("h3", [_vm._v("Flora and Fauna")]),
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
-                    "Acknowledge about the human discoveries and learn how science and Tech have influenced the mundane reality of people"
+                    "Visit the National Parks, Theme Parks and take pleasure in the awe-inspiring natural wonders of the world"
                   )
                 ])
               ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "article",
-              { staticClass: "edu-blockcontent border-leftcontent" },
-              [
-                _c("div", { staticClass: "col-sm-12" }, [
-                  _c(
-                    "figure",
-                    {
-                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                      staticClass: "image__wrapper"
-                    },
-                    [
-                      _c("ImageSpinner", { staticClass: "image__spinner" }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "image__item",
-                        attrs: {
-                          "data-url": "/assets/front/images/img/edu2.png",
-                          alt: "GBI flora"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("h3", [_vm._v("Flora and Fauna")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "Visit the National Parks, Theme Parks and take pleasure in the awe-inspiring natural wonders of the world"
-                    )
-                  ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "article",
+            { staticClass: "edu-blockcontent border-leftcontent" },
+            [
+              _c("div", { staticClass: "col-sm-12" }, [
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item",
+                      attrs: {
+                        "data-url": "/assets/front/images/img/edu3.png",
+                        alt: "GBI adventure"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Adventure and Activities")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "We indulge students in adventure activities like camping, Trekking, Rafting, Ziplining and many more"
+                  )
                 ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "article",
-              { staticClass: "edu-blockcontent border-leftcontent" },
-              [
-                _c("div", { staticClass: "col-sm-12" }, [
-                  _c(
-                    "figure",
-                    {
-                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                      staticClass: "image__wrapper"
-                    },
-                    [
-                      _c("ImageSpinner", { staticClass: "image__spinner" }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "image__item",
-                        attrs: {
-                          "data-url": "/assets/front/images/img/edu3.png",
-                          alt: "GBI adventure"
-                        }
-                      })
-                    ],
-                    1
-                  ),
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("article", { staticClass: "edu-blockcontent border-topcontent" }, [
+            _c("div", { staticClass: "col-sm-12" }, [
+              _c(
+                "figure",
+                {
+                  directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                  staticClass: "image__wrapper"
+                },
+                [
+                  _c("ImageSpinner", { staticClass: "image__spinner" }),
                   _vm._v(" "),
-                  _c("h3", [_vm._v("Adventure and Activities")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "We indulge students in adventure activities like camping, Trekking, Rafting, Ziplining and many more"
-                    )
-                  ])
+                  _c("img", {
+                    staticClass: "image__item",
+                    attrs: {
+                      "data-url": "/assets/front/images/img/edu4.png",
+                      alt: "GBI heritage"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Heritage Arts and Crafts")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Get a hands on experience of age old art and craft from long standing history popular across the world"
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "article",
+            {
+              staticClass:
+                "edu-blockcontent border-topcontent border-leftcontent"
+            },
+            [
+              _c("div", { staticClass: "col-sm-12" }, [
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item",
+                      attrs: {
+                        "data-url": "/assets/front/images/img/edu5.png",
+                        alt: "GBI brand"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Brand Factories")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Visit to developed industries to help students gain a clear understanding of the nuances and strategies of setting up a successful business"
+                  )
                 ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "article",
-              { staticClass: "edu-blockcontent border-topcontent" },
-              [
-                _c("div", { staticClass: "col-sm-12" }, [
-                  _c(
-                    "figure",
-                    {
-                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                      staticClass: "image__wrapper"
-                    },
-                    [
-                      _c("ImageSpinner", { staticClass: "image__spinner" }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "image__item",
-                        attrs: {
-                          "data-url": "/assets/front/images/img/edu4.png",
-                          alt: "GBI heritage"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("h3", [_vm._v("Heritage Arts and Crafts")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "Get a hands on experience of age old art and craft from long standing history popular across the world"
-                    )
-                  ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "article",
+            {
+              staticClass:
+                "edu-blockcontent border-topcontent border-leftcontent"
+            },
+            [
+              _c("div", { staticClass: "col-sm-12" }, [
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item",
+                      attrs: {
+                        "data-url": "/assets/front/images/img/edu6.png",
+                        alt: "GBI history"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("h3", [_vm._v("History and Culture")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Acknowledge the diverse culture reflected in distinct architectural styles, regional cuisines, traditional dance form and music."
+                  )
                 ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "article",
-              {
-                staticClass:
-                  "edu-blockcontent border-topcontent border-leftcontent"
-              },
-              [
-                _c("div", { staticClass: "col-sm-12" }, [
-                  _c(
-                    "figure",
-                    {
-                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                      staticClass: "image__wrapper"
-                    },
-                    [
-                      _c("ImageSpinner", { staticClass: "image__spinner" }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "image__item",
-                        attrs: {
-                          "data-url": "/assets/front/images/img/edu5.png",
-                          alt: "GBI brand"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("h3", [_vm._v("Brand Factories")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "Visit to developed industries to help students gain a clear understanding of the nuances and strategies of setting up a successful business"
-                    )
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "article",
-              {
-                staticClass:
-                  "edu-blockcontent border-topcontent border-leftcontent"
-              },
-              [
-                _c("div", { staticClass: "col-sm-12" }, [
-                  _c(
-                    "figure",
-                    {
-                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                      staticClass: "image__wrapper"
-                    },
-                    [
-                      _c("ImageSpinner", { staticClass: "image__spinner" }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "image__item",
-                        attrs: {
-                          "data-url": "/assets/front/images/img/edu6.png",
-                          alt: "GBI history"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("h3", [_vm._v("History and Culture")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "Acknowledge the diverse culture reflected in distinct architectural styles, regional cuisines, traditional dance form and music."
-                    )
-                  ])
-                ])
-              ]
-            )
-          ])
+              ])
+            ]
+          )
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "clear" })
-    ],
-    1
-  )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "clear" })
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -104406,7 +104164,7 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  mode: 'hash',
+  mode: 'history',
   routes: [{
     path: '/',
     component: _components_front_layouts_FrontHome_vue__WEBPACK_IMPORTED_MODULE_2__["default"],

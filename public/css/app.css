@@ -634,7 +634,7 @@ section {
   }
 }
 
-@media (max-width: 360px) {
+@media screen and (max-width: 360px) and (min-width: 320px) {
   .experience-content {
     width: 100%;
     background-color: #ebebeb;
@@ -754,7 +754,7 @@ section {
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) and (min-width: 360px) {
   .how-we-work {
     width: 100%;
     margin-top: 16px;
@@ -860,7 +860,7 @@ section {
   }
 }
 
-@media (max-width: 640px) {
+@media screen and (max-width: 640px) and (min-width: 460px) {
   .experience-content {
     width: 100%;
     background-color: #ebebeb;
@@ -921,7 +921,7 @@ section {
   }
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 676px) and (min-width: 460px) {
   .how-we-work {
     width: 100%;
   }
@@ -1216,7 +1216,7 @@ section {
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media screen and (max-width: 1025px) and (min-width: 1280px) {
   .how-we-work {
     width: 100%;
   }
@@ -1645,7 +1645,7 @@ input[type="submit"]:hover {
   }
 }
 
-@media (max-width: 360px) {
+@media screen and (max-width: 360px) and (min-width: 320px) {
   .contact-form {
     width: 100%;
     display: inline-block;
@@ -1759,7 +1759,7 @@ input[type="submit"]:hover {
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) and (min-width: 360px) {
   .contact-form {
     width: 100%;
     display: inline-block;
@@ -1874,7 +1874,7 @@ input[type="submit"]:hover {
   }
 }
 
-@media (max-width: 640px) {
+@media screen and (max-width: 640px) and (min-width: 480px) {
   .contactus {
     width: 100%;
     height: auto;
@@ -1996,7 +1996,7 @@ input[type="submit"]:hover {
   }
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) and (min-width: 640px) {
   .contactus {
     width: 100%;
     height: auto;
@@ -2579,7 +2579,7 @@ input[type="submit"]:hover {
   }
 }
 
-@media (max-width: 360px) {
+@media screen and (min-width: 320px) and (max-width: 360px) {
   .searchbarfaq {
     width: 50%;
   }
@@ -2642,7 +2642,7 @@ input[type="submit"]:hover {
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (min-width: 360px) and (max-width: 480px) {
   /* new code*/
 
   .faq_banner_image {
@@ -2730,7 +2730,7 @@ input[type="submit"]:hover {
   }
 }
 
-@media (max-width: 640px) {
+@media screen and (min-width: 480px) and (max-width: 640px) {
   .searchbarfaq {
     width: 100%;
   }
@@ -2794,7 +2794,7 @@ input[type="submit"]:hover {
   }
 }
 
-@media (max-width: 767px) {
+@media screen and (min-width: 364px) and (max-width: 767px) {
   /* new code*/
 
   .faq_banner_image {
@@ -3201,7 +3201,7 @@ input[type=submit] {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 320px) and (max-width: 480px) {
   .form-fullwidth,
   .form-input,
   input[type=file] {
@@ -3232,7 +3232,7 @@ input[type=submit] {
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (min-width: 480px) and (max-width: 640px) {
   .form-fullwidth,
   .form-input,
   input[type=file] {
@@ -3263,7 +3263,7 @@ input[type=submit] {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 640px) and (max-width: 767px) {
   .join-team {
     width: 100%;
     height: auto;
@@ -3834,7 +3834,7 @@ input[type=submit] {
   }
 }
 
-@media (max-width: 640px) {
+@media screen and (min-width: 360px) and (max-width: 640px) {
   .edutravel-heading {
     padding-left: 0px;
     padding-right: 0px;
@@ -3928,7 +3928,7 @@ input[type=submit] {
   }
 }
 
-@media (max-width: 767px) {
+@media screen and (min-width: 640px) and (max-width: 767px) {
   .safe-seu-img {
     height: 200px;
   }
@@ -4394,7 +4394,7 @@ input[type=submit] {
   }
 }
 
-/* End resources*/
+/* end resources */
 
 .content-video {
   margin-bottom: 45px;
@@ -5036,7 +5036,7 @@ article {
   }
 }
 
-@media (max-width: 360px) {
+@media screen and (min-width: 320px) and (max-width: 360px) {
   .wapper-main {
     width: 100%;
     margin: 0 auto;
@@ -5189,7 +5189,7 @@ article {
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (min-width: 360px) and (max-width: 480px) {
   .wapper-main {
     width: 100%;
     margin: 0 auto;
@@ -5234,7 +5234,7 @@ article {
   }
 }
 
-@media (max-width: 640px) {
+@media screen and (min-width: 480px) and (max-width: 640px) {
   .wapper-main {
     width: 100%;
     margin: 0 auto;
@@ -5432,7 +5432,7 @@ article {
   }
 }
 
-@media (max-width: 767px) {
+@media screen and (min-width: 640px) and (max-width: 767px) {
   .wapper-main {
     width: 100%;
     margin: 0 auto;
@@ -6587,7 +6587,7 @@ a:hover {
   }
 }
 
-@media (max-width: 360px) {
+@media screen and (min-width: 320px) and (max-width: 360px) {
   .search-source {
     position: absolute;
     bottom: 250px;
@@ -6603,7 +6603,7 @@ a:hover {
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (min-width: 360px) and (max-width: 480px) {
   .search-source {
     position: absolute;
     bottom: 200px;
@@ -6619,7 +6619,7 @@ a:hover {
   }
 }
 
-@media (max-width: 640px) {
+@media screen and (min-width: 480px) and (max-width: 640px) {
   .card-image img {
     height: 130px;
     width: 170px;
@@ -6668,7 +6668,7 @@ a:hover {
   }
 }
 
-@media (max-width: 767px) {
+@media screen and (min-width: 640px) and (max-width: 767px) {
   #menu1 {
     margin-left: 0% !important;
   }
@@ -7309,7 +7309,7 @@ a:hover {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) and (min-width: 350px) {
   .user_dashboard_profile,
   .dashboard-body-part-one,
   .dashboard-body-part-two-2,
@@ -7411,7 +7411,7 @@ a:hover {
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (min-width: 900px) {
   .logout_section {
     display: hide;
   }

@@ -3,6 +3,7 @@
       Author:@Ajay
       ****************************************************-->
   <!-- start banner area display image for itinerary listing -->
+  
   <div id="explorelist">
     <section class="banner-block explore_list_search mb-20">
       <div class="col-lg-12">
