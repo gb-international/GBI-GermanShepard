@@ -137,7 +137,12 @@
     </div>
 
     <div class="body-content mt-85 pb-50">
-      <router-view></router-view>
+      <transition 
+        name="fade"
+        mode="out-in">
+        <router-view></router-view>
+      </transition>
+
     </div>
     <gbi-footer></gbi-footer>
     <div class="col-md-12 m-bottom">

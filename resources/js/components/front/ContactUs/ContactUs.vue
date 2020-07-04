@@ -145,7 +145,7 @@
                         name="name"
                         :class="{ 'is-invalid': form.errors.has('name') }"
                       />
-                      <!--  <has-error :form="form" field="name"></has-error> -->
+                       <has-error :form="form" field="name"></has-error>
                     </div>
                     <div class="form-fullwidth">
                       <label class="lable-title">E-Mail</label>
@@ -158,6 +158,7 @@
                         name="email"
                         :class="{ 'is-invalid': form.errors.has('email') }"
                       />
+                      <has-error :form="form" field="email"></has-error>
                     </div>
                     <div class="form-fullwidth">
                       <label class="lable-title">Mobile</label>
@@ -170,6 +171,7 @@
                         name="mobile"
                         :class="{ 'is-invalid': form.errors.has('mobile') }"
                       />
+                      <has-error :form="form" field="mobile"></has-error>
                     </div>
                     <div class="form-fullwidth">
                       <label class="lable-title">Message</label>
@@ -182,6 +184,7 @@
                         class="form-control { 'is-invalid': form.errors.has('messagecon') }"
                         placeholder="Message....."
                       ></textarea>
+                      <has-error :form="form" field="messagecon"></has-error>
                     </div>
                     <div class="form-fullwidth alignbtn">
                       <input type="submit" value="Submit" name="submit" />
@@ -223,7 +226,12 @@ export default {
       this.form
         .post("/api/contact-us/send")
         .then(response => {
-          swal({ text: "Thank you for contacting us!", width: 300 });
+          this.$swal.fire({
+            text: "Thank you for contacting us !",
+            icon: "success",
+            animation: true
+          });
+          this.form.reset();
         })
         .catch(() => {});
     }

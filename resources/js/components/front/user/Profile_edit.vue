@@ -8,7 +8,7 @@
         <form role="form" enctype="multipart/form-data">
           <div class="avatar-edit">
             <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" @change="onChange" />
-            <label for="imageUpload"></label>
+            <label for="imageUpload"><i class="fas fa-pencil-alt"></i></label>
           </div>
           <div class="avatar-preview">
             <div id="imagePreview" style="background-image: url();">
@@ -44,7 +44,7 @@
                 <has-error :form="form" field="name"></has-error>
               </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
               <div class="form-group">
                 <label for="genderId">Gender</label>
                 <br />
@@ -80,7 +80,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-5">
               <!-- Radio buttons -->
               <div class="form-group user_input_field">
                 <div>
@@ -97,7 +97,7 @@
                       v-model="form.client_type"
                       v-on:change="changeClientType('student')"
                     />
-                    <label class="custom-control-label" for="student1">Student</label>
+                    <label class="custom-control-label" for="student1">Education Institutions</label>
                   </div>
 
                   <!-- Default inline 2-->
@@ -461,9 +461,9 @@ export default {
           })
           .then(response => {
             vm.image = response.data.photo;
-            toast({
-              type: "success",
-              title: "Profile Image updated!!"
+            vm.$swal.fire({
+              icon: "success",
+              title: "Profile image updated !!"
             });
           })
           .catch(error => console.log()); //
@@ -495,9 +495,9 @@ export default {
           }
         })
         .then(response => {
-          toast({
-            type: "success",
-            title: "Profile Image updated!!"
+          this.$swal.fire({
+            icon: "success",
+            title: "Profile updated!!"
           });
         })
         .catch(error => {

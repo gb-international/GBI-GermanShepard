@@ -39,16 +39,17 @@ export default {
       this.emailForm
         .post("api/sendlink")
         .then(response => {
+          this.emailForm.email_link = '';
           // this.emailForm.email_link = '';
-          swal({
+          this.$swal.fire({
             title: "Please Check your Email Account",
-            type: "success",
+            icon: "success",
             animation: true
           });
         })
         .catch(err => {
           //swal("Alert", "Email or Password is incorrect!", "error","customClass");
-          swal({
+          this.$swal.fire({
             text: "Email is not valid",
             width: 300,
             imageWidth: 100,

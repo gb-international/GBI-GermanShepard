@@ -3,7 +3,7 @@
       Author:@Ajay
       ****************************************************-->
   <!-- start banner area display image for itinerary listing -->
-  <div id="explorelist" class="serachExplor">
+  <div id="explorelist" class="serachExplor w-100">
     <section class="banner-block">
       <img class="top-imgs" alt="image" />
     </section>
@@ -12,7 +12,7 @@
         <div class="col-lg-12">
           <div class="row">
             <!--start card explore list dynamic tour itinerary list-->
-            <div class="col-lg-6 p-te-0" v-for="itinerary in allSearchdata" :key="itinerary.id">
+            <div class="col-lg-6 p-te-0 mb-10" v-for="itinerary in allSearchdata" :key="itinerary.id">
               <div class="card card-radis-list">
                 <router-link :to="`/explore-detail/${itinerary.id}`">
                   <div class="card-horizontal">

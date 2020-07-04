@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\jobs\SendEmailJob;
 use Carbon\Carbon;
-use App\Model\User\UserMoreInfo;
+use App\Model\User\Information;
 use App\Otp;
 use Session,DB,Hash,Redirect,Mail;
 use GuzzleHttp\Client;
@@ -22,7 +22,7 @@ class OtpController extends Controller
    // Send Otp to the user
     public function send_otp(Request $request){
     	$validatedData = $request->validate([
-	        'phone_no' => 'required|unique:user_more_infos'
+	        'phone_no' => 'required|unique:informations,phone_no'
 	    ]);
     	$mobile_number = $request->phone_no;
     	$response = [];

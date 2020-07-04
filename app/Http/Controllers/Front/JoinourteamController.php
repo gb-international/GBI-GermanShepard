@@ -18,6 +18,8 @@ use PDF;
 use Storage;
 use App\mail\sendMail;
 use Illuminate\Http\Request;
+use App\Jobs\ContactUsJob;
+use App\Jobs\JoinOurTeamJob;
 
 class JoinourteamController extends Controller
 {
@@ -51,7 +53,7 @@ class JoinourteamController extends Controller
             $fileName = rand(100000,1001238912).".".$extension;
             $url = public_path() . '/resume/' . $fileName;
             file_put_contents($url , $data);
-            return response()->json(['success'=>$explode]);
+            $url = url('/').'/resume/'.$fileName;
         }else{
             return response()->json(['error'=>'Please Upload doc or pdf file']);
         }
@@ -66,11 +68,12 @@ class JoinourteamController extends Controller
 			'city'=>$request->city,
 			'zipcode'=>$request->zipcode,
 			'postvancy'=>$request->postvancy,
-			'messagescon'=>$request->messagescon
-			);
-
-    	 Mail::to('ajay_yadav@gbinternational.in')->send( new SendMailresume ($data['firstname'], $data['lastname'], $data['email'], $data['contactno'], $data['address'], $data['state'], $data['city'], $data['zipcode'], $data['postvancy'], $data['messagescon'], $url));
-     //    return redirect()->back()->with('success','send mail successfully');
+            'messagescon'=>$request->messagescon,
+            'link'=>$url,
+            'emailto'=>'ajay_yadav@gbinternational.in'
+            );
+         JoinOurTeamJob::dispatch($data);
+         return 'success';
     }
 
     public function word_file(Request $request){
@@ -102,18 +105,17 @@ class JoinourteamController extends Controller
             'mobile' => 'required|numeric|min:10',
             'messagecon' => 'required',
         ]);
+
         $data = array(
                 'email'=>$request->email,
                 'name'=>$request->name,
                 'mobile'=>$request->mobile,
-                'messagecon'=>$request->messagecon
+                'messagecon'=>$request->messagecon,
+                'emailto'=>'ajay_yadav@gbinternational.in'
                 );
-            //Mail::send('email.contactmail', $data, function($message) use ($data){
-            //  $message->from($data['email']);
-            //  $message->to('jyoti_shaw@gbinternational.in');
-            //  $message->subject($data['name']);
-            //});
-        Mail::to($data['email'])->send( new SendMail($data['messagecon'], $data['mobile'], $data['name'], $data['email']));
+
+        ContactUsJob::dispatch($data);
+        return 'succss';
     }
     
 }

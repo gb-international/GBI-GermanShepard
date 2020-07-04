@@ -310,7 +310,7 @@ export default {
               this.$swal.fire(res.data.error);
             }
           })
-          .catch(error => this.$swal.fire("Number is Already Registered")); //
+          .catch(error => this.$swal.fire("The phone no. has already been taken.")); 
       } else {
         // If Not Valid Number
         this.$swal.fire("Please Enter Valid Number");
@@ -337,7 +337,7 @@ export default {
         this.time = 90;
         this.isRunning = !this.isRunning;
         clearInterval(this.interval);
-        swal("Alert", "Time Over !!!", "error", "customClass");
+        this.$swal.fire("Alert", "Time Over !!!", "error", "customClass");
       }
     },
     // End timer here
@@ -397,7 +397,7 @@ export default {
     // Register user
     // ******************************************
     registerUser() {
-      if((this.registerForm.email =='') || (this.registerForm.name == '')){
+      if((this.registerForm.email =='') || (this.registerForm.name == '') || (this.otp_validate != 1) ){
         this.register_sms = 'Please Fill all the filelds';
         return false;
       }
@@ -414,9 +414,10 @@ export default {
                 this.otp_button = 1;
                 this.verify_button = 0;
                 this.otp_verify = 0;
+                this.register_sms = '';
                 window.$(".login_close").click();
               }
-              this.$swal("Successfull!", " Please Login now !!!", "success");
+              this.$swal.fire("Successfull!", " Please Login now !!!", "success");
             })
             .catch(err => {
               this.register_sms = "please provide valide credentials";

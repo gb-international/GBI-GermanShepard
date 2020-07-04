@@ -28,8 +28,9 @@ class EmailController extends Controller
             $user_data->save();
             $link = url('/').'/reset/'.$key;
             $data = ['name'=>$user_data->name,'email'=>$email,'link'=>$link];
+            
+            SendEmailJob::dispatch($data);
 
-            dispatch(New SendEmailJob($data));
             return response()->json(['success','send mail successfully']);
         }else{
             return response()->json(['error', 'Incorrect Email Detail']);

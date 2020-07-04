@@ -7096,17 +7096,9 @@ a:hover {
   content: 'Choose Image';
 }
 
-.avatar-upload .uploadIcon input + label:after,
-.avatar-upload .avatar-edit input + label:after {
-  content: "\F040";
-  font-family: 'FontAwesome';
-  color: #757575;
-  position: absolute;
-  top: 10px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  margin: auto;
+.avatar-upload .uploadIcon input + label .fa-pencil-alt,
+.avatar-upload .avatar-edit input + label .fa-pencil-alt {
+  margin-top: 7px;
 }
 
 .avatar-upload .uploadIcon {
@@ -8141,13 +8133,13 @@ a:hover {
 }
 
 .banner_bg {
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   height: 507px;
   padding: 0px;
 }
 
-@media only screen and (min-width: 420px) {
+@media only screen and (min-width: 766px) {
   .image-slide-1 {
     background-image: url("/assets/front/banner/banner.webp");
     display: block;
@@ -8200,7 +8192,7 @@ a:hover {
   }
 }
 
-@media only screen and (max-width: 419px) {
+@media only screen and (max-width: 766px) {
   .image-slide-1 {
     background-image: url("https://gbi-assets.s3.ap-south-1.amazonaws.com/fb1_mb.webp");
     display: block;
@@ -8452,5 +8444,17 @@ i {
   #frontmaster {
     margin-bottom: 40px;
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.2s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 

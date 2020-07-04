@@ -4,16 +4,47 @@
 //     return view('front.index');
 // });
 
-
+use App\Mail\ForgetPasswordMail;
+use App\Mail\PasswordResetMail;
 
 Route::get('/check',function(){
-   $data = []; // Empty array
+//    $data = ['email'=>'ajay_yadav@gbinternational.in'];
+    
+    // Mail::send(['text'=>'email.welcome'], $data, function($message) {
+    //      $message->to('abc@gmail.com', 'Tutorials Point')->subject
+    //         ('Laravel Basic Testing Mail');
+    //      $message->from('xyz@gmail.com','Virat Gandhi');
+    //   });
 
-    Mail::send('email.welcome', $data, function($message){
-        $message->to('ajay_yadav@gbinternationl.in', 'Jon Doe')->subject('Welcome!');
-    });
+        // $data = ['name'=>'Ajay','email'=>'ajay_yadav@gbinternational.in','link'=>'https:sdjf.com'];
+        // Mail::to($data['email'])->send( new PasswordResetMail($data));
 
-    dd('exit');
+        // dd('done');
+   
+
+        // $myEmail = 'ajay@gmail.com';
+   
+        // $details = [
+        //     'title' => 'Mail Demo from ItSolutionStuff.com',
+        //     'url' => 'https://www.itsolutionstuff.com'
+        // ];
+  
+        // Mail::to($myEmail)->send(new ForgetPasswordMail($details));
+   
+        // dd("Mail Send Successfully");
+
+
+
+
+
+    //   Mail::send(['text'=>'email.welcome'], $data, function($message) {
+    //      $message->to('abc@gmail.com', 'Tutorials Point')->subject
+    //         ('Laravel Basic Testing Mail');
+    //      $message->from('xyz@gmail.com','Virat Gandhi');
+    //   });
+      echo "Basic Email Sent. Check your inbox.";
+
+    echo 'done';
 
 });
 

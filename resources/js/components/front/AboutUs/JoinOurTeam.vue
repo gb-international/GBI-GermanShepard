@@ -37,7 +37,7 @@
                   class="form-control"
                   v-model="form.firstname"
                   :class="{ 'is-invalid': form.errors.has('firstname') }"
-                  placeholder="Enter firstname"
+                  placeholder="Enter first name"
                   name="firstname"
                 />
                 <has-error :form="form" field="firstname"></has-error>
@@ -49,7 +49,7 @@
                   class="form-control"
                   v-model="form.lastname"
                   :class="{ 'is-invalid': form.errors.has('lastname') }"
-                  placeholder="Enter lastname"
+                  placeholder="Enter last name"
                   name="lastname"
                 />
                 <has-error :form="form" field="lastname"></has-error>
@@ -250,10 +250,10 @@ export default {
       this.form
         .post("/api/join-our-team/send")
         .then(response => {
+          
           this.form.reset();
           this.filename = "";
-          // this.$router.push('/home')
-          swal.fire(
+          this.$swal.fire(
             "Successfully Submited!",
             "Your resume has been sent to HR Deparment..",
             "success"
