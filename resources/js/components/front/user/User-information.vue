@@ -20,12 +20,14 @@
               <label>Select Your Profession</label>
               <select class="form-control" v-model="profession">
                 <option value="student">Student</option>
-                <option value="Teacher/Principal/Dean">Teacher/Principal/Dean</option>
+                <option value="teacher">Teacher/Principal/Dean</option>
+                <option value="corporate">Corporate</option>
+                <option value="other">Other</option>
               </select>
             </tab-content>
 
             <tab-content title="Additional Info">
-              <div class="form-group">
+              <div class="form-group" v-if="school_field">
                 <label>Select Your Educational Institution</label>
                 <select class="form-control" v-model="institution">
                   <option
@@ -33,8 +35,25 @@
                     :value="school.id"
                     :key="school.id"
                   >{{ school.school_name }}</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
+
+              
+              <div class="form-group" v-if="namefield">
+                <label>Enter {{ label_name }} Name</label>
+                <input type="text" class="form-control" v-model="name">
+              </div>
+
+              
+              <div class="form-group" v-if="addressfield">
+                <label>Enter Address</label>
+                <textarea class="form-control" v-model="address"></textarea>
+              </div>
+
+
+
+
             </tab-content>
 
             <tab-content title="Last step" :before-change="validateAsyncLast">
@@ -72,6 +91,15 @@ export default {
   },
   data() {
     return {
+      name:'',
+      address:'',
+      
+      school_field:false,
+      namefield:false,
+      addressfield:false,
+      institutionfield:false,
+
+      label_name:'',
       oddclass: false,
       evenclass: true,
       loadingWizard: false,
@@ -79,13 +107,14 @@ export default {
       school_list: "",
       profession: "",
       institution: "",
-      institution_code: ""
+      institution_code: "",
     };
   },
-  created() {
+  mounted() {
     this.$axios.get("/api/school-list").then(response => {
       this.school_list = response.data;
     });
+
 
     var data = [];
     this.$axios
@@ -103,11 +132,40 @@ export default {
         this.handleError(error);
       });
   },
+  watch:{
+    institution:function(){
+      if(this.institution == 'other'){
+        this.namefield = true;
+        this.addressfield = true;
+        this.label_name = 'Educational Institution'
+      }else{
+        this.namefield = false;
+        this.addressfield = false;
+      }
+    },
+    profession:function(){
+      this.namefield = false;
+      this.addressfield = false;
+      this.school_field = false;
+      if(this.profession == 'corporate'){
+        this.namefield = true;
+        this.addressfield = true;
+        this.label_name = 'Corporate'
+      }else if(this.profession == 'other'){
+        this.namefield = true;
+        this.label_name = "Occupation";
+      }else{
+        this.school_field = true;
+      }
+    }
+  },
   methods: {
     onComplete: function() {
       var data = {
         user_profession: this.profession,
         school_id: this.institution,
+        profession_name: this.name,
+        profession_address: this.address,
         institution_code: this.institution_code
       };
 
@@ -116,11 +174,14 @@ export default {
           headers: { Authorization: `Bearer ${localStorage.token}` }
         })
         .then(response => {
-          
+
           this.$router.push("/dashboard");
         })
         .catch(error => {
-          this.handleError(error);
+          this.$swal.fire({
+            icon:'error',
+            title:'Please fill all the fields'
+          });
         });
     },
     setLoading: function(value) {

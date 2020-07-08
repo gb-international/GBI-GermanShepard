@@ -2118,17 +2118,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "HowWework",
+  metaInfo: {
+    title: 'How We Work',
+    meta: [{
+      name: 'description',
+      content: '@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one'
+    }, {
+      name: 'keywords',
+      content: '@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs'
+    }, {
+      name: 'url',
+      content: 'https://www.gowithgbi.com/about-us/how-we-work'
+    }, {
+      name: 'type',
+      content: 'website'
+    }]
+  },
   data: function data() {
     return {};
   }
@@ -2418,19 +2425,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "JoinOurTeam",
+  metaInfo: {
+    title: 'Join Our Team',
+    meta: [{
+      name: 'description',
+      content: '@GoWithGBI Lets travel together and make the world a better place .Join our brilliant minds'
+    }, {
+      name: 'keywords',
+      content: '@GoWithGBI,join our team,explore Your career with GBI,exciting journey,research oriented process,challenges,explore your travel instinct,discover ,travel passion,learn,explore,discover'
+    }, {
+      name: 'url',
+      content: 'https://www.gowithgbi.com/about-us/join-our-team'
+    }]
+  },
   components: {
     HasError: vform__WEBPACK_IMPORTED_MODULE_0__["HasError"]
   },
@@ -2643,7 +2653,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "OurStory"
+  name: "OurStory",
+  metaInfo: {
+    title: 'About Us',
+    meta: [{
+      name: 'description',
+      content: '@GoWithGBI Story On How GBI believes in its core values and implement the same  to make your educational travel program a successful one'
+    }, {
+      name: 'keywords',
+      content: '@GoWithGBI,Our Story,about us,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs'
+    }, {
+      name: 'url',
+      content: 'https://www.gowithgbi.com/about-us/our-story'
+    }]
+  }
 });
 
 /***/ }),
@@ -2857,17 +2880,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ContactUs",
+  metaInfo: {
+    title: 'GBI Contact Us',
+    meta: [{
+      name: 'description',
+      content: 'Connect With GB International for organizing your educational travel plans any where any time'
+    }, {
+      name: 'keywords',
+      content: '@GoWithGBI,GB International,Connect With GB International,Email Us,Talk To Us,Need a travel solution'
+    }, {
+      name: 'url',
+      content: 'https://www.gowithgbi.com/contact-us'
+    }]
+  },
   components: {
     Form: vform__WEBPACK_IMPORTED_MODULE_0__["Form"],
     HasError: vform__WEBPACK_IMPORTED_MODULE_0__["HasError"]
@@ -3730,21 +3758,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "exploreDestination",
+  metaInfo: {
+    title: 'GBI Explore Destination',
+    meta: [{
+      name: 'description',
+      content: '@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button'
+    }, {
+      name: 'keywords',
+      content: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs'
+    }, {
+      name: 'url',
+      content: 'https://www.gowithgbi.com/resources/explore-destination'
+    }]
+  },
   components: {
     searchexplor: _SearchExplor_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_1__["ModelSelect"],
@@ -4087,17 +4119,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ExploreDetail",
+  metaInfo: {
+    title: 'GBI Explore Destination',
+    meta: [{
+      name: 'description',
+      content: '@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button'
+    }, {
+      name: 'keywords',
+      content: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs'
+    }, {
+      name: 'url',
+      content: 'https://www.gowithgbi.com/resources/explore-destination'
+    }]
+  },
   data: function data() {
     return {
       day: 0,
@@ -4582,17 +4618,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Faq"
+  name: "Faq",
+  metaInfo: {
+    title: 'GBI Frequently Asked Question',
+    meta: [{
+      name: 'description',
+      content: '@GoWithGBI helps you answer all your queries  regarding your travel program by just one click of a button'
+    }, {
+      name: 'keywords',
+      content: '@GoWithGBI,have a question,search for your answer,FAQ,Travel bookings queries,customer service,support helpdesk'
+    }, {
+      name: 'url',
+      content: 'https://www.gowithgbi.com/resources/faq'
+    }]
+  }
 });
 
 /***/ }),
@@ -4649,18 +4689,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "SafetySecurity"
+  name: "SafetySecurity",
+  metaInfo: {
+    title: 'Safety and Security',
+    meta: [{
+      name: 'description',
+      content: '@GoWithGBI aims to provide complete safety of its travellers during the education programs,GBI team members assuers the safety of passengers and is known for it'
+    }, {
+      name: 'keywords',
+      content: '@GoWithGBI,travel safety tips,our security policies,GBI strict policies,GBI terms and conditions,safe travel'
+    }, {
+      name: 'url',
+      content: 'https://www.gowithgbi.com/about-us/safety-security'
+    }]
+  }
 });
 
 /***/ }),
@@ -4801,18 +4844,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "TravelEducation"
+  name: "TravelEducation",
+  metaInfo: {
+    title: 'Travel and Education',
+    meta: [{
+      name: 'description',
+      content: '@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one'
+    }, {
+      name: 'keywords',
+      content: '@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs'
+    }, {
+      name: 'url',
+      content: 'https://www.gowithgbi.com/resources/travel-education'
+    }]
+  }
 });
 
 /***/ }),
@@ -5311,7 +5357,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FrontHome",
   data: function data() {
@@ -5320,6 +5365,28 @@ __webpack_require__.r(__webpack_exports__);
       video_data: "",
       video_path: "video/video.mp4"
     };
+  },
+  metaInfo: {
+    title: 'GB-International',
+    meta: [{
+      property: 'og:description',
+      content: 'GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.'
+    }, {
+      property: 'og:title',
+      content: 'G.B International is a travel educational specialist for young minds.'
+    }, {
+      property: 'og:image',
+      content: 'https://www.gowithgbi.com/assets/front/images/banner2.jpg'
+    }, {
+      property: 'og:type',
+      content: 'website'
+    }, {
+      property: 'og:site_name',
+      content: 'gowithgbi.com'
+    }, {
+      property: 'og:url',
+      content: 'https://www.gowithgbi.com'
+    }]
   },
   created: function created() {
     this.TravelPorgrams();
@@ -5659,12 +5726,10 @@ __webpack_require__.r(__webpack_exports__);
       valid: false
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     this.checkLogin();
     this.userData();
     this.upComingData();
-  },
-  mounted: function mounted() {// this.checkLogin();
   },
   methods: {
     checkLogin: function checkLogin() {
@@ -6200,62 +6265,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ProfileEdit",
@@ -6273,6 +6282,12 @@ __webpack_require__.r(__webpack_exports__);
       prncilIcon: true,
       userinfo: [],
       total: [],
+      school_list: '',
+      school_field: false,
+      namefield: false,
+      addressfield: false,
+      institutionfield: false,
+      label_name: '',
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         name: "",
         gender: "",
@@ -6290,46 +6305,58 @@ __webpack_require__.r(__webpack_exports__);
         dob: "",
         schoolName: "",
         client_type: "",
-        client_input: ""
+        client_input: "",
+        profession_name: "",
+        school_id: "",
+        profession_address: "",
+        user_profession: "",
+        institution_code: ""
       })
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     var _this = this;
 
     if (localStorage.token == "") {
       this.$router.push("/");
     }
 
+    this.$axios.get("/api/school-list").then(function (response) {
+      _this.school_list = response.data;
+    });
     var data = [];
     this.$axios.post("/api/user-show", data, {
       headers: {
         Authorization: "Bearer ".concat(localStorage.token)
       }
     }).then(function (response) {
-      _this.form.name = response.data.success.name;
-      _this.form.gender = response.data.success.information["gender"];
-      _this.form.email = response.data.success.email;
-      _this.form.phone_no = response.data.success.information["phone_no"];
-      _this.form.father_name = response.data.success.information["father_name"];
-      _this.form.mother_name = response.data.success.information["mother"];
-      _this.form.city = response.data.success.information["city"];
-      _this.form.state = response.data.success.information["state"];
-      _this.form.country = response.data.success.information["country"];
-      _this.form.zip_code = response.data.success.information["zip_code"];
-      _this.form.user_class = response.data.success.information["user_class"];
-      _this.form.admission_year = response.data.success.information["admission_year"];
-      _this.form.address = response.data.success.information["address"];
-      _this.form.dob = response.data.success.information["dob"];
-      _this.form.schoolName = response.data.success.information["schoolName"];
-      _this.form.client_type = response.data.success.information["client_type"];
-      _this.form.client_input = response.data.success.information["client_input"];
-      _this.form.image = response.data.success.information["photo"];
+      var list = response.data.success;
+      _this.form.name = list.name;
+      _this.form.gender = list.information["gender"];
+      _this.form.email = list.email;
+      _this.form.phone_no = list.information["phone_no"];
+      _this.form.father_name = list.information["father_name"];
+      _this.form.mother_name = list.information["mother"];
+      _this.form.city = list.information["city"];
+      _this.form.state = list.information["state"];
+      _this.form.country = list.information["country"];
+      _this.form.zip_code = list.information["zip_code"];
+      _this.form.user_class = list.information["user_class"];
+      _this.form.admission_year = list.information["admission_year"];
+      _this.form.address = list.information["address"];
+      _this.form.dob = list.information["dob"];
+      _this.form.schoolName = list.information["schoolName"];
+      _this.form.user_profession = list.information["user_profession"];
+      _this.form.profession_name = list.information["profession_name"];
+      _this.form.profession_address = list.information["profession_address"];
+      _this.form.institution_code = list.information["institution_code"];
+      _this.form.image = list.information["photo"];
       _this.image = _this.form.image;
-      var type = _this.form.client_type;
+      var type = _this.form.user_profession;
 
-      if (type == "student") {
+      if (type == "student" || type == "teacher") {
         _this.client_input_box = "1";
+        _this.form.school_id = list.information.school_id;
       } else if (type == "corporate") {
         _this.client_input_box = "2";
       } else {
@@ -6338,6 +6365,34 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       _this.handleError(error);
     });
+  },
+  watch: {
+    institution: function institution() {
+      if (this.form.user_profession == 'other') {
+        this.namefield = true;
+        this.addressfield = true;
+        this.label_name = 'Educational Institution';
+      } else {
+        this.namefield = false;
+        this.addressfield = false;
+      }
+    },
+    'form.user_profession': function formUser_profession() {
+      this.namefield = false;
+      this.addressfield = false;
+      this.school_field = false;
+
+      if (this.form.user_profession == 'corporate') {
+        this.namefield = true;
+        this.addressfield = true;
+        this.label_name = 'Corporate';
+      } else if (this.form.user_profession == 'other') {
+        this.namefield = true;
+        this.label_name = "Occupation";
+      } else {
+        this.school_field = true;
+      }
+    }
   },
   methods: {
     onDrop: function onDrop(e) {
@@ -6386,20 +6441,6 @@ __webpack_require__.r(__webpack_exports__);
     removeFile: function removeFile() {
       this.image = "";
     },
-    // change radio button statement
-    changeClientType: function changeClientType(e) {
-      if (e == "student") {
-        this.client_input_box = "1";
-      }
-
-      if (e == "corporate") {
-        this.client_input_box = "2";
-      }
-
-      if (e == "other") {
-        this.client_input_box = "3";
-      }
-    },
     /// Update the user information
     updateUserData: function updateUserData() {
       var _this2 = this;
@@ -6410,6 +6451,8 @@ __webpack_require__.r(__webpack_exports__);
           Authorization: "Bearer ".concat(localStorage.token)
         }
       }).then(function (response) {
+        console.log(response);
+
         _this2.$swal.fire({
           icon: "success",
           title: "Profile updated!!"
@@ -6582,104 +6625,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Register",
@@ -6694,8 +6639,6 @@ __webpack_require__.r(__webpack_exports__);
         name: "",
         email: "",
         gbi_link: "https://www.gowithgbi.com/",
-        client_type: "",
-        client_input: "",
         phone_no: "",
         otp: "",
         password: "",
@@ -6705,7 +6648,6 @@ __webpack_require__.r(__webpack_exports__);
       otp_button: 1,
       verify_button: 0,
       otp_verify: 0,
-      client_input_box: "",
       otp_id: "",
       interval: null,
       running_time: 0,
@@ -6822,20 +6764,6 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     // *******************************************************************************
-    // change radio button statement
-    changeClientType: function changeClientType(e) {
-      if (e == "student") {
-        this.client_input_box = "1";
-      }
-
-      if (e == "corporate") {
-        this.client_input_box = "2";
-      }
-
-      if (e == "other") {
-        this.client_input_box = "3";
-      }
-    },
     // Register user
     // ******************************************
     registerUser: function registerUser() {
@@ -7285,6 +7213,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ProfileEdit",
@@ -7294,6 +7241,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      name: '',
+      address: '',
+      school_field: false,
+      namefield: false,
+      addressfield: false,
+      institutionfield: false,
+      label_name: '',
       oddclass: false,
       evenclass: true,
       loadingWizard: false,
@@ -7304,7 +7258,7 @@ __webpack_require__.r(__webpack_exports__);
       institution_code: ""
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     var _this = this;
 
     this.$axios.get("/api/school-list").then(function (response) {
@@ -7323,6 +7277,34 @@ __webpack_require__.r(__webpack_exports__);
       _this.handleError(error);
     });
   },
+  watch: {
+    institution: function institution() {
+      if (this.institution == 'other') {
+        this.namefield = true;
+        this.addressfield = true;
+        this.label_name = 'Educational Institution';
+      } else {
+        this.namefield = false;
+        this.addressfield = false;
+      }
+    },
+    profession: function profession() {
+      this.namefield = false;
+      this.addressfield = false;
+      this.school_field = false;
+
+      if (this.profession == 'corporate') {
+        this.namefield = true;
+        this.addressfield = true;
+        this.label_name = 'Corporate';
+      } else if (this.profession == 'other') {
+        this.namefield = true;
+        this.label_name = "Occupation";
+      } else {
+        this.school_field = true;
+      }
+    }
+  },
   methods: {
     onComplete: function onComplete() {
       var _this2 = this;
@@ -7330,6 +7312,8 @@ __webpack_require__.r(__webpack_exports__);
       var data = {
         user_profession: this.profession,
         school_id: this.institution,
+        profession_name: this.name,
+        profession_address: this.address,
         institution_code: this.institution_code
       };
       this.$axios.post("/api/user-info-update", data, {
@@ -7339,7 +7323,10 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this2.$router.push("/dashboard");
       })["catch"](function (error) {
-        _this2.handleError(error);
+        _this2.$swal.fire({
+          icon: 'error',
+          title: 'Please fill all the fields'
+        });
       });
     },
     setLoading: function setLoading(value) {
@@ -67292,15 +67279,17 @@ var render = function() {
                       },
                       [
                         _c(
-                          "router-link",
+                          "a",
                           {
                             staticClass: "nav-link",
-                            attrs: { to: "https://gowithgbi.wordpress.com/" }
+                            attrs: {
+                              href: "https://gowithgbi.wordpress.com/",
+                              target: "blank"
+                            }
                           },
                           [_vm._v("GBI Travel Blog")]
                         )
-                      ],
-                      1
+                      ]
                     ),
                     _vm._v(" "),
                     _c(
@@ -68171,13 +68160,13 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-10" }, [
-                      _c("div", { staticClass: "username" }, [
+                      _c("div", { staticClass: "username text-left" }, [
                         _c("h3", [_vm._v(_vm._s(_vm.userinfo.name))]),
                         _vm._v(" "),
                         _c("p", [
                           _vm._v(
-                            _vm._s(_vm.userinfo.information["state"]) +
-                              " " +
+                            _vm._s(_vm.userinfo.information["city"]) +
+                              ", " +
                               _vm._s(_vm.userinfo.information["country"])
                           )
                         ])
@@ -68892,962 +68881,787 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "form",
-          {
-            attrs: { role: "form", enctype: "multipart/form-data" },
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.updateUserData()
-              }
+      _c(
+        "form",
+        {
+          attrs: { role: "form", enctype: "multipart/form-data" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.updateUserData()
             }
-          },
-          [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.name,
-                          expression: "form.name"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      class: { "is-invalid": _vm.form.errors.has("name") },
-                      attrs: {
-                        type: "text",
-                        name: "name",
-                        placeholder: "Enter Name"
-                      },
-                      domProps: { value: _vm.form.name },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "name", $event.target.value)
-                        }
+          }
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.name,
+                        expression: "form.name"
                       }
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "name" }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-3" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "genderId" } }, [
-                    _vm._v("Gender")
-                  ]),
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("name") },
+                    attrs: { type: "text", placeholder: "Enter Name" },
+                    domProps: { value: _vm.form.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "name", $event.target.value)
+                      }
+                    }
+                  }),
                   _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "custom-control custom-radio custom-control-inline"
-                      },
-                      [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.gender,
-                              expression: "form.gender"
-                            }
-                          ],
-                          staticClass: "custom-control-input",
-                          attrs: {
-                            type: "radio",
-                            id: "maleId",
-                            value: "male",
-                            name: "gender"
-                          },
-                          domProps: {
-                            checked: _vm._q(_vm.form.gender, "male")
-                          },
-                          on: {
-                            change: function($event) {
-                              return _vm.$set(_vm.form, "gender", "male")
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "custom-control-label",
-                            attrs: { for: "maleId" }
-                          },
-                          [_vm._v("Male")]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "custom-control custom-radio custom-control-inline"
-                      },
-                      [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.gender,
-                              expression: "form.gender"
-                            }
-                          ],
-                          staticClass: "custom-control-input",
-                          attrs: {
-                            type: "radio",
-                            value: "female",
-                            id: "femaleId",
-                            name: "gender"
-                          },
-                          domProps: {
-                            checked: _vm._q(_vm.form.gender, "female")
-                          },
-                          on: {
-                            change: function($event) {
-                              return _vm.$set(_vm.form, "gender", "female")
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "custom-control-label",
-                            attrs: { for: "femaleId" }
-                          },
-                          [_vm._v("Female")]
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm.form.errors.has("gender")
-                    ? _c(
-                        "div",
-                        { staticClass: "error" },
-                        [
-                          _c("lable", { staticClass: "danger text-danger" }, [
-                            _vm._v(_vm._s(_vm.form.errors.get("gender")))
-                          ])
-                        ],
-                        1
-                      )
-                    : _vm._e()
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-5" }, [
-                _c("div", { staticClass: "form-group user_input_field" }, [
-                  _c("div", [
-                    _c("label", [_vm._v("User Type")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "custom-control custom-radio custom-control-inline student"
-                      },
-                      [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.client_type,
-                              expression: "form.client_type"
-                            }
-                          ],
-                          staticClass: "custom-control-input",
-                          attrs: {
-                            type: "radio",
-                            id: "student1",
-                            value: "student",
-                            name: "client_type"
-                          },
-                          domProps: {
-                            checked: _vm._q(_vm.form.client_type, "student")
-                          },
-                          on: {
-                            change: [
-                              function($event) {
-                                return _vm.$set(
-                                  _vm.form,
-                                  "client_type",
-                                  "student"
-                                )
-                              },
-                              function($event) {
-                                return _vm.changeClientType("student")
-                              }
-                            ]
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "custom-control-label",
-                            attrs: { for: "student1" }
-                          },
-                          [_vm._v("Education Institutions")]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "custom-control custom-radio custom-control-inline corporate"
-                      },
-                      [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.client_type,
-                              expression: "form.client_type"
-                            }
-                          ],
-                          staticClass: "custom-control-input",
-                          attrs: {
-                            type: "radio",
-                            value: "corporate",
-                            id: "corporate1",
-                            name: "client_type"
-                          },
-                          domProps: {
-                            checked: _vm._q(_vm.form.client_type, "corporate")
-                          },
-                          on: {
-                            change: [
-                              function($event) {
-                                return _vm.$set(
-                                  _vm.form,
-                                  "client_type",
-                                  "corporate"
-                                )
-                              },
-                              function($event) {
-                                return _vm.changeClientType("corporate")
-                              }
-                            ]
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "custom-control-label",
-                            attrs: { for: "corporate1" }
-                          },
-                          [_vm._v("Corporate")]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "custom-control custom-radio custom-control-inline other"
-                      },
-                      [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.client_type,
-                              expression: "form.client_type"
-                            }
-                          ],
-                          staticClass: "custom-control-input",
-                          attrs: {
-                            type: "radio",
-                            value: "other",
-                            id: "other1",
-                            name: "client_type"
-                          },
-                          domProps: {
-                            checked: _vm._q(_vm.form.client_type, "other")
-                          },
-                          on: {
-                            change: [
-                              function($event) {
-                                return _vm.$set(
-                                  _vm.form,
-                                  "client_type",
-                                  "other"
-                                )
-                              },
-                              function($event) {
-                                return _vm.changeClientType("other")
-                              }
-                            ]
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "custom-control-label",
-                            attrs: { for: "other1" }
-                          },
-                          [_vm._v("Other")]
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm.form.errors.has("client_type")
-                    ? _c(
-                        "div",
-                        { staticClass: "error" },
-                        [
-                          _c("lable", { staticClass: "danger text-danger" }, [
-                            _vm._v(_vm._s(_vm.form.errors.get("client_type")))
-                          ])
-                        ],
-                        1
-                      )
-                    : _vm._e()
-                ])
-              ])
+                  _c("has-error", { attrs: { form: _vm.form, field: "name" } })
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-4" }, [
-                this.client_input_box == "1"
-                  ? _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", [_vm._v("School name")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.client_input,
-                              expression: "form.client_input"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("client_input")
-                          },
-                          attrs: {
-                            type: "text",
-                            placeholder: "Enter School Name",
-                            name: "client_input"
-                          },
-                          domProps: { value: _vm.form.client_input },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "client_input",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "client_input" }
-                        })
-                      ],
-                      1
-                    )
-                  : _vm._e(),
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "genderId" } }, [_vm._v("Gender")]),
                 _vm._v(" "),
-                this.client_input_box == "2"
-                  ? _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", [_vm._v("Corporate Name")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.client_input,
-                              expression: "form.client_input"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("client_input")
-                          },
-                          attrs: {
-                            type: "text",
-                            placeholder: "Enter Corporate Name",
-                            name: "client_input"
-                          },
-                          domProps: { value: _vm.form.client_input },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "client_input",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "client_input" }
-                        })
-                      ],
-                      1
-                    )
-                  : _vm._e(),
+                _c("br"),
                 _vm._v(" "),
-                this.client_input_box == "3"
+                _c("br"),
+                _vm._v(" "),
+                _c("div", [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "custom-control custom-radio custom-control-inline"
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.gender,
+                            expression: "form.gender"
+                          }
+                        ],
+                        staticClass: "custom-control-input",
+                        attrs: { type: "radio", id: "maleId", value: "male" },
+                        domProps: { checked: _vm._q(_vm.form.gender, "male") },
+                        on: {
+                          change: function($event) {
+                            return _vm.$set(_vm.form, "gender", "male")
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "custom-control-label",
+                          attrs: { for: "maleId" }
+                        },
+                        [_vm._v("Male")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "custom-control custom-radio custom-control-inline"
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.gender,
+                            expression: "form.gender"
+                          }
+                        ],
+                        staticClass: "custom-control-input",
+                        attrs: {
+                          type: "radio",
+                          value: "female",
+                          id: "femaleId"
+                        },
+                        domProps: {
+                          checked: _vm._q(_vm.form.gender, "female")
+                        },
+                        on: {
+                          change: function($event) {
+                            return _vm.$set(_vm.form, "gender", "female")
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "custom-control-label",
+                          attrs: { for: "femaleId" }
+                        },
+                        [_vm._v("Female")]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm.form.errors.has("gender")
                   ? _c(
                       "div",
-                      { staticClass: "form-group" },
+                      { staticClass: "error" },
                       [
-                        _c("label", [_vm._v("Occupation Name")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.client_input,
-                              expression: "form.client_input"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("client_input")
-                          },
-                          attrs: {
-                            type: "text",
-                            placeholder: "Enter Your Occupation",
-                            name: "client_input"
-                          },
-                          domProps: { value: _vm.form.client_input },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "client_input",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "client_input" }
-                        })
+                        _c("lable", { staticClass: "danger text-danger" }, [
+                          _vm._v(_vm._s(_vm.form.errors.get("gender")))
+                        ])
                       ],
                       1
                     )
                   : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "name" } }, [
-                      _vm._v("Father's Name")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.father_name,
-                          expression: "form.father_name"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      class: {
-                        "is-invalid": _vm.form.errors.has("father_name")
-                      },
-                      attrs: {
-                        type: "text",
-                        name: "name",
-                        placeholder: "Enter Name"
-                      },
-                      domProps: { value: _vm.form.father_name },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "father_name", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "father_name" }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "name" } }, [
-                      _vm._v("Mother's Name")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.mother_name,
-                          expression: "form.mother_name"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      class: {
-                        "is-invalid": _vm.form.errors.has("mother_name")
-                      },
-                      attrs: {
-                        type: "text",
-                        name: "name",
-                        placeholder: "Enter mother Name"
-                      },
-                      domProps: { value: _vm.form.mother_name },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "mother_name", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "mother_name" }
-                    })
-                  ],
-                  1
-                )
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "email" } }, [
-                      _vm._v("Email ID")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("div", [
+                  _c("label", [_vm._v("User profession")]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.form.email,
-                          expression: "form.email"
+                          value: _vm.form.user_profession,
+                          expression: "form.user_profession"
                         }
                       ],
                       staticClass: "form-control",
-                      class: { "is-invalid": _vm.form.errors.has("email") },
-                      attrs: {
-                        type: "email",
-                        placeholder: "Enter Email",
-                        name: "email"
-                      },
-                      domProps: { value: _vm.form.email },
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "email", $event.target.value)
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "user_profession",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
                         }
                       }
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "email" }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "phone_no" } }, [
-                      _vm._v("Mobile Number")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.phone_no,
-                          expression: "form.phone_no"
-                        }
+                    },
+                    [
+                      _c("option", { attrs: { value: "student" } }, [
+                        _vm._v("Student")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "teacher" } }, [
+                        _vm._v("Teacher/Principal/Dean")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "corporate" } }, [
+                        _vm._v("Corporate")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "other" } }, [
+                        _vm._v("Other")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm.form.errors.has("user_profession")
+                  ? _c(
+                      "div",
+                      { staticClass: "error" },
+                      [
+                        _c("lable", { staticClass: "danger text-danger" }, [
+                          _vm._v(_vm._s(_vm.form.errors.get("user_profession")))
+                        ])
                       ],
-                      staticClass: "form-control",
-                      class: { "is-invalid": _vm.form.errors.has("phone_no") },
-                      attrs: {
-                        type: "text",
-                        placeholder: "Enter Phone No",
-                        name: "phone_no"
-                      },
-                      domProps: { value: _vm.form.phone_no },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "phone_no", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "phone_no" }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "phone_no" } }, [
-                      _vm._v("DOB")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.dob,
-                          expression: "form.dob"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      class: { "is-invalid": _vm.form.errors.has("dob") },
-                      attrs: {
-                        type: "date",
-                        placeholder: "Enter DOB",
-                        name: "dob"
-                      },
-                      domProps: { value: _vm.form.dob },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "dob", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", { attrs: { form: _vm.form, field: "dob" } })
-                  ],
-                  1
-                )
+                      1
+                    )
+                  : _vm._e()
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "address" } }, [
-                      _vm._v("Address")
-                    ]),
+            _vm.school_field
+              ? _c("div", { staticClass: "col-sm-4" }, [
+                  _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _c("label", [_vm._v("School name")]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.school_id,
+                              expression: "form.school_id"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "school_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        _vm._l(_vm.school_list, function(school) {
+                          return _c(
+                            "option",
+                            { key: school.id, domProps: { value: school.id } },
+                            [_vm._v(_vm._s(school.school_name))]
+                          )
+                        }),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _c("has-error", {
+                        attrs: { form: _vm.form, field: "school_id" }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.namefield
+              ? _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v(_vm._s(_vm.label_name) + " Name")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.form.address,
-                          expression: "form.address"
+                          value: _vm.form.profession_name,
+                          expression: "form.profession_name"
                         }
                       ],
                       staticClass: "form-control",
-                      class: { "is-invalid": _vm.form.errors.has("address") },
-                      attrs: {
-                        type: "text",
-                        placeholder: "Enter Address",
-                        name: "address"
-                      },
-                      domProps: { value: _vm.form.address },
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.form.profession_name },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(_vm.form, "address", $event.target.value)
+                          _vm.$set(
+                            _vm.form,
+                            "profession_name",
+                            $event.target.value
+                          )
                         }
                       }
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "address" }
                     })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "phone_no" } }, [
-                      _vm._v("City")
-                    ]),
+                  ])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.addressfield
+              ? _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Address")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.form.city,
-                          expression: "form.city"
+                          value: _vm.form.profession_address,
+                          expression: "form.profession_address"
                         }
                       ],
                       staticClass: "form-control",
-                      class: { "is-invalid": _vm.form.errors.has("city") },
-                      attrs: {
-                        type: "text",
-                        placeholder: "Enter City",
-                        name: "city"
-                      },
-                      domProps: { value: _vm.form.city },
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.form.profession_address },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(_vm.form, "city", $event.target.value)
+                          _vm.$set(
+                            _vm.form,
+                            "profession_address",
+                            $event.target.value
+                          )
                         }
                       }
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "city" }
                     })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "phone_no" } }, [
-                      _vm._v("State")
-                    ]),
+                  ])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.form.institution_code
+              ? _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Code")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.form.state,
-                          expression: "form.state"
+                          value: _vm.form.institution_code,
+                          expression: "form.institution_code"
                         }
                       ],
                       staticClass: "form-control",
-                      class: { "is-invalid": _vm.form.errors.has("state") },
-                      attrs: {
-                        type: "text",
-                        placeholder: "Enter state",
-                        name: "state"
-                      },
-                      domProps: { value: _vm.form.state },
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.form.institution_code },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(_vm.form, "state", $event.target.value)
+                          _vm.$set(
+                            _vm.form,
+                            "institution_code",
+                            $event.target.value
+                          )
                         }
                       }
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "state" }
                     })
-                  ],
-                  1
-                )
-              ])
+                  ])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "name" } }, [
+                    _vm._v("Father's Name")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.father_name,
+                        expression: "form.father_name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("father_name") },
+                    attrs: { type: "text", placeholder: "Enter Name" },
+                    domProps: { value: _vm.form.father_name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "father_name", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "father_name" }
+                  })
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "country" } }, [
-                      _vm._v("Country")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.country,
-                          expression: "form.country"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      class: { "is-invalid": _vm.form.errors.has("country") },
-                      attrs: {
-                        type: "text",
-                        placeholder: "Enter country",
-                        name: "address"
-                      },
-                      domProps: { value: _vm.form.country },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "country", $event.target.value)
-                        }
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "name" } }, [
+                    _vm._v("Mother's Name")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.mother_name,
+                        expression: "form.mother_name"
                       }
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "country" }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "phone_no" } }, [
-                      _vm._v("Zip Code")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.zip_code,
-                          expression: "form.zip_code"
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("mother_name") },
+                    attrs: { type: "text", placeholder: "Enter mother Name" },
+                    domProps: { value: _vm.form.mother_name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
                         }
-                      ],
-                      staticClass: "form-control",
-                      class: { "is-invalid": _vm.form.errors.has("zip_code") },
-                      attrs: {
-                        type: "text",
-                        placeholder: "Enter zip_code",
-                        name: "zip_code"
-                      },
-                      domProps: { value: _vm.form.zip_code },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "zip_code", $event.target.value)
-                        }
+                        _vm.$set(_vm.form, "mother_name", $event.target.value)
                       }
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "zip_code" }
-                    })
-                  ],
-                  1
-                )
-              ])
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "mother_name" }
+                  })
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
-            _vm._m(1)
-          ]
-        )
-      ])
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "email" } }, [
+                    _vm._v("Email ID")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.email,
+                        expression: "form.email"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("email") },
+                    attrs: { type: "email", placeholder: "Enter Email" },
+                    domProps: { value: _vm.form.email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "email", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", { attrs: { form: _vm.form, field: "email" } })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "phone_no" } }, [
+                    _vm._v("Mobile Number")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.phone_no,
+                        expression: "form.phone_no"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("phone_no") },
+                    attrs: { type: "text", placeholder: "Enter Phone No" },
+                    domProps: { value: _vm.form.phone_no },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "phone_no", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "phone_no" }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "phone_no" } }, [_vm._v("DOB")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.dob,
+                        expression: "form.dob"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("dob") },
+                    attrs: { type: "date", placeholder: "Enter DOB" },
+                    domProps: { value: _vm.form.dob },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "dob", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", { attrs: { form: _vm.form, field: "dob" } })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "address" } }, [
+                    _vm._v("Address")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.address,
+                        expression: "form.address"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("address") },
+                    attrs: { type: "text", placeholder: "Enter Address" },
+                    domProps: { value: _vm.form.address },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "address", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "address" }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "phone_no" } }, [_vm._v("City")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.city,
+                        expression: "form.city"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("city") },
+                    attrs: { type: "text", placeholder: "Enter City" },
+                    domProps: { value: _vm.form.city },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "city", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", { attrs: { form: _vm.form, field: "city" } })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "phone_no" } }, [
+                    _vm._v("State")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.state,
+                        expression: "form.state"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("state") },
+                    attrs: { type: "text", placeholder: "Enter state" },
+                    domProps: { value: _vm.form.state },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "state", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", { attrs: { form: _vm.form, field: "state" } })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "country" } }, [
+                    _vm._v("Country")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.country,
+                        expression: "form.country"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("country") },
+                    attrs: { type: "text", placeholder: "Enter country" },
+                    domProps: { value: _vm.form.country },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "country", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "country" }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "phone_no" } }, [
+                    _vm._v("Zip Code")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.zip_code,
+                        expression: "form.zip_code"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("zip_code") },
+                    attrs: { type: "text", placeholder: "Enter zip_code" },
+                    domProps: { value: _vm.form.zip_code },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "zip_code", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "zip_code" }
+                  })
+                ],
+                1
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
+      )
     ])
   ])
 }
@@ -69996,333 +69810,13 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group user_input_field" }, [
-          _c("div", [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "custom-control custom-radio custom-control-inline student"
-              },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.registerForm.client_type,
-                      expression: "registerForm.client_type"
-                    }
-                  ],
-                  staticClass: "custom-control-input",
-                  attrs: {
-                    type: "radio",
-                    id: "student",
-                    value: "student",
-                    name: "client_type"
-                  },
-                  domProps: {
-                    checked: _vm._q(_vm.registerForm.client_type, "student")
-                  },
-                  on: {
-                    change: [
-                      function($event) {
-                        return _vm.$set(
-                          _vm.registerForm,
-                          "client_type",
-                          "student"
-                        )
-                      },
-                      function($event) {
-                        return _vm.changeClientType("student")
-                      }
-                    ]
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "custom-control-label",
-                    attrs: { for: "student" }
-                  },
-                  [_vm._v("Education Institutions")]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "custom-control custom-radio custom-control-inline corporate"
-              },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.registerForm.client_type,
-                      expression: "registerForm.client_type"
-                    }
-                  ],
-                  staticClass: "custom-control-input",
-                  attrs: {
-                    type: "radio",
-                    value: "corporate",
-                    id: "corporate",
-                    name: "client_type"
-                  },
-                  domProps: {
-                    checked: _vm._q(_vm.registerForm.client_type, "corporate")
-                  },
-                  on: {
-                    change: [
-                      function($event) {
-                        return _vm.$set(
-                          _vm.registerForm,
-                          "client_type",
-                          "corporate"
-                        )
-                      },
-                      function($event) {
-                        return _vm.changeClientType("corporate")
-                      }
-                    ]
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "custom-control-label",
-                    attrs: { for: "corporate" }
-                  },
-                  [_vm._v("Corporate")]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "custom-control custom-radio custom-control-inline other"
-              },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.registerForm.client_type,
-                      expression: "registerForm.client_type"
-                    }
-                  ],
-                  staticClass: "custom-control-input",
-                  attrs: {
-                    type: "radio",
-                    value: "other",
-                    id: "other",
-                    name: "client_type"
-                  },
-                  domProps: {
-                    checked: _vm._q(_vm.registerForm.client_type, "other")
-                  },
-                  on: {
-                    change: [
-                      function($event) {
-                        return _vm.$set(
-                          _vm.registerForm,
-                          "client_type",
-                          "other"
-                        )
-                      },
-                      function($event) {
-                        return _vm.changeClientType("other")
-                      }
-                    ]
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "custom-control-label",
-                    attrs: { for: "other" }
-                  },
-                  [_vm._v("Other")]
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _vm.registerForm.errors.has("client_type")
-            ? _c(
-                "div",
-                { staticClass: "error" },
-                [
-                  _c("lable", { staticClass: "danger text-danger" }, [
-                    _vm._v(_vm._s(_vm.registerForm.errors.get("client_type")))
-                  ])
-                ],
-                1
-              )
-            : _vm._e()
-        ]),
-        _vm._v(" "),
-        this.client_input_box == "1"
-          ? _c(
-              "div",
-              { staticClass: "input-group mb-1" },
-              [
-                _vm._m(2),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.registerForm.client_input,
-                      expression: "registerForm.client_input"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  class: {
-                    "is-invalid": _vm.registerForm.errors.has("client_input")
-                  },
-                  attrs: {
-                    type: "text",
-                    placeholder: "Enter School Name",
-                    name: "client_input"
-                  },
-                  domProps: { value: _vm.registerForm.client_input },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.registerForm,
-                        "client_input",
-                        $event.target.value
-                      )
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("has-error", {
-                  attrs: { form: _vm.registerForm, field: "client_input" }
-                })
-              ],
-              1
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        this.client_input_box == "2"
-          ? _c(
-              "div",
-              { staticClass: "input-group mb-1" },
-              [
-                _vm._m(3),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.registerForm.client_input,
-                      expression: "registerForm.client_input"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  class: {
-                    "is-invalid": _vm.registerForm.errors.has("client_input")
-                  },
-                  attrs: {
-                    type: "text",
-                    placeholder: "Enter Corporate Name",
-                    name: "client_input"
-                  },
-                  domProps: { value: _vm.registerForm.client_input },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.registerForm,
-                        "client_input",
-                        $event.target.value
-                      )
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("has-error", {
-                  attrs: { form: _vm.registerForm, field: "client_input" }
-                })
-              ],
-              1
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        this.client_input_box == "3"
-          ? _c(
-              "div",
-              { staticClass: "input-group mb-1" },
-              [
-                _vm._m(4),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.registerForm.other_name,
-                      expression: "registerForm.other_name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  class: {
-                    "is-invalid": _vm.registerForm.errors.has("client_input")
-                  },
-                  attrs: {
-                    type: "text",
-                    placeholder: "Enter Your Occupation",
-                    name: "other_name"
-                  },
-                  domProps: { value: _vm.registerForm.other_name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.registerForm,
-                        "other_name",
-                        $event.target.value
-                      )
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("has-error", {
-                  attrs: { form: _vm.registerForm, field: "client_input" }
-                })
-              ],
-              1
-            )
-          : _vm._e(),
-        _vm._v(" "),
         _vm.otp_button
           ? _c("div", { staticClass: "input_with_button" }, [
               _c(
                 "div",
                 { staticClass: "input-group mb-1" },
                 [
-                  _vm._m(5),
+                  _vm._m(2),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -70388,7 +69882,7 @@ var render = function() {
                 "div",
                 { staticClass: "input-group mb-1" },
                 [
-                  _vm._m(6),
+                  _vm._m(3),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -70464,7 +69958,7 @@ var render = function() {
           "div",
           { staticClass: "input-group mb-1" },
           [
-            _vm._m(7),
+            _vm._m(4),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -70505,7 +69999,7 @@ var render = function() {
           "div",
           { staticClass: "input-group mb-1" },
           [
-            _vm._m(8),
+            _vm._m(5),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -70544,7 +70038,7 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _vm._m(9)
+        _vm._m(6)
       ]
     )
   ])
@@ -70567,36 +70061,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "input-group-prepend" }, [
       _c("span", { staticClass: "input-group-text" }, [
         _c("i", { staticClass: "fas fa-envelope" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group-prepend" }, [
-      _c("span", { staticClass: "input-group-text" }, [
-        _c("i", { staticClass: "fas fa-link" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group-prepend" }, [
-      _c("span", { staticClass: "input-group-text" }, [
-        _c("i", { staticClass: "fas fa-link" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group-prepend" }, [
-      _c("span", { staticClass: "input-group-text" }, [
-        _c("i", { staticClass: "fas fa-link" })
       ])
     ])
   },
@@ -71182,60 +70646,134 @@ var render = function() {
                           _vm._v("Student")
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { value: "Teacher/Principal/Dean" } },
-                          [_vm._v("Teacher/Principal/Dean")]
-                        )
+                        _c("option", { attrs: { value: "teacher" } }, [
+                          _vm._v("Teacher/Principal/Dean")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "corporate" } }, [
+                          _vm._v("Corporate")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "other" } }, [
+                          _vm._v("Other")
+                        ])
                       ]
                     )
                   ]
                 ),
                 _vm._v(" "),
                 _c("tab-content", { attrs: { title: "Additional Info" } }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [
-                      _vm._v("Select Your Educational Institution")
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        directives: [
+                  _vm.school_field
+                    ? _c("div", { staticClass: "form-group" }, [
+                        _c("label", [
+                          _vm._v("Select Your Educational Institution")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.institution,
-                            expression: "institution"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.institution = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          }
-                        }
-                      },
-                      _vm._l(_vm.school_list, function(school) {
-                        return _c(
-                          "option",
-                          { key: school.id, domProps: { value: school.id } },
-                          [_vm._v(_vm._s(school.school_name))]
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.institution,
+                                expression: "institution"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.institution = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          [
+                            _vm._l(_vm.school_list, function(school) {
+                              return _c(
+                                "option",
+                                {
+                                  key: school.id,
+                                  domProps: { value: school.id }
+                                },
+                                [_vm._v(_vm._s(school.school_name))]
+                              )
+                            }),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "other" } }, [
+                              _vm._v("Other")
+                            ])
+                          ],
+                          2
                         )
-                      }),
-                      0
-                    )
-                  ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.namefield
+                    ? _c("div", { staticClass: "form-group" }, [
+                        _c("label", [
+                          _vm._v("Enter " + _vm._s(_vm.label_name) + " Name")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.name,
+                              expression: "name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.name = $event.target.value
+                            }
+                          }
+                        })
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.addressfield
+                    ? _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Enter Address")]),
+                        _vm._v(" "),
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.address,
+                              expression: "address"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          domProps: { value: _vm.address },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.address = $event.target.value
+                            }
+                          }
+                        })
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c(
@@ -72000,6 +71538,2180 @@ function normalizeComponent (
     options: options
   }
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-meta/dist/vue-meta.esm.js":
+/*!****************************************************!*\
+  !*** ./node_modules/vue-meta/dist/vue-meta.esm.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! deepmerge */ "./node_modules/vue-meta/node_modules/deepmerge/dist/cjs.js");
+/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(deepmerge__WEBPACK_IMPORTED_MODULE_0__);
+/**
+ * vue-meta v2.4.0
+ * (c) 2020
+ * - Declan de Wet
+ * - Sébastien Chopin (@Atinux)
+ * - Pim (@pimlie)
+ * - All the amazing contributors
+ * @license MIT
+ */
+
+
+
+var version = "2.4.0";
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+  return arr2;
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _createForOfIteratorHelper(o, allowArrayLike) {
+  var it;
+
+  if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+      if (it) o = it;
+      var i = 0;
+
+      var F = function () {};
+
+      return {
+        s: F,
+        n: function () {
+          if (i >= o.length) return {
+            done: true
+          };
+          return {
+            done: false,
+            value: o[i++]
+          };
+        },
+        e: function (e) {
+          throw e;
+        },
+        f: F
+      };
+    }
+
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  var normalCompletion = true,
+      didErr = false,
+      err;
+  return {
+    s: function () {
+      it = o[Symbol.iterator]();
+    },
+    n: function () {
+      var step = it.next();
+      normalCompletion = step.done;
+      return step;
+    },
+    e: function (e) {
+      didErr = true;
+      err = e;
+    },
+    f: function () {
+      try {
+        if (!normalCompletion && it.return != null) it.return();
+      } finally {
+        if (didErr) throw err;
+      }
+    }
+  };
+}
+
+/**
+ * checks if passed argument is an array
+ * @param  {any}  arg - the object to check
+ * @return {Boolean} - true if `arg` is an array
+ */
+function isArray(arg) {
+  return Array.isArray(arg);
+}
+function isUndefined(arg) {
+  return typeof arg === 'undefined';
+}
+function isObject(arg) {
+  return _typeof(arg) === 'object';
+}
+function isPureObject(arg) {
+  return _typeof(arg) === 'object' && arg !== null;
+}
+function isFunction(arg) {
+  return typeof arg === 'function';
+}
+function isString(arg) {
+  return typeof arg === 'string';
+}
+
+function hasGlobalWindowFn() {
+  try {
+    return !isUndefined(window);
+  } catch (e) {
+    return false;
+  }
+}
+var hasGlobalWindow = hasGlobalWindowFn();
+
+var _global = hasGlobalWindow ? window : global;
+
+var console = _global.console || {};
+function warn(str) {
+  /* istanbul ignore next */
+  if (!console || !console.warn) {
+    return;
+  }
+
+  console.warn(str);
+}
+var showWarningNotSupported = function showWarningNotSupported() {
+  return warn('This vue app/component has no vue-meta configuration');
+};
+
+/**
+ * These are constant variables used throughout the application.
+ */
+// set some sane defaults
+var defaultInfo = {
+  title: undefined,
+  titleChunk: '',
+  titleTemplate: '%s',
+  htmlAttrs: {},
+  bodyAttrs: {},
+  headAttrs: {},
+  base: [],
+  link: [],
+  meta: [],
+  style: [],
+  script: [],
+  noscript: [],
+  __dangerouslyDisableSanitizers: [],
+  __dangerouslyDisableSanitizersByTagID: {}
+};
+var rootConfigKey = '_vueMeta'; // This is the name of the component option that contains all the information that
+// gets converted to the various meta tags & attributes for the page.
+
+var keyName = 'metaInfo'; // This is the attribute vue-meta arguments on elements to know which it should
+// manage and which it should ignore.
+
+var attribute = 'data-vue-meta'; // This is the attribute that goes on the `html` tag to inform `vue-meta`
+// that the server has already generated the meta tags for the initial render.
+
+var ssrAttribute = 'data-vue-meta-server-rendered'; // This is the property that tells vue-meta to overwrite (instead of append)
+// an item in a tag list. For example, if you have two `meta` tag list items
+// that both have `vmid` of "description", then vue-meta will overwrite the
+// shallowest one with the deepest one.
+
+var tagIDKeyName = 'vmid'; // This is the key name for possible meta templates
+
+var metaTemplateKeyName = 'template'; // This is the key name for the content-holding property
+
+var contentKeyName = 'content'; // The id used for the ssr app
+
+var ssrAppId = 'ssr'; // How long meta update
+
+var debounceWait = 10; // How long meta update
+
+var waitOnDestroyed = true;
+var defaultOptions = {
+  keyName: keyName,
+  attribute: attribute,
+  ssrAttribute: ssrAttribute,
+  tagIDKeyName: tagIDKeyName,
+  contentKeyName: contentKeyName,
+  metaTemplateKeyName: metaTemplateKeyName,
+  waitOnDestroyed: waitOnDestroyed,
+  debounceWait: debounceWait,
+  ssrAppId: ssrAppId
+}; // might be a bit ugly, but minimizes the browser bundles a bit
+
+var defaultInfoKeys = Object.keys(defaultInfo); // The metaInfo property keys which are used to disable escaping
+
+var disableOptionKeys = [defaultInfoKeys[12], defaultInfoKeys[13]]; // List of metaInfo property keys which are configuration options (and dont generate html)
+
+var metaInfoOptionKeys = [defaultInfoKeys[1], defaultInfoKeys[2], 'changed'].concat(disableOptionKeys); // List of metaInfo property keys which only generates attributes and no tags
+
+var metaInfoAttributeKeys = [defaultInfoKeys[3], defaultInfoKeys[4], defaultInfoKeys[5]]; // HTML elements which support the onload event
+
+var tagsSupportingOnload = ['link', 'style', 'script']; // HTML elements which dont have a head tag (shortened to our needs)
+// see: https://www.w3.org/TR/html52/document-metadata.html
+
+var tagsWithoutEndTag = ['base', 'meta', 'link']; // HTML elements which can have inner content (shortened to our needs)
+
+var tagsWithInnerContent = ['noscript', 'script', 'style']; // Attributes which are inserted as childNodes instead of HTMLAttribute
+
+var tagAttributeAsInnerContent = ['innerHTML', 'cssText', 'json'];
+var tagProperties = ['once', 'skip', 'template']; // Attributes which should be added with data- prefix
+
+var commonDataAttributes = ['body', 'pbody']; // from: https://github.com/kangax/html-minifier/blob/gh-pages/src/htmlminifier.js#L202
+
+var booleanHtmlAttributes = ['allowfullscreen', 'amp', 'amp-boilerplate', 'async', 'autofocus', 'autoplay', 'checked', 'compact', 'controls', 'declare', 'default', 'defaultchecked', 'defaultmuted', 'defaultselected', 'defer', 'disabled', 'enabled', 'formnovalidate', 'hidden', 'indeterminate', 'inert', 'ismap', 'itemscope', 'loop', 'multiple', 'muted', 'nohref', 'noresize', 'noshade', 'novalidate', 'nowrap', 'open', 'pauseonexit', 'readonly', 'required', 'reversed', 'scoped', 'seamless', 'selected', 'sortable', 'truespeed', 'typemustmatch', 'visible'];
+
+var batchId = null;
+function triggerUpdate(_ref, rootVm, hookName) {
+  var debounceWait = _ref.debounceWait;
+
+  // if an update was triggered during initialization or when an update was triggered by the
+  // metaInfo watcher, set initialized to null
+  // then we keep falsy value but know we need to run a triggerUpdate after initialization
+  if (!rootVm[rootConfigKey].initialized && (rootVm[rootConfigKey].initializing || hookName === 'watcher')) {
+    rootVm[rootConfigKey].initialized = null;
+  }
+
+  if (rootVm[rootConfigKey].initialized && !rootVm[rootConfigKey].pausing) {
+    // batch potential DOM updates to prevent extraneous re-rendering
+    // eslint-disable-next-line no-void
+    batchUpdate(function () {
+      return void rootVm.$meta().refresh();
+    }, debounceWait);
+  }
+}
+/**
+ * Performs a batched update.
+ *
+ * @param  {(null|Number)} id - the ID of this update
+ * @param  {Function} callback - the update to perform
+ * @return {Number} id - a new ID
+ */
+
+function batchUpdate(callback, timeout) {
+  timeout = timeout === undefined ? 10 : timeout;
+
+  if (!timeout) {
+    callback();
+    return;
+  }
+
+  clearTimeout(batchId);
+  batchId = setTimeout(function () {
+    callback();
+  }, timeout);
+  return batchId;
+}
+
+/*
+ * To reduce build size, this file provides simple polyfills without
+ * overly excessive type checking and without modifying
+ * the global Array.prototype
+ * The polyfills are automatically removed in the commonjs build
+ * Also, only files in client/ & shared/ should use these functions
+ * files in server/ still use normal js function
+ */
+function find(array, predicate, thisArg) {
+  if ( !Array.prototype.find) {
+    // idx needs to be a Number, for..in returns string
+    for (var idx = 0; idx < array.length; idx++) {
+      if (predicate.call(thisArg, array[idx], idx, array)) {
+        return array[idx];
+      }
+    }
+
+    return;
+  }
+
+  return array.find(predicate, thisArg);
+}
+function findIndex(array, predicate, thisArg) {
+  if ( !Array.prototype.findIndex) {
+    // idx needs to be a Number, for..in returns string
+    for (var idx = 0; idx < array.length; idx++) {
+      if (predicate.call(thisArg, array[idx], idx, array)) {
+        return idx;
+      }
+    }
+
+    return -1;
+  }
+
+  return array.findIndex(predicate, thisArg);
+}
+function toArray(arg) {
+  if ( !Array.from) {
+    return Array.prototype.slice.call(arg);
+  }
+
+  return Array.from(arg);
+}
+function includes(array, value) {
+  if ( !Array.prototype.includes) {
+    for (var idx in array) {
+      if (array[idx] === value) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  return array.includes(value);
+}
+
+var querySelector = function querySelector(arg, el) {
+  return (el || document).querySelectorAll(arg);
+};
+function getTag(tags, tag) {
+  if (!tags[tag]) {
+    tags[tag] = document.getElementsByTagName(tag)[0];
+  }
+
+  return tags[tag];
+}
+function getElementsKey(_ref) {
+  var body = _ref.body,
+      pbody = _ref.pbody;
+  return body ? 'body' : pbody ? 'pbody' : 'head';
+}
+function queryElements(parentNode, _ref2, attributes) {
+  var appId = _ref2.appId,
+      attribute = _ref2.attribute,
+      type = _ref2.type,
+      tagIDKeyName = _ref2.tagIDKeyName;
+  attributes = attributes || {};
+  var queries = ["".concat(type, "[").concat(attribute, "=\"").concat(appId, "\"]"), "".concat(type, "[data-").concat(tagIDKeyName, "]")].map(function (query) {
+    for (var key in attributes) {
+      var val = attributes[key];
+      var attributeValue = val && val !== true ? "=\"".concat(val, "\"") : '';
+      query += "[data-".concat(key).concat(attributeValue, "]");
+    }
+
+    return query;
+  });
+  return toArray(querySelector(queries.join(', '), parentNode));
+}
+function removeElementsByAppId(_ref3, appId) {
+  var attribute = _ref3.attribute;
+  toArray(querySelector("[".concat(attribute, "=\"").concat(appId, "\"]"))).map(function (el) {
+    return el.remove();
+  });
+}
+function removeAttribute(el, attributeName) {
+  el.removeAttribute(attributeName);
+}
+
+function hasMetaInfo(vm) {
+  vm = vm || this;
+  return vm && (vm[rootConfigKey] === true || isObject(vm[rootConfigKey]));
+} // a component is in a metaInfo branch when itself has meta info or one of its (grand-)children has
+
+function inMetaInfoBranch(vm) {
+  vm = vm || this;
+  return vm && !isUndefined(vm[rootConfigKey]);
+}
+
+function pause(rootVm, refresh) {
+  rootVm[rootConfigKey].pausing = true;
+  return function () {
+    return resume(rootVm, refresh);
+  };
+}
+function resume(rootVm, refresh) {
+  rootVm[rootConfigKey].pausing = false;
+
+  if (refresh || refresh === undefined) {
+    return rootVm.$meta().refresh();
+  }
+}
+
+function addNavGuards(rootVm) {
+  var router = rootVm.$router; // return when nav guards already added or no router exists
+
+  if (rootVm[rootConfigKey].navGuards || !router) {
+    /* istanbul ignore next */
+    return;
+  }
+
+  rootVm[rootConfigKey].navGuards = true;
+  router.beforeEach(function (to, from, next) {
+    pause(rootVm);
+    next();
+  });
+  router.afterEach(function () {
+    rootVm.$nextTick(function () {
+      var _resume = resume(rootVm),
+          metaInfo = _resume.metaInfo;
+
+      if (metaInfo && isFunction(metaInfo.afterNavigation)) {
+        metaInfo.afterNavigation(metaInfo);
+      }
+    });
+  });
+}
+
+var appId = 1;
+function createMixin(Vue, options) {
+  // for which Vue lifecycle hooks should the metaInfo be refreshed
+  var updateOnLifecycleHook = ['activated', 'deactivated', 'beforeMount'];
+  var wasServerRendered = false; // watch for client side component updates
+
+  return {
+    beforeCreate: function beforeCreate() {
+      var _this2 = this;
+
+      var rootKey = '$root';
+      var $root = this[rootKey];
+      var $options = this.$options;
+      var devtoolsEnabled = Vue.config.devtools;
+      Object.defineProperty(this, '_hasMetaInfo', {
+        configurable: true,
+        get: function get() {
+          // Show deprecation warning once when devtools enabled
+          if (devtoolsEnabled && !$root[rootConfigKey].deprecationWarningShown) {
+            warn('VueMeta DeprecationWarning: _hasMetaInfo has been deprecated and will be removed in a future version. Please use hasMetaInfo(vm) instead');
+            $root[rootConfigKey].deprecationWarningShown = true;
+          }
+
+          return hasMetaInfo(this);
+        }
+      });
+
+      if (this === $root) {
+        $root.$once('hook:beforeMount', function () {
+          wasServerRendered = this.$el && this.$el.nodeType === 1 && this.$el.hasAttribute('data-server-rendered'); // In most cases when you have a SSR app it will be the first app thats gonna be
+          // initiated, if we cant detect the data-server-rendered attribute from Vue but we
+          // do see our own ssrAttribute then _assume_ the Vue app with appId 1 is the ssr app
+          // attempted fix for #404 & #562, but we rly need to refactor how we pass appIds from
+          // ssr to the client
+
+          if (!wasServerRendered && $root[rootConfigKey] && $root[rootConfigKey].appId === 1) {
+            var htmlTag = getTag({}, 'html');
+            wasServerRendered = htmlTag && htmlTag.hasAttribute(options.ssrAttribute);
+          }
+        });
+      } // Add a marker to know if it uses metaInfo
+      // _vnode is used to know that it's attached to a real component
+      // useful if we use some mixin to add some meta tags (like nuxt-i18n)
+
+
+      if (isUndefined($options[options.keyName]) || $options[options.keyName] === null) {
+        return;
+      }
+
+      if (!$root[rootConfigKey]) {
+        $root[rootConfigKey] = {
+          appId: appId
+        };
+        appId++;
+
+        if (devtoolsEnabled && $root.$options[options.keyName]) {
+          // use nextTick so the children should be added to $root
+          this.$nextTick(function () {
+            // find the first child that lists fnOptions
+            var child = find($root.$children, function (c) {
+              return c.$vnode && c.$vnode.fnOptions;
+            });
+
+            if (child && child.$vnode.fnOptions[options.keyName]) {
+              warn("VueMeta has detected a possible global mixin which adds a ".concat(options.keyName, " property to all Vue components on the page. This could cause severe performance issues. If possible, use $meta().addApp to add meta information instead"));
+            }
+          });
+        }
+      } // to speed up updates we keep track of branches which have a component with vue-meta info defined
+      // if _vueMeta = true it has info, if _vueMeta = false a child has info
+
+
+      if (!this[rootConfigKey]) {
+        this[rootConfigKey] = true;
+        var parent = this.$parent;
+
+        while (parent && parent !== $root) {
+          if (isUndefined(parent[rootConfigKey])) {
+            parent[rootConfigKey] = false;
+          }
+
+          parent = parent.$parent;
+        }
+      } // coerce function-style metaInfo to a computed prop so we can observe
+      // it on creation
+
+
+      if (isFunction($options[options.keyName])) {
+        $options.computed = $options.computed || {};
+        $options.computed.$metaInfo = $options[options.keyName];
+
+        if (!this.$isServer) {
+          // if computed $metaInfo exists, watch it for updates & trigger a refresh
+          // when it changes (i.e. automatically handle async actions that affect metaInfo)
+          // credit for this suggestion goes to [Sébastien Chopin](https://github.com/Atinux)
+          this.$on('hook:created', function () {
+            this.$watch('$metaInfo', function () {
+              triggerUpdate(options, this[rootKey], 'watcher');
+            });
+          });
+        }
+      } // force an initial refresh on page load and prevent other lifecycleHooks
+      // to triggerUpdate until this initial refresh is finished
+      // this is to make sure that when a page is opened in an inactive tab which
+      // has throttled rAF/timers we still immediately set the page title
+
+
+      if (isUndefined($root[rootConfigKey].initialized)) {
+        $root[rootConfigKey].initialized = this.$isServer;
+
+        if (!$root[rootConfigKey].initialized) {
+          if (!$root[rootConfigKey].initializedSsr) {
+            $root[rootConfigKey].initializedSsr = true;
+            this.$on('hook:beforeMount', function () {
+              var $root = this[rootKey]; // if this Vue-app was server rendered, set the appId to 'ssr'
+              // only one SSR app per page is supported
+
+              if (wasServerRendered) {
+                $root[rootConfigKey].appId = options.ssrAppId;
+              }
+            });
+          } // we use the mounted hook here as on page load
+
+
+          this.$on('hook:mounted', function () {
+            var $root = this[rootKey];
+
+            if ($root[rootConfigKey].initialized) {
+              return;
+            } // used in triggerUpdate to check if a change was triggered
+            // during initialization
+
+
+            $root[rootConfigKey].initializing = true; // refresh meta in nextTick so all child components have loaded
+
+            this.$nextTick(function () {
+              var _$root$$meta$refresh = $root.$meta().refresh(),
+                  tags = _$root$$meta$refresh.tags,
+                  metaInfo = _$root$$meta$refresh.metaInfo; // After ssr hydration (identifier by tags === false) check
+              // if initialized was set to null in triggerUpdate. That'd mean
+              // that during initilazation changes where triggered which need
+              // to be applied OR a metaInfo watcher was triggered before the
+              // current hook was called
+              // (during initialization all changes are blocked)
+
+
+              if (tags === false && $root[rootConfigKey].initialized === null) {
+                this.$nextTick(function () {
+                  return triggerUpdate(options, $root, 'init');
+                });
+              }
+
+              $root[rootConfigKey].initialized = true;
+              delete $root[rootConfigKey].initializing; // add the navigation guards if they havent been added yet
+              // they are needed for the afterNavigation callback
+
+              if (!options.refreshOnceOnNavigation && metaInfo.afterNavigation) {
+                addNavGuards($root);
+              }
+            });
+          }); // add the navigation guards if requested
+
+          if (options.refreshOnceOnNavigation) {
+            addNavGuards($root);
+          }
+        }
+      }
+
+      this.$on('hook:destroyed', function () {
+        var _this = this;
+
+        // do not trigger refresh:
+        // - when user configured to not wait for transitions on destroyed
+        // - when the component doesnt have a parent
+        // - doesnt have metaInfo defined
+        if (!this.$parent || !hasMetaInfo(this)) {
+          return;
+        }
+
+        delete this._hasMetaInfo;
+        this.$nextTick(function () {
+          if (!options.waitOnDestroyed || !_this.$el || !_this.$el.offsetParent) {
+            triggerUpdate(options, _this.$root, 'destroyed');
+            return;
+          } // Wait that element is hidden before refreshing meta tags (to support animations)
+
+
+          var interval = setInterval(function () {
+            if (_this.$el && _this.$el.offsetParent !== null) {
+              /* istanbul ignore next line */
+              return;
+            }
+
+            clearInterval(interval);
+            triggerUpdate(options, _this.$root, 'destroyed');
+          }, 50);
+        });
+      }); // do not trigger refresh on the server side
+
+      if (this.$isServer) {
+        /* istanbul ignore next */
+        return;
+      } // no need to add this hooks on server side
+
+
+      updateOnLifecycleHook.forEach(function (lifecycleHook) {
+        _this2.$on("hook:".concat(lifecycleHook), function () {
+          triggerUpdate(options, this[rootKey], lifecycleHook);
+        });
+      });
+    }
+  };
+}
+
+function setOptions(options) {
+  // combine options
+  options = isObject(options) ? options : {}; // The options are set like this so they can
+  // be minified by terser while keeping the
+  // user api intact
+  // terser --mangle-properties keep_quoted=strict
+
+  /* eslint-disable dot-notation */
+
+  return {
+    keyName: options['keyName'] || defaultOptions.keyName,
+    attribute: options['attribute'] || defaultOptions.attribute,
+    ssrAttribute: options['ssrAttribute'] || defaultOptions.ssrAttribute,
+    tagIDKeyName: options['tagIDKeyName'] || defaultOptions.tagIDKeyName,
+    contentKeyName: options['contentKeyName'] || defaultOptions.contentKeyName,
+    metaTemplateKeyName: options['metaTemplateKeyName'] || defaultOptions.metaTemplateKeyName,
+    debounceWait: isUndefined(options['debounceWait']) ? defaultOptions.debounceWait : options['debounceWait'],
+    waitOnDestroyed: isUndefined(options['waitOnDestroyed']) ? defaultOptions.waitOnDestroyed : options['waitOnDestroyed'],
+    ssrAppId: options['ssrAppId'] || defaultOptions.ssrAppId,
+    refreshOnceOnNavigation: !!options['refreshOnceOnNavigation']
+  };
+  /* eslint-enable dot-notation */
+}
+function getOptions(options) {
+  var optionsCopy = {};
+
+  for (var key in options) {
+    optionsCopy[key] = options[key];
+  }
+
+  return optionsCopy;
+}
+
+function ensureIsArray(arg, key) {
+  if (!key || !isObject(arg)) {
+    return isArray(arg) ? arg : [];
+  }
+
+  if (!isArray(arg[key])) {
+    arg[key] = [];
+  }
+
+  return arg;
+}
+
+var serverSequences = [[/&/g, '&amp;'], [/</g, '&lt;'], [/>/g, '&gt;'], [/"/g, '&quot;'], [/'/g, '&#x27;']];
+var clientSequences = [[/&/g, "&"], [/</g, "<"], [/>/g, ">"], [/"/g, "\""], [/'/g, "'"]]; // sanitizes potentially dangerous characters
+
+function escape(info, options, escapeOptions, escapeKeys) {
+  var tagIDKeyName = options.tagIDKeyName;
+  var _escapeOptions$doEsca = escapeOptions.doEscape,
+      doEscape = _escapeOptions$doEsca === void 0 ? function (v) {
+    return v;
+  } : _escapeOptions$doEsca;
+  var escaped = {};
+
+  for (var key in info) {
+    var value = info[key]; // no need to escape configuration options
+
+    if (includes(metaInfoOptionKeys, key)) {
+      escaped[key] = value;
+      continue;
+    } // do not use destructuring for disableOptionKeys, it increases transpiled size
+    // due to var checks while we are guaranteed the structure of the cb
+
+
+    var disableKey = disableOptionKeys[0];
+
+    if (escapeOptions[disableKey] && includes(escapeOptions[disableKey], key)) {
+      // this info[key] doesnt need to escaped if the option is listed in __dangerouslyDisableSanitizers
+      escaped[key] = value;
+      continue;
+    }
+
+    var tagId = info[tagIDKeyName];
+
+    if (tagId) {
+      disableKey = disableOptionKeys[1]; // keys which are listed in __dangerouslyDisableSanitizersByTagID for the current vmid do not need to be escaped
+
+      if (escapeOptions[disableKey] && escapeOptions[disableKey][tagId] && includes(escapeOptions[disableKey][tagId], key)) {
+        escaped[key] = value;
+        continue;
+      }
+    }
+
+    if (isString(value)) {
+      escaped[key] = doEscape(value);
+    } else if (isArray(value)) {
+      escaped[key] = value.map(function (v) {
+        if (isPureObject(v)) {
+          return escape(v, options, escapeOptions, true);
+        }
+
+        return doEscape(v);
+      });
+    } else if (isPureObject(value)) {
+      escaped[key] = escape(value, options, escapeOptions, true);
+    } else {
+      escaped[key] = value;
+    }
+
+    if (escapeKeys) {
+      var escapedKey = doEscape(key);
+
+      if (key !== escapedKey) {
+        escaped[escapedKey] = escaped[key];
+        delete escaped[key];
+      }
+    }
+  }
+
+  return escaped;
+}
+function escapeMetaInfo(options, info, escapeSequences) {
+  escapeSequences = escapeSequences || []; // do not use destructuring for seq, it increases transpiled size
+  // due to var checks while we are guaranteed the structure of the cb
+
+  var escapeOptions = {
+    doEscape: function doEscape(value) {
+      return escapeSequences.reduce(function (val, seq) {
+        return val.replace(seq[0], seq[1]);
+      }, value);
+    }
+  };
+  disableOptionKeys.forEach(function (disableKey, index) {
+    if (index === 0) {
+      ensureIsArray(info, disableKey);
+    } else if (index === 1) {
+      for (var key in info[disableKey]) {
+        ensureIsArray(info[disableKey], key);
+      }
+    }
+
+    escapeOptions[disableKey] = info[disableKey];
+  }); // begin sanitization
+
+  return escape(info, options, escapeOptions);
+}
+
+function applyTemplate(_ref, headObject, template, chunk) {
+  var component = _ref.component,
+      metaTemplateKeyName = _ref.metaTemplateKeyName,
+      contentKeyName = _ref.contentKeyName;
+
+  if (template === true || headObject[metaTemplateKeyName] === true) {
+    // abort, template was already applied
+    return false;
+  }
+
+  if (isUndefined(template) && headObject[metaTemplateKeyName]) {
+    template = headObject[metaTemplateKeyName];
+    headObject[metaTemplateKeyName] = true;
+  } // return early if no template defined
+
+
+  if (!template) {
+    // cleanup faulty template properties
+    delete headObject[metaTemplateKeyName];
+    return false;
+  }
+
+  if (isUndefined(chunk)) {
+    chunk = headObject[contentKeyName];
+  }
+
+  headObject[contentKeyName] = isFunction(template) ? template.call(component, chunk) : template.replace(/%s/g, chunk);
+  return true;
+}
+
+function _arrayMerge(_ref, target, source) {
+  var component = _ref.component,
+      tagIDKeyName = _ref.tagIDKeyName,
+      metaTemplateKeyName = _ref.metaTemplateKeyName,
+      contentKeyName = _ref.contentKeyName;
+  // we concat the arrays without merging objects contained in,
+  // but we check for a `vmid` property on each object in the array
+  // using an O(1) lookup associative array exploit
+  var destination = [];
+
+  if (!target.length && !source.length) {
+    return destination;
+  }
+
+  target.forEach(function (targetItem, targetIndex) {
+    // no tagID so no need to check for duplicity
+    if (!targetItem[tagIDKeyName]) {
+      destination.push(targetItem);
+      return;
+    }
+
+    var sourceIndex = findIndex(source, function (item) {
+      return item[tagIDKeyName] === targetItem[tagIDKeyName];
+    });
+    var sourceItem = source[sourceIndex]; // source doesnt contain any duplicate vmid's, we can keep targetItem
+
+    if (sourceIndex === -1) {
+      destination.push(targetItem);
+      return;
+    } // when sourceItem explictly defines contentKeyName or innerHTML as undefined, its
+    // an indication that we need to skip the default behaviour or child has preference over parent
+    // which means we keep the targetItem and ignore/remove the sourceItem
+
+
+    if (contentKeyName in sourceItem && sourceItem[contentKeyName] === undefined || 'innerHTML' in sourceItem && sourceItem.innerHTML === undefined) {
+      destination.push(targetItem); // remove current index from source array so its not concatenated to destination below
+
+      source.splice(sourceIndex, 1);
+      return;
+    } // we now know that targetItem is a duplicate and we should ignore it in favor of sourceItem
+    // if source specifies null as content then ignore both the target as the source
+
+
+    if (sourceItem[contentKeyName] === null || sourceItem.innerHTML === null) {
+      // remove current index from source array so its not concatenated to destination below
+      source.splice(sourceIndex, 1);
+      return;
+    } // now we only need to check if the target has a template to combine it with the source
+
+
+    var targetTemplate = targetItem[metaTemplateKeyName];
+
+    if (!targetTemplate) {
+      return;
+    }
+
+    var sourceTemplate = sourceItem[metaTemplateKeyName];
+
+    if (!sourceTemplate) {
+      // use parent template and child content
+      applyTemplate({
+        component: component,
+        metaTemplateKeyName: metaTemplateKeyName,
+        contentKeyName: contentKeyName
+      }, sourceItem, targetTemplate); // set template to true to indicate template was already applied
+
+      sourceItem.template = true;
+      return;
+    }
+
+    if (!sourceItem[contentKeyName]) {
+      // use parent content and child template
+      applyTemplate({
+        component: component,
+        metaTemplateKeyName: metaTemplateKeyName,
+        contentKeyName: contentKeyName
+      }, sourceItem, undefined, targetItem[contentKeyName]);
+    }
+  });
+  return destination.concat(source);
+}
+var warningShown = false;
+function merge(target, source, options) {
+  options = options || {}; // remove properties explicitly set to false so child components can
+  // optionally _not_ overwrite the parents content
+  // (for array properties this is checked in arrayMerge)
+
+  if (source.title === undefined) {
+    delete source.title;
+  }
+
+  metaInfoAttributeKeys.forEach(function (attrKey) {
+    if (!source[attrKey]) {
+      return;
+    }
+
+    for (var key in source[attrKey]) {
+      if (key in source[attrKey] && source[attrKey][key] === undefined) {
+        if (includes(booleanHtmlAttributes, key) && !warningShown) {
+          warn('VueMeta: Please note that since v2 the value undefined is not used to indicate boolean attributes anymore, see migration guide for details');
+          warningShown = true;
+        }
+
+        delete source[attrKey][key];
+      }
+    }
+  });
+  return deepmerge__WEBPACK_IMPORTED_MODULE_0___default()(target, source, {
+    arrayMerge: function arrayMerge(t, s) {
+      return _arrayMerge(options, t, s);
+    }
+  });
+}
+
+function getComponentMetaInfo(options, component) {
+  return getComponentOption(options || {}, component, defaultInfo);
+}
+/**
+ * Returns the `opts.option` $option value of the given `opts.component`.
+ * If methods are encountered, they will be bound to the component context.
+ * If `opts.deep` is true, will recursively merge all child component
+ * `opts.option` $option values into the returned result.
+ *
+ * @param  {Object} opts - options
+ * @param  {Object} opts.component - Vue component to fetch option data from
+ * @param  {Boolean} opts.deep - look for data in child components as well?
+ * @param  {Function} opts.arrayMerge - how should arrays be merged?
+ * @param  {String} opts.keyName - the name of the option to look for
+ * @param  {Object} [result={}] - result so far
+ * @return {Object} result - final aggregated result
+ */
+
+function getComponentOption(options, component, result) {
+  result = result || {};
+
+  if (component._inactive) {
+    return result;
+  }
+
+  options = options || {};
+  var _options = options,
+      keyName = _options.keyName;
+  var $metaInfo = component.$metaInfo,
+      $options = component.$options,
+      $children = component.$children; // only collect option data if it exists
+
+  if ($options[keyName]) {
+    // if $metaInfo exists then [keyName] was defined as a function
+    // and set to the computed prop $metaInfo in the mixin
+    // using the computed prop should be a small performance increase
+    // because Vue caches those internally
+    var data = $metaInfo || $options[keyName]; // only merge data with result when its an object
+    // eg it could be a function when metaInfo() returns undefined
+    // dueo to the or statement above
+
+    if (isObject(data)) {
+      result = merge(result, data, options);
+    }
+  } // collect & aggregate child options if deep = true
+
+
+  if ($children.length) {
+    $children.forEach(function (childComponent) {
+      // check if the childComponent is in a branch
+      // return otherwise so we dont walk all component branches unnecessarily
+      if (!inMetaInfoBranch(childComponent)) {
+        return;
+      }
+
+      result = getComponentOption(options, childComponent, result);
+    });
+  }
+
+  return result;
+}
+
+var callbacks = [];
+function isDOMComplete(d) {
+  return (d || document).readyState === 'complete';
+}
+function addCallback(query, callback) {
+  if (arguments.length === 1) {
+    callback = query;
+    query = '';
+  }
+
+  callbacks.push([query, callback]);
+}
+function addCallbacks(_ref, type, tags, autoAddListeners) {
+  var tagIDKeyName = _ref.tagIDKeyName;
+  var hasAsyncCallback = false;
+  tags.forEach(function (tag) {
+    if (!tag[tagIDKeyName] || !tag.callback) {
+      return;
+    }
+
+    hasAsyncCallback = true;
+    addCallback("".concat(type, "[data-").concat(tagIDKeyName, "=\"").concat(tag[tagIDKeyName], "\"]"), tag.callback);
+  });
+
+  if (!autoAddListeners || !hasAsyncCallback) {
+    return hasAsyncCallback;
+  }
+
+  return addListeners();
+}
+function addListeners() {
+  if (isDOMComplete()) {
+    applyCallbacks();
+    return;
+  } // Instead of using a MutationObserver, we just apply
+
+  /* istanbul ignore next */
+
+
+  document.onreadystatechange = function () {
+    applyCallbacks();
+  };
+}
+function applyCallbacks(matchElement) {
+  callbacks.forEach(function (args) {
+    // do not use destructuring for args, it increases transpiled size
+    // due to var checks while we are guaranteed the structure of the cb
+    var query = args[0];
+    var callback = args[1];
+    var selector = "".concat(query, "[onload=\"this.__vm_l=1\"]");
+    var elements = [];
+
+    if (!matchElement) {
+      elements = toArray(querySelector(selector));
+    }
+
+    if (matchElement && matchElement.matches(selector)) {
+      elements = [matchElement];
+    }
+
+    elements.forEach(function (element) {
+      /* __vm_cb: whether the load callback has been called
+       * __vm_l: set by onload attribute, whether the element was loaded
+       * __vm_ev: whether the event listener was added or not
+       */
+      if (element.__vm_cb) {
+        return;
+      }
+
+      var onload = function onload() {
+        /* Mark that the callback for this element has already been called,
+         * this prevents the callback to run twice in some (rare) conditions
+         */
+        element.__vm_cb = true;
+        /* onload needs to be removed because we only need the
+         * attribute after ssr and if we dont remove it the node
+         * will fail isEqualNode on the client
+         */
+
+        removeAttribute(element, 'onload');
+        callback(element);
+      };
+      /* IE9 doesnt seem to load scripts synchronously,
+       * causing a script sometimes/often already to be loaded
+       * when we add the event listener below (thus adding an onload event
+       * listener has no use because it will never be triggered).
+       * Therefore we add the onload attribute during ssr, and
+       * check here if it was already loaded or not
+       */
+
+
+      if (element.__vm_l) {
+        onload();
+        return;
+      }
+
+      if (!element.__vm_ev) {
+        element.__vm_ev = true;
+        element.addEventListener('load', onload);
+      }
+    });
+  });
+}
+
+// instead of adding it to the html
+
+var attributeMap = {};
+/**
+ * Updates the document's html tag attributes
+ *
+ * @param  {Object} attrs - the new document html attributes
+ * @param  {HTMLElement} tag - the HTMLElement tag to update with new attrs
+ */
+
+function updateAttribute(appId, options, type, attrs, tag) {
+  var _ref = options || {},
+      attribute = _ref.attribute;
+
+  var vueMetaAttrString = tag.getAttribute(attribute);
+
+  if (vueMetaAttrString) {
+    attributeMap[type] = JSON.parse(decodeURI(vueMetaAttrString));
+    removeAttribute(tag, attribute);
+  }
+
+  var data = attributeMap[type] || {};
+  var toUpdate = []; // remove attributes from the map
+  // which have been removed for this appId
+
+  for (var attr in data) {
+    if (data[attr] !== undefined && appId in data[attr]) {
+      toUpdate.push(attr);
+
+      if (!attrs[attr]) {
+        delete data[attr][appId];
+      }
+    }
+  }
+
+  for (var _attr in attrs) {
+    var attrData = data[_attr];
+
+    if (!attrData || attrData[appId] !== attrs[_attr]) {
+      toUpdate.push(_attr);
+
+      if (attrs[_attr] !== undefined) {
+        data[_attr] = data[_attr] || {};
+        data[_attr][appId] = attrs[_attr];
+      }
+    }
+  }
+
+  for (var _i = 0, _toUpdate = toUpdate; _i < _toUpdate.length; _i++) {
+    var _attr2 = _toUpdate[_i];
+    var _attrData = data[_attr2];
+    var attrValues = [];
+
+    for (var _appId in _attrData) {
+      Array.prototype.push.apply(attrValues, [].concat(_attrData[_appId]));
+    }
+
+    if (attrValues.length) {
+      var attrValue = includes(booleanHtmlAttributes, _attr2) && attrValues.some(Boolean) ? '' : attrValues.filter(function (v) {
+        return v !== undefined;
+      }).join(' ');
+      tag.setAttribute(_attr2, attrValue);
+    } else {
+      removeAttribute(tag, _attr2);
+    }
+  }
+
+  attributeMap[type] = data;
+}
+
+/**
+ * Updates the document title
+ *
+ * @param  {String} title - the new title of the document
+ */
+function updateTitle(title) {
+  if (!title && title !== '') {
+    return;
+  }
+
+  document.title = title;
+}
+
+/**
+ * Updates meta tags inside <head> and <body> on the client. Borrowed from `react-helmet`:
+ * https://github.com/nfl/react-helmet/blob/004d448f8de5f823d10f838b02317521180f34da/src/Helmet.js#L195-L245
+ *
+ * @param  {('meta'|'base'|'link'|'style'|'script'|'noscript')} type - the name of the tag
+ * @param  {(Array<Object>|Object)} tags - an array of tag objects or a single object in case of base
+ * @return {Object} - a representation of what tags changed
+ */
+
+function updateTag(appId, options, type, tags, head, body) {
+  var _ref = options || {},
+      attribute = _ref.attribute,
+      tagIDKeyName = _ref.tagIDKeyName;
+
+  var dataAttributes = commonDataAttributes.slice();
+  dataAttributes.push(tagIDKeyName);
+  var newElements = [];
+  var queryOptions = {
+    appId: appId,
+    attribute: attribute,
+    type: type,
+    tagIDKeyName: tagIDKeyName
+  };
+  var currentElements = {
+    head: queryElements(head, queryOptions),
+    pbody: queryElements(body, queryOptions, {
+      pbody: true
+    }),
+    body: queryElements(body, queryOptions, {
+      body: true
+    })
+  };
+
+  if (tags.length > 1) {
+    // remove duplicates that could have been found by merging tags
+    // which include a mixin with metaInfo and that mixin is used
+    // by multiple components on the same page
+    var found = [];
+    tags = tags.filter(function (x) {
+      var k = JSON.stringify(x);
+      var res = !includes(found, k);
+      found.push(k);
+      return res;
+    });
+  }
+
+  tags.forEach(function (tag) {
+    if (tag.skip) {
+      return;
+    }
+
+    var newElement = document.createElement(type);
+
+    if (!tag.once) {
+      newElement.setAttribute(attribute, appId);
+    }
+
+    Object.keys(tag).forEach(function (attr) {
+      /* istanbul ignore next */
+      if (includes(tagProperties, attr)) {
+        return;
+      }
+
+      if (attr === 'innerHTML') {
+        newElement.innerHTML = tag.innerHTML;
+        return;
+      }
+
+      if (attr === 'json') {
+        newElement.innerHTML = JSON.stringify(tag.json);
+        return;
+      }
+
+      if (attr === 'cssText') {
+        if (newElement.styleSheet) {
+          /* istanbul ignore next */
+          newElement.styleSheet.cssText = tag.cssText;
+        } else {
+          newElement.appendChild(document.createTextNode(tag.cssText));
+        }
+
+        return;
+      }
+
+      if (attr === 'callback') {
+        newElement.onload = function () {
+          return tag[attr](newElement);
+        };
+
+        return;
+      }
+
+      var _attr = includes(dataAttributes, attr) ? "data-".concat(attr) : attr;
+
+      var isBooleanAttribute = includes(booleanHtmlAttributes, attr);
+
+      if (isBooleanAttribute && !tag[attr]) {
+        return;
+      }
+
+      var value = isBooleanAttribute ? '' : tag[attr];
+      newElement.setAttribute(_attr, value);
+    });
+    var oldElements = currentElements[getElementsKey(tag)]; // Remove a duplicate tag from domTagstoRemove, so it isn't cleared.
+
+    var indexToDelete;
+    var hasEqualElement = oldElements.some(function (existingTag, index) {
+      indexToDelete = index;
+      return newElement.isEqualNode(existingTag);
+    });
+
+    if (hasEqualElement && (indexToDelete || indexToDelete === 0)) {
+      oldElements.splice(indexToDelete, 1);
+    } else {
+      newElements.push(newElement);
+    }
+  });
+  var oldElements = [];
+
+  for (var _type in currentElements) {
+    Array.prototype.push.apply(oldElements, currentElements[_type]);
+  } // remove old elements
+
+
+  oldElements.forEach(function (element) {
+    element.parentNode.removeChild(element);
+  }); // insert new elements
+
+  newElements.forEach(function (element) {
+    if (element.hasAttribute('data-body')) {
+      body.appendChild(element);
+      return;
+    }
+
+    if (element.hasAttribute('data-pbody')) {
+      body.insertBefore(element, body.firstChild);
+      return;
+    }
+
+    head.appendChild(element);
+  });
+  return {
+    oldTags: oldElements,
+    newTags: newElements
+  };
+}
+
+/**
+ * Performs client-side updates when new meta info is received
+ *
+ * @param  {Object} newInfo - the meta info to update to
+ */
+
+function updateClientMetaInfo(appId, options, newInfo) {
+  options = options || {};
+  var _options = options,
+      ssrAttribute = _options.ssrAttribute,
+      ssrAppId = _options.ssrAppId; // only cache tags for current update
+
+  var tags = {};
+  var htmlTag = getTag(tags, 'html'); // if this is a server render, then dont update
+
+  if (appId === ssrAppId && htmlTag.hasAttribute(ssrAttribute)) {
+    // remove the server render attribute so we can update on (next) changes
+    removeAttribute(htmlTag, ssrAttribute); // add load callbacks if the
+
+    var addLoadListeners = false;
+    tagsSupportingOnload.forEach(function (type) {
+      if (newInfo[type] && addCallbacks(options, type, newInfo[type])) {
+        addLoadListeners = true;
+      }
+    });
+
+    if (addLoadListeners) {
+      addListeners();
+    }
+
+    return false;
+  } // initialize tracked changes
+
+
+  var tagsAdded = {};
+  var tagsRemoved = {};
+
+  for (var type in newInfo) {
+    // ignore these
+    if (includes(metaInfoOptionKeys, type)) {
+      continue;
+    }
+
+    if (type === 'title') {
+      // update the title
+      updateTitle(newInfo.title);
+      continue;
+    }
+
+    if (includes(metaInfoAttributeKeys, type)) {
+      var tagName = type.substr(0, 4);
+      updateAttribute(appId, options, type, newInfo[type], getTag(tags, tagName));
+      continue;
+    } // tags should always be an array, ignore if it isnt
+
+
+    if (!isArray(newInfo[type])) {
+      continue;
+    }
+
+    var _updateTag = updateTag(appId, options, type, newInfo[type], getTag(tags, 'head'), getTag(tags, 'body')),
+        oldTags = _updateTag.oldTags,
+        newTags = _updateTag.newTags;
+
+    if (newTags.length) {
+      tagsAdded[type] = newTags;
+      tagsRemoved[type] = oldTags;
+    }
+  }
+
+  return {
+    tagsAdded: tagsAdded,
+    tagsRemoved: tagsRemoved
+  };
+}
+
+var appsMetaInfo;
+function addApp(rootVm, appId, options) {
+  return {
+    set: function set(metaInfo) {
+      return setMetaInfo(rootVm, appId, options, metaInfo);
+    },
+    remove: function remove() {
+      return removeMetaInfo(rootVm, appId, options);
+    }
+  };
+}
+function setMetaInfo(rootVm, appId, options, metaInfo) {
+  // if a vm exists _and_ its mounted then immediately update
+  if (rootVm && rootVm.$el) {
+    return updateClientMetaInfo(appId, options, metaInfo);
+  } // store for later, the info
+  // will be set on the first refresh
+
+
+  appsMetaInfo = appsMetaInfo || {};
+  appsMetaInfo[appId] = metaInfo;
+}
+function removeMetaInfo(rootVm, appId, options) {
+  if (rootVm && rootVm.$el) {
+    var tags = {};
+
+    var _iterator = _createForOfIteratorHelper(metaInfoAttributeKeys),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var type = _step.value;
+        var tagName = type.substr(0, 4);
+        updateAttribute(appId, options, type, {}, getTag(tags, tagName));
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+
+    return removeElementsByAppId(options, appId);
+  }
+
+  if (appsMetaInfo[appId]) {
+    delete appsMetaInfo[appId];
+    clearAppsMetaInfo();
+  }
+}
+function getAppsMetaInfo() {
+  return appsMetaInfo;
+}
+function clearAppsMetaInfo(force) {
+  if (force || !Object.keys(appsMetaInfo).length) {
+    appsMetaInfo = undefined;
+  }
+}
+
+/**
+ * Returns the correct meta info for the given component
+ * (child components will overwrite parent meta info)
+ *
+ * @param  {Object} component - the Vue instance to get meta info from
+ * @return {Object} - returned meta info
+ */
+
+function getMetaInfo(options, info, escapeSequences, component) {
+  options = options || {};
+  escapeSequences = escapeSequences || [];
+  var _options = options,
+      tagIDKeyName = _options.tagIDKeyName; // Remove all "template" tags from meta
+  // backup the title chunk in case user wants access to it
+
+  if (info.title) {
+    info.titleChunk = info.title;
+  } // replace title with populated template
+
+
+  if (info.titleTemplate && info.titleTemplate !== '%s') {
+    applyTemplate({
+      component: component,
+      contentKeyName: 'title'
+    }, info, info.titleTemplate, info.titleChunk || '');
+  } // convert base tag to an array so it can be handled the same way
+  // as the other tags
+
+
+  if (info.base) {
+    info.base = Object.keys(info.base).length ? [info.base] : [];
+  }
+
+  if (info.meta) {
+    // remove meta items with duplicate vmid's
+    info.meta = info.meta.filter(function (metaItem, index, arr) {
+      var hasVmid = !!metaItem[tagIDKeyName];
+
+      if (!hasVmid) {
+        return true;
+      }
+
+      var isFirstItemForVmid = index === findIndex(arr, function (item) {
+        return item[tagIDKeyName] === metaItem[tagIDKeyName];
+      });
+      return isFirstItemForVmid;
+    }); // apply templates if needed
+
+    info.meta.forEach(function (metaObject) {
+      return applyTemplate(options, metaObject);
+    });
+  }
+
+  return escapeMetaInfo(options, info, escapeSequences);
+}
+
+/**
+ * When called, will update the current meta info with new meta info.
+ * Useful when updating meta info as the result of an asynchronous
+ * action that resolves after the initial render takes place.
+ *
+ * Credit to [Sébastien Chopin](https://github.com/Atinux) for the suggestion
+ * to implement this method.
+ *
+ * @return {Object} - new meta info
+ */
+
+function refresh(rootVm, options) {
+  options = options || {}; // make sure vue-meta was initiated
+
+  if (!rootVm[rootConfigKey]) {
+    showWarningNotSupported();
+    return {};
+  } // collect & aggregate all metaInfo $options
+
+
+  var rawInfo = getComponentMetaInfo(options, rootVm);
+  var metaInfo = getMetaInfo(options, rawInfo, clientSequences, rootVm);
+  var appId = rootVm[rootConfigKey].appId;
+  var tags = updateClientMetaInfo(appId, options, metaInfo); // emit "event" with new info
+
+  if (tags && isFunction(metaInfo.changed)) {
+    metaInfo.changed(metaInfo, tags.tagsAdded, tags.tagsRemoved);
+    tags = {
+      addedTags: tags.tagsAdded,
+      removedTags: tags.tagsRemoved
+    };
+  }
+
+  var appsMetaInfo = getAppsMetaInfo();
+
+  if (appsMetaInfo) {
+    for (var additionalAppId in appsMetaInfo) {
+      updateClientMetaInfo(additionalAppId, options, appsMetaInfo[additionalAppId]);
+      delete appsMetaInfo[additionalAppId];
+    }
+
+    clearAppsMetaInfo(true);
+  }
+
+  return {
+    vm: rootVm,
+    metaInfo: metaInfo,
+    // eslint-disable-line object-shorthand
+    tags: tags
+  };
+}
+
+/**
+ * Generates tag attributes for use on the server.
+ *
+ * @param  {('bodyAttrs'|'htmlAttrs'|'headAttrs')} type - the type of attributes to generate
+ * @param  {Object} data - the attributes to generate
+ * @return {Object} - the attribute generator
+ */
+
+function attributeGenerator(options, type, data, _ref) {
+  var addSsrAttribute = _ref.addSsrAttribute;
+
+  var _ref2 = options || {},
+      attribute = _ref2.attribute,
+      ssrAttribute = _ref2.ssrAttribute;
+
+  var attributeStr = '';
+
+  for (var attr in data) {
+    var attrData = data[attr];
+    var attrValues = [];
+
+    for (var appId in attrData) {
+      attrValues.push.apply(attrValues, _toConsumableArray([].concat(attrData[appId])));
+    }
+
+    if (attrValues.length) {
+      attributeStr += booleanHtmlAttributes.includes(attr) && attrValues.some(Boolean) ? "".concat(attr) : "".concat(attr, "=\"").concat(attrValues.join(' '), "\"");
+      attributeStr += ' ';
+    }
+  }
+
+  if (attributeStr) {
+    attributeStr += "".concat(attribute, "=\"").concat(encodeURI(JSON.stringify(data)), "\"");
+  }
+
+  if (type === 'htmlAttrs' && addSsrAttribute) {
+    return "".concat(ssrAttribute).concat(attributeStr ? ' ' : '').concat(attributeStr);
+  }
+
+  return attributeStr;
+}
+
+/**
+ * Generates title output for the server
+ *
+ * @param  {'title'} type - the string "title"
+ * @param  {String} data - the title text
+ * @return {Object} - the title generator
+ */
+function titleGenerator(options, type, data, generatorOptions) {
+  var _ref = generatorOptions || {},
+      ln = _ref.ln;
+
+  if (!data) {
+    return '';
+  }
+
+  return "<".concat(type, ">").concat(data, "</").concat(type, ">").concat(ln ? '\n' : '');
+}
+
+/**
+ * Generates meta, base, link, style, script, noscript tags for use on the server
+ *
+ * @param  {('meta'|'base'|'link'|'style'|'script'|'noscript')} the name of the tag
+ * @param  {(Array<Object>|Object)} tags - an array of tag objects or a single object in case of base
+ * @return {Object} - the tag generator
+ */
+
+function tagGenerator(options, type, tags, generatorOptions) {
+  var _ref = options || {},
+      ssrAppId = _ref.ssrAppId,
+      attribute = _ref.attribute,
+      tagIDKeyName = _ref.tagIDKeyName;
+
+  var _ref2 = generatorOptions || {},
+      appId = _ref2.appId,
+      _ref2$isSSR = _ref2.isSSR,
+      isSSR = _ref2$isSSR === void 0 ? true : _ref2$isSSR,
+      _ref2$body = _ref2.body,
+      body = _ref2$body === void 0 ? false : _ref2$body,
+      _ref2$pbody = _ref2.pbody,
+      pbody = _ref2$pbody === void 0 ? false : _ref2$pbody,
+      _ref2$ln = _ref2.ln,
+      ln = _ref2$ln === void 0 ? false : _ref2$ln;
+
+  var dataAttributes = [tagIDKeyName].concat(_toConsumableArray(commonDataAttributes));
+
+  if (!tags || !tags.length) {
+    return '';
+  } // build a string containing all tags of this type
+
+
+  return tags.reduce(function (tagsStr, tag) {
+    if (tag.skip) {
+      return tagsStr;
+    }
+
+    var tagKeys = Object.keys(tag);
+
+    if (tagKeys.length === 0) {
+      return tagsStr; // Bail on empty tag object
+    }
+
+    if (Boolean(tag.body) !== body || Boolean(tag.pbody) !== pbody) {
+      return tagsStr;
+    }
+
+    var attrs = tag.once ? '' : " ".concat(attribute, "=\"").concat(appId || (isSSR === false ? '1' : ssrAppId), "\""); // build a string containing all attributes of this tag
+
+    for (var attr in tag) {
+      // these attributes are treated as children on the tag
+      if (tagAttributeAsInnerContent.includes(attr) || tagProperties.includes(attr)) {
+        continue;
+      }
+
+      if (attr === 'callback') {
+        attrs += ' onload="this.__vm_l=1"';
+        continue;
+      } // these form the attribute list for this tag
+
+
+      var prefix = '';
+
+      if (dataAttributes.includes(attr)) {
+        prefix = 'data-';
+      }
+
+      var isBooleanAttr = !prefix && booleanHtmlAttributes.includes(attr);
+
+      if (isBooleanAttr && !tag[attr]) {
+        continue;
+      }
+
+      attrs += " ".concat(prefix).concat(attr) + (isBooleanAttr ? '' : "=\"".concat(tag[attr], "\""));
+    }
+
+    var json = '';
+
+    if (tag.json) {
+      json = JSON.stringify(tag.json);
+    } // grab child content from one of these attributes, if possible
+
+
+    var content = tag.innerHTML || tag.cssText || json; // generate tag exactly without any other redundant attribute
+    // these tags have no end tag
+
+    var hasEndTag = !tagsWithoutEndTag.includes(type); // these tag types will have content inserted
+
+    var hasContent = hasEndTag && tagsWithInnerContent.includes(type); // the final string for this specific tag
+
+    return "".concat(tagsStr, "<").concat(type).concat(attrs).concat(!hasContent && hasEndTag ? '/' : '', ">") + (hasContent ? "".concat(content, "</").concat(type, ">") : '') + (ln ? '\n' : '');
+  }, '');
+}
+
+/**
+ * Converts a meta info property to one that can be stringified on the server
+ *
+ * @param  {String} type - the type of data to convert
+ * @param  {(String|Object|Array<Object>)} data - the data value
+ * @return {Object} - the new injector
+ */
+
+function generateServerInjector(options, metaInfo, globalInjectOptions) {
+  var serverInjector = {
+    data: metaInfo,
+    extraData: undefined,
+    addInfo: function addInfo(appId, metaInfo) {
+      this.extraData = this.extraData || {};
+      this.extraData[appId] = metaInfo;
+    },
+    callInjectors: function callInjectors(opts) {
+      var m = this.injectors; // only call title for the head
+
+      return (opts.body || opts.pbody ? '' : m.title.text(opts)) + m.meta.text(opts) + m.base.text(opts) + m.link.text(opts) + m.style.text(opts) + m.script.text(opts) + m.noscript.text(opts);
+    },
+    injectors: {
+      head: function head(ln) {
+        return serverInjector.callInjectors(_objectSpread2(_objectSpread2({}, globalInjectOptions), {}, {
+          ln: ln
+        }));
+      },
+      bodyPrepend: function bodyPrepend(ln) {
+        return serverInjector.callInjectors(_objectSpread2(_objectSpread2({}, globalInjectOptions), {}, {
+          ln: ln,
+          pbody: true
+        }));
+      },
+      bodyAppend: function bodyAppend(ln) {
+        return serverInjector.callInjectors(_objectSpread2(_objectSpread2({}, globalInjectOptions), {}, {
+          ln: ln,
+          body: true
+        }));
+      }
+    }
+  };
+
+  var _loop = function _loop(type) {
+    if (metaInfoOptionKeys.includes(type)) {
+      return "continue";
+    }
+
+    serverInjector.injectors[type] = {
+      text: function text(injectOptions) {
+        var addSsrAttribute = injectOptions === true;
+        injectOptions = _objectSpread2(_objectSpread2({
+          addSsrAttribute: addSsrAttribute
+        }, globalInjectOptions), injectOptions);
+
+        if (type === 'title') {
+          return titleGenerator(options, type, serverInjector.data[type], injectOptions);
+        }
+
+        if (metaInfoAttributeKeys.includes(type)) {
+          var attributeData = {};
+          var data = serverInjector.data[type];
+
+          if (data) {
+            var appId = injectOptions.isSSR === false ? '1' : options.ssrAppId;
+
+            for (var attr in data) {
+              attributeData[attr] = _defineProperty({}, appId, data[attr]);
+            }
+          }
+
+          if (serverInjector.extraData) {
+            for (var _appId in serverInjector.extraData) {
+              var _data = serverInjector.extraData[_appId][type];
+
+              if (_data) {
+                for (var _attr in _data) {
+                  attributeData[_attr] = _objectSpread2(_objectSpread2({}, attributeData[_attr]), {}, _defineProperty({}, _appId, _data[_attr]));
+                }
+              }
+            }
+          }
+
+          return attributeGenerator(options, type, attributeData, injectOptions);
+        }
+
+        var str = tagGenerator(options, type, serverInjector.data[type], injectOptions);
+
+        if (serverInjector.extraData) {
+          for (var _appId2 in serverInjector.extraData) {
+            var _data2 = serverInjector.extraData[_appId2][type];
+            var extraStr = tagGenerator(options, type, _data2, _objectSpread2({
+              appId: _appId2
+            }, injectOptions));
+            str = "".concat(str).concat(extraStr);
+          }
+        }
+
+        return str;
+      }
+    };
+  };
+
+  for (var type in defaultInfo) {
+    var _ret = _loop(type);
+
+    if (_ret === "continue") continue;
+  }
+
+  return serverInjector;
+}
+
+/**
+ * Converts the state of the meta info object such that each item
+ * can be compiled to a tag string on the server
+ *
+ * @vm {Object} - Vue instance - ideally the root component
+ * @return {Object} - server meta info with `toString` methods
+ */
+
+function inject(rootVm, options, injectOptions) {
+  // make sure vue-meta was initiated
+  if (!rootVm[rootConfigKey]) {
+    showWarningNotSupported();
+    return {};
+  } // collect & aggregate all metaInfo $options
+
+
+  var rawInfo = getComponentMetaInfo(options, rootVm);
+  var metaInfo = getMetaInfo(options, rawInfo, serverSequences, rootVm); // generate server injector
+
+  var serverInjector = generateServerInjector(options, metaInfo, injectOptions); // add meta info from additional apps
+
+  var appsMetaInfo = getAppsMetaInfo();
+
+  if (appsMetaInfo) {
+    for (var additionalAppId in appsMetaInfo) {
+      serverInjector.addInfo(additionalAppId, appsMetaInfo[additionalAppId]);
+      delete appsMetaInfo[additionalAppId];
+    }
+
+    clearAppsMetaInfo(true);
+  }
+
+  return serverInjector.injectors;
+}
+
+function $meta(options) {
+  options = options || {};
+  /**
+   * Returns an injector for server-side rendering.
+   * @this {Object} - the Vue instance (a root component)
+   * @return {Object} - injector
+   */
+
+  var $root = this.$root;
+  return {
+    getOptions: function getOptions$1() {
+      return getOptions(options);
+    },
+    setOptions: function setOptions(newOptions) {
+      var refreshNavKey = 'refreshOnceOnNavigation';
+
+      if (newOptions && newOptions[refreshNavKey]) {
+        options.refreshOnceOnNavigation = !!newOptions[refreshNavKey];
+        addNavGuards($root);
+      }
+
+      var debounceWaitKey = 'debounceWait';
+
+      if (newOptions && debounceWaitKey in newOptions) {
+        var debounceWait = parseInt(newOptions[debounceWaitKey]);
+
+        if (!isNaN(debounceWait)) {
+          options.debounceWait = debounceWait;
+        }
+      }
+
+      var waitOnDestroyedKey = 'waitOnDestroyed';
+
+      if (newOptions && waitOnDestroyedKey in newOptions) {
+        options.waitOnDestroyed = !!newOptions[waitOnDestroyedKey];
+      }
+    },
+    refresh: function refresh$1() {
+      return refresh($root, options);
+    },
+    inject: function inject$1(injectOptions) {
+      return  inject($root, options, injectOptions) ;
+    },
+    pause: function pause$1() {
+      return pause($root);
+    },
+    resume: function resume$1() {
+      return resume($root);
+    },
+    addApp: function addApp$1(appId) {
+      return addApp($root, appId, options);
+    }
+  };
+}
+
+function generate(rawInfo, options) {
+  options = setOptions(options);
+  var metaInfo = getMetaInfo(options, rawInfo, serverSequences);
+  var serverInjector = generateServerInjector(options, metaInfo);
+  return serverInjector.injectors;
+}
+
+/**
+ * Plugin install function.
+ * @param {Function} Vue - the Vue constructor.
+ */
+
+function install(Vue, options) {
+  if (Vue.__vuemeta_installed) {
+    return;
+  }
+
+  Vue.__vuemeta_installed = true;
+  options = setOptions(options);
+
+  Vue.prototype.$meta = function () {
+    return $meta.call(this, options);
+  };
+
+  Vue.mixin(createMixin(Vue, options));
+}
+
+var index = {
+  version: version,
+  install: install,
+  generate: function generate$1(metaInfo, options) {
+    return  generate(metaInfo, options) ;
+  },
+  hasMetaInfo: hasMetaInfo
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (index);
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/vue-meta/node_modules/deepmerge/dist/cjs.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/vue-meta/node_modules/deepmerge/dist/cjs.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isMergeableObject = function isMergeableObject(value) {
+	return isNonNullObject(value)
+		&& !isSpecial(value)
+};
+
+function isNonNullObject(value) {
+	return !!value && typeof value === 'object'
+}
+
+function isSpecial(value) {
+	var stringValue = Object.prototype.toString.call(value);
+
+	return stringValue === '[object RegExp]'
+		|| stringValue === '[object Date]'
+		|| isReactElement(value)
+}
+
+// see https://github.com/facebook/react/blob/b5ac963fb791d1298e7f396236383bc955f916c1/src/isomorphic/classic/element/ReactElement.js#L21-L25
+var canUseSymbol = typeof Symbol === 'function' && Symbol.for;
+var REACT_ELEMENT_TYPE = canUseSymbol ? Symbol.for('react.element') : 0xeac7;
+
+function isReactElement(value) {
+	return value.$$typeof === REACT_ELEMENT_TYPE
+}
+
+function emptyTarget(val) {
+	return Array.isArray(val) ? [] : {}
+}
+
+function cloneUnlessOtherwiseSpecified(value, options) {
+	return (options.clone !== false && options.isMergeableObject(value))
+		? deepmerge(emptyTarget(value), value, options)
+		: value
+}
+
+function defaultArrayMerge(target, source, options) {
+	return target.concat(source).map(function(element) {
+		return cloneUnlessOtherwiseSpecified(element, options)
+	})
+}
+
+function getMergeFunction(key, options) {
+	if (!options.customMerge) {
+		return deepmerge
+	}
+	var customMerge = options.customMerge(key);
+	return typeof customMerge === 'function' ? customMerge : deepmerge
+}
+
+function getEnumerableOwnPropertySymbols(target) {
+	return Object.getOwnPropertySymbols
+		? Object.getOwnPropertySymbols(target).filter(function(symbol) {
+			return target.propertyIsEnumerable(symbol)
+		})
+		: []
+}
+
+function getKeys(target) {
+	return Object.keys(target).concat(getEnumerableOwnPropertySymbols(target))
+}
+
+function propertyIsOnObject(object, property) {
+	try {
+		return property in object
+	} catch(_) {
+		return false
+	}
+}
+
+// Protects from prototype poisoning and unexpected merging up the prototype chain.
+function propertyIsUnsafe(target, key) {
+	return propertyIsOnObject(target, key) // Properties are safe to merge if they don't exist in the target yet,
+		&& !(Object.hasOwnProperty.call(target, key) // unsafe if they exist up the prototype chain,
+			&& Object.propertyIsEnumerable.call(target, key)) // and also unsafe if they're nonenumerable.
+}
+
+function mergeObject(target, source, options) {
+	var destination = {};
+	if (options.isMergeableObject(target)) {
+		getKeys(target).forEach(function(key) {
+			destination[key] = cloneUnlessOtherwiseSpecified(target[key], options);
+		});
+	}
+	getKeys(source).forEach(function(key) {
+		if (propertyIsUnsafe(target, key)) {
+			return
+		}
+
+		if (propertyIsOnObject(target, key) && options.isMergeableObject(source[key])) {
+			destination[key] = getMergeFunction(key, options)(target[key], source[key], options);
+		} else {
+			destination[key] = cloneUnlessOtherwiseSpecified(source[key], options);
+		}
+	});
+	return destination
+}
+
+function deepmerge(target, source, options) {
+	options = options || {};
+	options.arrayMerge = options.arrayMerge || defaultArrayMerge;
+	options.isMergeableObject = options.isMergeableObject || isMergeableObject;
+	// cloneUnlessOtherwiseSpecified is added to `options` so that custom arrayMerge()
+	// implementations can use it. The caller may not replace it.
+	options.cloneUnlessOtherwiseSpecified = cloneUnlessOtherwiseSpecified;
+
+	var sourceIsArray = Array.isArray(source);
+	var targetIsArray = Array.isArray(target);
+	var sourceAndTargetTypesMatch = sourceIsArray === targetIsArray;
+
+	if (!sourceAndTargetTypesMatch) {
+		return cloneUnlessOtherwiseSpecified(source, options)
+	} else if (sourceIsArray) {
+		return options.arrayMerge(target, source, options)
+	} else {
+		return mergeObject(target, source, options)
+	}
+}
+
+deepmerge.all = function deepmergeAll(array, options) {
+	if (!Array.isArray(array)) {
+		throw new Error('first argument should be an array')
+	}
+
+	return array.reduce(function(prev, next) {
+		return deepmerge(prev, next, options)
+	}, {})
+};
+
+var deepmerge_1 = deepmerge;
+
+module.exports = deepmerge_1;
 
 
 /***/ }),
@@ -101897,6 +103609,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
 /* harmony import */ var _store_EventBus__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./store/EventBus */ "./resources/js/store/EventBus.js");
 /* harmony import */ var vue_sweetalert2__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vue-sweetalert2 */ "./node_modules/vue-sweetalert2/dist/index.js");
+/* harmony import */ var vue_meta__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue-meta */ "./node_modules/vue-meta/dist/vue-meta.esm.js");
 
 
 
@@ -101908,6 +103621,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_meta__WEBPACK_IMPORTED_MODULE_11__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_10__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_4__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.prototype.$axios = axios__WEBPACK_IMPORTED_MODULE_3___default.a;

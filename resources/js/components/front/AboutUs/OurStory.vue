@@ -139,6 +139,14 @@
 </template>
 <script>
 export default {
-  name: "OurStory"
+  name: "OurStory",
+  metaInfo: {
+    title: 'About Us',
+    meta:[
+      { name: 'description', content: '@GoWithGBI Story On How GBI believes in its core values and implement the same  to make your educational travel program a successful one' },
+      { name: 'keywords', content: '@GoWithGBI,Our Story,about us,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs' },
+      { name: 'url', content: 'https://www.gowithgbi.com/about-us/our-story' },
+    ]
+  },
 };
 </script>

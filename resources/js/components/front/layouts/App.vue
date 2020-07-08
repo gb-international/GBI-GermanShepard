@@ -59,7 +59,7 @@
               @click="makeActive(3)"
               :class="{ nav_active : nav_active_el == 3 }"
             >
-              <router-link class="nav-link" :to="`https://gowithgbi.wordpress.com/`">GBI Travel Blog</router-link>
+              <a class="nav-link" href="https://gowithgbi.wordpress.com/" target="blank">GBI Travel Blog</a>
             </li>
             <li
               class="nav-item mr-10 dropdown"

@@ -19,5 +19,8 @@ class School extends Model
     {
     	return $this->hasMany('App\Model\Tour\Tour');
     }
+    public function informations(){
+        return $this->hasMany('App\Model\User\Information');
+    }
     
 }

@@ -27,16 +27,17 @@
     </div>
     <!-- user Edit form -->
     <div class="container">
-      <div class="row">
+
         <form role="form" enctype="multipart/form-data" @submit.prevent="updateUserData()">
-          <div class="row">
+
+        <div class="row">
+          
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="name">Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  name="name"
                   v-model="form.name"
                   :class="{ 'is-invalid': form.errors.has('name') }"
                   placeholder="Enter Name"
@@ -44,7 +45,7 @@
                 <has-error :form="form" field="name"></has-error>
               </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
               <div class="form-group">
                 <label for="genderId">Gender</label>
                 <br />
@@ -56,7 +57,6 @@
                       class="custom-control-input"
                       id="maleId"
                       value="male"
-                      name="gender"
                       v-model="form.gender"
                     />
                     <label class="custom-control-label" for="maleId">Male</label>
@@ -69,7 +69,6 @@
                       class="custom-control-input"
                       value="female"
                       id="femaleId"
-                      name="gender"
                       v-model="form.gender"
                     />
                     <label class="custom-control-label" for="femaleId">Female</label>
@@ -80,102 +79,61 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-5">
-              <!-- Radio buttons -->
-              <div class="form-group user_input_field">
-                <div>
-                  <label>User Type</label>
-                  <br />
-                  <br />
-                  <div class="custom-control custom-radio custom-control-inline student">
-                    <input
-                      type="radio"
-                      class="custom-control-input"
-                      id="student1"
-                      value="student"
-                      name="client_type"
-                      v-model="form.client_type"
-                      v-on:change="changeClientType('student')"
-                    />
-                    <label class="custom-control-label" for="student1">Education Institutions</label>
-                  </div>
-
-                  <!-- Default inline 2-->
-                  <div class="custom-control custom-radio custom-control-inline corporate">
-                    <input
-                      type="radio"
-                      class="custom-control-input"
-                      value="corporate"
-                      id="corporate1"
-                      name="client_type"
-                      v-model="form.client_type"
-                      v-on:change="changeClientType('corporate')"
-                    />
-                    <label class="custom-control-label" for="corporate1">Corporate</label>
-                  </div>
-                  <div class="custom-control custom-radio custom-control-inline other">
-                    <input
-                      type="radio"
-                      class="custom-control-input"
-                      value="other"
-                      id="other1"
-                      name="client_type"
-                      v-model="form.client_type"
-                      v-on:change="changeClientType('other')"
-                    />
-                    <label class="custom-control-label" for="other1">Other</label>
-                  </div>
-                </div>
-                <div class="error" v-if="form.errors.has('client_type')">
-                  <lable class="danger text-danger">{{ form.errors.get("client_type") }}</lable>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
             <div class="col-sm-4">
-              <!-- school name -->
-              <div class="form-group" v-if="this.client_input_box == '1'">
-                <label>School name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="form.client_input"
-                  :class="{ 'is-invalid': form.errors.has('client_input') }"
-                  placeholder="Enter School Name"
-                  name="client_input"
-                />
-                <has-error :form="form" field="client_input"></has-error>
-              </div>
-              <!-- school name -->
-              <div class="form-group" v-if="this.client_input_box == '2'">
-                <label>Corporate Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="form.client_input"
-                  :class="{ 'is-invalid': form.errors.has('client_input') }"
-                  placeholder="Enter Corporate Name"
-                  name="client_input"
-                />
-                <has-error :form="form" field="client_input"></has-error>
-              </div>
-
-              <!-- school name -->
-              <div class="form-group" v-if="this.client_input_box == '3'">
-                <label>Occupation Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="form.client_input"
-                  :class="{ 'is-invalid': form.errors.has('client_input') }"
-                  placeholder="Enter Your Occupation"
-                  name="client_input"
-                />
-                <has-error :form="form" field="client_input"></has-error>
+              <!-- Radio buttons -->
+              <div class="form-group">
+                <div>
+                  <label>User profession</label>
+                  <br />
+                  <select class="form-control" v-model="form.user_profession">
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher/Principal/Dean</option>
+                    <option value="corporate">Corporate</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="error" v-if="form.errors.has('user_profession')">
+                  <lable class="danger text-danger">{{ form.errors.get("user_profession") }}</lable>
+                </div>
               </div>
             </div>
+
+          
+            <div class="col-sm-4" v-if="school_field">
+              <div class="form-group">
+                <label>School name</label>
+                <select class="form-control" v-model="form.school_id">
+                  <option
+                    v-for="school in school_list"
+                    :value="school.id"
+                    :key="school.id"
+                  >{{ school.school_name }}</option>
+                </select>
+                <has-error :form="form" field="school_id"></has-error>
+              </div>
+            </div>
+
+            <div class="col-sm-4" v-if="namefield">
+              <div class="form-group">
+                  <label>{{ label_name }} Name</label>
+                  <input type="text" class="form-control" v-model="form.profession_name">
+              </div>
+            </div>
+
+            <div class="col-sm-4" v-if="addressfield">
+              <div class="form-group">
+                <label>Address</label>
+                <input type="text" class="form-control" v-model="form.profession_address">
+              </div>
+            </div> 
+                         
+            <div class="col-sm-4" v-if="form.institution_code">
+              <div class="form-group">
+                <label>Code</label>
+                <input type="text" class="form-control" v-model="form.institution_code">
+              </div>
+            </div> 
+
 
             <div class="col-sm-4">
               <div class="form-group">
@@ -183,7 +141,6 @@
                 <input
                   type="text"
                   class="form-control"
-                  name="name"
                   v-model="form.father_name"
                   :class="{ 'is-invalid': form.errors.has('father_name') }"
                   placeholder="Enter Name"
@@ -198,7 +155,6 @@
                 <input
                   type="text"
                   class="form-control"
-                  name="name"
                   v-model="form.mother_name"
                   :class="{ 'is-invalid': form.errors.has('mother_name') }"
                   placeholder="Enter mother Name"
@@ -206,9 +162,7 @@
                 <has-error :form="form" field="mother_name"></has-error>
               </div>
             </div>
-          </div>
 
-          <div class="row">
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="email">Email ID</label>
@@ -218,7 +172,6 @@
                   v-model="form.email"
                   :class="{ 'is-invalid': form.errors.has('email') }"
                   placeholder="Enter Email"
-                  name="email"
                 />
                 <has-error :form="form" field="email"></has-error>
               </div>
@@ -232,7 +185,6 @@
                   v-model="form.phone_no"
                   :class="{ 'is-invalid': form.errors.has('phone_no') }"
                   placeholder="Enter Phone No"
-                  name="phone_no"
                 />
                 <has-error :form="form" field="phone_no"></has-error>
               </div>
@@ -247,14 +199,11 @@
                   v-model="form.dob"
                   :class="{ 'is-invalid': form.errors.has('dob') }"
                   placeholder="Enter DOB"
-                  name="dob"
                 />
                 <has-error :form="form" field="dob"></has-error>
               </div>
             </div>
-          </div>
 
-          <div class="row">
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="address">Address</label>
@@ -264,7 +213,6 @@
                   v-model="form.address"
                   :class="{ 'is-invalid': form.errors.has('address') }"
                   placeholder="Enter Address"
-                  name="address"
                 />
                 <has-error :form="form" field="address"></has-error>
               </div>
@@ -278,7 +226,6 @@
                   v-model="form.city"
                   :class="{ 'is-invalid': form.errors.has('city') }"
                   placeholder="Enter City"
-                  name="city"
                 />
                 <has-error :form="form" field="city"></has-error>
               </div>
@@ -293,13 +240,11 @@
                   v-model="form.state"
                   :class="{ 'is-invalid': form.errors.has('state') }"
                   placeholder="Enter state"
-                  name="state"
                 />
                 <has-error :form="form" field="state"></has-error>
               </div>
             </div>
-          </div>
-          <div class="row">
+
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="country">Country</label>
@@ -309,7 +254,6 @@
                   v-model="form.country"
                   :class="{ 'is-invalid': form.errors.has('country') }"
                   placeholder="Enter country"
-                  name="address"
                 />
                 <has-error :form="form" field="country"></has-error>
               </div>
@@ -323,17 +267,17 @@
                   v-model="form.zip_code"
                   :class="{ 'is-invalid': form.errors.has('zip_code') }"
                   placeholder="Enter zip_code"
-                  name="zip_code"
                 />
                 <has-error :form="form" field="zip_code"></has-error>
               </div>
             </div>
-          </div>
-          <div class="form-group text-center">
-            <button type="submit" class="btn btn-primary profile_button">UPDATE</button>
-          </div>
+        </div>
+
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-primary profile_button">UPDATE</button>
+            </div>
         </form>
-      </div>
+
     </div>
   </div>
 </template>
@@ -356,6 +300,14 @@ export default {
       prncilIcon: true,
       userinfo: [],
       total: [],
+      school_list:'',
+
+      school_field:false,
+      namefield:false,
+      addressfield:false,
+      institutionfield:false,
+
+      label_name:'',
 
       form: new Form({
         name: "",
@@ -374,60 +326,94 @@ export default {
         dob: "",
         schoolName: "",
         client_type: "",
-        client_input: ""
+        client_input: "",
+        profession_name:"",
+        school_id:"",
+        profession_address:"",
+        user_profession:"",
+        institution_code:"",
+
       })
     };
   },
-  created() {
+  mounted() {
     if (localStorage.token == "") {
       this.$router.push("/");
     }
+    this.$axios.get("/api/school-list").then(response => {
+      this.school_list = response.data;
+    });
 
     var data = [];
-    this.$axios
-      .post("/api/user-show", data, {
-        headers: {
-          Authorization: `Bearer ${localStorage.token}`
-        }
+    this.$axios.post("/api/user-show", data, {
+        headers: { Authorization: `Bearer ${localStorage.token}` }
       })
       .then(response => {
-        this.form.name = response.data.success.name;
-        this.form.gender = response.data.success.information["gender"];
-        this.form.email = response.data.success.email;
-        this.form.phone_no = response.data.success.information["phone_no"];
-        this.form.father_name =
-          response.data.success.information["father_name"];
-        this.form.mother_name = response.data.success.information["mother"];
-        this.form.city = response.data.success.information["city"];
-        this.form.state = response.data.success.information["state"];
-        this.form.country = response.data.success.information["country"];
-        this.form.zip_code = response.data.success.information["zip_code"];
-        this.form.user_class = response.data.success.information["user_class"];
-        this.form.admission_year =
-          response.data.success.information["admission_year"];
-        this.form.address = response.data.success.information["address"];
-        this.form.dob = response.data.success.information["dob"];
-        this.form.schoolName = response.data.success.information["schoolName"];
-        this.form.client_type =
-          response.data.success.information["client_type"];
-        this.form.client_input =
-          response.data.success.information["client_input"];
-        this.form.image = response.data.success.information["photo"];
+        var list = response.data.success;
+        this.form.name = list.name;
+        this.form.gender = list.information["gender"];
+        this.form.email = list.email;
+        this.form.phone_no = list.information["phone_no"];
+        this.form.father_name = list.information["father_name"];
+        this.form.mother_name = list.information["mother"];
+        this.form.city = list.information["city"];
+        this.form.state = list.information["state"];
+        this.form.country = list.information["country"];
+        this.form.zip_code = list.information["zip_code"];
+        this.form.user_class = list.information["user_class"];
+        this.form.admission_year = list.information["admission_year"];
+        this.form.address = list.information["address"];
+        this.form.dob = list.information["dob"];
+        this.form.schoolName = list.information["schoolName"];
+        this.form.user_profession = list.information["user_profession"];
+        this.form.profession_name = list.information["profession_name"];
+        this.form.profession_address = list.information["profession_address"];
+        this.form.institution_code = list.information["institution_code"];
+        this.form.image = list.information["photo"];
         this.image = this.form.image;
 
-        var type = this.form.client_type;
-        if (type == "student") {
+        var type = this.form.user_profession;
+        if((type == "student") || (type=="teacher")) {
           this.client_input_box = "1";
+          this.form.school_id =
+          list.information.school_id;
         } else if (type == "corporate") {
           this.client_input_box = "2";
         } else {
           this.client_input_box = "3";
         }
       })
-      .catch(error => {
-        this.handleError(error);
-      });
+      .catch(error => { this.handleError(error); });
   },
+
+   watch:{
+    institution:function(){
+      if(this.form.user_profession == 'other'){
+        this.namefield = true;
+        this.addressfield = true;
+        this.label_name = 'Educational Institution'
+      }else{
+        this.namefield = false;
+        this.addressfield = false;
+      }
+    },
+    'form.user_profession':function(){
+      this.namefield = false;
+      this.addressfield = false;
+      this.school_field = false;
+      if(this.form.user_profession == 'corporate'){
+        this.namefield = true;
+        this.addressfield = true;
+        this.label_name = 'Corporate'
+      }else if(this.form.user_profession == 'other'){
+        this.namefield = true;
+        this.label_name = "Occupation";
+      }else{
+        this.school_field = true;
+      }
+    }
+  },
+
   methods: {
     onDrop: function(e) {
       e.stopPropagation();
@@ -473,32 +459,17 @@ export default {
     removeFile() {
       this.image = "";
     },
-    // change radio button statement
-    changeClientType: function(e) {
-      if (e == "student") {
-        this.client_input_box = "1";
-      }
-      if (e == "corporate") {
-        this.client_input_box = "2";
-      }
-      if (e == "other") {
-        this.client_input_box = "3";
-      }
-    },
+
     /// Update the user information
     updateUserData() {
       var data = this.form;
       this.$axios
         .post("/api/user-update", data, {
-          headers: {
-            Authorization: `Bearer ${localStorage.token}`
-          }
+          headers: { Authorization: `Bearer ${localStorage.token}` }
         })
         .then(response => {
-          this.$swal.fire({
-            icon: "success",
-            title: "Profile updated!!"
-          });
+          console.log(response);
+          this.$swal.fire({ icon: "success", title: "Profile updated!!" });
         })
         .catch(error => {
           this.handleError(error);

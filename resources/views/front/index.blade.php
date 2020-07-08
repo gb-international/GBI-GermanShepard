@@ -40,14 +40,8 @@
     <meta property="og:description" content="GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.gowithgbi.com/assets/front/images/banner2.jpg">
-
-    <meta itemprop="name">
-    <meta property="og:title">
-    <meta name="twitter:title">
-    <meta name="description"/>
-    <meta itemprop="description">
-    <meta property="og:description">
-    <meta name="twitter:description">
+     <title>Home page</title>
+     <description></description>
     <style type="text/css">
       body { padding-right: 0 !important }
     </style>

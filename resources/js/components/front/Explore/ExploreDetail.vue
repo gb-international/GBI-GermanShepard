@@ -4,15 +4,6 @@
       ****************************************************-->
   
   <div id="explorelist">
-    <!-- <vue-headful
-      title="GBI Explore Destination"
-      description="@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button"
-      keywords="@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs"
-      image
-      lang="en_US"
-      ogLocale="en_US,en_UK"
-      url="https://www.gowithgbi.com/resources/explore-destination"
-    /> -->
     <section class="banner-block">
       <img
         class="top-img"
@@ -43,6 +34,14 @@
 <script>
 export default {
   name: "ExploreDetail",
+  metaInfo: {
+    title: 'GBI Explore Destination',
+    meta:[
+      { name: 'description', content: '@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button' },
+      { name: 'keywords', content: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs' },
+      { name: 'url', content: 'https://www.gowithgbi.com/resources/explore-destination' },
+    ]
+  },
   data() {
     return {
       day: 0,

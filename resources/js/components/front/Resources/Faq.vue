@@ -3,15 +3,6 @@
       Author:@Ajay
       ****************************************************-->
   <div id="faq">
-    <!-- <vue-headful
-      title="GBI Frequently Asked Question"
-      description="@GoWithGBI helps you answer all your queries  regarding your travel program by just one click of a button"
-      keywords="@GoWithGBI,have a question,search for your answer,FAQ,Travel bookings queries,customer service,support helpdesk"
-      image
-      lang="en_US"
-      ogLocale="en_US,en_UK"
-      url="https://www.gowithgbi.com/resources/faq"
-    /> -->
 
     <div class="faq_banner text_on_image banner_bg explore_bg_img">
       <div class="content">
@@ -222,6 +213,14 @@
 
 <script>
 export default {
-  name: "Faq"
+  name: "Faq",
+   metaInfo: {
+    title: 'GBI Frequently Asked Question',
+    meta:[
+      { name: 'description', content: '@GoWithGBI helps you answer all your queries  regarding your travel program by just one click of a button' },
+      { name: 'keywords', content: '@GoWithGBI,have a question,search for your answer,FAQ,Travel bookings queries,customer service,support helpdesk' },
+      { name: 'url', content: 'https://www.gowithgbi.com/resources/faq' },
+    ]
+  },
 };
 </script>

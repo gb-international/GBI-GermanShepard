@@ -11,6 +11,7 @@ use App\User;
 use App\Model\User\Information;
 use App\Model\Tour\TourUser;
 use App\Model\Tour\Tour;
+use App\Model\School\School;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use DB;
@@ -64,8 +65,7 @@ class UserController extends Controller{
         $more  = new Information();
         $more->user_id = $user->id;
         $more->gbi_link = $request->gbi_link;
-        $more->client_type = $request->client_type;// Client type
-        $more->client_input = $request->client_input; // client input
+
         $more->phone_no = $request->phone_no;
         $more->otp = $request->otp;
         $more->varified = '1';
@@ -107,8 +107,11 @@ class UserController extends Controller{
         $information = Information::where('user_id',$user->id)->firstOrFail();
 
         $information->gbi_link = $request->gbi_link;
-        $information->client_type = $request->client_type;
-        $information->client_input = $request->client_input;
+        $information->user_profession = $request->user_profession;
+        $information->school_id = $request->school_id;
+        $information->profession_name = $request->profession_name;
+        $information->profession_address = $request->profession_address;
+        $information->institution_code = $request->institution_code;
         $information->phone_no = $request->phone_no;
         $information->father_name = $request->father_name;
         $information->mother_name = $request->mother_name;
@@ -167,12 +170,25 @@ class UserController extends Controller{
     public function infoUpdate(Request $request){
         $user = Auth::user();
         $user->status = 1;
-
         $information = Information::where('user_id', $user->id)->first();
-
         $information->user_profession = $request->user_profession;
         $information->school_id = $request->school_id;
+        $information->profession_name = $request->profession_name;
+        $information->profession_address = $request->profession_address;
+
+        if($request->school_id == 'other'){
+            $this->validate($request,[
+                'profession_name'=>'required|unique:schools,school_name',
+                'profession_address' => 'required'
+            ]);
+            $data = ['school_name'=>$request->profession_name,'address'=>$request->profession_address];
+            $school = School::create($data);
+            $information->school_id = $school->id;
+        }
         $information->institution_code = $request->institution_code;
+        
+
+        $information->save();
         $user->save();
         return response()->json('success');
     }

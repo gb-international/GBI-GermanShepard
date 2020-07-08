@@ -10,8 +10,10 @@ import { filter } from "./filter";
 import storeData from "./store/index";
 import EventBus from './store/EventBus';
 import VueSweetalert2 from 'vue-sweetalert2';
+import VueMeta from 'vue-meta'
 
 
+Vue.use(VueMeta)
 Vue.use(VueSweetalert2);
 Vue.use(Vuex);
 Vue.prototype.$axios = axios

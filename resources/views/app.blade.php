@@ -23,14 +23,6 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.gowithgbi.com/assets/front/images/banner2.jpg">
 
-    <meta itemprop="name">
-    <meta property="og:title">
-    <meta name="twitter:title">
-    <meta name="description"/>
-    <meta itemprop="description">
-    <meta property="og:description">
-    <meta name="twitter:description">
-
     
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

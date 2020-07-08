@@ -41,104 +41,6 @@
         />
         <has-error :form="registerForm" field="email"></has-error>
       </div>
-      <!-- Radio buttons -->
-      <div class="form-group user_input_field">
-        <div>
-          <div class="custom-control custom-radio custom-control-inline student">
-            <input
-              type="radio"
-              class="custom-control-input"
-              id="student"
-              value="student"
-              name="client_type"
-              v-model="registerForm.client_type"
-              v-on:change="changeClientType('student')"
-            />
-            <label class="custom-control-label" for="student">Education Institutions</label>
-          </div>
-
-          <!-- Default inline 2-->
-          <div class="custom-control custom-radio custom-control-inline corporate">
-            <input
-              type="radio"
-              class="custom-control-input"
-              value="corporate"
-              id="corporate"
-              name="client_type"
-              v-model="registerForm.client_type"
-              v-on:change="changeClientType('corporate')"
-            />
-            <label class="custom-control-label" for="corporate">Corporate</label>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline other">
-            <input
-              type="radio"
-              class="custom-control-input"
-              value="other"
-              id="other"
-              name="client_type"
-              v-model="registerForm.client_type"
-              v-on:change="changeClientType('other')"
-            />
-            <label class="custom-control-label" for="other">Other</label>
-          </div>
-        </div>
-        <div class="error" v-if="registerForm.errors.has('client_type')">
-          <lable class="danger text-danger">{{ registerForm.errors.get("client_type") }}</lable>
-        </div>
-      </div>
-      <!-- school name -->
-      <div class="input-group mb-1" v-if="this.client_input_box == '1'">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <i class="fas fa-link"></i>
-          </span>
-        </div>
-        <input
-          type="text"
-          class="form-control"
-          v-model="registerForm.client_input"
-          :class="{ 'is-invalid': registerForm.errors.has('client_input') }"
-          placeholder="Enter School Name"
-          name="client_input"
-        />
-        <has-error :form="registerForm" field="client_input"></has-error>
-      </div>
-      <!-- school name -->
-      <div class="input-group mb-1" v-if="this.client_input_box == '2'">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <i class="fas fa-link"></i>
-          </span>
-        </div>
-        <input
-          type="text"
-          class="form-control"
-          v-model="registerForm.client_input"
-          :class="{ 'is-invalid': registerForm.errors.has('client_input') }"
-          placeholder="Enter Corporate Name"
-          name="client_input"
-        />
-        <has-error :form="registerForm" field="client_input"></has-error>
-      </div>
-
-      <!-- school name -->
-      <div class="input-group mb-1" v-if="this.client_input_box == '3'">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <i class="fas fa-link"></i>
-          </span>
-        </div>
-        <input
-          type="text"
-          class="form-control"
-          v-model="registerForm.other_name"
-          :class="{ 'is-invalid': registerForm.errors.has('client_input') }"
-          placeholder="Enter Your Occupation"
-          name="other_name"
-        />
-        <has-error :form="registerForm" field="client_input"></has-error>
-      </div>
 
       <div class="input_with_button" v-if="otp_button">
         <div class="input-group mb-1">
@@ -259,8 +161,6 @@ export default {
         name: "",
         email: "",
         gbi_link: "https://www.gowithgbi.com/",
-        client_type: "",
-        client_input: "",
         phone_no: "",
         otp: "",
         password: "",
@@ -270,7 +170,6 @@ export default {
       otp_button: 1,
       verify_button: 0,
       otp_verify: 0,
-      client_input_box: "",
       otp_id: "",
       interval: null,
       running_time: 0,
@@ -382,18 +281,6 @@ export default {
       }
     },
     // *******************************************************************************
-    // change radio button statement
-    changeClientType: function(e) {
-      if (e == "student") {
-        this.client_input_box = "1";
-      }
-      if (e == "corporate") {
-        this.client_input_box = "2";
-      }
-      if (e == "other") {
-        this.client_input_box = "3";
-      }
-    },
     // Register user
     // ******************************************
     registerUser() {

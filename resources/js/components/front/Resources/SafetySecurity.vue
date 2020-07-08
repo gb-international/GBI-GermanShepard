@@ -3,16 +3,6 @@
       Author:@Ajay
       ****************************************************-->
   <div id="safetysecurity">
-    <!-- <vue-headful
-      title="Safety and Security"
-      description="@GoWithGBI aims to provide complete safety of its travellers during the education programs,GBI team members assuers the safety of passengers and is known for it "
-      keywords="@GoWithGBI,travel safety tips,our security policies,GBI strict policies,GBI terms and conditions,safe travel"
-      image
-      lang="en_US"
-      ogLocale="en_US,en_UK"
-      url="https://www.gowithgbi.com/about-us/safety-security"
-    /> -->
-
     <div class="safety_banner text_on_image banner_bg">
       <div class="content">
         <p class="heading">SAFETY & SECURITY</p>
@@ -53,6 +43,14 @@
 
 <script>
 export default {
-  name: "SafetySecurity"
+  name: "SafetySecurity",
+   metaInfo: {
+    title: 'Safety and Security',
+    meta:[
+      { name: 'description', content: '@GoWithGBI aims to provide complete safety of its travellers during the education programs,GBI team members assuers the safety of passengers and is known for it' },
+      { name: 'keywords', content: '@GoWithGBI,travel safety tips,our security policies,GBI strict policies,GBI terms and conditions,safe travel' },
+      { name: 'url', content: 'https://www.gowithgbi.com/about-us/safety-security' },
+    ]
+  },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
-      <!--************************************************
+  <!--************************************************
       Author:@Ajay
-      ****************************************************-->
+  ****************************************************-->
   <div id="fronthome">
     <div class="slidehome">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -50,7 +50,6 @@
     </div>
 
     <div class="container">
-
       <div class="card-titles">
         <h1>Our Travel Programs</h1>
         <h4>Immerge in a Riveting Journey</h4>
@@ -103,6 +102,18 @@ export default {
       video_path: "video/video.mp4"
     };
   },
+  metaInfo: {
+    title: 'GB-International',
+    meta:[
+      { property: 'og:description', content: 'GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.' },
+      { property: 'og:title', content: 'G.B International is a travel educational specialist for young minds.' },
+      { property: 'og:image', content: 'https://www.gowithgbi.com/assets/front/images/banner2.jpg' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:site_name', content: 'gowithgbi.com' },
+      { property: 'og:url', content: 'https://www.gowithgbi.com' },
+    ]
+  },
+  
   created() {
     this.TravelPorgrams();
   },

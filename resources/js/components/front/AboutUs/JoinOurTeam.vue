@@ -4,16 +4,6 @@
       ****************************************************-->
       
   <div id="joinOurteam">
-    <!-- <vue-headful
-      title="Join Our Team"
-      description="@GoWithGBI Lets travel together and make the world a better place .Join our brilliant minds "
-      keywords="@GoWithGBI,join our team,explore Your career with GBI,exciting journey,research oriented process,challenges,explore your travel instinct,discover ,travel passion,learn,explore,discover"
-      image
-      lang="en_US"
-      ogLocale="en_US,en_UK"
-      url="https://www.gowithgbi.com/about-us/join-our-team"
-    /> -->
-
     <div class="career_banner text_on_image banner_bg">
       <div class="content">
         <p class="heading">JOIN OUR TEAM</p>
@@ -198,6 +188,14 @@
 import { Form, HasError } from "vform";
 export default {
   name: "JoinOurTeam",
+  metaInfo: {
+    title: 'Join Our Team',
+    meta:[
+      { name: 'description', content: '@GoWithGBI Lets travel together and make the world a better place .Join our brilliant minds' },
+      { name: 'keywords', content: '@GoWithGBI,join our team,explore Your career with GBI,exciting journey,research oriented process,challenges,explore your travel instinct,discover ,travel passion,learn,explore,discover' },
+      { name: 'url', content: 'https://www.gowithgbi.com/about-us/join-our-team' },
+    ]
+  },
   components: {
     HasError
   },

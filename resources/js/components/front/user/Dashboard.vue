@@ -20,9 +20,9 @@
             </figure>
           </div>
           <div class="col-lg-10">
-            <div class="username">
+            <div class="username text-left">
               <h3>{{ userinfo.name }}</h3>
-              <p>{{ userinfo.information['state'] }} {{ userinfo.information['country'] }}</p>
+              <p>{{ userinfo.information['city'] }}, {{ userinfo.information['country'] }}</p>
             </div>
             <div class="row">
               <div class="col-lg-5">
@@ -235,13 +235,10 @@ export default {
       valid:false
     };
   },
-  created() {
+  mounted() {
     this.checkLogin();
     this.userData();
     this.upComingData();
-  },
-  mounted() {
-    // this.checkLogin();
   },
   methods: {
     checkLogin() {
