@@ -23,7 +23,9 @@
 .p-0{ padding: 0px;}
 .p-20{ padding: 20px; }
 .p-t-15{ padding-top: 15px; }
+.pt-20{ padding-top: 20px; }
 .pb-50{ padding-bottom: 50px;}
+.pb-15{ padding-bottom: 15px;}
 .m-60{ margin-top:60px; }
 
 .h-45{ height: 45px !important; }
@@ -93,3 +95,40 @@ a{
 			transform: rotate(360deg)
 	}
 }
+
+
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.profile_button{
+	background: $primary;
+	color: white;
+    border: none;
+    padding: 11px 70px;
+	font-weight: 600;
+	font-size: 14px;
+	border-radius: 0px;
+    margin: 25px 0px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+        &:hover{
+			background-color: #959595 !important;
+			color: white;
+        }
+}
+

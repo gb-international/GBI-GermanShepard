@@ -112,6 +112,7 @@ Route::namespace('Front')->group(function(){
 		Route::post('/user-show', 'UserController@show');
 		Route::post('/user-info-update', 'UserController@infoUpdate');
 		Route::post('/user-update','UserController@update');
+		Route::post('/update-password','UserController@UpdatePassword');
 		Route::post('/update-user-image','UserController@UserImage');
 		Route::post('/tour-list', 'UserController@tourList');
 		Route::post('/tour-travel-save', 'UserController@tourListSave');

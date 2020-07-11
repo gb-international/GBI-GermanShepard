@@ -3054,10 +3054,6 @@ input[type="submit"]:hover {
   color: #000;
 }
 
-.form-fullwidth textarea {
-  height: 200px;
-}
-
 /* Style inputs, select elements and textareas */
 
 input[type=text],
@@ -3070,6 +3066,7 @@ textarea {
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
+  border-radius: 0px;
 }
 
 input[type='text'],
@@ -3168,6 +3165,10 @@ input[type=submit] {
   position: relative;
 }
 
+.join-team {
+  height: auto;
+}
+
 /*responsive css form */
 
 @media screen and (max-width: 320px) {
@@ -3184,7 +3185,6 @@ input[type=submit] {
 
   .join-team {
     width: 100%;
-    height: 685px;
     margin: 0 auto;
     border-radius: 5px;
     background-color: #c3e2f5bd;
@@ -3215,7 +3215,6 @@ input[type=submit] {
 
   .join-team {
     width: 100%;
-    height: 685px;
     margin: 0 auto;
     border-radius: 5px;
     background-color: #c3e2f5bd;
@@ -3246,7 +3245,6 @@ input[type=submit] {
 
   .join-team {
     width: 100%;
-    height: 820px !important;
     margin: 0 auto;
     border-radius: 5px;
     background-color: #c3e2f5bd;
@@ -3308,7 +3306,6 @@ input[type=submit] {
 
   .join-team {
     width: 100%;
-    height: 800px;
     margin: 0 auto;
     border-radius: 5px;
     background-color: #c3e2f5bd;
@@ -3339,7 +3336,6 @@ input[type=submit] {
 
   .join-team {
     width: 100%;
-    height: 700px;
     margin: 0 auto;
     border-radius: 5px;
     background-color: #c3e2f5bd;
@@ -4891,6 +4887,12 @@ article {
   height: 100%;
 }
 
+@media screen and (max-width: 767px) {
+  #footer {
+    display: none !important;
+  }
+}
+
 .content {
   width: 100%;
   padding: 2px;
@@ -5317,15 +5319,6 @@ article {
     width: 100%;
     margin-top: 8px;
     margin-bottom: 0px;
-  }
-
-  /*footer*/
-
-  #footer {
-    background-color: #1c1650;
-    display: inline;
-    float: left;
-    width: 100%;
   }
 
   .footer-top {
@@ -6060,6 +6053,17 @@ article {
 
 .mt-20 {
   margin-top: 20px;
+}
+
+.book_btn {
+  padding: 9px 28px !important;
+  margin: 0px !important;
+}
+
+.modal-color {
+  background-color: #fbfbfb;
+  border-radius: 0px;
+  border: 0px;
 }
 
 #explore_detail_part .col-sm-4 {
@@ -7010,7 +7014,6 @@ a:hover {
 .user_dashboard_profile .user_edit,
 .user_dashboard_profile .logout {
   float: right;
-  font-size: 20px;
   color: white;
 }
 
@@ -7019,6 +7022,7 @@ a:hover {
   border: 1px solid;
   padding: 0px 10px;
   border-radius: 16px;
+  font-size: 20px;
   font-size: 15px;
 }
 
@@ -7243,7 +7247,7 @@ a:hover {
 }
 
 #dashboard_body .title_section {
-  padding: 20px 19px;
+  padding: 0px 19px;
 }
 
 #dashboard_body .title_section a {
@@ -7683,78 +7687,63 @@ a:hover {
   }
 }
 
-.profile_button {
-  background: #3490dc !important;
-  color: white !important;
-  border: none !important;
-  padding: 11px 70px !important;
-  font-weight: 600 !important;
-  font-size: 14px;
-  border-radius: 0px;
-  margin: 25px 0px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-}
-
-.profile_button:hover {
-  background-color: #959595 !important;
-}
-
-#user_edit_form .user_edit_image {
+.grey-form .user_edit_image {
   margin: auto;
 }
 
-#user_edit_form form {
+.grey-form form {
   width: 100%;
 }
 
-#user_edit_form form label {
+.grey-form form label {
   color: #999999;
 }
 
-#user_edit_form form input,
-#user_edit_form form select {
+.grey-form form input,
+.grey-form form select {
   color: #333333;
   font-weight: 500;
   background: #e1e1e1;
   height: 45px;
   border-radius: 0px;
+  border: 0px;
 }
 
-#user_edit_form form input {
+.grey-form form input {
   border: none;
   font-size: 16px;
 }
 
-#user_edit_form form input ::-moz-placeholder {
+.grey-form form input ::-moz-placeholder {
   color: #b2b2b2;
   opacity: 1;
   /* Firefox */
 }
 
-#user_edit_form form input :-ms-input-placeholder {
+.grey-form form input :-ms-input-placeholder {
   color: #b2b2b2;
   opacity: 1;
   /* Firefox */
 }
 
-#user_edit_form form input ::-ms-input-placeholder {
+.grey-form form input ::-ms-input-placeholder {
   color: #b2b2b2;
   opacity: 1;
   /* Firefox */
 }
 
-#user_edit_form form input ::placeholder {
+.grey-form form input ::placeholder {
   color: #b2b2b2;
   opacity: 1;
   /* Firefox */
 }
 
-#user_edit_form form input :-ms-input-placeholder {
+.grey-form form input :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #b2b2b2;
 }
 
-#user_edit_form form input ::-ms-input-placeholder {
+.grey-form form input ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: #b2b2b2;
 }
@@ -8012,8 +8001,16 @@ a:hover {
   padding-top: 15px;
 }
 
+.pt-20 {
+  padding-top: 20px;
+}
+
 .pb-50 {
   padding-bottom: 50px;
+}
+
+.pb-15 {
+  padding-bottom: 15px;
 }
 
 .m-60 {
@@ -8125,6 +8122,42 @@ a:hover {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.modal {
+  text-align: center;
+  padding: 0 !important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.profile_button {
+  background: #3490dc;
+  color: white;
+  border: none;
+  padding: 11px 70px;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 0px;
+  margin: 25px 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.profile_button:hover {
+  background-color: #959595 !important;
+  color: white;
 }
 
 .banner_img {
@@ -8409,6 +8442,7 @@ a:hover {
 #app {
   width: 100%;
   overflow: hidden;
+  background: #fbfbfb;
 }
 
 .navbar-laravel {

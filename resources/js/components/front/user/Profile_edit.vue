@@ -2,7 +2,7 @@
       <!--************************************************
       Author:@Ajay
       ****************************************************-->
-  <div id="user_edit_form">
+  <div id="user_edit_form" class="grey-form">
     <div class="text-center">
       <div class="avatar-upload user_edit_image">
         <form role="form" enctype="multipart/form-data">
@@ -462,9 +462,7 @@ export default {
 
     /// Update the user information
     updateUserData() {
-      var data = this.form;
-      this.$axios
-        .post("/api/user-update", data, {
+      this.form.post("/api/user-update",{
           headers: { Authorization: `Bearer ${localStorage.token}` }
         })
         .then(response => {

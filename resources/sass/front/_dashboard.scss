@@ -4,14 +4,15 @@
 	color: white;
 	.user_edit,.logout{
 		float: right;
-		font-size: 20px;
 		color: white;
 	}
+
 	.logout{
 		text-decoration: none;
 	    border: 1px solid;
 	    padding: 0px 10px;
-	    border-radius: 16px;
+		border-radius: 16px;
+		font-size: 20px;
 	    font-size: 15px;
 	}
 	.image{
@@ -225,7 +226,7 @@
 
 #dashboard_body{
 	.title_section{
-		padding: 20px 19px;
+		padding: 0px 19px;
 		a{
 			float: right;
 			color: grey;

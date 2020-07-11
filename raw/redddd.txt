@@ -139,36 +139,15 @@ hotel information show ( api )
 if user is registered with front_end:
   how to filter booked tour of the user
 
+---------------------------------------------------------------------
 
 
+https://www.businesssms.co.in/smsaspx?Id=csrikhi@gbinternational.in&Pwd=Roger224225g32%40&PhNo=+918920397458&text=8664+is+your+OTP+for+GBInternational.+Do+not+share+this+OTP+with+anyone
 
 
+rotate phone icon ( )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-------------------------------------------
 
 Login/Register
 Targeted Audiences:
@@ -177,31 +156,31 @@ Targeted Audiences:
    :Travelers
 Register
      as Educational Institutional
-                   On Sign Up
-                     Ask user his first Name /Last Name
-                     Email Id:
-                     Password:Retype Password with password regex validation
-                     Phone Number Validation: for security
-                     Submit(On submit send account  verification email for validation )-verify and show the link to login page
+        On Sign Up
+          Ask user his first Name /Last Name
+          Email Id:
+          Password:Retype Password with password regex validation
+          Phone Number Validation: for security
+          Submit(On submit send account  verification email for validation )-verify and show the link to login page
       as Corporates
-                  On Sign Up
-                     Ask user his first Name /Last Name
-                     Email Id:
-                     Password:Retype Password with password regex validation
-                     Phone Number Validation: for security
-                     Submit(On submit send account  verification email for validation ) verify and show the link to login page
+          On Sign Up
+              Ask user his first Name /Last Name
+              Email Id:
+              Password:Retype Password with password regex validation
+              Phone Number Validation: for security
+              Submit(On submit send account  verification email for validation ) verify and show the link to login page
 
 
 
 
-      -Modal PopUp
-             Show a Select Drop Down:Select Your Profession
-                                    option 1:Student(if selected)
-                                       Select your educational Institution
-                                        Enter your School/College ID:
-                                    option2 :Teacher/Principal/Dean
-                                       Select your educational institution
-                                         Enter your affiliation number ( school ke sath )
+-Modal PopUp
+        Show a Select Drop Down:Select Your Profession
+          option 1:Student(if selected)
+              Select your educational Institution
+              Enter your School/College ID:
+          option2 :Teacher/Principal/Dean
+              Select your educational institution
+                Enter your affiliation number ( school ke sath )
 
          
 On submit of both the cases
@@ -219,7 +198,7 @@ On submit of both the cases
 
         or 
         - Plan your  Journey
-                 -open explore destination and ask them to search and give them option of                                       booking button(if booking button is clicked  open a form to get the information filled by user on customization requirements)
+              -open explore destination and ask them to search and give them option of                                       booking button(if booking button is clicked  open a form to get the information filled by user on customization requirements)
 
 card 2. GBI Travel Magazine
 card 3. GBI  Travel Blogs
@@ -235,13 +214,6 @@ Show the current booking card
           On generation of travel code ask the school to share the code to students
           and add the same to their travel planner
                 
-
-
-
-SEO----
-  . Mobile 
-      . 
-
 =====================================================================================
 
 
@@ -265,39 +237,3 @@ design same ( student and teacher)
   Explore your travel Skills
   Travel History
 
-----------
-Information Table
-  add these columns
-    user_profession
-    school_id
-    institution_code
-
-    make form in vuejs add those variables in those form and submit post request to laravel.
-    
-
-
-
-
-
-
-create a different table for student add it also in tour section
-    ( create a new column in users tabel travel_id )
-          -> user_id, tour_code 
-
-  . user will fill tour code on dashboard ( booked tour par click krne pr pop up will ask travelcode )
-
-
-
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-
-add column image in hotel
-show hotel
-show icons to user dashboard.
-
-
-----------------------------------------------------------------------------
-
-Source code ki need nhi h as per discussion on 05-06-20
-
-
---------------------------------------------------------------------------

@@ -5,9 +5,17 @@
   <div v-if="valid">
     <div class="user_dashboard_profile">
       <div class="container">
-        <router-link :to="`/profile-edit`" class="user_edit">
-          <i class="fas fa-user-edit"></i>
-        </router-link>
+        <div class="text-right">
+          <router-link :to="`/profile-edit`" class="user_edit">
+            <i class="fas fa-user-edit"></i>
+          </router-link><br>
+          
+          <router-link :to="`/update-password`" class="user_edit">
+            <i class="fas fa-cog"></i></i>
+          </router-link>
+
+        </div>
+
         <div class="row" v-if="userinfo.information">
           <div class="col-lg-2 text-center image">
             <figure v-lazyload class="image__wrapper">
@@ -22,20 +30,19 @@
           <div class="col-lg-10">
             <div class="username text-left">
               <h3>{{ userinfo.name }}</h3>
-              <p>{{ userinfo.information['city'] }}, {{ userinfo.information['country'] }}</p>
+              <p>{{ userinfo.information['city'] }} {{ userinfo.information['country'] }}</p>
             </div>
-            <div class="row">
+            <div class="row text-left">
               <div class="col-lg-5">
                 <div class="userinfo">
                   <div class="userinfoFirst">
-                    <p v-if="userinfo.information['client_type'] =='student'">School Name</p>
-                    <p v-else-if="userinfo.information['client_type'] =='corporate'">Corporate Name</p>
-                    <p v-else>Occupation Name</p>
-                    <p class="bottom_text">{{ userinfo.information['client_input'] }}</p>
+                    <p v-if="userinfo.information['father_name']">Father Name</p>
+
+                    <p class="bottom_text">{{ userinfo.information.father_name }}</p>
                   </div>
                   <div class="userinfoSecond">
                     <p>User Type</p>
-                    <p class="bottom_text">{{ userinfo.information['client_type'] }}</p>
+                    <p class="bottom_text">{{ userinfo.information['user_profession'] }}</p>
                   </div>
                 </div>
               </div>

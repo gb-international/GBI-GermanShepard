@@ -17,6 +17,8 @@ use Validator;
 use DB;
 use Image;
 use GuzzleHttp\Client;
+use App\Rules\MatchOldPassword;
+use Illuminate\Support\Facades\Hash;
 
 
 
@@ -218,7 +220,14 @@ class UserController extends Controller{
         return response()->json(['success'=>"success"]);   
     }
 
-    public function userInfo(){
-        
+    public function UpdatePassword(Request $request){
+        $user = Auth::user();
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword($user)],
+            'new_password' => ['required'],
+            'confirm_password' => ['same:new_password'],
+        ]);
+        $user->update(['password'=> Hash::make($request->new_password)]);   
+        return response()->json('Password change successfully.');
     }
 }

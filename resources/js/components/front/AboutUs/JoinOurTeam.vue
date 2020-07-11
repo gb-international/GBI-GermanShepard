@@ -29,7 +29,6 @@
                   v-model="form.firstname"
                   :class="{ 'is-invalid': form.errors.has('firstname') }"
                   placeholder="Enter first name"
-                  name="firstname"
                 />
                 <has-error :form="form" field="firstname"></has-error>
               </div>
@@ -41,7 +40,6 @@
                   v-model="form.lastname"
                   :class="{ 'is-invalid': form.errors.has('lastname') }"
                   placeholder="Enter last name"
-                  name="lastname"
                 />
                 <has-error :form="form" field="lastname"></has-error>
               </div>
@@ -53,7 +51,6 @@
                   v-model="form.email"
                   :class="{ 'is-invalid': form.errors.has('email') }"
                   placeholder="Enter Email"
-                  name="email"
                 />
                 <has-error :form="form" field="email"></has-error>
               </div>
@@ -65,7 +62,6 @@
                   v-model="form.contactno"
                   :class="{ 'is-invalid': form.errors.has('contactno') }"
                   placeholder="Enter contactno"
-                  name="contactno"
                 />
                 <has-error :form="form" field="contactno"></has-error>
               </div>
@@ -77,7 +73,6 @@
                   v-model="form.address"
                   :class="{ 'is-invalid': form.errors.has('address') }"
                   placeholder="Enter address"
-                  name="address"
                 />
                 <has-error :form="form" field="address"></has-error>
               </div>
@@ -89,7 +84,6 @@
                   v-model="form.state"
                   :class="{ 'is-invalid': form.errors.has('state') }"
                   placeholder="Enter state"
-                  name="state"
                 />
                 <has-error :form="form" field="state"></has-error>
               </div>
@@ -101,7 +95,6 @@
                   v-model="form.city"
                   :class="{ 'is-invalid': form.errors.has('city') }"
                   placeholder="Enter city"
-                  name="city"
                 />
                 <has-error :form="form" field="city"></has-error>
               </div>
@@ -113,7 +106,6 @@
                   v-model="form.zipcode"
                   :class="{ 'is-invalid': form.errors.has('zipcode') }"
                   placeholder="Enter zipcode"
-                  name="zipcode"
                 />
                 <has-error :form="form" field="zipcode"></has-error>
               </div>
@@ -166,7 +158,7 @@
                   id="messagescon"
                   v-model="form.messagescon"
                   :class="{ 'is-invalid': form.errors.has('messagescon') }"
-                  name="messagescon"
+                  rows="4"
                   placeholder="Write something.."
                 ></textarea>
                 <has-error :form="form" field="messagescon"></has-error>

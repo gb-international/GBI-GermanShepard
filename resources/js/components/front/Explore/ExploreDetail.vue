@@ -14,7 +14,7 @@
     </section>
     {{editData}}
     <div class="container">
-      <h1 class="main-head">{{itineraryData.title}}</h1>
+      <h1 class="main-head">{{itineraryData.title}}<a href="#" class="btn float-right profile_button text-white book_btn" data-toggle="modal" data-target="#bookModal">Book Now</a></h1>
       <p class="description" v-html="description"></p>
       <div class="row" id="explore_detail_part">
         <div class="col-sm-4" v-for="data in itineraryData.itinerarydays" :key="data.id">
@@ -28,12 +28,75 @@
         </div>
       </div>
     </div>
+    
+    <!-- Booking Modal -->
+    <div class="modal" id="bookModal">
+      <div class="modal-dialog">
+        <div class="modal-content modal-color">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="booking-form grey-form">
+              <p>When would you like to go?</p>
+              <form class="form" @submit-prevent="BookingSubmit()">
+                <div class="row">
+
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="startdate">Start Journy Date</label>
+                      <input type="date" class="form-control" id="startdate">
+                    </div>
+                  </div>
+
+                  
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="enddate">End Journy Date</label>
+                      <input type="date" class="form-control" id="enddate">
+                    </div>
+                  </div>
+
+                  
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="traveltype">Travel Type</label>
+                      <select class="form-control" id="traveltype">
+                        <option v-for="(type,i) in travel_type_list" :key="i">{{ type }}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="number_of_person">Number of Persion</label>
+                      <input type="number" class="form-control" id="number_of_person" min="2" value="2" required>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn profile_button">BOOK</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </template>
 
 <script>
+import { Form, HasError, AlertError } from "vform";
+
 export default {
   name: "ExploreDetail",
+  components:{
+    'has-error':HasError,
+    'alert-error':AlertError
+  },
   metaInfo: {
     title: 'GBI Explore Destination',
     meta:[
@@ -46,7 +109,8 @@ export default {
     return {
       day: 0,
       description: "",
-      itineraryData: []
+      itineraryData: [],
+      travel_type_list:['Train','AC Bus','Flight','Train','Flight','Train','AC Bus'],
     };
   },
 
@@ -60,6 +124,11 @@ export default {
   computed: {
     editData() {
       this.itineraryData = this.$store.getters.getEditData;
+    }
+  },
+  methods:{
+    BookingSubmit(){
+      alert('submited');
     }
   }
   

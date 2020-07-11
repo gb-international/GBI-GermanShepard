@@ -1,23 +1,4 @@
-
-.profile_button{
-	background: $primary !important;
-	color: white !important;
-    border: none !important;
-    padding: 11px 70px !important;
-	font-weight: 600 !important;
-	font-size: 14px;
-	border-radius: 0px;
-    margin: 25px 0px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-        &:hover{
-        	background-color: #959595 !important;
-        }
-}
-
-
-
-
-#user_edit_form{
+.grey-form{
 	.user_edit_image{
 		margin: auto;
 	}	
@@ -32,6 +13,7 @@
 			background: #e1e1e1;
 			height: 45px;
 			border-radius: 0px;
+			border: 0px;
 		}
 		
 		input{

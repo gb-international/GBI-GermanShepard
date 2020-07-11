@@ -18,6 +18,7 @@ import UserInformation from  './components/front/user/User-information.vue'
 import Dashboard from  './components/front/user/Dashboard.vue'
 import TourDetail from  './components/front/user/Tour-detail.vue'
 import ProfileEdit from  './components/front/user/Profile_edit.vue'
+import UpdatePassword from  './components/front/user/UpdatePassword.vue'
 import Error404 from  './components/front/error/404.vue'
 
 Vue.use(Router);
@@ -43,6 +44,7 @@ let router = new Router({
         { path: '/dashboard', component: Dashboard },
         { path: '/tour-detail', component: TourDetail },
         { path: '/profile-edit',component: ProfileEdit },
+        { path: '/update-password',component: UpdatePassword },
         { path: '*', component: Error404 }
     ]
 });

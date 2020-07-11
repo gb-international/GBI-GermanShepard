@@ -117,7 +117,7 @@
       </div>
     </nav>
     <div class="modal" id="LoginForm">
-      <div class="modal-dialog">
+      <div class="modal-dialog w-100">
         <div class="modal-content">
           <!-- Modal Header -->
           <div class="closebutton">

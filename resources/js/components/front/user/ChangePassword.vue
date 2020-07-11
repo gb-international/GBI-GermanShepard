@@ -37,7 +37,7 @@ export default {
   methods: {
     UserPassword() {
       this.emailForm
-        .post("api/sendlink")
+        .post("/api/sendlink")
         .then(response => {
           this.emailForm.email_link = '';
           // this.emailForm.email_link = '';
