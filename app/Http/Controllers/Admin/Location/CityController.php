@@ -21,7 +21,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        return new CityCollection(City::get());
+        return CityCollection::collection(City::get());
     }
 
     /**

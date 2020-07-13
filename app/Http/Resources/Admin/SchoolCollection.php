@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Admin;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CityCollection extends JsonResource
+class SchoolCollection extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -16,7 +16,10 @@ class CityCollection extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name
+            'school_name' => $this->school_name,
+            'address' => $this->address,
+            'mobile' => $this->mobile,
+            'principle_email_id' => $this->principle_email_id,
         ];
     }
 }

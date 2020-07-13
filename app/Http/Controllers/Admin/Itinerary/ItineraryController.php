@@ -14,7 +14,7 @@ use App\Model\Tour\Tourtype;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ItineraryCollection;
+use App\Http\Resources\Admin\ItineraryCollection;
 use DB;
 use Auth;
 use Image;
@@ -28,7 +28,8 @@ class ItineraryController extends Controller
      */
     public function index()
     {
-        return new ItineraryCollection(Itinerary::get());
+        // return Itinerary::all();
+        return ItineraryCollection::collection(Itinerary::all());
     }
 
     /**

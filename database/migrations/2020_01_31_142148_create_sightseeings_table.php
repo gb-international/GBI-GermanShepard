@@ -15,13 +15,14 @@ class CreateSightseeingsTable extends Migration
     {
         Schema::create('sightseeings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('city_id')->nullable();
+            $table->string('state_id')->nullable();
             $table->string('name');
-            $table->string('address');
-            $table->string('state');
-            $table->string('city');
+            $table->string('address')->nullable();
+            $table->string('image')->nullable();
+            $table->text('description')->nullable();
             $table->string('adult_price')->nullable();
             $table->string('child_price')->nullable();
-            $table->enum('tour_status', ['0', '1'])->default('1');
             $table->timestamps();
         });
     }

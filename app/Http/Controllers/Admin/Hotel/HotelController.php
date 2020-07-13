@@ -5,7 +5,7 @@ Purpose : Manage Hotel
 
 */
 namespace App\Http\Controllers\Admin\Hotel;
-use App\Http\Resources\HotelCollection;
+use App\Http\Resources\Admin\HotelCollection;
 use App\Model\Hotel\hotel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,7 +19,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        return new hotelCollection(hotel::all());
+        return HotelCollection::collection(hotel::all());
     }
 
     /**

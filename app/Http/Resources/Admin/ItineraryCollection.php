@@ -6,11 +6,11 @@
 
       ****************************************************/
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Admin;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class ItineraryCollection extends ResourceCollection
+class ItineraryCollection extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -20,11 +20,13 @@ class ItineraryCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-      return parent::toArray($request);
-      // return  [
-      //       'id' => 'd',
-      //       'source' => $request->source,
-      //       'destination' => $request->destination
-      //   ];
+      // return parent::toArray($request);
+      return  [
+            'id' => $this->id,
+            'source' => $this->source,
+            'destination' => $this->destination,
+            'noofdays' => $this->noofdays,
+            'tourtype' => $this->tourtype
+        ];
     }
 }

@@ -8,7 +8,7 @@ Purpose : Manage accountant itinerary which is sent to sales man
 namespace App\Http\Controllers\Admin\Account;
 use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
-use App\Http\Resources\AccountCollection;
+use App\Http\Resources\Admin\AccountCollection;
 use App\Model\Account\Account;
 use App\User;
 use App\Model\Tour\Tour;

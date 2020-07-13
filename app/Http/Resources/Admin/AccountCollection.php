@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Admin;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class SchoolCollection extends ResourceCollection
+class AccountCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.

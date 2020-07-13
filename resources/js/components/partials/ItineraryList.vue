@@ -1,7 +1,7 @@
 <template>
-      <!--************************************************
+  <!--************************************************
       Author:@Ajay
-      ****************************************************-->
+  ****************************************************-->
   <div class="row mt-35">
     <div class="col-lg-6" v-for="(itinerary,index) in list" :key="index">
       <div class="card card-radis-list mb-10">
@@ -21,6 +21,7 @@
               <h1>{{itinerary.title | sortlength(35,"")}}</h1>
               <p>{{itinerary.noofdays}} Days Tour</p>
               <table class="table-s">
+                <thead></thead>
                 <tbody>
                   <tr>
                     <td v-if="itinerary.hotel_type != '0'">
