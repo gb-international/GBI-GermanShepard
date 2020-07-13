@@ -12,10 +12,9 @@ data from the api to display the data about the Sightseeing from the backend .
     <div class="row justify-content-around">
       <div class="col-md-12">
         <div class="container container_admin_body">
-          <!-- <div v-if="$can('edit posts')">You can edit posts.</div>
-          <div v-else>hi</div>-->
-
-          <!-- Start Card -->
+          <div class="top_btn mb-20">
+              <router-link :to="`/sightseeing-add`">Add Sightseeing</router-link>
+          </div>
           <table
             id="example"
             class="display table table-striped table-bordered nowrap"
@@ -31,6 +30,12 @@ data from the api to display the data about the Sightseeing from the backend .
                   ADDRESS
                   <i class="fas fa-sort"></i>
                 </th>
+                
+                <th>
+                  CITY
+                  <i class="fas fa-sort"></i>
+                </th>
+
                 <th>
                   <i class="fas fa-cog"></i>
                 </th>
@@ -46,6 +51,7 @@ data from the api to display the data about the Sightseeing from the backend .
               >
                 <td>{{hotel.name}}</td>
                 <td>{{ hotel.address }}</td>
+                <td>{{ hotel.city.name }}</td>
                 <td class="edit_section">
                   <router-link :to="`/edit-hotel/${hotel.id}`" class="edit_link">
                     <span class="badge badge-primary">
@@ -83,12 +89,12 @@ export default {
       sightseeing_list: []
     };
   },
-  created() {
+  mounted() {
     this.SightseeingData();
   },
   methods: {
     SightseeingData() {
-      axios.get("/api/sightseeing").then(response => {
+      axios.get("/api/sightseeings").then(response => {
         setTimeout(() => $("#example").DataTable(), 1000);
         this.sightseeing_list = response.data.data;
       });

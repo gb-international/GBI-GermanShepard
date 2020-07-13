@@ -626,17 +626,17 @@ It takes id from the url and get the data from the api .
             }
 
             else if(type == 'sight'){
-              var path = `/api/sightseeings/edit/`+value;
+              var path = `/api/sightseeings/`+value+'/edit';
               axios.get(path).then(response => {
                 var data = response.data;
-                this.sight_row[index].city = data.city;
+                this.sight_row[index].city = data.city.name;
                 this.sight_row[index].adult_price = data.adult_price;
                 this.sight_row[index].child_price = data.child_price;
               });
             }
             
             else if(type == 'escort'){
-              var path = `/api/escort/`+value+'/edit';;
+              var path = `/api/escort/`+value+'/edit';
               axios.get(path).then(response => {
                 var data = response.data;
                 this.escort_row[index].phoneno = data.phoneno;

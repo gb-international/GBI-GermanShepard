@@ -30,8 +30,7 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('country','CountryController');
 		Route::resource('city','CityController');
 		Route::resource('state','StateController');
-		Route::get('/sightseeings','SightseeingController@index');
-		Route::get('/sightseeings/edit/{id}','SightseeingController@edit');
+		Route::resource('sightseeings','SightseeingController');
 	});
 
 	Route::namespace('Itinerary')->group(function(){

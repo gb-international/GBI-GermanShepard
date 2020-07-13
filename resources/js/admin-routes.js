@@ -1,14 +1,10 @@
 import AdminHome from './components/admin/AdminHome.vue'
-
 // ADMIN PANEL
 import AdminDashboard from './components/admin/Dashboard.vue'
-
-
 // Itinerary
 import ItineraryList from './components/admin/itinerary/List-itinerary.vue'
 import AddItinerary from './components/admin/itinerary/New-itinerary.vue'
 import EditItinerary from './components/admin/itinerary/Edit-itinerary.vue'
-
 import ItineraryView from './components/admin/itinerary/View-itinerary.vue'
 
 import AccountItinerary from './components/admin/itinerary/Account-itinerary.vue'
@@ -34,27 +30,19 @@ import HotelView from './components/admin/hotel/View_hotel.vue'
 import ItineraryFromAccount from './components/admin/sales/ItineraryFromAccount.vue'
 import SendDetails from './components/admin/sales/Submit-details.vue'
 
-
-
 // School
-
 import Schools from './components/admin/school/List-school.vue'
 import SchoolAdd from './components/admin/school/New-school.vue'
 import SchoolEdit from './components/admin/school/Edit-school.vue'
 import SchoolView from './components/admin/school/View-school.vue'
 
-
-
-// School
-
+// Students
 import Students from './components/admin/student/List-student.vue'
 import StudentAdd from './components/admin/student/New-student.vue'
 import StudentEdit from './components/admin/student/Edit-student.vue'
 import StudentView from './components/admin/student/View-student.vue'
 
-
 // Tour
-
 import Tours from './components/admin/tour/List-tour.vue'
 import TourAdd from './components/admin/tour/New-tour.vue'
 import TourEdit from './components/admin/tour/Edit-tour.vue'
@@ -82,18 +70,20 @@ import BookedBus from './components/admin/bookedtour/New-bus.vue'
 
 
 // Add City 
-
 import ListCity from './components/admin/setting/List-city.vue'
 import AddCity from './components/admin/setting/New-city.vue'
 // Add State 
-
 import ListState from './components/admin/setting/state/List-state.vue'
 import AddState from './components/admin/setting/state/New-state.vue'
 
 // Add Country 
-
 import ListCountry from './components/admin/setting/country/List-country.vue'
 import AddCountry from './components/admin/setting/country/New-country.vue'
+
+// Add SightSeeing 
+import ListSightseeing from './components/admin/sightseeing/List-sightseeing.vue'
+import AddSightseeing from './components/admin/sightseeing/New-sightseeing.vue'
+import EditSightseeing from './components/admin/sightseeing/Edit-sightseeing.vue'
 
 
 // Role & permission
@@ -208,6 +198,11 @@ export const routes = [
     { path:'/tourtype',component:Tourtype},
     { path:'/tourtype/:id',component:TourtypeEdit},
     { path:'/tourtype-add',component:TourtypeAdd},
+    
+    // Sightseeing
+    { path:'/sightseeing',component: ListSightseeing},
+    { path:'/sightseeing/:id',component:EditSightseeing},
+    { path:'/sightseeing-add',component:AddSightseeing},
 
     // Tour tourprogram
     { path:'/tourprogram',component:Tourprogram},

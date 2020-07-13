@@ -370,6 +370,17 @@
                         </li>
                         @endcan
 
+                        
+                        @can('sightseeing')
+                        <li class="nav-item">
+                          <router-link to="/sightseeing" class="nav-link">
+                            <p> Sightseeing</p>
+                          </router-link>
+                        </li>
+                        @endcan
+
+
+
                       </ul>
                     </li>
                     @endcan
