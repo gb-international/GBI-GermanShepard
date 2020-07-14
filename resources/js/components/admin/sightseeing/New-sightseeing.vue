@@ -14,19 +14,15 @@ to submit the data we are using a function.
       ****************************************************-->
       <div class="row justify-content-around">
         <div class="col-md-12">
-          <form role="form" enctype="multipart/form-data" @submit.prevent="addHotel()">
+          <form role="form" enctype="multipart/form-data" @submit.prevent="addSightseeing()">
             <div class="row">
 
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="state">State</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter State"
-                    v-model="form.state_id"
-                    :class="{ 'is-invalid': form.errors.has('state_id') }"
-                  />
+                  <select class="form-control" v-model="form.state_id" :class="{ 'is-invalid': form.errors.has('state_id') }">
+                    <option v-for="state in state_list" :value="state.id" :key="state.id"> {{ state.name }}</option>
+                  </select>
                   <has-error :form="form" field="state_id"></has-error>
                 </div>
               </div>
@@ -34,13 +30,9 @@ to submit the data we are using a function.
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="city">City</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter City"
-                    v-model="form.city_id"
-                    :class="{ 'is-invalid': form.errors.has('city_id') }"
-                  />
+                  <select class="form-control" v-model="form.city_id" :class="{ 'is-invalid': form.errors.has('city_id') }">
+                    <option v-for="city in city_list" :value="city.id" :key="city.id"> {{ city.name }}</option>
+                  </select>
                   <has-error :form="form" field="city_id"></has-error>
                 </div>
               </div>
@@ -58,8 +50,6 @@ to submit the data we are using a function.
                   <has-error :form="form" field="name"></has-error>
                 </div>
               </div>
-
-
               
               <div class="col-sm-4">
                 <div class="form-group">
@@ -90,7 +80,6 @@ to submit the data we are using a function.
                   <has-error :form="form" field="adult_price"></has-error>
                 </div>
               </div>
-
               
               <div class="col-sm-4">
                 <div class="form-group">
@@ -107,7 +96,6 @@ to submit the data we are using a function.
                 </div>
               </div>
 
-              
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="description">Descripttion</label>
@@ -122,11 +110,6 @@ to submit the data we are using a function.
                   <has-error :form="form" field="description"></has-error>
                 </div>
               </div>
-
-
-
-
-
 
               <div class="col-sm-3">
                 <div class="form-group">
@@ -159,6 +142,7 @@ to submit the data we are using a function.
                 </div>
               </div>
             </div>
+
           </form>
         </div>
       </div>
@@ -177,6 +161,8 @@ export default {
     return {
       // Create a new form instance
       img_image: "",
+      state_list:'',
+      city_list:'',
       form: new Form({
         name: "",
         state_id: "",
@@ -189,7 +175,27 @@ export default {
       })
     };
   },
+  watch:{
+    'form.state_id':function(){
+      this.cityData(this.form.state_id);
+    }
+  },
+  mounted(){
+    this.stateData();
+  },
   methods: {
+    stateData(){
+      axios.get('/api/state').then(response=>{
+        this.state_list = response.data;
+      });
+    },
+    
+    cityData(id){
+      axios.get('/api/state-city/'+id).then(response=>{
+        this.city_list = response.data;
+      });
+    },
+
     changeDetailPhoto(event) {
       let file = event.target.files[0];
       if (file.size > 10048576) {
@@ -208,13 +214,11 @@ export default {
         reader.readAsDataURL(file);
       }
     },
-    addHotel() {
-      // Submit the form via a itinerary request
+    addSightseeing() {
       this.form
         .post("/api/sightseeings")
         .then(response => {
-          console.log(response);
-          // this.$router.push(`/hotel-list/`);
+          this.$router.push(`/sightseeing/`);
           this.$toast.fire({
             icon: "success",
             title: "Hotel Added successfully"

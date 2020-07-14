@@ -42,11 +42,7 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateCity($request);
-        $city = new City();
-        $name = $request->name.','.$request->country_name;
-        $city->name = $name;
-        $city->save();
+        City::create($this->validateCity($request));
        return response()->json(['Message'=> 'Successfully Added...']);
     }
 
@@ -101,6 +97,8 @@ class CityController extends Controller
     {
       return $this->validate($request, [
         'name' => 'required|unique:cities',
+        'country_id' => 'required',
+        'state_id' => 'required',
       ]);
     }
 }

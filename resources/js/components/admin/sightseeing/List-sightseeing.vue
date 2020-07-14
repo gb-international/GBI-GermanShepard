@@ -63,12 +63,6 @@ data from the api to display the data about the Sightseeing from the backend .
                       <i class="far fa-trash-alt"></i>
                     </span>
                   </a>
-
-                  <router-link :to="`/hotel-view/${hotel.id}`" class="edit_link">
-                    <span class="badge badge-primary" title="View Itinerary">
-                      <i class="fas fa-eye"></i>
-                    </span>
-                  </router-link>
                 </td>
               </tr>
             </tbody>
@@ -115,7 +109,7 @@ export default {
         .then(result => {
           if (result.value) {
             axios.delete(uri).then(response => {
-              this.hotelData();
+              this.SightseeingData();
             });
             this.$swal.fire("Deleted!", "Your file has been deleted.", "success");
           }

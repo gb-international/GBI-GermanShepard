@@ -5,111 +5,138 @@ to submit the data we are using a function.
 
  -->
 <template>
-    <section class="content">
-        <div class="container-fluid">
-          <!--************************************************
+  <section class="content">
+    <div class="container-fluid">
+      <!--************************************************
             Template Type: Adding New Hotel
             Author:@Ajay
 
-            ****************************************************-->
-            <div class="row justify-content-around">
-                <!-- left column -->
-                <div class="col-md-12">
-                  
-                  <form role="form" enctype="multipart/form-data" @submit.prevent="AddSchool()">
-                      <div class="row">        
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="country_name">Country name</label>
+      ****************************************************-->
+      <div class="row justify-content-around">
+        <!-- left column -->
+        <div class="col-md-12">
+          <form role="form" enctype="multipart/form-data" @submit.prevent="AddCity()">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="country_id">Country name</label>
 
-                                <select class="form-control"  v-model.lazy="country_name">
-                                  <option v-for="data in country_list" :value="data.name" :key="data.id">{{ data.name }}</option>
-                                </select>
-                                <has-error :form="form" field="country_name"></has-error>
-                            </div>
-                          </div>
-                          
-                          <div class="col-sm-8">
-                            <div class="form-group">
-                                <label for="name">City Name</label>
-                                <input type="text" class="form-control"  placeholder="Enter City Name" v-model="form.name" :class="{ 'is-invalid': form.errors.has('name') }">
-                                <has-error :form="form" field="name"></has-error>
-                            </div>
-                          </div>                        
-                      </div>
-
-                      <div class="row">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-4">
-                          <div class="form-group text-center">
-                            <button class="btn btn-primary itrn_add_btn" @click="goBack()">Back</button>
-                            <!-- <router-link :to="`/list-city`">Back</router-link> -->
-                          </div>
-                        </div>
-                        <div class="col-sm-4">
-                          <div class="form-group text-center">
-                            <button type="submit" class="btn btn-primary btn-block itrn_add_btn">SUBMIT</button>
-                          </div>
-                        </div>
-                        <div class="col-sm-2"></div>
-                      </div> 
-                    </form>
-
+                  <select class="form-control" v-model="form.country_id">
+                    <option
+                      v-for="data in country_list"
+                      :value="data.id"
+                      :key="data.id"
+                    >{{ data.name }}</option>
+                  </select>
+                  <has-error :form="form" field="country_id"></has-error>
                 </div>
+              </div>
+
+              
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="state_id">State name</label>
+                  <select class="form-control" v-model="form.state_id">
+                    <option
+                      v-for="data in state_list"
+                      :value="data.id"
+                      :key="data.id"
+                    >{{ data.name }}</option>
+                  </select>
+                  <has-error :form="form" field="state_id"></has-error>
+                </div>
+              </div>
+
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="name">City Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter City Name"
+                    v-model="form.name"
+                    :class="{ 'is-invalid': form.errors.has('name') }"
+                  />
+                  <has-error :form="form" field="name"></has-error>
+                </div>
+              </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </section>
+
+            <div class="row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-4">
+                <div class="form-group text-center">
+                  <button class="btn btn-primary itrn_add_btn" @click="goBack()">Back</button>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group text-center">
+                  <button type="submit" class="btn btn-primary btn-block itrn_add_btn">SUBMIT</button>
+                </div>
+              </div>
+              <div class="col-sm-2"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
 </template>
 
 <script>
-import { Form, HasError } from 'vform'
- export default {
+import { Form, HasError } from "vform";
+export default {
   name: "NewCity",
-  components:{Form,
-  'has-error': HasError
-  },
-  data(){
+  components: { Form, "has-error": HasError },
+  data() {
     return {
       // Create a new form instance
-      country_list:[],
-      country_name:0,
+      country_list: [],
+      state_list: [],
+      country_name: 0,
       form: new Form({
-        country_name:'',
-        name:'',
+        country_id: "",
+        state_id: "",
+        name: ""
       })
+    };
+  },
+  watch:{
+    'form.country_id':function(){
+      this.stateList(this.form.country_id);
     }
   },
-  created(){
+  mounted() {
     this.countryList();
   },
-  methods:
-  {
-    countryList(){
-      axios.get('/api/country').then((response)=>{
+  methods: {
+    countryList() {
+      axios.get("/api/country").then(response => {
         this.country_list = response.data;
       });
     },
+    
+    stateList(id) {
+      console.log(id);
+      axios.get("/api/country-state/"+id).then(response => {
+        console.log(response);
+        this.state_list = response.data;
+      });
+    },
 
-    AddSchool()
-    {
-        // Submit the form via a itinerary request
-       if(this.school_name == 0){
-          this.$toast.fire({
-            icon: 'error',
-            title: 'Please Select Country !!!'
-          })
-          return false;
-        }
 
-        this.form['country_name'] = this.country_name;
-        var path = `/api/city`;
-        this.form.post(path).then(response => {
-          this.form.name = '';
+    AddCity() {
+      var path = `/api/city`;
+      this.form
+        .post(path)
+        .then(response => {
+          this.form.name = "";
           this.$toast.fire({
-            icon: 'success',
-            title: 'Successfully Updated !!!'
-          })
+            icon: "success",
+            title: "Successfully Updated !!!"
+          });
         })
         .catch(error => {
           if (error.response.status === 422) {
@@ -118,14 +145,13 @@ import { Form, HasError } from 'vform'
         });
     },
 
-    goBack(){
+    goBack() {
       this.$router.push(`/list-city/`);
-    },
+    }
   }
-}
+};
 </script>
 
 <style scoped>
-
 </style>  
   

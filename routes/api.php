@@ -133,7 +133,9 @@ Route::namespace('Front')->group(function(){
 });
 
 
-
+//Ajax
+Route::get('/country-state/{id}','AjaxController@CountryState');
+Route::get('/state-city/{id}','AjaxController@StateCity');
 
 
 

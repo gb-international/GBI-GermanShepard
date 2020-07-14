@@ -81,9 +81,18 @@ class SightseeingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, sightseeing $sightseeing)
     {
-        //
+        $sightseeing->update($this->validateSightseeing($request));
+       if($request->image!=$sightseeing->image){
+            $name = $this->verifyAndUpload($request, 'image', '/images/sightseeing/');
+            $this->deleteImg("/images/sightseeing/{$sightseeing->image}");
+        }else{
+            $name = $sightseeing->image;
+        }
+        $sightseeing->image = $name;
+        $sightseeing->save();
+        return response()->json(['success'=>'Successfully update']);
     }
 
     /**

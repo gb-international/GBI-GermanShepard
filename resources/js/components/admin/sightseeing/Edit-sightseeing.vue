@@ -1,8 +1,6 @@
 <!-- 
-
 This template helps us to create a new hotel it takes the data from the form and sumbit with the help of the api
 to submit the data we are using a function.
-
  -->
 <template>
   <section class="content">
@@ -10,26 +8,25 @@ to submit the data we are using a function.
       <!--************************************************
         Template Type: Adding New Hotel
         Author:@Ajay
-
       ****************************************************-->
-
       <div class="row justify-content-around">
-
         <div class="col-md-12">
-          <form role="form" enctype="multipart/form-data" @submit.prevent="UpdateHotel()">
-            
+          <form role="form" enctype="multipart/form-data" @submit.prevent="updateSightseeing()">
             <div class="row">
-
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="state">State</label>
-                  <input
-                    type="text"
+                  <select
                     class="form-control"
-                    placeholder="Enter State"
                     v-model="form.state_id"
                     :class="{ 'is-invalid': form.errors.has('state_id') }"
-                  />
+                  >
+                    <option
+                      v-for="state in state_list"
+                      :value="state.id"
+                      :key="state.id"
+                    >{{ state.name }}</option>
+                  </select>
                   <has-error :form="form" field="state_id"></has-error>
                 </div>
               </div>
@@ -37,13 +34,17 @@ to submit the data we are using a function.
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="city">City</label>
-                  <input
-                    type="text"
+                  <select
                     class="form-control"
-                    placeholder="Enter City"
                     v-model="form.city_id"
                     :class="{ 'is-invalid': form.errors.has('city_id') }"
-                  />
+                  >
+                    <option
+                      v-for="city in city_list"
+                      :value="city.id"
+                      :key="city.id"
+                    >{{ city.name }}</option>
+                  </select>
                   <has-error :form="form" field="city_id"></has-error>
                 </div>
               </div>
@@ -62,8 +63,6 @@ to submit the data we are using a function.
                 </div>
               </div>
 
-
-              
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="address">Address</label>
@@ -74,11 +73,11 @@ to submit the data we are using a function.
                     id="address"
                     v-model="form.address"
                     :class="{ 'is-invalid': form.errors.has('address') }"
-                  >
+                  />
                   <has-error :form="form" field="address"></has-error>
                 </div>
               </div>
-              
+
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="adult_price">Ticket ( Adult Price )</label>
@@ -89,12 +88,11 @@ to submit the data we are using a function.
                     id="adult_price"
                     v-model="form.adult_price"
                     :class="{ 'is-invalid': form.errors.has('adult_price') }"
-                  >
+                  />
                   <has-error :form="form" field="adult_price"></has-error>
                 </div>
               </div>
 
-              
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="child_price">Ticket ( Child Price )</label>
@@ -105,12 +103,11 @@ to submit the data we are using a function.
                     id="child_price"
                     v-model="form.child_price"
                     :class="{ 'is-invalid': form.errors.has('child_price') }"
-                  >
+                  />
                   <has-error :form="form" field="child_price"></has-error>
                 </div>
               </div>
 
-              
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="description">Descripttion</label>
@@ -125,11 +122,6 @@ to submit the data we are using a function.
                   <has-error :form="form" field="description"></has-error>
                 </div>
               </div>
-
-
-
-
-
 
               <div class="col-sm-3">
                 <div class="form-group">
@@ -153,38 +145,30 @@ to submit the data we are using a function.
                   <has-error :form="form" field="image"></has-error>
                 </div>
               </div>
-
             </div>
-
-
-            <div class="row">
-              <div class="col-sm-4"></div>
+            <div class="row justify-content-center">
               <div class="col-sm-4">
                 <div class="form-group text-center">
                   <button type="submit" class="btn btn-primary btn-block itrn_add_btn">SUBMIT</button>
                 </div>
               </div>
-              <div class="col-sm-4"></div>
             </div>
           </form>
         </div>
       </div>
-      <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
   </section>
 </template>
 <script>
-import { Form, HasError, AlertError } from 'vform'
+import { Form, HasError, AlertError } from "vform";
 export default {
   name: "New",
-  components:{Form,
-  'has-error': HasError
-  },
+  components: { Form, "has-error": HasError },
   data() {
     return {
-      // Create a new form instance
       img_image: "",
+      state_list:'',
+      city_list:'',
       form: new Form({
         name: "",
         state_id: "",
@@ -197,41 +181,38 @@ export default {
       })
     };
   },
-  created() {
+  watch:{
+    'form.state_id':function(){
+      this.cityData(this.form.state_id);
+    }
+  },
+  mounted() {
+    this.stateData();
     this.sightSeeing();
   },
   methods: {
-    changeDetailPhoto(event) {
-      let file = event.target.files[0];
-      if (file.size > 10048576) {
-        swal({
-          type: "error",
-          title: "Oops...",
-          text: "Something went wrong!",
-          footer: "<a href>Why do I have this issue?</a>"
-        });
-      } else {
-        let reader = new FileReader();
-        reader.onload = event => {
-          this.form.image = event.target.result;
-          this.img_image = this.form.image;
-        };
-        reader.readAsDataURL(file);
-      }
-    },
-
-    sightSeeing() {
-      axios.get(`/api/hotel/${this.$route.params.id}/edit`).then(response => {
-        this.form.fill(response.data);
-        this.img_image = "images/hotel/" + this.form.image;
+    stateData(){
+      axios.get('/api/state').then(response=>{
+        this.state_list = response.data;
       });
     },
-    UpdateHotel() {
-      // Submit the form via a itinerary request
+    
+    cityData(id){
+      axios.get('/api/state-city/'+id).then(response=>{
+        this.city_list = response.data;
+      });
+    },
+    sightSeeing() {
+      axios.get(`/api/sightseeings/${this.$route.params.id}/edit`).then(response => {
+        this.form.fill(response.data);
+        this.img_image = "images/sightseeing/" + this.form.image;
+      });
+    },
+    updateSightseeing() {
       this.form
-        .put(`/api/hotel/${this.$route.params.id}`)
+        .put(`/api/sightseeings/${this.$route.params.id}`)
         .then(response => {
-          this.$router.push(`/hotel-list/`);
+          this.$router.push(`/sightseeing/`);
           this.$toast.fire({
             icon: "success",
             title: "Successfully Updated"
