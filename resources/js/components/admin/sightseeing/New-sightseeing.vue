@@ -13,7 +13,6 @@ to submit the data we are using a function.
 
       ****************************************************-->
       <div class="row justify-content-around">
-        <!-- left column -->
         <div class="col-md-12">
           <form role="form" enctype="multipart/form-data" @submit.prevent="addHotel()">
             <div class="row">
@@ -153,23 +152,17 @@ to submit the data we are using a function.
               </div>
 
             </div>
-
-
-            <div class="row">
-              <div class="col-sm-4"></div>
+            <div class="row justify-content-center">
               <div class="col-sm-4">
                 <div class="form-group text-center">
                   <button type="submit" class="btn btn-primary btn-block itrn_add_btn">SUBMIT</button>
                 </div>
               </div>
-              <div class="col-sm-4"></div>
             </div>
           </form>
         </div>
       </div>
-      <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
   </section>
 </template>
 

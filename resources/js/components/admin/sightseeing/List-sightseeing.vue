@@ -51,9 +51,9 @@ data from the api to display the data about the Sightseeing from the backend .
               >
                 <td>{{hotel.name}}</td>
                 <td>{{ hotel.address }}</td>
-                <td>{{ hotel.city.name }}</td>
+                <td v-if="hotel.city">{{ hotel.city.name }}</td>
                 <td class="edit_section">
-                  <router-link :to="`/edit-hotel/${hotel.id}`" class="edit_link">
+                  <router-link :to="`/sightseeing/${hotel.id}`" class="edit_link">
                     <span class="badge badge-primary">
                       <i class="fas fa-pencil-alt"></i>
                     </span>
@@ -101,7 +101,7 @@ export default {
     },
 
     deletehotel(id) {
-      var uri = "api/hotel/" + id;
+      var uri = "api/sightseeings/" + id;
       this.$swal
         .fire({
           title: "Are you sure?",

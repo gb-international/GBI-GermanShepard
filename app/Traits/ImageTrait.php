@@ -2,15 +2,15 @@
   
 namespace App\Traits;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Image;
-
 trait ImageTrait {
     public $imgdata;
 
-    public function deleteImg($image,$folder){
-        $brandLogo = public_path($folder.'/'.$image);
-        if (File::exists($brandLogo)) { 
-            unlink($brandLogo);
+    public function deleteImg($image){
+        $image = public_path().$image;
+        if (File::exists($image)) { 
+            unlink($image);
         }
     }
 
@@ -22,7 +22,6 @@ trait ImageTrait {
         $name = time().".".$ex;
         $img = Image::make($request->image)->resize(210, 120);
         $upload_path = public_path().$folder;
-        $image = $upload_path. $hotel->image;
         $img->save($upload_path.$name);
         return $name;
     }

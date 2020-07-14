@@ -115,6 +115,7 @@
         <div class="col-sm-6">
           <label for="accommodation">Accommodation Preference</label>
           <select id="accomodation" v-model="accommodation">
+            <option value="2" selected>2 Star</option>
             <option value="3">3 Star</option>
             <option value="3">4 Star</option>
             <option value="3">5 Star</option>

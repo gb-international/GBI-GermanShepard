@@ -43,7 +43,7 @@ class SightseeingController extends Controller
         $sightseeing = sightseeing::create($this->validateSightseeing($request));
 
        if($request->image!=$sightseeing->image){
-            $name = $this->verifyAndUpload($request, 'image', '/images/sightseeing');
+            $name = $this->verifyAndUpload($request, 'image', '/images/sightseeing/');
         }else{
             $name = $sightseeing->image;
         }
@@ -92,12 +92,14 @@ class SightseeingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(sightseeing $sightseeing)
     {
-        //
+        $this->deleteImg("/images/sightseeing/{$sightseeing->image}");
+        $sightseeing->delete();
+        return response()->json(['success','Brand deleted successfully...']);
     }
 
-    // Validate hotel
+    // Validate sightseeing
 
     public function validateSightseeing($request)
     {
@@ -107,7 +109,6 @@ class SightseeingController extends Controller
           'name' => 'required|min:3|max:100',
           'address'=>'required',
           'description'=>'required',
-          'image' =>'required',
           'adult_price' => '',
           'child_price' => '',
           
