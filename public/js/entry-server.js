@@ -7605,6 +7605,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Booking",
@@ -7615,31 +7618,63 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       options: ['Delhi', 'Mumbai', 'Lucknow'],
-      city: '',
+      transports: ['Bus', 'Train', 'Air'],
+      city_id: '',
       sightseen: '',
       noofday: 0,
       transport: '',
       accommodation: '',
+      city_list: '',
+      sightseeing_list: '',
       travel_type_list: ["Train", "AC Bus", "Flight", "Train", "Flight", "Train", "AC Bus"],
       occupancy_list: ["Single", "Double", "Triple", "Quad"],
-      two_buttons: true,
+      customize_btn: true,
+      back_btn: false,
+      book_btn: true,
       first_form: true,
       second_form: false
     };
   },
-  mounted: function mounted() {// this.cityList();
+  watch: {
+    city_id: function city_id() {
+      this.sightseeingData(this.city_id);
+    }
+  },
+  mounted: function mounted() {
+    this.cityData();
   },
   methods: {
     BookingSubmit: function BookingSubmit() {
       alert("submited");
     },
-    otherButton: function otherButton() {
-      this.first_button = false;
-      this.two_buttons = true;
+    cityData: function cityData() {
+      var _this = this;
+
+      this.$axios.get('/api/city-list').then(function (response) {
+        _this.city_list = response.data;
+      });
+    },
+    sightseeingData: function sightseeingData(city) {
+      var _this2 = this;
+
+      this.$axios.post('/api/city-sightseeing', {
+        'list': city
+      }).then(function (response) {
+        _this2.sightseeing_list = response.data;
+      });
     },
     secondForm: function secondForm() {
-      this.first_form = false;
-      this.second_form = true;
+      if (this.back_btn == false) {
+        this.back_btn = true;
+        this.customize_btn = false;
+        this.first_form = false;
+        this.second_form = true;
+      } else {
+        this.customize_btn = true;
+        this.back_btn = false;
+        this.first_form = true;
+        this.second_form = false;
+      }
     },
     down: function down() {
       if (this.noofday > 1) {
@@ -7650,13 +7685,13 @@ __webpack_require__.r(__webpack_exports__);
       this.noofday = this.noofday + 1;
     },
     cityList: function cityList() {
-      var _this = this;
+      var _this3 = this;
 
       this.$axios.get("/api/city").then(function (response) {
         for (var i = 0; i < response.data.data.length; i++) {
           console.log(response);
 
-          _this.options.push({
+          _this3.options.push({
             value: response.data.data[i].name
           });
         }
@@ -71376,17 +71411,19 @@ var render = function() {
                     _vm._v(" "),
                     _c("multiselect", {
                       attrs: {
-                        options: _vm.options,
+                        options: _vm.city_list,
                         multiple: true,
+                        "track-by": "name",
+                        label: "name",
                         "close-on-select": true,
-                        placeholder: "To"
+                        placeholder: "Select City"
                       },
                       model: {
-                        value: _vm.city,
+                        value: _vm.city_id,
                         callback: function($$v) {
-                          _vm.city = $$v
+                          _vm.city_id = $$v
                         },
-                        expression: "city"
+                        expression: "city_id"
                       }
                     })
                   ],
@@ -71403,21 +71440,25 @@ var render = function() {
                       _vm._v("Places(Sightseeing)")
                     ]),
                     _vm._v(" "),
-                    _c("multiselect", {
-                      attrs: {
-                        options: _vm.options,
-                        multiple: true,
-                        "close-on-select": true,
-                        placeholder: "To"
-                      },
-                      model: {
-                        value: _vm.sightseen,
-                        callback: function($$v) {
-                          _vm.sightseen = $$v
-                        },
-                        expression: "sightseen"
-                      }
-                    })
+                    _vm.sightseeing_list
+                      ? _c("multiselect", {
+                          attrs: {
+                            options: _vm.sightseeing_list,
+                            multiple: true,
+                            "track-by": "name",
+                            label: "name",
+                            "close-on-select": true,
+                            placeholder: "Select Sightseeing"
+                          },
+                          model: {
+                            value: _vm.sightseen,
+                            callback: function($$v) {
+                              _vm.sightseen = $$v
+                            },
+                            expression: "sightseen"
+                          }
+                        })
+                      : _vm._e()
                   ],
                   1
                 )
@@ -71434,10 +71475,10 @@ var render = function() {
                     _vm._v(" "),
                     _c("multiselect", {
                       attrs: {
-                        options: _vm.options,
+                        options: _vm.transports,
                         multiple: true,
                         "close-on-select": true,
-                        placeholder: "To"
+                        placeholder: "Mode of transport"
                       },
                       model: {
                         value: _vm.transport,
@@ -71536,6 +71577,10 @@ var render = function() {
                     }
                   },
                   [
+                    _c("option", { attrs: { value: "2", selected: "" } }, [
+                      _vm._v("2 Star")
+                    ]),
+                    _vm._v(" "),
                     _c("option", { attrs: { value: "3" } }, [_vm._v("3 Star")]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "3" } }, [_vm._v("4 Star")]),
@@ -71548,7 +71593,7 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "text-center" }, [
-          _vm.two_buttons
+          _vm.customize_btn
             ? _c(
                 "button",
                 {
@@ -71565,7 +71610,24 @@ var render = function() {
             : _vm._e(),
           _c("span", { staticClass: "mr-10" }),
           _vm._v(" "),
-          _vm.two_buttons
+          _vm.back_btn
+            ? _c(
+                "button",
+                {
+                  staticClass: "btn profile_button",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.secondForm()
+                    }
+                  }
+                },
+                [_vm._v("Back")]
+              )
+            : _vm._e(),
+          _c("span", { staticClass: "mr-10" }),
+          _vm._v(" "),
+          _vm.book_btn
             ? _c(
                 "button",
                 {

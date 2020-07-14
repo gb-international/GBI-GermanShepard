@@ -130,12 +130,15 @@ Route::namespace('Front')->group(function(){
 	Route::get('/encyclopedia-list','EncyclopediaController@index');
 	Route::get('/encyclopedia/{slug}','EncyclopediaController@view');
 	Route::get('/ency-comments/{id}','EncyclopediaController@GetComment');
+
+	Route::get('/city-list','LocationController@cityList');
 });
 
 
 //Ajax
 Route::get('/country-state/{id}','AjaxController@CountryState');
 Route::get('/state-city/{id}','AjaxController@StateCity');
+Route::post('/city-sightseeing','AjaxController@CitySightseeing');
 
 
 

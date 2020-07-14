@@ -65,28 +65,27 @@
                 </div>
             </div>
         </div>
-
       </div>
 
       <div class="row" v-if="second_form">
         <div class="col-sm-12">
           <div class="form-group">
             <label for="cities">Cities</label>
-            <multiselect :options="options" :multiple="true" :close-on-select="true" v-model="city" placeholder="To"></multiselect>
+            <multiselect :options="city_list" :multiple="true" track-by="name" label="name" :close-on-select="true" v-model="city_id" placeholder="Select City"></multiselect>
           </div>
         </div>
         
         <div class="col-sm-12">
           <div class="form-group">
             <label for="sightseeing">Places(Sightseeing)</label>
-            <multiselect :options="options" :multiple="true" :close-on-select="true" v-model="sightseen" placeholder="To"></multiselect>
+            <multiselect v-if="sightseeing_list" :options="sightseeing_list" :multiple="true" track-by="name" label="name" :close-on-select="true" v-model="sightseen" placeholder="Select Sightseeing"></multiselect>
           </div>
         </div>
 
         <div class="col-sm-12">
           <div class="form-group">
             <label for="transport">Mode of Transport</label>
-            <multiselect :options="options" :multiple="true" :close-on-select="true" v-model="transport" placeholder="To"></multiselect>
+            <multiselect :options="transports" :multiple="true" :close-on-select="true" v-model="transport" placeholder="Mode of transport"></multiselect>
           </div>
         </div>
 
@@ -125,8 +124,11 @@
       </div>
       <div class="text-center">
                 
-        <button type="button" v-if="two_buttons" class="btn profile_button" @click="secondForm()">Customize</button><span class="mr-10"></span>
-        <button type="button" v-if="two_buttons" class="btn profile_button">Book</button>
+        <button type="button" v-if="customize_btn" class="btn profile_button" @click="secondForm()">Customize</button><span class="mr-10"></span>
+
+        <button type="button" v-if="back_btn" class="btn profile_button" @click="secondForm()">Back</button><span class="mr-10"></span>
+
+        <button type="button" v-if="book_btn" class="btn profile_button">Book</button>
 
       </div>
     </form>
@@ -144,11 +146,14 @@ export default {
   data() {
     return {
       options: ['Delhi','Mumbai','Lucknow'],
-      city:'',
+      transports: ['Bus','Train','Air'],
+      city_id:'',
       sightseen:'',
       noofday:0,
       transport:'',
       accommodation:'',
+      city_list:'',
+      sightseeing_list:'',
       travel_type_list: [
         "Train",
         "AC Bus",
@@ -164,26 +169,52 @@ export default {
           "Triple",
           "Quad"
       ],
-      two_buttons:true,
+      
+      customize_btn:true,
+      back_btn:false,
+      book_btn:true,
+
       first_form:true,
       second_form:false,
 
     };
   },
+  watch:{
+    city_id:function(){
+      this.sightseeingData(this.city_id);
+    }
+  },
   mounted(){
-    // this.cityList();
+    this.cityData();
   },
   methods:{
     BookingSubmit() {
       alert("submited");
     },
-    otherButton(){
-      this.first_button = false;
-      this.two_buttons = true;
+    cityData(){
+      this.$axios.get('/api/city-list').then(response=>{
+        this.city_list = response.data;
+      });
     },
+    
+    sightseeingData(city){
+      this.$axios.post('/api/city-sightseeing',{'list':city}).then(response=>{
+        this.sightseeing_list = response.data;
+      });
+    },
+
     secondForm(){
-      this.first_form = false;
-      this.second_form = true;
+      if(this.back_btn == false){
+        this.back_btn = true;
+        this.customize_btn = false;
+        this.first_form = false;
+        this.second_form = true;
+      }else{
+        this.customize_btn = true;
+        this.back_btn = false;
+        this.first_form = true;
+        this.second_form = false;
+      }
     },
     down(){
       if(this.noofday>1){
