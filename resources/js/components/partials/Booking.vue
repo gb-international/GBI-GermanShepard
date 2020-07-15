@@ -5,20 +5,22 @@
   <div class="booking-form grey-form">
     <p v-if="first_form">When would you like to go?</p>
     <p v-if="second_form">Please Specify Your Requirements.</p>
-    <form class="form" @submit-prevent="BookingSubmit()">
+    <form class="form">
       <div class="row" v-if="first_form">
 
         <div class="col-sm-6">
           <div class="form-group">
             <label for="startdate">Start Journy Date</label>
-            <input type="date" class="form-control" id="startdate" />
+            <input type="date" class="form-control" id="startdate"  v-model="form.start_date" :class="{ 'is-invalid': form.errors.has('start_date') }"/>
+            <has-error :form="form" field="start_date"></has-error>
           </div>
         </div>
 
         <div class="col-sm-6">
           <div class="form-group">
             <label for="enddate">End Journy Date</label>
-            <input type="date" class="form-control" id="enddate" />
+            <input type="date" class="form-control" id="enddate" v-model="form.end_date" :class="{ 'is-invalid': form.errors.has('end_date') }"/>
+            <has-error :form="form" field="start_date"></has-error>
           </div>
         </div>
 
@@ -30,9 +32,10 @@
               class="form-control"
               id="number_of_person"
               min="2"
-              value="2"
+              v-model="form.person" :class="{ 'is-invalid': form.errors.has('person') }"
               required
             />
+            <has-error :form="form" field="start_date"></has-error>
           </div>
         </div>
         
@@ -44,25 +47,19 @@
               class="form-control"
               id="number_of_person"
               min="1"
-              value="1"
+              v-model="form.room" :class="{ 'is-invalid': form.errors.has('room') }"
               required
             />
+            <has-error :form="form" field="start_date"></has-error>
           </div>
         </div>
 
         <div class="col-sm-12">
             <div class="form-group">
                 <label for="occupancy">Occupancy Types</label>
-                <div class="row">
-                    <div class="col-sm-3" v-for="(occupancy,i) in occupancy_list" :key="i">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input h-16" name="optradio">{{ occupancy }}
-                            </label>
-                        </div>
-                    </div>
-                    
-                </div>
+                <select class="form-control" v-model="form.occupancy_type">
+                  <option v-for="(occ, i) in occupancy_list" :value="occ" :key="i"> {{ occ }}</option>
+                </select>
             </div>
         </div>
       </div>
@@ -71,21 +68,21 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="cities">Cities</label>
-            <multiselect :options="city_list" :multiple="true" track-by="name" label="name" :close-on-select="true" v-model="city_id" placeholder="Select City"></multiselect>
+            <multiselect :options="city_list" :multiple="true" track-by="name" label="name" :close-on-select="true" v-model="form.city_id" placeholder="Select City"></multiselect>
           </div>
         </div>
         
         <div class="col-sm-12">
           <div class="form-group">
             <label for="sightseeing">Places(Sightseeing)</label>
-            <multiselect v-if="sightseeing_list" :options="sightseeing_list" :multiple="true" track-by="name" label="name" :close-on-select="true" v-model="sightseen" placeholder="Select Sightseeing"></multiselect>
+            <multiselect v-if="sightseeing_list" :options="sightseeing_list" :multiple="true" track-by="name" label="name" :close-on-select="true" v-model="form.sightseen" placeholder="Select Sightseeing"></multiselect>
           </div>
         </div>
 
         <div class="col-sm-12">
           <div class="form-group">
             <label for="transport">Mode of Transport</label>
-            <multiselect :options="transports" :multiple="true" :close-on-select="true" v-model="transport" placeholder="Mode of transport"></multiselect>
+            <multiselect :options="transports" :multiple="true" :close-on-select="true" v-model="form.transport" placeholder="Mode of transport"></multiselect>
           </div>
         </div>
 
@@ -98,7 +95,7 @@
               </div>
               
               <div class="col">
-                {{ noofday }}
+                {{ form.noofday }}
               </div>
               
               <div class="col">
@@ -113,7 +110,7 @@
 
         <div class="col-sm-6">
           <label for="accommodation">Accommodation Preference</label>
-          <select id="accomodation" v-model="accommodation">
+          <select id="accomodation" v-model="form.accommodation">
             <option value="2" selected>2 Star</option>
             <option value="3">3 Star</option>
             <option value="3">4 Star</option>
@@ -128,7 +125,7 @@
 
         <button type="button" v-if="back_btn" class="btn profile_button" @click="secondForm()">Back</button><span class="mr-10"></span>
 
-        <button type="button" v-if="book_btn" class="btn profile_button">Book</button>
+        <button type="button" @click="BookingSubmit()" v-if="book_btn" class="btn profile_button">Book</button>
 
       </div>
     </form>
@@ -136,22 +133,18 @@
 </template>
 <script>
 import  ModelSelect  from "vue-multiselect";
+import { Form, HasError, AlertError } from "vform";
 
 export default {
   name:"Booking",
   components:{ 
     'multiselect':ModelSelect,
+    'has-error':HasError
   },
   props: ["list"],
   data() {
     return {
-      options: ['Delhi','Mumbai','Lucknow'],
       transports: ['Bus','Train','Air'],
-      city_id:'',
-      sightseen:'',
-      noofday:0,
-      transport:'',
-      accommodation:'',
       city_list:'',
       sightseeing_list:'',
       travel_type_list: [
@@ -169,6 +162,19 @@ export default {
           "Triple",
           "Quad"
       ],
+
+      form : new Form({
+        state_date:'',
+        end_date:'',
+        person:2,
+        room:1,
+        occupancy_type:'',
+        city_id:'',
+        sightseen:'',
+        transport:'',
+        noofday:1,
+        accommodation:3,
+      }),
       
       customize_btn:true,
       back_btn:false,
@@ -180,8 +186,8 @@ export default {
     };
   },
   watch:{
-    city_id:function(){
-      this.sightseeingData(this.city_id);
+    'form.city_id':function(){
+      this.sightseeingData(this.form.city_id);
     }
   },
   mounted(){
@@ -189,7 +195,7 @@ export default {
   },
   methods:{
     BookingSubmit() {
-      alert("submited");
+      console.log(this.form);
     },
     cityData(){
       this.$axios.get('/api/city-list').then(response=>{
@@ -217,12 +223,12 @@ export default {
       }
     },
     down(){
-      if(this.noofday>1){
-        this.noofday = this.noofday - 1;
+      if(this.form.noofday>1){
+        this.form.noofday = this.form.noofday - 1;
       }
     },
     up(){
-      this.noofday = this.noofday + 1;
+      this.form.noofday = this.form.noofday + 1;
     },
     cityList() {
       this.$axios.get("/api/city").then(response => {

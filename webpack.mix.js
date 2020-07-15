@@ -17,3 +17,4 @@ mix.webpackConfig({
 
 // mix.js('resources/js/admin.js', 'public/js/admin')
 //    .sass('resources/sass/admin/app.scss', 'public/css/admin')
+

@@ -72,6 +72,7 @@ import BookedBus from './components/admin/bookedtour/New-bus.vue'
 // Add City 
 import ListCity from './components/admin/setting/List-city.vue'
 import AddCity from './components/admin/setting/New-city.vue'
+import EditCity from './components/admin/setting/Edit-city.vue'
 // Add State 
 import ListState from './components/admin/setting/state/List-state.vue'
 import AddState from './components/admin/setting/state/New-state.vue'
@@ -213,6 +214,7 @@ export const routes = [
 
     { path:'/list-city', component:ListCity },
     { path:'/add-city', component:AddCity },
+    { path:'/city/:id', component:EditCity },
     { path:'/list-state', component:ListState },
     { path:'/add-state', component:AddState },
     

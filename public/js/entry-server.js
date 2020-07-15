@@ -4079,8 +4079,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_Booking_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../partials/Booking.vue */ "./resources/js/components/partials/Booking.vue");
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -4133,13 +4131,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ExploreDetail",
   components: {
-    "has-error": vform__WEBPACK_IMPORTED_MODULE_1__["HasError"],
-    "alert-error": vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"],
     booking: _partials_Booking_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   metaInfo: {
@@ -7472,9 +7467,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
 /* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -7609,25 +7603,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Booking",
   components: {
-    'multiselect': vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default.a
+    'multiselect': vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default.a,
+    'has-error': vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]
   },
   props: ["list"],
   data: function data() {
     return {
-      options: ['Delhi', 'Mumbai', 'Lucknow'],
       transports: ['Bus', 'Train', 'Air'],
-      city_id: '',
-      sightseen: '',
-      noofday: 0,
-      transport: '',
-      accommodation: '',
       city_list: '',
       sightseeing_list: '',
       travel_type_list: ["Train", "AC Bus", "Flight", "Train", "Flight", "Train", "AC Bus"],
       occupancy_list: ["Single", "Double", "Triple", "Quad"],
+      form: new vform__WEBPACK_IMPORTED_MODULE_1__["Form"]({
+        state_date: '',
+        end_date: '',
+        person: 2,
+        room: 1,
+        occupancy_type: '',
+        city_id: '',
+        sightseen: '',
+        transport: '',
+        noofday: 1,
+        accommodation: 3
+      }),
       customize_btn: true,
       back_btn: false,
       book_btn: true,
@@ -7636,8 +7638,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   watch: {
-    city_id: function city_id() {
-      this.sightseeingData(this.city_id);
+    'form.city_id': function formCity_id() {
+      this.sightseeingData(this.form.city_id);
     }
   },
   mounted: function mounted() {
@@ -7645,7 +7647,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     BookingSubmit: function BookingSubmit() {
-      alert("submited");
+      console.log(this.form);
     },
     cityData: function cityData() {
       var _this = this;
@@ -7677,12 +7679,12 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     down: function down() {
-      if (this.noofday > 1) {
-        this.noofday = this.noofday - 1;
+      if (this.form.noofday > 1) {
+        this.form.noofday = this.form.noofday - 1;
       }
     },
     up: function up() {
-      this.noofday = this.noofday + 1;
+      this.form.noofday = this.form.noofday + 1;
     },
     cityList: function cityList() {
       var _this3 = this;
@@ -71346,206 +71348,183 @@ var render = function() {
       ? _c("p", [_vm._v("Please Specify Your Requirements.")])
       : _vm._e(),
     _vm._v(" "),
-    _c(
-      "form",
-      {
-        staticClass: "form",
-        on: {
-          "submit-prevent": function($event) {
-            return _vm.BookingSubmit()
-          }
-        }
-      },
-      [
-        _vm.first_form
-          ? _c("div", { staticClass: "row" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _vm._m(3),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-12" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "occupancy" } }, [
-                    _vm._v("Occupancy Types")
+    _c("form", { staticClass: "form" }, [
+      _vm.first_form
+        ? _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "startdate" } }, [
+                    _vm._v("Start Journy Date")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "row" },
-                    _vm._l(_vm.occupancy_list, function(occupancy, i) {
-                      return _c("div", { key: i, staticClass: "col-sm-3" }, [
-                        _c("div", { staticClass: "form-check" }, [
-                          _c("label", { staticClass: "form-check-label" }, [
-                            _c("input", {
-                              staticClass: "form-check-input h-16",
-                              attrs: { type: "radio", name: "optradio" }
-                            }),
-                            _vm._v(
-                              _vm._s(occupancy) + "\n                          "
-                            )
-                          ])
-                        ])
-                      ])
-                    }),
-                    0
-                  )
-                ])
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.second_form
-          ? _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-12" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "cities" } }, [
-                      _vm._v("Cities")
-                    ]),
-                    _vm._v(" "),
-                    _c("multiselect", {
-                      attrs: {
-                        options: _vm.city_list,
-                        multiple: true,
-                        "track-by": "name",
-                        label: "name",
-                        "close-on-select": true,
-                        placeholder: "Select City"
-                      },
-                      model: {
-                        value: _vm.city_id,
-                        callback: function($$v) {
-                          _vm.city_id = $$v
-                        },
-                        expression: "city_id"
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.start_date,
+                        expression: "form.start_date"
                       }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-12" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "sightseeing" } }, [
-                      _vm._v("Places(Sightseeing)")
-                    ]),
-                    _vm._v(" "),
-                    _vm.sightseeing_list
-                      ? _c("multiselect", {
-                          attrs: {
-                            options: _vm.sightseeing_list,
-                            multiple: true,
-                            "track-by": "name",
-                            label: "name",
-                            "close-on-select": true,
-                            placeholder: "Select Sightseeing"
-                          },
-                          model: {
-                            value: _vm.sightseen,
-                            callback: function($$v) {
-                              _vm.sightseen = $$v
-                            },
-                            expression: "sightseen"
-                          }
-                        })
-                      : _vm._e()
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-12" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "transport" } }, [
-                      _vm._v("Mode of Transport")
-                    ]),
-                    _vm._v(" "),
-                    _c("multiselect", {
-                      attrs: {
-                        options: _vm.transports,
-                        multiple: true,
-                        "close-on-select": true,
-                        placeholder: "Mode of transport"
-                      },
-                      model: {
-                        value: _vm.transport,
-                        callback: function($$v) {
-                          _vm.transport = $$v
-                        },
-                        expression: "transport"
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("start_date") },
+                    attrs: { type: "date", id: "startdate" },
+                    domProps: { value: _vm.form.start_date },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "start_date", $event.target.value)
                       }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "numofday" } }, [
-                    _vm._v("Number of Days")
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "start_date" }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "enddate" } }, [
+                    _vm._v("End Journy Date")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "row align-content-center" }, [
-                    _c("div", { staticClass: "col" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-info circle-btn f-12",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.down()
-                            }
-                          }
-                        },
-                        [_c("i", { staticClass: "fas fa-minus" })]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col" }, [
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(_vm.noofday) +
-                          "\n            "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-info circle-btn f-12",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.up()
-                            }
-                          }
-                        },
-                        [_c("i", { staticClass: "fas fa-plus" })]
-                      )
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6" }, [
-                _c("label", { attrs: { for: "accommodation" } }, [
-                  _vm._v("Accommodation Preference")
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.end_date,
+                        expression: "form.end_date"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("end_date") },
+                    attrs: { type: "date", id: "enddate" },
+                    domProps: { value: _vm.form.end_date },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "end_date", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "start_date" }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "number_of_person" } }, [
+                    _vm._v("Number of Persion")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.person,
+                        expression: "form.person"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("person") },
+                    attrs: {
+                      type: "number",
+                      id: "number_of_person",
+                      min: "2",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.person },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "person", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "start_date" }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "number_of_person" } }, [
+                    _vm._v("Number of Rooms")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.room,
+                        expression: "form.room"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("room") },
+                    attrs: {
+                      type: "number",
+                      id: "number_of_person",
+                      min: "1",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.room },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "room", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "start_date" }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-12" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "occupancy" } }, [
+                  _vm._v("Occupancy Types")
                 ]),
                 _vm._v(" "),
                 _c(
@@ -71555,11 +71534,11 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.accommodation,
-                        expression: "accommodation"
+                        value: _vm.form.occupancy_type,
+                        expression: "form.occupancy_type"
                       }
                     ],
-                    attrs: { id: "accomodation" },
+                    staticClass: "form-control",
                     on: {
                       change: function($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -71570,158 +71549,279 @@ var render = function() {
                             var val = "_value" in o ? o._value : o.value
                             return val
                           })
-                        _vm.accommodation = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
+                        _vm.$set(
+                          _vm.form,
+                          "occupancy_type",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
                       }
                     }
                   },
-                  [
-                    _c("option", { attrs: { value: "2", selected: "" } }, [
-                      _vm._v("2 Star")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "3" } }, [_vm._v("3 Star")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "3" } }, [_vm._v("4 Star")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "3" } }, [_vm._v("5 Star")])
-                  ]
+                  _vm._l(_vm.occupancy_list, function(occ, i) {
+                    return _c("option", { key: i, domProps: { value: occ } }, [
+                      _vm._v(" " + _vm._s(occ))
+                    ])
+                  }),
+                  0
                 )
               ])
             ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.second_form
+        ? _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-12" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "cities" } }, [_vm._v("Cities")]),
+                  _vm._v(" "),
+                  _c("multiselect", {
+                    attrs: {
+                      options: _vm.city_list,
+                      multiple: true,
+                      "track-by": "name",
+                      label: "name",
+                      "close-on-select": true,
+                      placeholder: "Select City"
+                    },
+                    model: {
+                      value: _vm.form.city_id,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "city_id", $$v)
+                      },
+                      expression: "form.city_id"
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-12" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "sightseeing" } }, [
+                    _vm._v("Places(Sightseeing)")
+                  ]),
+                  _vm._v(" "),
+                  _vm.sightseeing_list
+                    ? _c("multiselect", {
+                        attrs: {
+                          options: _vm.sightseeing_list,
+                          multiple: true,
+                          "track-by": "name",
+                          label: "name",
+                          "close-on-select": true,
+                          placeholder: "Select Sightseeing"
+                        },
+                        model: {
+                          value: _vm.form.sightseen,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "sightseen", $$v)
+                          },
+                          expression: "form.sightseen"
+                        }
+                      })
+                    : _vm._e()
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-12" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "transport" } }, [
+                    _vm._v("Mode of Transport")
+                  ]),
+                  _vm._v(" "),
+                  _c("multiselect", {
+                    attrs: {
+                      options: _vm.transports,
+                      multiple: true,
+                      "close-on-select": true,
+                      placeholder: "Mode of transport"
+                    },
+                    model: {
+                      value: _vm.form.transport,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "transport", $$v)
+                      },
+                      expression: "form.transport"
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "numofday" } }, [
+                  _vm._v("Number of Days")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row align-content-center" }, [
+                  _c("div", { staticClass: "col" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-info circle-btn f-12",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.down()
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "fas fa-minus" })]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col" }, [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.form.noofday) +
+                        "\n            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-info circle-btn f-12",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.up()
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "fas fa-plus" })]
+                    )
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c("label", { attrs: { for: "accommodation" } }, [
+                _vm._v("Accommodation Preference")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.accommodation,
+                      expression: "form.accommodation"
+                    }
+                  ],
+                  attrs: { id: "accomodation" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.form,
+                        "accommodation",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "2", selected: "" } }, [
+                    _vm._v("2 Star")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "3" } }, [_vm._v("3 Star")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "3" } }, [_vm._v("4 Star")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "3" } }, [_vm._v("5 Star")])
+                ]
+              )
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-center" }, [
+        _vm.customize_btn
+          ? _c(
+              "button",
+              {
+                staticClass: "btn profile_button",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.secondForm()
+                  }
+                }
+              },
+              [_vm._v("Customize")]
+            )
           : _vm._e(),
+        _c("span", { staticClass: "mr-10" }),
         _vm._v(" "),
-        _c("div", { staticClass: "text-center" }, [
-          _vm.customize_btn
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn profile_button",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      return _vm.secondForm()
-                    }
+        _vm.back_btn
+          ? _c(
+              "button",
+              {
+                staticClass: "btn profile_button",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.secondForm()
                   }
-                },
-                [_vm._v("Customize")]
-              )
-            : _vm._e(),
-          _c("span", { staticClass: "mr-10" }),
-          _vm._v(" "),
-          _vm.back_btn
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn profile_button",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      return _vm.secondForm()
-                    }
+                }
+              },
+              [_vm._v("Back")]
+            )
+          : _vm._e(),
+        _c("span", { staticClass: "mr-10" }),
+        _vm._v(" "),
+        _vm.book_btn
+          ? _c(
+              "button",
+              {
+                staticClass: "btn profile_button",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.BookingSubmit()
                   }
-                },
-                [_vm._v("Back")]
-              )
-            : _vm._e(),
-          _c("span", { staticClass: "mr-10" }),
-          _vm._v(" "),
-          _vm.book_btn
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn profile_button",
-                  attrs: { type: "button" }
-                },
-                [_vm._v("Book")]
-              )
-            : _vm._e()
-        ])
-      ]
-    )
+                }
+              },
+              [_vm._v("Book")]
+            )
+          : _vm._e()
+      ])
+    ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-6" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "startdate" } }, [
-          _vm._v("Start Journy Date")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "date", id: "startdate" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-6" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "enddate" } }, [_vm._v("End Journy Date")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "date", id: "enddate" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-6" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "number_of_person" } }, [
-          _vm._v("Number of Persion")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "number",
-            id: "number_of_person",
-            min: "2",
-            value: "2",
-            required: ""
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-6" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "number_of_person" } }, [
-          _vm._v("Number of Rooms")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "number",
-            id: "number_of_person",
-            min: "1",
-            value: "1",
-            required: ""
-          }
-        })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

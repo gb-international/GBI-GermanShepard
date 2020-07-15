@@ -21,7 +21,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        return CityCollection::collection(City::get());
+        return CityCollection::collection(City::with('state')->get());
     }
 
     /**
@@ -77,7 +77,12 @@ class CityController extends Controller
      */
     public function update(Request $request, City $city)
     {   
-        $city->update($this->validateCity($request));
+        $validated =  $this->validate($request, [
+            'name' => 'required',
+            'country_id' => 'required',
+            'state_id' => 'required',
+        ]);
+        $city->update($validated);
         return response()->json(['message'=>'Successfully Updated']);
     }
 

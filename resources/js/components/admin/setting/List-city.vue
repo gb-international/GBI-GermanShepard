@@ -31,9 +31,15 @@ data from the api to display the data about the Hotel from the backend .
             <thead>
               <tr>
                 <th>
-                  NAME
+                  CITY SNAME
                   <i class="fas fa-sort"></i>
                 </th>
+                
+                <th>
+                  STATE NAME
+                  <i class="fas fa-sort"></i>
+                </th>
+
                 <th>
                   <i class="fas fa-cog"></i>
                 </th>
@@ -41,19 +47,25 @@ data from the api to display the data about the Hotel from the backend .
             </thead>
             <tbody>
               <tr
-                v-for="school in alldata"
+                v-for="city in alldata"
                 role="row"
                 v-bind:class="{ odd: oddclass , 'even': evenclass}"
                 class="row_list"
-                :key="school.id"
+                :key="city.id"
               >
-                <td>{{school.name}}</td>
+                <td>{{city.name}}</td>
+                <td>{{city.state.name}}</td>
                 <td class="edit_section">
-                  <a href class="delete_link" @click.prevent="deleteCity(school.id)">
+
+                  <router-link :to="`/city/${city.id}`" class="edit_link">
+                    <span class="badge badge-primary"><i class="fas fa-pencil-alt"></i></span>
+                  </router-link>
+                  <a href class="delete_link" @click.prevent="deleteCity(city.id)">
                     <span class="badge badge-danger">
                       <i class="far fa-trash-alt"></i>
                     </span>
                   </a>
+
                 </td>
               </tr>
             </tbody>

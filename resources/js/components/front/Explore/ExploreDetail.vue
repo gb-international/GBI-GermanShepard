@@ -52,13 +52,10 @@
 
 <script>
 import  booking  from "../../partials/Booking.vue";
-import { Form, HasError, AlertError } from "vform";
 
 export default {
   name: "ExploreDetail",
   components: {
-    "has-error": HasError,
-    "alert-error": AlertError,
     booking
   },
   metaInfo: {
