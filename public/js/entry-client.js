@@ -7602,6 +7602,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -7628,7 +7629,8 @@ __webpack_require__.r(__webpack_exports__);
         sightseen: '',
         transport: '',
         noofday: 1,
-        accommodation: 3
+        accommodation: 3,
+        itinerary_id: ''
       }),
       customize_btn: true,
       back_btn: false,
@@ -7644,11 +7646,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.cityData();
+    this.form.itinerary_id = this.$route.params.id;
   },
   methods: {
-    BookingSubmit: function BookingSubmit() {
-      console.log(this.form);
-    },
     cityData: function cityData() {
       var _this = this;
 
@@ -7697,6 +7697,24 @@ __webpack_require__.r(__webpack_exports__);
             value: response.data.data[i].name
           });
         }
+      });
+    },
+    BookingSubmit: function BookingSubmit() {
+      var _this4 = this;
+
+      this.form.post("/api/booking", {
+        headers: {
+          Authorization: "Bearer ".concat(localStorage.token)
+        }
+      }).then(function (response) {
+        console.log(response);
+
+        _this4.$swal.fire({
+          icon: "success",
+          title: "Profile updated!!"
+        });
+      })["catch"](function (error) {
+        _this4.handleError(error);
       });
     }
   }
@@ -71522,51 +71540,65 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-12" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "occupancy" } }, [
-                  _vm._v("Occupancy Types")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.occupancy_type,
-                        expression: "form.occupancy_type"
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "occupancy" } }, [
+                    _vm._v("Occupancy Types")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.occupancy_type,
+                          expression: "form.occupancy_type"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: {
+                        "is-invalid": _vm.form.errors.has("occupancy_type")
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "occupancy_type",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
                       }
-                    ],
-                    staticClass: "form-control",
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.form,
-                          "occupancy_type",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  _vm._l(_vm.occupancy_list, function(occ, i) {
-                    return _c("option", { key: i, domProps: { value: occ } }, [
-                      _vm._v(" " + _vm._s(occ))
-                    ])
-                  }),
-                  0
-                )
-              ])
+                    },
+                    _vm._l(_vm.occupancy_list, function(occ, i) {
+                      return _c(
+                        "option",
+                        { key: i, domProps: { value: occ } },
+                        [_vm._v(" " + _vm._s(occ))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "occupancy_type" }
+                  })
+                ],
+                1
+              )
             ])
           ])
         : _vm._e(),

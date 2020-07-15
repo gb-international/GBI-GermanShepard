@@ -15,6 +15,8 @@ class CreateFrontbookingsTable extends Migration
     {
         Schema::create('frontbookings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('user_id')->nullable();
+            $table->string('itinerary_id')->nullable();
             $table->string('start_date')->nullable();
             $table->string('end_date')->nullable();
             $table->string('persion')->nullable();

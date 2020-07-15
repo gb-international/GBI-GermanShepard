@@ -57,9 +57,10 @@
         <div class="col-sm-12">
             <div class="form-group">
                 <label for="occupancy">Occupancy Types</label>
-                <select class="form-control" v-model="form.occupancy_type">
+                <select class="form-control" v-model="form.occupancy_type" :class="{ 'is-invalid': form.errors.has('occupancy_type') }">
                   <option v-for="(occ, i) in occupancy_list" :value="occ" :key="i"> {{ occ }}</option>
                 </select>
+                <has-error :form="form" field="occupancy_type"></has-error>
             </div>
         </div>
       </div>
@@ -174,6 +175,7 @@ export default {
         transport:'',
         noofday:1,
         accommodation:3,
+        itinerary_id:''
       }),
       
       customize_btn:true,
@@ -192,11 +194,10 @@ export default {
   },
   mounted(){
     this.cityData();
+    this.form.itinerary_id = this.$route.params.id;
   },
   methods:{
-    BookingSubmit() {
-      console.log(this.form);
-    },
+
     cityData(){
       this.$axios.get('/api/city-list').then(response=>{
         this.city_list = response.data;
@@ -240,6 +241,20 @@ export default {
         }
       });
     },
+
+    BookingSubmit() {
+      this.form.post("/api/booking",{
+          headers: { Authorization: `Bearer ${localStorage.token}` }
+        })
+        .then(response => {
+          console.log(response);
+          this.$swal.fire({ icon: "success", title: "Profile updated!!" });
+        })
+        .catch(error => {
+          this.handleError(error);
+        });
+    },
+
   }
 };
 </script>

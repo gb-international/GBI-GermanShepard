@@ -117,6 +117,8 @@ Route::namespace('Front')->group(function(){
 		Route::post('/tour-travel-save', 'UserController@tourListSave');
 		// Comments
 		Route::post('/encyclopedia-comments','EncyclopediaController@PostComment');
+
+		Route::post('/booking','FrontbookingController@booking');
 	});
 	Route::get('/flight-detail/{flightNumber}','WebsiteController@getFlightDetails');
 	Route::get('/current-weather/{city}','WebsiteController@getCurrentWeather');
