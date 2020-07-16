@@ -11,6 +11,7 @@ import AccountItinerary from './components/admin/itinerary/Account-itinerary.vue
 import SendItinerary from './components/admin/itinerary/Send-itinerary.vue'
 import AccountItineraryView from './components/admin/itinerary/Account-itinerary-view.vue'
 import FrontBooking from './components/admin/itinerary/FrontBooking.vue'
+import FrontBookingView from './components/admin/itinerary/ViewFrontbooking.vue'
 import CalculatorItinerary from './components/admin/itinerary/Calculator-itinerary.vue'
 
 
@@ -156,6 +157,7 @@ export const routes = [
     { path:'/send-itinerary/:id', component:SendItinerary },
     { path:'/account-itinerary-view/:id', component:AccountItineraryView },
     { path: '/front-booking', component: FrontBooking },
+    { path: '/front-booking/:id', component: FrontBookingView },
     { path:'/calculator/:id', component:CalculatorItinerary },
     //Escort
     { path:'/escort-list', component:EscortList }, 

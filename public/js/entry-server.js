@@ -67822,7 +67822,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("a", { attrs: { href: "tel:+9810055102" } }, [
       _c("div", { staticClass: "nav-font" }, [
-        _c("i", { staticClass: "fas fa-phone tranform-icon" })
+        _c("i", { staticClass: "fas fa-phone-alt" })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "nav-font" }, [_vm._v("call")])

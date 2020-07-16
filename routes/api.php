@@ -41,6 +41,10 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('tour','TourController');
 		Route::resource('tourtype','TourtypeController');
 		Route::resource('tourprogram','TourprogramController');
+		Route::get('frontbooking','FrontbookingController@index');
+		Route::get('frontbooking/{id}','FrontbookingController@show');
+		Route::post('frontbooking-status','FrontbookingController@status');
+		Route::post('frontbooking-delete','FrontbookingController@destroy');
 	});
 
 	Route::namespace('Hotel')->group(function(){

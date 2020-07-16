@@ -22,6 +22,11 @@ class Itinerary extends Model
     }
     public function tourprograms(){
     	return $this->belongsToMany('App\Model\Tour\Tourprogram');
-    }
+	}
+	
+	public function frontbooking()
+	{
+		return $this->hasMany('App\Model\Tour\Frontbooking');
+	}
     
 }

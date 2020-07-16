@@ -27,7 +27,7 @@ class CreateFrontbookingsTable extends Migration
             $table->string('city')->nullable();
             $table->string('transport')->nullable();
             $table->string('sightseen')->nullable();
-            $table->enum('status', ['0', '1'])->default('0');
+            $table->string('status')->default('0');
             $table->timestamps();
         });
     }

@@ -17,21 +17,27 @@ data from the api to display the data about the Frontbooking from the backend .
             <thead>
               <tr>
                 <th>
-                  Source
+                  BOOKING DATE
                   <i class="fas fa-sort"></i>
                 </th>
                 <th>
-                  Destination
+                  START DATE
                   <i class="fas fa-sort"></i>
                 </th>
                 <th>
-                  No. of Days
+                  END DATE
                   <i class="fas fa-sort"></i>
                 </th>
                 <th>
-                  Tour type
+                  SIGHT SEEING
                   <i class="fas fa-sort"></i>
                 </th>
+                
+                <th>
+                  STATUS
+                  <i class="fas fa-sort"></i>
+                </th>
+
                 <th>
                   <i class="fas fa-cog"></i>
                 </th>
@@ -39,43 +45,30 @@ data from the api to display the data about the Frontbooking from the backend .
             </thead>
             <tbody>
               <tr
-                v-for="itinerary in alldata"
+                v-for="tour in alldata"
                 role="row"
                 v-bind:class="{ odd: oddclass , 'even': evenclass}"
                 class="row_list"
-                :key="itinerary.id"
+                :key="tour.id"
               >
-                <td>{{ itinerary.source }}</td>
-                <td>{{itinerary.destination}}</td>
-                <td>{{itinerary.noofdays}}</td>
-                <td>{{itinerary.tourtype}}</td>
+                <td>{{ tour.created_at }}</td>
+                <td>{{tour.start_date}}</td>
+                <td>{{tour.end_date}}</td>
+                <td>{{tour.sightseen}}</td>
+                <td>
+                  <span v-if="tour.status == 0" class="badge badge-warning">Pending</span>
+                  <span v-else class="badge badge-success">Booked</span>
+                </td>
                 <td class="edit_section">
-                  <router-link :to="`edit-itinerary/${itinerary.id}`" class="edit_link">
-                    <span class="badge badge-primary">
-                      <i class="fas fa-pencil-alt"></i>
-                    </span>
-                  </router-link>
-                  <a href class="delete_link" @click.prevent="deleteitinerary(itinerary.id)">
+                  <a href class="delete_link" @click.prevent="deleteTour(tour.id)">
                     <span class="badge badge-danger">
                       <i class="far fa-trash-alt"></i>
                     </span>
                   </a>
 
-                  <router-link :to="`send-itinerary/${itinerary.id}`" class="edit_link">
-                    <span class="badge badge-primary" title="Send Itinerary">
-                      <i class="fas fa-paper-plane"></i>
-                    </span>
-                  </router-link>
-
-                  <router-link :to="`/view-itinerary/${itinerary.id}`" class="edit_link">
+                  <router-link :to="`/front-booking/${tour.id}`" class="edit_link">
                     <span class="badge badge-primary" title="View Itinerary">
                       <i class="fas fa-eye"></i>
-                    </span>
-                  </router-link>
-
-                  <router-link :to="`/calculator/${itinerary.id}`" class="edit_link">
-                    <span class="badge badge-primary" title="Price Calculator">
-                      <i class="fas fa-calculator"></i>
                     </span>
                   </router-link>
                 </td>
@@ -101,18 +94,17 @@ export default {
   },
 
   mounted() {
-    this.getItinerary();
+    this.getBookingList();
   },
   methods: {
-    getItinerary() {
-      axios.get("/api/itinerary").then(response => {
-        setTimeout(() => $("#example").DataTable(), 1000);
-        this.alldata = response.data.data;
+    getBookingList() {
+      axios.get("/api/frontbooking").then(response => {
+        this.alldata = response.data;
       });
     },
 
-    deleteitinerary(id) {
-      var uri = "/api/itinerary/" + id;
+    deleteTour(id) {
+      var uri = "/api/frontbooking-delete/";
       this.$swal
         .fire({
           title: "Are you sure?",
@@ -125,10 +117,10 @@ export default {
         })
         .then(result => {
           if (result.value) {
-            axios.delete(uri).then(response => {
+
+            axios.post(uri,{ id: id }).then(response => {
               console.log(response);
-              this.getItinerary();
-              //response contains your data sent front your controller/route
+              this.getBookingList();
             });
             this.$swal.fire("Deleted!", "Your file has been deleted.", "success");
           }

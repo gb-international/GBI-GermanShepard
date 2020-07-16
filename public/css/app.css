@@ -6592,6 +6592,10 @@ a:hover {
 }
 
 @media screen and (min-width: 320px) and (max-width: 360px) {
+  .card-image img {
+    height: 130px;
+  }
+
   .search-source {
     position: absolute;
     bottom: 250px;
@@ -6608,6 +6612,10 @@ a:hover {
 }
 
 @media screen and (min-width: 360px) and (max-width: 480px) {
+  .card-image img {
+    height: 130px;
+  }
+
   .search-source {
     position: absolute;
     bottom: 200px;

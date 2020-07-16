@@ -161,7 +161,7 @@
         </router-link>
         <a href="tel:+9810055102" class>
           <div class="nav-font">
-            <i class="fas fa-phone tranform-icon"></i>
+            <i class="fas fa-phone-alt"></i>
           </div>
           <div class="nav-font">call</div>
         </a>
