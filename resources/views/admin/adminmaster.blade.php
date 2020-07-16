@@ -103,6 +103,16 @@
                             </router-link>
                           </li>
                           @endcan
+                          
+                          @can('front booking')
+                          <li class="nav-item">
+                            <router-link to="/front-booking" class="nav-link">
+                              
+                              <p>Booking From Website</p>
+                            </router-link>
+                          </li>
+                          @endcan
+
                         </ul>
                     </li>
                     @endcanany
@@ -301,11 +311,6 @@
                       </ul>
                     </li>
                     @endcanany
-
-
-
-
-
 
                     @canany(['add escorts','edit escorts','delete escorts'])
                     <li class="nav-item has-treeview">

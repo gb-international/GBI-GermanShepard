@@ -112,10 +112,10 @@
         <div class="col-sm-6">
           <label for="accommodation">Accommodation Preference</label>
           <select id="accomodation" v-model="form.accommodation">
-            <option value="2" selected>2 Star</option>
+            <option value="2">2 Star</option>
             <option value="3">3 Star</option>
-            <option value="3">4 Star</option>
-            <option value="3">5 Star</option>
+            <option value="4">4 Star</option>
+            <option value="5">5 Star</option>
           </select>
         </div>
 
@@ -247,8 +247,8 @@ export default {
           headers: { Authorization: `Bearer ${localStorage.token}` }
         })
         .then(response => {
-          console.log(response);
-          this.$swal.fire({ icon: "success", title: "Profile updated!!" });
+          this.form.reset();
+          this.$swal.fire({ icon: "success", title: "Booking Successfull!! We will contact you soon !!" });
         })
         .catch(error => {
           this.handleError(error);

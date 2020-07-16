@@ -14,20 +14,28 @@ class FrontbookingController extends Controller
     public function booking(Request $request){
         $user = Auth::user();
         $validate = $this->validateBooking($request);
-        // check city array first ( tomorrow work)
-        return $request->all();
+        $booking = '';
+        $transport = '';
+        $sightseen = '';
+        foreach ($request->city_id as $city) {
+            $booking  .= $city['name'].', ';
+        }
+        foreach ($request->transport as $mode) {
+            $transport .= $mode.', ';
+        }
+        
+        foreach ($request->sightseen as $sight) {
+            $sightseen .= $sight['name'].', ';
+        }
 
         $validate['user_id'] = $user->id;
         $validate['noofday'] = $request->noofday;
-        $validate['accomodation'] = $request->accomodation;
+        $validate['accomodation'] = $request->accommodation;
         $validate['itinerary_id'] = $request->itinerary_id;
+        $validate['city'] = substr($booking, 0, -2);
+        $validate['transport'] = substr($transport, 0, -2);
+        $validate['sightseen'] = substr($sightseen, 0, -2);
         $booking =  Frontbooking::create($validate);
-
-        $cityModels = [];
-        foreach ($request->city_id as $data) {
-            $cityModels[] = new CityFrontbooking($data);
-        }
-        $booking->cities()->saveMany($cityModels);
 
         return $booking;
     }

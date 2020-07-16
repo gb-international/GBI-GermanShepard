@@ -7707,11 +7707,11 @@ __webpack_require__.r(__webpack_exports__);
           Authorization: "Bearer ".concat(localStorage.token)
         }
       }).then(function (response) {
-        console.log(response);
+        _this4.form.reset();
 
         _this4.$swal.fire({
           icon: "success",
-          title: "Profile updated!!"
+          title: "Booking Successfull!! We will contact you soon !!"
         });
       })["catch"](function (error) {
         _this4.handleError(error);
@@ -71784,15 +71784,13 @@ var render = function() {
                   }
                 },
                 [
-                  _c("option", { attrs: { value: "2", selected: "" } }, [
-                    _vm._v("2 Star")
-                  ]),
+                  _c("option", { attrs: { value: "2" } }, [_vm._v("2 Star")]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "3" } }, [_vm._v("3 Star")]),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "3" } }, [_vm._v("4 Star")]),
+                  _c("option", { attrs: { value: "4" } }, [_vm._v("4 Star")]),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "3" } }, [_vm._v("5 Star")])
+                  _c("option", { attrs: { value: "5" } }, [_vm._v("5 Star")])
                 ]
               )
             ])

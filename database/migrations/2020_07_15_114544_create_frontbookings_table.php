@@ -19,11 +19,15 @@ class CreateFrontbookingsTable extends Migration
             $table->string('itinerary_id')->nullable();
             $table->string('start_date')->nullable();
             $table->string('end_date')->nullable();
-            $table->string('persion')->nullable();
+            $table->string('person')->nullable();
             $table->string('room')->nullable();
             $table->string('occupancy_type')->nullable();
             $table->string('noofday')->nullable();
             $table->string('accomodation')->nullable();
+            $table->string('city')->nullable();
+            $table->string('transport')->nullable();
+            $table->string('sightseen')->nullable();
+            $table->enum('status', ['0', '1'])->default('0');
             $table->timestamps();
         });
     }
