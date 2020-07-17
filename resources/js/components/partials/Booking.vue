@@ -243,6 +243,11 @@ export default {
     },
 
     BookingSubmit() {
+      if(localStorage.token == undefined){
+        window.$(".close").click();
+        this.$swal.fire({ icon: "error", title: "Sorry! you are not looged in",footer: '<a href data-toggle="modal" data-target="#LoginForm" class="text-info">Click to Login</a>' });
+        return false;
+      }
       this.form.post("/api/booking",{
           headers: { Authorization: `Bearer ${localStorage.token}` }
         })
