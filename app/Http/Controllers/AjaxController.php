@@ -16,6 +16,7 @@ class AjaxController extends Controller
     public function StateCity($id){
         return City::select(['id','name'])->where('state_id',$id)->get();
     }
+    
     public function CitySightseeing(Request $request){
         $data = array();
         foreach ($request->list as $city => $value) {

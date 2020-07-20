@@ -16,10 +16,10 @@ It takes id from the url and get the data from the api .
         <div class="container container_admin_body">
           <!-- Start Card -->
           <div class="card_view" v-if="booking.user">
-            <div class="row">
+            <div class="row">              
               <div class="col-sm-4">
                 <h5>User Name </h5>
-                <p>{{ booking.user.name }}</p>
+                <p><router-link :to="`/user/${booking.user.id}`">{{ booking.user.name }} (ID: {{ booking.user.id }})</router-link></p>
               </div>
               
               <div class="col-sm-8">

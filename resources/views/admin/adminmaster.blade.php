@@ -108,13 +108,21 @@
                           <li class="nav-item">
                             <router-link to="/front-booking" class="nav-link">
                               
-                              <p>Booking From Website</p>
+                              <p> Booking From Website</p>
                             </router-link>
                           </li>
                           @endcan
 
                         </ul>
                     </li>
+                    @endcanany
+
+                    @canany("[front booking]")
+                      <li class="nav-item">
+                        <router-link :to="`/front-booking`" class="nav-link">
+                          <i class="nav-icon fas fa-question"></i>
+                          <p> Website Query</p></router-link>
+                      </li>
                     @endcanany
 
                     @canany(['list tour','add tour','edit tour','delete tour'])
@@ -431,6 +439,17 @@
                           </router-link>
                         </li>
                         @endcan
+
+                        
+                        @can('user')
+                        <li class="nav-item">
+                          <router-link to="/user" class="nav-link">
+                            <p>Customer</p>
+                          </router-link>
+                        </li>
+                        @endcan
+
+
 
                         
                        

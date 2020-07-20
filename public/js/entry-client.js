@@ -7719,11 +7719,18 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this4.form.reset();
 
+        window.$(".close").click();
+
         _this4.$swal.fire({
           icon: "success",
           title: "Booking Successfull!! We will contact you soon !!"
         });
       })["catch"](function (error) {
+        _this4.$swal.fire({
+          icon: 'error',
+          title: "Please provide valide details"
+        });
+
         _this4.handleError(error);
       });
     }
@@ -71424,7 +71431,7 @@ var render = function() {
                 "div",
                 { staticClass: "form-group" },
                 [
-                  _c("label", { attrs: { for: "enddate" } }, [
+                  _c("label", { attrs: { for: "end_date" } }, [
                     _vm._v("End Journy Date")
                   ]),
                   _vm._v(" "),
@@ -71439,7 +71446,7 @@ var render = function() {
                     ],
                     staticClass: "form-control",
                     class: { "is-invalid": _vm.form.errors.has("end_date") },
-                    attrs: { type: "date", id: "enddate" },
+                    attrs: { type: "date", id: "end_date" },
                     domProps: { value: _vm.form.end_date },
                     on: {
                       input: function($event) {
@@ -71452,7 +71459,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("has-error", {
-                    attrs: { form: _vm.form, field: "start_date" }
+                    attrs: { form: _vm.form, field: "end_date" }
                   })
                 ],
                 1

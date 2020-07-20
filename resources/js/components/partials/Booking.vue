@@ -18,9 +18,9 @@
 
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="enddate">End Journy Date</label>
-            <input type="date" class="form-control" id="enddate" v-model="form.end_date" :class="{ 'is-invalid': form.errors.has('end_date') }"/>
-            <has-error :form="form" field="start_date"></has-error>
+            <label for="end_date">End Journy Date</label>
+            <input type="date" class="form-control" id="end_date" v-model="form.end_date" :class="{ 'is-invalid': form.errors.has('end_date') }"/>
+            <has-error :form="form" field="end_date"></has-error>
           </div>
         </div>
 
@@ -253,9 +253,11 @@ export default {
         })
         .then(response => {
           this.form.reset();
+          window.$(".close").click();
           this.$swal.fire({ icon: "success", title: "Booking Successfull!! We will contact you soon !!" });
         })
         .catch(error => {
+          this.$swal.fire({icon:'error',title:"Please provide valide details"});
           this.handleError(error);
         });
     },

@@ -86,6 +86,8 @@ Route::namespace('Admin')->group(function (){
 	});
 	Route::namespace('Website')->group(function(){
 		Route::resource('website','WebsiteController');
+		Route::get('user','UserController@index');
+		Route::get('user/{id}','UserController@show');
 	});
 	
 });

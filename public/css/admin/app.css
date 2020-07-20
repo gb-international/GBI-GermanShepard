@@ -31968,6 +31968,10 @@ Admin Login page
   padding: 0px;
 }
 
+.pl-10 {
+  padding-left: 10px;
+}
+
 .m-0 {
   margin: 0px;
 }
@@ -31978,6 +31982,10 @@ Admin Login page
 
 .text-black {
   color: black !important;
+}
+
+.w-80 {
+  width: 80px;
 }
 
 input[type='text'],

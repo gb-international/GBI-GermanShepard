@@ -141,6 +141,8 @@ import EncyclopediacommentAdd from './components/admin/encyclopedia/comment/New-
 
 // Home page
 import Homepage from './components/admin/website/home/Page.vue'
+import User from './components/admin/website/user/List.vue'
+import UserView from './components/admin/website/user/View.vue'
 
 
 
@@ -265,7 +267,8 @@ export const routes = [
     { path:'/encyclopediacomment-add', component: EncyclopediacommentAdd},
     
     { path:'/homepage', component: Homepage},
-    
+    { path:'/user', component: User},
+    { path: '/user/:id', component: UserView},   
 ];
 
 
