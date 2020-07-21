@@ -9,13 +9,10 @@
           <router-link :to="`/profile-edit`" class="user_edit">
             <i class="fas fa-user-edit"></i>
           </router-link><br>
-          
           <router-link :to="`/update-password`" class="user_edit">
             <i class="fas fa-cog"></i></i>
           </router-link>
-
         </div>
-
         <div class="row" v-if="userinfo.information">
           <div class="col-lg-2 text-center image">
             <figure v-lazyload class="image__wrapper">
@@ -37,7 +34,6 @@
                 <div class="userinfo">
                   <div class="userinfoFirst">
                     <p v-if="userinfo.information['father_name']">Father Name</p>
-
                     <p class="bottom_text">{{ userinfo.information.father_name }}</p>
                   </div>
                   <div class="userinfoSecond">
@@ -66,8 +62,9 @@
       </div>
     </div>
     <!-- Booked Button -->
-    <div class="container" id="dashboard_body">
-      <div class="dashboard-body-part-one">
+    <div class="container" id="dashboard_body" v-if="userinfo.information">
+      <!-- user Dashboard -->
+      <div class="dashboard-body-part-one" v-if="userinfo.information.user_profession == 'student'">
         <div id="rowbody">
           <div class="row">
             <div class="col">
@@ -89,6 +86,42 @@
           </div>
         </div>
       </div>
+
+      <!-- Teacher Buttons -->
+
+      <div class="dashboard-body-part-one" v-if="userinfo.information.user_profession == 'teacher'">
+        <div id="rowbody">
+          <div class="row">
+            <div class="col-sm-4 colbutton mb-10">
+              <router-link :to="`/tour-detail`">
+                <div class="rowdata1">
+                  <img src="assets/front/images/booked_320.png" loading="lazy" />
+                  <p class="icon_text">Booked Itinerary</p>
+                </div>
+              </router-link>
+            </div>
+            <div class="col-sm-4 colbutton mb-10">
+              <a href="#">
+                <div class="rowdata2">
+                  <img src="assets/front/images/payment_320.png" loading="lazy" />
+                  <p class="icon_text">Payments</p>
+                </div>
+              </a>
+            </div>
+            
+            <div class="col-sm-4 colbutton mb-10">
+              <router-link :to="`/add-group`">
+                <div class="rowdata2">
+                  <img src="assets/front/images/payment_320.png" loading="lazy" />
+                  <p class="icon_text">Payments</p>
+                </div>
+              </router-link>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
       <h5 class="title_section">Upcoming Event</h5>
       <!-- Upcoming Event Carousel -->
       <div class="dashboard-body-part-two-2" v-if="upcoming_list.length > 0">

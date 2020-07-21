@@ -1,0 +1,32 @@
+.AddGroup{
+    input{
+        border: 2px solid #d7dcdc;
+        border-radius: 4px;
+    }
+    .add_group_table{
+        thead{
+            background-color: #e7e7e7;
+            color: grey;
+        }   
+    }
+    .search-box{
+        width: 250px;
+        float: right;
+        .has-search .form-control {
+            padding-left: 2.375rem;
+        }
+    
+        .has-search .form-control-feedback {
+            position: absolute;
+            z-index: 2;
+            display: block;
+            width: 2.375rem;
+            height: 2.375rem;
+            line-height: 2.375rem;
+            text-align: center;
+            pointer-events: none;
+            color: #aaa;
+        }
+    }
+    
+}

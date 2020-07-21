@@ -3,66 +3,50 @@
       Author:@Ajay
   ****************************************************-->
   <div class="row mt-35">
-    <div class="col-lg-6" v-for="(itinerary,index) in list" :key="index">
-      <div class="card card-radis-list mb-10">
-        <router-link :to="`/explore-detail/${itinerary.id}`">
-          <div class="card-horizontal">
-            <div class="card-image">
-              <figure v-lazyload class="image__wrapper">
-                <ImageSpinner class="image__spinner" />
-                <img
-                  class="image__item"
-                  :data-url="`/uploadimage/${itinerary.photo}`"
-                  :alt="itinerary.title"
-                />
-              </figure>
+    <div class="col-lg-6 col-sm-12 cardlist mb-10" v-for="(itinerary,index) in list" :key="index">
+      <router-link :to="`/explore-detail/${itinerary.id}`">
+        <div class="image-col">
+          <figure v-lazyload class="image__wrapper">
+            <ImageSpinner class="image__spinner" />
+            <img
+              class="image__item"
+              :data-url="`/uploadimage/${itinerary.photo}`"
+              :alt="itinerary.title"
+            />
+          </figure>
+        </div>
+        <div class="cardtext-col text-left">
+          <p class="m-0 font-13 pl-10 fw-500">{{itinerary.title | sortlength(35,"")}}</p>
+          <p class="font-13 pl-10 mb-10">{{itinerary.noofdays}} Days Tour</p>
+          <div class="row m-0 text-left pl-10">
+            <div class="col p-0" v-if="itinerary.hotel_type != '0'">
+              <i class="fas fa-hotel" aria-hidden="true"></i>
+              <br />
+              <span>Hotel</span>
             </div>
-            <div class="card-content">
-              <h1>{{itinerary.title | sortlength(35,"")}}</h1>
-              <p>{{itinerary.noofdays}} Days Tour</p>
-              <table class="table-s">
-                <thead></thead>
-                <tbody>
-                  <tr>
-                    <td v-if="itinerary.hotel_type != '0'">
-                      <i class="fas fa-hotel"></i>
-                    </td>
-                    <td v-if="itinerary.train == 1">
-                      <i class="fas fa-train icon-train-list"></i>
-                    </td>
-                    <td v-if="itinerary.bus =='1'">
-                      <i class="fas fa-bus"></i>
-                    </td>
-                    <td v-if="itinerary.flight== '1'">
-                      <i class="fas fa-plane"></i>
-                    </td>
-                    <td v-if="itinerary.food != '0'">
-                      <i class="fas fa-utensils"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td v-if="itinerary.hotel_type != '0'">
-                      <span class="icon-i icon-hotel-list">Hotel</span>
-                    </td>
-                    <td v-if="itinerary.train== '1'">
-                      <span class="icon-i">Train</span>
-                    </td>
-                    <td v-if="itinerary.bus== '1'">
-                      <span class="icon-i icon-bus-list">Bus</span>
-                    </td>
-                    <td v-if="itinerary.flight== '1'">
-                      <span class="icon-i icon-plane-list">Flight</span>
-                    </td>
-                    <td v-if="itinerary.food != '0'">
-                      <span class="icon-i">Food</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="col p-0" v-if="itinerary.train == 1">
+              <i class="fas fa-train" aria-hidden="true"></i>
+              <br />
+              <span>Train</span>
+            </div>
+            <div class="col p-0"  v-if="itinerary.bus =='1'">
+              <i class="fas fa-bus" aria-hidden="true"></i>
+              <br />
+              <span>Bus</span>
+            </div>
+            <div class="col p-0" v-if="itinerary.flight== '1'">
+              <i class="fas fa-plane" aria-hidden="true"></i>
+              <br />
+              <span>Flight</span>
+            </div>
+            <div class="col p-0" v-if="itinerary.food != '0'">
+              <i class="fas fa-hotel" aria-hidden="true"></i>
+              <br />
+              <span>utensils</span>
             </div>
           </div>
-        </router-link>
-      </div>
+        </div>
+      </router-link>
     </div>
   </div>
 </template>

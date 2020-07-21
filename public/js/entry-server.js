@@ -5378,6 +5378,218 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/user/AddGroup.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/front/user/AddGroup.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "AddGroup",
+  components: {
+    "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"]
+  },
+  data: function data() {
+    return {
+      row_input: 1,
+      preivew: false,
+      total_row: [{
+        first_name: "",
+        last_name: "",
+        gender: "",
+        mobile: ""
+      }]
+    };
+  },
+  beforeMount: function beforeMount() {
+    this.tourListData();
+  },
+  methods: {
+    add_row: function add_row() {
+      for (var i = 0; i < this.row_input; i++) {
+        this.total_row.push({
+          first_name: "",
+          last_name: "",
+          gender: "",
+          mobile: "",
+          alternate_mobile: ""
+        });
+      }
+
+      this.row_input = "";
+    },
+    // Delete Row
+    delete_row: function delete_row(index) {
+      this.total_row.splice(index, 1);
+    },
+    tourListData: function tourListData() {
+      var _this = this;
+
+      var data = [];
+      this.$axios.post("/api/tour-list", data, {
+        headers: {
+          Authorization: "Bearer ".concat(localStorage.token)
+        }
+      }).then(function (response) {
+        if (response.data.length == 0) {
+          _this.formShow = true;
+        } else {
+          _this.alldata = response.data;
+          _this.itineraryData = response.data[0].itinerary;
+          _this.hotelData = response.data[0].bookedhotels;
+
+          _this.DestinationCity(_this.itineraryData.itinerarydays);
+
+          _this.formShow = false;
+        }
+      })["catch"](function (error) {
+        _this.formShow = true;
+
+        _this.handleError(error);
+      });
+    },
+    UserTourSave: function UserTourSave() {
+      var _this2 = this;
+
+      for (var i = this.total_row.length - 1; i >= 0; i--) {
+        if (this.total_row[i]["first_name"] == null) {
+          this.total_row.splice(i, 1);
+        }
+      }
+
+      this.$axios.post("/api/tour-travel-save", this.total_row, {
+        headers: {
+          Authorization: "Bearer ".concat(localStorage.token)
+        }
+      }).then(function (response) {
+        // this.alldata = response.data;
+        if (response.data == "error") {
+          _this2.$swal.fire({
+            icon: 'error',
+            title: "Try again",
+            text: "Please enter valid travel code!"
+          });
+        } else {
+          _this2.$swal.fire("Valid Code", "Check your tour details.", "success");
+
+          _this2.tourListData();
+        }
+      })["catch"](function (error) {
+        _this2.handleError(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/user/ChangePassword.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/front/user/ChangePassword.vue?vue&type=script&lang=js& ***!
@@ -5464,6 +5676,39 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_slick_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-slick-carousel */ "./node_modules/vue-slick-carousel/dist/vue-slick-carousel.umd.js");
 /* harmony import */ var vue_slick_carousel__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_slick_carousel__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7930,22 +8175,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -68286,6 +68515,338 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/user/AddGroup.vue?vue&type=template&id=077fd6e1&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/front/user/AddGroup.vue?vue&type=template&id=077fd6e1& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "AddGroup p-t-15" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "table",
+          { staticClass: "table table-hover add_group_table text-dark" },
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _vm.preivew == false
+              ? _c(
+                  "tbody",
+                  _vm._l(_vm.total_row, function(data, index) {
+                    return _c("tr", { key: data.id }, [
+                      _c("td", [_vm._v(_vm._s(index + 1))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.first_name,
+                              expression: "data.first_name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: data.first_name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(data, "first_name", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.last_name,
+                              expression: "data.last_name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: data.last_name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(data, "last_name", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.gender,
+                              expression: "data.gender"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: data.gender },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(data, "gender", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.mobile,
+                              expression: "data.mobile"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: data.mobile },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(data, "mobile", $event.target.value)
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  }),
+                  0
+                )
+              : _c(
+                  "tbody",
+                  _vm._l(_vm.total_row, function(data, index) {
+                    return _c("tr", { key: data.id }, [
+                      _c("td", [_vm._v(_vm._s(index + 1))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(data.first_name))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(data.last_name))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(data.gender))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-8" }, [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(data.mobile) +
+                                "\n                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-4 justify-content-end" },
+                            [
+                              _c("div", { staticClass: "form-group" }, [
+                                _c("p", { staticClass: "delete_icon" }, [
+                                  _c("i", {
+                                    staticClass: "fas fa-trash-alt text-danger",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.delete_row(index)
+                                      }
+                                    }
+                                  })
+                                ])
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  }),
+                  0
+                )
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "row w-100 justify-content-center" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  _vm.preivew = !_vm.preivew
+                }
+              }
+            },
+            [
+              _vm.preivew == false ? _c("span", [_vm._v("Preview")]) : _vm._e(),
+              _vm._v(" "),
+              _vm.preivew == true ? _c("span", [_vm._v("Back")]) : _vm._e()
+            ]
+          ),
+          _vm._v(" "),
+          _vm.preivew == true
+            ? _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary ml-10",
+                  attrs: { type: "button" }
+                },
+                [_vm._v("Submit")]
+              )
+            : _vm._e()
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal fade", attrs: { id: "AddRowModal" } }, [
+      _c("div", { staticClass: "modal-dialog modal-md" }, [
+        _c("div", { staticClass: "modal-content modal-color" }, [
+          _c("div", { staticClass: "modal-body" }, [
+            _c(
+              "button",
+              {
+                staticClass: "close",
+                attrs: { type: "button", "data-dismiss": "modal" }
+              },
+              [_vm._v("×")]
+            ),
+            _vm._v(" "),
+            _c("p", [_vm._v("Add Number of Persion")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "no_row" } }, [
+                _vm._v("Enter Number")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.row_input,
+                    expression: "row_input"
+                  }
+                ],
+                staticClass: "form-control p-20",
+                attrs: { type: "number" },
+                domProps: { value: _vm.row_input },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.row_input = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-center" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-info",
+                  attrs: { type: "button" },
+                  on: { click: _vm.add_row }
+                },
+                [_vm._v("ADD")]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mb-10" }, [
+      _c("div", { staticClass: "col" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: {
+              type: "button",
+              "data-toggle": "modal",
+              "data-target": "#AddRowModal"
+            }
+          },
+          [_vm._v("ADD Number of person")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "search-box" }, [
+          _c("div", { staticClass: "form-group has-search" }, [
+            _c("span", { staticClass: "fa fa-search form-control-feedback" }),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Search" }
+            })
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("th", [_vm._v("Sr.No.")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("First Name")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Last Name")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Gender")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Contact No.")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/user/ChangePassword.vue?vue&type=template&id=406bb7a4&":
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/front/user/ChangePassword.vue?vue&type=template&id=406bb7a4& ***!
@@ -68521,149 +69082,234 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "container", attrs: { id: "dashboard_body" } },
-          [
-            _c("div", { staticClass: "dashboard-body-part-one" }, [
-              _c("div", { attrs: { id: "rowbody" } }, [
-                _c("div", { staticClass: "row" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col" },
-                    [
-                      _c("router-link", { attrs: { to: "/tour-detail" } }, [
-                        _c("div", { staticClass: "rowdata1" }, [
-                          _c("img", {
-                            attrs: {
-                              src: "assets/front/images/booked_320.png",
-                              loading: "lazy"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "icon_text" }, [
-                            _vm._v("Booked Itinerary")
-                          ])
-                        ])
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _vm._m(0)
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("h5", { staticClass: "title_section" }, [
-              _vm._v("Upcoming Event")
-            ]),
-            _vm._v(" "),
-            _vm.upcoming_list.length > 0
-              ? _c(
-                  "div",
-                  { staticClass: "dashboard-body-part-two-2" },
-                  [
-                    _c(
-                      "VueSlickCarousel",
-                      _vm._b(
-                        { attrs: { arrows: true, dots: true } },
-                        "VueSlickCarousel",
-                        _vm.settings,
-                        false
-                      ),
-                      _vm._l(_vm.upcoming_list, function(state) {
-                        return _c(
-                          "div",
-                          {
-                            key: state.id,
-                            staticClass: "states_card card_scroll"
-                          },
-                          [
-                            _c("div", { staticClass: "card" }, [
+        _vm.userinfo.information
+          ? _c(
+              "div",
+              { staticClass: "container", attrs: { id: "dashboard_body" } },
+              [
+                _vm.userinfo.information.user_profession == "student"
+                  ? _c("div", { staticClass: "dashboard-body-part-one" }, [
+                      _c("div", { attrs: { id: "rowbody" } }, [
+                        _c("div", { staticClass: "row" }, [
+                          _c(
+                            "div",
+                            { staticClass: "col" },
+                            [
                               _c(
-                                "figure",
-                                {
-                                  directives: [
-                                    { name: "lazyload", rawName: "v-lazyload" }
-                                  ],
-                                  staticClass: "image__wrapper card_image_ency"
-                                },
+                                "router-link",
+                                { attrs: { to: "/tour-detail" } },
                                 [
-                                  _c("ImageSpinner", {
-                                    staticClass: "image__spinner"
-                                  }),
-                                  _vm._v(" "),
-                                  _c("img", {
-                                    staticClass: "image__item card-img-top",
-                                    attrs: {
-                                      "data-url": "/uploadimage/" + state.photo,
-                                      alt: "image"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "card-img-overlay text-center" },
-                                [
-                                  _c(
-                                    "p",
-                                    { staticClass: "card-text" },
-                                    [
-                                      _c(
-                                        "router-link",
-                                        {
-                                          staticClass: "text-white",
-                                          attrs: {
-                                            to: "/explore-detail/" + state.id
-                                          }
-                                        },
-                                        [_vm._v(_vm._s(state.title))]
-                                      )
-                                    ],
-                                    1
-                                  )
+                                  _c("div", { staticClass: "rowdata1" }, [
+                                    _c("img", {
+                                      attrs: {
+                                        src:
+                                          "assets/front/images/booked_320.png",
+                                        loading: "lazy"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "icon_text" }, [
+                                      _vm._v("Booked Itinerary")
+                                    ])
+                                  ])
                                 ]
                               )
-                            ])
-                          ]
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _vm._m(0)
+                        ])
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.userinfo.information.user_profession == "teacher"
+                  ? _c("div", { staticClass: "dashboard-body-part-one" }, [
+                      _c("div", { attrs: { id: "rowbody" } }, [
+                        _c("div", { staticClass: "row" }, [
+                          _c(
+                            "div",
+                            { staticClass: "col-sm-4 colbutton mb-10" },
+                            [
+                              _c(
+                                "router-link",
+                                { attrs: { to: "/tour-detail" } },
+                                [
+                                  _c("div", { staticClass: "rowdata1" }, [
+                                    _c("img", {
+                                      attrs: {
+                                        src:
+                                          "assets/front/images/booked_320.png",
+                                        loading: "lazy"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "icon_text" }, [
+                                      _vm._v("Booked Itinerary")
+                                    ])
+                                  ])
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _vm._m(1),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-sm-4 colbutton mb-10" },
+                            [
+                              _c(
+                                "router-link",
+                                { attrs: { to: "/add-group" } },
+                                [
+                                  _c("div", { staticClass: "rowdata2" }, [
+                                    _c("img", {
+                                      attrs: {
+                                        src:
+                                          "assets/front/images/payment_320.png",
+                                        loading: "lazy"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "icon_text" }, [
+                                      _vm._v("Payments")
+                                    ])
+                                  ])
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("h5", { staticClass: "title_section" }, [
+                  _vm._v("Upcoming Event")
+                ]),
+                _vm._v(" "),
+                _vm.upcoming_list.length > 0
+                  ? _c(
+                      "div",
+                      { staticClass: "dashboard-body-part-two-2" },
+                      [
+                        _c(
+                          "VueSlickCarousel",
+                          _vm._b(
+                            { attrs: { arrows: true, dots: true } },
+                            "VueSlickCarousel",
+                            _vm.settings,
+                            false
+                          ),
+                          _vm._l(_vm.upcoming_list, function(state) {
+                            return _c(
+                              "div",
+                              {
+                                key: state.id,
+                                staticClass: "states_card card_scroll"
+                              },
+                              [
+                                _c("div", { staticClass: "card" }, [
+                                  _c(
+                                    "figure",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "lazyload",
+                                          rawName: "v-lazyload"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "image__wrapper card_image_ency"
+                                    },
+                                    [
+                                      _c("ImageSpinner", {
+                                        staticClass: "image__spinner"
+                                      }),
+                                      _vm._v(" "),
+                                      _c("img", {
+                                        staticClass: "image__item card-img-top",
+                                        attrs: {
+                                          "data-url":
+                                            "/uploadimage/" + state.photo,
+                                          alt: "image"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "card-img-overlay text-center"
+                                    },
+                                    [
+                                      _c(
+                                        "p",
+                                        { staticClass: "card-text" },
+                                        [
+                                          _c(
+                                            "router-link",
+                                            {
+                                              staticClass: "text-white",
+                                              attrs: {
+                                                to:
+                                                  "/explore-detail/" + state.id
+                                              }
+                                            },
+                                            [_vm._v(_vm._s(state.title))]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          }),
+                          0
                         )
-                      }),
-                      0
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "h5",
+                  { staticClass: "title_section" },
+                  [
+                    _vm._v("\n      Popular Destination\n      "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "view_link",
+                        attrs: { to: "/explore-list" }
+                      },
+                      [_vm._v("View more")]
                     )
                   ],
                   1
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "h5",
-              { staticClass: "title_section" },
-              [
-                _vm._v("\n      Popular Destination\n      "),
-                _c(
-                  "router-link",
-                  { staticClass: "view_link", attrs: { to: "/explore-list" } },
-                  [_vm._v("View more")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _vm._m(3),
-            _vm._v(" "),
-            _vm._m(4),
-            _vm._v(" "),
-            _vm._m(5)
-          ]
-        )
+                ),
+                _vm._v(" "),
+                _vm._m(2),
+                _vm._v(" "),
+                _vm._m(3),
+                _vm._v(" "),
+                _vm._m(4),
+                _vm._v(" "),
+                _vm._m(5),
+                _vm._v(" "),
+                _vm._m(6)
+              ]
+            )
+          : _vm._e()
       ])
     : _vm._e()
 }
@@ -68673,6 +69319,25 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("div", { staticClass: "rowdata2" }, [
+          _c("img", {
+            attrs: {
+              src: "assets/front/images/payment_320.png",
+              loading: "lazy"
+            }
+          }),
+          _vm._v(" "),
+          _c("p", { staticClass: "icon_text" }, [_vm._v("Payments")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-4 colbutton mb-10" }, [
       _c("a", { attrs: { href: "#" } }, [
         _c("div", { staticClass: "rowdata2" }, [
           _c("img", {
@@ -72084,144 +72749,117 @@ var render = function() {
     "div",
     { staticClass: "row mt-35" },
     _vm._l(_vm.list, function(itinerary, index) {
-      return _c("div", { key: index, staticClass: "col-lg-6" }, [
-        _c(
-          "div",
-          { staticClass: "card card-radis-list mb-10" },
-          [
-            _c(
-              "router-link",
-              { attrs: { to: "/explore-detail/" + itinerary.id } },
-              [
-                _c("div", { staticClass: "card-horizontal" }, [
-                  _c("div", { staticClass: "card-image" }, [
-                    _c(
-                      "figure",
-                      {
-                        directives: [
-                          { name: "lazyload", rawName: "v-lazyload" }
-                        ],
-                        staticClass: "image__wrapper"
-                      },
-                      [
-                        _c("ImageSpinner", { staticClass: "image__spinner" }),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "image__item",
-                          attrs: {
-                            "data-url": "/uploadimage/" + itinerary.photo,
-                            alt: itinerary.title
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-content" }, [
-                    _c("h1", [
-                      _vm._v(
-                        _vm._s(_vm._f("sortlength")(itinerary.title, 35, ""))
-                      )
-                    ]),
+      return _c(
+        "div",
+        { key: index, staticClass: "col-lg-6 col-sm-12 cardlist mb-10" },
+        [
+          _c(
+            "router-link",
+            { attrs: { to: "/explore-detail/" + itinerary.id } },
+            [
+              _c("div", { staticClass: "image-col" }, [
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
                     _vm._v(" "),
-                    _c("p", [
-                      _vm._v(_vm._s(itinerary.noofdays) + " Days Tour")
-                    ]),
-                    _vm._v(" "),
-                    _c("table", { staticClass: "table-s" }, [
-                      _c("thead"),
-                      _vm._v(" "),
-                      _c("tbody", [
-                        _c("tr", [
-                          itinerary.hotel_type != "0"
-                            ? _c("td", [
-                                _c("i", { staticClass: "fas fa-hotel" })
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          itinerary.train == 1
-                            ? _c("td", [
-                                _c("i", {
-                                  staticClass: "fas fa-train icon-train-list"
-                                })
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          itinerary.bus == "1"
-                            ? _c("td", [_c("i", { staticClass: "fas fa-bus" })])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          itinerary.flight == "1"
-                            ? _c("td", [
-                                _c("i", { staticClass: "fas fa-plane" })
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          itinerary.food != "0"
-                            ? _c("td", [
-                                _c("i", { staticClass: "fas fa-utensils" })
-                              ])
-                            : _vm._e()
-                        ]),
+                    _c("img", {
+                      staticClass: "image__item",
+                      attrs: {
+                        "data-url": "/uploadimage/" + itinerary.photo,
+                        alt: itinerary.title
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "cardtext-col text-left" }, [
+                _c("p", { staticClass: "m-0 font-13 pl-10 fw-500" }, [
+                  _vm._v(_vm._s(_vm._f("sortlength")(itinerary.title, 35, "")))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "font-13 pl-10 mb-10" }, [
+                  _vm._v(_vm._s(itinerary.noofdays) + " Days Tour")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row m-0 text-left pl-10" }, [
+                  itinerary.hotel_type != "0"
+                    ? _c("div", { staticClass: "col p-0" }, [
+                        _c("i", {
+                          staticClass: "fas fa-hotel",
+                          attrs: { "aria-hidden": "true" }
+                        }),
                         _vm._v(" "),
-                        _c("tr", [
-                          itinerary.hotel_type != "0"
-                            ? _c("td", [
-                                _c(
-                                  "span",
-                                  { staticClass: "icon-i icon-hotel-list" },
-                                  [_vm._v("Hotel")]
-                                )
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          itinerary.train == "1"
-                            ? _c("td", [
-                                _c("span", { staticClass: "icon-i" }, [
-                                  _vm._v("Train")
-                                ])
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          itinerary.bus == "1"
-                            ? _c("td", [
-                                _c(
-                                  "span",
-                                  { staticClass: "icon-i icon-bus-list" },
-                                  [_vm._v("Bus")]
-                                )
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          itinerary.flight == "1"
-                            ? _c("td", [
-                                _c(
-                                  "span",
-                                  { staticClass: "icon-i icon-plane-list" },
-                                  [_vm._v("Flight")]
-                                )
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          itinerary.food != "0"
-                            ? _c("td", [
-                                _c("span", { staticClass: "icon-i" }, [
-                                  _vm._v("Food")
-                                ])
-                              ])
-                            : _vm._e()
-                        ])
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("Hotel")])
                       ])
-                    ])
-                  ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  itinerary.train == 1
+                    ? _c("div", { staticClass: "col p-0" }, [
+                        _c("i", {
+                          staticClass: "fas fa-train",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("Train")])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  itinerary.bus == "1"
+                    ? _c("div", { staticClass: "col p-0" }, [
+                        _c("i", {
+                          staticClass: "fas fa-bus",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("Bus")])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  itinerary.flight == "1"
+                    ? _c("div", { staticClass: "col p-0" }, [
+                        _c("i", {
+                          staticClass: "fas fa-plane",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("Flight")])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  itinerary.food != "0"
+                    ? _c("div", { staticClass: "col p-0" }, [
+                        _c("i", {
+                          staticClass: "fas fa-hotel",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("utensils")])
+                      ])
+                    : _vm._e()
                 ])
-              ]
-            )
-          ],
-          1
-        )
-      ])
+              ])
+            ]
+          )
+        ],
+        1
+      )
     }),
     0
   )
@@ -105937,6 +106575,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/front/user/AddGroup.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/front/user/AddGroup.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AddGroup_vue_vue_type_template_id_077fd6e1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddGroup.vue?vue&type=template&id=077fd6e1& */ "./resources/js/components/front/user/AddGroup.vue?vue&type=template&id=077fd6e1&");
+/* harmony import */ var _AddGroup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddGroup.vue?vue&type=script&lang=js& */ "./resources/js/components/front/user/AddGroup.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AddGroup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AddGroup_vue_vue_type_template_id_077fd6e1___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AddGroup_vue_vue_type_template_id_077fd6e1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/front/user/AddGroup.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/front/user/AddGroup.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/front/user/AddGroup.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AddGroup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AddGroup.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/user/AddGroup.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AddGroup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/front/user/AddGroup.vue?vue&type=template&id=077fd6e1&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/front/user/AddGroup.vue?vue&type=template&id=077fd6e1& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddGroup_vue_vue_type_template_id_077fd6e1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AddGroup.vue?vue&type=template&id=077fd6e1& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/user/AddGroup.vue?vue&type=template&id=077fd6e1&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddGroup_vue_vue_type_template_id_077fd6e1___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddGroup_vue_vue_type_template_id_077fd6e1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/front/user/ChangePassword.vue":
 /*!***************************************************************!*\
   !*** ./resources/js/components/front/user/ChangePassword.vue ***!
@@ -107055,7 +107762,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_front_user_Tour_detail_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/front/user/Tour-detail.vue */ "./resources/js/components/front/user/Tour-detail.vue");
 /* harmony import */ var _components_front_user_Profile_edit_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/front/user/Profile_edit.vue */ "./resources/js/components/front/user/Profile_edit.vue");
 /* harmony import */ var _components_front_user_UpdatePassword_vue__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/front/user/UpdatePassword.vue */ "./resources/js/components/front/user/UpdatePassword.vue");
-/* harmony import */ var _components_front_error_404_vue__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/front/error/404.vue */ "./resources/js/components/front/error/404.vue");
+/* harmony import */ var _components_front_user_AddGroup_vue__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/front/user/AddGroup.vue */ "./resources/js/components/front/user/AddGroup.vue");
+/* harmony import */ var _components_front_error_404_vue__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/front/error/404.vue */ "./resources/js/components/front/error/404.vue");
+
 
 
 
@@ -107140,8 +107849,11 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/update-password',
     component: _components_front_user_UpdatePassword_vue__WEBPACK_IMPORTED_MODULE_20__["default"]
   }, {
+    path: '/add-group',
+    component: _components_front_user_AddGroup_vue__WEBPACK_IMPORTED_MODULE_21__["default"]
+  }, {
     path: '*',
-    component: _components_front_error_404_vue__WEBPACK_IMPORTED_MODULE_21__["default"]
+    component: _components_front_error_404_vue__WEBPACK_IMPORTED_MODULE_22__["default"]
   }]
 });
 router.beforeEach(function (to, from, next) {
