@@ -194,31 +194,6 @@ class UserController extends Controller{
         $user->save();
         return response()->json('success');
     }
-    public function tourList(Request $request){
-        $user = Auth::user();
-        $travel = $user->UserTravel->first();
-
-        $tour = Tour::with('itinerary','itinerary.itinerarydays','bookedhotels','bookedhotels.hotel','bookedflights','bookedflights.flight')->where("travel_code",$travel->travel_code)->get();
-        return response()->json($tour);
-    }
-
-    public function tourListSave(Request $request){
-        $this->validate($request, [ 
-            'travel_code' => 'required',
-        ]);
-        $user = Auth::user();
-        $data = ['user_id'=>$user->id,'travel_code'=>$request->travel_code];
-        $travel = TourUser::where($data)->get();
-        if(count($travel) != 0){
-            return response()->json('error');
-        }
-        $tour = Tour::where('travel_code',$request->travel_code)->get();
-        if(count($tour) == 0){
-            return response()->json('error');
-        }        
-        TourUser::create($data);
-        return response()->json(['success'=>"success"]);   
-    }
 
     public function UpdatePassword(Request $request){
         $user = Auth::user();

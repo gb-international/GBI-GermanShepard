@@ -4,7 +4,7 @@
       ****************************************************-->
   <div class="container">
     <div id="itinerary_detail_list">
-      <div v-if="alldata.length" id="roadmap" class="mb-35 w-100">
+      <div v-if="alldata.itinerary" id="roadmap" class="mb-35 w-100">
         <div class="row w-100">
           <div class="col-md-6 offset-md-2">
             <h4>TOUR PATH</h4>
@@ -73,7 +73,7 @@
           </div>
         </div>
 
-        <div class="hotel-section mb-35" v-if="hotelData">
+        <div class="hotel-section mb-35" v-if="hotelData.id">
           <h3 class="text-center mb-35">YOU WILL STAY HERE</h3>
           <div class="row justify-content-center">
             <div class="col-sm-4" v-for="hotel in hotelData" :key="hotel.id">
@@ -120,10 +120,10 @@
           </div>
         </div>
 
-        <div class="airline-section mb-35" v-if="alldata[0].bookedflights">
+        <div class="airline-section mb-35" v-if="alldata.bookedflights[0]">
           <h3 class="text-center mb-35">AIRLINES DETAILS</h3>
           <hr />
-          <div v-for="air in alldata[0].bookedflights" :key="air.id">
+          <div v-for="air in alldata.bookedflights" :key="air.id">
 
             <flight-app :list="air.flight_number" :flightDate="simpleDate(air.departure)"></flight-app>            
  
@@ -205,7 +205,7 @@ export default {
     };
   },
   beforeMount(){
-    this.tourListData();
+    this.tourListData(this.$route.params.id);
   },
   methods: {
     dateFormat(date) {
@@ -243,10 +243,10 @@ export default {
       return diff - 1;
     },
 
-    tourListData() {
-      var data = [];
+    tourListData(id) {
+      var data = {travel_id : id};
       this.$axios
-        .post("/api/tour-list", data, {
+        .post("/api/tour-detail", data, {
           headers: { Authorization: `Bearer ${localStorage.token}` }
         })
         .then(response => {
@@ -254,8 +254,8 @@ export default {
             this.formShow = true;
           } else {
             this.alldata = response.data;
-            this.itineraryData = response.data[0].itinerary;
-            this.hotelData = response.data[0].bookedhotels;
+            this.itineraryData = response.data.itinerary;
+            this.hotelData = response.data.bookedhotels;
             this.DestinationCity(this.itineraryData.itinerarydays);
             this.formShow = false;
           }

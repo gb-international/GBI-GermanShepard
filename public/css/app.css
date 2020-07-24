@@ -7495,241 +7495,6 @@ a:hover {
   min-width: 80px !important;
 }
 
-#itinerary_detail_list .tour-code-card {
-  background: #f7f7f7;
-  padding: 40px 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-#itinerary_detail_list #roadmap ul.timeline {
-  list-style-type: none;
-  position: relative;
-}
-
-#itinerary_detail_list #roadmap ul.timeline:before {
-  content: ' ';
-  background: #d4d9df;
-  display: inline-block;
-  position: absolute;
-  left: 29px;
-  width: 2px;
-  height: 100%;
-  z-index: 400;
-}
-
-#itinerary_detail_list #roadmap ul.timeline > li {
-  margin: 20px 0;
-  padding-left: 60px;
-}
-
-#itinerary_detail_list #roadmap ul.timeline > li:before {
-  content: ' ';
-  background: white;
-  display: inline-block;
-  position: absolute;
-  border-radius: 50%;
-  border: 3px solid #22c0e8;
-  left: 20px;
-  width: 20px;
-  height: 20px;
-  z-index: 400;
-}
-
-#itinerary_detail_list .hotel-section .hotel-card {
-  padding: 10px;
-  border: 1px solid lightgrey;
-}
-
-#itinerary_detail_list .hotel-section .hotel-card p {
-  margin: 3px 0px !important;
-  font-size: 13px;
-}
-
-#itinerary_detail_list .hotel-section .hotel-card label {
-  float: right;
-  margin-bottom: 0px !important;
-  font-weight: normal;
-}
-
-#itinerary_detail_list .hotel-section .hotel-card .hotel_info {
-  margin-top: 9px;
-}
-
-#itinerary_detail_list .hotel-section .hotel-card .star-rating {
-  color: gold;
-  display: inline-block;
-  font-size: 15px;
-  position: relative;
-  transform: translate(-6px);
-}
-
-#itinerary_detail_list .hotel-section .hotel-card .star-rating__max,
-#itinerary_detail_list .hotel-section .hotel-card .star-rating__current {
-  position: absolute;
-  top: 0;
-}
-
-#itinerary_detail_list .hotel-section .hotel-card .star-rating__current {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-#itinerary_detail_list .things-to-carrry {
-  text-align: center;
-}
-
-#itinerary_detail_list .things-to-carrry .col-sm-4 {
-  min-height: 160px;
-}
-
-#itinerary_detail_list .things-to-carrry .item {
-  padding: 30px;
-}
-
-#itinerary_detail_list .things-to-carrry .item p {
-  margin-top: 10px;
-  font-style: normal;
-}
-
-#itinerary_detail_list .things-to-carrry .item .bottel {
-  width: 18px;
-}
-
-#itinerary_detail_list .things-to-carrry .item .common {
-  width: 45px;
-}
-
-#itinerary_detail_list .things-to-carrry .item .shoes {
-  margin-top: 24px;
-}
-
-#itinerary_detail_list .airline-section p {
-  margin: 5px;
-}
-
-#itinerary_detail_list .airline-section .progress {
-  height: 0.5em;
-}
-
-#itinerary_detail_list .airline-section .fas {
-  font-weight: 1000;
-  font-size: 14px;
-  color: lightgrey;
-  margin-right: 0px !important;
-}
-
-#itinerary_detail_list .map-section iframe {
-  width: 100%;
-  height: 400px;
-}
-
-#itinerary_detail_list .weather-section .bg-weather {
-  background-color: #3c5dab;
-  padding: 30px;
-  border-radius: 10px;
-}
-
-#itinerary_detail_list .weather-section .degree {
-  font-size: 44px;
-}
-
-#itinerary_detail_list .weather-section small {
-  font-size: 14px;
-}
-
-#itinerary_detail_list .weather-section .text_right {
-  text-align: right;
-}
-
-#itinerary_detail_list .weather-section .weather_card .data {
-  width: 88px !important;
-  background: #2f3f79;
-  padding: 29px 0px 16px;
-  border-radius: 50px;
-  margin: auto;
-}
-
-#itinerary_detail_list .weather-section .weather_card .data img {
-  margin: auto;
-}
-
-#itinerary_detail_list .weather-section .select-city select {
-  background-color: #2f3f79;
-  border: thin solid blue;
-  border-radius: 4px;
-  display: inline-block;
-  font: inherit;
-  line-height: 1.5em;
-  padding: 0.5em 3.5em 0.5em 1em;
-  width: 220px;
-  /* reset */
-  margin: 0;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-#itinerary_detail_list .weather-section .select-city select.minimal {
-  background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
-  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
-  background-size: 5px 5px, 5px 5px, 1px 1.5em;
-  background-repeat: no-repeat;
-}
-
-#itinerary_detail_list .weather-section .select-city select.minimal:focus {
-  background-image: linear-gradient(45deg, green 50%, transparent 50%), linear-gradient(135deg, transparent 50%, green 50%), linear-gradient(to right, #ccc, #ccc);
-  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, calc(100% - 2.5em) 0.5em;
-  background-size: 5px 5px, 5px 5px, 1px 1.5em;
-  background-repeat: no-repeat;
-  border-color: green;
-  outline: 0;
-}
-
-#itinerary_detail_list .weather-section .select-city select:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
-@media screen and (max-width: 574px) {
-  #itinerary_detail_list .weather-section {
-    text-align: center !important;
-  }
-
-  #itinerary_detail_list .weather-section .text_right {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-}
-
-@media screen and (min-width: 300px) and (max-width: 800px) {
-  #itinerary_detail_list {
-    padding: 5px;
-  }
-
-  #itinerary_detail_list .shoes {
-    margin-top: 25px !important;
-  }
-
-  #itinerary_detail_list .things-to-carrry .mb-bottom {
-    border-bottom: 1px solid lightgrey;
-  }
-
-  #itinerary_detail_list .things-to-carrry .mb-right {
-    border-right: 1px solid lightgrey;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  #itinerary_detail_list .bottom-border {
-    border-bottom: 1px solid lightgrey;
-  }
-
-  #itinerary_detail_list .border-right {
-    border-right: 1px solid lightgrey;
-  }
-}
-
 .grey-form .user_edit_image {
   margin: auto;
 }
@@ -8282,6 +8047,287 @@ a:hover {
   color: #aaa;
 }
 
+.AddGroup .custom-file-uploader {
+  position: relative;
+  padding: 7px;
+  color: white;
+  border-radius: 0px 34px 34px 0px;
+  background: grey;
+}
+
+.AddGroup .custom-file-uploader input[type='file'] {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: default;
+}
+
+#itinerary_detail_list .tour-code-card {
+  background: #f7f7f7;
+  padding: 40px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#itinerary_detail_list #roadmap ul.timeline {
+  list-style-type: none;
+  position: relative;
+}
+
+#itinerary_detail_list #roadmap ul.timeline:before {
+  content: ' ';
+  background: #d4d9df;
+  display: inline-block;
+  position: absolute;
+  left: 29px;
+  width: 2px;
+  height: 100%;
+  z-index: 400;
+}
+
+#itinerary_detail_list #roadmap ul.timeline > li {
+  margin: 20px 0;
+  padding-left: 60px;
+}
+
+#itinerary_detail_list #roadmap ul.timeline > li:before {
+  content: ' ';
+  background: white;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #22c0e8;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  z-index: 400;
+}
+
+#itinerary_detail_list .hotel-section .hotel-card {
+  padding: 10px;
+  border: 1px solid lightgrey;
+}
+
+#itinerary_detail_list .hotel-section .hotel-card p {
+  margin: 3px 0px !important;
+  font-size: 13px;
+}
+
+#itinerary_detail_list .hotel-section .hotel-card label {
+  float: right;
+  margin-bottom: 0px !important;
+  font-weight: normal;
+}
+
+#itinerary_detail_list .hotel-section .hotel-card .hotel_info {
+  margin-top: 9px;
+}
+
+#itinerary_detail_list .hotel-section .hotel-card .star-rating {
+  color: gold;
+  display: inline-block;
+  font-size: 15px;
+  position: relative;
+  transform: translate(-6px);
+}
+
+#itinerary_detail_list .hotel-section .hotel-card .star-rating__max,
+#itinerary_detail_list .hotel-section .hotel-card .star-rating__current {
+  position: absolute;
+  top: 0;
+}
+
+#itinerary_detail_list .hotel-section .hotel-card .star-rating__current {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#itinerary_detail_list .things-to-carrry {
+  text-align: center;
+}
+
+#itinerary_detail_list .things-to-carrry .col-sm-4 {
+  min-height: 160px;
+}
+
+#itinerary_detail_list .things-to-carrry .item {
+  padding: 30px;
+}
+
+#itinerary_detail_list .things-to-carrry .item p {
+  margin-top: 10px;
+  font-style: normal;
+}
+
+#itinerary_detail_list .things-to-carrry .item .bottel {
+  width: 18px;
+}
+
+#itinerary_detail_list .things-to-carrry .item .common {
+  width: 45px;
+}
+
+#itinerary_detail_list .things-to-carrry .item .shoes {
+  margin-top: 24px;
+}
+
+#itinerary_detail_list .airline-section p {
+  margin: 5px;
+}
+
+#itinerary_detail_list .airline-section .progress {
+  height: 0.5em;
+}
+
+#itinerary_detail_list .airline-section .fas {
+  font-weight: 1000;
+  font-size: 14px;
+  color: lightgrey;
+  margin-right: 0px !important;
+}
+
+#itinerary_detail_list .map-section iframe {
+  width: 100%;
+  height: 400px;
+}
+
+#itinerary_detail_list .weather-section .bg-weather {
+  background-color: #3c5dab;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+#itinerary_detail_list .weather-section .degree {
+  font-size: 44px;
+}
+
+#itinerary_detail_list .weather-section small {
+  font-size: 14px;
+}
+
+#itinerary_detail_list .weather-section .text_right {
+  text-align: right;
+}
+
+#itinerary_detail_list .weather-section .weather_card .data {
+  width: 88px !important;
+  background: #2f3f79;
+  padding: 29px 0px 16px;
+  border-radius: 50px;
+  margin: auto;
+}
+
+#itinerary_detail_list .weather-section .weather_card .data img {
+  margin: auto;
+}
+
+#itinerary_detail_list .weather-section .select-city select {
+  background-color: #2f3f79;
+  border: thin solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+  width: 220px;
+  /* reset */
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#itinerary_detail_list .weather-section .select-city select.minimal {
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+#itinerary_detail_list .weather-section .select-city select.minimal:focus {
+  background-image: linear-gradient(45deg, green 50%, transparent 50%), linear-gradient(135deg, transparent 50%, green 50%), linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+
+#itinerary_detail_list .weather-section .select-city select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+@media screen and (max-width: 574px) {
+  #itinerary_detail_list .weather-section {
+    text-align: center !important;
+  }
+
+  #itinerary_detail_list .weather-section .text_right {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 800px) {
+  #itinerary_detail_list {
+    padding: 5px;
+  }
+
+  #itinerary_detail_list .shoes {
+    margin-top: 25px !important;
+  }
+
+  #itinerary_detail_list .things-to-carrry .mb-bottom {
+    border-bottom: 1px solid lightgrey;
+  }
+
+  #itinerary_detail_list .things-to-carrry .mb-right {
+    border-right: 1px solid lightgrey;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #itinerary_detail_list .bottom-border {
+    border-bottom: 1px solid lightgrey;
+  }
+
+  #itinerary_detail_list .border-right {
+    border-right: 1px solid lightgrey;
+  }
+}
+
+.bg-cover {
+  background-attachment: static;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tour_list_card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.tour_list_card .container {
+  background: #0b090940;
+}
+
+@media screen and (max-width: 438px) {
+  .tour_list_card .col {
+    font-size: 11px;
+  }
+}
+
 .link {
   cursor: pointer;
 }
@@ -8362,6 +8408,10 @@ a:hover {
   padding: 0px;
 }
 
+.ml-1 {
+  margin-left: 1px;
+}
+
 .p-20 {
   padding: 20px;
 }
@@ -8388,6 +8438,10 @@ a:hover {
 
 .h-45 {
   height: 45px !important;
+}
+
+.h-40 {
+  height: 40px !important;
 }
 
 .h-16 {
@@ -8424,6 +8478,10 @@ a:hover {
 
 .img-circle {
   border-radius: 50%;
+}
+
+.bg-transparent-card {
+  background: #3c383891 !important;
 }
 
 #itinerary_detail_list {

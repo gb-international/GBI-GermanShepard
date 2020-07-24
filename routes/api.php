@@ -119,12 +119,14 @@ Route::namespace('Front')->group(function(){
 		Route::post('/user-update','UserController@update');
 		Route::post('/update-password','UserController@UpdatePassword');
 		Route::post('/update-user-image','UserController@UserImage');
-		Route::post('/tour-list', 'UserController@tourList');
-		Route::post('/tour-travel-save', 'UserController@tourListSave');
+		Route::post('/tour-detail', 'TourController@tourDetail');
+		Route::post('/tour-list', 'TourController@tourList');
+		Route::post('/tour-travel-save', 'TourController@tourDetailSave');
 		// Comments
 		Route::post('/encyclopedia-comments','EncyclopediaController@PostComment');
 
 		Route::post('/booking','FrontbookingController@booking');
+		Route::post('/group-add','StudentController@studentStore');
 	});
 	Route::get('/flight-detail/{flightNumber}','WebsiteController@getFlightDetails');
 	Route::get('/current-weather/{city}','WebsiteController@getCurrentWeather');

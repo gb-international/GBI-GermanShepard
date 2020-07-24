@@ -1,0 +1,85 @@
+<template>
+  <div class="container" v-if="tours">
+    <div class="row" v-for="tour in tours" :key="tour.id">
+      <div class="col-md-12">
+        <!-- <div
+          class="bg-cover text-white tour_list_card mt-4"
+          :style="{background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), `url(${tour.itinerary.detail_photo })}`}"
+        >-->
+        <div
+          class="bg-cover text-white tour_list_card mt-4"
+          :style="{ backgroundImage: `url('/uploadimage/${tour.itinerary.detail_photo}')` }"
+        >
+          <div class="container pt-4">
+            <p>
+              <span class="display-4">Tour to</span>
+              <small>{{ tour.tour_start_date }} - {{ tour.tour_end_date }}</small>
+            </p>
+            <p class="lead">{{ tour.itinerary.title }}</p>
+            <div class="row text-center">
+              <div class="col p-0">
+                <router-link :to="`/tour-detail/${tour.tour_id}`">
+                  <div class="text-center bg-transparent-card p-t-15 pb-15 text-white">
+                    <i class="fas fa-eye"></i> View Itinerary
+                  </div>
+                </router-link>
+              </div>
+
+              <div class="col p-0">
+                <router-link :to="`/add-group/${tour.tour_id}`">
+                  <div class="text-cente bg-transparent-card p-t-15 pb-15 ml-1 text-white">
+                    <i class="fas fa-eye"></i> Add Group
+                  </div>
+                </router-link>
+              </div>
+              <div class="col p-0">
+                <div class="text-cente bg-transparent-card p-t-15 pb-15 ml-1">
+                  <i class="fas fa-eye"></i> Group Member
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Tour-list",
+  data() {
+    return {
+      tours: "",
+      formShow: false,
+    };
+  },
+  mounted() {
+    if (localStorage.token == undefined) {
+      this.$router.push("/");
+    }
+    this.tourListData();
+  },
+
+  methods: {
+    tourListData() {
+      var data = [];
+      this.$axios
+        .post("/api/tour-list", data, {
+          headers: { Authorization: `Bearer ${localStorage.token}` },
+        })
+        .then((response) => {
+          if (response.data.length == 0) {
+            this.formShow = true;
+          } else {
+            this.tours = response.data;
+          }
+        })
+        .catch((error) => {
+          this.formShow = true;
+          this.handleError(error);
+        });
+    },
+  },
+};
+</script>

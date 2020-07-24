@@ -71,8 +71,6 @@ data from the api to display the data about the Hotel from the backend .
               </div>
             </div>
 
-            <!-- Table -->
-
             <div class="container reservation_table" id="student_list">
               <div class="card" v-for="(data,index) in total_row" :key="data.id">
                 <form class="form">
@@ -157,7 +155,6 @@ data from the api to display the data about the Hotel from the backend .
                 </form>
               </div>
             </div>
-
             <!-- Buttons -->
             <div class="row reservation_bottom">
               <div class="col-sm-2">
@@ -185,7 +182,6 @@ data from the api to display the data about the Hotel from the backend .
         </div>
       </div>
     </div>
-    <p id="post"></p>
   </section>
   <!-- /.content -->
 </template>

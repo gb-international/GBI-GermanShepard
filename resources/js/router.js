@@ -20,6 +20,7 @@ import TourDetail from  './components/front/user/Tour-detail.vue'
 import ProfileEdit from  './components/front/user/Profile_edit.vue'
 import UpdatePassword from  './components/front/user/UpdatePassword.vue'
 import AddGroup from  './components/front/user/AddGroup.vue'
+import TourList from  './components/front/user/Tour-list.vue'
 import Error404 from  './components/front/error/404.vue'
 
 Vue.use(Router);
@@ -43,10 +44,11 @@ let router = new Router({
         { path: '/explore-detail/:id', component: ExploreDetail },
         { path: '/user-information', component: UserInformation },
         { path: '/dashboard', component: Dashboard },
-        { path: '/tour-detail', component: TourDetail },
+        { path: '/tour-list', component: TourList },
+        { path: '/tour-detail/:id', component: TourDetail },
         { path: '/profile-edit',component: ProfileEdit },
         { path: '/update-password',component: UpdatePassword },
-        { path: '/add-group',component: AddGroup },
+        { path: '/add-group/:id',component: AddGroup },
         { path: '*', component: Error404 }
     ]
 });

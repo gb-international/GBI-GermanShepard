@@ -24,6 +24,8 @@
 .fw-500{ font-weight: 500;}
 
 .p-0{ padding: 0px;}
+.ml-1{ margin-left: 1px;}
+
 .p-20{ padding: 20px; }
 .p-t-15{ padding-top: 15px; }
 .pt-20{ padding-top: 20px; }
@@ -32,6 +34,7 @@
 .pl-10{ padding-left: 10px;}
 
 .h-45{ height: 45px !important; }
+.h-40{ height: 40px !important; }
 .h-16{ height: 16px !important;}
 .w-100{ width: 100% !important; }
 .w-45{ width: 45px; }
@@ -47,6 +50,9 @@
 .text-upper{  text-transform: uppercase; }
 
 .img-circle { border-radius: 50%;}
+
+.bg-transparent-card{ background: #3c383891 !important}
+
 
 #itinerary_detail_list{	min-height: 140px; }
 .input-border{ border:1px solid lightgrey !important; height: 45px; }

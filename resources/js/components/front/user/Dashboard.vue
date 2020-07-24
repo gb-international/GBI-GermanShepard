@@ -61,61 +61,26 @@
         <a href="#" class="logout" @click="logout">Logout</a>
       </div>
     </div>
-    <!-- Booked Button -->
-    <div class="container" id="dashboard_body" v-if="userinfo.information">
-      <!-- user Dashboard -->
-      <div class="dashboard-body-part-one" v-if="userinfo.information.user_profession == 'student'">
+    <!-- body section -->
+    <div class="container">
+      <div class="dashboard-body-part-one">
         <div id="rowbody">
           <div class="row">
-            <div class="col">
-              <router-link :to="`/tour-detail`">
+            <div class="col colbutton mb-10">
+              <router-link :to="`/tour-list`">
                 <div class="rowdata1">
                   <img src="assets/front/images/booked_320.png" loading="lazy" />
                   <p class="icon_text">Booked Itinerary</p>
                 </div>
               </router-link>
             </div>
-            <div class="col">
+            <div class="col colbutton mb-10">
               <a href="#">
                 <div class="rowdata2">
                   <img src="assets/front/images/payment_320.png" loading="lazy" />
                   <p class="icon_text">Payments</p>
                 </div>
               </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Teacher Buttons -->
-
-      <div class="dashboard-body-part-one" v-if="userinfo.information.user_profession == 'teacher'">
-        <div id="rowbody">
-          <div class="row">
-            <div class="col-sm-4 colbutton mb-10">
-              <router-link :to="`/tour-detail`">
-                <div class="rowdata1">
-                  <img src="assets/front/images/booked_320.png" loading="lazy" />
-                  <p class="icon_text">Booked Itinerary</p>
-                </div>
-              </router-link>
-            </div>
-            <div class="col-sm-4 colbutton mb-10">
-              <a href="#">
-                <div class="rowdata2">
-                  <img src="assets/front/images/payment_320.png" loading="lazy" />
-                  <p class="icon_text">Payments</p>
-                </div>
-              </a>
-            </div>
-            
-            <div class="col-sm-4 colbutton mb-10">
-              <router-link :to="`/add-group`">
-                <div class="rowdata2">
-                  <img src="assets/front/images/payment_320.png" loading="lazy" />
-                  <p class="icon_text">Payments</p>
-                </div>
-              </router-link>
             </div>
 
           </div>
@@ -223,6 +188,8 @@
         </div>
       </div>
       <!-- End Recent Search -->
+    </div>
+
     </div>
   </div>
 </template>
