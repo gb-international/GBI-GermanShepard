@@ -17,9 +17,6 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Hash;
 
 class TourController extends Controller{
-    public $successStatus = 200;
-    private $id = 'csrikhi@gbinternational.in';
-    private $pwd = 'Roger224225g32@';
 
      public function tourList(Request $request){
         $user = Auth::user();
