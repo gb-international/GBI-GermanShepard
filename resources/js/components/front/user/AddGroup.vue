@@ -156,6 +156,7 @@ export default {
           email:"",
           gender: "",
           mobile: "",
+          tour_id:this.$route.params.id,
         }
       ]
     };
@@ -171,7 +172,7 @@ export default {
           email:"",
           gender: "",
           mobile: "",
-          alternate_mobile: "",
+          tour_id:this.$route.params.id,
         });
       }
       this.row_input = "";
@@ -193,7 +194,6 @@ export default {
           headers: { Authorization: `Bearer ${localStorage.token}` }
         })
         .then(response => {
-          console.log(response);
           if (response.data == "error") {
             this.$swal.fire({
               icon: 'error',
@@ -239,6 +239,7 @@ export default {
                 gender: main_data[i]['gender'],
                 email: main_data[i]['email'],
                 mobile: main_data[i]['mobile'],
+                tour_id:vm.$route.params.id,
               };
             vm.total_row.push(row);
           }

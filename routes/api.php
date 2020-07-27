@@ -124,9 +124,9 @@ Route::namespace('Front')->group(function(){
 		Route::post('/tour-travel-save', 'TourController@tourDetailSave');
 		// Comments
 		Route::post('/encyclopedia-comments','EncyclopediaController@PostComment');
-
 		Route::post('/booking','FrontbookingController@booking');
-		Route::post('/group-add','StudentController@studentStore');
+		Route::post('/group-member','GroupmemberController@index');
+		Route::post('/group-add','GroupmemberController@studentStore');
 	});
 	Route::get('/flight-detail/{flightNumber}','WebsiteController@getFlightDetails');
 	Route::get('/current-weather/{city}','WebsiteController@getCurrentWeather');

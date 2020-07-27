@@ -1,3 +1,4 @@
+//  Add Group member page 
 .AddGroup{
     input{
         border: 2px solid #d7dcdc;
@@ -48,5 +49,19 @@
             cursor: default;
         }
     }
+
+    // group member list
+    .group_list{
+        tr{ border-bottom: 1px solid grey;}
+        .action_item{
+            .edit,.delete{
+                width: 19px;
+                cursor: pointer;
+            }
+        }
+    }
     
 }
+
+//  Group member list
+

@@ -33,9 +33,11 @@
                 </router-link>
               </div>
               <div class="col p-0">
-                <div class="text-cente bg-transparent-card p-t-15 pb-15 ml-1">
-                  <i class="fas fa-eye"></i> Group Member
-                </div>
+                <router-link :to="`/group-member/${tour.tour_id}`">
+                  <div class="text-cente bg-transparent-card p-t-15 pb-15 ml-1 text-white">
+                    <i class="fas fa-eye"></i> Group Member
+                  </div>
+                </router-link>
               </div>
             </div>
           </div>

@@ -8069,6 +8069,16 @@ a:hover {
   cursor: default;
 }
 
+.AddGroup .group_list tr {
+  border-bottom: 1px solid grey;
+}
+
+.AddGroup .group_list .action_item .edit,
+.AddGroup .group_list .action_item .delete {
+  width: 19px;
+  cursor: pointer;
+}
+
 #itinerary_detail_list .tour-code-card {
   background: #f7f7f7;
   padding: 40px 20px;
