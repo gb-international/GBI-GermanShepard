@@ -6,9 +6,11 @@
     <div class="AddGroup p-t-15">
       <div class="row mb-10">
         <div class="col">
-          <button type="button" class="btn btn-primary" data-toggle="modal"
+          <button type="button" class="btn btn-primary add_row_modal" data-toggle="modal"
           data-target="#AddRowModal">ADD Number of person</button>
-          <a class="text-dark" :href="`/assets/sample-group-list.xlsx`" download><i class="fas fa-download"></i> Sample Page</a>
+        </div>
+        <div class="col">
+          <a class="text-dark" :href="`/assets/sample-group-list.xlsx`" download><i class="fas fa-download"></i> GBI name list formate</a>
         </div>
 
         <div class="col">
@@ -46,7 +48,7 @@
           <div class="search-box">
             <div class="form-group has-search">
               <span class="fa fa-search form-control-feedback"></span>
-              <input type="text" class="form-control" placeholder="Search">
+              <input type="text" class="form-control" v-model="searchQuery" placeholder="Search">
             </div>
           </div>
 
@@ -65,9 +67,12 @@
           </thead>
           <tbody v-if="preivew == false">
 
-            <tr  v-for="(data,index) in total_row" :key="data.id">
+            <tr  v-for="(data,index) in resultQuery" :key="data.id">
               <td>{{ index+1 }}</td>
-              <td><input type="text" class="form-control" v-model="data.first_name"></td>
+              <td>
+                <input v-if="index == 0" type="text" class="form-control" v-model="data.first_name"  @focus="openModel()">
+                <input v-else type="text" class="form-control" v-model="data.first_name">
+              </td>
               <td><input type="text" class="form-control" v-model="data.last_name"></td>
               <td><input type="text" class="form-control" v-model="data.email"></td>
               <td><input type="text" class="form-control" v-model="data.gender"></td>
@@ -78,7 +83,7 @@
           
           <tbody v-else>
 
-            <tr  v-for="(data,index) in total_row" :key="data.id">
+            <tr  v-for="(data,index) in resultQuery" :key="data.id">
               <td>{{ index+1 }}</td>
               <td>{{ data.first_name }}</td>
               <td>{{ data.last_name }}</td>
@@ -145,7 +150,9 @@ export default {
   data() {
     return {
       row_input:1,
+      modal_auto:false,
       preivew:false,
+      searchQuery: null,
       excel_form: new Form({
         excel_file: ""
       }),
@@ -163,7 +170,12 @@ export default {
   },
 
   methods: {
-    
+    openModel(){
+      if(this.modal_auto == false){
+        window.$(".add_row_modal").click();
+        this.modal_auto = true;
+      }
+    },
      add_row() {
       for (var i = 0; i < this.row_input; i++) {
         this.total_row.push({
@@ -188,7 +200,6 @@ export default {
           this.total_row.splice(i, 1);
         }
       }
-      
       this.$axios
         .post("/api/group-add", this.total_row, {
           headers: { Authorization: `Bearer ${localStorage.token}` }
@@ -231,6 +242,7 @@ export default {
           /* DO SOMETHING WITH workbook HERE */
           let worksheet = workbook.Sheets[sheetName];
           var main_data = XLSX.utils.sheet_to_json(worksheet);
+          console.log(main_data[0]);
           for (var i = 0; i < main_data.length; i++) {
             let row = {
                 first_name: main_data[i]['first_name'],
@@ -251,6 +263,20 @@ export default {
         return false;
       }
     },
+  },
+  computed: {
+    resultQuery() {
+      if (this.searchQuery) {
+        return this.total_row.filter(item => {
+          return this.searchQuery
+            .toLowerCase()
+            .split(" ")
+            .every(v => item.first_name.toLowerCase().includes(v));
+        });
+      } else {
+        return this.total_row;
+      }
+    }
   }
 };
 </script>

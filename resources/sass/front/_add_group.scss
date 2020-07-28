@@ -52,12 +52,24 @@
 
     // group member list
     .group_list{
-        tr{ border-bottom: 1px solid grey;}
+        .hidden{
+            input{
+                border: 0px !important;
+                background: transparent !important;
+            }
+        }
+        tr{ border-bottom: 1px solid #e7e7e7;}
         .action_item{
             .edit,.delete{
                 width: 19px;
                 cursor: pointer;
             }
+        }
+    }
+    .print{
+        .fa-print{
+            font-size: 30px;
+            cursor: pointer;
         }
     }
     

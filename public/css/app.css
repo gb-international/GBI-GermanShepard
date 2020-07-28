@@ -8069,13 +8069,23 @@ a:hover {
   cursor: default;
 }
 
+.AddGroup .group_list .hidden input {
+  border: 0px !important;
+  background: transparent !important;
+}
+
 .AddGroup .group_list tr {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #e7e7e7;
 }
 
 .AddGroup .group_list .action_item .edit,
 .AddGroup .group_list .action_item .delete {
   width: 19px;
+  cursor: pointer;
+}
+
+.AddGroup .print .fa-print {
+  font-size: 30px;
   cursor: pointer;
 }
 

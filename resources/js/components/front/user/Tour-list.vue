@@ -10,13 +10,13 @@
           class="bg-cover text-white tour_list_card mt-4"
           :style="{ backgroundImage: `url('/uploadimage/${tour.itinerary.detail_photo}')` }"
         >
-          <div class="container pt-4">
+          <div class="container pt-4" v-if="userinfo.information">
             <p>
               <span class="display-4">Tour to</span>
               <small>{{ tour.tour_start_date }} - {{ tour.tour_end_date }}</small>
             </p>
             <p class="lead">{{ tour.itinerary.title }}</p>
-            <div class="row text-center">
+            <div class="row text-center" v-if="userinfo.information.user_profession == 'teacher'">
               <div class="col p-0">
                 <router-link :to="`/tour-detail/${tour.tour_id}`">
                   <div class="text-center bg-transparent-card p-t-15 pb-15 text-white">
@@ -40,6 +40,19 @@
                 </router-link>
               </div>
             </div>
+
+            
+            <div class="row text-center" v-if="userinfo.information.user_profession == 'student'">
+              <div class="col p-0">
+                <router-link :to="`/tour-detail/${tour.tour_id}`">
+                  <div class="text-center bg-transparent-card p-t-15 pb-15 text-white">
+                    <i class="fas fa-eye"></i> View Itinerary
+                  </div>
+                </router-link>
+              </div>
+            </div>
+
+
           </div>
         </div>
       </div>
@@ -54,6 +67,7 @@ export default {
     return {
       tours: "",
       formShow: false,
+      userinfo:'',
     };
   },
   mounted() {
@@ -61,6 +75,7 @@ export default {
       this.$router.push("/");
     }
     this.tourListData();
+    this.userData();
   },
 
   methods: {
@@ -79,6 +94,22 @@ export default {
         })
         .catch((error) => {
           this.formShow = true;
+          this.handleError(error);
+        });
+    },
+    userData() {
+      var data = [];
+      this.$axios
+        .post("/api/details", data, {
+          headers: { Authorization: `Bearer ${localStorage.token}` }
+        })
+        .then(response => {
+          this.userinfo = response.data.success;
+          if (this.userinfo.status == 0) {
+            this.$router.push("/user-information");
+          }
+        })
+        .catch(error => {
           this.handleError(error);
         });
     },

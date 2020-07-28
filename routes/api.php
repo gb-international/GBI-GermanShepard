@@ -127,6 +127,8 @@ Route::namespace('Front')->group(function(){
 		Route::post('/booking','FrontbookingController@booking');
 		Route::post('/group-member','GroupmemberController@index');
 		Route::post('/group-add','GroupmemberController@studentStore');
+		Route::post('/group-member-update','GroupmemberController@update');
+		Route::post('/destroy-member','GroupmemberController@destroy');
 	});
 	Route::get('/flight-detail/{flightNumber}','WebsiteController@getFlightDetails');
 	Route::get('/current-weather/{city}','WebsiteController@getCurrentWeather');
