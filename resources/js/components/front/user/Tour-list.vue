@@ -11,11 +11,19 @@
           :style="{ backgroundImage: `url('/uploadimage/${tour.itinerary.detail_photo}')` }"
         >
           <div class="container pt-4" v-if="userinfo.information">
-            <p>
-              <span class="display-4">Tour to</span>
-              <small>{{ tour.tour_start_date }} - {{ tour.tour_end_date }}</small>
-            </p>
-            <p class="lead">{{ tour.itinerary.title }}</p>
+            <div class="row">
+              <div class="col-sm-8">
+                <p>
+                  <span class="display-4">Tour to</span>
+                  <small>{{ tour.tour_start_date }} - {{ tour.tour_end_date }}</small>
+                </p>
+                <p class="lead">{{ tour.itinerary.title }}</p>
+              </div>
+              <div class="col-sm-4">
+                <button type="button" class="btn btn-secondary">PAY NOW</button>
+              </div>
+            </div>
+
             <div class="row text-center" v-if="userinfo.information.user_profession == 'teacher'">
               <div class="col p-0">
                 <router-link :to="`/tour-detail/${tour.tour_id}`">
@@ -41,7 +49,6 @@
               </div>
             </div>
 
-            
             <div class="row text-center" v-if="userinfo.information.user_profession == 'student'">
               <div class="col p-0">
                 <router-link :to="`/tour-detail/${tour.tour_id}`">
@@ -51,8 +58,6 @@
                 </router-link>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
@@ -67,7 +72,7 @@ export default {
     return {
       tours: "",
       formShow: false,
-      userinfo:'',
+      userinfo: "",
     };
   },
   mounted() {
@@ -101,15 +106,15 @@ export default {
       var data = [];
       this.$axios
         .post("/api/details", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` }
+          headers: { Authorization: `Bearer ${localStorage.token}` },
         })
-        .then(response => {
+        .then((response) => {
           this.userinfo = response.data.success;
           if (this.userinfo.status == 0) {
             this.$router.push("/user-information");
           }
         })
-        .catch(error => {
+        .catch((error) => {
           this.handleError(error);
         });
     },
