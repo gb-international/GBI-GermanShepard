@@ -22,6 +22,7 @@ import UpdatePassword from  './components/front/user/UpdatePassword.vue'
 import ViewGroup from  './components/front/user/GroupView.vue'
 import AddGroup from  './components/front/user/AddGroup.vue'
 import TourList from  './components/front/user/Tour-list.vue'
+import TourPayment from  './components/front/user/Tour-payment.vue'
 import Error404 from  './components/front/error/404.vue'
 
 Vue.use(Router);
@@ -51,6 +52,7 @@ let router = new Router({
         { path: '/update-password',component: UpdatePassword },
         { path: '/group-member/:id',component: ViewGroup },
         { path: '/add-group/:id',component: AddGroup },
+        { path: '/tour-payment/:id', component: TourPayment },
         { path: '*', component: Error404 }
     ]
 });

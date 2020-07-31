@@ -10,17 +10,17 @@
           class="bg-cover text-white tour_list_card mt-4"
           :style="{ backgroundImage: `url('/uploadimage/${tour.itinerary.detail_photo}')` }"
         >
-          <div class="container pt-4" v-if="userinfo.information">
+          <div class="container pt-4 font-weight-bold" v-if="userinfo.information">
             <div class="row">
               <div class="col-sm-8">
-                <p>
-                  <span class="display-4">Tour to</span>
-                  <small>{{ tour.tour_start_date }} - {{ tour.tour_end_date }}</small>
+                <p class="font-italic">
+                  <span class="display-4 font-weight-normal">Tour to</span>
+                  <small>({{ tour.tour_start_date }} - {{ tour.tour_end_date }})</small>
                 </p>
-                <p class="lead">{{ tour.itinerary.title }}</p>
+                <p class="lead font-weight-normal">{{ tour.itinerary.title }}</p>
               </div>
-              <div class="col-sm-4">
-                <button type="button" class="btn btn-secondary">PAY NOW</button>
+              <div class="col-sm-4 text-center mb-10 mt-5">
+                <a :href="`/tour-payment/${tour.tour_id}`" class="btn btn-light">PAY NOW</a>
               </div>
             </div>
 
