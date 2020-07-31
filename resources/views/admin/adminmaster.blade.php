@@ -440,7 +440,7 @@
                         </li>
                         @endcan
 
-                        
+
                         @can('user')
                         <li class="nav-item">
                           <router-link to="/user" class="nav-link">
@@ -448,10 +448,14 @@
                           </router-link>
                         </li>
                         @endcan
-
-
-
                         
+                        @can('bankdetail')
+                        <li class="nav-item">
+                          <router-link to="/bankdetail" class="nav-link">
+                            <p>Bankdetail</p>
+                          </router-link>
+                        </li>
+                        @endcan
                        
                       </ul>
                     </li>

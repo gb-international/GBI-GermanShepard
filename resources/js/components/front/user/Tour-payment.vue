@@ -24,12 +24,12 @@
             <br />
             <div class="form-check-inline">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optradio" />By Student
+                <input type="radio" class="form-check-input" name="payment_mode" />By Student
               </label>
             </div>
             <div class="form-check-inline">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optradio" />By Self
+                <input type="radio" class="form-check-input" name="payment_mode" />By Self
               </label>
             </div>
           </div>
@@ -48,9 +48,9 @@
           </div>
 
           <div class="col-sm-6">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value /> GB-International
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="payment_to" />GB-International
               </label>
             </div>
             <div class="ml-5">

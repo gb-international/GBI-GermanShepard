@@ -58,6 +58,10 @@ import Tourprogram from './components/admin/website/home/List-tourprogram.vue'
 import TourprogramAdd from './components/admin/website/home/New-tourprogram.vue'
 import TourprogramEdit from './components/admin/website/home/Edit-tourprogram.vue'
 
+import Bankdetail from './components/admin/website/bankdetail/Bankdetail.vue'
+import BankdetailAdd from './components/admin/website/bankdetail/New-Bankdetail.vue'
+import BankdetailEdit from './components/admin/website/bankdetail/Edit-Bankdetail.vue'
+
 
 
 // Booked Tour
@@ -215,6 +219,12 @@ export const routes = [
     { path:'/tourprogram',component:Tourprogram},
     { path:'/tourprogram/:id',component:TourprogramEdit},
     { path:'/tourprogram-add',component:TourprogramAdd},
+
+    
+    // Bank detail
+    { path:'/bankdetail',component:Bankdetail},
+    { path:'/bankdetail/:id',component:BankdetailEdit},
+    { path:'/bankdetail-add',component:BankdetailAdd},
 
     
 
