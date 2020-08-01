@@ -23,6 +23,7 @@ class ItineraryCollection extends JsonResource
       // return parent::toArray($request);
       return  [
             'id' => $this->id,
+            'title'=>$this->title,
             'source' => $this->source,
             'destination' => $this->destination,
             'noofdays' => $this->noofdays,

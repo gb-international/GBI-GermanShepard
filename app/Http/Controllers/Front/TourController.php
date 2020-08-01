@@ -55,4 +55,8 @@ class TourController extends Controller{
         TourUser::create($data);
         return response()->json(['success'=>"success"]);   
     }
+
+    public function paymentTour(Request $request){
+        return $tour = Tour::select(['no_of_person','tour_price'])->where('tour_id',$request->travel_code)->firstOrFail();
+    }
 }

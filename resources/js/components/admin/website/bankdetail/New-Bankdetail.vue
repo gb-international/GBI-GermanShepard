@@ -51,7 +51,7 @@ to submit the data we are using a function.
                     class="form-control"
                     v-model="form.account_number"
                     :class="{ 'is-invalid': form.errors.has('account_number') }"
-                    placeholder="Enter Phone No"
+                    placeholder="Enter Account Number"
                     name="account_number"
                   />
                   <has-error :form="form" field="account_number"></has-error>
@@ -76,7 +76,7 @@ to submit the data we are using a function.
                     class="form-control"
                     v-model="form.ifsc_code"
                     :class="{ 'is-invalid': form.errors.has('ifsc_code') }"
-                    placeholder="Enter Phone No"
+                    placeholder="Enter IFSC Code"
                     name="ifsc_code"
                   />
                   <has-error :form="form" field="ifsc_code"></has-error>

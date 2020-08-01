@@ -83,6 +83,20 @@ to submit the data we are using a function.
 
               <div class="col-sm-4">
                 <div class="form-group">
+                  <label for="no_of_person">No. Of Person</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Enter No. Of Person"
+                    v-model="form.no_of_person"
+                    :class="{ 'is-invalid': form.errors.has('no_of_person') }"
+                  />
+                  <has-error :form="form" field="no_of_person"></has-error>
+                </div>
+              </div>
+
+              <div class="col-sm-4">
+                <div class="form-group">
                   <label for="tour_start_date">Tour Start Date</label>
                   <input
                     type="date"
@@ -136,9 +150,7 @@ to submit the data we are using a function.
           </form>
         </div>
       </div>
-      <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
   </section>
 </template>
 
@@ -146,12 +158,9 @@ to submit the data we are using a function.
 import { Form, HasError } from "vform";
 export default {
   name: "NewTour",
-  components:{Form,
-  'has-error': HasError
-  },
+  components: { Form, "has-error": HasError },
   data() {
     return {
-      // Create a new form instance
       itinerary_list: [],
       school_list: [],
       tours: [],
@@ -161,9 +170,10 @@ export default {
         itinerary_id: "",
         school_id: "",
         tour_start_date: "",
+        no_of_person: "",
         tour_end_date: "",
-        tour_price: ""
-      })
+        tour_price: "",
+      }),
     };
   },
   created() {
@@ -173,12 +183,12 @@ export default {
   },
   methods: {
     tourData() {
-      axios.get(`/api/tour/${this.$route.params.id}/edit`).then(response => {
+      axios.get(`/api/tour/${this.$route.params.id}/edit`).then((response) => {
         this.form.fill(response.data);
       });
     },
     schoolData() {
-      axios.get(`/api/school`).then(response => {
+      axios.get(`/api/school`).then((response) => {
         if (response.data) {
           this.school_list = response.data.data;
         }
@@ -186,7 +196,7 @@ export default {
     },
 
     itineraryData() {
-      axios.get(`/api/itinerary`).then(response => {
+      axios.get(`/api/itinerary`).then((response) => {
         if (response.data) {
           this.itinerary_list = response.data.data;
         }
@@ -194,19 +204,18 @@ export default {
     },
 
     UpdateTour() {
-      // Submit the form via a itinerary request
       this.form
         .put(`/api/tour/${this.$route.params.id}`)
-        .then(response => {
+        .then((response) => {
           this.$router.push(`/tours/`);
           this.$toast.fire({
             icon: "success",
-            title: "Successfully Updated"
+            title: "Successfully Updated",
           });
         })
         .catch(() => {});
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>

@@ -1,22 +1,27 @@
 <template>
   <div id="tour_payment">
-    <div class="container p-t-15">
+    <div class="container p-t-15" v-if="userinfo">
       <form>
         <div class="row">
           <div class="col-sm-4">
             <div class="form-group">
               <label for="tour_code">Itinerary Code</label>
-              <input type="text" :value="`${this.$route.params.id}`" class="form-control grey-border" readonly/>
+              <input
+                type="text"
+                :value="`${this.$route.params.id}`"
+                class="form-control grey-border"
+                readonly
+              />
             </div>
           </div>
           <div class="col-sm-4">
             <label for="person">Total Number of people</label>
-            <input type="text" class="form-control grey-border" v-model="person" readonly />
+            <input type="text" class="form-control grey-border" v-model="userinfo.no_of_person" readonly />
           </div>
 
           <div class="col-sm-4">
             <label for="price">Tour Price</label>
-            <input type="text" class="form-control grey-border" v-model="price" readonly />
+            <input type="text" class="form-control grey-border" v-model="userinfo.tour_price" readonly />
           </div>
 
           <div class="col-sm-4">
@@ -24,12 +29,12 @@
             <br />
             <div class="form-check-inline">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="payment_mode" />By Student
+                <input type="radio" class="form-check-input" value="student" name="payment_mode" v-model="payment_mode" @change="paymentModeChange()" />By Student
               </label>
             </div>
             <div class="form-check-inline">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="payment_mode" />By Self
+                <input type="radio" class="form-check-input" value="self" name="payment_mode" v-model="payment_mode" @change="paymentModeChange()" />By Self
               </label>
             </div>
           </div>
@@ -46,11 +51,14 @@
               ></vue-recaptcha>
             </div>
           </div>
-
-          <div class="col-sm-6">
+        </div>
+        <div class="row" v-if="payment_mode == 'student'">
+          <hr />
+          <div class="col-sm-6" v-for="bank in bankdetail" :key="bank.id">
             <div class="form-check-inline">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="payment_to" />GB-International
+                <input type="radio" class="form-check-input" name="payment_to" />
+                {{ bank.name }}
               </label>
             </div>
             <div class="ml-5">
@@ -59,7 +67,7 @@
                   Beneficary
                   <span>:</span>
                 </div>
-                <div class="col">GB International</div>
+                <div class="col">{{ bank.name }}</div>
               </div>
 
               <div class="row">
@@ -67,7 +75,7 @@
                   Bank
                   <span>:</span>
                 </div>
-                <div class="col">PNB, Dwarka Sctor-24</div>
+                <div class="col">{{ bank.bank_name }}</div>
               </div>
 
               <div class="row">
@@ -75,7 +83,7 @@
                   Account Number
                   <span>:</span>
                 </div>
-                <div class="col">58484849494848499</div>
+                <div class="col">{{ bank.account_number }}</div>
               </div>
 
               <div class="row">
@@ -83,7 +91,7 @@
                   Account Type
                   <span>:</span>
                 </div>
-                <div class="col">Current Account</div>
+                <div class="col">{{ bank.account_type }}</div>
               </div>
 
               <div class="row">
@@ -91,24 +99,24 @@
                   IFSC Code
                   <span>:</span>
                 </div>
-                <div class="col">PND484949</div>
-              </div>
-
-              <div class="row justify-content-center mt-5">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary btn-square add_row_modal"
-                  data-toggle="modal"
-                  data-target="#openModal"
-                >ADD Beneficary</button>
-              </div>
+                <div class="col">{{ bank.ifsc_code }}</div>
+              </div>  
             </div>
           </div>
+            <div class="row justify-content-left w-100 mt-5 ml-20">
+              <button
+                type="button"
+                class="btn btn-outline-primary btn-square add_row_modal"
+                data-toggle="modal"
+                data-target="#openModal"
+              >ADD Beneficary</button>
+            </div>
         </div>
         <div class="row justify-content-center mt-5">
           <button type="button" class="btn btn-outline-primary btn-square">SUBMIT</button>
         </div>
       </form>
+
       <!-- Add Beneficary Modal -->
       <div class="modal fade" id="openModal">
         <div class="modal-dialog">
@@ -121,76 +129,130 @@
                     <label for="no_row">Beneficary Name</label>
                     <input
                       type="text"
-                      class="form-control grey-border p-20"
+                      class="form-control grey-border"
+                      name="name"
+                      v-model="form.name"
+                      :class="{ 'is-invalid': form.errors.has('name') }"
                       placeholder="Enter Beneficary Name"
                     />
+                    <has-error :form="form" field="name"></has-error>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="no_row">Select Bank</label>
-                    <input
-                      type="number"
-                      class="form-control p-20"
-                      placeholder="Enter Beneficary Name"
-                    />
+                    <select
+                      class="form-control grey-border"
+                      v-model="form.bank_name"
+                      :class="{ 'is-invalid': form.errors.has('bank_name') }"
+                    >
+                      <option
+                        v-for="bank in banknames"
+                        :value="bank.name"
+                        :key="bank.id"
+                      >{{ bank.name }}</option>
+                    </select>
+                    <has-error :form="form" field="bank_name"></has-error>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="no_row">Account Number</label>
-                    <input type="number" class="form-control p-20" placeholder="Account Number" />
+                    <input
+                      type="number"
+                      class="form-control grey-border"
+                      v-model="form.account_number"
+                      :class="{ 'is-invalid': form.errors.has('account_number') }"
+                      placeholder="Enter Account Number"
+                      name="account_number"
+                    />
+                    <has-error :form="form" field="account_number"></has-error>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="no_row">Account Type</label>
-                    <input type="number" class="form-control p-20" placeholder="Account Type" />
+                    <select
+                      class="form-control grey-border"
+                      v-model="form.account_type"
+                      :class="{ 'is-invalid': form.errors.has('account_type') }"
+                    >
+                      <option v-for="type in account_type" :value="type" :key="type">{{ type }}</option>
+                    </select>
+                    <has-error :form="form" field="account_type"></has-error>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="no_row">IFSC Code</label>
-                    <input type="text" class="form-control grey-border p-20" placeholder="IFSC Code" />
+                    <input
+                      type="text"
+                      class="form-control grey-border"
+                      v-model="form.ifsc_code"
+                      :class="{ 'is-invalid': form.errors.has('ifsc_code') }"
+                      placeholder="Enter IFSC Code"
+                      name="ifsc_code"
+                    />
+                    <has-error :form="form" field="ifsc_code"></has-error>
                   </div>
                 </div>
               </div>
 
               <p class="text-center">
-                <button type="button" class="btn btn-outline-primary btn-square">ADD</button>
+                <button type="button" class="btn btn-outline-primary btn-square" @click="ModalForm()">ADD</button>
               </p>
             </div>
           </div>
         </div>
       </div>
+
+
     </div>
   </div>
 </template>
 
 <script>
 import VueRecaptcha from "vue-recaptcha";
+import { Form, HasError, AlertError } from "vform";
 export default {
   name: "Tour-list",
   components: {
     "vue-recaptcha": VueRecaptcha,
+    "has-error": HasError,
   },
   data() {
     return {
       tours: "",
       formShow: false,
+      payment_mode:"self",
+      bankdetail: [],
+      banknames:[],
       userinfo: "",
       person: 90,
       price: 4500,
-      form: {
+      form: new Form({
         robot: false,
-      },
+        name: "",
+        bank_name: "",
+        account_number: "",
+        account_type: "",
+        ifsc_code: "",
+      }),
+      account_type: [
+        "Current Account",
+        "Saving Account",
+        "Recurring Deposit Account",
+        "Fixed Deposit Account",
+      ],
+      banknames: [],
     };
   },
   mounted() {
     if (localStorage.token == undefined) {
       this.$router.push("/");
     }
-    this.tourListData();
+    this.bankNameList();
+    this.tourBank();
     this.userData();
   },
 
@@ -201,18 +263,17 @@ export default {
     onCaptchaExpired: function () {
       this.$refs.recaptcha.reset();
     },
-    tourListData() {
+    paymentModeChange(){
+      console.log(this.payment_mode);
+    },
+    tourBank() {
       var data = [];
       this.$axios
-        .post("/api/tour-list", data, {
+        .post("/api/tour-bankdetail", data, {
           headers: { Authorization: `Bearer ${localStorage.token}` },
         })
         .then((response) => {
-          if (response.data.length == 0) {
-            this.formShow = true;
-          } else {
-            this.tours = response.data;
-          }
+          this.bankdetail = response.data;
         })
         .catch((error) => {
           this.formShow = true;
@@ -220,21 +281,41 @@ export default {
         });
     },
     userData() {
-      var data = [];
+      var data = {'travel_code' : this.$route.params.id};
       this.$axios
-        .post("/api/details", data, {
+        .post("/api/payment-tour", data, {
           headers: { Authorization: `Bearer ${localStorage.token}` },
         })
         .then((response) => {
-          this.userinfo = response.data.success;
-          if (this.userinfo.status == 0) {
-            this.$router.push("/user-information");
-          }
+          this.userinfo = response.data;
+          console.log(this.userinfo);
         })
         .catch((error) => {
           this.handleError(error);
         });
     },
+    ModalForm(){
+      this.$axios
+        .post("/api/tour-bankdetail-store", this.form, {
+          headers: { Authorization: `Bearer ${localStorage.token}` },
+        })
+        .then((response) => {
+          this.form.reset();
+          this.$swal.fire({
+              icon: "success",
+              title: "Beneficary Added !!"
+            });
+        })
+        .catch((error) => {
+          this.handleError(error);
+        });
+    },
+
+    bankNameList(){
+      this.$axios.get('/api/banknames').then((response)=>{
+        this.banknames = response.data;
+      })
+    }
   },
 };
 </script>
