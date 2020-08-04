@@ -8356,6 +8356,24 @@ a:hover {
   border: 1px solid lightgray !important;
 }
 
+#payment_mode .card-header {
+  padding: 12px;
+}
+
+#payment_mode .accordion-head i {
+  font-size: 1.5em;
+  float: right;
+}
+
+#payment_mode .accordion-head > .collapsed > i:before {
+  content: "\F105";
+}
+
+#payment_mode .card-image {
+  padding: 5px;
+  border: 1px solid lightgrey;
+}
+
 .link {
   cursor: pointer;
 }

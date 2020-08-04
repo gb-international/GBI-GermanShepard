@@ -23,6 +23,7 @@ import ViewGroup from  './components/front/user/GroupView.vue'
 import AddGroup from  './components/front/user/AddGroup.vue'
 import TourList from  './components/front/user/Tour-list.vue'
 import TourPayment from  './components/front/user/Tour-payment.vue'
+import PaymentMode from  './components/front/user/Payment-mode.vue'
 import Error404 from  './components/front/error/404.vue'
 
 Vue.use(Router);
@@ -53,6 +54,7 @@ let router = new Router({
         { path: '/group-member/:id',component: ViewGroup },
         { path: '/add-group/:id',component: AddGroup },
         { path: '/tour-payment/:id', component: TourPayment },
+        { path: '/payment-mode/:id', component: PaymentMode },
         { path: '*', component: Error404 }
     ]
 });

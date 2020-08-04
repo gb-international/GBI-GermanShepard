@@ -6,3 +6,21 @@
         border:1px solid lightgray !important;
     }
 }
+
+#payment_mode{
+    .card-header{
+        padding: 12px;
+    }
+    .accordion-head i{
+        font-size: 1.5em;
+        float: right;
+    }
+    
+    .accordion-head > .collapsed > i:before{
+        content: "\f105";
+    }
+    .card-image{
+        padding: 5px;
+        border: 1px solid lightgrey;
+    }
+}

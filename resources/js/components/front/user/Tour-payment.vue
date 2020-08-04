@@ -345,19 +345,7 @@ export default {
         return false;
       }
       if (this.payment_mode == "self") {
-        this.$axios
-          .post("/api/tour-bankdetail-store", this.form, {
-            headers: { Authorization: `Bearer ${localStorage.token}` },
-          })
-          .then((response) => {
-            this.$swal.fire({
-              icon: "success",
-              title: "Beneficary Added !!",
-            });
-          })
-          .catch((error) => {
-            this.handleError(error);
-          });
+        this.$router.push(`/payment-mode/${this.$route.params.id}`);
       } else {
         console.log("student");
       }
