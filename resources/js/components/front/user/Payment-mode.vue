@@ -23,28 +23,28 @@
               <div class="card-block col-12">
                 <div class="row justify-content-center">
                   <div class="col-sm-4">
-                    <div class="card-image">
+                    <div class="card-image-payment">
                       <div class="custom-control custom-radio">
                         <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
-                        <label class="custom-control-label" for="customRadio"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSPtbHz06hBHQrVcaSUUtNNMLG0tZ5rxZLokA&usqp=CAU"></label>
+                        <label class="custom-control-label" for="customRadio"><img src="https://logos-download.com/wp-content/uploads/2016/06/Bank_of_Baroda_logo.png"></label>
                       </div>
                     </div>
                   </div>
                   
                   <div class="col-sm-4">
-                    <div class="card-image">
+                    <div class="card-image-payment">
                       <div class="custom-control custom-radio">
                         <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
-                        <label class="custom-control-label" for="customRadio"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSPtbHz06hBHQrVcaSUUtNNMLG0tZ5rxZLokA&usqp=CAU"></label>
+                        <label class="custom-control-label" for="customRadio"><img src="https://4.imimg.com/data4/IF/LG/IMOB-42756636/logokotaklifeinsurance-500x500.png"></label>
                       </div>
                     </div>
                   </div>
                   
                   <div class="col-sm-4">
-                    <div class="card-image">
+                    <div class="card-image-payment">
                       <div class="custom-control custom-radio">
                         <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
-                        <label class="custom-control-label" for="customRadio"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSPtbHz06hBHQrVcaSUUtNNMLG0tZ5rxZLokA&usqp=CAU"></label>
+                        <label class="custom-control-label" for="customRadio"><img src="https://4.imimg.com/data4/IF/LG/IMOB-42756636/logokotaklifeinsurance-500x500.png"></label>
                       </div>
                     </div>
                   </div>
@@ -54,8 +54,280 @@
             </div>
           </div>
 
-        </div>
+          
+          <!-- Accordion Item 2 -->
+          <div class="card">
+            <div class="card-header" role="tab" id="creditTab">
+              <div class="mb-0 row">
+                <div class="col-12 no-padding accordion-head">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#creditBodyOne" aria-expanded="false" aria-controls="creditBodyOne"
+                    class="collapsed ">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    <h5>Credit Card</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
 
+            <div id="creditBodyOne" class="collapse" role="tabpanel" aria-labelledby="creditTab" aria-expanded="false" data-parent="accordion">
+              <div class="card-block col-12">
+                <div class="row justify-content-center">
+                  <div class="col-sm-4">
+                    <div class="card-image-payment">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
+                        <label class="custom-control-label" for="customRadio"><img src="https://logos-download.com/wp-content/uploads/2016/06/Bank_of_Baroda_logo.png"></label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-4">
+                    <div class="card-image-payment">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
+                        <label class="custom-control-label" for="customRadio"><img src="https://4.imimg.com/data4/IF/LG/IMOB-42756636/logokotaklifeinsurance-500x500.png"></label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-4">
+                    <div class="card-image-payment">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
+                        <label class="custom-control-label" for="customRadio"><img src="https://4.imimg.com/data4/IF/LG/IMOB-42756636/logokotaklifeinsurance-500x500.png"></label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <!-- Accordion Item 3 -->
+          <div class="card">
+            <div class="card-header" role="tab" id="NetBankingTab">
+              <div class="mb-0 row">
+                <div class="col-12 no-padding accordion-head">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#netBankingBodyOne" aria-expanded="false" aria-controls="netBankingBodyOne"
+                    class="collapsed ">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    <h5>Net Banking</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="netBankingBodyOne" class="collapse" role="tabpanel" aria-labelledby="NetBankingTab" aria-expanded="false" data-parent="accordion">
+              <div class="card-block col-12">
+                <div class="row justify-content-center">
+                  <div class="col-sm-4">
+                    <div class="card-image-payment">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
+                        <label class="custom-control-label" for="customRadio"><img src="https://logos-download.com/wp-content/uploads/2016/06/Bank_of_Baroda_logo.png"></label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-4">
+                    <div class="card-image-payment">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
+                        <label class="custom-control-label" for="customRadio"><img src="https://4.imimg.com/data4/IF/LG/IMOB-42756636/logokotaklifeinsurance-500x500.png"></label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-4">
+                    <div class="card-image-payment">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
+                        <label class="custom-control-label" for="customRadio"><img src="https://4.imimg.com/data4/IF/LG/IMOB-42756636/logokotaklifeinsurance-500x500.png"></label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <!-- Accordion Item 4 Cheque -->
+          <div class="card">
+            <div class="card-header" role="tab" id="ChequeTab">
+              <div class="mb-0 row">
+                <div class="col-12 no-padding accordion-head">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#ChequeBodyOne" aria-expanded="false" aria-controls="ChequeBodyOne"
+                    class="collapsed ">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    <h5>Cheque</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="ChequeBodyOne" class="collapse" role="tabpanel" aria-labelledby="ChequeTab" aria-expanded="false" data-parent="accordion">
+              <div class="card-block col-12">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="father_name">Father's Name</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="father_name">Student Name</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="father_name">Class Name</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="father_name">IFSC Code</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="father_name">Cheque Number</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <!-- Accordion Item 4 Demand Draft -->
+          <div class="card">
+            <div class="card-header" role="tab" id="draftTab">
+              <div class="mb-0 row">
+                <div class="col-12 no-padding accordion-head">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#draftBodyOne" aria-expanded="false" aria-controls="draftBodyOne"
+                    class="collapsed ">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    <h5>Demand Draft</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="draftBodyOne" class="collapse" role="tabpanel" aria-labelledby="draftTab" aria-expanded="false" data-parent="accordion">
+              <div class="card-block col-12">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="father_name">Father's Name</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="father_name">Student Name</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="father_name">Class</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+
+                  
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="father_name">Demand Draft Number</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <!-- Accordion Item 4 Cash -->
+          <div class="card">
+            <div class="card-header" role="tab" id="cashTab">
+              <div class="mb-0 row">
+                <div class="col-12 no-padding accordion-head">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#cashBodyOne" aria-expanded="false" aria-controls="cashBodyOne"
+                    class="collapsed ">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    <h5>Cash</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="cashBodyOne" class="collapse" role="tabpanel" aria-labelledby="cashTab" aria-expanded="false" data-parent="accordion">
+              <div class="card-block col-12">
+                <div class="row justify-content-center">
+                  <div class="col-sm-4">
+                    <div class="card-image-payment">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
+                        <label class="custom-control-label" for="customRadio"><img src="https://logos-download.com/wp-content/uploads/2016/06/Bank_of_Baroda_logo.png"></label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-4">
+                    <div class="card-image-payment">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
+                        <label class="custom-control-label" for="customRadio"><img src="https://4.imimg.com/data4/IF/LG/IMOB-42756636/logokotaklifeinsurance-500x500.png"></label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-4">
+                    <div class="card-image-payment">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
+                        <label class="custom-control-label" for="customRadio"><img src="https://4.imimg.com/data4/IF/LG/IMOB-42756636/logokotaklifeinsurance-500x500.png"></label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
       </div>
     </section>
   </div>

@@ -8363,15 +8363,34 @@ a:hover {
 #payment_mode .accordion-head i {
   font-size: 1.5em;
   float: right;
+  color: #656565;
 }
 
 #payment_mode .accordion-head > .collapsed > i:before {
   content: "\F105";
 }
 
-#payment_mode .card-image {
-  padding: 5px;
+#payment_mode input {
   border: 1px solid lightgrey;
+}
+
+#payment_mode h5 {
+  font-size: 15px;
+  color: #656565;
+  font-weight: 500;
+}
+
+#payment_mode .card-image-payment {
+  padding: 15px 20px;
+}
+
+#payment_mode .card-image-payment .custom-control {
+  border: 2px solid lightgrey;
+  padding: 10px 33px;
+}
+
+#payment_mode .card-image-payment img {
+  height: 65px;
 }
 
 .link {

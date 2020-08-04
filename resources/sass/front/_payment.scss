@@ -14,13 +14,29 @@
     .accordion-head i{
         font-size: 1.5em;
         float: right;
+        color: #656565;
     }
     
     .accordion-head > .collapsed > i:before{
         content: "\f105";
     }
-    .card-image{
-        padding: 5px;
+    input{
         border: 1px solid lightgrey;
+    }
+
+    h5{
+        font-size: 15px;
+        color: #656565;
+        font-weight: 500;
+    }
+    .card-image-payment{
+        padding: 15px 20px;
+        .custom-control{
+            border:2px solid lightgrey;
+            padding: 10px 33px;
+        }
+        img{
+            height: 65px;
+        }
     }
 }
