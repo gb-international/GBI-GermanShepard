@@ -1,6 +1,6 @@
 <template>
   <div id="tour_payment">
-    <div class="container p-t-15" v-if="userinfo">
+    <div class="container p-t-15 mb-20" v-if="userinfo">
       <form>
         <div class="row">
           <div class="col-sm-4">
@@ -16,12 +16,22 @@
           </div>
           <div class="col-sm-4">
             <label for="person">Total Number of people</label>
-            <input type="text" class="form-control grey-border" v-model="userinfo.no_of_person" readonly />
+            <input
+              type="text"
+              class="form-control grey-border"
+              v-model="userinfo.no_of_person"
+              readonly
+            />
           </div>
 
           <div class="col-sm-4">
             <label for="price">Tour Price</label>
-            <input type="text" class="form-control grey-border" v-model="userinfo.tour_price" readonly />
+            <input
+              type="text"
+              class="form-control grey-border"
+              v-model="userinfo.tour_price"
+              readonly
+            />
           </div>
 
           <div class="col-sm-4">
@@ -29,32 +39,31 @@
             <br />
             <div class="form-check-inline">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" value="student" name="payment_mode" v-model="payment_mode" @change="paymentModeChange()" />By Student
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  value="student"
+                  name="payment_mode"
+                  v-model="payment_mode"
+                />By Student
               </label>
             </div>
             <div class="form-check-inline">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" value="self" name="payment_mode" v-model="payment_mode" @change="paymentModeChange()" />By Self
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  value="self"
+                  name="payment_mode"
+                  v-model="payment_mode"
+                />By Self
               </label>
-            </div>
-          </div>
-
-          <div class="col-sm-8">
-            <label for="robot" class="col-sm-2 col-form-label">RObOt?</label>
-            <div class="col-sm-10">
-              <vue-recaptcha
-                ref="recaptcha"
-                :loadRecaptchaScript="true"
-                @expired="onCaptchaExpired"
-                @verify="onVerify"
-                sitekey="6LeyF7gZAAAAADBt5N6EDQqFhL4-DZBUC13NgDpT"
-              ></vue-recaptcha>
             </div>
           </div>
         </div>
         <div class="row" v-if="payment_mode == 'student'">
-          <hr />
           <div class="col-sm-6" v-for="bank in bankdetail" :key="bank.id">
+            <hr />
             <div class="form-check-inline">
               <label class="form-check-label">
                 <input type="radio" class="form-check-input" name="payment_to" />
@@ -100,20 +109,38 @@
                   <span>:</span>
                 </div>
                 <div class="col">{{ bank.ifsc_code }}</div>
-              </div>  
+              </div>
             </div>
           </div>
-            <div class="row justify-content-left w-100 mt-5 ml-20">
-              <button
-                type="button"
-                class="btn btn-outline-primary btn-square add_row_modal"
-                data-toggle="modal"
-                data-target="#openModal"
-              >ADD Beneficary</button>
+          <div class="row justify-content-left w-100 mt-5 ml-20">
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-square add_row_modal"
+              data-toggle="modal"
+              data-target="#openModal"
+            >ADD Beneficary</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <label for="robot" class="col-sm-2 col-form-label">RObOt?</label>
+            <div class="col-sm-10">
+              <vue-recaptcha
+                ref="recaptcha"
+                :loadRecaptchaScript="true"
+                @expired="onCaptchaExpired"
+                @verify="onVerify"
+                sitekey="6LeyF7gZAAAAADBt5N6EDQqFhL4-DZBUC13NgDpT"
+              ></vue-recaptcha>
             </div>
+          </div>
         </div>
         <div class="row justify-content-center mt-5">
-          <button type="button" class="btn btn-outline-primary btn-square">SUBMIT</button>
+          <button
+            type="button"
+            class="btn btn-outline-primary btn-square"
+            @click="submitPayment()"
+          >SUBMIT</button>
         </div>
       </form>
 
@@ -199,14 +226,16 @@
               </div>
 
               <p class="text-center">
-                <button type="button" class="btn btn-outline-primary btn-square" @click="ModalForm()">ADD</button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary btn-square"
+                  @click="ModalForm()"
+                >ADD</button>
               </p>
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 </template>
@@ -224,14 +253,12 @@ export default {
     return {
       tours: "",
       formShow: false,
-      payment_mode:"self",
+      payment_mode: "self",
       bankdetail: [],
-      banknames:[],
+      banknames: [],
       userinfo: "",
-      person: 90,
-      price: 4500,
+      robot: false,
       form: new Form({
-        robot: false,
         name: "",
         bank_name: "",
         account_number: "",
@@ -258,14 +285,12 @@ export default {
 
   methods: {
     onVerify: function (response) {
-      if (response) this.form.robot = true;
+      if (response) this.robot = true;
     },
     onCaptchaExpired: function () {
       this.$refs.recaptcha.reset();
     },
-    paymentModeChange(){
-      console.log(this.payment_mode);
-    },
+
     tourBank() {
       var data = [];
       this.$axios
@@ -281,7 +306,7 @@ export default {
         });
     },
     userData() {
-      var data = {'travel_code' : this.$route.params.id};
+      var data = { travel_code: this.$route.params.id };
       this.$axios
         .post("/api/payment-tour", data, {
           headers: { Authorization: `Bearer ${localStorage.token}` },
@@ -294,7 +319,7 @@ export default {
           this.handleError(error);
         });
     },
-    ModalForm(){
+    ModalForm() {
       this.$axios
         .post("/api/tour-bankdetail-store", this.form, {
           headers: { Authorization: `Bearer ${localStorage.token}` },
@@ -302,20 +327,48 @@ export default {
         .then((response) => {
           this.form.reset();
           this.$swal.fire({
-              icon: "success",
-              title: "Beneficary Added !!"
-            });
+            icon: "success",
+            title: "Beneficary Added !!",
+          });
         })
         .catch((error) => {
           this.handleError(error);
         });
     },
 
-    bankNameList(){
-      this.$axios.get('/api/banknames').then((response)=>{
+    submitPayment() {
+      if (this.robot == false) {
+        this.$swal.fire({
+          icon: "error",
+          title: "Try Again !!",
+        });
+        return false;
+      }
+      if (this.payment_mode == "self") {
+        this.$axios
+          .post("/api/tour-bankdetail-store", this.form, {
+            headers: { Authorization: `Bearer ${localStorage.token}` },
+          })
+          .then((response) => {
+            this.$swal.fire({
+              icon: "success",
+              title: "Beneficary Added !!",
+            });
+          })
+          .catch((error) => {
+            this.handleError(error);
+          });
+      } else {
+        console.log("student");
+      }
+      return false;
+    },
+
+    bankNameList() {
+      this.$axios.get("/api/banknames").then((response) => {
         this.banknames = response.data;
-      })
-    }
+      });
+    },
   },
 };
 </script>

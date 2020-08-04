@@ -7,6 +7,15 @@
 use App\Mail\ForgetPasswordMail;
 use App\Mail\PasswordResetMail;
 
+
+Route::get('/payment','Front\PaymentController@payment');
+Route::post('/response','Front\PaymentController@response');
+Route::get('/cancel','Front\PaymentController@cancel');
+
+
+
+
+
 Route::get('/check',function(){
 //    $data = ['email'=>'ajay_yadav@gbinternational.in'];
     
@@ -47,6 +56,9 @@ Route::get('/check',function(){
     echo 'done';
 
 });
+
+
+
 
 
 Route::group(['middleware' => ['web']], function () {
