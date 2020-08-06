@@ -61,6 +61,36 @@
             </div>
           </div>
         </div>
+
+        <div class="row mt-20" v-if="payment_mode == 'self'">
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="option" v-model="self_pay_mode" value="cheque"> Cheque/DD
+              </label>
+            </div>
+          </div>
+
+          
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="option" v-model="self_pay_mode" value="cash"> Cash
+              </label>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="option" v-model="self_pay_mode" value="net"> Net Banking
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+
         <div class="row" v-if="payment_mode == 'student'">
           <div class="col-sm-6" v-for="bank in bankdetail" :key="bank.id">
             <hr />
@@ -121,8 +151,10 @@
             >ADD Beneficary</button>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-8">
+
+        
+        <div class="row mt-20">
+          <div class="col-sm-18">
             <label for="robot" class="col-sm-2 col-form-label">RObOt?</label>
             <div class="col-sm-10">
               <vue-recaptcha
@@ -254,6 +286,7 @@ export default {
       tours: "",
       formShow: false,
       payment_mode: "self",
+      self_pay_mode: "cheque",
       bankdetail: [],
       banknames: [],
       userinfo: "",
@@ -344,7 +377,7 @@ export default {
         });
         return false;
       }
-      if (this.payment_mode == "self") {
+      if ((this.payment_mode == "self") && (this.self_pay_mode == 'cheque')) {
         this.$router.push(`/payment-mode/${this.$route.params.id}`);
       } else {
         console.log("student");
