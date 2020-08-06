@@ -1,5 +1,32 @@
 
 
+Teacher Dashboard
+    1. By Self
+        Radio button
+            : Cheque/DD
+                Open in next page-> Cheque Form
+            : cash
+                <p>Pay to gbi</p>
+            : Net Banking
+                Redirect to ccavenue
+        
+    2. By Student
+        Send Beneficary bank details via mail to each Student
+    
+Student Dashboard: 
+    if : ( with Beneficary banking details )
+    else : gbinternational bank detail
+
+    Radio button
+            : Cheque/DD
+                Cheque Form
+            : cash
+                <p>Pay to gbi</p>
+            : Net Banking
+                Redirect to ccavenue
+        
+        
+
 -------------------------------------------------------------------------
 
 

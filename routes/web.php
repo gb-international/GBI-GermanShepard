@@ -9,8 +9,8 @@ use App\Mail\PasswordResetMail;
 
 
 Route::get('/payment','Front\PaymentController@payment');
-Route::post('/response','Front\PaymentController@response');
-Route::get('/cancel','Front\PaymentController@cancel');
+Route::post('/payment_status','Front\PaymentController@response');
+Route::get('/payment_cancel','Front\PaymentController@cancel');
 
 
 

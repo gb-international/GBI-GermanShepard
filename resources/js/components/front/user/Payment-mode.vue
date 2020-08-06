@@ -20,7 +20,7 @@
             </div>
 
             <div id="accordionBodyOne" class="collapse" role="tabpanel" aria-labelledby="accordionHeadingOne" aria-expanded="false" data-parent="accordion">
-              <div class="card-block col-12">
+              <div class="card-block col-12 p-20">
                 <div class="row justify-content-center">
                   <div class="col-sm-4">
                     <div class="card-image-payment">
@@ -49,6 +49,9 @@
                     </div>
                   </div>
 
+                </div>
+                <div class="text-center">
+                  <button type="button" class="btn btn-outline-primary btn-square">PAY</button>
                 </div>
               </div>
             </div>
@@ -70,7 +73,7 @@
             </div>
 
             <div id="creditBodyOne" class="collapse" role="tabpanel" aria-labelledby="creditTab" aria-expanded="false" data-parent="accordion">
-              <div class="card-block col-12">
+              <div class="card-block col-12 p-20">
                 <div class="row justify-content-center">
                   <div class="col-sm-4">
                     <div class="card-image-payment">
@@ -99,6 +102,10 @@
                     </div>
                   </div>
 
+                </div>
+
+                <div class="text-center">
+                  <button type="button" class="btn btn-outline-primary btn-square">PAY</button>
                 </div>
               </div>
             </div>
@@ -120,7 +127,7 @@
             </div>
 
             <div id="netBankingBodyOne" class="collapse" role="tabpanel" aria-labelledby="NetBankingTab" aria-expanded="false" data-parent="accordion">
-              <div class="card-block col-12">
+              <div class="card-block col-12 p-20">
                 <div class="row justify-content-center">
                   <div class="col-sm-4">
                     <div class="card-image-payment">
@@ -150,6 +157,9 @@
                   </div>
 
                 </div>
+                <div class="text-center">
+                  <button type="button" class="btn btn-outline-primary btn-square">PAY</button>
+                </div>
               </div>
             </div>
           </div>
@@ -170,7 +180,7 @@
             </div>
 
             <div id="ChequeBodyOne" class="collapse" role="tabpanel" aria-labelledby="ChequeTab" aria-expanded="false" data-parent="accordion">
-              <div class="card-block col-12">
+              <div class="card-block col-12 p-20">
                 <div class="row">
                   <div class="col-sm-4">
                     <div class="form-group">
@@ -208,6 +218,10 @@
                   </div>
 
                 </div>
+
+                <div class="text-center">
+                  <button type="button" class="btn btn-outline-primary btn-square">PAY</button>
+                </div>
               </div>
             </div>
           </div>
@@ -228,7 +242,7 @@
             </div>
 
             <div id="draftBodyOne" class="collapse" role="tabpanel" aria-labelledby="draftTab" aria-expanded="false" data-parent="accordion">
-              <div class="card-block col-12">
+              <div class="card-block col-12 p-20">
                 <div class="row">
                   <div class="col-sm-4">
                     <div class="form-group">
@@ -262,6 +276,11 @@
 
 
                 </div>
+
+                <div class="text-center">
+                  <button type="button" class="btn btn-outline-primary btn-square">PAY</button>
+                </div>
+
               </div>
             </div>
           </div>
@@ -282,7 +301,7 @@
             </div>
 
             <div id="cashBodyOne" class="collapse" role="tabpanel" aria-labelledby="cashTab" aria-expanded="false" data-parent="accordion">
-              <div class="card-block col-12">
+              <div class="card-block col-12 p-20">
                 <div class="row justify-content-center">
                   <div class="col-sm-4">
                     <div class="card-image-payment">
@@ -311,6 +330,10 @@
                     </div>
                   </div>
 
+                </div>
+
+                <div class="text-center">
+                  <button type="button" class="btn btn-outline-primary btn-square">PAY</button>
                 </div>
               </div>
             </div>

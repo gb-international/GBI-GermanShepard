@@ -20,7 +20,7 @@
                 <p class="lead font-weight-normal">{{ tour.itinerary.title }}</p>
               </div>
               <div class="col-sm-4 text-center mb-10 mt-5">
-                <a :href="`/tour-payment/${tour.tour_id}`" class="btn btn-light">PAY NOW</a>
+                <router-link :to="`/tour-payment/${tour.tour_id}`" class="btn btn-light">PAY NOW</router-link>
               </div>
             </div>
 

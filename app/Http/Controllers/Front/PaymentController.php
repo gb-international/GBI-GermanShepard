@@ -14,11 +14,11 @@ class PaymentController extends Controller
         $parameters = [
             'merchant_id' => '206523',
             'currency' => 'INR',
-            'redirect_url' => 'http://127.0.0.1:8000/response',
-            'cancel_url' => 'http://127.0.0.1:8000/cancel',
+            "redirect_url"=>'https://www.test.gowithgbi.com/payment_status',
+			"cancel_url"=>'https://www.test.gowithgbi.com/payment_cancel',
             'language' => 'EN',
             'order_id' => 'sdjfsladk',
-            'transaction_no' => '1233221223322',
+            'transaction_no' => '12sadfasdf1223322',
             'amount' => '1200.00',
             'name' => 'Jon Doe',
             'email' => 'jon@doe.com'
