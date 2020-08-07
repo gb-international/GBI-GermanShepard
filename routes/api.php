@@ -124,6 +124,7 @@ Route::namespace('Front')->group(function(){
 		Route::post('/tour-list', 'TourController@tourList');
 		Route::post('/tour-travel-save', 'TourController@tourDetailSave');
 		Route::post('/payment-tour', 'TourController@paymentTour');
+		Route::post('/tour-bankdetail-student', 'BankController@bankdetailsStudent');
 		Route::post('/tour-bankdetail', 'BankController@bankdetails');
 		Route::post('/tour-bankdetail-store', 'BankController@store');
 		// Comments

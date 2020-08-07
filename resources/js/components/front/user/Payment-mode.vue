@@ -6,15 +6,15 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="form-group">
-            <label for="father_name">Father's Name</label>
+            <label for="father_name">Bank Name</label>
             <input type="text" class="form-control">
           </div>
         </div>
         
         <div class="col-sm-4">
           <div class="form-group">
-            <label for="father_name">Student Name</label>
-            <input type="text" class="form-control">
+            <label for="father_name">Date of Issue</label>
+            <input type="date" class="form-control">
           </div>
         </div>
         

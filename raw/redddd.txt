@@ -24,6 +24,127 @@ Student Dashboard:
           : Net Banking
               Redirect to ccavenue        
 
+=============================================================================
+
+if ( cheque ){
+    add (bank name , date_of_issue)
+}
+
+rename = (bankdetails to Schoolbankdetails )
+
+
+Payment Flow
+  . teacher 
+      if(payment_mode == byStudent):
+        default or add Beneficary
+
+          add it to database( table : payment_user ) with 
+            school_id (449)
+            tour_code (TOUR484)
+            bankdetail_id (3)
+            user_id (34)
+            payment_mode ( by student)
+            payment_type (null)
+            ifsc_code ( null )
+            cheque_number ( null )
+            amount : 49999
+
+      if( payment_mode == self ):
+          add it to database( table : payment_user) with
+            if( payment_type == cheque)
+              school_id (449)
+              tour_code (TOUR484)
+              bank_id (3444)
+              user_id (34)
+              payment_mode ( self )
+              payment_type (cheque)
+              ifsc_code ( PNB949)
+              cheque_number (383838383383838)
+              amount : 49999
+            
+            if( payment_type == cash)
+              school_id (449)
+              tour_code (TOUR484)
+              bank_id (null)
+              user_id (34)
+              payment_mode ( self )
+              payment_type (cash)
+              ifsc_code ( null)
+              cheque_number ( null )
+              amount : 49999
+            
+            
+            if( payment_type == net banking)
+              school_id (449)
+              tour_code (TOUR484)
+              bank_id (67877)
+              user_id (34)
+              payment_mode ( self )
+              payment_type (net banking )
+              ifsc_code ( null)
+              cheque_number ( null )
+              amount : 49999
+            
+  .student:
+    if( payment_type == cheque)
+      school_id (449)
+      tour_code (TOUR484)
+      bank_id (4)
+      user_id (34)
+      payment_mode ( null )
+      payment_type (cheque )
+      ifsc_code ( nulasdfasdfl)
+      cheque_number ( 4444444444 )
+      amount : 49999
+    
+    if( payment_type == cash)
+      school_id (449)
+      tour_code (TOUR484)
+      bank_id (4)
+      user_id (34)
+      payment_mode ( null )
+      payment_type (cash )
+      ifsc_code ( null)
+      cheque_number ( null )
+      amount : 49999
+    
+    
+    if( payment_type == net banking)
+      school_id (449)
+      tour_code (TOUR484)
+      bank_id (4)
+      user_id (34)
+      payment_mode ( null )
+      payment_type (net banking )
+      ifsc_code ( null)
+      cheque_number ( null )
+      amount : 49999
+    
+
+    
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -------------------------------------------------------------------------
 
 

@@ -19,10 +19,25 @@ class BankController extends Controller
     }
 
     
+    public function bankdetailsStudent(Request $request){
+        // admin id = 26 ( default bank details )
+        $school_id = Auth::user()->information->school_id;
+        $bank = Bankdetail::where([
+            'school_id'=>$school_id,
+            'tour_code'=>$request->travel_code
+            ])
+            ->get();
+        
+    }
+
+
+
+    
     public function store(Request $request){
         $user = Auth::user();
         $validated = $this->validateBankdetail($request);
         $validated['user_id'] = $user->id;
+        $validated['school_id'] = $user->information->school_id;
         Bankdetail::create($validated);
         return response()->json("Successfully created");
     }
@@ -35,6 +50,7 @@ class BankController extends Controller
             'account_number' => 'required|unique:bankdetails',
             'account_type' => 'required',
             'ifsc_code' => 'required',
+            'tour_code' => 'required',
       ]);
     }
 }
