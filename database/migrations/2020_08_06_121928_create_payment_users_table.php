@@ -18,9 +18,15 @@ class CreatePaymentUsersTable extends Migration
             $table->string('user_id');
             $table->string('school_id');
             $table->string('tour_id')->nullable();
-            $table->string('bank_id')->nullable();
-            $table->string('payment_mode');
-            $table->string('payment_type');
+            $table->string('schoolbankdetail_id')->nullable();
+            $table->string('payment_mode')->nullable();
+            $table->string('payment_type')->nullable();
+            $table->string('ifsc_code')->nullable();
+            $table->string('cheque_number')->nullable();
+            $table->string('amount')->nullable();
+            $table->string('cheque_bank_name')->nullable();
+            $table->string('date_of_issue')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

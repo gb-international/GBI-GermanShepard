@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin\Tour;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Model\Tour\Bankdetail;
+use App\Model\Tour\Schoolbankdetail;
 use Auth;
 
-class BankdetailController extends Controller
+class SchoolbankdetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class BankdetailController extends Controller
      */
     public function index()
     {
-        return Bankdetail::get();
+        return Schoolbankdetail::get();
     }
 
     /**
@@ -40,30 +40,30 @@ class BankdetailController extends Controller
     {
         $data = $this->validateBankdetail($request);
         $data['user_id'] = 26;
-        Bankdetail::create($data);
+        Schoolbankdetail::create($data);
         return response()->json(['Message'=> 'Successfully Added...']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Bankdetail  $bankdetail
+     * @param  \App\Schoolbankdetail  $bankdetail
      * @return \Illuminate\Http\Response
      */
-    public function show(Bankdetail $bankdetail)
+    public function show(Schoolbankdetail $schoolbankdetail)
     {
-        return $bankdetail;
+        return $schoolbankdetail;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Bankdetail  $bankdetail
+     * @param  \App\Schoolbankdetail  $schoolbankdetail
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bankdetail $bankdetail)
+    public function edit(Schoolbankdetail $schoolbankdetail)
     {
-        return response()->json($bankdetail);
+        return response()->json($schoolbankdetail);
     }
 
     /**
@@ -73,22 +73,22 @@ class BankdetailController extends Controller
      * @param  \App\Bankdetail  $bankdetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bankdetail $bankdetail)
+    public function update(Request $request, Schoolbankdetail $schoolbankdetail)
     {
         
-        $bankdetail->update($this->validateBankdetail($request));
+        $schoolbankdetail->update($this->validateBankdetail($request));
         return response()->json(['message'=>'Successfully Updated']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Tour  $tour
+     * @param  \App\Schoolbankdetail  $schoolbankdetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bankdetail $bankdetail)
+    public function destroy(Schoolbankdetail $schoolbankdetail)
     {
-        $bankdetail->delete();
+        $schoolbankdetail->delete();
         return response()->json('successfully deleted');
     }
 

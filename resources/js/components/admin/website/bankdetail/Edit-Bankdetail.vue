@@ -130,14 +130,14 @@ export default {
     },
     bankDetailData() {
       axios
-        .get(`/api/bankdetails/${this.$route.params.id}/edit`)
+        .get(`/api/schoolbankdetails/${this.$route.params.id}/edit`)
         .then((response) => {
           this.form.fill(response.data);
         });
     },
     updateEscort() {
       this.form
-        .put(`/api/bankdetails/${this.$route.params.id}`)
+        .put(`/api/schoolbankdetails/${this.$route.params.id}`)
         .then((response) => {
           this.$router.push("/bankdetail");
           this.$toast.fire({

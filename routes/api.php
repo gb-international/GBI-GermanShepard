@@ -41,7 +41,7 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('tour','TourController');
 		Route::resource('tourtype','TourtypeController');
 		Route::resource('tourprogram','TourprogramController');
-		Route::resource('bankdetails','BankdetailController');
+		Route::resource('schoolbankdetails','SchoolbankdetailController');
 		Route::get('frontbooking','FrontbookingController@index');
 		Route::get('frontbooking/{id}','FrontbookingController@show');
 		Route::post('frontbooking-status','FrontbookingController@status');
@@ -124,9 +124,9 @@ Route::namespace('Front')->group(function(){
 		Route::post('/tour-list', 'TourController@tourList');
 		Route::post('/tour-travel-save', 'TourController@tourDetailSave');
 		Route::post('/payment-tour', 'TourController@paymentTour');
-		Route::post('/tour-bankdetail-student', 'BankController@bankdetailsStudent');
-		Route::post('/tour-bankdetail', 'BankController@bankdetails');
-		Route::post('/tour-bankdetail-store', 'BankController@store');
+		Route::post('/tour-bankdetail-student', 'SchoolbankdetailController@bankdetailsStudent');
+		Route::post('/tour-bankdetail', 'SchoolbankdetailController@bankdetails');
+		Route::post('/tour-bankdetail-store', 'SchoolbankdetailController@store');
 		// Comments
 		Route::post('/encyclopedia-comments','EncyclopediaController@PostComment');
 		Route::post('/booking','FrontbookingController@booking');
@@ -156,7 +156,7 @@ Route::namespace('Front')->group(function(){
 Route::get('/country-state/{id}','AjaxController@CountryState');
 Route::get('/state-city/{id}','AjaxController@StateCity');
 Route::post('/city-sightseeing','AjaxController@CitySightseeing');
-Route::get('/banknames','Front\BankController@index');
+Route::get('/banknames','Front\SchoolbankdetailController@index');
 
 
 

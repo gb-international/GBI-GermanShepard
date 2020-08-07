@@ -100,14 +100,14 @@ export default {
 
   methods: {
     bankData() {
-      axios.get("/api/bankdetails").then((response) => {
+      axios.get("/api/schoolbankdetails").then((response) => {
         setTimeout(() => $("#example").DataTable(), 1000);
         this.bank_list = response.data;
       });
     },
 
     deleteescort(id) {
-      var uri = "/api/bankdetails/" + id;
+      var uri = "/api/schoolbankdetails/" + id;
       this.$swal
         .fire({
           title: "Are you sure?",

@@ -41,13 +41,15 @@ Payment Flow
           add it to database( table : payment_user ) with 
             school_id (449)
             tour_code (TOUR484)
-            bankdetail_id (3)
+            schoolbankdetail_id (3)
             user_id (34)
             payment_mode ( by student)
             payment_type (null)
             ifsc_code ( null )
             cheque_number ( null )
             amount : 49999
+            cheque_bank_name:
+            date_of_issue:
 
       if( payment_mode == self ):
           add it to database( table : payment_user) with

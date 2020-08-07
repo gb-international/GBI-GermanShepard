@@ -423,7 +423,6 @@ export default {
           if (this.userinfo.profession == "student") {
             // this.StudentBank();
           }
-          console.log(this.userinfo);
         })
         .catch((error) => {
           this.handleError(error);
@@ -458,7 +457,7 @@ export default {
       if (this.payment_mode == "self" && this.self_pay_mode == "cheque") {
         this.$router.push(`/payment-mode/${this.$route.params.id}`);
       } else {
-        console.log("student");
+
       }
       return false;
     },
@@ -470,7 +469,6 @@ export default {
     },
 
     StudentBank() {
-      console.log("student");
       var data = { tour_code: this.$route.params.id };
       this.$axios
         .post("/api/tour-bankdetail-student", data, {
@@ -478,7 +476,6 @@ export default {
         })
         .then((response) => {
           this.student_bank = response;
-          console.log(response);
         })
         .catch((error) => {
           this.handleError(error);

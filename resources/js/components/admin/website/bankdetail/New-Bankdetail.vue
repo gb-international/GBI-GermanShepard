@@ -122,7 +122,7 @@ export default {
     addEscort() {
 
       this.form
-        .post("/api/bankdetails")
+        .post("/api/schoolbankdetails")
         .then((response) => {
           this.$router.push(`/bankdetail`);
           this.$toast.fire({

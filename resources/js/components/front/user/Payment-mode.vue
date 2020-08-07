@@ -20,13 +20,6 @@
         
         <div class="col-sm-4">
           <div class="form-group">
-            <label for="father_name">Class Name</label>
-            <input type="text" class="form-control">
-          </div>
-        </div>
-        
-        <div class="col-sm-4">
-          <div class="form-group">
             <label for="father_name">IFSC Code</label>
             <input type="text" class="form-control">
           </div>
@@ -122,7 +115,6 @@ export default {
         })
         .then((response) => {
           this.userinfo = response.data;
-          console.log(this.userinfo);
         })
         .catch((error) => {
           this.handleError(error);
@@ -134,7 +126,8 @@ export default {
           headers: { Authorization: `Bearer ${localStorage.token}` },
         })
         .then((response) => {
-          this.form.reset();
+          // this.form.reset();
+          console.log(response);
           this.$swal.fire({
             icon: "success",
             title: "Beneficary Added !!",
@@ -156,7 +149,6 @@ export default {
       if (this.payment_mode == "self") {
         this.$route.push("/payment-mode");
       } else {
-        console.log("student");
       }
       return false;
     },
