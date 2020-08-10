@@ -1,336 +1,386 @@
 <template>
-  <div id="tour_payment">
-    <div class="container p-t-15 mb-20" v-if="userinfo">
-      <form>
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="tour_code">Itinerary Code</label>
+  <div id="tour_payment" class="pb-4">
+    <div v-if="chequePage==false">
+      <div class="container p-t-15 mb-20" v-if="userinfo">
+        <form>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="tour_code">Itinerary Code</label>
+                <input
+                  type="text"
+                  :value="`${this.$route.params.id}`"
+                  class="form-control grey-border"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <label for="person">Total Number of people</label>
               <input
                 type="text"
-                :value="`${this.$route.params.id}`"
                 class="form-control grey-border"
+                v-model="userinfo.no_of_person"
+                readonly
+              />
+            </div>
+
+            <div class="col-sm-4">
+              <label for="price">Tour Price</label>
+              <input
+                type="text"
+                class="form-control grey-border"
+                v-model="userinfo.tour_price"
                 readonly
               />
             </div>
           </div>
-          <div class="col-sm-4">
-            <label for="person">Total Number of people</label>
-            <input
-              type="text"
-              class="form-control grey-border"
-              v-model="userinfo.no_of_person"
-              readonly
-            />
-          </div>
-
-          <div class="col-sm-4">
-            <label for="price">Tour Price</label>
-            <input
-              type="text"
-              class="form-control grey-border"
-              v-model="userinfo.tour_price"
-              readonly
-            />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="student-section"  v-if="userinfo.profession=='student'">
-              <div class="col-sm-6">
-                <label>Bank Details to pay</label>
-                <div class="ml-5">
-                  <div class="row">
-                    <div class="col">
-                      Beneficary
-                      <span>:</span>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="student-section" v-if="userinfo.profession=='student'">
+                <div class="col-sm-6">
+                  <label>Bank Details to pay</label>
+                  <div class="ml-5">
+                    <div class="row">
+                      <div class="col">
+                        Beneficary
+                        <span>:</span>
+                      </div>
+                      <div class="col">{{ student_bank.name}}</div>
                     </div>
-                    <div class="col">GB-International</div>
-                  </div>
 
-                  <div class="row">
-                    <div class="col">
-                      Bank
-                      <span>:</span>
+                    <div class="row">
+                      <div class="col">
+                        Bank
+                        <span>:</span>
+                      </div>
+                      <div class="col">{{ student_bank.bank_name }}</div>
                     </div>
-                    <div class="col">Union Bank of India</div>
-                  </div>
 
-                  <div class="row">
-                    <div class="col">
-                      Account Number
-                      <span>:</span>
+                    <div class="row">
+                      <div class="col">
+                        Account Number
+                        <span>:</span>
+                      </div>
+                      <div class="col">{{ student_bank.account_number }}</div>
                     </div>
-                    <div class="col">44444444444444444</div>
-                  </div>
 
-                  <div class="row">
-                    <div class="col">
-                      Account Type
-                      <span>:</span>
+                    <div class="row">
+                      <div class="col">
+                        Account Type
+                        <span>:</span>
+                      </div>
+                      <div class="col">{{ student_bank.account_type }}</div>
                     </div>
-                    <div class="col">Saving</div>
-                  </div>
 
-                  <div class="row">
-                    <div class="col">
-                      IFSC Code
-                      <span>:</span>
+                    <div class="row">
+                      <div class="col">
+                        IFSC Code
+                        <span>:</span>
+                      </div>
+                      <div class="col">{{ student_bank.ifsc_code }}</div>
                     </div>
-                    <div class="col">FDIDI9999</div>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <label for="payment_mode mt-20">Payment Mode</label>
+              <div class="teacher-section" v-if="userinfo.profession=='teacher'">
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      value="student"
+                      name="payment_mode"
+                      v-model="teacherform.payment_mode"
+                    />By Student
+                  </label>
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      value="self"
+                      name="payment_mode"
+                      v-model="teacherform.payment_mode"
+                    />By Self
+                  </label>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-sm-4">
-            <label for="payment_mode mt-20">Payment Mode</label>
-            <div class="teacher-section" v-if="userinfo.profession=='teacher'">
-              <div class="form-check-inline">
+          <div class="row mt-20" v-if="teacherform.payment_mode == 'self'">
+            <div class="col-sm-4">
+              <div class="form-check">
                 <label class="form-check-label">
                   <input
                     type="radio"
                     class="form-check-input"
-                    value="student"
-                    name="payment_mode"
-                    v-model="payment_mode"
-                  />By Student
+                    name="option"
+                    v-model="teacherform.payment_type"
+                    value="cheque"
+                  /> Cheque/DD
                 </label>
               </div>
-              <div class="form-check-inline">
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-check">
                 <label class="form-check-label">
                   <input
                     type="radio"
                     class="form-check-input"
-                    value="self"
-                    name="payment_mode"
-                    v-model="payment_mode"
-                  />By Self
+                    name="option"
+                    v-model="teacherform.payment_type"
+                    value="cash"
+                  /> Cash
+                </label>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    name="option"
+                    v-model="teacherform.payment_type"
+                    value="net"
+                  /> Net Banking
                 </label>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="row mt-20" v-if="payment_mode == 'self'">
-          <div class="col-sm-4">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input
-                  type="radio"
-                  class="form-check-input"
-                  name="option"
-                  v-model="self_pay_mode"
-                  value="cheque"
-                /> Cheque/DD
-              </label>
+          <div class="row" v-if="teacherform.payment_mode == 'student'">
+            <div class="col-sm-6" v-for="bank in bankdetail" :key="bank.id">
+              <hr />
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input
+                    type="radio"
+                    :value="bank.id"
+                    class="form-check-input"
+                    v-model="teacherform.schoolbankdetail_id"
+                  />
+                  {{ bank.name }}
+                </label>
+              </div>
+              <div class="ml-5">
+                <div class="row">
+                  <div class="col">
+                    Beneficary
+                    <span>:</span>
+                  </div>
+                  <div class="col">{{ bank.name }}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    Bank
+                    <span>:</span>
+                  </div>
+                  <div class="col">{{ bank.bank_name }}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    Account Number
+                    <span>:</span>
+                  </div>
+                  <div class="col">{{ bank.account_number }}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    Account Type
+                    <span>:</span>
+                  </div>
+                  <div class="col">{{ bank.account_type }}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    IFSC Code
+                    <span>:</span>
+                  </div>
+                  <div class="col">{{ bank.ifsc_code }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-left w-100 mt-5 ml-20">
+              <button
+                type="button"
+                class="btn btn-outline-primary btn-square add_row_modal"
+                data-toggle="modal"
+                data-target="#openModal"
+              >ADD Beneficary</button>
             </div>
           </div>
 
-          <div class="col-sm-4">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input
-                  type="radio"
-                  class="form-check-input"
-                  name="option"
-                  v-model="self_pay_mode"
-                  value="cash"
-                /> Cash
-              </label>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input
-                  type="radio"
-                  class="form-check-input"
-                  name="option"
-                  v-model="self_pay_mode"
-                  value="net"
-                /> Net Banking
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <div class="row" v-if="payment_mode == 'student'">
-          <div class="col-sm-6" v-for="bank in bankdetail" :key="bank.id">
-            <hr />
-            <div class="form-check-inline">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="payment_to" />
-                {{ bank.name }}
-              </label>
-            </div>
-            <div class="ml-5">
-              <div class="row">
-                <div class="col">
-                  Beneficary
-                  <span>:</span>
-                </div>
-                <div class="col">{{ bank.name }}</div>
-              </div>
-
-              <div class="row">
-                <div class="col">
-                  Bank
-                  <span>:</span>
-                </div>
-                <div class="col">{{ bank.bank_name }}</div>
-              </div>
-
-              <div class="row">
-                <div class="col">
-                  Account Number
-                  <span>:</span>
-                </div>
-                <div class="col">{{ bank.account_number }}</div>
-              </div>
-
-              <div class="row">
-                <div class="col">
-                  Account Type
-                  <span>:</span>
-                </div>
-                <div class="col">{{ bank.account_type }}</div>
-              </div>
-
-              <div class="row">
-                <div class="col">
-                  IFSC Code
-                  <span>:</span>
-                </div>
-                <div class="col">{{ bank.ifsc_code }}</div>
+          <div class="row mt-20">
+            <div class="col-sm-18">
+              <label for="robot" class="col-sm-2 col-form-label">RObOt?</label>
+              <div class="col-sm-10">
+                <vue-recaptcha
+                  ref="recaptcha"
+                  :loadRecaptchaScript="true"
+                  @expired="onCaptchaExpired"
+                  @verify="onVerify"
+                  sitekey="6LeyF7gZAAAAADBt5N6EDQqFhL4-DZBUC13NgDpT"
+                ></vue-recaptcha>
               </div>
             </div>
           </div>
-          <div class="row justify-content-left w-100 mt-5 ml-20">
+          <div class="row justify-content-center mt-5">
             <button
               type="button"
-              class="btn btn-outline-primary btn-square add_row_modal"
-              data-toggle="modal"
-              data-target="#openModal"
-            >ADD Beneficary</button>
+              class="btn btn-outline-primary btn-square"
+              @click="submitPayment()"
+            >SUBMIT</button>
           </div>
-        </div>
+        </form>
 
-        <div class="row mt-20">
-          <div class="col-sm-18">
-            <label for="robot" class="col-sm-2 col-form-label">RObOt?</label>
-            <div class="col-sm-10">
-              <vue-recaptcha
-                ref="recaptcha"
-                :loadRecaptchaScript="true"
-                @expired="onCaptchaExpired"
-                @verify="onVerify"
-                sitekey="6LeyF7gZAAAAADBt5N6EDQqFhL4-DZBUC13NgDpT"
-              ></vue-recaptcha>
+        <!-- Add Beneficary Modal -->
+        <div class="modal fade" id="openModal">
+          <div class="modal-dialog">
+            <div class="modal-content modal-color">
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="no_row">Beneficary Name</label>
+                      <input
+                        type="text"
+                        class="form-control grey-border"
+                        name="name"
+                        v-model="form.name"
+                        :class="{ 'is-invalid': form.errors.has('name') }"
+                        placeholder="Enter Beneficary Name"
+                      />
+                      <has-error :form="form" field="name"></has-error>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="no_row">Select Bank</label>
+                      <select
+                        class="form-control grey-border"
+                        v-model="form.bank_name"
+                        :class="{ 'is-invalid': form.errors.has('bank_name') }"
+                      >
+                        <option
+                          v-for="bank in banknames"
+                          :value="bank.name"
+                          :key="bank.id"
+                        >{{ bank.name }}</option>
+                      </select>
+                      <has-error :form="form" field="bank_name"></has-error>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="no_row">Account Number</label>
+                      <input
+                        type="number"
+                        class="form-control grey-border"
+                        v-model="form.account_number"
+                        :class="{ 'is-invalid': form.errors.has('account_number') }"
+                        placeholder="Enter Account Number"
+                        name="account_number"
+                      />
+                      <has-error :form="form" field="account_number"></has-error>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="no_row">Account Type</label>
+                      <select
+                        class="form-control grey-border"
+                        v-model="form.account_type"
+                        :class="{ 'is-invalid': form.errors.has('account_type') }"
+                      >
+                        <option v-for="type in account_type" :value="type" :key="type">{{ type }}</option>
+                      </select>
+                      <has-error :form="form" field="account_type"></has-error>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="no_row">IFSC Code</label>
+                      <input
+                        type="text"
+                        class="form-control grey-border"
+                        v-model="form.ifsc_code"
+                        :class="{ 'is-invalid': form.errors.has('ifsc_code') }"
+                        placeholder="Enter IFSC Code"
+                        name="ifsc_code"
+                      />
+                      <has-error :form="form" field="ifsc_code"></has-error>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="text-center">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary btn-square"
+                    @click="ModalForm()"
+                  >ADD</button>
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row justify-content-center mt-5">
+      </div>
+    </div>
+    <div v-if="chequePage == true">
+      <div class="container pt-20">
+        <p>Please Fill Cheque/DD Details..</p>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="father_name">Bank Name</label>
+              <input type="text" class="form-control" v-model="teacherform.cheque_bank_name" />
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="father_name">Date of Issue</label>
+              <input type="date" class="form-control" v-model="teacherform.date_of_issue" />
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="father_name">IFSC Code</label>
+              <input type="text" class="form-control" v-model="teacherform.ifsc_code" />
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="father_name">Cheque Number</label>
+              <input type="number" class="form-control" v-model="teacherform.cheque_number" />
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="button" class="btn btn-outline-primary btn-square" @click="backReset()">BACK</button>
+
           <button
             type="button"
             class="btn btn-outline-primary btn-square"
-            @click="submitPayment()"
+            @click="validateCheque()"
           >SUBMIT</button>
-        </div>
-      </form>
-
-      <!-- Add Beneficary Modal -->
-      <div class="modal fade" id="openModal">
-        <div class="modal-dialog">
-          <div class="modal-content modal-color">
-            <div class="modal-body">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="no_row">Beneficary Name</label>
-                    <input
-                      type="text"
-                      class="form-control grey-border"
-                      name="name"
-                      v-model="form.name"
-                      :class="{ 'is-invalid': form.errors.has('name') }"
-                      placeholder="Enter Beneficary Name"
-                    />
-                    <has-error :form="form" field="name"></has-error>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="no_row">Select Bank</label>
-                    <select
-                      class="form-control grey-border"
-                      v-model="form.bank_name"
-                      :class="{ 'is-invalid': form.errors.has('bank_name') }"
-                    >
-                      <option
-                        v-for="bank in banknames"
-                        :value="bank.name"
-                        :key="bank.id"
-                      >{{ bank.name }}</option>
-                    </select>
-                    <has-error :form="form" field="bank_name"></has-error>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="no_row">Account Number</label>
-                    <input
-                      type="number"
-                      class="form-control grey-border"
-                      v-model="form.account_number"
-                      :class="{ 'is-invalid': form.errors.has('account_number') }"
-                      placeholder="Enter Account Number"
-                      name="account_number"
-                    />
-                    <has-error :form="form" field="account_number"></has-error>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="no_row">Account Type</label>
-                    <select
-                      class="form-control grey-border"
-                      v-model="form.account_type"
-                      :class="{ 'is-invalid': form.errors.has('account_type') }"
-                    >
-                      <option v-for="type in account_type" :value="type" :key="type">{{ type }}</option>
-                    </select>
-                    <has-error :form="form" field="account_type"></has-error>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="no_row">IFSC Code</label>
-                    <input
-                      type="text"
-                      class="form-control grey-border"
-                      v-model="form.ifsc_code"
-                      :class="{ 'is-invalid': form.errors.has('ifsc_code') }"
-                      placeholder="Enter IFSC Code"
-                      name="ifsc_code"
-                    />
-                    <has-error :form="form" field="ifsc_code"></has-error>
-                  </div>
-                </div>
-              </div>
-
-              <p class="text-center">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary btn-square"
-                  @click="ModalForm()"
-                >ADD</button>
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -348,6 +398,7 @@ export default {
   },
   data() {
     return {
+      chequePage: false,
       tours: "",
       formShow: false,
       payment_mode: "self",
@@ -359,6 +410,20 @@ export default {
       banknames: [],
       userinfo: "",
       robot: false,
+      teacherform: {
+        payment_mode: "self",
+        payment_type: "",
+        tour_code: "",
+        schoolbankdetail_id: "",
+        amount: "",
+        user_id: "",
+        school_id: "",
+        cheque_bank_name: "",
+        date_of_issue: "",
+        ifsc_code: "",
+        cheque_number: "",
+        added_by: "student",
+      },
       form: new Form({
         name: "",
         bank_name: "",
@@ -382,7 +447,6 @@ export default {
     }
 
     this.tourBank();
-    this.StudentBank();
     this.userData();
   },
 
@@ -417,11 +481,12 @@ export default {
         .then((response) => {
           this.userinfo = response.data;
           if (this.userinfo.profession == "teacher") {
+            this.teacherform.added_by = 'teacher';
             this.bankNameList();
           }
 
           if (this.userinfo.profession == "student") {
-            // this.StudentBank();
+            this.StudentBank();
           }
         })
         .catch((error) => {
@@ -447,6 +512,11 @@ export default {
     },
 
     submitPayment() {
+      this.teacherform.tour_code = this.$route.params.id;
+      this.teacherform.amount = this.userinfo.tour_price;
+      this.teacherform.user_id = this.userinfo.user_id;
+      this.teacherform.school_id = this.userinfo.school_id;
+      
       if (this.robot == false) {
         this.$swal.fire({
           icon: "error",
@@ -454,11 +524,32 @@ export default {
         });
         return false;
       }
-      if (this.payment_mode == "self" && this.self_pay_mode == "cheque") {
-        this.$router.push(`/payment-mode/${this.$route.params.id}`);
-      } else {
 
+      if (
+        this.teacherform.payment_mode == "self" &&
+        this.teacherform.payment_type == "cheque"
+      ) {
+        this.teacherform.schoolbankdetail_id = "";
+        this.chequePage = true;
+        // this.$router.push(`/payment-mode/${this.$route.params.id}`);
       }
+
+      if (
+        this.teacherform.payment_mode == "self" &&
+        this.teacherform.payment_type == "cash"
+      ) {
+        this.teacherform.schoolbankdetail_id = "";
+        this.submitForm();
+      }
+
+      if (
+        this.teacherform.payment_mode == "student" &&
+        this.teacherform.schoolbankdetail_id != ""
+      ) {
+        this.teacherform.payment_type = "";
+        this.submitForm();
+      }
+
       return false;
     },
 
@@ -475,12 +566,56 @@ export default {
           headers: { Authorization: `Bearer ${localStorage.token}` },
         })
         .then((response) => {
-          this.student_bank = response;
+          this.student_bank = response.data;
         })
         .catch((error) => {
           this.handleError(error);
         });
     },
+
+
+
+    submitForm() {
+      this.$axios
+        .post("/api/tour-submit-payment", this.teacherform, {
+          headers: { Authorization: `Bearer ${localStorage.token}` },
+        })
+        .then((response) => {
+          console.log(response);
+          if(response.data['error']){
+            this.$swal.fire({
+              icon: "error",
+              title: response.data.error,
+            }); 
+            return false; 
+          }
+          this.$swal.fire({
+            icon: "success",
+            title: "Successfully Added !!",
+          });
+        })
+        .catch((error) => {
+          this.handleError(error);
+        });
+    },
+    backReset() {
+      this.chequePage = false;
+      this.teacherform.cheque_bank_name = "";
+      this.teacherform.date_of_issue = "";
+      this.teacherform.ifsc_code = "";
+      this.teacherform.cheque_number = "";
+    },
+
+    validateCheque(){
+      if(this.teacherform.cheque_bank_name != '' && this.teacherform.date_of_issue != '' && this.teacherform.ifsc_code != '' && this.teacherform.cheque_number != ''){
+        this.submitForm();
+      }else{
+        this.$swal.fire({
+          icon: "error",
+          title: "Please fill all the fields !!",
+        });
+      }
+    }
   },
 };
 </script>

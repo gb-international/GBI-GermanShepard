@@ -127,6 +127,7 @@ Route::namespace('Front')->group(function(){
 		Route::post('/tour-bankdetail-student', 'SchoolbankdetailController@bankdetailsStudent');
 		Route::post('/tour-bankdetail', 'SchoolbankdetailController@bankdetails');
 		Route::post('/tour-bankdetail-store', 'SchoolbankdetailController@store');
+		Route::post('/tour-submit-payment', 'UserpaymentController@store');
 		// Comments
 		Route::post('/encyclopedia-comments','EncyclopediaController@PostComment');
 		Route::post('/booking','FrontbookingController@booking');

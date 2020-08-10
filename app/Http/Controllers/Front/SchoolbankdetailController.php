@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller; 
+use App\Model\Tour\Schoolbankdetail;
 use Illuminate\Http\Request;
 use App\Model\Tour\Bankname;
-use App\Model\Tour\Schoolbankdetail;
+use App\Model\Tour\Userpayment;
 use Auth;
 class SchoolbankdetailController extends Controller
 {
@@ -22,11 +23,15 @@ class SchoolbankdetailController extends Controller
     public function bankdetailsStudent(Request $request){
         // admin id = 26 ( default bank details )
         $school_id = Auth::user()->information->school_id;
-        $bank = Schoolbankdetail::where([
+        $bank = Userpayment::where([
             'school_id'=>$school_id,
-            'tour_code'=>$request->travel_code
+            'tour_code'=>$request->tour_code,
+            'added_by' => 'teacher'
             ])
-            ->get();        
+            ->with('schoolbankdetail')
+            ->firstOrFail();
+        return $bank->schoolbankdetail; 
+               
     }
 
     public function store(Request $request){

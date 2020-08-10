@@ -8336,6 +8336,7 @@ a:hover {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
   border-radius: 14px;
   overflow: hidden;
+  background-size: cover;
 }
 
 .tour_list_card .container {
@@ -8350,47 +8351,12 @@ a:hover {
 
 #tour_payment input {
   border-radius: 4px;
+  border: 1px solid #ced4da !important;
+  border-radius: 4px !important;
 }
 
 #tour_payment .grey-border {
   border: 1px solid lightgray !important;
-}
-
-#payment_mode .card-header {
-  padding: 12px;
-}
-
-#payment_mode .accordion-head i {
-  font-size: 1.5em;
-  float: right;
-  color: #656565;
-}
-
-#payment_mode .accordion-head > .collapsed > i:before {
-  content: "\F105";
-}
-
-#payment_mode input {
-  border: 1px solid lightgrey;
-}
-
-#payment_mode h5 {
-  font-size: 15px;
-  color: #656565;
-  font-weight: 500;
-}
-
-#payment_mode .card-image-payment {
-  padding: 15px 20px;
-}
-
-#payment_mode .card-image-payment .custom-control {
-  border: 2px solid lightgrey;
-  padding: 10px 33px;
-}
-
-#payment_mode .card-image-payment img {
-  height: 65px;
 }
 
 .link {
