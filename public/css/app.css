@@ -8735,3 +8735,11 @@ i {
   opacity: 0;
 }
 
+.modal-backdrop {
+  position: unset !important;
+}
+
+.modal-dialog {
+  margin: 0px;
+}
+

@@ -54,6 +54,12 @@ import Tourtype from './components/admin/tour/tourtype/List-tourtype.vue'
 import TourtypeAdd from './components/admin/tour/tourtype/New-tourtype.vue'
 import TourtypeEdit from './components/admin/tour/tourtype/Edit-tourtype.vue'
 
+import Userpayments from './components/admin/tour/userpayment/List-payment.vue'
+import UserpaymentsAdd from './components/admin/tour/userpayment/New-payment.vue'
+import UserpaymentsEdit from './components/admin/tour/userpayment/Edit-payment.vue'
+import UserpaymentsView from './components/admin/tour/userpayment/View-payment.vue'
+
+
 import Tourprogram from './components/admin/website/home/List-tourprogram.vue'
 import TourprogramAdd from './components/admin/website/home/New-tourprogram.vue'
 import TourprogramEdit from './components/admin/website/home/Edit-tourprogram.vue'
@@ -209,6 +215,15 @@ export const routes = [
     { path:'/tourtype',component:Tourtype},
     { path:'/tourtype/:id',component:TourtypeEdit},
     { path:'/tourtype-add',component:TourtypeAdd},
+
+    
+    // user payment
+    { path:'/userpayments',component:Userpayments},
+    { path:'/userpayments/:id',component:UserpaymentsEdit},
+    { path:'/userpayments-add',component:UserpaymentsAdd},
+    { path: '/userpayments-view/:id', component: UserpaymentsView},
+
+
     
     // Sightseeing
     { path:'/sightseeing',component: ListSightseeing},

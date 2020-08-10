@@ -384,3 +384,7 @@ design same ( student and teacher)
   Explore your travel Skills
   Travel History
 
+----------------------------------------------------------
+
+1. Login form on mobile,
+2. tour payment validation ( can't be made payment if he has already made payment for the tour)

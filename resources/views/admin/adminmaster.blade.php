@@ -158,6 +158,14 @@
                         @endcan
 
                         
+                        @can('userpayment')
+                        <li class="nav-item">
+                          <router-link to="/userpayments" class="nav-link">
+                            <p> User Payments </p>
+                          </router-link>
+                        </li>
+                        @endcan
+                        
 
                       </ul>
                     </li>

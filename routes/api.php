@@ -42,6 +42,7 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('tourtype','TourtypeController');
 		Route::resource('tourprogram','TourprogramController');
 		Route::resource('schoolbankdetails','SchoolbankdetailController');
+		Route::resource('userpayments','UserpaymentController');
 		Route::get('frontbooking','FrontbookingController@index');
 		Route::get('frontbooking/{id}','FrontbookingController@show');
 		Route::post('frontbooking-status','FrontbookingController@status');
