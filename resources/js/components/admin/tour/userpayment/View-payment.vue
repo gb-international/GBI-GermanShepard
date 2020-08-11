@@ -51,10 +51,8 @@ It takes id from the url and get the data from the api .
               </div>
               
               <div class="col-sm-4">
-                <h5>School Bank Detail</h5>
-                <p>
-                  <router-link :to="`/view-school/${tour_view.schoolbankdetail_id}`">
-                  {{tour_view.schoolbankdetail_name}}</router-link></p>
+                <h5>School Bank Detail ID</h5>
+                <p>{{ tour_view.schoolbankdetail_id }}</p>
               </div>
 
               

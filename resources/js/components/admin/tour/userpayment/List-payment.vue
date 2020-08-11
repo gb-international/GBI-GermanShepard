@@ -18,7 +18,7 @@ data from the api to display the data about the Hotel from the backend .
             <table id="example" class="display table table-striped table-bordered nowrap" style="width:100%">
               <thead>
                   <tr>
-                      <th>NAME  <i class="fas fa-sort"></i></th>
+                      <th>TOUR CODE  <i class="fas fa-sort"></i></th>
                       <th>AMOUNT  <i class="fas fa-sort"></i></th>
                       <th>ADDED BY  <i class="fas fa-sort"></i></th>
                       <th> <i class="fas fa-cog"></i></th>

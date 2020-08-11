@@ -15,7 +15,6 @@ class Userpayment extends Model
             'school_id' => $this->school_id,
             'school_name' => $this->school->school_name,
             'tour_code' => $this->tour_code,
-            'schoolbankdetail_name' => $this->schoolbankdetail->name,
             'schoolbankdetail_id' => $this->schoolbankdetail_id,
             'payment_mode' => $this->payment_mode,
             'payment_type' => $this->payment_type,
