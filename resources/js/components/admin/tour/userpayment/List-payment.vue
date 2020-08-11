@@ -12,7 +12,7 @@ data from the api to display the data about the Hotel from the backend .
       <div class="col-md-12">
         <div class="container container_admin_body">
           <div class="top_btn mb-4">
-            <router-link :to="`/userpayments-add`">Add Userpayments</router-link>
+            <!-- <router-link :to="`/userpayments-add`">Add Userpayments</router-link> -->
           </div>
             <!-- Start Card -->
             <table id="example" class="display table table-striped table-bordered nowrap" style="width:100%">
@@ -31,7 +31,7 @@ data from the api to display the data about the Hotel from the backend .
                       <td>{{tourtype.added_by}}</td>
                       <td class="edit_section">
 
-                        <router-link :to="`/userpayments/${tourtype.id}`" class="edit_link"><span class="badge badge-primary"><i class="fas fa-pencil-alt"></i></span></router-link>
+                        <!-- <router-link :to="`/userpayments/${tourtype.id}`" class="edit_link"><span class="badge badge-primary"><i class="fas fa-pencil-alt"></i></span></router-link> -->
 
                         <a href="" class="delete_link" @click.prevent = "deletetourtype(tourtype.id)" ><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
 
