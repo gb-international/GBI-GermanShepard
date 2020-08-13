@@ -78,7 +78,7 @@ It takes id from the url and get the data from the api .
                   <hr>
                   <div class="card" v-if="escort">
                     <h4>Tour Manager</h4>
-                    <div class="row"v-for="escort in escort">
+                    <div class="row" v-for="escort in escort" :key="escort.id">
                       <div class="col-sm-2">
                         <label>Name</label>
                         <p>{{ escort['escort'].name }}</p>
@@ -103,7 +103,7 @@ It takes id from the url and get the data from the api .
 
                   <div class="card" v-if="hotel">
                     <h4>Hotel </h4>
-                    <div class="row"v-for="hotel in hotel">
+                    <div class="row" v-for="hotel in hotel" :key="hotel.id">
                       <div class="col-sm-2">
                         <label>Name</label>
                         <p>{{ hotel['hotel'].name }}</p>
@@ -130,7 +130,7 @@ It takes id from the url and get the data from the api .
 
                   <div class="card" v-if="train">
                     <h4>Train </h4>
-                    <div class="row"v-for="train in train">
+                    <div class="row" v-for="train in train" :key="train.id">
                       <div class="col-sm-2">
                         <label>Name</label>
                         <p>{{ train['train'].name }}</p>
@@ -157,7 +157,7 @@ It takes id from the url and get the data from the api .
 
                   <div class="card" v-if="flight">
                     <h4>Flight </h4>
-                    <div class="row"v-for="flight in flight">
+                    <div class="row" v-for="flight in flight" :key="flight.id">
                       <div class="col-sm-2">
                         <label>Name</label>
                         <p>{{ flight['flight'].name }}</p>
@@ -184,7 +184,7 @@ It takes id from the url and get the data from the api .
 
                   <div class="card" v-if="bus">
                     <h4>Bus </h4>
-                    <div class="row"v-for="bus in bus">
+                    <div class="row" v-for="bus in bus" :key="bus.id">
                       <div class="col-sm-2">
                         <label>Company Name</label>
                         <p>{{ bus['bus'].company_name }}</p>
@@ -371,7 +371,7 @@ export default {
   },
 
   goBack(){
-    this.$router.push(`/tours`);
+    this.$router.go(-1);
   },
   }
 }

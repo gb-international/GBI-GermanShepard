@@ -52,6 +52,7 @@ class SchoolController extends Controller
      */
     public function show(School $school)
     {
+        $school->tours;
         return response()->json($school);
     }
 
