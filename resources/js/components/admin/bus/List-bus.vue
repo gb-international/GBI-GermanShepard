@@ -12,7 +12,7 @@ data from the api to display the data about the Hotel from the backend .
     <div class="row justify-content-around" >
       <div class="col-md-12">
         <div class="container container_admin_body">
-          <div class="top_btn">
+          <div class="top_btn mb-4">
             <router-link :to="`/add-bus`">Add Bus</router-link>
           </div>
             <!-- Start Card -->

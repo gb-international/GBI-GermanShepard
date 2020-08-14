@@ -122,6 +122,7 @@ It takes id from the url and get the data from the api .
                       </div>
 
                       <div class="col-sm-1">
+
                         <a href="" v-if="$can('delete clients')" class="delete_link" @click.prevent = "deleteBookedHotel(hotel.id)" ><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                       </div>
 
@@ -143,12 +144,14 @@ It takes id from the url and get the data from the api .
                         <label>Price</label>
                         <p>{{ train.price }}</p>
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-sm-2">
                         <label>Travel</label>
                         <p>{{ train.source }} - {{ train.destination }}</p>
                       </div>
 
-                      <div class="col-sm-1">
+                      <div class="col-sm-2 text-center">
+                        <span class="btn btn-sm btn-info text-white cursor-pointer mr-1" data-toggle="modal" data-target="#pnrModal" @click="tranportModal(train.id,'train')">PNR</span>
+
                         <a href="" v-if="$can('delete clients')" class="delete_link" @click.prevent = "deleteBookedTrain(train.id)" ><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                       </div>
 
@@ -170,12 +173,14 @@ It takes id from the url and get the data from the api .
                         <label>Price</label>
                         <p>{{ flight.price }}</p>
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-sm-2">
                         <label>Travel</label>
                         <p>{{ flight.source }} - {{ flight.destination }}</p>
                       </div>
 
-                      <div class="col-sm-1">
+                      <div class="col-sm-2 text-center">
+                        <span class="btn btn-sm btn-info text-white cursor-pointer mr-1" data-toggle="modal" data-target="#pnrModal" @click="tranportModal(flight.id,'flight')">PNR</span>
+
                         <a href="" v-if="$can('delete clients')" class="delete_link" @click.prevent = "deleteBookedFlight(flight.id)" ><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                       </div>
 
@@ -197,12 +202,14 @@ It takes id from the url and get the data from the api .
                         <label>Price</label>
                         <p>{{ bus.price }}</p>
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-sm-2">
                         <label>Travel</label>
                         <p>{{ bus.source }} - {{ bus.destination }}</p>
                       </div>
 
-                      <div class="col-sm-1">
+                      <div class="col-sm-2 text-center">
+                        <span class="btn btn-sm btn-info text-white cursor-pointer mr-1" data-toggle="modal" data-target="#pnrModal" @click="tranportModal(bus.id,'bus')">Number</span>
+
                         <a href="" v-if="$can('delete clients')" class="delete_link" @click.prevent = "deleteBookedBus(bus.id)" ><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                       </div>
 
@@ -211,14 +218,29 @@ It takes id from the url and get the data from the api .
 
               </div>                          
             </div>
+
+            <!--PNR Modal -->
+            <div class="modal" id="pnrModal">
+              <div class="modal-dialog">
+                <div class="modal-content simple-form-bg">
+                  <!-- Modal body -->
+                  <div class="modal-body" v-if="modal_pnr">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <pnr :transport_id="transportId" :transport_type="transportType"></pnr>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
     </section>
     <!-- /.content -->
 </template>
 
 <script>
+import pnr from '../../partials/Pnr'
 export default {
   name: "View",
+  components:{pnr},
   data(){
     return{
       client_view:[], 
@@ -229,6 +251,9 @@ export default {
       escort:[],
       bus:[],
       flight:[],
+      modal_pnr:false,
+      transportId:'',
+      transportType:'',
     }
   },
   created(){
@@ -237,6 +262,11 @@ export default {
 
   methods:
   {
+    tranportModal(id,type){
+      this.transportId = id;
+      this.transportType = type;
+      this.modal_pnr = true;
+    },
     getAllData(){
       axios.get(`/api/tour/${this.$route.params.id}`).then(response => {
         if(response.data){

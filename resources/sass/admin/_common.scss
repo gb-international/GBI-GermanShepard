@@ -65,19 +65,19 @@
 input[type='text'],input[type='email'],
 input[type='date'],textarea,input[type='number'],
 input[type='time'],input[type='datetime-local'],select,.ui.selection.dropdown,input[type='datetime-local']{
-	border: 0px !important;
-	background-color: $admin-top !important;
-	font-size: 17px !important;
-	color: #737879 !important;
+	border: 0px;
+	background-color: $admin-top;
+	font-size: 17px;
+	color: #737879;
 	display: block;
 	width: 100%;
 }
 input[type='text'],input[type='email'],
 input[type='date'],input[type='number'],
 input[type='time'],select,.ui.selection.dropdown,input[type='datetime-local']{
-	height: 53px !important;
-	margin-bottom: 5px !important;
-	font-weight: 600 !important;
+	height: 53px;
+	margin-bottom: 5px;
+	font-weight: 600;
 }
 // dropdown for the city
 .ui.search.dropdown>.text {
@@ -137,5 +137,31 @@ form{padding-top: 20px;}
 #example_wrapper{
 	.row{
 		width: 100% !important;
+	}
+}
+.simple-form-bg{
+	background-color: #f5f5f5 !important;
+	border-radius: 0px !important;
+}
+.simple-form{
+	input{
+		height: 35px;
+		font-weight: normal;
+		border: 0px;
+		background-color: white;
+		border-radius: 0px;
+	}
+	button{
+		font-weight: 500;
+		border-radius: 0px;
+		padding: 6px !important;
+		margin-top: 0px !important;
+		min-width: 100%;
+		border: 3px solid $admin-bg;
+		&:hover{
+			background-color: $admin-bg;
+			border-radius: 0px;
+			color: white;
+		}
 	}
 }

@@ -31998,10 +31998,10 @@ input[type='datetime-local'],
 select,
 .ui.selection.dropdown,
 input[type='datetime-local'] {
-  border: 0px !important;
-  background-color: #e1e1e1e1 !important;
-  font-size: 17px !important;
-  color: #737879 !important;
+  border: 0px;
+  background-color: #e1e1e1e1;
+  font-size: 17px;
+  color: #737879;
   display: block;
   width: 100%;
 }
@@ -32014,9 +32014,9 @@ input[type='time'],
 select,
 .ui.selection.dropdown,
 input[type='datetime-local'] {
-  height: 53px !important;
-  margin-bottom: 5px !important;
-  font-weight: 600 !important;
+  height: 53px;
+  margin-bottom: 5px;
+  font-weight: 600;
 }
 
 .ui.search.dropdown > .text {
@@ -32080,6 +32080,34 @@ form {
 
 #example_wrapper .row {
   width: 100% !important;
+}
+
+.simple-form-bg {
+  background-color: #f5f5f5 !important;
+  border-radius: 0px !important;
+}
+
+.simple-form input {
+  height: 35px;
+  font-weight: normal;
+  border: 0px;
+  background-color: white;
+  border-radius: 0px;
+}
+
+.simple-form button {
+  font-weight: 500;
+  border-radius: 0px;
+  padding: 6px !important;
+  margin-top: 0px !important;
+  min-width: 100%;
+  border: 3px solid #332f58;
+}
+
+.simple-form button:hover {
+  background-color: #332f58;
+  border-radius: 0px;
+  color: white;
 }
 
 .calculator label {
