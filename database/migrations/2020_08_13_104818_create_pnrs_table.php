@@ -17,10 +17,8 @@ class CreatePnrsTable extends Migration
             $table->bigIncrements('id');
             $table->string('transport_id')->nullable();            
             $table->string('transport_type')->nullable();
-            $table->string('tour_id')->nullable();
+            $table->string('tour_code')->nullable();
             $table->string('pnr_number')->nullable();
-
-            $table->timestamps();
         });
     }
 

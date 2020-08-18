@@ -24,7 +24,7 @@ class PnrController extends Controller
      */
     public function create()
     {
-        //
+    
     }
 
     /**
@@ -35,22 +35,8 @@ class PnrController extends Controller
      */
     public function store(Request $request)
     {
-         $this->validate($request,[
-            'bus_id'=>'required',
-            'price'=>'required',
-            'source'=>'required',
-            'destination' => 'required' ,
-            'departure' => 'required',
-            'arrival' => 'required' 
-        ]);
-
-        $check = Pnr::where(['tour_code' => $request->tour_code, 'bus_id' => $request->bus_id])->get();
-        if(count($check->all()) > 0){
-            return '1';
-        }else{
-            Pnr::create($request->all());
-            return response()->json('Successfully Created');            
-        }
+        Pnr::insert($request->all());
+        return response()->json('success');
     }
 
     /**
@@ -59,9 +45,31 @@ class PnrController extends Controller
      * @param  \App\Pnr  $Pnr
      * @return \Illuminate\Http\Response
      */
-    public function show(Pnr $pnr)
+    public function show($tour_code)
     {
-        //
+        $pnr = Pnr::where('tour_code',$tour_code)
+            ->orderBy('transport_type')
+            ->get();
+        $train = [];
+        $flight = [];
+        $bus = [];
+        foreach ($pnr as $row) {
+            if($row['transport_type'] == 'train'){
+                array_push($train,$row);
+            }
+            else if($row['transport_type'] == 'bus'){
+                array_push($bus,$row);
+            }
+            else{
+                array_push($flight,$row);
+            }
+        }
+        return response()->json(
+            [
+            'trains'=>$train,'flights'=>$flight,'buses'=>$bus
+            ]
+        );
+
     }
 
     /**
@@ -72,7 +80,7 @@ class PnrController extends Controller
      */
     public function edit(Pnr $pnr)
     {
-        //
+        
     }
 
     /**
@@ -84,7 +92,12 @@ class PnrController extends Controller
      */
     public function update(Request $request, Pnr $pnr)
     {
-        //
+        $this->validate($request,[
+            'pnr_number'=>'required'
+        ]);
+        $pnr->pnr_number = $request->pnr_number;
+        $pnr->save();
+        return response()->json(['success'=>'successfully added']);
     }
 
     /**

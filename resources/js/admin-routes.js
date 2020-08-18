@@ -78,6 +78,7 @@ import BookedHotel from './components/admin/bookedtour/New-hotel.vue'
 import BookedFlight from './components/admin/bookedtour/New-flight.vue'
 import BookedTrain from './components/admin/bookedtour/New-train.vue'
 import BookedBus from './components/admin/bookedtour/New-bus.vue'
+import BookedPnr from './components/admin/bookedtour/Pnr-List.vue'
 
 
 
@@ -210,6 +211,7 @@ export const routes = [
     { path:'/booked-tour-flight/:id', component:BookedFlight },
     { path:'/booked-tour-train/:id', component:BookedTrain },
     { path:'/booked-tour-bus/:id', component:BookedBus },
+    { path:'/booked-tour-pnr/:id', component:BookedPnr },
 
     // Tour type
     { path:'/tourtype',component:Tourtype},
