@@ -73,6 +73,7 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('bookedtrains','BookedtrainController');
 		Route::resource('bookedbuses','BookedbusController');
 		Route::resource('pnrs','PnrController');
+		Route::post('pnrs/get','PnrController@getData');
 	});
 	Route::namespace('GbiMember')->group(function(){
 		Route::get('/members','GBIMemberController@index');

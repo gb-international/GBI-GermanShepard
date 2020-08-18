@@ -71,12 +71,6 @@ It takes id from the url and get the data from the api .
                 <img :src="`assets/admin/default/icon/bus-icon.png`" />
               </router-link>
             </div>
-            
-            <div class="col-sm-3 m-30">
-              <router-link :to="`/booked-tour-pnr/${tour.tour_id}`">
-                <img :src="`assets/admin/default/icon/bus-icon.png`" />
-              </router-link>
-            </div>
 
           </div>
           <hr />
@@ -156,42 +150,35 @@ It takes id from the url and get the data from the api .
                 <label>Name</label>
                 <p>{{ train['train'].name }}</p>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-2">
                 <label>Code</label>
                 <p>{{ train['train'].code }}</p>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-2">
                 <label>Price</label>
                 <p>{{ train.price }}</p>
               </div>
-              <div class="col-sm-2">
+              <div class="col-sm-3">
                 <label>Travel</label>
                 <p>{{ train.source }} - {{ train.destination }}</p>
               </div>
               
-              <div class="col-sm-2">
+              <div class="col-sm-2 text-center">
                 <label>PNR</label>
+                <br>
                 <span
-                  class="btn btn-sm btn-info text-white cursor-pointer mr-1"
+                  class="btn btn-sm btn-primary text-white cursor-pointer mr-1"
                   data-toggle="modal"
                   data-target="#pnrModal"
                   @click="tranportModal(train.id,'train')"
                 >Add</span>
-                
-                <span
+                <router-link :to="`/booked-tour-pnr/${'train/'+train.id+'/'+tour.tour_id}`"
                   class="btn btn-sm btn-info text-white cursor-pointer mr-1"
-                  data-toggle="modal"
-                  data-target="#pnrModal"
-                  @click="tranportModal(train.id,'train')"
-                >List</span>
-
-
+                >List</router-link>
               </div>
 
 
-              <div class="col-sm-2 text-center">
-                
-
+              <div class="col-sm-1 text-center">
                 <a
                   href
                   v-if="$can('delete clients')"
@@ -213,27 +200,34 @@ It takes id from the url and get the data from the api .
                 <label>Name</label>
                 <p>{{ flight['flight'].name }}</p>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-2">
                 <label>Seat Type</label>
                 <p>{{ flight['flight'].code }}</p>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-2">
                 <label>Price</label>
                 <p>{{ flight.price }}</p>
               </div>
-              <div class="col-sm-2">
+              <div class="col-sm-3">
                 <label>Travel</label>
                 <p>{{ flight.source }} - {{ flight.destination }}</p>
               </div>
 
               <div class="col-sm-2 text-center">
+                <label>PNR</label>
+                <br>
                 <span
-                  class="btn btn-sm btn-info text-white cursor-pointer mr-1"
+                  class="btn btn-sm btn-primary text-white cursor-pointer mr-1"
                   data-toggle="modal"
                   data-target="#pnrModal"
                   @click="tranportModal(flight.id,'flight')"
-                >PNR</span>
+                >Add</span>
+                <router-link :to="`/booked-tour-pnr/${'flight/'+flight.id+'/'+tour.tour_id}`"
+                  class="btn btn-sm btn-info text-white cursor-pointer mr-1"
+                >List</router-link>
+              </div>
 
+              <div class="col-sm-1 text-center">
                 <a
                   href
                   v-if="$can('delete clients')"
@@ -255,27 +249,34 @@ It takes id from the url and get the data from the api .
                 <label>Company Name</label>
                 <p>{{ bus['bus'].company_name }}</p>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-2">
                 <label>Seat Type</label>
                 <p>{{ bus['bus'].seat_type }}</p>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-2">
                 <label>Price</label>
                 <p>{{ bus.price }}</p>
               </div>
-              <div class="col-sm-2">
+              <div class="col-sm-3">
                 <label>Travel</label>
                 <p>{{ bus.source }} - {{ bus.destination }}</p>
               </div>
 
               <div class="col-sm-2 text-center">
+                <label>Bus Number</label>
+                <br>
                 <span
-                  class="btn btn-sm btn-info text-white cursor-pointer mr-1"
+                  class="btn btn-sm btn-primary text-white cursor-pointer mr-1"
                   data-toggle="modal"
                   data-target="#pnrModal"
                   @click="tranportModal(bus.id,'bus')"
-                >Number</span>
+                >Add</span>
+                <router-link :to="`/booked-tour-pnr/${'bus/'+bus.id+'/'+tour.tour_id}`"
+                  class="btn btn-sm btn-info text-white cursor-pointer mr-1"
+                >List</router-link>
+              </div>
 
+              <div class="col-sm-1 text-center">
                 <a
                   href
                   v-if="$can('delete clients')"

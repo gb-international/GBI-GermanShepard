@@ -111,4 +111,13 @@ class PnrController extends Controller
         $pnr->delete();
         return response()->json('Deleted');
     }
+
+    public function getData(Request $request){
+        $pnr = Pnr::where([
+            'transport_id'=> $request->transport_id,
+            'transport_type' => $request->transport_type,
+            'tour_code' => $request->tour_code
+        ])->get();
+        return $pnr;
+    }
 }

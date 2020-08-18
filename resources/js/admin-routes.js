@@ -211,7 +211,7 @@ export const routes = [
     { path:'/booked-tour-flight/:id', component:BookedFlight },
     { path:'/booked-tour-train/:id', component:BookedTrain },
     { path:'/booked-tour-bus/:id', component:BookedBus },
-    { path:'/booked-tour-pnr/:id', component:BookedPnr },
+    { path:'/booked-tour-pnr/:transport/:id/:tour_id', component:BookedPnr },
 
     // Tour type
     { path:'/tourtype',component:Tourtype},

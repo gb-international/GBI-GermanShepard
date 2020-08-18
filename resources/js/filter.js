@@ -10,3 +10,10 @@ Vue.filter('timeformat',(arg)=>{
 Vue.filter('sortlength',function (text,length,suffix) {
     return text.substring(0,length)+suffix;
 })
+
+
+/*show date years */
+Vue.filter('firstUppercase', (value) => {
+    if (!value) return ''
+    return value.charAt(0).toUpperCase() + value.slice(1)
+})
