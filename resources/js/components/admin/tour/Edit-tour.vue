@@ -51,7 +51,7 @@ to submit the data we are using a function.
                 <div class="form-group">
                   <label for="itinerary_id">Itinerary</label>
 
-                  <select class="form-control" v-model="form.itinerary_id">
+                  <select class="form-control select-field" v-model="form.itinerary_id">
                     <option
                       v-for="data in itinerary_list"
                       :value="data.id"
@@ -68,7 +68,7 @@ to submit the data we are using a function.
                 <div class="form-group">
                   <label for="itinerary_id">School</label>
 
-                  <select class="form-control" v-model="form.school_id">
+                  <select class="form-control select-field" v-model="form.school_id">
                     <option
                       v-for="data in school_list"
                       :value="data.id"

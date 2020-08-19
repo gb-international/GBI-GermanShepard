@@ -131,7 +131,7 @@ data from the api to display the data about the Hotel from the backend .
                 </div>
                 <div class="col-sm-3">
                   <label>Mode</label>
-                  <select class="form-control" v-model="data.mode">
+                  <select class="form-control select-field" v-model="data.mode">
                     <option value="cash">Cash</option>
                     <option value="cheque">Cheque</option>
                     <option value="online">Online</option>
@@ -140,7 +140,7 @@ data from the api to display the data about the Hotel from the backend .
                 </div>
                 <div class="col-sm-3">
                   <label>Status</label>
-                  <select class="form-control" v-model="data.status">
+                  <select class="form-control select-field" v-model="data.status">
                     <option value="pending">Pending</option>
                     <option value="installment">Installment</option>
                     <option value="paid">Paid</option>

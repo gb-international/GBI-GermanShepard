@@ -20,7 +20,7 @@ data from the api to display the data about the Hotel from the backend .
                 <div class="col-sm-4">
                   <div class="form-group">
                     <label for="bus_id">Bus Company</label>
-                    <select class="form-control" v-model="form.bus_id">
+                    <select class="form-control select-field" v-model="form.bus_id">
                       <option
                         v-for="bus in bus_list"
                         :key="bus.id"

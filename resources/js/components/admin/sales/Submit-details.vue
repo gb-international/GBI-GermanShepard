@@ -59,7 +59,7 @@ to submit the data we are using a function.
                       <div class="col-sm-6">
                         <div class="form-group">
                             <label for="client_id">School Name</label>
-                            <select class="form-control" v-model="form.client_id" :class="{ 'is-invalid': form.errors.has('client_id') }">
+                            <select class="form-control select-field" v-model="form.client_id" :class="{ 'is-invalid': form.errors.has('client_id') }">
                               <option v-for="school in SchoolData" :value="school.id" :key="school.id">{{ school.school_name }}</option>
                             </select>
                             <has-error :form="form" field="client_id"></has-error>

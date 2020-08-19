@@ -33,7 +33,7 @@ data from the api to display the data about the transport from the backend .
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>Select Airline Name</label>
-                              <select class="form-control" v-model="data[0].name">
+                              <select class="form-control select-field" v-model="data[0].name">
                                 <option v-for="air in air_list" :value="air.transName" :key="air.id">{{ air.transName }}</option>
                               </select>
                             </div>
@@ -78,7 +78,7 @@ data from the api to display the data about the transport from the backend .
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>Select Train Name</label>
-                              <select class="form-control" v-model="data[1].name">
+                              <select class="form-control select-field" v-model="data[1].name">
                                 <option v-for="train in train_list" :value="train.transName" :key="train.id">{{ train.transName }}</option>
                               </select>
                             </div>

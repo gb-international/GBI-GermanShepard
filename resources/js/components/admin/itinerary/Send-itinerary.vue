@@ -37,7 +37,7 @@ to submit the data we are using a function.
                           <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="Location">SalesDep</label>
-                                <select class="form-control" v-model="form.salesdp_id" :class="{ 'is-invalid': form.errors.has('price') }">
+                                <select class="form-control select-field" v-model="form.salesdp_id" :class="{ 'is-invalid': form.errors.has('price') }">
                                   <option v-for="sale in salesDp" :value="sale.id" :key="sale.id">{{ sale.name }}</option>
                                 </select>
                                 <has-error :form="form" field="salesdp_id"></has-error>

@@ -18,7 +18,7 @@ data from the api to display the data about the Hotel from the backend .
                       <div class="col-sm-5">
                         <div class="form-group">
                           <label>TOUR MANAGER</label>
-                          <select class="form-control" v-model.lazy="escort_id">
+                          <select class="form-control select-field" v-model.lazy="escort_id">
                             <option v-for="data in alldata" :value="data.id" :key="data.id">{{ data.name }}</option>
                           </select>
                         </div>

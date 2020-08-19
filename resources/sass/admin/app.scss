@@ -1,6 +1,9 @@
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import "~admin-lte/dist/css/adminlte.css";
 
 // Variables
 @import 'variables';
@@ -12,9 +15,6 @@
 
 
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-@import "~admin-lte/dist/css/adminlte.css";
 
 .navbar-laravel {
   background-color: #ffffff;

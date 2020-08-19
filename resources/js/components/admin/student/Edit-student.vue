@@ -21,7 +21,7 @@ to submit the data we are using a function.
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="school_id">School</label>
-                  <select class="form-control" v-model="form.school_id">
+                  <select class="form-control select-field" v-model="form.school_id">
                     <option
                       v-for="school in school_list"
                       :value="school.id"

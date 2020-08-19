@@ -19,7 +19,7 @@ to submit the data we are using a function.
                 <div class="form-group">
                   <label for="state_name">State</label>
                   <select
-                    class="form-control"
+                    class="form-control select-field"
                     v-model="form.state_name"
                     @change="slugCreate($event)"
                   >

@@ -28,7 +28,7 @@ data from the api to display the data about the Hotel from the backend .
               <div class="col-sm-5">
                 <div class="form-group">
                   <label>SELECT SCHOOL</label>
-                  <select class="form-control" v-model.lazy="school_id">
+                  <select class="form-control select-field" v-model.lazy="school_id">
                     <option
                       v-for="data in school_list"
                       :value="data.id"

@@ -17,7 +17,7 @@ to submit the data we are using a function.
                 <div class="form-group">
                   <label for="state">State</label>
                   <select
-                    class="form-control"
+                    class="form-control select-field"
                     v-model="form.state_id"
                     :class="{ 'is-invalid': form.errors.has('state_id') }"
                   >
@@ -35,7 +35,7 @@ to submit the data we are using a function.
                 <div class="form-group">
                   <label for="city">City</label>
                   <select
-                    class="form-control"
+                    class="form-control select-field"
                     v-model="form.city_id"
                     :class="{ 'is-invalid': form.errors.has('city_id') }"
                   >

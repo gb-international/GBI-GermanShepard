@@ -20,7 +20,7 @@ data from the api to display the data about the Hotel from the backend .
                 <div class="col-sm-4">
                   <div class="form-group">
                     <label for="flight_id">Airline name</label>
-                    <select class="form-control" v-model="form.flight_id">
+                    <select class="form-control select-field" v-model="form.flight_id">
                       <option
                         v-for="flight in flight_list"
                         :value="flight.id"

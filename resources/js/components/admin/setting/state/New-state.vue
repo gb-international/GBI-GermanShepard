@@ -21,7 +21,7 @@ to submit the data we are using a function.
                 <div class="form-group">
                   <label for="country_id">Country name</label>
 
-                  <select class="form-control" v-model.lazy="country_id">
+                  <select class="form-control select-field" v-model.lazy="country_id">
                     <option
                       v-for="data in country_list"
                       :value="data.id"

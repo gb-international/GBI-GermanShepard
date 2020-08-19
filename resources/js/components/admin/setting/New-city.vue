@@ -21,7 +21,7 @@ to submit the data we are using a function.
                 <div class="form-group">
                   <label for="country_id">Country name</label>
 
-                  <select class="form-control" v-model="form.country_id">
+                  <select class="form-control select-field" v-model="form.country_id">
                     <option
                       v-for="data in country_list"
                       :value="data.id"
@@ -36,7 +36,7 @@ to submit the data we are using a function.
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="state_id">State name</label>
-                  <select class="form-control" v-model="form.state_id">
+                  <select class="form-control select-field" v-model="form.state_id">
                     <option
                       v-for="data in state_list"
                       :value="data.id"

@@ -64,7 +64,7 @@
 // Input box css
 input[type='text'],input[type='email'],
 input[type='date'],textarea,input[type='number'],
-input[type='time'],input[type='datetime-local'],select,.ui.selection.dropdown,input[type='datetime-local']{
+input[type='time'],input[type='datetime-local'],.ui.selection.dropdown,input[type='datetime-local'],.select-field{
 	border: 0px;
 	background-color: $admin-top;
 	font-size: 17px;
@@ -74,7 +74,7 @@ input[type='time'],input[type='datetime-local'],select,.ui.selection.dropdown,in
 }
 input[type='text'],input[type='email'],
 input[type='date'],input[type='number'],
-input[type='time'],select,.ui.selection.dropdown,input[type='datetime-local']{
+input[type='time'],.select-field,.ui.selection.dropdown,input[type='datetime-local']{
 	height: 53px;
 	margin-bottom: 5px;
 	font-weight: 600;

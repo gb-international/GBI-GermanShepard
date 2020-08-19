@@ -20,7 +20,7 @@ to submit the data we are using a function.
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="state">State</label>
-                  <select class="form-control" v-model="form.state_id" :class="{ 'is-invalid': form.errors.has('state_id') }">
+                  <select class="form-control select-field" v-model="form.state_id" :class="{ 'is-invalid': form.errors.has('state_id') }">
                     <option v-for="state in state_list" :value="state.id" :key="state.id"> {{ state.name }}</option>
                   </select>
                   <has-error :form="form" field="state_id"></has-error>
@@ -30,7 +30,7 @@ to submit the data we are using a function.
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="city">City</label>
-                  <select class="form-control" v-model="form.city_id" :class="{ 'is-invalid': form.errors.has('city_id') }">
+                  <select class="form-control select-field" v-model="form.city_id" :class="{ 'is-invalid': form.errors.has('city_id') }">
                     <option v-for="city in city_list" :value="city.id" :key="city.id"> {{ city.name }}</option>
                   </select>
                   <has-error :form="form" field="city_id"></has-error>
