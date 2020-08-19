@@ -275,7 +275,7 @@
                     @endcanany
 
                     
-                    @canany(['add student','edit student','delete student'])
+                    {{-- @canany(['add student','edit student','delete student'])
                     <li class="nav-item has-treeview">
                       <a href="#" class="nav-link">
                         <i class="fas fa-user-graduate"></i>
@@ -303,7 +303,7 @@
                         @endcan
                       </ul>
                     </li>
-                    @endcanany
+                    @endcanany --}}
 
 
                     @canany(['add salesdps','edit salesdps','delete salesdps','itinerary salesdps'])
