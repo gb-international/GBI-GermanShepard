@@ -315,7 +315,7 @@ It takes id from the url and get the data from the api .
 
                 <div class="row mt-4">
                   <div class="col-sm-5">
-                    <button type="button" class="btn" @click="submitForm()">SAVE</button>
+                    <button type="button" class="btn text-white" @click="submitForm()">SAVE</button>
                   </div>
                   <div class="col-sm-3 pt-2 text-right">Add Row :</div>
 
@@ -323,7 +323,7 @@ It takes id from the url and get the data from the api .
                     <div class="input-group">
                       <input type="number" class="form-control" v-model="row_input" placeholder="1" />
                       <div class="input-group-append">
-                        <button class="btn" type="button" @click="add_row()">
+                        <button class="btn text-white" type="button" @click="add_row()">
                           <i class="fa fa-search"></i>
                         </button>
                       </div>
