@@ -31,7 +31,6 @@
                       <div class="btn btn-default custom-file-uploader">
                         <input
                           type="file"
-                          name="file"
                           onchange="this.form.filename.value = this.files.length ? this.files[0].name : ''"
                           accept=".xlsx"
                           @change="changeExcelFile($event)"

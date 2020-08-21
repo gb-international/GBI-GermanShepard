@@ -55,6 +55,10 @@ Route::namespace('Admin')->group(function (){
 	Route::namespace('School')->group(function(){
 		Route::resource('school','SchoolController');
 		Route::resource('student','StudentController');
+		Route::get('groupmembers/{tour_code}','GroupmemberController@getMember');
+		Route::post('groupmembers/update','GroupmemberController@updateMember');
+		Route::post('groupmember/destroy','GroupmemberController@destroyMember');
+		Route::post('groupmember/add','GroupmemberController@addMember');
 	});
 
 	Route::namespace('Escort')->group(function(){

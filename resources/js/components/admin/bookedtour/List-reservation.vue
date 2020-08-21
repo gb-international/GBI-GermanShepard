@@ -71,7 +71,11 @@ It takes id from the url and get the data from the api .
                 <img :src="`assets/admin/default/icon/bus-icon.png`" />
               </router-link>
             </div>
-
+            <div class="col-sm-3 m-30">
+              <router-link :to="`/booked-tour-student/${tour.tour_id}`">
+                <img :src="`assets/admin/default/icon/train-icon.png`" />
+              </router-link>
+            </div>
           </div>
           <hr />
           <div class="card" v-if="escort">
@@ -162,21 +166,21 @@ It takes id from the url and get the data from the api .
                 <label>Travel</label>
                 <p>{{ train.source }} - {{ train.destination }}</p>
               </div>
-              
+
               <div class="col-sm-2 text-center">
                 <label>PNR</label>
-                <br>
+                <br />
                 <span
                   class="btn btn-sm btn-primary text-white cursor-pointer mr-1"
                   data-toggle="modal"
                   data-target="#pnrModal"
                   @click="tranportModal(train.id,'train')"
                 >Add</span>
-                <router-link :to="`/booked-tour-pnr/${'train/'+train.id+'/'+tour.tour_id}`"
+                <router-link
+                  :to="`/booked-tour-pnr/${'train/'+train.id+'/'+tour.tour_id}`"
                   class="btn btn-sm btn-info text-white cursor-pointer mr-1"
                 >List</router-link>
               </div>
-
 
               <div class="col-sm-1 text-center">
                 <a
@@ -215,14 +219,15 @@ It takes id from the url and get the data from the api .
 
               <div class="col-sm-2 text-center">
                 <label>PNR</label>
-                <br>
+                <br />
                 <span
                   class="btn btn-sm btn-primary text-white cursor-pointer mr-1"
                   data-toggle="modal"
                   data-target="#pnrModal"
                   @click="tranportModal(flight.id,'flight')"
                 >Add</span>
-                <router-link :to="`/booked-tour-pnr/${'flight/'+flight.id+'/'+tour.tour_id}`"
+                <router-link
+                  :to="`/booked-tour-pnr/${'flight/'+flight.id+'/'+tour.tour_id}`"
                   class="btn btn-sm btn-info text-white cursor-pointer mr-1"
                 >List</router-link>
               </div>
@@ -264,14 +269,15 @@ It takes id from the url and get the data from the api .
 
               <div class="col-sm-2 text-center">
                 <label>Bus Number</label>
-                <br>
+                <br />
                 <span
                   class="btn btn-sm btn-primary text-white cursor-pointer mr-1"
                   data-toggle="modal"
                   data-target="#pnrModal"
                   @click="tranportModal(bus.id,'bus')"
                 >Add</span>
-                <router-link :to="`/booked-tour-pnr/${'bus/'+bus.id+'/'+tour.tour_id}`"
+                <router-link
+                  :to="`/booked-tour-pnr/${'bus/'+bus.id+'/'+tour.tour_id}`"
                   class="btn btn-sm btn-info text-white cursor-pointer mr-1"
                 >List</router-link>
               </div>
@@ -341,7 +347,6 @@ It takes id from the url and get the data from the api .
 </template>
 
 <script>
-
 export default {
   name: "View",
   data() {
