@@ -12,12 +12,10 @@ use Carbon\Carbon;
 use App\Model\User\Information;
 use App\Otp;
 use Session,DB,Hash,Redirect,Mail;
-use GuzzleHttp\Client;
+use App\Helpers\SendSms;
 
 class OtpController extends Controller
 {
-    private $id = 'csrikhi@gbinternational.in';
-    private $pwd = 'Roger224225g32@';
 
    // Send Otp to the user
     public function send_otp(Request $request){
@@ -47,7 +45,7 @@ class OtpController extends Controller
 			$otp_add->otp_date = $today;
 			if($otp_add->save()){
                 $response['otp_id'] = $otp_add->id;
-                $this->send_sms($mobile_number,$message);
+                SendSms::send($mobile_number,$message);
                 $response['success'] = 'success';
              }
              return $response;
@@ -55,19 +53,6 @@ class OtpController extends Controller
             $response['error'] = 'Try again !!!!';
         }
         return $response;
-    }
-//
-    // Send message to the phone_no
-    public function send_sms($phone, $message){
-        $phone = '91'.$phone;
-
-    	$ApiUrl ="https://www.businesssms.co.in/smsaspx?Id=".$this->id."&Pwd=".urlencode($this->pwd)."&PhNo=".$phone."&text=".urlencode($message);                
-
-        $client = new \GuzzleHttp\Client(['verify' => false ]);
-        $request = $client->get($ApiUrl);
-        return $response = $request->getBody();
-
-
     }
 
     //Otp Verif
@@ -83,9 +68,4 @@ class OtpController extends Controller
             return response()->json(["type"=>"error", "message"=>"Mobile number verification failed"]);
         }
     }
-
-
-
-
-
 }

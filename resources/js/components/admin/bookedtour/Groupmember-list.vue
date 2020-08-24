@@ -181,7 +181,7 @@
               v-else
               type="button"
               class="btn btn-default itrn_add_btn"
-              @click="addData()"
+              @click="sendLoginDetails()"
             >SEND LOGIN CREDENTIALS</button>
           </div>
           <div class="col-sm-3">
@@ -253,6 +253,7 @@ export default {
           gender: "",
           mobile: "",
           tour_id: this.$route.params.id,
+          school_id: this.$route.params.school_id,
         },
       ],
     };
@@ -260,6 +261,7 @@ export default {
 
   mounted() {
     this.groupMember();
+
   },
 
   watch: {
@@ -282,18 +284,19 @@ export default {
           gender: "",
           mobile: "",
           tour_id: this.$route.params.id,
+          school_id: this.$route.params.school_id,
         });
       }
       this.row_input = "";
     },
     groupMember() {
-      axios
-        .get(`/api/groupmembers/${this.$route.params.id}`)
+      axios.get(`/api/groupmembers/${this.$route.params.id}`)
         .then((response) => {
           if (response.data) {
             this.total_row = response.data;
           }
         });
+
     },
     // Delete Row
     delete_row(index, id) {
@@ -337,10 +340,8 @@ export default {
       this.edit_index = "";
     },
     UserTourUpdate(data) {
-      axios
-        .post("/api/groupmembers/update", data)
+      axios.post("/api/groupmembers/update", data)
         .then((response) => {
-          console.log(response);
           if (response.data == "error") {
             this.$swal.fire({
               icon: "error",
@@ -350,6 +351,31 @@ export default {
           } else {
             this.edit_index = -1;
             this.$swal.fire("Success", "Member updated !!!", "success");
+          }
+        })
+        .catch((error) => {
+          this.$swal.fire({
+            icon: "error",
+            title: "Try again",
+            text: error.data,
+          });
+          this.handleError(error);
+        });
+    },
+
+
+    
+    sendLoginDetails() {
+      axios.post("/api/groupmembers/addlogindetail", this.total_row)
+        .then((response) => {
+          if (response.data == "error") {
+            this.$swal.fire({
+              icon: "error",
+              title: "Try again",
+              text: "Please enter valid travel code!",
+            });
+          } else {
+            this.$swal.fire("Success", "Students saved and notifications has been sent !!!", "success");
             // this.tourListData();
           }
         })
@@ -362,6 +388,7 @@ export default {
           this.handleError(error);
         });
     },
+
 
     UserGroupSave() {
       for (var i = this.new_row.length - 1; i >= 0; i--) {
@@ -445,6 +472,7 @@ export default {
                 gender: store[3],
                 mobile: store[4],
                 tour_id: vm.$route.params.id,
+                school_id: this.$route.params.school_id,
               };
               vm.new_row.push(row);
             }

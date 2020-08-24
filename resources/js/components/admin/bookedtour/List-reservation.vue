@@ -72,7 +72,7 @@ It takes id from the url and get the data from the api .
               </router-link>
             </div>
             <div class="col-sm-3 m-30">
-              <router-link :to="`/booked-tour-student/${tour.tour_id}`">
+              <router-link :to="`/booked-tour-student/${school.id}/${tour.tour_id}`">
                 <img :src="`assets/admin/default/icon/train-icon.png`" />
               </router-link>
             </div>

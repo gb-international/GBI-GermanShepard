@@ -59,6 +59,7 @@ Route::namespace('Admin')->group(function (){
 		Route::post('groupmembers/update','GroupmemberController@updateMember');
 		Route::post('groupmember/destroy','GroupmemberController@destroyMember');
 		Route::post('groupmember/add','GroupmemberController@addMember');
+		Route::post('groupmembers/addlogindetail','GroupmemberController@addlogindetail');
 	});
 
 	Route::namespace('Escort')->group(function(){

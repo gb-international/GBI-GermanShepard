@@ -19,6 +19,7 @@ use Image;
 use GuzzleHttp\Client;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
+use App\Helpers\SendSms;
 
 
 
@@ -75,20 +76,11 @@ class UserController extends Controller{
         $more->gender = '';
         $more->save();
 
-
         // Send welcome message to user on their phonne
-        
 
-        $phone = '91'.$request->phone_no;
         $message = "Hey ".$request->name ." Thankyou for registering with GBInternational We value your association";
 
-        $ApiUrl ="https://www.businesssms.co.in/smsaspx?Id=".$this->id."&Pwd=".urlencode($this->pwd)."&PhNo=".$phone."&text=".urlencode($message);                
-
-        $client = new \GuzzleHttp\Client(['verify' => false ]);
-        $request = $client->get($ApiUrl);
-
-
-
+        SendSms::send($request->phone_no,$message);
 
         // End more information 
         return response()->json('Successfully Registered !!!');

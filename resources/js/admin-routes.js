@@ -213,7 +213,7 @@ export const routes = [
     { path:'/booked-tour-train/:id', component:BookedTrain },
     { path:'/booked-tour-bus/:id', component:BookedBus },
     { path:'/booked-tour-pnr/:transport/:id/:tour_id', component:BookedPnr },
-    { path:'/booked-tour-student/:id', component:BookedStudent },
+    { path:'/booked-tour-student/:school_id/:id', component:BookedStudent },
 
     // Tour type
     { path:'/tourtype',component:Tourtype},

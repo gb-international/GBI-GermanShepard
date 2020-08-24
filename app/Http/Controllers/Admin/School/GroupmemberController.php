@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Admin\School;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\School\Groupmember;
+use App\Model\User\Information;
+use App\Model\Tour\Tour;
+use App\Model\Tour\TourUser;
+use App\User;
+use App\Helpers\SendSms;
 
 class GroupmemberController extends Controller
 {
@@ -34,4 +39,61 @@ class GroupmemberController extends Controller
         }
         return response()->json('succesfully added');
     }
+
+    public function addlogindetail(Request $request){
+        $tour_id = $request->all()[0]['tour_id'];
+        $travel_code = Tour::select('travel_code')->where('tour_id',$tour_id)->first();
+        foreach ($request->all() as $groupmember) {
+            // validate if user email is already registered
+            $user = User::where('email',$groupmember['email'])->first();
+            if(!$user){
+                $user = $this->createUser($groupmember);
+                $message = 'Welcome in GBI-International Please login to GBI panel with credentials Email Id : '. $groupmember['email']. ' And password : '. $groupmember['email'].' Thank you.';
+            }else{
+                $message = 'Welcome in GBI-International Please login to GBI panel with your existing Account Thank you.';
+            }
+            // validate if user id is already registered for the tour
+            $tour = ['travel_code'=>$travel_code->travel_code,'user_id'=>$user->id];
+            $tour_user = TourUser::where($tour)->first();
+            if(!$tour_user){
+                $tour_user = TourUser::create($tour);
+            }
+            // notify user with tour details and login detials 
+            $tour['name'] =$groupmember['first_name'].' '.$groupmember['last_name'];
+            $tour['email'] = $groupmember['email'];
+            $tour['password'] = $groupmember['email'];
+            $tour['travel_code'] = $travel_code->travel_code;
+            $tour['phone_no'] = $groupmember['mobile'];
+            
+            // send notification to each user
+            SendSms::send($groupmember['mobile'],$message);
+
+        }
+        return 'successfully added';
+    }
+
+    protected function createUser($groupmember){
+        $user = new User();
+        $user->name = $groupmember['first_name'].' '.$groupmember['last_name'];
+        $user->email = $groupmember['email'];
+        $user->password = bcrypt($groupmember['email']);
+        $user->status = 1;
+        $user->save();
+        
+        $more  = new Information();
+        $more->school_id = $groupmember['school_id'];
+        $more->user_profession = 'student';
+        $more->user_id = $user->id;
+        $more->phone_no = $groupmember['mobile'];
+        $more->varified = '1';
+        $more->photo = 'user.png';
+        $more->gender = $groupmember['gender'];
+        $more->save();
+
+        return $user;
+    }
+
+
+
+
 }
