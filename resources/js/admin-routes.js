@@ -79,7 +79,7 @@ import BookedFlight from './components/admin/bookedtour/New-flight.vue'
 import BookedTrain from './components/admin/bookedtour/New-train.vue'
 import BookedBus from './components/admin/bookedtour/New-bus.vue'
 import BookedPnr from './components/admin/bookedtour/Pnr-List.vue'
-import BookedStudent from './components/admin/bookedtour/Student-list.vue'
+import BookedStudent from './components/admin/bookedtour/Groupmember-list.vue'
 
 
 

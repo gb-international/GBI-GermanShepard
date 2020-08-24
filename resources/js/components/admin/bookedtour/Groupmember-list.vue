@@ -22,7 +22,7 @@
             </span>
           </div>
         </div>
-        <div class="col pt-5">
+        <div class="col pt-5 text-center">
           <a class="text-dark" :href="`/assets/sample-group-list.xlsx`" download>
             <i class="fas fa-download"></i> GBI name list formate
           </a>
@@ -173,7 +173,7 @@
             <button
               type="button"
               class="btn btn-default itrn_add_btn"
-              @click="UserTourUpdate()"
+              @click="UserGroupSave()"
               v-if="new_row_add"
             >SAVE</button>
 
@@ -182,7 +182,7 @@
               type="button"
               class="btn btn-default itrn_add_btn"
               @click="addData()"
-            >SUBMIT</button>
+            >SEND LOGIN CREDENTIALS</button>
           </div>
           <div class="col-sm-3">
             <div class="input-group">
@@ -194,7 +194,7 @@
               />
               <div class="input-group-append">
                 <button class="btn text-white" type="button" @click="add_row()">
-                  <i class="fa fa-search"></i>
+                  <i class="fas fa-plus-circle"></i>
                 </button>
               </div>
             </div>
@@ -369,10 +369,9 @@ export default {
           this.new_row.splice(i, 1);
         }
       }
-
-      this.$axios
-        .post("/api/groupmember/add", this.new_row)
+      axios.post("/api/groupmember/add", this.new_row)
         .then((response) => {
+          console.log(response);
           if (response.data == "error") {
             this.$swal.fire({
               icon: "error",
@@ -381,6 +380,7 @@ export default {
             });
           } else {
             this.$swal.fire("Success", "Group data has added", "success");
+            
             this.new_row = [];
             this.new_row_add = false;
             this.groupMember();

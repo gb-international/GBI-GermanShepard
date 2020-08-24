@@ -29,6 +29,9 @@ class GroupmemberController extends Controller
     }
 
     public function addMember(Request $request){
-        return $request->all();
+        foreach ($request->all() as $row) {
+            Groupmember::create($row);
+        }
+        return response()->json('succesfully added');
     }
 }
