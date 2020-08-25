@@ -194,7 +194,11 @@ class UserController extends Controller{
             'new_password' => ['required'],
             'confirm_password' => ['same:new_password'],
         ]);
-        $user->update(['password'=> Hash::make($request->new_password)]);   
+        $user->update(['password'=> Hash::make($request->new_password)]);
+        $info = Information::where('user_id',$user->id)->first();
+        $info->change_password = 1;
+        $info->save(); 
+
         return response()->json('Password change successfully.');
     }
 }

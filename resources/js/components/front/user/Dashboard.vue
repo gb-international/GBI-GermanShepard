@@ -261,9 +261,19 @@ export default {
           headers: { Authorization: `Bearer ${localStorage.token}` }
         })
         .then(response => {
+          console.log(response);
           this.userinfo = response.data.success;
+
           if (this.userinfo.status == 0) {
             this.$router.push("/user-information");
+            return false;
+          }
+          if(this.userinfo.information.change_password == 0){
+            this.$swal.fire(
+              "warning",
+              "Please change your password for security purpose !!! <br>",
+              "warning"
+            );
           }
         })
         .catch(error => {

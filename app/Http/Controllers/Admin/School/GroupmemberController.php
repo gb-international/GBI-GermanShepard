@@ -88,6 +88,7 @@ class GroupmemberController extends Controller
         $more->varified = '1';
         $more->photo = 'user.png';
         $more->gender = $groupmember['gender'];
+        $more->change_password = 0;
         $more->save();
 
         return $user;
