@@ -13,4 +13,8 @@ class TourUser extends Model
         return $this->belongsTo('App\Model\Tour\Tour','travel_code');
     }
 
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+
 }

@@ -13,8 +13,6 @@ data from the api to display the data about the Hotel from the backend .
       <div class="col-md-12">
         <div class="container container_admin_body">
           <div class="reservation">
-            <!-- Table -->
-
             <form role="form" enctype="multipart/form-data" @submit.prevent="addHotel()">
               <div class="row">
                 <div class="col-sm-4">

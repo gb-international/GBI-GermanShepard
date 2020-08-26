@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// front
+// front	
 
 Route::namespace('Front')->group(function(){
 

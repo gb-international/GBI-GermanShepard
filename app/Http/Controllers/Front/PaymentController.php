@@ -12,20 +12,15 @@ class PaymentController extends Controller
     public function payment(){
 
         $parameters = [
-            'merchant_id' => '206523',
-            'currency' => 'INR',
-            "redirect_url"=>'https://www.test.gowithgbi.com/payment_status',
-			"cancel_url"=>'https://www.test.gowithgbi.com/payment_cancel',
-            'language' => 'EN',
-            'order_id' => 'sdjfsladk',
-            'transaction_no' => '12sadfasdf1223322',
-            'amount' => '1200.00',
-            'name' => 'Jon Doe',
-            'email' => 'jon@doe.com'
-        ];
-
-        $order = Indipay::prepare($parameters);
-        return Indipay::process($order);
+        'transaction_no' => '1233221223322',
+        'amount' => '1200.00',
+        'name' => 'Jon Doe',
+        'email' => 'jon@doe.com'
+      ];
+      
+      $order = Indipay::prepare($parameters);
+      dd('hi');
+      return Indipay::process($order);
     }
 
     public function cancel(){

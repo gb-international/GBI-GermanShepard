@@ -47,6 +47,7 @@ Route::namespace('Admin')->group(function (){
 		Route::get('frontbooking/{id}','FrontbookingController@show');
 		Route::post('frontbooking-status','FrontbookingController@status');
 		Route::post('frontbooking-delete','FrontbookingController@destroy');
+		Route::post('touruser-list','TouruserController@touruserList');
 	});
 
 	Route::namespace('Hotel')->group(function(){
