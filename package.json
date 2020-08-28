@@ -46,6 +46,7 @@
         "vue-client-only": "^2.0.0",
         "vue-form-wizard": "^0.8.4",
         "vue-headful": "^2.1.0",
+        "vue-html-to-paper": "^1.3.1",
         "vue-meta": "^2.4.0",
         "vue-multiselect": "^2.1.6",
         "vue-pdf": "^4.0.9",

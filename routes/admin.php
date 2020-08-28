@@ -50,6 +50,7 @@ Route::namespace('Admin')->group(function (){
 		Route::post('touruser-list','TouruserController@touruserList');
 		Route::post('add-pnr-user','TouruserController@addPnrUser');
 		Route::post('pnruser/get','TouruserController@PnrUserGet');
+		Route::post('update-pnruser','TouruserController@update');
 	});
 
 	Route::namespace('Hotel')->group(function(){

@@ -54,7 +54,7 @@ It takes id from the url and get the data from the api .
 
             <div class="col-sm-3 m-30">
               <router-link :to="`/booked-tour-flight/${tour.id}`">
-                <img :src="`assets/admin/default/icon/transport-icon.png`" />
+                <img :src="`assets/admin/default/icon/airlines.png`" />
               </router-link>
             </div>
 
@@ -73,7 +73,7 @@ It takes id from the url and get the data from the api .
             </div>
             <div class="col-sm-3 m-30">
               <router-link :to="`/booked-tour-student/${school.id}/${tour.tour_id}`">
-                <img :src="`assets/admin/default/icon/train-icon.png`" />
+                <img :src="`assets/admin/default/icon/student.png`" />
               </router-link>
             </div>
           </div>
@@ -313,7 +313,7 @@ It takes id from the url and get the data from the api .
                     <div class="row mb-2">
                       <div class="col pt-1">{{ ++index }}</div>
                       <div class="col-sm-10">
-                        <input class="form-control" type="text" v-model="row.pnr_number" />
+                        <input class="form-control" type="text" :placeholder="placeholderValue" v-model="row.pnr_number" />
                       </div>
                     </div>
                   </div>
@@ -366,6 +366,7 @@ export default {
       row_input: 2,
       tour_code: 0,
       total_row: [],
+      placeholderValue:'',
     };
   },
   created() {
@@ -382,8 +383,13 @@ export default {
     labelChange() {
       if (this.transportType == "bus") {
         this.label = "Buses";
-      } else {
+        this.placeholderValue = 'Enter Bus Number';
+      } else if(this.transportType == 'train') {
         this.label = "PNRs";
+        this.placeholderValue = 'Enter 10 Digits PNR';
+      }else{
+        this.label = "PNRs";
+        this.placeholderValue = 'Enter 6 Digits PNR';
       }
     },
     add_row() {

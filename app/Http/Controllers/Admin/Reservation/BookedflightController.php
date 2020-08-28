@@ -77,9 +77,10 @@ class BookedflightController extends Controller
      * @param  \App\Bookedflight  $bookedflight
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bookedflight $bookedflight)
-    {
-        //
+    public function edit($id)
+    {   
+        $bookedflight = Bookedflight::where('id',$id)->with('flight')->first();
+        return $bookedflight;
     }
 
     /**

@@ -75,9 +75,10 @@ class BookedbusController extends Controller
      * @param  \App\Bookedbus  $bookedbus
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bookedbus $bookedbus)
+    public function edit($id)
     {
-        //
+        $bookedbus = Bookedbus::where('id',$id)->with('bus')->first();
+        return $bookedbus;
     }
 
     /**

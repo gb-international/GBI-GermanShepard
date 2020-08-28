@@ -42916,6 +42916,10 @@ Admin Login page
   width: 80px;
 }
 
+.display-hidden {
+  display: none;
+}
+
 input[type='text'],
 input[type='email'],
 input[type='date'],

@@ -34,4 +34,11 @@ class TouruserController extends Controller
         ->map->format();
         return $pnr;
     }
+
+    public function update(Request $request){
+        $data = PnrUser::where('id',$request->id)->first();
+        $data->pnr_id = $request->pnr_id;
+        $data->update();
+        return response()->json(['success'=>true]);
+    }
 }

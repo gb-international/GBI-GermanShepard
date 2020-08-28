@@ -76,9 +76,10 @@ class BookedtrainController extends Controller
      * @param  \App\Bookedtrain  $bookedtrain
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bookedtrain $bookedtrain)
+    public function edit($id)
     {
-        //
+        $bookedtrain = Bookedtrain::where('id',$id)->with('train')->first();
+        return $bookedtrain;
     }
 
     /**
