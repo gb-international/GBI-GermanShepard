@@ -413,10 +413,29 @@ export default {
     },
     submitForm() {
       for (var i = this.total_row.length - 1; i >= 0; i--) {
-        if (this.total_row[i]["pnr_number"] == "") {
+        var pnr = this.total_row[i]["pnr_number"];
+        if (pnr == "") {
           this.total_row.splice(i, 1);
         }
+      
+        if ((this.transportType == "train") && (pnr.length != 10)) {
+          this.$toast.fire({
+            icon: "error",
+            title: "PNR Number should be 10 Digits long !!",
+          });
+          return false;
+        } else if((this.transportType == "flight") && (pnr.length != 6)) {
+          this.$toast.fire({
+            icon: "error",
+            title: "PNR Number should be 6 Digits long !!",
+          });
+          return false;
+        }else{
+          
+        }
+
       }
+
       var path = `/api/pnrs`;
       axios
         .post(path, this.total_row)
