@@ -19,7 +19,9 @@ use Storage;
 use App\mail\sendMail;
 use Illuminate\Http\Request;
 use App\Jobs\ContactUsJob;
+use App\Jobs\ContactUsUserJob;
 use App\Jobs\JoinOurTeamJob;
+use App\Jobs\JoinOurTeamUserJob;
 
 class JoinourteamController extends Controller
 {
@@ -72,7 +74,10 @@ class JoinourteamController extends Controller
             'link'=>$url,
             'emailto'=>'ajay_yadav@gbinternational.in'
             );
+
          JoinOurTeamJob::dispatch($data);
+         $data['emailto'] = $request->email;
+         JoinOurTeamUserJob::dispatch($data);
          return 'success';
     }
 
@@ -115,6 +120,8 @@ class JoinourteamController extends Controller
                 );
 
         ContactUsJob::dispatch($data);
+        $data['emailto'] = $request->email; // override emailto
+        ContactUsUserJob::dispatch($data);
         return 'succss';
     }
     

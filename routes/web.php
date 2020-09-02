@@ -9,8 +9,8 @@ use App\Mail\PasswordResetMail;
 
 
 Route::get('/payment','Front\PaymentController@payment');
-Route::post('/payment_status','Front\PaymentController@response');
-Route::get('/payment_cancel','Front\PaymentController@cancel');
+Route::post('/response','Front\PaymentController@response');
+Route::get('/cancel','Front\PaymentController@cancel');
 
 
 
@@ -25,7 +25,7 @@ Route::get('/check',function(){
     //      $message->from('xyz@gmail.com','Virat Gandhi');
     //   });
 
-        // $data = ['name'=>'Ajay','email'=>'ajay_yadav@gbinternational.in','link'=>'https:sdjf.com'];
+        $data = ['name'=>'Ajay','email'=>'ajay_yadav@gbinternational.in','link'=>'https:sdjf.com'];
         // Mail::to($data['email'])->send( new PasswordResetMail($data));
 
         // dd('done');
@@ -41,19 +41,14 @@ Route::get('/check',function(){
         // Mail::to($myEmail)->send(new ForgetPasswordMail($details));
    
         // dd("Mail Send Successfully");
-
-
-
-
-
     //   Mail::send(['text'=>'email.welcome'], $data, function($message) {
     //      $message->to('abc@gmail.com', 'Tutorials Point')->subject
     //         ('Laravel Basic Testing Mail');
     //      $message->from('xyz@gmail.com','Virat Gandhi');
     //   });
-      echo "Basic Email Sent. Check your inbox.";
+    //   echo "Basic Email Sent. Check your inbox.";
 
-    echo 'done';
+    // echo 'done';
 
 });
 

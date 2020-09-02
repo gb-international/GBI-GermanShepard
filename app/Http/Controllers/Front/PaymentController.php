@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Softon\Indipay\Facades\Indipay;
+use Softon\Indipay\Facades\Indipay; 
 
 
 class PaymentController extends Controller
@@ -12,15 +12,15 @@ class PaymentController extends Controller
     public function payment(){
 
         $parameters = [
-        'transaction_no' => '1233221223322',
-        'amount' => '1200.00',
-        'name' => 'Jon Doe',
-        'email' => 'jon@doe.com'
+        'merchant_id' => 206523,
+        'order_id' => 'asdfasdfasadfsdfsdf4444444',
+        'amount' => 45,
       ];
       
       $order = Indipay::prepare($parameters);
-      dd('hi');
-      return Indipay::process($order);
+    //   dd($order);
+      $result = Indipay::process($order);
+      return $result;
     }
 
     public function cancel(){
@@ -28,6 +28,7 @@ class PaymentController extends Controller
     }
 
     public function response(Request $request){
+        dd($request);
         $response = Indipay::response($request);
         
         // For Otherthan Default Gateway

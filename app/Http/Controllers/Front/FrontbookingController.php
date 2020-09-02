@@ -10,6 +10,7 @@ use App\Model\Tour\FrontbookingSightseeing;
 use Auth;
 use App\Jobs\FrontBookingAdminJob;
 use App\Jobs\FrontBookingUserJob;
+use App\Helpers\SendSms;
 
 class FrontbookingController extends Controller
 {
@@ -48,6 +49,9 @@ class FrontbookingController extends Controller
 
         $this->sendAdminMail($user,$booking);
         $this->sendUserMail($user,$booking);
+
+        $sendsms = new SendSms;
+        $sendsms->frontBookingUserSms($user,$booking->itinerary->title);
         return response()->json('Booking query has sent Successfully');        
     }
 

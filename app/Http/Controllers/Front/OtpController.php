@@ -37,15 +37,15 @@ class OtpController extends Controller
 	    $sender = 'PHPPOT';
         $otp = rand(1000, 9999);
         Session::put('session_otp', $otp);
-        $message = $otp." is your OTP for GBInternational. Do not share this OTP with anyone."; 
         try{
 			$otp_add = new Otp();
 			$otp_add->phone_no = $mobile_number;
 			$otp_add->otp_send = $otp;
-			$otp_add->otp_date = $today;
+            $otp_add->otp_date = $today;            
 			if($otp_add->save()){
                 $response['otp_id'] = $otp_add->id;
-                SendSms::send($mobile_number,$message);
+                $sendsms = new SendSms;
+                $sendsms->otpSMS($mobile_number,$otp);
                 $response['success'] = 'success';
              }
              return $response;

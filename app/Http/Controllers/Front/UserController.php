@@ -20,6 +20,7 @@ use GuzzleHttp\Client;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
 use App\Helpers\SendSms;
+use App\Jobs\ChangePasswordJob;
 
 
 
@@ -68,21 +69,14 @@ class UserController extends Controller{
         $more  = new Information();
         $more->user_id = $user->id;
         $more->gbi_link = $request->gbi_link;
-
         $more->phone_no = $request->phone_no;
         $more->otp = $request->otp;
         $more->varified = '1';
         $more->photo = 'user.png';
         $more->gender = '';
         $more->save();
-
-        // Send welcome message to user on their phonne
-
-        $message = "Hey ".$request->name ." Thankyou for registering with GBInternational We value your association";
-
-        SendSms::send($request->phone_no,$message);
-
-        // End more information 
+        $sendsms = new SendSms; // send welcome sms
+        $sendsms->signUpSMS($request->phone_no,$user);
         return response()->json('Successfully Registered !!!');
     }
 
@@ -198,7 +192,7 @@ class UserController extends Controller{
         $info = Information::where('user_id',$user->id)->first();
         $info->change_password = 1;
         $info->save(); 
-
+        ChangePasswordJob::dispatch($user);
         return response()->json('Password change successfully.');
     }
 }

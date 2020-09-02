@@ -1,5 +1,5 @@
 <div>Resume for Job Application at GBI</div>
-<div>Name {{ $firstname }} {{  $lastname }} </div>
+<div>Name {{ ucfirst($firstname) }} {{  $lastname }} </div>
 <div>Email {{ $email }}</div>
 <div>Phone {{ $contactno }}</div>
 <div>Address {{ $address }}</div>

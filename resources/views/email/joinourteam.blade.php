@@ -4,7 +4,7 @@
 User Details 
 
 
-Name : {{ $data['firstname']}} {{ $data['lastname']}}
+Name : {{ ucfirst($data['firstname']) }} {{ $data['lastname']}}
 
 Email : {{ $data['email']}}
 

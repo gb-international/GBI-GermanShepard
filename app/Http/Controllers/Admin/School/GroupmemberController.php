@@ -66,8 +66,8 @@ class GroupmemberController extends Controller
             $tour['phone_no'] = $groupmember['mobile'];
             
             // send notification to each user
-            SendSms::send($groupmember['mobile'],$message);
-
+            $sendsms = new SendSms;
+            $sendsms->sendLoginDetails($groupmember['mobile'],$message);
         }
         return 'successfully added';
     }

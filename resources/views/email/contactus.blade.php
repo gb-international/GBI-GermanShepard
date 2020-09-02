@@ -5,7 +5,7 @@
 
 | Name             | Email            | Contact Number      |
 |----------------- |:----------------:| -------------------:|
-|{{$data['name']}} |{{$data['email']}}| {{$data['mobile']}} |
+|{{ucfirst($data['name'])}} |{{$data['email']}}| {{$data['mobile']}} |
 
 
 
