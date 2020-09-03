@@ -98,6 +98,7 @@ export default {
   mounted() {
     var api = `/api/frontbooking/${this.$route.params.id}`;
     axios.get(api).then(response => {
+      
       this.booking = response.data;
       if(this.booking.status == 0){
         this.booking.status = false;
@@ -111,7 +112,6 @@ export default {
   methods: {
     upadateStatus(id) {
       var data = { id:this.$route.params.id,status:this.booking.status };
-      console.log(data);
       axios.post("/api/frontbooking-status/",data)
         .then((response) => {
           this.$toast.fire({

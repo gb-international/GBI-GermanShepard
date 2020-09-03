@@ -99,6 +99,7 @@ export default {
   methods: {
     getBookingList() {
       axios.get("/api/frontbooking").then(response => {
+        setTimeout(() => $("#example").DataTable(), 1000);
         this.alldata = response.data;
       });
     },

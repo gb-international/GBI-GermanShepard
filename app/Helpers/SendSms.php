@@ -15,10 +15,10 @@ class SendSms{
         $request = $client->get($ApiUrl);
     }
 
-    
+
     public function signUpSMS($mobile,$user){
         $phone = '91'.$mobile;
-        $message = "Dear $user->name.Thank you for registering your self with Go With GBI.Now you can start your journey with us by selecting the destinations of your choice.";
+        $message = "Dear ".ucfirst($user->name).".Thank you for registering your self with Go With GBI.Now you can start your journey with us by selecting the destinations of your choice.";
         $template_id = 1007302686286761362;
         
         $ApiUrl = "https://www.businesssms.co.in/smsaspx?Id=".$this->id."&Pwd=".urlencode($this->pwd)."&PhNo=".$phone."&TemplateID=".$template_id."&TEXT=".urldecode($message);
