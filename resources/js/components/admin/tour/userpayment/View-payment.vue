@@ -92,16 +92,6 @@ It takes id from the url and get the data from the api .
                 <p>{{ tour_view.created_at }}</p>
               </div>
 
-
-
-
-
-
-
-
-
-
-
             </div>
             <button @click="goBack()" class="btn btn-primary itrn_add_btn back_btn">Back</button>
           </div>
@@ -130,7 +120,6 @@ export default {
     tourData(){
       axios.get(`/api/userpayments/${this.$route.params.id}`).then((response)=>{
         this.tour_view = response.data;
-        console.log(this.tour_view);
       });
     },
     goBack(){

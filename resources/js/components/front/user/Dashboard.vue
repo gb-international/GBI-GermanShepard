@@ -242,11 +242,15 @@ export default {
       valid:false
     };
   },
+
+  
   mounted() {
     this.checkLogin();
     this.userData();
     this.upComingData();
   },
+
+
   methods: {
     checkLogin() {
       if (localStorage.token == undefined) {

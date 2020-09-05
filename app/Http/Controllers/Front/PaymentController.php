@@ -20,6 +20,7 @@ class PaymentController extends Controller
       $order = Indipay::prepare($parameters);
     //   dd($order);
       $result = Indipay::process($order);
+      // dd($result);
       return $result;
     }
 
@@ -28,7 +29,7 @@ class PaymentController extends Controller
     }
 
     public function response(Request $request){
-        dd($request);
+        // dd($request);
         $response = Indipay::response($request);
         
         // For Otherthan Default Gateway

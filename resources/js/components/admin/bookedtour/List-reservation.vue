@@ -76,6 +76,13 @@ It takes id from the url and get the data from the api .
                 <img :src="`assets/admin/default/icon/student.png`" />
               </router-link>
             </div>
+            
+            <div class="col-sm-3 m-30">
+              <router-link :to="`/payments/${school.id}/${tour.tour_id}`">
+                <img :src="`assets/admin/default/icon/student.png`" />
+              </router-link>
+            </div>
+
           </div>
           <hr />
           <div class="card" v-if="escort">

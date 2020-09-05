@@ -204,9 +204,12 @@ export default {
       cityList:[],
     };
   },
+
+
   beforeMount(){
     this.tourListData(this.$route.params.id);
   },
+
   methods: {
     dateFormat(date) {
       return new Date(date).toDateString();

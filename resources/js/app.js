@@ -20,7 +20,7 @@ Vue.prototype.$axios = axios
 Vue.prototype.$bus = EventBus
 Vue.directive("lazyload", LazyLoadDirective);
 const store = new Vuex.Store(storeData);
-
+// client side js
 if (process.window == 'undefined') {
     window.$ = window.jQuery = require('jquery')
     const token = localStorage.token;
@@ -34,9 +34,6 @@ Vue.config.productionTip = false;
 Vue.component("vue-headful", vueHeadful);
 Vue.component("ImageSpinner", require("./components/partials/ImageSpinner.vue").default);
 Vue.component("gbi-footer", require("./components/front/layouts/Footer.vue").default);
-
-
-
 
 export default new Vue({
     router,
