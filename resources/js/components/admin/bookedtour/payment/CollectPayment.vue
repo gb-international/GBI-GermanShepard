@@ -16,7 +16,7 @@
             </div>
             
             <div class="col-sm-4">
-                <label for="total_tour_price">Collect Amount</label>
+                <label for="collect_amount">Collect Amount</label>
                 <input type="number" class="form-control" placeholder="Enter Received Amount from user" />
             </div>
             
@@ -30,7 +30,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-sm-">
-                <button type="button" class="btn btn-primary itrn_add_btn back_btn">Submit</button>
+                <button @click="submitForm()" type="button" class="btn btn-primary itrn_add_btn back_btn">Submit</button>
             </div>
         </div>
     </div>
@@ -41,6 +41,11 @@ export default {
     data(){
         return{
 
+        }
+    },
+    methods:{
+        submitForm(){
+            console.log('hi');
         }
     }
 }

@@ -40,5 +40,12 @@ class Userpayment extends Model
         return $this->belongsTo('App\Model\School\School');
     }
 
+    
+    public function tourpayment(){
+        return $this->hasOne('App\Model\Reservation\Tourpayment');
+    }
+
+
+
 
 }
