@@ -15,11 +15,18 @@ class UserpaymentController extends Controller
             'tour_code'=>$request->tour_code,
             'added_by'=>'teacher'
         ])->firstOrFail()->adminFormat();
-        return $userpayment;
+
         if($userpayment['payment_mode'] == 'student'){
             // fetch all the users who are going on this tour
             
         }
         return response()->json($userpayment);
     }
+
+    public function createpayment(Request $request){
+        $payment = Userpayment::where('id',$request->id)->first();
+        $payment->update($request->all());
+        return $payment->adminFormat();
+    }
+
 }

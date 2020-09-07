@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Userpayment extends Model
 {
-    protected $fillable = ['user_id','school_id','tour_code','schoolbankdetail_id','payment_mode','payment_type','ifsc_code','cheque_number','amount','cheque_bank_name','date_of_issue','status','added_by'];
+    protected $fillable = ['user_id','school_id','tour_code','schoolbankdetail_id','payment_mode','payment_type','ifsc_code','cheque_number','amount','cheque_bank_name','date_of_issue','status','added_by','total_tour_price','collect_amount'];
 
     public function adminFormat(){
         return  [
@@ -25,6 +25,8 @@ class Userpayment extends Model
             'date_of_issue' => $this->date_of_issue,
             'status' => $this->status,
             'added_by' => $this->added_by,
+            'total_tour_price'=>$this->total_tour_price,
+            'collect_amount'=>$this->collect_amount,
             'created_at' => $this->created_at->diffForHumans()
         ];
     }
@@ -39,13 +41,5 @@ class Userpayment extends Model
     public function school(){
         return $this->belongsTo('App\Model\School\School');
     }
-
-    
-    public function tourpayment(){
-        return $this->hasOne('App\Model\Reservation\Tourpayment');
-    }
-
-
-
 
 }

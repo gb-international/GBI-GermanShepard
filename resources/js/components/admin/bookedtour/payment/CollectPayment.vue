@@ -43,7 +43,15 @@ export default {
 
         }
     },
+    beforeMount(){
+        this.CheckPayment();
+    },
     methods:{
+        CheckPayment(){
+            axios.post('/api/createpayment',{id:this.$route.params.id}).then(response =>{
+                console.log(response);
+            });
+        },
         submitForm(){
             console.log('hi');
         }

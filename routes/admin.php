@@ -83,9 +83,9 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('bookedtrains','BookedtrainController');
 		Route::resource('bookedbuses','BookedbusController');
 		Route::resource('pnrs','PnrController');
-		Route::resource('tourpayments','TourpaymentController');
 		Route::post('pnrs/get','PnrController@getData');
 		Route::post('payments/list','UserpaymentController@paymentList');
+		Route::post('createpayment','UserpaymentController@createpayment');
 	});
 	Route::namespace('GbiMember')->group(function(){
 		Route::get('/members','GBIMemberController@index');
