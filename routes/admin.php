@@ -87,6 +87,10 @@ Route::namespace('Admin')->group(function (){
 		Route::post('payments/list','UserpaymentController@paymentList');
 		Route::post('payments/student','UserpaymentController@paymentStudent');
 		Route::post('createpayment','UserpaymentController@createpayment');
+		Route::post('addtourpayment','UserpaymentController@addtourpayment');
+		Route::post('updatetourpayment','UserpaymentController@updatetourpayment');
+		Route::post('getshooluser','UserpaymentController@getSchoolUser');
+		Route::post('getUserpayments','UserpaymentController@getUserpayments');
 	});
 	Route::namespace('GbiMember')->group(function(){
 		Route::get('/members','GBIMemberController@index');

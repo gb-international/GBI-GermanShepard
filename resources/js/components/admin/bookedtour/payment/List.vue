@@ -17,11 +17,11 @@ It takes id from the url and get the data from the api .
           <!-- Start Card -->
           <div class="row">
             <div class="col-sm-9"></div>
-            <router-link :to="`update-payment-method`" type="button" 
+            <router-link :to="`/update-paymentmethod/${$route.params.school_id}/${$route.params.tour_code}`" type="button" 
                 class="btn btn-info"
                 v-if="tour_view.tour_code"
                 >Update Payment Method</router-link>
-            <router-link :to="`/add-payment-method`" type="button" 
+            <router-link :to="`/add-paymentmethod/${$route.params.school_id}/${$route.params.tour_code}`" type="button" 
                 class="btn btn-info"
                 v-else
                 >Add Payment Method</router-link>

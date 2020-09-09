@@ -83,6 +83,8 @@ import BookedStudent from './components/admin/bookedtour/Groupmember-list.vue'
 import PnrUser from './components/admin/bookedtour/PnrUser.vue'
 import PaymentList from './components/admin/bookedtour/payment/List.vue'
 import StudentPayment from './components/admin/bookedtour/payment/Student-payment.vue'
+import addPaymentMethod from './components/admin/bookedtour/payment/Add-payment.vue'
+import UpdatePaymentMethod from './components/admin/bookedtour/payment/Update-payment.vue'
 
 
 
@@ -220,6 +222,8 @@ export const routes = [
     { path:'/pnr-users/:transport/:id/:tour_id', component:PnrUser },
     { path:'/payments/:school_id/:tour_code', component:PaymentList },
     { path:'/student-payment/:school_id/:tour_code', component:StudentPayment },
+    { path:'/add-paymentmethod/:school_id/:tour_code', component:addPaymentMethod },
+    { path:'/update-paymentmethod/:school_id/:tour_code', component:UpdatePaymentMethod },
 
     // Tour type
     { path:'/tourtype',component:Tourtype},
