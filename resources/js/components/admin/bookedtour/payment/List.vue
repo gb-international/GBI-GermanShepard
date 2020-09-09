@@ -15,6 +15,19 @@ It takes id from the url and get the data from the api .
       <div class="col-md-12">
         <div class="container container_admin_body">
           <!-- Start Card -->
+          <div class="row">
+            <div class="col-sm-9"></div>
+            <router-link :to="`update-payment-method`" type="button" 
+                class="btn btn-info"
+                v-if="tour_view.tour_code"
+                >Update Payment Method</router-link>
+            <router-link :to="`/add-payment-method`" type="button" 
+                class="btn btn-info"
+                v-else
+                >Add Payment Method</router-link>
+          </div>
+
+
           <div class="card_view">
             <br />
             <div class="row" v-if="tour_view.tour_code">
