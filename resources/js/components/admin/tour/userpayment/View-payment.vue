@@ -92,6 +92,17 @@ It takes id from the url and get the data from the api .
                 <p>{{ tour_view.created_at }}</p>
               </div>
 
+              <div class="col-sm-4">
+                <h5>Amount Need to pay</h5>
+                <p>{{ tour_view.total_tour_price}}</p>
+              </div>
+              
+              <div class="col-sm-4">
+                <h5>Amount Collected</h5>
+                <p>{{ tour_view.collect_amount}}</p>
+              </div>
+
+
             </div>
             <button @click="goBack()" class="btn btn-primary itrn_add_btn back_btn">Back</button>
           </div>

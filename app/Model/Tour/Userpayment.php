@@ -30,6 +30,7 @@ class Userpayment extends Model
             'created_at' => $this->created_at->diffForHumans()
         ];
     }
+
     public function schoolbankdetail(){
         return $this->belongsTo('App\Model\Tour\Schoolbankdetail');
     }

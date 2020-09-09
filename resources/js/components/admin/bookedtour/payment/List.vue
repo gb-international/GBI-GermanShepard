@@ -54,7 +54,7 @@ It takes id from the url and get the data from the api .
               </div>
 
               <div class="col-sm-4">
-                <h5>Payment Type</h5>
+                <h5>Payment Mode</h5>
                 <p>{{ tour_view.payment_mode }}</p>
               </div>
 
@@ -85,7 +85,7 @@ It takes id from the url and get the data from the api .
                 <p v-if="tour_view.status== 'paid'">
                   <span class="badge badge-success">Paid</span>
                 <p v-else>
-                  <span class="badge badge-default">Pending</span>
+                  <span class="badge badge-primary">Pending</span>
                 </p>
                 </p>
               </div>
@@ -94,13 +94,18 @@ It takes id from the url and get the data from the api .
                 <p>{{ tour_view.created_at }}</p>
               </div>
 
-              <div class="col-sm-4">
+              <div class="col-sm-4" v-if="tour_view.payment_mode == 'self'">
                 <h5>Collect Payment</h5>
                 <button @click="tourModal(tour_view)" class="btn btn-success" data-toggle="modal" data-target="#paymentModal">Collect Payment</button>
               </div>
+
+              <div class="col-sm-4" v-if="tour_view.payment_mode == 'student'">
+                <h5>Student List</h5>
+                <router-link :to="`/student-payment/${tour_view.school_id}/${tour_view.tour_code}`" class="btn btn-success text-white">Students Payment</router-link>
+              </div>
             </div>
-            <hr />
-            <div class="row">
+
+            <div class="row" v-if="tour_view.payment_type == 'self'">
               <div class="col-sm-4">
                 <h5>Total Tour Price</h5>
                 <p>{{ tour_view.total_tour_price}}</p>
@@ -112,8 +117,12 @@ It takes id from the url and get the data from the api .
               </div>
 
             </div>
-            <button @click="goBack()" class="btn btn-primary itrn_add_btn back_btn">Back</button>
-          </div>
+            
+          </div>    
+
+        <button @click="goBack()" class="btn btn-primary itrn_add_btn back_btn">Back</button>
+
+
         </div>
       </div>
       <!-- The Modal -->
@@ -173,6 +182,7 @@ export default {
         collect_amount: "",
         status: "pending",
       },
+      student_list:false,
       edit_id: 0,
     };
   },
@@ -186,17 +196,19 @@ export default {
       this.form.collect_amount = tour.collect_amount;
       this.form.status = tour.status;
     },
-    tourPayment() {
-      var data = {
-        school_id: this.$route.params.school_id,
-        tour_code: this.$route.params.tour_code,
-      };
-      axios.post("/api/payments/list", data).then((response) => {
-        this.tour_view = response.data;
-        console.log(response.data);
-      });
-    },
 
+    tourPayment(){
+        var data = {
+            school_id: this.$route.params.school_id,
+            tour_code: this.$route.params.tour_code,
+            added_by: 'teacher',
+        };
+        axios.post("/api/payments/list", data).then((response) => {
+            this.tour_view = response.data;
+            console.log(this.tour_view);
+        });
+
+    },
     
     tourPaymentSave() {
       if(parseInt(this.form.total_tour_price) < parseInt(this.form.collect_amount)){

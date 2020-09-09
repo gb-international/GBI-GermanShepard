@@ -85,6 +85,7 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('pnrs','PnrController');
 		Route::post('pnrs/get','PnrController@getData');
 		Route::post('payments/list','UserpaymentController@paymentList');
+		Route::post('payments/student','UserpaymentController@paymentStudent');
 		Route::post('createpayment','UserpaymentController@createpayment');
 	});
 	Route::namespace('GbiMember')->group(function(){
