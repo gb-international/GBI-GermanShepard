@@ -57,7 +57,7 @@ It takes id from the url and get the data from the api .
 
               
               <div class="col-sm-4">
-                <h5>Payment Type</h5>
+                <h5>Payment By</h5>
                 <p>{{ tour_view.payment_mode }}</p>
               </div>
               

@@ -280,9 +280,9 @@ export default {
     editPayment() {
       var data = { 
           school_id: this.$route.params.school_id,
-          tour_code:this.$route.params.tour_code 
+          tour_code:this.$route.params.tour_code,
+          added_by:'teacher'
         };
-        console.log('data');
         axios.post("/api/getUserpayments",data).then((response) => {
           this.teacherform = response.data;
         })
@@ -296,7 +296,6 @@ export default {
       var data = { school_id: this.$route.params.school_id };
         axios.post("/api/getshooluser",data).then((response) => {
           this.userinfo = response.data;
-          console.log(this.userinfo);
         })
         .catch((error) => {
           this.handleError(error);

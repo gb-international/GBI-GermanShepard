@@ -66,7 +66,11 @@ class UserpaymentController extends Controller
     
     public function getUserpayments(Request $request){
         
-        $data = Userpayment::where(['school_id'=>$request->school_id,'tour_code'=>$request->tour_code])->first();
+        $data = Userpayment::where([
+                'school_id'=>$request->school_id,
+                'tour_code'=>$request->tour_code,
+                'added_by'=>$request->added_by
+            ])->first();
         return response()->json($data);
     }
 

@@ -11,27 +11,35 @@ class PaymentController extends Controller
 {
     public function payment(){
 
-        $parameters = [
+      $parameters = [
         'merchant_id' => 206523,
-        'order_id' => 'asdfasdfasadfsdfsdf4444444',
+        'order_id' => '1',
+        'billing_name' => ' ',
+        'billing_address' => ' ',
+        'billing_city' => ' ',
+        'billing_state'=> ' ',
+        'billing_zip'=> ' ',
+        'billing_country'=> ' ',
+        'billing_tel'=> ' ',
+        'billing_email'=>' ',
         'amount' => 45,
       ];
       
       $order = Indipay::prepare($parameters);
-    //   dd($order);
+      // dd($order);
       $result = Indipay::process($order);
       // dd($result);
       return $result;
     }
 
-    public function cancel(){
+    public function cancel(Request $request){
+
          echo 'Payment canceled';
+         dd($request);
     }
 
     public function response(Request $request){
-        // dd($request);
-        $response = Indipay::response($request);
-        
+        $response = Indipay::response($request);        
         // For Otherthan Default Gateway
         // $response = Indipay::gateway('ccavenue')->response($request);
 
