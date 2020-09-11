@@ -18,6 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
+// Route::post('/payment','Front\PaymentController@payment');
+
 Route::namespace('Admin')->group(function (){
 
 	Route::namespace('Transport')->group(function(){

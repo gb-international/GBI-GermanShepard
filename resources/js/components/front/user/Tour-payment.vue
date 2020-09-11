@@ -244,10 +244,14 @@
               class="btn btn-outline-primary btn-square"
               @click="submitPayment()"
             >SUBMIT</button>
+
             <form action="/payment" method="post">
               <input type="hidden" value="0">
-              <button type="submit" class="btn btn-outline-primary btn-square ml-2">Pay</button>
+              <button type="submit"
+             
+               class="btn btn-outline-primary btn-square ml-2">Pay</button>
             </form>
+
           </div>
         </form>
 
@@ -345,6 +349,7 @@
         </div>
       </div>
     </div>
+
     <div v-if="chequePage == true">
       <div class="container pt-20">
         <p>Please Fill Cheque/DD Details..</p>
@@ -403,6 +408,7 @@ export default {
   data() {
     return {
       chequePage: false,
+      response:'',
       tours: "",
       formShow: false,
       payment_mode: "self",
@@ -455,6 +461,37 @@ export default {
   },
 
   methods: {
+    check(){
+      var payment_url = 'https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction';
+      var form = {
+        'encRequest' : '',
+        'access_code' : "AVHG03HI38AG45GHGA",
+      };
+  	  var access_code = "AVHG03HI38AG45GHGA" // shared by CCAVENUE 
+      var url = '/api/payment';
+      this.$axios
+        .post(url)
+        .then((response) => {
+          console.log(response.data);
+          let start =  response.data.split('name=encRequest value="')[1];
+          form.encRequest = start.split('">')[0];
+          console.log(form);
+          this.paymentRequest(form,payment_url);
+        })
+        .catch((error) => {
+        });
+      return false;
+    },
+    paymentRequest(form,url){
+      console.log('paymentresquest');
+      this.$axios.post(url,form,{
+        headers: { 'Access-Control-Allow-Origin' :'http://localhost:8000'}
+      }).then((response) =>{
+        console.log(response);
+      }).catch((error)=>{
+        console.log(error);
+      })
+    },
     onVerify: function (response) {
       if (response) this.robot = true;
     },

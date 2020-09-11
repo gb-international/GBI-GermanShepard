@@ -33,9 +33,8 @@ class PaymentController extends Controller
     }
 
     public function cancel(Request $request){
-
-         echo 'Payment canceled';
-         dd($request);
+        header("Location: /payment-cancel");
+        dd($request);
     }
 
     public function response(Request $request){
