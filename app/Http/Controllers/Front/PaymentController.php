@@ -9,7 +9,7 @@ use Softon\Indipay\Facades\Indipay;
 
 class PaymentController extends Controller
 {
-    public function payment(){
+    public function payment(Request $request){
 
       $parameters = [
         'merchant_id' => 206523,

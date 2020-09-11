@@ -244,6 +244,10 @@
               class="btn btn-outline-primary btn-square"
               @click="submitPayment()"
             >SUBMIT</button>
+            <form action="/payment" method="post">
+              <input type="hidden" value="0">
+              <button type="submit" class="btn btn-outline-primary btn-square ml-2">Pay</button>
+            </form>
           </div>
         </form>
 
