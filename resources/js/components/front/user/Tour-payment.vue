@@ -247,7 +247,8 @@
 
             <form action="/payment" method="post">
               <input type="hidden" name="user_id" :value=userinfo.user_id>
-              <input type="hidden" name="tour_code" :value=$route.params.id>
+              <input type="hidden" name="travel_code" :value=userinfo.travel_code>
+              <input type="hidden" name="tour_id" :value=$route.params.id>
               <input type="hidden" name="school_id" :value=userinfo.school_id>
               <button 
                 type="submit"
@@ -424,10 +425,7 @@ export default {
       banknames: [],
       userinfo: "",
       robot: false,
-      payment:{
-        tour_code:'',
-        user_id:''
-      },
+
       teacherform: {
         payment_mode: "self",
         payment_type: "",

@@ -59,7 +59,7 @@ class TourController extends Controller{
     public function paymentTour(Request $request){
         $user = Auth::user();
         $profession = $user->information->user_profession;
-        $tour = Tour::select(['no_of_person','tour_price'])->where('tour_id',$request->travel_code)->firstOrFail();
+        $tour = Tour::select(['no_of_person','tour_price','travel_code'])->where('tour_id',$request->travel_code)->firstOrFail();
         $tour['profession'] = $profession;
         $tour['user_id'] = $user->id;
         $tour['school_id'] = $user->information->school_id;
