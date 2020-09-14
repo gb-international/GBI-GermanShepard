@@ -11,6 +11,7 @@ class PaymentController extends Controller
 {
     public function payment(Request $request){
 
+      dd($request);
       $parameters = [
         'merchant_id' => 206523,
         'order_id' => '1',
@@ -33,8 +34,8 @@ class PaymentController extends Controller
     }
 
     public function cancel(Request $request){
+      dd($request);
         header("Location: /payment-cancel");
-        dd($request);
     }
 
     public function response(Request $request){
@@ -43,6 +44,7 @@ class PaymentController extends Controller
         // $response = Indipay::gateway('ccavenue')->response($request);
 
         dd($response);
+        header("Location: /payment-success");
     }
     
 }

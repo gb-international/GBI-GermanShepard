@@ -246,10 +246,14 @@
             >SUBMIT</button>
 
             <form action="/payment" method="post">
-              <input type="hidden" value="0">
-              <button type="submit"
-             
-               class="btn btn-outline-primary btn-square ml-2">Pay</button>
+              <input type="hidden" name="user_id" :value=userinfo.user_id>
+              <input type="hidden" name="tour_code" :value=$route.params.id>
+              <input type="hidden" name="school_id" :value=userinfo.school_id>
+              <button 
+                type="submit"
+                class="btn btn-outline-primary btn-square ml-2"
+                  >Pay
+              </button>
             </form>
 
           </div>
@@ -420,6 +424,10 @@ export default {
       banknames: [],
       userinfo: "",
       robot: false,
+      payment:{
+        tour_code:'',
+        user_id:''
+      },
       teacherform: {
         payment_mode: "self",
         payment_type: "",
@@ -521,6 +529,7 @@ export default {
         })
         .then((response) => {
           this.userinfo = response.data;
+          console.log(this.userinfo);
           if (this.userinfo.profession == "teacher") {
             this.teacherform.added_by = 'teacher';
             this.bankNameList();
