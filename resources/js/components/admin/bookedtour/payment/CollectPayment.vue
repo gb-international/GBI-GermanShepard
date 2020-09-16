@@ -24,7 +24,7 @@
                 <label for="total_tour_price">Payment Status</label>
                 <select class="form-control">
                     <option value="pending">Pending</option>
-                    <option value="paid">Paid</option>
+                    <option value="success">Paid</option>
                 </select>
             </div>
         </div>

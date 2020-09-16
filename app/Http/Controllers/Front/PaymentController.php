@@ -12,6 +12,13 @@ use App\Model\Tour\Userpayment;
 class PaymentController extends Controller
 {
     public function payment(Request $request){
+
+      $check = Userpayment::where(['user_id'=>$request->user_id,'tour_code'=>$request->tour_id])->first();
+      if($check){
+        header("Location: /payment-cancel");
+        dd();
+      }
+      
       $data = TourUser::where(['travel_code'=>$request->travel_code,'user_id'=>$request->user_id])
         ->FirstOrFail();
       $track = Trackpayment::create([
@@ -19,7 +26,8 @@ class PaymentController extends Controller
           'travel_code'=>$request->travel_code,
           'tour_id'=>$request->tour_id,
           'school_id'=>$request->school_id,
-          'amount'=>$data->amount
+          'amount'=>$data->amount,
+          'added_by'=>$request->added_by
         ]);
 
         $parameters = [
@@ -62,7 +70,9 @@ class PaymentController extends Controller
           'amount' => $track->amount,
           'status' => strtolower($response['order_status']),
           'payment_data' => json_encode($response),
+          'added_by'=>$track->added_by
         ]);
+
          $track->delete();
         header("Location:/payment-success");
         dd($response);

@@ -16,7 +16,7 @@
                     <td>{{ student.collect_amount }} /-</td>
                     <td>{{ student.created_at }}</td>
                     <td>
-                        <span class="badge badge-success" v-if="student.status== 'paid'">Paid</span>
+                        <span class="badge badge-success" v-if="student.status== 'success'">Success</span>
                         <span v-else class="badge badge-primary">Pending</span>
                     </td>
                     <td>
@@ -57,7 +57,7 @@
                     <label> Payment Status </label>
                     <select class="form-control" v-model="form.status">
                       <option value="pending">Pending</option>
-                      <option value="paid">Paid</option>
+                      <option value="sucess">Sucess</option>
                     </select>
                   </div>
 

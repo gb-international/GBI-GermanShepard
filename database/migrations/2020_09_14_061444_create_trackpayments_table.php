@@ -17,9 +17,10 @@ class CreateTrackpaymentsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('travel_code');
-            $table->string('tour_id');
+            $table->integer('amount')->nullable();
+            $table->string('tour_id')->nullable();
             $table->string('school_id')->nullable();
-            $table->integer('amount');
+            $table->string('added_by')->nullable();
             $table->timestamps();
         });
     }

@@ -27,6 +27,7 @@ class Userpayment extends Model
             'added_by' => $this->added_by,
             'total_tour_price'=>$this->total_tour_price,
             'collect_amount'=>$this->collect_amount,
+            'payment_data'=> json_decode($this->payment_data),
             'created_at' => $this->created_at->diffForHumans()
         ];
     }

@@ -239,23 +239,26 @@
             </div>
           </div>
           <div class="row justify-content-center mt-5">
-            <button
-              type="button"
-              class="btn btn-outline-primary btn-square"
-              @click="submitPayment()"
-            >SUBMIT</button>
+            
 
-            <form action="/payment" method="post">
+            <form action="/payment" method="post" v-if="teacherform.payment_type == 'net'">
               <input type="hidden" name="user_id" :value=userinfo.user_id>
               <input type="hidden" name="travel_code" :value=userinfo.travel_code>
               <input type="hidden" name="tour_id" :value=$route.params.id>
               <input type="hidden" name="school_id" :value=userinfo.school_id>
+              <input type="hidden" name="added_by" :value=userinfo.profession>
               <button 
                 type="submit"
                 class="btn btn-outline-primary btn-square ml-2"
-                  >Pay
+                  >SUBMIT
               </button>
             </form>
+
+            <button v-else
+              type="button"
+              class="btn btn-outline-primary btn-square"
+              @click="submitPayment()"
+            >SUBMIT</button>
 
           </div>
         </form>
@@ -467,37 +470,7 @@ export default {
   },
 
   methods: {
-    check(){
-      var payment_url = 'https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction';
-      var form = {
-        'encRequest' : '',
-        'access_code' : "AVHG03HI38AG45GHGA",
-      };
-  	  var access_code = "AVHG03HI38AG45GHGA" // shared by CCAVENUE 
-      var url = '/api/payment';
-      this.$axios
-        .post(url)
-        .then((response) => {
-          console.log(response.data);
-          let start =  response.data.split('name=encRequest value="')[1];
-          form.encRequest = start.split('">')[0];
-          console.log(form);
-          this.paymentRequest(form,payment_url);
-        })
-        .catch((error) => {
-        });
-      return false;
-    },
-    paymentRequest(form,url){
-      console.log('paymentresquest');
-      this.$axios.post(url,form,{
-        headers: { 'Access-Control-Allow-Origin' :'http://localhost:8000'}
-      }).then((response) =>{
-        console.log(response);
-      }).catch((error)=>{
-        console.log(error);
-      })
-    },
+
     onVerify: function (response) {
       if (response) this.robot = true;
     },
