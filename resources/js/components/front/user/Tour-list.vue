@@ -107,7 +107,7 @@ export default {
   name: "Tour-list",
   data() {
     return {
-      tours: "",
+      tours: [],
       formShow: false,
       userinfo: "",
       travel_code: "",
@@ -143,7 +143,7 @@ export default {
         });
     },
     paymentStatus : function(){
-   
+      var data_tour = [];
       this.total.map(event => {
         // event.pay_status = false;
         var data = {user_id:this.userinfo.id,tour_code:event.tour_id};
@@ -153,14 +153,12 @@ export default {
             })
             .then((response) => {
               event.pay_status = response.data.status;
-              // this.tours.push(event);
-              console.log(event.pay_status);
+              this.tours.push(event);
             })
             .catch((error) => {
               this.handleError(error);
             });
         });
-        this.tours = this.total;
       this.total = '';
     },
 

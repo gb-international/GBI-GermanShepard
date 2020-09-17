@@ -32,6 +32,7 @@ class TourController extends Controller{
     public function tourDetail(Request $request){
         $user = Auth::user();
         $tour = Tour::with('itinerary','itinerary.itinerarydays','bookedhotels','bookedhotels.hotel','bookedflights','bookedflights.flight')->where("tour_id",$request->travel_id)->first();
+        $tour['user_id'] = $user->id;
         return response()->json($tour);
     }
 

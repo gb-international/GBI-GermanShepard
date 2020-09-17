@@ -1,7 +1,7 @@
 <template>
-      <!--************************************************
+  <!--************************************************
       Author:@Ajay
-      ****************************************************-->
+  ****************************************************-->
   <div class="container">
     <div id="itinerary_detail_list">
       <div v-if="alldata.itinerary" id="roadmap" class="mb-35 w-100">
@@ -124,9 +124,7 @@
           <h3 class="text-center mb-35">AIRLINES DETAILS</h3>
           <hr />
           <div v-for="air in alldata.bookedflights" :key="air.id">
-
-            <flight-app :list="air.flight_number" :flightDate="simpleDate(air.departure)"></flight-app>            
- 
+            <flight-app :list="air.flight_number" :flightDate="simpleDate(air.departure)"></flight-app>
           </div>
         </div>
 
@@ -151,46 +149,24 @@
           <weather-app :cityList="cityList"></weather-app>
         </div>
       </div>
-
-      <div class="text-center mb-20 mt-20" v-if="formShow">
-        <div class="row justify-content-center">
-          <div class="col-sm-6 p-20 tour-code-card">
-            <h5>You Don't Have Active Tour</h5>
-            <form class="form" method="post" @submit.prevent="UserTourSave()">
-              <div class="form-group">
-                  <label for="tour_code">Travel Code</label>
-                  <input type="text"
-                    class="form-control input-border"
-                    placeholder="Enter travel code"
-                    v-model="form.travel_code"
-                    required />
-                </div>
-                <button type="submit" class="btn profile_button">Save</button>
-            </form>
-          </div>
-        </div>
-
-      </div>
-
     </div>
   </div>
 </template>
 
 <script>
-import WeatherApp from  '../../partials/WeatherApp'
-import FlightApp from  '../../partials/FlightApp'
+import WeatherApp from "../../partials/WeatherApp";
+import FlightApp from "../../partials/FlightApp";
 import { Form, HasError, AlertError } from "vform";
 export default {
   name: "Tour-detail",
   components: {
     "has-error": HasError,
-    "weather-app":WeatherApp,
-    "flight-app":FlightApp
+    "weather-app": WeatherApp,
+    "flight-app": FlightApp,
   },
   data() {
     return {
       upcoming_list: [],
-      formShow:false,
       max: 5,
       current: 3,
       oddclass: false,
@@ -198,21 +174,37 @@ export default {
       itineraryData: {},
       hotelData: "",
       alldata: [],
-      form: new Form({
-        travel_code: ""
-      }),
-      cityList:[],
+      cityList: [],
     };
   },
 
-
-  beforeMount(){
+  beforeMount() {
     this.tourListData(this.$route.params.id);
+    this.paymentStatus();
   },
 
   methods: {
     dateFormat(date) {
       return new Date(date).toDateString();
+    },
+
+    paymentStatus: function () {
+      var data = {
+        user_id: this.alldata.user_id,
+        tour_code: this.$route.params.id,
+      };
+      this.$axios
+        .post("/api/tour-payment-status", data, {
+          headers: { Authorization: `Bearer ${localStorage.token}` },
+        })
+        .then((response) => {
+          if (response.data.status != "success") {
+            this.$router.push("/tour-list");
+          }
+        })
+        .catch((error) => {
+          this.handleError(error);
+        });
     },
     timeFormat(date) {
       var str = new Date(date).toDateString();
@@ -227,13 +219,13 @@ export default {
       return str + " " + strTime;
     },
 
-    getRating: function(current) {
+    getRating: function (current) {
       return (current / this.max) * 100;
     },
     integer(num) {
       return parseInt(num);
     },
-    simpleDate(data){
+    simpleDate(data) {
       // 2020-06-23
       return data.split("T")[0];
     },
@@ -247,63 +239,28 @@ export default {
     },
 
     tourListData(id) {
-      var data = {travel_id : id};
+      var data = { travel_id: id };
       this.$axios
         .post("/api/tour-detail", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` }
+          headers: { Authorization: `Bearer ${localStorage.token}` },
         })
-        .then(response => {
-          if (response.data.length == 0) {
-            this.formShow = true;
-          } else {
-            this.alldata = response.data;
-            this.itineraryData = response.data.itinerary;
-            this.hotelData = response.data.bookedhotels;
-            this.DestinationCity(this.itineraryData.itinerarydays);
-            this.formShow = false;
-          }
+        .then((response) => {
+          this.alldata = response.data;
+          this.itineraryData = response.data.itinerary;
+          this.hotelData = response.data.bookedhotels;
+          this.DestinationCity(this.itineraryData.itinerarydays);
         })
-        .catch(error => {
-          this.formShow = true;
+        .catch((error) => {
           this.handleError(error);
         });
     },
-    DestinationCity(itineraryData){
+    DestinationCity(itineraryData) {
       let city = [];
-      for(var i=0;i<itineraryData.length;i++){
+      for (var i = 0; i < itineraryData.length; i++) {
         city.push(itineraryData[i].day_destination);
       }
       this.cityList = [...new Set(city)];
     },
-
-    UserTourSave() {
-      var data = { travel_code: this.form.travel_code };
-      this.$axios
-        .post("/api/tour-travel-save", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` }
-        })
-        .then(response => {
-          // this.alldata = response.data;
-          if (response.data == "error") {
-            this.$swal.fire({
-              icon: 'error',
-              title: "Try again",
-              text: "Please enter valid travel code!",
-            });
-          } else {
-            this.$swal.fire(
-              "Valid Code",
-              "Check your tour details.",
-              "success"
-            
-            );
-            this.tourListData();
-          }
-        })
-        .catch(error => {
-          this.handleError(error);
-        });
-    }
-  }
+  },
 };
 </script>
