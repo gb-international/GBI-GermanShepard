@@ -43,6 +43,7 @@ class TourController extends Controller{
         $this->validate($request, [ 
             'travel_code' => 'required',
         ]);
+        
         $user = Auth::user();
         $data = ['user_id'=>$user->id,'travel_code'=>$request->travel_code];
         $travel = TourUser::where($data)->get();

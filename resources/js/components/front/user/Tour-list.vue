@@ -143,7 +143,7 @@ export default {
         });
     },
     paymentStatus : function(){
-      var data_tour = [];
+      this.tours = [];
       this.total.map(event => {
         // event.pay_status = false;
         var data = {user_id:this.userinfo.id,tour_code:event.tour_id};
@@ -153,6 +153,8 @@ export default {
             })
             .then((response) => {
               event.pay_status = response.data.status;
+              console.log(event.tour_id);
+              console.log(response.data);
               this.tours.push(event);
             })
             .catch((error) => {

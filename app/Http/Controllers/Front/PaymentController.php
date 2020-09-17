@@ -8,12 +8,15 @@ use Softon\Indipay\Facades\Indipay;
 use App\Model\Tour\TourUser;
 use App\Model\Tour\Trackpayment;
 use App\Model\Tour\Userpayment;
+use App\Helpers\SendSms;
+use App\Jobs\PaymentSuccessJob;
 
 class PaymentController extends Controller
 {
     public function payment(Request $request){
-
+      
       $check = Userpayment::where(['user_id'=>$request->user_id,'tour_code'=>$request->tour_id])->first();
+      
       if($check){
         header("Location: /payment-cancel");
         dd();
@@ -72,8 +75,17 @@ class PaymentController extends Controller
           'payment_data' => json_encode($response),
           'added_by'=>$track->added_by
         ]);
-
-         $track->delete();
+        
+        $user = [
+          'name'=>$response['billing_name'],
+          'phone_no'=>$response['billing_tel']
+        ];
+        $sendsms = new SendSms;
+        $sendsms->successPaymentSMS($user);
+        $email_data['emailto'] = $response['billing_email'];
+        // pass data to send the email here ($user is just dummy)
+        PaymentSuccessJob::dispatch($email_data);
+        $track->delete();
         header("Location:/payment-success");
         dd($response);
     }

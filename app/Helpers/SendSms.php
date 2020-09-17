@@ -54,6 +54,19 @@ class SendSms{
     }
 
 
+    
+    public function successPaymentSMS($user){
+        $phone = '91'.$user['phone_no'];
+        $message = "Dear ".ucfirst($user['name'])." Payment successfully completed now you can open your tour Dashboard.";
+        $ApiUrl = "https://www.businesssms.co.in/smsaspx?Id=".$this->id."&Pwd=".urlencode($this->pwd)."&PhNo=".$phone."&TEXT=".urldecode($message);
+        $client = new \GuzzleHttp\Client(['verify' => false ]);
+        $request = $client->get($ApiUrl);
+    }
+
+
+
+
+
 
 
 }

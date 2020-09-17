@@ -15,7 +15,7 @@ class CreateTourUserTable extends Migration
     {
         Schema::create('tour_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('travel_code')->unsigned()->nullable();
+            $table->string('travel_code')->nullable();
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->string('amount')->nullable();
 
