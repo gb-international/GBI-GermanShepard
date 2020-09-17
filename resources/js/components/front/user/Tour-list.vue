@@ -53,8 +53,10 @@
                   </p>
                   <p class="lead font-weight-normal">{{ tour.itinerary.title }}</p>
                 </div>
-                <div class="col-sm-4 text-center mb-10 mt-5">
-                  <router-link :to="`/tour-payment/${tour.tour_id}`" class="btn btn-light">PAY NOW</router-link>
+
+                <div class="col-sm-4 text-center mb-10 mt-5" 
+                  v-if="tour.pay_status != 'success'">
+                  <router-link :to="`/tour-payment/${tour.tour_id}`" class="btn btn-light">PAY NOW </router-link>
                 </div>
               </div>
 
@@ -109,14 +111,15 @@ export default {
       formShow: false,
       userinfo: "",
       travel_code: "",
+      total:""
     };
   },
   mounted() {
     if (localStorage.token == undefined) {
       this.$router.push("/");
     }
-    this.tourListData();
     this.userData();
+    this.tourListData();
   },
 
   methods: {
@@ -130,7 +133,8 @@ export default {
           if (response.data.length == 0) {
             this.formShow = true;
           } else {
-            this.tours = response.data;
+            this.total = response.data;
+            this.paymentStatus();
           }
         })
         .catch((error) => {
@@ -138,6 +142,29 @@ export default {
           this.handleError(error);
         });
     },
+    paymentStatus : function(){
+   
+      this.total.map(event => {
+        // event.pay_status = false;
+        var data = {user_id:this.userinfo.id,tour_code:event.tour_id};
+          this.$axios
+            .post("/api/tour-payment-status", data, {
+              headers: { Authorization: `Bearer ${localStorage.token}` },
+            })
+            .then((response) => {
+              event.pay_status = response.data.status;
+              // this.tours.push(event);
+              console.log(event.pay_status);
+            })
+            .catch((error) => {
+              this.handleError(error);
+            });
+        });
+        this.tours = this.total;
+      this.total = '';
+    },
+
+
     userData() {
       var data = [];
       this.$axios
@@ -181,6 +208,7 @@ export default {
           this.handleError(error);
         });
     },
-  },
+  }
+
 };
 </script>

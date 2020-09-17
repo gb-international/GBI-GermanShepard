@@ -24,4 +24,15 @@ class UserpaymentController extends Controller
         return response()->json('successfully paid');
         
     }
+
+    public function tourPayStatus(Request $request){
+        // check if teacher has paid 
+        $data = Userpayment::select(['payment_mode','status'])->where(['tour_code'=>$request->tour_code,'added_by'=>'teacher'])->first();
+        // if teacher has not paid then check if student has paid
+        if($data->payment_mode != 'self'){
+            $data = Userpayment::select('status')->where(['tour_code'=>$request->tour_code,'user_id'=>$request->user_id])->first();
+        }
+
+        return response()->json($data);
+    }
 }

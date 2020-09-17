@@ -6,3 +6,18 @@
         </div>
     </div>
 </template>
+
+<script>
+//     export default {
+//         data(){
+//             return {
+
+//             }
+//         },
+//         mounted: function () {
+//             window.setInterval(() => {
+//                 this.$router.push('/tour-list');
+//             }, 4000)
+//         }
+//     }
+</script>
