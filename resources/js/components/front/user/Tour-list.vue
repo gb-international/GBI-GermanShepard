@@ -153,7 +153,6 @@ export default {
             })
             .then((response) => {
               event.pay_status = response.data.status;
-              console.log(event.tour_id);
               console.log(response.data);
               this.tours.push(event);
             })

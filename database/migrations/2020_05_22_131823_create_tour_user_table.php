@@ -17,7 +17,6 @@ class CreateTourUserTable extends Migration
             $table->bigIncrements('id');
             $table->string('travel_code')->nullable();
             $table->bigInteger('user_id')->unsigned()->nullable();
-            $table->string('amount')->nullable();
 
             $table->timestamps();
         });
