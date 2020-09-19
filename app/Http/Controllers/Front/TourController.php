@@ -12,6 +12,7 @@ use App\Model\User\Information;
 use App\Model\Tour\TourUser;
 use App\Model\Tour\Tour;
 use App\Model\School\School;
+use App\Model\Tour\Userpayment;
 use Illuminate\Support\Facades\Auth;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Hash;
@@ -20,13 +21,26 @@ class TourController extends Controller{
 
      public function tourList(Request $request){
         $user = Auth::user();
-        $travels = $user->UserTravel;
-        $data = [];
+        $travels =  TourUser::with([
+            'tour' => function($tour){
+                $tour->with(['itinerary'=>function($detail){
+                    $detail->select('itineraries.id','itineraries.title','itineraries.detail_photo'); 
+                }]);
+                $tour->select('tours.tour_start_date','tours.travel_code','tours.no_of_person','tours.tour_end_date','tours.itinerary_id','tours.tour_id');
+            }
+        ])
+        ->where('user_id',$user->id)
+        ->select('id','user_id','travel_code')
+        ->get();
+
         foreach ($travels as $travel) {
-            array_push($data,Tour::with('itinerary','itinerary.itinerarydays')->where("travel_code",$travel->travel_code)->first());
+            $data = Userpayment::where(
+                ["tour_code"=>$travel->tour->tour_id,
+                'user_id'=> $travel->user_id
+            ])->select('status')->first();
+            $travel['payment'] = $data;
         }
-        
-        return response()->json($data);
+        return response()->json($travels);
     }
 
     public function tourDetail(Request $request){

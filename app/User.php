@@ -54,6 +54,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\Tour\TourUser','user_id')->orderBy('created_at','DESC');
     }
 
+   
     public function frontbooking()
 	{
 		return $this->hasMany('App\Model\Tour\Frontbooking');

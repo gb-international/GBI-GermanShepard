@@ -11,8 +11,8 @@ class TourUser extends Model
 
     
 
-    public function tours(){
-        return $this->belongsTo('App\Model\Tour\Tour','travel_code');
+    public function tour(){
+        return $this->belongsTo('App\Model\Tour\Tour','travel_code','travel_code');
     }
 
     public function user(){
