@@ -26,11 +26,11 @@
             </div>
 
             <div class="col-sm-4">
-              <label for="price">Tour Price</label>
+              <label for="price">Tour Price <small v-if="teacherform.added_by == 'teacher'"><b> ({{ userinfo.no_of_person }} * {{ userinfo.tour_price }})</b></small></label>
               <input
                 type="text"
                 class="form-control grey-border"
-                v-model="userinfo.tour_price"
+                v-model="tour_price"
                 readonly
               />
             </div>
@@ -417,6 +417,8 @@ export default {
     return {
       chequePage: false,
       response:'',
+      tour_price:'',
+
       tours: "",
       formShow: false,
       payment_mode: "self",
@@ -500,12 +502,14 @@ export default {
         })
         .then((response) => {
           this.userinfo = response.data;
-          console.log(this.userinfo);
+          
+          this.teacherform.amount = this.userinfo.tour_price;
           if (this.userinfo.profession == "teacher") {
             this.teacherform.added_by = 'teacher';
+            this.teacherform.amount = this.userinfo.tour_price * this.userinfo.no_of_person;
             this.bankNameList();
           }
-
+          this.tour_price = this.teacherform.amount;
           if (this.userinfo.profession == "student") {
             this.StudentBank();
           }
@@ -533,8 +537,14 @@ export default {
     },
 
     submitPayment() {
+
       this.teacherform.tour_code = this.$route.params.id;
-      this.teacherform.amount = this.userinfo.tour_price;
+      if(this.userinfo.profession == 'teacher'){
+        this.
+        this.teacherform.amount = this.userinfo.tour_price * this.userinfo.no_of_person;
+      }else{
+        this.teacherform.amount = this.userinfo.tour_price;        
+      }
       this.teacherform.user_id = this.userinfo.user_id;
       this.teacherform.school_id = this.userinfo.school_id;
       

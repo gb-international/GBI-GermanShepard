@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Softon\Indipay\Facades\Indipay; 
-use App\Model\Tour\TourUser;
+use App\Model\Tour\Tour;
 use App\Model\Tour\Trackpayment;
 use App\Model\Tour\Userpayment;
+use App\User;
 use App\Helpers\SendSms;
 use App\Jobs\PaymentSuccessJob;
 
@@ -22,29 +23,35 @@ class PaymentController extends Controller
         dd();
       }
       
-      $data = TourUser::where(['travel_code'=>$request->travel_code,'user_id'=>$request->user_id])
-        ->FirstOrFail();
+      $data = Tour::where('travel_code',$request->travel_code)->first();
+      $user = User::where('id',$request->user_id)->first();
+
+      $amount = $data->tour_price;
+      if($user->information->user_profession =='teacher'){
+        $amount = $amount * $data->no_of_person;
+      }
+
       $track = Trackpayment::create([
           'user_id'=>$request->user_id,
           'travel_code'=>$request->travel_code,
           'tour_id'=>$request->tour_id,
           'school_id'=>$request->school_id,
-          'amount'=>$data->amount,
+          'amount'=>$amount,
           'added_by'=>$request->added_by
         ]);
 
         $parameters = [
           'merchant_id' => 206523,
           'order_id' => $track->id,
-          'billing_name' => $data->user->name,
-          'billing_address' => $data->user->information->address,
-          'billing_city' => $data->user->information->city,
-          'billing_state'=> $data->user->information->state,
-          'billing_zip'=> $data->user->information->zip_code,
-          'billing_country'=> $data->user->information->country,
-          'billing_tel'=> $data->user->information->phone_no,
-          'billing_email'=> $data->user->email,
-          'amount' => (int)$data->amount,
+          'billing_name' => $user->name,
+          'billing_address' => $user->information->address,
+          'billing_city' => $user->information->city,
+          'billing_state'=> $user->information->state,
+          'billing_zip'=> $user->information->zip_code,
+          'billing_country'=> $user->information->country,
+          'billing_tel'=> $user->information->phone_no,
+          'billing_email'=> $user->email,
+          'amount' => (int)$amount,
         ];
         
       $order = Indipay::prepare($parameters);

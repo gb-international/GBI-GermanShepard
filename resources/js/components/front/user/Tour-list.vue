@@ -180,6 +180,7 @@ export default {
           this.handleError(error);
         });
     },
+    
     UserTourSave() {
       var data = { travel_code: this.travel_code };
       this.$axios
