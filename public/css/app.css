@@ -6049,12 +6049,6 @@ article {
   margin: 0px !important;
 }
 
-.modal-color {
-  background-color: #fbfbfb;
-  border-radius: 0px;
-  border: 0px;
-}
-
 .listexplore {
   color: #666666;
   float: right;
@@ -8634,6 +8628,12 @@ a:hover {
   display: inline-block;
   text-align: left;
   vertical-align: middle;
+}
+
+.modal-color {
+  background-color: #fbfbfb;
+  border-radius: 0px;
+  border: 0px;
 }
 
 .profile_button {

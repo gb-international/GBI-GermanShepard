@@ -9,7 +9,7 @@
         <!-- <div class="col-sm-1">
           <button type="button" class="btn btn-sm btn-info">Back</button>
         </div>-->
-        <div class="col-sm-12 col-md-12 col-lg-6">
+        <div class="col-sm-12 col-md-12 col-lg-6 pt-2">
           <button type="button" class="btn btn-sm btn-dark" @click="back()">Back</button>
           <button
             type="button"
@@ -25,7 +25,7 @@
 
         <div class="col-sm-12 col-md-6 col-lg-3">
           <form method="POST">
-            <div class="row mt-2">
+            <div class="row">
               <div class="col-lg-12">
                 <div class="form-group">
                   <label for="file" class="sr-only">File</label>
@@ -58,7 +58,7 @@
           <div class="search-box">
             <div class="form-group has-search">
               <span class="fa fa-search form-control-feedback"></span>
-              <input type="text" class="form-control pl-3" placeholder="Search" v-model="searchQuery" />
+              <input type="text" class="form-control" placeholder="Search" v-model="searchQuery" />
             </div>
           </div>
         </div>
