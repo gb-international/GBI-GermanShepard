@@ -10,7 +10,7 @@
             <i class="fas fa-user-edit"></i>
           </router-link><br>
           <router-link :to="`/update-password`" class="user_edit">
-            <i class="fas fa-cog"></i></i>
+            <i class="fas fa-cog"></i>
           </router-link>
         </div>
         <div class="row" v-if="userinfo.information">
@@ -187,13 +187,11 @@
           -->
         </div>
       </div>
-      <!-- End Recent Search -->
-    </div>
 
+      <!-- End Recent Search -->
     </div>
   </div>
 </template>
-
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
 

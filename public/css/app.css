@@ -8027,7 +8027,6 @@ a:hover {
 }
 
 .AddGroup .search-box {
-  width: 250px;
   float: right;
 }
 
@@ -8069,9 +8068,14 @@ a:hover {
   cursor: default;
 }
 
+.AddGroup .group_list {
+  margin: 0 auto;
+}
+
 .AddGroup .group_list .hidden input {
   border: 0px !important;
   background: transparent !important;
+  width: 168px;
 }
 
 .AddGroup .group_list tr {
@@ -8443,6 +8447,10 @@ a:hover {
   padding: 0px;
 }
 
+.pl-3 {
+  padding-left: 3px;
+}
+
 .ml-1 {
   margin-left: 1px;
 }
@@ -8501,6 +8509,10 @@ a:hover {
 
 .font-14 {
   font-size: 14px;
+}
+
+.text-gray {
+  color: #464444;
 }
 
 .btn-square {
@@ -8682,6 +8694,7 @@ a:hover {
   width: 100%;
   overflow: hidden;
   background: #fbfbfb;
+  color: #464444;
 }
 
 .navbar-laravel {

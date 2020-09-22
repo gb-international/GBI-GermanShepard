@@ -11,7 +11,6 @@
         }   
     }
     .search-box{
-        width: 250px;
         float: right;
         .has-search .form-control {
             padding-left: 2.375rem;
@@ -52,10 +51,12 @@
 
     // group member list
     .group_list{
+        margin: 0 auto;
         .hidden{
             input{
                 border: 0px !important;
                 background: transparent !important;
+                width: 168px;
             }
         }
         tr{ border-bottom: 1px solid #e7e7e7;}

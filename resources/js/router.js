@@ -16,14 +16,13 @@ import ExploreList from  './components/front/Explore/ExploreList.vue'
 import ExploreDetail from  './components/front/Explore/ExploreDetail.vue'
 import UserInformation from  './components/front/user/User-information.vue'
 import Dashboard from  './components/front/user/Dashboard.vue'
-import TourDetail from  './components/front/user/Tour-detail.vue'
 import ProfileEdit from  './components/front/user/Profile_edit.vue'
 import UpdatePassword from  './components/front/user/UpdatePassword.vue'
-import ViewGroup from  './components/front/user/GroupView.vue'
-import AddGroup from  './components/front/user/AddGroup.vue'
-import TourList from  './components/front/user/Tour-list.vue'
-import TourPayment from  './components/front/user/Tour-payment.vue'
-import PaymentMode from  './components/front/user/Payment-mode.vue'
+import ViewGroup from  './components/front/user/group/GroupView.vue'
+import TourDetail from  './components/front/user/tour/Tour-detail.vue'
+import TourList from  './components/front/user/tour/Tour-list.vue'
+import TourPayment from  './components/front/user/tour/Tour-payment.vue'
+import PaymentMode from  './components/front/user/tour/Payment-mode.vue'
 import Error404 from  './components/front/error/404.vue'
 import PaymentCancel from  './components/front/extra/PaymentCancel.vue'
 import PaymentSuccess from  './components/front/extra/PaymentSuccess.vue'
@@ -54,7 +53,6 @@ let router = new Router({
         { path: '/profile-edit',component: ProfileEdit },
         { path: '/update-password',component: UpdatePassword },
         { path: '/group-member/:id',component: ViewGroup },
-        { path: '/add-group/:id',component: AddGroup },
         { path: '/tour-payment/:id', component: TourPayment },
         { path: '/payment-mode/:id', component: PaymentMode },
         { path: '/payment-cancel', component: PaymentCancel },

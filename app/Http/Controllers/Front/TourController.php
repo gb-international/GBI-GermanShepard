@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Hash;
 class TourController extends Controller{
 
      public function tourList(Request $request){
+
+        
         $user = Auth::user();
         $travels =  TourUser::with([
             'tour' => function($tour){
@@ -42,6 +44,9 @@ class TourController extends Controller{
         }
         return response()->json($travels);
     }
+
+
+
 
     public function tourDetail(Request $request){
         $user = Auth::user();
