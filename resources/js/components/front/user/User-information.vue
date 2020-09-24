@@ -118,13 +118,9 @@ export default {
 
     var data = [];
     this.$axios
-      .post("/api/user-show", data, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`
-        }
-      })
+      .post("/api/user-show", [])
       .then(response => {
-        if (response.data.success.status == 1) {
+        if (response.success.status == 1) {
             this.$router.push("/dashboard");
           }
       })

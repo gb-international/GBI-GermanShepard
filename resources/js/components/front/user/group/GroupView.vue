@@ -261,16 +261,10 @@ export default {
     },
     groupMember() {
       var data = { tour_id: this.$route.params.id };
-      this.$axios
-        .post("/api/group-member", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
-        })
+      this.$api.POST("/api/group-member", data)
         .then((response) => {
-          this.total_row = response.data;
+          this.total_row = response;
         })
-        .catch((error) => {
-          this.handleError(error);
-        });
     },
     // Delete Row
     delete_row(index, id) {
@@ -288,10 +282,7 @@ export default {
         .then((result) => {
           if (result.value) {
             var data = { id: id };
-            this.$axios
-              .post("/api/destroy-member", data, {
-                headers: { Authorization: `Bearer ${localStorage.token}` },
-              })
+            this.$api.POST("/api/destroy-member", data)
               .then((response) => {
                 this.total_row.splice(index, 1);
               })
@@ -314,12 +305,9 @@ export default {
       this.edit_index = "";
     },
     UserTourUpdate(data) {
-      this.$axios
-        .post("/api/group-member-update", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
-        })
+      this.$api.POST("/api/group-member-update", data)
         .then((response) => {
-          if (response.data == "error") {
+          if (response == "error") {
             this.$swal.fire({
               icon: "error",
               title: "Try again",
@@ -343,12 +331,9 @@ export default {
         }
       }
 
-      this.$axios
-        .post("/api/group-add", this.new_row, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
-        })
+      this.$api.POST("/api/group-add", this.new_row)
         .then((response) => {
-          if (response.data == "error") {
+          if (response == "error") {
             this.$swal.fire({
               icon: "error",
               title: "Try again",
@@ -361,9 +346,6 @@ export default {
             this.groupMember();
           }
         })
-        .catch((error) => {
-          this.handleError(error);
-        });
     },
 
     changeExcelFile(event) {
