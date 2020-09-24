@@ -19,7 +19,6 @@
           v-model="registerForm.name"
           :class="{ 'is-invalid': registerForm.errors.has('name') }"
           placeholder="Enter Name"
-          name="name"
         />
         <has-error :form="registerForm" field="name"></has-error>
       </div>
@@ -37,7 +36,6 @@
           v-model="registerForm.email"
           :class="{ 'is-invalid': registerForm.errors.has('email') }"
           placeholder="Enter Email"
-          name="name"
         />
         <has-error :form="registerForm" field="email"></has-error>
       </div>
@@ -114,7 +112,6 @@
           v-model="registerForm.password"
           :class="{ 'is-invalid': registerForm.errors.has('password') }"
           placeholder="Enter Password"
-          name="password"
         />
         <has-error :form="registerForm" field="password"></has-error>
       </div>
@@ -132,7 +129,6 @@
           v-model="registerForm.c_password"
           :class="{ 'is-invalid': registerForm.errors.has('c_password') }"
           placeholder="Re-Type Password"
-          name="name"
         />
         <has-error :form="registerForm" field="c_password"></has-error>
       </div>

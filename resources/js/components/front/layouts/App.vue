@@ -210,33 +210,29 @@ export default {
   },
   mounted() {
     this.loginCheck();
+    var url = '/api/details';
+    // this.$cookies.set('access_token',localStorage.getItem('token'));
   },
   methods: {
     loginCheck() {
-      const token = localStorage.token;
+      const token = this.$cookies.get('access_token');
       if (token) {
-        this.$store.token = token;
-
         var data = [];
-        this.$axios.post("/api/user-show", data, { headers: { Authorization: `Bearer ${localStorage.token}` }
-        }).then(response => {
-          this.user.name = response.data.success.name;
-          this.user.photo = response.data.success.information.photo;
-        }).catch(error => {
-          this.handleError(error);
-        });
-
-
-        this.$axios.defaults.headers.common["Authorization"] = token;
-        this.login = 2;
-        return 2;
+        this.$api.POST('/api/user-show',[]).then(response=>{
+          this.user.name = response.success.name;
+          this.user.photo = response.success.information.photo;
+          this.$store.token = token;
+          this.$store.commit('auth_success',token);
+          this.login = 2;
+          return 2;
+        });        
       } else {
         this.login = 1;
         return 1;
       }
     },
     loginClick() {
-      if (localStorage.token == undefined || localStorage.token == "") {
+      if (this.$cookies.get('access_token') == null || this.$cookies.get('access_token') == "") {
         alert("please login first");
         window.$(".loginLink").click();
         return false;

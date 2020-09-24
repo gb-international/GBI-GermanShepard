@@ -195,4 +195,12 @@ class UserController extends Controller{
         ChangePasswordJob::dispatch($user);
         return response()->json('Password change successfully.');
     }
+
+    public function logout(Request $request){
+
+        if(Auth::user()){
+            Auth::user()->AauthAccessToken()->delete();
+        }
+        return response()->json('Logout successfull');
+    }
 }

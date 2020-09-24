@@ -31,15 +31,16 @@ Route::namespace('Front')->group(function(){
 	Route::get('/userdata/{id}','FrontUserController@userdata');
 	Route::post('/join-our-team/send', 'JoinourteamController@resumeSend');
 	Route::post('/contact-us/send', 'JoinourteamController@contactUs');
+	Route::get('school-list','WebsiteController@school');
 	// website
 	Route::get('/travel-programs','WebsiteController@travel_programs');
 	// Front user controller 
 	Route::post('login-user', 'UserController@login');
 	Route::post('register-user', 'UserController@register');
-	Route::get('school-list','WebsiteController@school');
 	Route::group(['middleware' => 'auth:api'], function(){
 		Route::post('details', 'UserController@details');
 		Route::post('/user-show', 'UserController@show');
+		Route::post('/logout-user','UserController@logout');
 		Route::post('/user-info-update', 'UserController@infoUpdate');
 		Route::post('/user-update','UserController@update');
 		Route::post('/update-password','UserController@UpdatePassword');

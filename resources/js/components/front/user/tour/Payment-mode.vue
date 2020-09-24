@@ -77,7 +77,7 @@ export default {
     };
   },
   mounted() {
-    if (localStorage.token == undefined) {
+    if (this.$cookies.get('access_token') == null) {
       this.$router.push("/");
     }
     this.bankNameList();

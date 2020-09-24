@@ -78,10 +78,7 @@ export default {
         confirm_password: this.form.confirm_password
       };
 
-      this.form.post("/api/update-password", {
-          headers: { Authorization: `Bearer ${localStorage.token}` }
-        })
-        .then(response => {
+      this.$api.POST("/api/update-password", data).then(response => {
             this.form.reset();
             this.$router.push('/dashboard');
             this.$swal.fire(
@@ -89,7 +86,6 @@ export default {
               "Your password has been updated",
               "success"
             );
-
         })
         .catch(error => {
           this.handleError(error);

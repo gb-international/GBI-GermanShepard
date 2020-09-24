@@ -58,7 +58,7 @@ export default {
     };
   },
   mounted() {
-    if (localStorage.token == undefined) {
+    if (this.$cookies.get('access_token') == null) {
       this.$router.push("/");
     }
     this.userData();
@@ -68,32 +68,27 @@ export default {
   methods: {
     tourListData() {
       var data = [];
-      this.$axios
-        .post("/api/tour-list", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
-        })
+      this.$api.POST("/api/tour-list", [])
         .then((response) => {
-          if (response.data.length == 0) {
+          if (response.length == 0) {
             this.formShow = true;
           } else {
-            this.tours = response.data;
+            this.tours = response;
           }
-        })
-        .catch((error) => {
-          this.formShow = true;
-          this.handleError(error);
         });
+
+        if(this.tours.length == 0){
+          this.formShow = false;
+        }
+
     },
 
     UserTourSave() {
       var data = { travel_code: this.travel_code };
-      this.$axios
-        .post("/api/tour-travel-save", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
-        })
+      this.$api.POST("/api/tour-travel-save", data)
         .then((response) => {
           // this.alldata = response.data;
-          if (response.data == "error") {
+          if (response == "error") {
             this.$swal.fire({
               icon: "error",
               title: "Try again",
@@ -114,13 +109,9 @@ export default {
     },
 
     userData() {
-      var data = [];
-      this.$axios
-        .post("/api/details", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
-        })
+      this.$api.POST("/api/details", [])
         .then((response) => {
-          this.userinfo = response.data.success;
+          this.userinfo = response.success;
           if (this.userinfo.status == 0) {
             this.$router.push("/user-information");
           }

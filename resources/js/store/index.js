@@ -1,4 +1,6 @@
-import axios from 'axios'
+import Vue from 'vue';
+import axios from 'axios';
+
 export default {
     state: {
         singlepost: [],
@@ -6,7 +8,7 @@ export default {
         editdata: [],// Get Edit data 
         SearchAll: [],
         status: '',
-        token: '',
+        token : '',
         user: {}
     },
     // Getters help to fetch the data from the templates 
@@ -38,8 +40,9 @@ export default {
                 commit('auth_request')
                 axios({ url: '/api/login-user', data: user, method: 'POST' })
                     .then(resp => {
-                        const token = resp.data.success.token
-                        const user = resp.data.success.user
+                        const token = resp.data.success.token;
+                        const user = resp.data.success.user;
+                        Vue.$cookies.set('access_token',token);
                         localStorage.setItem('token', token)
                         axios.defaults.headers.common['Authorization'] = token
                         commit('auth_success', token, user)
@@ -52,6 +55,7 @@ export default {
                     })
             })
         },
+
         register({ commit }, user) {
             return new Promise((resolve, reject) => {
                 commit('auth_request')
@@ -71,9 +75,11 @@ export default {
                     })
             })
         },
+
         logout({ commit }) {
             return new Promise((resolve, reject) => {
                 commit('logout')
+                
                 localStorage.removeItem('token')
                 delete axios.defaults.headers.common['Authorization']
                 resolve()

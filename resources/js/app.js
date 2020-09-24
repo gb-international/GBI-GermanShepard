@@ -10,21 +10,25 @@ import { filter } from "./filter";
 import storeData from "./store/index";
 import EventBus from './store/EventBus';
 import VueSweetalert2 from 'vue-sweetalert2';
-import VueMeta from 'vue-meta'
+import VueMeta from 'vue-meta';
+import api from './_helpers/api';
+import vuecookies from 'vue-cookies';
+Object.defineProperty(Vue.prototype, '$api', { value: api })
 
 
 Vue.use(VueMeta)
 Vue.use(VueSweetalert2);
 Vue.use(Vuex);
+Vue.use(vuecookies)
 Vue.prototype.$axios = axios
 Vue.prototype.$bus = EventBus
 Vue.directive("lazyload", LazyLoadDirective);
 const store = new Vuex.Store(storeData);
+
 // client side js
 if (process.window == 'undefined') {
     window.$ = window.jQuery = require('jquery')
     const token = localStorage.token;
-    console.log(token);
     if(token){
         Vue.prototype.$axios.defaults.headers.common['Authorization'] = token
     }

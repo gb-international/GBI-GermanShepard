@@ -251,36 +251,27 @@ export default {
 
   methods: {
     checkLogin() {
-      if (localStorage.token == undefined) {
+      if (this.$cookies.get('access_token') == null) {
         this.$router.push("/");
       }
       this.valid = true;
     },
     userData() {
       var data = [];
-      this.$axios
-        .post("/api/details", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` }
-        })
-        .then(response => {
-          console.log(response);
-          this.userinfo = response.data.success;
-
-          if (this.userinfo.status == 0) {
-            this.$router.push("/user-information");
-            return false;
-          }
-          if(this.userinfo.information.change_password == 0){
-            this.$swal.fire(
-              "warning",
-              "Please change your password for security purpose !!! <br>",
-              "warning"
-            );
-          }
-        })
-        .catch(error => {
-          this.handleError(error);
-        });
+      this.$api.POST('/api/details',[]).then(response=>{
+        this.userinfo = response.success;
+        if (this.userinfo.status == 0) {
+          this.$router.push("/user-information");
+          return false;
+        }
+        if(this.userinfo.information.change_password == 0){
+          this.$swal.fire(
+            "warning",
+            "Please change your password for security purpose !!! <br>",
+            "warning"
+          );
+        }
+      });
     },
 
     // Upcoming data
@@ -295,10 +286,18 @@ export default {
       return "/uploadimage/" + img;
     },
     logout() {
-      this.$store.dispatch("logout").then(() => {
-        this.$bus.$emit("logged", "User loogedout");
-        this.$router.push("/");
-      });
+      this.$api.POST('/api/logout-user',[]).then(response=>{
+          this.$cookies.remove('access_token');
+          this.$store.dispatch("logout").then(() => {
+          this.$bus.$emit("logged", "User loogedout");
+          this.$router.push("/");
+        })
+      }).catch(error => {
+        this.$store.dispatch("logout").then(() => {
+          this.$bus.$emit("logged", "User loogedout");
+          this.$router.push("/");
+        })
+      })
     }
   }
 };

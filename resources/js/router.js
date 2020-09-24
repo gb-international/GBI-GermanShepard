@@ -32,7 +32,7 @@ Vue.use(Router);
 let router = new Router({
     mode: 'history',
     routes: [
-        { path: '/', component: Home, name: 'home' },
+        { path: '/', component: Home, name: 'Home' },
         { path: '/resources/faq', component: faq },
         { path: '/explore-destination', component: ExploreDestination },
         { path: '/resources/safety-security', component: SafetySecurity },

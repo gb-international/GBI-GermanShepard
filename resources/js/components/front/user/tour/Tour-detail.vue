@@ -11,16 +11,20 @@
             <ul class="timeline">
               <li v-for="data in itineraryData.itinerarydays" :key="data.id">
                 <span class="underline">
-                  <b>Day {{ data.day}}</b>
+                  <b>Day {{ data.day }}</b>
                 </span>
                 <span v-if="data.day_source != data.day_destination">
-                  <b>{{data.day_source.toUpperCase() }} - {{data.day_destination.toUpperCase()}}</b>
+                  <b
+                    >{{ data.day_source.toUpperCase() }} -
+                    {{ data.day_destination.toUpperCase() }}</b
+                  >
                 </span>
                 <a
                   target="_blank"
                   href="https://www.totoprayogo.com/#"
                   v-else
-                >{{ data.day_source.toUpperCase() }}</a>
+                  >{{ data.day_source.toUpperCase() }}</a
+                >
                 <span class="float-right"></span>
                 <p v-html="data.day_description"></p>
               </li>
@@ -32,20 +36,26 @@
           <h3 class="text-center mb-35">THINGS TO CARRY</h3>
 
           <div class="row align-items-center">
-            <div class="col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom">
+            <div
+              class="col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom"
+            >
               <div class="item">
                 <img src="/images/tour/bottel.png" class="bottel" />
                 <p>Water Bottel</p>
               </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom">
+            <div
+              class="col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom"
+            >
               <div class="item text-center">
                 <img src="/images/tour/shoes.png" class="common shoes" />
                 <p>Light Shoes</p>
               </div>
             </div>
             <hr />
-            <div class="col-md-4 col-sm-6 col-6 bottom-border mb-bottom mb-right">
+            <div
+              class="col-md-4 col-sm-6 col-6 bottom-border mb-bottom mb-right"
+            >
               <div class="item">
                 <img src="/images/tour/tourch.png" class="common" />
                 <p>Tourch</p>
@@ -73,7 +83,7 @@
           </div>
         </div>
 
-        <div class="hotel-section mb-35" v-if="hotelData.id">
+        <div class="hotel-section mb-35" v-if="hotelData">
           <h3 class="text-center mb-35">YOU WILL STAY HERE</h3>
           <div class="row justify-content-center">
             <div class="col-sm-4" v-for="hotel in hotelData" :key="hotel.id">
@@ -89,9 +99,15 @@
                             <span v-for="n in max" :key="n.id">&star;</span>
                             <div
                               class="star-rating__current"
-                              :style="{width: getRating(hotel.hotel.type) + '%'}"
+                              :style="{
+                                width: getRating(hotel.hotel.type) + '%',
+                              }"
                             >
-                              <span v-for="n in integer(hotel.hotel.type)" :key="n.id">&starf;</span>
+                              <span
+                                v-for="n in integer(hotel.hotel.type)"
+                                :key="n.id"
+                                >&starf;</span
+                              >
                             </div>
                           </div>
                         </label>
@@ -107,7 +123,7 @@
                     </p>
                     <p>
                       <b>Days stay</b>
-                      : {{ days(hotel.check_in,hotel.check_out) }}
+                      : {{ days(hotel.check_in, hotel.check_out) }}
                       <label>
                         <b>Check out date</b>
                         : {{ dateFormat(hotel.check_out) }}
@@ -120,11 +136,14 @@
           </div>
         </div>
 
-        <div class="airline-section mb-35" v-if="alldata.bookedflights[0]">
+        <div class="airline-section mb-35" v-if="flightData">
           <h3 class="text-center mb-35">AIRLINES DETAILS</h3>
           <hr />
-          <div v-for="air in alldata.bookedflights" :key="air.id">
-            <flight-app :list="air.flight_number" :flightDate="simpleDate(air.departure)"></flight-app>
+          <div v-for="air in flightData" :key="air.id">
+            <flight-app
+              :list="air.flight_number"
+              :flightDate="simpleDate(air.departure)"
+            ></flight-app>
           </div>
         </div>
 
@@ -136,7 +155,7 @@
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448183.73907005717!2d76.81307299667618!3d28.646677259922765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1590745497079!5m2!1sen!2sin"
                 frameborder="0"
-                style="border:0;"
+                style="border: 0"
                 allowfullscreen
                 aria-hidden="false"
                 tabindex="0"
@@ -173,6 +192,7 @@ export default {
       evenclass: true,
       itineraryData: {},
       hotelData: "",
+      flightData: [],
       alldata: [],
       cityList: [],
     };
@@ -193,12 +213,10 @@ export default {
         user_id: this.alldata.user_id,
         tour_code: this.$route.params.id,
       };
-      this.$axios
-        .post("/api/tour-payment-status", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
-        })
+      this.$api
+        .POST("/api/tour-payment-status", data)
         .then((response) => {
-          if (response.data.status != "success") {
+          if (response.status != "success") {
             this.$router.push("/tour-list");
           }
         })
@@ -240,14 +258,13 @@ export default {
 
     tourListData(id) {
       var data = { travel_id: id };
-      this.$axios
-        .post("/api/tour-detail", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
-        })
+      this.$api
+        .POST("/api/tour-detail", data)
         .then((response) => {
-          this.alldata = response.data;
-          this.itineraryData = response.data.itinerary;
-          this.hotelData = response.data.bookedhotels;
+          this.alldata = response;
+          this.itineraryData = response.itinerary;
+          this.flightData = response.bookedflights;
+          this.hotelData = response.bookedhotels;
           this.DestinationCity(this.itineraryData.itinerarydays);
         })
         .catch((error) => {

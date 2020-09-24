@@ -58,7 +58,6 @@
                   v-model="loginform.email"
                   :class="{ 'is-invalid': loginform.errors.has('email') }"
                   placeholder="Enter Email"
-                  name="email"
                 />
                 <has-error :form="loginform" field="email"></has-error>
               </div>
@@ -75,7 +74,6 @@
                   v-model="loginform.password"
                   :class="{ 'is-invalid': loginform.errors.has('password') }"
                   placeholder="Enter Password"
-                  name="password"
                 />
                 <has-error :form="loginform" field="password"></has-error>
               </div>
@@ -113,6 +111,7 @@
       <a href="#" class="forget_link" v-on:click="changeform">Login</a>
     </p>
   </div>
+
 </template>
 <script>
 import { Form, HasError, AlertError } from "vform";
