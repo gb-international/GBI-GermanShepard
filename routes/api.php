@@ -35,12 +35,14 @@ Route::namespace('Front')->group(function(){
 	// website
 	Route::get('/travel-programs','WebsiteController@travel_programs');
 	// Front user controller 
-	Route::post('login-user', 'UserController@login');
-	Route::post('register-user', 'UserController@register');
+	Route::post('login-user', 'AuthController@login');
+	Route::post('register-user', 'AuthController@register');
+	Route::post('refreshtoken','AuthController@refresh');
+
 	Route::group(['middleware' => 'auth:api'], function(){
 		Route::post('details', 'UserController@details');
 		Route::post('/user-show', 'UserController@show');
-		Route::post('/logout-user','UserController@logout');
+		Route::post('/logout-user','AuthController@logout');
 		Route::post('/user-info-update', 'UserController@infoUpdate');
 		Route::post('/user-update','UserController@update');
 		Route::post('/update-password','UserController@UpdatePassword');

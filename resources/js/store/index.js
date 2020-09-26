@@ -40,9 +40,10 @@ export default {
                 commit('auth_request')
                 axios({ url: '/api/login-user', data: user, method: 'POST' })
                     .then(resp => {
-                        const token = resp.data.success.token;
-                        const user = resp.data.success.user;
+                        const token = resp.data.token;
+                        const user = resp.data.user;
                         Vue.$cookies.set('access_token',token);
+                        Vue.$cookies.set('user',user);
                         localStorage.setItem('token', token)
                         axios.defaults.headers.common['Authorization'] = token
                         commit('auth_success', token, user)
