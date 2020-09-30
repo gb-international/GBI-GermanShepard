@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita6ca3eb427c1ea32f218043362a3e5f2
+class ComposerStaticInit9eab1ea27cebedc94d0c1caf21801c2b
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -613,6 +613,7 @@ class ComposerStaticInita6ca3eb427c1ea32f218043362a3e5f2
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Front\\AppController' => __DIR__ . '/../..' . '/app/Http/Controllers/Front/AppController.php',
+        'App\\Http\\Controllers\\Front\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Front/AuthController.php',
         'App\\Http\\Controllers\\Front\\EmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Front/EmailController.php',
         'App\\Http\\Controllers\\Front\\EncyclopediaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Front/EncyclopediaController.php',
         'App\\Http\\Controllers\\Front\\FrontUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Front/FrontUserController.php',
@@ -636,7 +637,6 @@ class ComposerStaticInita6ca3eb427c1ea32f218043362a3e5f2
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
-        'App\\Http\\Middleware\\VerifyCsrfMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfMiddleware.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Resources\\Admin\\AccountCollection' => __DIR__ . '/../..' . '/app/Http/Resources/Admin/AccountCollection.php',
         'App\\Http\\Resources\\Admin\\HotelCollection' => __DIR__ . '/../..' . '/app/Http/Resources/Admin/HotelCollection.php',
@@ -662,12 +662,12 @@ class ComposerStaticInita6ca3eb427c1ea32f218043362a3e5f2
         'App\\Http\\Resources\\TrainCollection' => __DIR__ . '/../..' . '/app/Http/Resources/TrainCollection.php',
         'App\\Http\\Resources\\TransportCollection' => __DIR__ . '/../..' . '/app/Http/Resources/TransportCollection.php',
         'App\\Jobs\\ChangePasswordJob' => __DIR__ . '/../..' . '/app/Jobs/ChangePasswordJob.php',
-        'App\\Jobs\\ContactUsJob' => __DIR__ . '/../..' . '/app/Jobs/ContactUsJob.php',
         'App\\Jobs\\ContactUsUserJob' => __DIR__ . '/../..' . '/app/Jobs/ContactUsUserJob.php',
         'App\\Jobs\\FrontBookingAdminJob' => __DIR__ . '/../..' . '/app/Jobs/FrontBookingAdminJob.php',
         'App\\Jobs\\FrontBookingUserJob' => __DIR__ . '/../..' . '/app/Jobs/FrontBookingUserJob.php',
         'App\\Jobs\\JoinOurTeamJob' => __DIR__ . '/../..' . '/app/Jobs/JoinOurTeamJob.php',
         'App\\Jobs\\JoinOurTeamUserJob' => __DIR__ . '/../..' . '/app/Jobs/JoinOurTeamUserJob.php',
+        'App\\Jobs\\PaymentSuccessJob' => __DIR__ . '/../..' . '/app/Jobs/PaymentSuccessJob.php',
         'App\\Jobs\\SendEmailJob' => __DIR__ . '/../..' . '/app/Jobs/SendEmailJob.php',
         'App\\Mail\\ChangePassword' => __DIR__ . '/../..' . '/app/Mail/ChangePassword.php',
         'App\\Mail\\ContactUs' => __DIR__ . '/../..' . '/app/Mail/ContactUs.php',
@@ -677,6 +677,7 @@ class ComposerStaticInita6ca3eb427c1ea32f218043362a3e5f2
         'App\\Mail\\JoinOurTeam' => __DIR__ . '/../..' . '/app/Mail/JoinOurTeam.php',
         'App\\Mail\\JoinOurTeamUser' => __DIR__ . '/../..' . '/app/Mail/JoinOurTeamUser.php',
         'App\\Mail\\PasswordResetMail' => __DIR__ . '/../..' . '/app/Mail/PasswordResetMail.php',
+        'App\\Mail\\PaymentSuccess' => __DIR__ . '/../..' . '/app/Mail/PaymentSuccess.php',
         'App\\Mail\\SendMailresume' => __DIR__ . '/../..' . '/app/Mail/SendMailresume.php',
         'App\\Model\\Account\\Account' => __DIR__ . '/../..' . '/app/Model/Account/Account.php',
         'App\\Model\\Encyclopedia\\Encyclopedia' => __DIR__ . '/../..' . '/app/Model/Encyclopedia/Encyclopedia.php',
@@ -700,7 +701,6 @@ class ComposerStaticInita6ca3eb427c1ea32f218043362a3e5f2
         'App\\Model\\Reservation\\Pnr' => __DIR__ . '/../..' . '/app/Model/Reservation/Pnr.php',
         'App\\Model\\Reservation\\PnrUser' => __DIR__ . '/../..' . '/app/Model/Reservation/PnrUser.php',
         'App\\Model\\Reservation\\Reservation' => __DIR__ . '/../..' . '/app/Model/Reservation/Reservation.php',
-        'App\\Model\\Reservation\\Tourpayment' => __DIR__ . '/../..' . '/app/Model/Reservation/Tourpayment.php',
         'App\\Model\\Reservation\\sightseeing' => __DIR__ . '/../..' . '/app/Model/Reservation/sightseeing.php',
         'App\\Model\\RoleAndPermission\\Roles' => __DIR__ . '/../..' . '/app/Model/RoleAndPermission/Roles.php',
         'App\\Model\\Sales\\Salesdp' => __DIR__ . '/../..' . '/app/Model/Sales/Salesdp.php',
@@ -714,6 +714,7 @@ class ComposerStaticInita6ca3eb427c1ea32f218043362a3e5f2
         'App\\Model\\Tour\\TourUser' => __DIR__ . '/../..' . '/app/Model/Tour/TourUser.php',
         'App\\Model\\Tour\\Tourprogram' => __DIR__ . '/../..' . '/app/Model/Tour/Tourprogram.php',
         'App\\Model\\Tour\\Tourtype' => __DIR__ . '/../..' . '/app/Model/Tour/Tourtype.php',
+        'App\\Model\\Tour\\Trackpayment' => __DIR__ . '/../..' . '/app/Model/Tour/Trackpayment.php',
         'App\\Model\\Tour\\Userpayment' => __DIR__ . '/../..' . '/app/Model/Tour/Userpayment.php',
         'App\\Model\\Transport\\Tourtransport' => __DIR__ . '/../..' . '/app/Model/Transport/Tourtransport.php',
         'App\\Model\\Transport\\Transport' => __DIR__ . '/../..' . '/app/Model/Transport/Transport.php',
@@ -721,6 +722,7 @@ class ComposerStaticInita6ca3eb427c1ea32f218043362a3e5f2
         'App\\Model\\Transport\\flight' => __DIR__ . '/../..' . '/app/Model/Transport/flight.php',
         'App\\Model\\Transport\\train' => __DIR__ . '/../..' . '/app/Model/Transport/train.php',
         'App\\Model\\User\\Information' => __DIR__ . '/../..' . '/app/Model/User/Information.php',
+        'App\\Model\\User\\OauthAccessToken' => __DIR__ . '/../..' . '/app/Model/User/OauthAccessToken.php',
         'App\\Model\\User\\UserMoreInfo' => __DIR__ . '/../..' . '/app/Model/User/UserMoreInfo.php',
         'App\\Model\\Website' => __DIR__ . '/../..' . '/app/Model/Website.php',
         'App\\Notifications\\NewSalesAlertNotification' => __DIR__ . '/../..' . '/app/Notifications/NewSalesAlertNotification.php',
@@ -5488,10 +5490,10 @@ class ComposerStaticInita6ca3eb427c1ea32f218043362a3e5f2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita6ca3eb427c1ea32f218043362a3e5f2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita6ca3eb427c1ea32f218043362a3e5f2::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInita6ca3eb427c1ea32f218043362a3e5f2::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInita6ca3eb427c1ea32f218043362a3e5f2::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9eab1ea27cebedc94d0c1caf21801c2b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9eab1ea27cebedc94d0c1caf21801c2b::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit9eab1ea27cebedc94d0c1caf21801c2b::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit9eab1ea27cebedc94d0c1caf21801c2b::$classMap;
 
         }, null, ClassLoader::class);
     }
