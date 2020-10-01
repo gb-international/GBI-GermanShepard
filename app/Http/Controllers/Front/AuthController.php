@@ -30,6 +30,7 @@ class AuthController extends Controller{
         
         // Check if a user with the specified email exists
         $user = User::whereEmail($request->email)->first();
+
         if (!$user) {
             return response()->json([
                 'message' => 'Wrong email or password',
@@ -81,12 +82,24 @@ class AuthController extends Controller{
 
         // Get the data from the response
         $data = json_decode($response->getContent());
-
+        $userData = [
+            'name'=>$user->name,
+            'email'=>$user->email,
+            'photo'=>$user->information->photo,
+            'phone_no'=>$user->information->phone_no,
+            'father_name'=>$user->information->father_name,
+            'user_profession'=>$user->information->user_profession,
+            'city'=>$user->information->city,
+            'state'=>$user->information->state,
+            'country'=>$user->information->country,
+            'status'=>$user->status,
+            'change_password' => $user->information->change_password
+        ];
         // Format the final response in a desirable format
         return response()->json([
             'token' => $data->access_token,
             'refresh_token' => $data->refresh_token,
-            'user' => $user,
+            'user' => $userData,
             'status' => 200
         ]);
     }

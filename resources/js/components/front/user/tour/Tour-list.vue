@@ -109,16 +109,20 @@ export default {
     },
 
     userData() {
-      this.$api.POST("/api/details", [])
-        .then((response) => {
-          this.userinfo = response.success;
-          if (this.userinfo.status == 0) {
-            this.$router.push("/user-information");
-          }
-        })
-        .catch((error) => {
-          this.handleError(error);
-        });
+      this.userinfo = this.$cookies.get('user');
+      if (this.userinfo.status == 0) {
+        this.$router.push("/user-information");
+        return false;
+      }
+
+      if(this.userinfo.change_password == 0){
+        this.$swal.fire(
+          "warning",
+          "Please change your password for security purpose !!! <br>",
+          "warning"
+        );
+      }
+      
     },
   },
 };

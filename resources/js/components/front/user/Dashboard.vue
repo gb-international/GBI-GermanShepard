@@ -13,13 +13,13 @@
             <i class="fas fa-cog"></i>
           </router-link>
         </div>
-        <div class="row" v-if="userinfo.information">
+        <div class="row" v-if="userinfo">
           <div class="col-lg-2 text-center image">
             <figure v-lazyload class="image__wrapper">
               <ImageSpinner class="image__spinner" />
               <img
                 class="image__item img img-circle"
-                :data-url="`/uploadimage/${userinfo.information['photo']}`"
+                :data-url="`/uploadimage/${userinfo.photo}`"
                 alt="user profile"
               />
             </figure>
@@ -27,18 +27,18 @@
           <div class="col-lg-10">
             <div class="username text-left">
               <h3>{{ userinfo.name }}</h3>
-              <p>{{ userinfo.information['city'] }} {{ userinfo.information['country'] }}</p>
+              <p>{{ userinfo.city }} {{ userinfo.country }}</p>
             </div>
             <div class="row text-left">
               <div class="col-lg-5">
                 <div class="userinfo">
                   <div class="userinfoFirst">
-                    <p v-if="userinfo.information['father_name']">Father Name</p>
-                    <p class="bottom_text">{{ userinfo.information.father_name }}</p>
+                    <p v-if="userinfo.father_name">Father Name</p>
+                    <p class="bottom_text">{{ userinfo.father_name }}</p>
                   </div>
                   <div class="userinfoSecond">
                     <p>User Type</p>
-                    <p class="bottom_text">{{ userinfo.information['user_profession'] }}</p>
+                    <p class="bottom_text">{{ userinfo.user_profession }}</p>
                   </div>
                 </div>
               </div>
@@ -47,11 +47,11 @@
                 <div class="userinfo">
                   <div class="userinfoFirst">
                     <p>User Id</p>
-                    <p class="bottom_text">{{ userinfo['email'] }}</p>
+                    <p class="bottom_text">{{ userinfo.email }}</p>
                   </div>
                   <div class="userinfoSecond">
                     <p>Mobile Number</p>
-                    <p class="bottom_text">{{ userinfo.information['phone_no'] }}</p>
+                    <p class="bottom_text">{{ userinfo.phone_no }}</p>
                   </div>
                 </div>
               </div>
@@ -236,7 +236,7 @@ export default {
       },
       itineraryData: {},
       upcoming_list: [],
-      userinfo: [],
+      userinfo: {},
       valid:false
     };
   },
@@ -244,7 +244,6 @@ export default {
   
   mounted() {
     this.checkLogin();
-    this.userData();
     this.upComingData();
   },
 
@@ -254,24 +253,24 @@ export default {
       if (this.$cookies.get('access_token') == null) {
         this.$router.push("/");
       }
+      this.userinfo = this.$cookies.get('user');
       this.valid = true;
     },
     userData() {
-      var data = [];
-      this.$api.POST('/api/details',[]).then(response=>{
-        this.userinfo = response.success;
-        if (this.userinfo.status == 0) {
-          this.$router.push("/user-information");
-          return false;
-        }
-        if(this.userinfo.information.change_password == 0){
-          this.$swal.fire(
-            "warning",
-            "Please change your password for security purpose !!! <br>",
-            "warning"
-          );
-        }
-      });
+
+      if (this.userinfo.status == 0) {
+        this.$router.push("/user-information");
+        return false;
+      }
+
+      if(this.userinfo.change_password == 0){
+        this.$swal.fire(
+          "warning",
+          "Please change your password for security purpose !!! <br>",
+          "warning"
+        );
+      }
+      
     },
 
     // Upcoming data

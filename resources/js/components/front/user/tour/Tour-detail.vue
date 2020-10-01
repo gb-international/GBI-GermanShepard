@@ -200,7 +200,6 @@ export default {
 
   beforeMount() {
     this.tourListData(this.$route.params.id);
-    this.paymentStatus();
   },
 
   methods: {
@@ -265,6 +264,7 @@ export default {
           this.itineraryData = response.itinerary;
           this.flightData = response.bookedflights;
           this.hotelData = response.bookedhotels;
+          this.paymentStatus();
           this.DestinationCity(this.itineraryData.itinerarydays);
         })
         .catch((error) => {

@@ -92,7 +92,6 @@
             >
               <router-link class="nav-link" :to="`/contact-us`">Contact Us</router-link>
             </li>
-
             <li class="nav-item mr-10" v-if="login == '1'">
               <a
                 href="#"
@@ -210,11 +209,18 @@ export default {
   },
   mounted() {
     this.loginCheck();
+    if(this.$cookies.get('login')){
+      this.login = this.$cookies.get('login');
+    }
+    if(this.$cookies.get('user') && this.$cookies.get('access_token')){
+      this.user = this.$cookies.get('user');
+    }
     var url = '/api/details';
     // this.$cookies.set('access_token',localStorage.getItem('token'));
   },
   methods: {
     loginCheck() {
+      console.log(this.$cookies.get('login'));
       const token = this.$cookies.get('access_token');
       if (token) {
         var data = [];
@@ -223,12 +229,16 @@ export default {
           this.user.photo = response.success.information.photo;
           this.$store.token = token;
           this.$store.commit('auth_success',token);
+          this.$cookies.set('login',2);
           this.login = 2;
           return 2;
         });        
-      } else {
-        this.login = 1;
-        return 1;
+      }else{
+        this.login = 2;
+        if(this.$cookies.get('login') == 1){
+          console.log('hi');
+          this.login = 1;
+        }
       }
     },
     loginClick() {

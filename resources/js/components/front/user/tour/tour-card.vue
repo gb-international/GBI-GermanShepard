@@ -22,7 +22,7 @@
           </div>
         </div>
 
-        <div class="row text-center" v-if="userinfo.information.user_profession == 'teacher'">
+        <div class="row text-center" v-if="userinfo.user_profession == 'teacher'">
           <div class="col p-0">
             <router-link :to="`/tour-detail/${tour.tour.tour_id}`">
               <div class="text-center bg-transparent-card p-t-15 pb-15 text-white">
@@ -40,7 +40,7 @@
           </div>
         </div>
 
-        <div class="row text-center" v-if="userinfo.information.user_profession == 'student'">
+        <div class="row text-center" v-if="userinfo.user_profession == 'student'">
           <div class="col p-0">
             <router-link :to="`/tour-detail/${tour.tour.tour_id}`">
               <div class="text-center bg-transparent-card p-t-15 pb-15 text-white">

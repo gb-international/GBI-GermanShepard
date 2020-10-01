@@ -54,12 +54,23 @@ function outputError(error) {
          * status code that falls out of the range of 2xx
          */
         if (error.response.status === 401) {
-            Vue.$cookies.remove('access_token');
-            router.replace({ name: 'Home' })
+            console.log('401');
+            var data = {refresh_token:Vue.$cookies.get('refresh_token')};
+            axios.post('/api/refreshtoken',data).then((resp)=>{
+                Vue.$cookies.set('access_token',resp.data.token);
+                Vue.$cookies.set('refresh_token',resp.data.refresh_token);
+                Vue.$cookies.set('login',2);
+                return true;
+            }).catch(error=>{
+                console.log(error);
+                resetAll();
+                router.replace({ name: 'Home' })                
+            })
             return
         }
         else {
             /* other response status such as 403, 404, 422, etc */
+            resetAll();
         }
     }
     else if (error.request) {
@@ -74,6 +85,13 @@ function outputError(error) {
     }
 }
 
+function resetAll(){
+    console.log('error here');
+    Vue.$cookies.remove('access_token');
+    Vue.$cookies.remove('refresh_token');
+    Vue.$cookies.remove('user');
+    Vue.$cookies.set('login',1);
+}
 
 
 export default {

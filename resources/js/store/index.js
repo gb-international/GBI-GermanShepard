@@ -43,7 +43,9 @@ export default {
                         const token = resp.data.token;
                         const user = resp.data.user;
                         Vue.$cookies.set('access_token',token);
+                        Vue.$cookies.set('refresh_token',resp.data.refresh_token);
                         Vue.$cookies.set('user',user);
+                        Vue.$cookies.set('login',2);
                         localStorage.setItem('token', token)
                         axios.defaults.headers.common['Authorization'] = token
                         commit('auth_success', token, user)
@@ -82,6 +84,7 @@ export default {
                 commit('logout')
                 
                 localStorage.removeItem('token')
+                Vue.$cookies.set('login',1);
                 delete axios.defaults.headers.common['Authorization']
                 resolve()
             })
