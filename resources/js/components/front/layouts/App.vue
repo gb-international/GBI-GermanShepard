@@ -141,7 +141,13 @@
         mode="out-in">
         <router-view></router-view>
       </transition>
-
+      <div class="accept_cookies" v-show="cookies_alert">
+        <div class="cookies">
+          <div class="container">
+            <div class="col-sm-12">We use cookies to help us give you the best experience on our website.<span class="mobile-hidden">If you continue without changing your settings, we'll assume that you are happy to receive all cookies on our website. However, if you would like to, you can change your cookie settings at any time.</span><button class="cookie__accept" @click="acceptCookies()">Accept cookies</button><button class="cookie__decline" @click="acceptCookies()">Decline cookies</button></div>
+          </div>
+        </div>
+      </div>
     </div>
     <gbi-footer></gbi-footer>
     <div class="col-md-12 m-bottom">
@@ -190,6 +196,7 @@ export default {
       countDown: 0,
       isnav_active: false,
       user:{name:'',photo:''},
+      cookies_alert:false,
     };
   },
 
@@ -203,11 +210,22 @@ export default {
       });
     });
 
+
+
     this.$bus.$on("logged", () => {
       this.isLogged = this.loginCheck();
     });
   },
   mounted() {
+    // this.$cookies.remove('access_token');
+    // this.$cookies.remove('refresh_token');
+    // this.$cookies.remove('user');
+    // this.$cookies.set('login',1);
+    // check is cookies is accepted or not
+
+    if(!this.$cookies.isKey('cookies_alert')){
+      this.cookies_alert = true;
+    }
     this.loginCheck();
     if(this.$cookies.get('login')){
       this.login = this.$cookies.get('login');
@@ -220,7 +238,6 @@ export default {
   },
   methods: {
     loginCheck() {
-      console.log(this.$cookies.get('login'));
       const token = this.$cookies.get('access_token');
       if (token) {
         var data = [];
@@ -236,7 +253,6 @@ export default {
       }else{
         this.login = 2;
         if(this.$cookies.get('login') == 1){
-          console.log('hi');
           this.login = 1;
         }
       }
@@ -259,6 +275,11 @@ export default {
     },
     makeActive: function(el) {
       this.nav_active_el = el;
+    },
+    acceptCookies:function(){
+      // this.$cookies.set('cookies_alert','yes','1y');
+      this.$cookies.set('cookies_alert','yes','6s');
+      this.cookies_alert = false;
     }
   }
 };

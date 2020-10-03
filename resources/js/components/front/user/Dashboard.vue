@@ -243,6 +243,7 @@ export default {
 
   
   mounted() {
+    
     this.checkLogin();
     this.upComingData();
   },
@@ -250,6 +251,7 @@ export default {
 
   methods: {
     checkLogin() {
+      this.$cookies.remove('login');
       if (this.$cookies.get('access_token') == null) {
         this.$router.push("/");
       }
