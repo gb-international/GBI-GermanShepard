@@ -276,15 +276,9 @@
             <div class="form-group mb-30">
               <label for="descriptionId">Description</label>
 
-              <ckeditor
-                :editor="editor"
-                class="form-control"
-                id="description"
-                v-model="form.description"
-                :config="editorConfig"
-                :class="{ 'is-invalid': form.errors.has('description') }"
-              ></ckeditor>
-
+                <vue-editor v-model="form.description" 
+                    :class="{ 'is-invalid': form.errors.has('description') }"
+                    ></vue-editor>
               <has-error :form="form" field="description"></has-error>
             </div>
             <div class="row mb-30">
@@ -326,7 +320,6 @@
                   <model-select :options="options" v-model="data.day_source" placeholder="From"></model-select>
 
                   {{ data.day_source.value }}
-                  <!-- <input type="text" class="form-control" v-model="data.day_source"> -->
                 </div>
                 <div class="col-sm-6">
                   <label>Destination</label>
@@ -336,14 +329,9 @@
 
                 <div class="col-sm-12">
                   <label>Description</label>
-                  <ckeditor
-                    :editor="editor"
-                    class="form-control"
-                    id="description"
-                    v-model="data.day_description"
-                    :config="editorConfig"
+                  <vue-editor v-model="data.day_description" 
                     :class="{ 'is-invalid': form.errors.has('description') }"
-                  ></ckeditor>
+                    ></vue-editor>
                 </div>
               </div>
             </div>
@@ -364,25 +352,25 @@
 <script>
 import "vue-search-select/dist/VueSearchSelect.css";
 import { ModelSelect } from "vue-search-select";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import Multiselect from "vue-multiselect";
 import { Form, HasError, AlertError } from 'vform'
+
+import { VueEditor, Quill } from "vue2-editor";
+
 export default {
   name: "EditItinerary",
-  components:{Form,
-  'has-error': HasError
+  components:{
+    Form,
+    'has-error': HasError
   },
   components: {
     ModelSelect,
+    'vue-editor': VueEditor,
     Multiselect
   },
   data() {
     return {
-      // Create a new form instance
-      editor: ClassicEditor,
-      editorConfig: {
-        // The configuration of the editor.
-      },
+
       options: [],
       sources: { value: "", text: "" },
       destinations: { value: "", text: "" },

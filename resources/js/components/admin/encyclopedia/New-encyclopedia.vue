@@ -51,7 +51,9 @@ to submit the data we are using a function.
                   <div class="form-group">
                       <label for="descriptionId">Description</label>
 
-                      <ckeditor :editor="editor" class="form-control" id="description" v-model="form.description" :config="editorConfig"  :class="{ 'is-invalid': form.errors.has('description') }"></ckeditor>
+                      <vue-editor v-model="form.description" 
+                      :class="{ 'is-invalid': form.errors.has('description') }"
+                      ></vue-editor>
 
                       <has-error :form="form" field="description"></has-error>
                   </div>
@@ -199,7 +201,7 @@ to submit the data we are using a function.
 </template>
 
 <script>
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { VueEditor, Quill } from "vue2-editor";
 import 'vue-search-select/dist/VueSearchSelect.css'
 import { ModelSelect } from 'vue-search-select'
 import { Form, HasError } from 'vform'
@@ -207,13 +209,13 @@ import { Form, HasError } from 'vform'
 export default {
   name: "New",
   components: {
-    ModelSelect,Form,'has-error':HasError
+    ModelSelect,
+    VueEditor,
+    Form,
+    'has-error':HasError
   },
   data(){
     return {
-      editor: ClassicEditor,
-      editorConfig: {// The configuration of the editor.
-      },
       state_list:[],
       attachments:[],
       form: new Form({

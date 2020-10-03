@@ -287,14 +287,9 @@ to submit the data we are using a function.
                 <div class="form-group">
                   <label for="descriptionId">Description</label>
 
-                  <ckeditor
-                    :editor="editor"
-                    class="form-control"
-                    id="description"
-                    v-model="form.description"
-                    :config="editorConfig"
+                  <vue-editor v-model="form.description" 
                     :class="{ 'is-invalid': form.errors.has('description') }"
-                  ></ckeditor>
+                    ></vue-editor>
 
                   <has-error :form="form" field="description"></has-error>
                 </div>
@@ -355,14 +350,10 @@ to submit the data we are using a function.
 
                 <div class="col-sm-12">
                   <label>Description</label>
-                  <ckeditor
-                    :editor="editor"
-                    class="form-control"
-                    id="description"
-                    v-model="data.day_description"
-                    :config="editorConfig"
+                  <vue-editor v-model="data.day_description" 
                     :class="{ 'is-invalid': form.errors.has('description') }"
-                  ></ckeditor>
+                    ></vue-editor>
+   
                 </div>
               </div>
             </div>
@@ -383,26 +374,24 @@ to submit the data we are using a function.
 </template>
 
 <script>
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import "vue-search-select/dist/VueSearchSelect.css";
 import { ModelSelect } from "vue-search-select";
 import Multiselect from "vue-multiselect";
 import { Form, HasError, AlertError } from 'vform';
+
+import { VueEditor, Quill } from "vue2-editor";
 
 export default {
   name: "NewItinerary",
   components: {
     ModelSelect,
     Multiselect,
+    VueEditor,
     Form,
     'has-error':HasError
   },
   data() {
     return {
-      editor: ClassicEditor,
-      editorConfig: {
-        // The configuration of the editor.
-      },
       options: [],
       tour_type_list: [],
       selected: null,

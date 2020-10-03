@@ -51,7 +51,6 @@ Vue.use(VueHtmlToPaper, options);
 
 
 
-
 import storeData from "./store/index"
 const store = new Vuex.Store(
     storeData
