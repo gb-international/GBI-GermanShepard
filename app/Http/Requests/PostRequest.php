@@ -13,7 +13,7 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title'=>'required',
+            'slug'=>'required',
+            'summary'=>'required',
+            'description'=>'required',
+            'meta_title'=>'required',
+            'status'=>'required'
         ];
     }
 }
