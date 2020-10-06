@@ -38,6 +38,8 @@
         "jspdf": "^1.5.3",
         "moment": "^2.26.0",
         "node-sass": "^4.14.1",
+        "quill-image-drop-module": "^1.0.3",
+        "quill-image-resize-module": "^3.0.0",
         "read-excel-file": "^4.0.6",
         "responsive-iframe": "0.0.1",
         "sweetalert2": "^9.14.3",

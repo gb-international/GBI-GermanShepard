@@ -4,6 +4,7 @@ namespace App\Traits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Image;
+
 trait ImageTrait {
     public $imgdata;
 

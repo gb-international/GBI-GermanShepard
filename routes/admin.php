@@ -103,14 +103,22 @@ Route::namespace('Admin')->group(function (){
 	Route::namespace('Account')->group(function(){
 		Route::get('/accounts','AccountController@index');
 	});
+
 	Route::namespace('Encyclopedia')->group(function(){
 		Route::resource('encyclopedias','EncyclopediaController');
 		Route::resource('encyclopediacomments','EncyclopediacommentController');
 	});
+
 	Route::namespace('Website')->group(function(){
 		Route::resource('website','WebsiteController');
 		Route::get('user','UserController@index');
 		Route::get('user/{id}','UserController@show');
+		Route::post('/images','ImageController@upload');
+		Route::post('/images/delete','ImageController@delete');
+	});
+
+	Route::namespace('Post')->group(function(){
+		Route::resource('categories','CategoryController');
 	});
 	
 });

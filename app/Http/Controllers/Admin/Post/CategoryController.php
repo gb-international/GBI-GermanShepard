@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin\Post;
 use App\Http\Controllers\Controller;
 use App\Model\Post\Category;
+use App\Http\Requests\Post\CategoryRequest;
 use Illuminate\Http\Request;
+use App\Traits\ImageTrait;
 
 class CategoryController extends Controller
 {
@@ -12,9 +14,10 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    use ImageTrait;
     public function index()
     {
-        //
+        return response()->json(Category::get());
     }
 
     /**
@@ -33,9 +36,12 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['image'] = $this->verifyAndUpload($request,'image','/images/post/');
+        Category::create($data);
+        return response()->json('succesfull created');
     }
 
     /**
@@ -57,7 +63,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return response()->json($category);
     }
 
     /**
@@ -67,9 +73,16 @@ class CategoryController extends Controller
      * @param  \App\Model\Post\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        //
+        $data = $request->all();
+        if($request->image != $category->image){
+            $path = '/images/post/'.$category->image;
+            $this->deleteImg($path);
+            $data['image'] = $this->verifyAndUpload($request,'image','/images/post/');
+        }
+        $category->update($data);
+        return response()->json('succesfull created');
     }
 
     /**
@@ -80,6 +93,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $path = '/images/post/'.$category->image;
+        $this->deleteImg($path);
+        $category->delete();
+        return response()->json('successfully deleted');
     }
 }

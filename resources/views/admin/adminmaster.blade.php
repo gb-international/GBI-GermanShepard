@@ -471,6 +471,38 @@
                     </li>
                     @endcan
 
+                    
+                    @can(['blog'])
+                    <li class="nav-item has-treeview">
+                      <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-file-alt"></i>
+                        <p> Blog <i class="right fas fa-angle-right"></i>
+                        </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+
+                        @can('category')
+                        <li class="nav-item">
+                          <router-link to="/categories" class="nav-link">
+                            <p> Categories </p>
+                          </router-link>
+                        </li>
+                        @endcan
+
+                        {{-- @can('encyclopedia')
+                        <li class="nav-item">
+                          <router-link to="/encyclopedia-list" class="nav-link">
+                            <p> Encyclopedia </p>
+                          </router-link>
+                        </li>
+                        @endcan --}}
+
+                      </ul>
+                    </li>
+                    @endcan
+
+
+
                     @canany(['setting','roles','permissions'])
                     <li class="nav-item has-treeview">
                       <a href="#" class="nav-link">

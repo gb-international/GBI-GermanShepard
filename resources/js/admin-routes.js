@@ -161,7 +161,10 @@ import Homepage from './components/admin/website/home/Page.vue'
 import User from './components/admin/website/user/List.vue'
 import UserView from './components/admin/website/user/View.vue'
 
-
+// Blog
+import Categories from './components/admin/blog/Category/List.vue';
+import CategoriesAdd from './components/admin/blog/Category/New.vue';
+import CategoriesEdit from './components/admin/blog/Category/Edit.vue';
 
 export const routes = [
     { path:'/', component:AdminDashboard },
@@ -307,7 +310,11 @@ export const routes = [
     
     { path:'/homepage', component: Homepage},
     { path:'/user', component: User},
-    { path: '/user/:id', component: UserView},   
+    { path: '/user/:id', component: UserView},  
+    
+    { path: '/categories', component: Categories },
+    { path: '/categories-add', component: CategoriesAdd },
+    { path: '/categories/:id', component: CategoriesEdit },
 ];
 
 
