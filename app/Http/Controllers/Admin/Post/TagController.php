@@ -14,7 +14,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Tag::get());
     }
 
     /**
@@ -35,7 +35,8 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tag::create($request->all());
+        return response()->json('succesfull created');
     }
 
     /**
@@ -46,7 +47,7 @@ class TagController extends Controller
      */
     public function show(Tag $tag)
     {
-        //
+        return response()->json($tag);
     }
 
     /**
@@ -57,7 +58,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return response()->json($tag);
     }
 
     /**
@@ -69,7 +70,8 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+        $tag->update($request->all());
+        return response()->json('succesfull created');
     }
 
     /**
@@ -80,6 +82,7 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+        return response()->json('successfully deleted');
     }
 }

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Post;
 use App\Http\Controllers\Controller;
-use App\Model\Post\Post;
+use App\Http\Requests\Post\PostRequest;
 use Illuminate\Http\Request;
-
+use App\Traits\ImageTrait;
+use App\Model\Post\Post;
+use App\Model\Post\Category;
+use App\Model\Post\Tag;
 class PostController extends Controller
 {
     /**
@@ -12,9 +15,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    use ImageTrait;
     public function index()
     {
-        //
+        return response()->json(Post::get());
     }
 
     /**
@@ -33,9 +37,24 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        $data = $request->all();
+        $cat_id= [];
+        $tag_id= [];
+        foreach ($request->categories as $cat) {
+            array_push($cat_id,$cat['id']);
+        }        
+        foreach ($request->tags as $tag) {
+            array_push($tag_id,$tag['id']);
+        }
+
+        $data['image'] = $this->verifyAndUpload($request,'image','/images/post/');
+        $post = Post::create($data);
+        $post->categories()->sync($cat_id);
+        $post->tags()->sync($tag_id);
+
+        return response()->json('succesfull created');
     }
 
     /**
@@ -46,7 +65,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $post->categories;
+        $post->tags;
+        return response()->json($post);
     }
 
     /**
@@ -57,7 +78,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $post->categories;
+        $post->tags;
+        return response()->json($post);
     }
 
     /**
@@ -69,7 +92,26 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->all();
+        // $data['status'] = (int)$data['status'];
+        $cat_id= [];
+        $tag_id= [];
+        foreach ($request->categories as $cat) {
+            array_push($cat_id,$cat['id']);
+        }        
+        foreach ($request->tags as $tag) {
+            array_push($tag_id,$tag['id']);
+        }
+
+        if($request->image != $post->image){
+            $path = '/images/post/'.$post->image;
+            $this->deleteImg($path);
+            $data['image'] = $this->verifyAndUpload($request,'image','/images/post/');
+        }
+        $post->update($data);
+        $post->categories()->sync($cat_id);
+        $post->tags()->sync($tag_id);
+        return $data;
     }
 
     /**
@@ -80,6 +122,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $path = '/images/post/'.$post->image;
+        $this->deleteImg($path);
+        $post->delete();
+        return response()->json('successfully deleted');
     }
 }

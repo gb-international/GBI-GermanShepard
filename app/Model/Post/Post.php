@@ -6,15 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 class Post extends Model
 {
-    private $fillable = ['user_id','title','image','slug','summery','description','meta_title','meta_keyword'];
+    protected $fillable = ['title','image','slug','summery','description','meta_title','meta_keyword','status'];
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo('App\Model\Post\Category');
+        return $this->belongsToMany('App\Model\Post\Category');
     }
 
     public function tags()
     {
-        return $this->hasMany('App\Model\Post\Tag');
+        return $this->belongsToMany('App\Model\Post\Tag');
+    }
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+        $this->attributes['slug'] = Str::slug($value,'-');
     }
 }

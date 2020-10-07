@@ -165,6 +165,19 @@ import UserView from './components/admin/website/user/View.vue'
 import Categories from './components/admin/blog/Category/List.vue';
 import CategoriesAdd from './components/admin/blog/Category/New.vue';
 import CategoriesEdit from './components/admin/blog/Category/Edit.vue';
+import CategoriesView from './components/admin/blog/Category/View.vue';
+
+import Post from './components/admin/blog/post/List.vue';
+import PostAdd from './components/admin/blog/post/New.vue';
+import PostEdit from './components/admin/blog/post/Edit.vue';
+import PostView from './components/admin/blog/post/View.vue';
+
+import Tag from './components/admin/blog/tag/List.vue';
+import TagAdd from './components/admin/blog/tag/New.vue';
+import TagEdit from './components/admin/blog/tag/Edit.vue';
+
+
+
 
 export const routes = [
     { path:'/', component:AdminDashboard },
@@ -311,10 +324,21 @@ export const routes = [
     { path:'/homepage', component: Homepage},
     { path:'/user', component: User},
     { path: '/user/:id', component: UserView},  
-    
+    // categories
     { path: '/categories', component: Categories },
     { path: '/categories-add', component: CategoriesAdd },
     { path: '/categories/:id', component: CategoriesEdit },
+    { path: '/categories-view/:id', component: CategoriesView },
+    // Post
+    { path: '/posts', component: Post },
+    { path: '/posts-add', component: PostAdd },
+    { path: '/posts/:id', component: PostEdit },
+    { path: '/posts-view/:id', component: PostView },
+    // Tags    
+    { path: '/tags', component: Tag },
+    { path: '/tags-add', component: TagAdd },
+    { path: '/tags/:id', component: TagEdit },
+
 ];
 
 

@@ -489,13 +489,22 @@
                         </li>
                         @endcan
 
-                        {{-- @can('encyclopedia')
+                        @can('tag')
                         <li class="nav-item">
-                          <router-link to="/encyclopedia-list" class="nav-link">
-                            <p> Encyclopedia </p>
+                          <router-link to="/tags" class="nav-link">
+                            <p> Tags </p>
                           </router-link>
                         </li>
-                        @endcan --}}
+                        @endcan
+                        
+                        @can('post')
+                        <li class="nav-item">
+                          <router-link to="/posts" class="nav-link">
+                            <p> Posts </p>
+                          </router-link>
+                        </li>
+                        @endcan
+
 
                       </ul>
                     </li>

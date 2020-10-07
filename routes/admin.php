@@ -119,6 +119,8 @@ Route::namespace('Admin')->group(function (){
 
 	Route::namespace('Post')->group(function(){
 		Route::resource('categories','CategoryController');
+		Route::resource('posts','PostController');
+		Route::resource('tags','TagController');
 	});
 	
 });

@@ -11,7 +11,7 @@ class Category extends Model
 
     public function posts()
     {
-        return $this->hasMany('App\Model\Post\Post');
+        return $this->belongsToMany('App\Model\Post\Post');
     }
 
     public function setTitleAttribute($value)

@@ -35,7 +35,7 @@ data from the api to display the data about the Category from the backend .
                 :key="category.id"
               >
                 <td>{{ category.title }}</td>
-                <td :inner-html.prop="category.description | sortlength(60) + '...'"></td>
+                <td :inner-html.prop="category.description | sortlength(60) + ' ...'"></td>
                 <td class="edit_section">
                   <router-link
                     :to="`/categories/${category.id}`"
