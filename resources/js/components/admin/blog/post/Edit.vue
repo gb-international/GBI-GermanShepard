@@ -327,7 +327,6 @@ export default {
         });
     },
 
-
     imagePath(){
         return '/images/post/'+ this.form.image;
     },

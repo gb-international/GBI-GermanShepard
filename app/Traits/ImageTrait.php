@@ -21,7 +21,7 @@ trait ImageTrait {
         $sub = substr($request->$fieldname,0,$strpos);
         $ex = explode('/',$sub)[1];
         $name = time().".".$ex;
-        $img = Image::make($request->image)->resize(210, 120);
+        $img = Image::make($request->image);
         $upload_path = public_path().$folder;
         $img->save($upload_path.$name);
         return $name;

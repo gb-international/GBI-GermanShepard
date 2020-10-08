@@ -18,7 +18,7 @@ to submit the data we are using a function.
           <form
             role="form"
             enctype="multipart/form-data"
-            @submit.prevent="UpdateBus()"
+            @submit.prevent="UpdateCategory()"
           >
             <div class="row">
 
@@ -165,16 +165,16 @@ export default {
     };
   },
   created() {
-    this.editBus();
+    this.editCategory();
   },
   methods: {
-    editBus() {
+    editCategory() {
       axios.get(`/api/categories/${this.$route.params.id}/edit`).then((response) => {
         setTimeout(() => $("#example").DataTable(), 1000);
         this.form.fill(response.data);
       });
     },
-    UpdateBus() {
+    UpdateCategory() {
       this.form
         .put(`/api/categories/${this.$route.params.id}`)
         .then((response) => {

@@ -35,7 +35,7 @@ data from the api to display the data about the Category from the backend .
                 :key="category.id"
               >
                 <td>{{ category.title }}</td>
-                <td :inner-html.prop="category.description | sortlength(60) + ' ...'"></td>
+                <td v-html="category.description"></td>
                 <td class="edit_section">
                   <router-link
                     :to="`/categories/${category.id}`"
@@ -66,11 +66,9 @@ data from the api to display the data about the Category from the backend .
             </tbody>
           </table>
         </div>
-        <!-- end -->
       </div>
     </div>
   </section>
-  <!-- /.content -->
 </template>
 
 <script>
