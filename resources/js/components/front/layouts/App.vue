@@ -59,7 +59,7 @@
               @click="makeActive(3)"
               :class="{ nav_active : nav_active_el == 3 }"
             >
-              <a class="nav-link" href="https://gowithgbi.wordpress.com/" target="blank">GBI Travel Blog</a>
+              <router-link class="nav-link" :to="`/blog`">GBI Travel Blog</router-link>
             </li>
             <li
               class="nav-item mr-10 dropdown"
@@ -141,13 +141,15 @@
         mode="out-in">
         <router-view></router-view>
       </transition>
-      <div class="accept_cookies" v-show="cookies_alert">
-        <div class="cookies">
-          <div class="container">
-            <div class="col-sm-12">We use cookies to help us give you the best experience on our website.<span class="mobile-hidden">If you continue without changing your settings, we'll assume that you are happy to receive all cookies on our website. However, if you would like to, you can change your cookie settings at any time.</span><button class="cookie__accept" @click="acceptCookies()">Accept cookies</button><button class="cookie__decline" @click="acceptCookies()">Decline cookies</button></div>
+      <transition name="fade" mode="out-in">
+        <div class="accept_cookies" v-show="cookies_alert">
+          <div class="cookies">
+            <div class="container">
+              <div class="col-sm-12">We use cookies to help us give you the best experience on our website.<span class="mobile-hidden">If you continue without changing your settings, we'll assume that you are happy to receive all cookies on our website. However, if you would like to, you can change your cookie settings at any time.</span><button class="cookie__accept" @click="acceptCookies()">Accept cookies</button><button class="cookie__decline" @click="acceptCookies()">Decline cookies</button></div>
+            </div>
           </div>
         </div>
-      </div>
+      </transition>
     </div>
     <gbi-footer></gbi-footer>
     <div class="col-md-12 m-bottom">
@@ -227,8 +229,9 @@ export default {
       this.cookies_alert = true;
     }
     this.loginCheck();
-    if(this.$cookies.get('login')){
-      this.login = this.$cookies.get('login');
+    this.login = this.$cookies.get('login');
+    if(this.login == null){
+      this.login = 1;
     }
     if(this.$cookies.get('user') && this.$cookies.get('access_token')){
       this.user = this.$cookies.get('user');
@@ -277,8 +280,8 @@ export default {
       this.nav_active_el = el;
     },
     acceptCookies:function(){
-      // this.$cookies.set('cookies_alert','yes','1y');
-      this.$cookies.set('cookies_alert','yes','6s');
+      this.$cookies.set('cookies_alert','yes','1y');
+      // this.$cookies.set('cookies_alert','yes','6s');
       this.cookies_alert = false;
     }
   }

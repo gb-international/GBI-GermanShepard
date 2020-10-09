@@ -26,6 +26,8 @@ import PaymentMode from  './components/front/user/tour/Payment-mode.vue'
 import Error404 from  './components/front/error/404.vue'
 import PaymentCancel from  './components/front/extra/PaymentCancel.vue'
 import PaymentSuccess from  './components/front/extra/PaymentSuccess.vue'
+import Blogs from  './components/front/Blog/list.vue'
+import BlogDetail from  './components/front/Blog/Detail.vue'
 
 Vue.use(Router);
 
@@ -57,6 +59,8 @@ let router = new Router({
         { path: '/payment-mode/:id', component: PaymentMode },
         { path: '/payment-cancel', component: PaymentCancel },
         { path: '/payment-success', component: PaymentSuccess },
+        { path: '/blog', component: Blogs },
+        { path: '/blog/:slug', component: BlogDetail },
         { path: '*', component: Error404 }
     ]
 });
