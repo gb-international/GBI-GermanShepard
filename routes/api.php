@@ -34,6 +34,9 @@ Route::namespace('Front')->group(function(){
 	Route::get('school-list','WebsiteController@school');
 	// website
 	Route::get('/travel-programs','WebsiteController@travel_programs');
+	// Blog 
+	Route::get('/blog-list','BlogController@list');
+	Route::get('/getpost/{slug}','BlogController@view');
 	// Front user controller 
 	Route::post('login-user', 'AuthController@login');
 	Route::post('register-user', 'AuthController@register');

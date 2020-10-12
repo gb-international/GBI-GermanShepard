@@ -130,16 +130,9 @@ to submit the data we are using a function.
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="categories">Category</label>
-
-                  <multiselect
-                    v-model="form.categories"
-                    :options="categories"
-                    :multiple="true"
-                    :close-on-select="true"
-                    placeholder="Pick Categories"
-                    label="title"
-                    track-by="title"
-                  ></multiselect>
+                  <select class="form-control" v-model="form.category_id">
+                    <option v-for="cat in categories" :key="cat.id" :value="cat.id">{{ cat.title }}</option>
+                  </select>
 
                   <has-error :form="form" field="categories"></has-error>
                 </div>
@@ -234,7 +227,7 @@ export default {
         meta_keyword: "",
         status:"",
         tags:[],
-        categories:[]
+        category_id:""
       }),
     };
   },

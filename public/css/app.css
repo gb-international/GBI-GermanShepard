@@ -8565,7 +8565,6 @@ a:hover {
 }
 
 .blog-detail .author-blog .avatar-author {
-  width: 40px;
   float: left;
 }
 
@@ -8576,6 +8575,18 @@ a:hover {
 @media (max-width: 992px) {
   .search-blog-form select {
     margin: 5px 0px;
+  }
+
+  .description h1 {
+    font-size: 1.3rem;
+  }
+
+  .description h2 {
+    font-size: 1.1rem;
+  }
+
+  .description h3 {
+    font-size: 1.0rem;
   }
 
   .search-blog-form select {
@@ -8761,6 +8772,45 @@ a:hover {
   border-radius: 0px;
   background: transparent;
   font-weight: 500;
+}
+
+.avatar-author {
+  width: 40px;
+}
+
+.banner-image-parent {
+  position: relative;
+  text-align: center;
+  color: white;
+  height: 480px;
+}
+
+.banner-image-parent img {
+  height: 480px;
+}
+
+.banner-image-parent .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 767px) {
+  .banner-image-parent {
+    height: 280px;
+  }
+
+  .banner-image-parent img {
+    height: 280px;
+  }
+
+  .banner-image-parent .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .underline {
@@ -8981,6 +9031,12 @@ i {
 @media screen and (max-width: 800px) {
   #frontmaster {
     margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    text-align: justify;
   }
 }
 

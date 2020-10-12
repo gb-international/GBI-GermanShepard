@@ -1,6 +1,6 @@
 <template>
   <!--*****    Author:@Ajay  **********-->
-  <div id="howwework">
+  <div id="BlogList">
     <div class="howwework_banner text_on_image banner_bg">
       <div class="content-blog-banner">
         <h1 class="text-center blog-heading">Travel Blog</h1>
@@ -40,31 +40,23 @@
     <div class="blog-list mt-3">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="i in 10" :key="i">
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="post in posts.data" :key="post.id">
             <div class="card border-radius-0">
-                <div class="container pt-3">
-                    <img
-                        class="card-img-top border-radius-0"
-                        src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-1.jpg"
-                        alt="Bologna"
-                    />
-
-                </div>
+              <div class="container pt-3">
+                <img
+                  class="card-img-top border-radius-0"
+                  :src="getImgPath(post.image)"
+                  alt="Bologna"
+                />
+              </div>
               <div class="card-body">
-                <h4 class="card-title text-left text-primary">Adventure</h4>
-                <router-link :to="`/blog/new-one`">
-                    <h6 class="card-subtitle mb-2">
-                    Emilia-Romagna Region, Italy
-                    </h6>
-                    <p class="card-text">
-                    It is the seventh most populous city in Italy, at the heart of
-                    a metropolitan area of about one million people.
-                    </p>
+                <h4 class="card-title text-left text-primary">{{ post.category.title }}</h4>
+                <router-link :to="`/blog/${post.slug}`">
+                    <h6 class="card-subtitle mb-2">{{ post.title }}</h6>
+                    <p class="card-text">{{ post.summery }}</p>
                 </router-link>
                 <div class="card-tags">
-                    <span class="text-dark card-tag">relaxation</span>
-                    <span class="text-dark card-tag">yoga</span>
-                    <span class="text-dark card-tag">inida</span>
+                    <span class="text-dark card-tag mr-2" v-for="tag in post.tags" :key="tag.id">{{ tag.title }}</span>
                 </div>
               </div>
             </div>
@@ -77,7 +69,7 @@
 
 <script>
 export default {
-  name: "HowWework",
+  name: "BlogList",
   metaInfo: {
     title: "How We Work",
     meta: [
@@ -100,7 +92,22 @@ export default {
   },
 
   data() {
-    return {};
+    return {
+      posts:[],
+    };
   },
+  mounted(){
+    this.blogList();
+  },
+  methods:{
+    blogList(){
+      this.$axios.get("/api/blog-list").then(response => {
+        this.posts = response.data;
+      });
+    },
+    getImgPath(img){
+      return `/images/post/`+img;
+    }
+  }
 };
 </script>

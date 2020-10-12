@@ -40,18 +40,13 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
         $data = $request->all();
-        $cat_id= [];
-        $tag_id= [];
-        foreach ($request->categories as $cat) {
-            array_push($cat_id,$cat['id']);
-        }        
+        $tag_id= [];      
         foreach ($request->tags as $tag) {
             array_push($tag_id,$tag['id']);
         }
 
         $data['image'] = $this->verifyAndUpload($request,'image','/images/post/');
         $post = Post::create($data);
-        $post->categories()->sync($cat_id);
         $post->tags()->sync($tag_id);
 
         return response()->json('succesfull created');
@@ -65,7 +60,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $post->categories;
+        $post->category;
         $post->tags;
         return response()->json($post);
     }
@@ -78,7 +73,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $post->categories;
+        $post->category;
         $post->tags;
         return response()->json($post);
     }
@@ -94,22 +89,16 @@ class PostController extends Controller
     {
         $data = $request->all();
         // $data['status'] = (int)$data['status'];
-        $cat_id= [];
-        $tag_id= [];
-        foreach ($request->categories as $cat) {
-            array_push($cat_id,$cat['id']);
-        }        
+        $tag_id= [];       
         foreach ($request->tags as $tag) {
             array_push($tag_id,$tag['id']);
         }
-
         if($request->image != $post->image){
             $path = '/images/post/'.$post->image;
             $this->deleteImg($path);
             $data['image'] = $this->verifyAndUpload($request,'image','/images/post/');
         }
         $post->update($data);
-        $post->categories()->sync($cat_id);
         $post->tags()->sync($tag_id);
         return $data;
     }

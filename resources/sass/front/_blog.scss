@@ -83,11 +83,7 @@
 
 .blog-detail{
     .author-blog{
-
-        .avatar-author{
-            width: 40px;
-            float: left;
-        }
+        .avatar-author{ float: left;}
         .font-14{
             font-size: 14px;
         }
@@ -100,6 +96,21 @@
         select{
             margin: 5px 0px;
         }
+    }
+    .description{
+        h1{
+            font-size: 1.3rem;
+        }
+        
+        h2{
+            font-size: 1.1rem;
+        }
+        
+        h3{
+            font-size: 1.0rem;
+        }
+
+
     }
     .search-blog-form{
         select{
@@ -115,6 +126,6 @@
     }
     .blog-heading{ font-size: 30px;}
     .select-cat select + i.fas{ margin-top: -40px;}
-
+    
 
 }

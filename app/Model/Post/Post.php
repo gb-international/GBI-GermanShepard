@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 class Post extends Model
 {
-    protected $fillable = ['title','image','slug','summery','description','meta_title','meta_keyword','status'];
+    protected $fillable = ['category_id','title','image','slug','summery','description','meta_title','meta_keyword','status'];
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany('App\Model\Post\Category');
+        return $this->belongsTo('App\Model\Post\Category');
     }
 
     public function tags()

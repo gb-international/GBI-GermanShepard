@@ -84,7 +84,11 @@ i{
 		margin-bottom: 40px;
 	}
 }
-
+@media (max-width: 767px){
+	body{
+		text-align: justify;
+	}
+}
 .fade-enter-active,
 .fade-leave-active {
   transition-duration: 0.2s;
