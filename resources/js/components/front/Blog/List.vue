@@ -11,6 +11,7 @@
                 <div class="col-lg-9 col-md-6 col-sm-12 p-0">
                   <input
                     type="text"
+                    v-model="searchQuery"
                     class="form-control search-slt"
                     placeholder="Enter the place"
                   />
@@ -40,26 +41,8 @@
     <div class="blog-list mt-3">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="post in posts.data" :key="post.id">
-            <div class="card border-radius-0">
-              <div class="container pt-3">
-                <img
-                  class="card-img-top border-radius-0"
-                  :src="getImgPath(post.image)"
-                  alt="Bologna"
-                />
-              </div>
-              <div class="card-body">
-                <h4 class="card-title text-left text-primary">{{ post.category.title }}</h4>
-                <router-link :to="`/blog/${post.slug}`">
-                    <h6 class="card-subtitle mb-2">{{ post.title }}</h6>
-                    <p class="card-text">{{ post.summery }}</p>
-                </router-link>
-                <div class="card-tags">
-                    <span class="text-dark card-tag mr-2" v-for="tag in post.tags" :key="tag.id">{{ tag.title }}</span>
-                </div>
-              </div>
-            </div>
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="post in resultQuery" :key="post.id">
+            <blog-card :post="post" />
           </div>
         </div>
       </div>
@@ -68,8 +51,10 @@
 </template>
 
 <script>
+import BlogCard from './BlogCard';
 export default {
   name: "BlogList",
+  components:{ BlogCard },
   metaInfo: {
     title: "How We Work",
     meta: [
@@ -94,6 +79,8 @@ export default {
   data() {
     return {
       posts:[],
+      posts_list:[],
+      searchQuery:'',
     };
   },
   mounted(){
@@ -103,10 +90,22 @@ export default {
     blogList(){
       this.$axios.get("/api/blog-list").then(response => {
         this.posts = response.data;
+        this.posts_list = this.posts.data;
       });
     },
-    getImgPath(img){
-      return `/images/post/`+img;
+  },
+  computed: {
+    resultQuery() {
+      if (this.searchQuery) {
+        return this.posts_list.filter(item => {
+          return this.searchQuery
+            .toLowerCase()
+            .split(" ")
+            .every(v => item.title.toLowerCase().includes(v));
+        });
+      } else {
+        return this.posts_list;
+      }
     }
   }
 };

@@ -9,13 +9,21 @@ class BlogController extends Controller
     public function list(){
         return response()->json(Post::with('category','tags')->paginate(8));
     }
+
+    
+    public function category($slug){
+        $category = Category::where('slug',$slug)->first();
+        return response()->json($category);
+    }
+
+
     
     public function view($slug){
         return response()->json(Post::with('category','tags')->where('slug',$slug)->first());
     }
 
     public function relatedPost($category_id){
-        return response()->json(Post::where('category_id',$category_id)->get());
+        return response()->json(Post::with('category','tags')->where('category_id',$category_id)->get());
     }
 
 }

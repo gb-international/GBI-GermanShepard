@@ -28,11 +28,15 @@ import PaymentCancel from  './components/front/extra/PaymentCancel.vue'
 import PaymentSuccess from  './components/front/extra/PaymentSuccess.vue'
 import Blogs from  './components/front/Blog/list.vue'
 import BlogDetail from  './components/front/Blog/Detail.vue'
+import Category from  './components/front/Blog/Category.vue'
 
 Vue.use(Router);
 
 let router = new Router({
     mode: 'history',
+    scrollBehavior() {
+        return { x: 0, y: 0 };
+    },
     routes: [
         { path: '/', component: Home, name: 'Home' },
         { path: '/resources/faq', component: faq },
@@ -61,6 +65,7 @@ let router = new Router({
         { path: '/payment-success', component: PaymentSuccess },
         { path: '/blog', component: Blogs },
         { path: '/blog/:slug', component: BlogDetail },
+        { path: '/blog/category/:slug', component: Category },
         { path: '*', component: Error404 }
     ]
 });

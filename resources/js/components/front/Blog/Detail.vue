@@ -11,7 +11,7 @@
 
     <div class="container mt-2">
         <div class="blog-detail">
-            <p class="text-muted mb-2">GBI-Blog > Travel Blog > Romentic > Blog Details</p>
+            <p class="text-muted mb-2" v-if="posts.category"><router-link :to="`/blog`">GBI Travel Blog </router-link >> <router-link :to="`/blog/category/${posts.category.slug}`">{{ posts.category.title }}</router-link> >{{ posts.slug}}</p>
 
             <div class="text-left mb-2 author-blog">
               <img src="/assets/front/images/logo-avatar.png" class="img-rounded avatar-author mr-2" />
@@ -25,24 +25,13 @@
               </div>
             </div>
             <div class="mt-4">
-              Read More : 
+              <b>Read More : </b>
               <div class="col-sm-12">
-                <div class="posts" v-if="posts.length">
-                  <VueSlickCarousel :arrows="true" :dots="true" v-bind="settings">
-                      <div class="card_scroll states_card" v-for="state in posts" :key="state.id">
-                      <div class="card">
-                          <img
-                          class="card-img-top"
-                          :src="getImgPath(state.thumbnail)"
-                          loading="lazy"
-                          :alt="state.state_name"
-                          />
-                          <div class="card-img-overlay text-center">
-                          <p class="card-text text-white">
-                              <router-link :to="`/encyclopedia/${state.slug}`">{{state.state_name}}</router-link>
-                          </p>
-                          </div>
-                      </div>
+                <div class="posts blog-list" v-if="RelatedPosts.length">
+                  <VueSlickCarousel v-bind="settings">
+                      <div v-for="relatedPost in RelatedPosts" :key="relatedPost.id" class="mr-1 p-2">
+                        <blog-card :post="relatedPost" />
+
                       </div>
                   </VueSlickCarousel>
                 </div>
@@ -89,9 +78,10 @@
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
 import { Form, HasError, AlertError } from "vform";
+import BlogCard from './BlogCard';
 export default {
   name: "BlogDetail",
-    components: { VueSlickCarousel, Form, HasError },
+    components: { VueSlickCarousel, Form, HasError, BlogCard },
     metaInfo: {
       title: "How We Work",
       meta: [
@@ -116,8 +106,9 @@ export default {
   data(){
     return{
       settings: {
-        dots: true,
+        arrows:true,
         infinite: false,
+        autoplay:true,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 3,
@@ -150,6 +141,7 @@ export default {
         ]
       },
       posts:[],
+      RelatedPosts:[],
       form: new Form({
         body: "",
         encyclopedia_id: "",
@@ -157,16 +149,28 @@ export default {
       }),
     }
   },
-  mounted(){
-    this.getRelatedBlogs();
+  watch: {
+    "$route.params.slug": function(id) {
+      this.getBlogDetail();
+    }
+  },
+  created(){
+    this.getBlogDetail();
   },
   methods:{
-    getRelatedBlogs(){
+    getBlogDetail(){
       this.$axios.get(`/api/getpost/${this.$route.params.slug}`).then(response => {
         this.posts = response.data;
-        console.log(this.posts);
+        this.getRelatedBlogs()
       });
     },
+    
+    getRelatedBlogs(){
+      this.$axios.get(`/api/related-blog/${this.posts.category_id}`).then(response => {
+        this.RelatedPosts = response.data;
+      });
+    },
+
     getImgPath(img){
       return `/images/post/`+img;
     },

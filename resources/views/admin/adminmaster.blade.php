@@ -8,9 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">    
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
-  
-
-   
+     
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -578,10 +576,6 @@
 </div>
 
 <!-- ./wrapper -->
-
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
-
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="/js/admin/adminlte.js"></script>
 <script>
