@@ -35,7 +35,7 @@ Route::namespace('Front')->group(function(){
 	// website
 	Route::get('/travel-programs','WebsiteController@travel_programs');
 	// Blog 
-	Route::get('/blog-list','BlogController@list');
+	Route::get('/blog-list/{count?}','BlogController@list');
 	Route::get('/category-list','BlogController@categoryList');
 	Route::get('/category/{slug}','BlogController@category');
 	Route::get('/getpost/{slug}','BlogController@view');

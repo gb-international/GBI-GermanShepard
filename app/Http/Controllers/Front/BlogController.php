@@ -7,9 +7,9 @@ use App\Model\Post\Comment;
 use App\Model\Post\Category;
 class BlogController extends Controller
 {
-    public function list()
+    public function list($count=3)
     {
-        return response()->json(Post::with('category','tags')->paginate(8));
+        return response()->json(Post::with('category','tags')->paginate($count));
     }
 
     public function category($slug)

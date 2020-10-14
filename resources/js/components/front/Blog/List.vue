@@ -42,7 +42,7 @@
       <div class="container">
 
         <div class="row" v-if="search==false">
-          <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="post in posts_list" :key="post.id">
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="(post,index) in posts_list" :key="index">
             <blog-card :post="post" />
           </div>
         </div>
@@ -54,17 +54,21 @@
           </div>
         </div>
 
+        <Observer @intersect="intersected" />
+
+
       </div>
     </div>
-
+      <div class="loadingspinner" v-if="loading"></div>
   </div>
 </template>
 
 <script>
+import Observer from "../../partials/Observer";
 import BlogCard from './BlogCard';
 export default {
   name: "BlogList",
-  components:{ BlogCard },
+  components:{ BlogCard,Observer },
   metaInfo: {
     title: "How We Work",
     meta: [
@@ -93,12 +97,14 @@ export default {
       search_list:[],
       searchQuery:'',
       category_list:[],
+      loading: false,
       form:{
         category_id:'',
         title : ''
       },
       error_message:'',
-      search:false
+      search:false,
+      page:1
     };
   },
   watch:{
@@ -109,10 +115,20 @@ export default {
     }
   },
   mounted(){
-    this.blogList();
     this.CategoryList();
   },
   methods:{
+    async intersected() {
+      this.loading = true;
+      var url = `/api/blog-list?page=` + this.page;
+      const res = await fetch(url);
+
+      this.page++;
+      const items = await res.json();
+      
+      this.posts_list = [...this.posts_list, ...items.data];
+      this.loading = false;
+    },
     blogList(){
       this.$axios.get("/api/blog-list").then(response => {
         this.posts = response.data;
