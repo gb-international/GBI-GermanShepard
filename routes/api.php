@@ -36,9 +36,12 @@ Route::namespace('Front')->group(function(){
 	Route::get('/travel-programs','WebsiteController@travel_programs');
 	// Blog 
 	Route::get('/blog-list','BlogController@list');
+	Route::get('/category-list','BlogController@categoryList');
 	Route::get('/category/{slug}','BlogController@category');
 	Route::get('/getpost/{slug}','BlogController@view');
 	Route::get('/related-blog/{cat_id}','BlogController@relatedPost');
+	Route::post('/search-post','BlogController@searchPost');
+	Route::post('/add-post-comment','BlogController@addComment');
 	// Front user controller 
 	Route::post('login-user', 'AuthController@login');
 	Route::post('register-user', 'AuthController@register');

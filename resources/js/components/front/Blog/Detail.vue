@@ -44,15 +44,19 @@
               <div class="row">
                 <div class="col-sm-8">
                   <form class="form" @submit.prevent="addComment()">
+
+
                     <div class="form-group">
+                      <input type="text" v-model="form.name" class="form-control border-1-grey" placeholder="Enter name"><br />
                       <textarea
                         class="form-control"
                         rows="3"
-                        v-model="form.body"
+                        v-model="form.description"
                         placeholder="Type here..."
-                        :class="{ 'is-invalid': form.errors.has('body') }"
+                        :class="{ 'is-invalid': form.errors.has('description') }"
                       ></textarea>
-                      <has-error :form="form" field="body"></has-error>
+                      <has-error :form="form" field="description"></has-error>
+                      <p v-if="error_message != ''" class="text-danger">{{ error_message}}</p>
                       <div class="row">
                         <div class="col text-right">
                           <button type="submit" class="btn btn-info profile_button comment_btn">Submit</button>
@@ -60,11 +64,11 @@
                       </div>
                     </div>
                   </form>
-                  <div class="media border p-3">
+                  <div class="media border p-3 mb-2" v-for="comment in posts.comments" :key="comment.id">
                     <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" alt="John Doe" class="avatar-author mr-3 mt-3 rounded-circle">
                     <div class="media-body">
-                      <h6>John Doe <small><i>Posted on February 19, 2016</i></small></h6>
-                      <p>Lorem ipsum...</p>
+                      <h6>{{ comment.name}} <small><i>{{ comment.created_at}}</i></small></h6>
+                      <p>{{ comment.description}}</p>
                     </div>
                   </div>
                 </div>
@@ -142,11 +146,14 @@ export default {
       },
       posts:[],
       RelatedPosts:[],
+
       form: new Form({
-        body: "",
-        encyclopedia_id: "",
-        parent_id: null
+        name: "",
+        description: "",
+        post_id:''
       }),
+      error_message:'',
+      
     }
   },
   watch: {
@@ -171,11 +178,20 @@ export default {
       });
     },
 
+    addComment(){
+      if(this.form.name == '' || this.form.description == ''){
+        this.error_message = "Please fill the fields";
+        return false;
+      }
+      this.form.post_id = this.posts.id;
+      this.$axios.post(`/api/add-post-comment`,this.form).then(response => {
+        this.posts.comments.unshift(response.data);
+        this.form.name = '';
+        this.form.description = '';
+      });
+    },
     getImgPath(img){
       return `/images/post/`+img;
-    },
-    addComment(){
-
     },
   }
 };

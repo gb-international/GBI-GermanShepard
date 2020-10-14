@@ -18,6 +18,11 @@ class Post extends Model
         return $this->belongsToMany('App\Model\Post\Tag');
     }
 
+    public function comments()
+    {
+        return $this->hasMany('App\Model\Post\Comment')->orderBy('id','desc');
+    }
+
     public function setTitleAttribute($value)
     {
         $this->attributes['title'] = $value;

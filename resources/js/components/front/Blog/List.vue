@@ -11,9 +11,9 @@
                 <div class="col-lg-9 col-md-6 col-sm-12 p-0">
                   <input
                     type="text"
-                    v-model="searchQuery"
+                    v-model="form.title"
                     class="form-control search-slt"
-                    placeholder="Enter the place"
+                    placeholder="Enter the title"
                   />
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 p-0">
@@ -21,32 +21,42 @@
                     <select
                       class="form-control search-slt"
                       id="exampleFormControlSelect1"
+                      v-model="form.category_id"
                     >
-                      <option>Select Vehicle</option>
-                      <option>Example one</option>
-                      <option>Example one</option>
+                      <option v-for="cat in category_list" :key="cat.id" :value="cat.id">{{cat.title }}</option>
                     </select>
                     <i class="fas fa-caret-down"></i>
                   </div>
                 </div>
               </div>
+              <span v-if="error_message != ''" class="text-danger">{{ error_message }}</span>
             </div>
           </form>
         </div>
 
-        <p class="text-center"><button type="submit" class="btn btn-defalt btn-lg center-block profile_button">Search</button></p>
+        <p class="text-center"><button type="submit" class="btn btn-defalt btn-lg center-block profile_button" @click="SearchBlog()">Search</button></p>
       </div>
     </div>
 
     <div class="blog-list mt-3">
       <div class="container">
-        <div class="row">
-          <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="post in resultQuery" :key="post.id">
+
+        <div class="row" v-if="search==false">
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="post in posts_list" :key="post.id">
             <blog-card :post="post" />
           </div>
         </div>
+
+        
+        <div class="row" v-else>
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="post in search_list" :key="post.id">
+            <blog-card :post="post" />
+          </div>
+        </div>
+
       </div>
     </div>
+
   </div>
 </template>
 
@@ -80,11 +90,27 @@ export default {
     return {
       posts:[],
       posts_list:[],
+      search_list:[],
       searchQuery:'',
+      category_list:[],
+      form:{
+        category_id:'',
+        title : ''
+      },
+      error_message:'',
+      search:false
     };
+  },
+  watch:{
+    'form.title':function(){
+      if(this.form.title ==''){
+        this.search = false;
+      }
+    }
   },
   mounted(){
     this.blogList();
+    this.CategoryList();
   },
   methods:{
     blogList(){
@@ -93,20 +119,26 @@ export default {
         this.posts_list = this.posts.data;
       });
     },
-  },
-  computed: {
-    resultQuery() {
-      if (this.searchQuery) {
-        return this.posts_list.filter(item => {
-          return this.searchQuery
-            .toLowerCase()
-            .split(" ")
-            .every(v => item.title.toLowerCase().includes(v));
-        });
-      } else {
-        return this.posts_list;
+    
+    CategoryList(){
+      this.$axios.get("/api/category-list").then(response => {
+        this.category_list = response.data;
+      });
+    },
+
+    SearchBlog(){
+      if(this.form.title == '' || this.form.category_id == ''){
+        this.error_message = 'Try again !';
+      }else{
+        this.error_message = '';
       }
+      this.$axios.post("/api/search-post",this.form).then(response => {
+        this.search_list = response.data;
+        this.search = true;
+      });
+      
     }
-  }
+
+  },
 };
 </script>
