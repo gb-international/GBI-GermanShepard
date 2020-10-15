@@ -36,8 +36,17 @@ class BlogController extends Controller
 
     public function searchPost(Request $request)
     {
-        return response()->json(Post::with('category','tags')
-            ->where('title','like',"%$request->title%")->get());
+        if($request->title != ''){
+            $data = Post::with('category','tags')
+            ->where('title','like',"%$request->title%")
+            ->get();
+        }else{
+            $data = Post::with('category','tags')
+            ->where('category_id',$request->category_id)
+            ->where('title','like',"%$request->title%")
+            ->get();
+        }
+        return response()->json($data);
     }
 
     public function addComment(Request $request)

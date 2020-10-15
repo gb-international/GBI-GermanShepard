@@ -4,14 +4,16 @@
     <div class="banner-image-parent">
       <img :src="getImgPath(posts.image)" />
       <div class="container">
-        <h1 class="text-center blog-heading">{{posts.title }}</h1>
+        <div class="blog-title">
+          <h1 class="text-center blog-heading">{{posts.title }}</h1>
+        </div>
       </div>
     </div>
     
 
     <div class="container mt-2">
         <div class="blog-detail">
-            <p class="text-muted mb-2" v-if="posts.category"><router-link :to="`/blog`">GBI Travel Blog </router-link >> <router-link :to="`/blog/category/${posts.category.slug}`">{{ posts.category.title }}</router-link> >{{ posts.slug}}</p>
+            <p class="text-muted pt-3 pb-3" v-if="posts.category"><router-link :to="`/blog`">GBI Travel Blog </router-link >> <router-link :to="`/blog/category/${posts.category.slug}`" class="text-underscore"><b>{{ posts.category.title }}</b></router-link> >{{ posts.slug}}</p>
 
             <div class="text-left mb-2 author-blog">
               <img src="/assets/front/images/logo-avatar.png" class="img-rounded avatar-author mr-2" />

@@ -16,6 +16,7 @@
                     placeholder="Enter the title"
                   />
                 </div>
+
                 <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                   <div class="select-cat">
                     <select
@@ -23,11 +24,13 @@
                       id="exampleFormControlSelect1"
                       v-model="form.category_id"
                     >
+                      <option value="undefined" disabled>Select category</option>
                       <option v-for="cat in category_list" :key="cat.id" :value="cat.id">{{cat.title }}</option>
                     </select>
                     <i class="fas fa-caret-down"></i>
                   </div>
                 </div>
+
               </div>
               <span v-if="error_message != ''" class="text-danger">{{ error_message }}</span>
             </div>
@@ -99,7 +102,7 @@ export default {
       category_list:[],
       loading: false,
       form:{
-        category_id:'',
+        category_id:undefined,
         title : ''
       },
       error_message:'',
@@ -143,16 +146,17 @@ export default {
     },
 
     SearchBlog(){
-      if(this.form.title == '' || this.form.category_id == ''){
-        this.error_message = 'Try again !';
-      }else{
-        this.error_message = '';
+      if((this.form.category_id == undefined ) && (this.form.title == '')){
+        this.error_message = 'Try again!!!';
+        return false;
       }
+      
+      this.error_message = '';
       this.$axios.post("/api/search-post",this.form).then(response => {
         this.search_list = response.data;
+        console.log(response);
         this.search = true;
       });
-      
     }
 
   },

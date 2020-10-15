@@ -8494,6 +8494,11 @@ a:hover {
   padding: 0px 25px;
 }
 
+#BlogDetail .blog-title {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .search-sec {
   padding: 2rem;
 }
