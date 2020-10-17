@@ -88,26 +88,6 @@ import BlogCard from './BlogCard';
 export default {
   name: "BlogDetail",
     components: { VueSlickCarousel, Form, HasError, BlogCard },
-    metaInfo: {
-      title: "How We Work",
-      meta: [
-        {
-          name: "description",
-          content:
-            "@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one",
-        },
-        {
-          name: "keywords",
-          content:
-            "@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs",
-        },
-        {
-          name: "url",
-          content: "https://www.gowithgbi.com/about-us/how-we-work",
-        },
-        { name: "type", content: "website" },
-      ],
-    },
 
   data(){
     return{
@@ -119,6 +99,7 @@ export default {
         slidesToShow: 3,
         slidesToScroll: 3,
         initialSlide: 0,
+        dots:true,
         responsive: [
         {
             breakpoint: 1024,
@@ -146,7 +127,13 @@ export default {
         }
         ]
       },
-      posts:[],
+      posts:{
+        title:'',
+        description:'',
+        slug:'',
+        meta_title:'',
+        meta_keyword:''
+      },
       RelatedPosts:[],
 
       form: new Form({
@@ -155,9 +142,32 @@ export default {
         post_id:''
       }),
       error_message:'',
-      
+      title: 'Foo Bar Baz'
     }
   },
+
+  metaInfo() {
+    return{
+      title: this.posts.title,
+      meta: [
+        {
+          name: "description",
+          content:
+            "@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one",
+        },
+        {
+          name: "keywords",
+          content:this.posts.meta_keyword,
+        },
+        {
+          name: "url",
+          content: `https://www.gowithgbi.com/blog/${this.posts.slug}`,
+        },
+        { name: "type", content: "website" },
+      ]
+    }
+  },
+
   watch: {
     "$route.params.slug": function(id) {
       this.getBlogDetail();
@@ -170,6 +180,7 @@ export default {
     getBlogDetail(){
       this.$axios.get(`/api/getpost/${this.$route.params.slug}`).then(response => {
         this.posts = response.data;
+        console.log(this.posts);
         this.getRelatedBlogs()
       });
     },

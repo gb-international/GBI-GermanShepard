@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
-import router from '../router'
+import { createRouter } from '@/router'
+const router = createRouter()
 
 let config = {
     baseURL: '',

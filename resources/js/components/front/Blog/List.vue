@@ -8,7 +8,8 @@
           <form method="post" novalidate="novalidate">
             <div class="col-lg-12">
               <div class="row justify-content-center">
-                <div class="col-lg-9 col-md-6 col-sm-12 p-0">
+
+                <div class="col-lg-8 col-md-5 col-sm-12 p-0">
                   <input
                     type="text"
                     v-model="form.title"
@@ -16,8 +17,13 @@
                     placeholder="Enter the title"
                   />
                 </div>
+                
+                <div class="col-lg-1 col-md-1 col-sm-12 p-0">
+                  <p class="text-center or-text"><b>OR</b></p>
+                </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+
+                <div class="col-lg-3 col-md-6 col-sm-12 p-0">
                   <div class="select-cat">
                     <select
                       class="form-control search-slt"
@@ -72,26 +78,6 @@ import BlogCard from './BlogCard';
 export default {
   name: "BlogList",
   components:{ BlogCard,Observer },
-  metaInfo: {
-    title: "How We Work",
-    meta: [
-      {
-        name: "description",
-        content:
-          "@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one",
-      },
-      {
-        name: "keywords",
-        content:
-          "@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs",
-      },
-      {
-        name: "url",
-        content: "https://www.gowithgbi.com/about-us/how-we-work",
-      },
-      { name: "type", content: "website" },
-    ],
-  },
 
   data() {
     return {
@@ -117,6 +103,29 @@ export default {
       }
     }
   },
+
+   metaInfo() {
+    return{
+      title: "GBI Blog",
+      meta: [
+        {
+          name: "description",
+          content:
+            "@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one",
+        },
+        {
+          name: "keywords",
+          content:this.posts.meta_keyword,
+        },
+        {
+          name: "url",
+          content: `https://www.gowithgbi.com/blog/${this.posts.slug}`,
+        },
+        { name: "type", content: "website" },
+      ]
+    }
+  },
+
   mounted(){
     this.CategoryList();
   },

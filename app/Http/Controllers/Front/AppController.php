@@ -30,6 +30,7 @@ class AppController extends Controller
 
   public function get(Request $request) {
     $ssr = $this->render($request->path());
+    
     return view('app', ['ssr' => $ssr]);
   }
 }

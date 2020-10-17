@@ -36,6 +36,7 @@
 
     <meta property="og:title" content="G.B International is a travel educational specialist for young minds.">
     <meta property="og:site_name" content="gowithgbi.com">
+    <meta property="og:keywords" content="tour,gbi tour and travel, travel">
     <meta property="og:url" content="https://www.gowithgbi.com/travel-and-education#/">
     <meta property="og:description" content="GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.">
     <meta property="og:type" content="website">
@@ -56,36 +57,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  {!! $ssr !!}
   <script src="{{ asset('js/entry-client.js') }}" type="text/javascript"></script>
 
-
-
-    
-{{-- <div id="app">
-  <div>  
-    <div class="row">
-      <home-main></home-main>
-    </div>
-  </div>
-</div>
- --}}
 <script>
   window.Laravel = <?php echo json_encode([
       'csrfToken' => csrf_token(),
     ]); ?>
 </script>
-
-<!-- vue JavaScript -->
-<script rel="preload" src="{{asset('js/entry-client.js')}}" as="script"></script>
-
-
-
-
-
-
-
-
-
-
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

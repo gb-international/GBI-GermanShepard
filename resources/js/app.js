@@ -1,7 +1,7 @@
 
 import App from './components/front/layouts/App.vue';
 import Vue from 'vue';
-import router from './router';
+import { createRouter } from './router'
 import axios from 'axios';
 import Vuex from 'vuex';
 import vueHeadful from "vue-headful";
@@ -39,8 +39,24 @@ Vue.component("vue-headful", vueHeadful);
 Vue.component("ImageSpinner", require("./components/partials/ImageSpinner.vue").default);
 Vue.component("gbi-footer", require("./components/front/layouts/Footer.vue").default);
 
-export default new Vue({
-    router,
-    store,
-    render: h => h(App)
-});
+
+export function createApp() {
+    // create router instance
+    const router = createRouter()
+
+    const app = new Vue({
+        // inject router into root Vue instance
+        store,
+        router,
+        render: h => h(App)
+    })
+
+    // return both the app and the router
+    return { app, router, store }
+}
+
+// export default new Vue({
+//     router,
+//     store,
+//     render: h => h(App)
+// });

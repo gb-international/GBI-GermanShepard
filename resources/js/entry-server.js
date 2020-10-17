@@ -1,7 +1,10 @@
 import app from './app'
 import router from './router';
+import { createApp } from './app';
+
 
 new Promise((resolve, reject) => {
+  const { app, router } = createApp()
   router.push(url);
   router.onReady(() => {
     const matchedComponents = router.getMatchedComponents();

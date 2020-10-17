@@ -36,8 +36,10 @@
     padding: 21px 21px;
     background: rgba(43, 188, 255, 0.8);
     select{
-        border-left: 1px solid grey !important;
         height: 43px;
+    }
+    .or-text{
+        font-size: 18px;
     }
     
 }

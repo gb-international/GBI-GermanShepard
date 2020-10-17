@@ -7,10 +7,13 @@ mix.js('resources/js/entry-client.js', 'public/js')
 mix.webpackConfig({
    resolve: {
       alias: {
-         'vue$': 'vue/dist/vue.runtime.common.js'
+         'vue$': 'vue/dist/vue.runtime.common.js',
+         '@': path.resolve(__dirname, 'resources/js')
       }
    }
 });
+
+
 
 // mix.js('resources/js/admin.js', 'public/js/admin')
 //    .sass('resources/sass/admin/app.scss', 'public/css/admin')

@@ -8521,8 +8521,11 @@ a:hover {
 }
 
 .search-blog-form select {
-  border-left: 1px solid grey !important;
   height: 43px;
+}
+
+.search-blog-form .or-text {
+  font-size: 18px;
 }
 
 .select-cat select {
