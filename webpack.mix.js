@@ -4,6 +4,7 @@ mix.js('resources/js/entry-client.js', 'public/js')
    .js('resources/js/entry-server.js', 'public/js')
    .sass('resources/sass/front/app.scss', 'public/css');
 
+
 mix.webpackConfig({
    resolve: {
       alias: {

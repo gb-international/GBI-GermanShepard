@@ -1,4 +1,7 @@
 
+
+// const Home = () => import(/* webpackChunkName: "Home" */ '@/components/front/layouts/FrontHome.vue');
+
 import Home from '@/components/front/layouts/FrontHome.vue'
 import faq from '@/components/front/Resources/Faq.vue'
 import ExploreDestination from '@/components/front/Explore/ExploreDestination.vue'
@@ -64,3 +67,63 @@ export default [
     { path: '*', component: Error404 }
 ];
 
+
+
+
+// { path: '/', component: () => import(/* webpackChunkName: "Home" */ '@/components/front/layouts/FrontHome.vue') },
+
+// { path: '/resources/faq', component: () => import(/* webpackChunkName: "faq" */ '@/components/front/Resources/Faq.vue') },
+
+// { path: '/explore-destination', component: () => import(/* webpackChunkName: "ExploreDestination" */ '@/components/front/Explore/ExploreDestination.vue') },
+
+// { path: '/resources/safety-security', component: () => import(/* webpackChunkName: "SafetySecurity" */ '@/components/front/Resources/SafetySecurity.vue') },
+
+// { path: '/resources/travel-education', component: () => import(/* webpackChunkName: "TravelEdu" */ '@/components/front/Resources/TravelEducation.vue') },
+
+
+// { path: '/resources/travel-encyclopedia', component: () => import(/* webpackChunkName: "encyclopediaTravel" */ '@/components/front/Encyclopedia/States.vue') },
+
+// { path: '/encyclopedia/:id', component: () => import(/* webpackChunkName: "EncyclopediaView" */ '@/components/front/Encyclopedia/State-view.vue') },
+
+// { path: '/contact-us', component: () => import(/* webpackChunkName: "contactus" */ '@/components/front/ContactUs/ContactUs.vue') },
+
+// { path: '/about-us/our-story', component: () => import(/* webpackChunkName: "OurStory" */ '@/components/front/AboutUs/OurStory.vue') },
+
+// { path: '/about-us/how-we-work', component: () => import(/* webpackChunkName: "HowWeWork" */ '@/components/front/AboutUs/HowWework.vue') },
+
+// { path: '/about-us/join-our-team', component: () => import(/* webpackChunkName: "JoinOurTeam" */ '@/components/front/AboutUs/JoinOurTeam.vue') },
+
+// { path: '/about-us/image-gallery', component: () => import(/* webpackChunkName: "ImageGallery" */ '@/components/front/AboutUs/ImageGallery.vue') },
+
+// { path: '/explore-list', component: () => import(/* webpackChunkName: "ExploreList" */ '@/components/front/Explore/ExploreList.vue') },
+
+// { path: '/explore-detail/:id', component: () => import(/* webpackChunkName: "ExploreDetail" */ '@/components/front/Explore/ExploreDetail.vue') },
+
+// { path: '/user-information', component: () => import(/* webpackChunkName: "Userinformation" */ '@/components/front/user/User-information.vue') },
+
+// { path: '/dashboard', component: () => import(/* webpackChunkName: "dashabord" */ '@/components/front/user/Dashboard.vue') },
+
+
+// { path: '/tour-list', component: () => import(/* webpackChunkName: "tourlist" */ '@/components/front/user/tour/Tour-list.vue') },
+
+// { path: '/tour-detail/:id', component: () => import(/* webpackChunkName: "tourdetail" */ '@/components/front/user/tour/Tour-detail.vue') },
+
+// { path: '/profile-edit', component: () => import(/* webpackChunkName: "profileedit" */ '@/components/front/user/Profile_edit.vue') },
+
+// { path: '/update-password', component: () => import(/* webpackChunkName: "updatepass" */ '@/components/front/user/UpdatePassword.vue') },
+// { path: '/group-member/:id', component: () => import(/* webpackChunkName: "groupmember" */ '@/components/front/user/group/GroupView.vue') },
+
+// { path: '/tour-payment/:id', component: () => import(/* webpackChunkName: "tourPay" */ '@/components/front/user/tour/Tour-payment.vue') },
+
+// { path: '/payment-mode/:id', component: () => import(/* webpackChunkName: "paymentMode" */ '@/components/front/user/tour/Payment-mode.vue') },
+
+// { path: '/payment-cancel', component: () => import(/* webpackChunkName: "PaymentCancel" */ '@/components/front/extra/PaymentCancel.vue') },
+// { path: '/payment-success', component: () => import(/* webpackChunkName: "paymentSuccess" */ '@/components/front/extra/PaymentSuccess.vue') },
+
+// { path: '/blog', component: () => import(/* webpackChunkName: "blogs" */ '@/components/front/Blog/list.vue') },
+
+// { path: '/blog/:slug', component: () => import(/* webpackChunkName: "blogdetail" */ '@/components/front/Blog/Detail.vue') },
+
+// { path: '/blog/category/:slug', component: () => import(/* webpackChunkName: "cateogryblog" */ '@/components/front/Blog/Category.vue') },
+
+// { path: '*', component: () => import(/* webpackChunkName: "errror" */ '@/components/front/error/404.vue') }

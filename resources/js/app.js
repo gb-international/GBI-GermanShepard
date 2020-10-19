@@ -1,13 +1,14 @@
 
 import App from './components/front/layouts/App.vue';
 import Vue from 'vue';
+import { sync } from 'vuex-router-sync';
 import { createRouter } from './router'
 import axios from 'axios';
 import Vuex from 'vuex';
 import vueHeadful from "vue-headful";
 import LazyLoadDirective from "./components/partials/LazyLoadDirective";
 import { filter } from "./filter";
-import storeData from "./store/index";
+import { createStore } from './store'
 import EventBus from './store/EventBus';
 import VueSweetalert2 from 'vue-sweetalert2';
 import VueMeta from 'vue-meta';
@@ -23,7 +24,7 @@ Vue.use(vuecookies)
 Vue.prototype.$axios = axios
 Vue.prototype.$bus = EventBus
 Vue.directive("lazyload", LazyLoadDirective);
-const store = new Vuex.Store(storeData);
+
 
 // client side js
 if (process.window == 'undefined') {
@@ -41,22 +42,13 @@ Vue.component("gbi-footer", require("./components/front/layouts/Footer.vue").def
 
 
 export function createApp() {
-    // create router instance
     const router = createRouter()
-
+    const store = createStore()
+    sync(store, router);
     const app = new Vue({
-        // inject router into root Vue instance
         store,
         router,
         render: h => h(App)
     })
-
-    // return both the app and the router
     return { app, router, store }
 }
-
-// export default new Vue({
-//     router,
-//     store,
-//     render: h => h(App)
-// });
