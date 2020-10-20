@@ -42843,6 +42843,23 @@ Admin Login page
   background-color: #332f58 !important;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
+.top_black_btn {
+  padding: 10px 30px;
+  background: black;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.top_black_btn:hover {
+  background-color: #3a3a3a;
+}
+
 .mt-35 {
   margin-top: 35px;
 }

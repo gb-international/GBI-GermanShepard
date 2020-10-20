@@ -53,6 +53,11 @@ Route::namespace('Admin')->group(function (){
 		Route::post('add-pnr-user','TouruserController@addPnrUser');
 		Route::post('pnruser/get','TouruserController@PnrUserGet');
 		Route::post('update-pnruser','TouruserController@update');
+		// foods
+		Route::get('foods/{id}','FoodController@index');
+		Route::post('foods','FoodController@store');
+		Route::patch('foods/{id}','FoodController@update');
+		Route::delete('foods/{id}','FoodController@destroy');
 	});
 
 	Route::namespace('Hotel')->group(function(){

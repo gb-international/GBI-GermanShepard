@@ -63,6 +63,7 @@ It takes id from the url and get the data from the api .
                 <img :src="`assets/admin/default/icon/train-icon.png`" />
               </router-link>
             </div>
+
           </div>
           <hr />
           <div class="row m-30 tour_list_block">
@@ -82,6 +83,13 @@ It takes id from the url and get the data from the api .
                 <img :src="`assets/admin/default/icon/student.png`" />
               </router-link>
             </div>
+            
+            <div class="col-sm-3 m-30">
+              <router-link :to="`/foods/${tour.id}/${tour.tour_id}`">
+                <img :src="`assets/admin/default/icon/bus-icon.png`" />
+              </router-link>
+            </div>
+
 
           </div>
           <hr />

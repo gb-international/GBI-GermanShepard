@@ -721,6 +721,7 @@ class ComposerStaticInit9eab1ea27cebedc94d0c1caf21801c2b
         'App\\Model\\School\\School' => __DIR__ . '/../..' . '/app/Model/School/School.php',
         'App\\Model\\School\\student' => __DIR__ . '/../..' . '/app/Model/School/student.php',
         'App\\Model\\Tour\\Bankname' => __DIR__ . '/../..' . '/app/Model/Tour/Bankname.php',
+        'App\\Model\\Tour\\Food' => __DIR__ . '/../..' . '/app/Model/Tour/Food.php',
         'App\\Model\\Tour\\Frontbooking' => __DIR__ . '/../..' . '/app/Model/Tour/Frontbooking.php',
         'App\\Model\\Tour\\Schoolbankdetail' => __DIR__ . '/../..' . '/app/Model/Tour/Schoolbankdetail.php',
         'App\\Model\\Tour\\Tour' => __DIR__ . '/../..' . '/app/Model/Tour/Tour.php',

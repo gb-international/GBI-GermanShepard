@@ -78,6 +78,7 @@ import BookedHotel from './components/admin/bookedtour/New-hotel.vue'
 import BookedFlight from './components/admin/bookedtour/New-flight.vue'
 import BookedTrain from './components/admin/bookedtour/New-train.vue'
 import BookedBus from './components/admin/bookedtour/New-bus.vue'
+import BookedFood from './components/admin/bookedtour/Food.vue'
 import BookedPnr from './components/admin/bookedtour/Pnr-List.vue'
 import BookedStudent from './components/admin/bookedtour/Groupmember-list.vue'
 import PnrUser from './components/admin/bookedtour/PnrUser.vue'
@@ -240,6 +241,8 @@ export const routes = [
     { path:'/student-payment/:school_id/:tour_code', component:StudentPayment },
     { path:'/add-paymentmethod/:school_id/:tour_code', component:addPaymentMethod },
     { path:'/update-paymentmethod/:school_id/:tour_code', component:UpdatePaymentMethod },
+
+    { path:'/foods/:tour_id/:tour_code', component:BookedFood },
 
     // Tour type
     { path:'/tourtype',component:Tourtype},

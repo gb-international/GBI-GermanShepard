@@ -162,6 +162,7 @@ return array(
     'App\\Model\\School\\School' => $baseDir . '/app/Model/School/School.php',
     'App\\Model\\School\\student' => $baseDir . '/app/Model/School/student.php',
     'App\\Model\\Tour\\Bankname' => $baseDir . '/app/Model/Tour/Bankname.php',
+    'App\\Model\\Tour\\Food' => $baseDir . '/app/Model/Tour/Food.php',
     'App\\Model\\Tour\\Frontbooking' => $baseDir . '/app/Model/Tour/Frontbooking.php',
     'App\\Model\\Tour\\Schoolbankdetail' => $baseDir . '/app/Model/Tour/Schoolbankdetail.php',
     'App\\Model\\Tour\\Tour' => $baseDir . '/app/Model/Tour/Tour.php',
