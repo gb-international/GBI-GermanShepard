@@ -26,6 +26,12 @@ class Tour extends Model
     {
         return $this->hasMany('App\Model\Reservation\Bookedhotel');
     }
+    
+    public function bookedrestaurants()
+    {
+        return $this->hasMany('App\Model\Reservation\Bookedrestaurant');
+    }
+
     public function bookedbuses()
     {
         return $this->hasMany('App\Model\Reservation\Bookedbus');
@@ -42,6 +48,7 @@ class Tour extends Model
     public function travel(){
         return $this->belongsTo('App\User','travel_code');
     }
+
 
     
 

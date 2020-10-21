@@ -59,6 +59,9 @@ Route::namespace('Admin')->group(function (){
 		Route::patch('foods/{id}','FoodController@update');
 		Route::delete('foods/{id}','FoodController@destroy');
 	});
+	Route::namespace('Restaurant')->group(function(){
+		Route::resource('restaurants','RestaurantController');		
+	});
 
 	Route::namespace('Hotel')->group(function(){
 		Route::resource('hotel','HotelController');
@@ -86,6 +89,7 @@ Route::namespace('Admin')->group(function (){
 	Route::namespace('Reservation')->group(function(){
 		Route::resource('bookedescorts','BookedescortController');
 		Route::resource('bookedhotels','BookedhotelController');
+		Route::resource('bookedrestaurants','BookedrestaurantController');
 		Route::resource('bookedflights','BookedflightController');
 		Route::resource('bookedtrains','BookedtrainController');
 		Route::resource('bookedbuses','BookedbusController');

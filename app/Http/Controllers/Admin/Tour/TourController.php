@@ -11,6 +11,7 @@ use App\Model\Reservation\Bookedbus;
 use App\Model\Reservation\Bookedescort;
 use App\Model\Reservation\Bookedflight;
 use App\Model\Reservation\Bookedhotel;
+use App\Model\Reservation\Bookedrestaurant;
 use App\Model\Reservation\Bookedtrain;
 
 class TourController extends Controller
@@ -63,9 +64,10 @@ class TourController extends Controller
         $flights = Bookedflight::with('flight')->where('tour_id',$tour->id)->get();
         $hotels = Bookedhotel::with('hotel')->where('tour_id',$tour->id)->get();
         $buses = Bookedbus::with('bus')->where('tour_id',$tour->id)->get();
+        $restaurant = Bookedrestaurant::with('restaurant')->where('tour_id',$tour->id)->get();
         
         
-        $data = ['itinerary'=>$tour->itinerary,'school'=>$tour->school,'tour'=>$tour,'escort'=>$escorts,'train'=>$trains,'flight'=>$flights,'hotel'=>$hotels,'bus'=>$buses];
+        $data = ['itinerary'=>$tour->itinerary,'school'=>$tour->school,'tour'=>$tour,'escort'=>$escorts,'train'=>$trains,'flight'=>$flights,'hotel'=>$hotels,'restaurant'=>$restaurant,'bus'=>$buses];
         
         
         return response()->json($data);

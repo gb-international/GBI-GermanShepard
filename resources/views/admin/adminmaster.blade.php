@@ -202,6 +202,38 @@
                       </ul>
                     </li>
                     @endcanany
+
+                    
+                    @canany(['add restaurants','edit restaurants','delete restaurants'])
+                    <li class="nav-item has-treeview">
+                      <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-utensils"></i>
+                        <p>
+                          Restaurant
+                          <i class="right fas fa-angle-right"></i>
+                        </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                        @can('list restaurants')
+                        <li class="nav-item">
+                          <router-link to="/restaurant-list" class="nav-link">
+                            
+                            <p> Restaurant List</p>
+                          </router-link>
+                        </li>
+                        @endcan
+                        @can('add restaurants')
+                        <li class="nav-item">
+                          <router-link to="/add-restaurant" class="nav-link">
+                            <p> Add Restaurant </p>
+                          </router-link>
+                        </li>
+                        @endcan
+                      </ul>
+                    </li>
+                    @endcanany
+
+
                     
                     @canany(['add transports','edit transports','delete transports'])
                     <li class="nav-item has-treeview">

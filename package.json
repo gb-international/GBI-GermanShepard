@@ -48,6 +48,7 @@
         "vform": "^1.0.1",
         "vue-client-only": "^2.0.0",
         "vue-cookies": "^1.7.4",
+        "vue-disable-autocomplete": "0.0.4",
         "vue-form-wizard": "^0.8.4",
         "vue-headful": "^2.1.0",
         "vue-html-to-paper": "^1.3.1",

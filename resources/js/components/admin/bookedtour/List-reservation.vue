@@ -51,6 +51,13 @@ It takes id from the url and get the data from the api .
                 <img :src="`assets/admin/default/icon/hotel.png`" />
               </router-link>
             </div>
+            
+            <div class="col-sm-3">
+              <router-link :to="`/booked-tour-restaurant/${tour.id}/${tour.tour_id}`">
+                <img :src="`assets/admin/default/icon/hotel.png`" />
+              </router-link>
+            </div>
+
 
             <div class="col-sm-3 m-30">
               <router-link :to="`/booked-tour-flight/${tour.id}`">
@@ -89,6 +96,7 @@ It takes id from the url and get the data from the api .
                 <img :src="`assets/admin/default/icon/bus-icon.png`" />
               </router-link>
             </div>
+
 
 
           </div>
@@ -161,6 +169,42 @@ It takes id from the url and get the data from the api .
               </div>
             </div>
           </div>
+          
+          <div class="card" v-if="restaurant">
+            <h4>Restaurant</h4>
+            <div class="row" v-for="rest in restaurant" :key="rest.id">
+              <div class="col-sm-2">
+                <label>Name</label>
+                <p>{{ rest['restaurant'].name }}</p>
+              </div>
+              <div class="col-sm-3">
+                <label>Address</label>
+                <p>{{ rest['restaurant'].address }}</p>
+              </div>
+              <div class="col-sm-3">
+                <label>Contact</label>
+                <p>{{ rest['restaurant'].contact_number }}</p>
+              </div>
+              <div class="col-sm-3">
+                <label>Person</label>
+                <p>{{ rest['restaurant'].contact_name }}</p>
+              </div>
+
+              <div class="col-sm-1">
+                <a
+                  href
+                  v-if="$can('delete clients')"
+                  class="delete_link"
+                  @click.prevent="deleteBookedRestaurant(rest.id)"
+                >
+                  <span class="badge badge-danger">
+                    <i class="far fa-trash-alt"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+
 
           <div class="card" v-if="train">
             <h4>Train</h4>
@@ -371,6 +415,7 @@ export default {
       tour: [],
       train: [],
       hotel: [],
+      restaurant: [],
       escort: [],
       bus: [],
       flight: [],
@@ -486,6 +531,7 @@ export default {
           this.tour = response.data["tour"];
           this.train = response.data["train"];
           this.hotel = response.data["hotel"];
+          this.restaurant = response.data["restaurant"];
           this.escort = response.data["escort"];
           this.bus = response.data["bus"];
           this.flight = response.data["flight"];
@@ -522,7 +568,7 @@ export default {
 
     deleteBookedHotel(id) {
       var uri = "api/bookedhotels/" + id;
-      swal
+       this.$swal
         .fire({
           title: "Are you sure?",
           text: "You won't be able to revert this!",
@@ -545,6 +591,33 @@ export default {
           }
         });
     },
+    
+    deleteBookedRestaurant(id) {
+      var uri = "api/bookedrestaurants/" + id;
+      this.$swal
+        .fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        })
+        .then((result) => {
+          if (result.value) {
+            axios.delete(uri).then((response) => {
+              this.getAllData();
+            });
+            this.$swal.fire(
+              "Deleted!",
+              "Your file has been deleted.",
+              "success"
+            );
+          }
+        });
+    },
+
 
     deleteBookedEscort(id) {
       var uri = "api/bookedescorts/" + id;

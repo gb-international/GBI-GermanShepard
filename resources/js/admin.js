@@ -11,6 +11,8 @@ import VueHtmlToPaper from 'vue-html-to-paper';
 import { filter } from './filter'
 import swal from 'sweetalert2'
 import { Form, HasError, AlertError } from 'vform'
+import DisableAutocomplete from 'vue-disable-autocomplete';
+
 
 
 Vue.use(VueSession);
@@ -21,6 +23,7 @@ Vue.use(Vuex)
 window.$ = window.jQuery = require('jquery');
 require('datatables.net');
 require('datatables.net-bs');
+Vue.use(DisableAutocomplete);
 Vue.use(VueRouter)
 const options = {
     name: '_blank',
@@ -44,6 +47,7 @@ Vue.component(AlertError.name, AlertError)
 Vue.prototype.$Form = Form;
 // Sweet alert 2
 Vue.prototype.$swal = swal;
+
 const toast = swal.mixin({
     toast: true,
     position: 'top-end',

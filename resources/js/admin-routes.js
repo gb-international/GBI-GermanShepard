@@ -28,6 +28,14 @@ import HotelAdd from './components/admin/hotel/New-hotel.vue'
 import HotelEdit from './components/admin/hotel/Edit-hotel.vue'
 import HotelView from './components/admin/hotel/View_hotel.vue'
 
+//Restaurant
+import restaurantList from './components/admin/restaurant/List-restaurant.vue'
+import restaurantAdd from './components/admin/restaurant/New-restaurant.vue' 
+import restaurantEdit from './components/admin/restaurant/Edit-restaurant.vue'
+import restaurantView from './components/admin/restaurant/View_restaurant.vue'
+
+
+
 //SALES department
 import ItineraryFromAccount from './components/admin/sales/ItineraryFromAccount.vue'
 import SendDetails from './components/admin/sales/Submit-details.vue'
@@ -75,6 +83,7 @@ import BankdetailEdit from './components/admin/website/bankdetail/Edit-Bankdetai
 import BookedTours from './components/admin/bookedtour/List-reservation.vue'
 import BookedEscort from './components/admin/bookedtour/tourmanager/New-tourmanager.vue'
 import BookedHotel from './components/admin/bookedtour/New-hotel.vue'
+import BookedRestaurant from './components/admin/bookedtour/New-restaurant.vue'
 import BookedFlight from './components/admin/bookedtour/New-flight.vue'
 import BookedTrain from './components/admin/bookedtour/New-train.vue'
 import BookedBus from './components/admin/bookedtour/New-bus.vue'
@@ -207,6 +216,15 @@ export const routes = [
     { path:'/edit-hotel/:id', component:HotelEdit },
     { path:'/hotel-view/:id', component:HotelView },
 
+    
+    //Restaurant
+    { path:'/restaurant-list', component:restaurantList },
+    { path:'/add-restaurant', component:restaurantAdd },
+    { path:'/edit-restaurant/:id', component:restaurantEdit },
+    { path:'/restaurant-view/:id', component:restaurantView },
+
+
+
     //Sales Department
     { path:'/itinerary-from-account', component:ItineraryFromAccount },
     { path:'/submit-details/:id', component:SendDetails },
@@ -231,6 +249,7 @@ export const routes = [
     { path:'/booked-tour/:id', component:BookedTours },
     { path:'/booked-tour-manager/:id', component:BookedEscort },
     { path:'/booked-tour-hotel/:id', component:BookedHotel },
+  { path: '/booked-tour-restaurant/:id/:tour_code', component: BookedRestaurant },
     { path:'/booked-tour-flight/:id', component:BookedFlight },
     { path:'/booked-tour-train/:id', component:BookedTrain },
     { path:'/booked-tour-bus/:id', component:BookedBus },
