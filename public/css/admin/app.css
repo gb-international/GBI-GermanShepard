@@ -42860,6 +42860,14 @@ Admin Login page
   background-color: #3a3a3a;
 }
 
+.card-layout {
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  margin-bottom: 10px;
+}
+
 .mt-35 {
   margin-top: 35px;
 }

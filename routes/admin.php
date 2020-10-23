@@ -37,6 +37,7 @@ Route::namespace('Admin')->group(function (){
 
 	Route::namespace('Itinerary')->group(function(){
 		Route::resource('itinerary','ItineraryController');
+		Route::get('itinerarydayget/{id}','ItinerarydayController@index');
 	});
 
 	Route::namespace('Tour')->group(function(){
@@ -90,6 +91,7 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('bookedescorts','BookedescortController');
 		Route::resource('bookedhotels','BookedhotelController');
 		Route::resource('bookedrestaurants','BookedrestaurantController');
+		Route::resource('bookedsightseeings','BookedsightseeingController');
 		Route::resource('bookedflights','BookedflightController');
 		Route::resource('bookedtrains','BookedtrainController');
 		Route::resource('bookedbuses','BookedbusController');

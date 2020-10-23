@@ -27,7 +27,7 @@ It takes id from the url and get the data from the api .
 
             <div class="col-sm-2">
               <h6>TOUR CODE</h6>
-              <p>{{ tour.tour_id}}</p>
+              <p>{{ tour.tour_id }}</p>
             </div>
             <div class="col-sm-2">
               <h6>TOUR START DATE</h6>
@@ -41,64 +41,69 @@ It takes id from the url and get the data from the api .
           <hr />
 
           <div class="row m-30 tour_list_block">
-            <div class="col-sm-3">
+            <div class="col-sm-3 mb-3">
               <router-link :to="`/booked-tour-manager/${tour.id}`">
                 <img :src="`assets/admin/default/icon/tour-manager.png`" />
               </router-link>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 mb-3">
               <router-link :to="`/booked-tour-hotel/${tour.id}`">
                 <img :src="`assets/admin/default/icon/hotel.png`" />
               </router-link>
             </div>
-            
-            <div class="col-sm-3">
-              <router-link :to="`/booked-tour-restaurant/${tour.id}/${tour.tour_id}`">
-                <img :src="`assets/admin/default/icon/hotel.png`" />
+
+            <div class="col-sm-3 mb-3">
+              <router-link
+                :to="`/booked-tour-restaurant/${tour.id}/${tour.tour_id}`"
+              >
+                <img :src="`assets/admin/default/icon/restaurant.png`" />
               </router-link>
             </div>
 
-
-            <div class="col-sm-3 m-30">
+            <div class="col-sm-3 mb-3 m-30">
               <router-link :to="`/booked-tour-flight/${tour.id}`">
                 <img :src="`assets/admin/default/icon/airlines.png`" />
               </router-link>
             </div>
 
-            <div class="col-sm-3 m-30">
+            <div class="col-sm-3 mb-3 m-30">
               <router-link :to="`/booked-tour-train/${tour.id}`">
                 <img :src="`assets/admin/default/icon/train-icon.png`" />
               </router-link>
             </div>
 
-          </div>
-          <hr />
-          <div class="row m-30 tour_list_block">
-            <div class="col-sm-3 m-30">
+            <div class="col-sm-3 mb-3 m-30">
               <router-link :to="`/booked-tour-bus/${tour.id}`">
                 <img :src="`assets/admin/default/icon/bus-icon.png`" />
               </router-link>
             </div>
-            <div class="col-sm-3 m-30">
-              <router-link :to="`/booked-tour-student/${school.id}/${tour.tour_id}`">
+            <div class="col-sm-3 mb-3 m-30">
+              <router-link
+                :to="`/booked-tour-student/${school.id}/${tour.tour_id}`"
+              >
                 <img :src="`assets/admin/default/icon/student.png`" />
               </router-link>
             </div>
-            
-            <div class="col-sm-3 m-30">
+
+            <div class="col-sm-3 mb-3 m-30">
               <router-link :to="`/payments/${school.id}/${tour.tour_id}`">
-                <img :src="`assets/admin/default/icon/student.png`" />
+                <img :src="`assets/admin/default/icon/payment.png`" />
               </router-link>
             </div>
-            
-            <div class="col-sm-3 m-30">
+
+            <div class="col-sm-3 mb-3 m-30">
               <router-link :to="`/foods/${tour.id}/${tour.tour_id}`">
-                <img :src="`assets/admin/default/icon/bus-icon.png`" />
+                <img :src="`assets/admin/default/icon/snacks.png`" />
               </router-link>
             </div>
 
-
-
+            <div class="col-sm-3 mb-3 m-30" v-if="itinerary">
+              <router-link
+                :to="`/booked-sightseen/${tour.id}/${tour.tour_id}/${itinerary.id}`"
+              >
+                <img :src="`assets/admin/default/icon/sightseeing.png`" />
+              </router-link>
+            </div>
           </div>
           <hr />
           <div class="card" v-if="escort">
@@ -106,19 +111,19 @@ It takes id from the url and get the data from the api .
             <div class="row" v-for="escort in escort" :key="escort.id">
               <div class="col-sm-2">
                 <label>Name</label>
-                <p>{{ escort['escort'].name }}</p>
+                <p>{{ escort["escort"].name }}</p>
               </div>
               <div class="col-sm-3">
                 <label>Perday Allowance</label>
-                <p>{{ escort['escort'].salaryPerday }}</p>
+                <p>{{ escort["escort"].salaryPerday }}</p>
               </div>
               <div class="col-sm-3">
                 <label>Contact</label>
-                <p>{{ escort['escort'].phoneno }}</p>
+                <p>{{ escort["escort"].phoneno }}</p>
               </div>
               <div class="col-sm-3">
                 <label>Email</label>
-                <p>{{ escort['escort'].email }}</p>
+                <p>{{ escort["escort"].email }}</p>
               </div>
               <div class="col-sm-1">
                 <a
@@ -140,19 +145,19 @@ It takes id from the url and get the data from the api .
             <div class="row" v-for="hotel in hotel" :key="hotel.id">
               <div class="col-sm-2">
                 <label>Name</label>
-                <p>{{ hotel['hotel'].name }}</p>
+                <p>{{ hotel["hotel"].name }}</p>
               </div>
               <div class="col-sm-3">
                 <label>Address</label>
-                <p>{{ hotel['hotel'].address }}</p>
+                <p>{{ hotel["hotel"].address }}</p>
               </div>
               <div class="col-sm-3">
                 <label>Contact</label>
-                <p>{{ hotel['hotel'].phoneno }}</p>
+                <p>{{ hotel["hotel"].phoneno }}</p>
               </div>
               <div class="col-sm-3">
                 <label>Email</label>
-                <p>{{ hotel['hotel'].email }}</p>
+                <p>{{ hotel["hotel"].email }}</p>
               </div>
 
               <div class="col-sm-1">
@@ -169,25 +174,25 @@ It takes id from the url and get the data from the api .
               </div>
             </div>
           </div>
-          
+
           <div class="card" v-if="restaurant">
             <h4>Restaurant</h4>
             <div class="row" v-for="rest in restaurant" :key="rest.id">
               <div class="col-sm-2">
                 <label>Name</label>
-                <p>{{ rest['restaurant'].name }}</p>
+                <p>{{ rest["restaurant"].name }}</p>
               </div>
               <div class="col-sm-3">
                 <label>Address</label>
-                <p>{{ rest['restaurant'].address }}</p>
+                <p>{{ rest["restaurant"].address }}</p>
               </div>
               <div class="col-sm-3">
                 <label>Contact</label>
-                <p>{{ rest['restaurant'].contact_number }}</p>
+                <p>{{ rest["restaurant"].contact_number }}</p>
               </div>
               <div class="col-sm-3">
                 <label>Person</label>
-                <p>{{ rest['restaurant'].contact_name }}</p>
+                <p>{{ rest["restaurant"].contact_name }}</p>
               </div>
 
               <div class="col-sm-1">
@@ -205,17 +210,51 @@ It takes id from the url and get the data from the api .
             </div>
           </div>
 
+          <div class="card" v-if="sightseeing">
+            <h4>Sightseeings</h4>
+            <div class="row">
+              <div class="col-sm-11">
+                <div class="row" v-for="(rest, i) in sightseeing" :key="i">
+                  <div class="col-sm-4">
+                    <p>Day {{ ++i }}</p>
+                  </div>
+                  <div class="col-sm-8">
+                    <div
+                      class="text-dark"
+                      v-for="(single, index) in rest"
+                      :key="single.id"
+                    >
+                      {{ ++index }}. {{ single.sightseeing.name }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-1">
+                <a
+                  href
+                  v-if="$can('delete clients')"
+                  class="delete_link"
+                  @click.prevent="deleteBookedsightseeing()"
+                >
+                  <span class="badge badge-danger">
+                    <i class="far fa-trash-alt"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
 
           <div class="card" v-if="train">
             <h4>Train</h4>
             <div class="row" v-for="train in train" :key="train.id">
               <div class="col-sm-2">
                 <label>Name</label>
-                <p>{{ train['train'].name }}</p>
+                <p>{{ train["train"].name }}</p>
               </div>
               <div class="col-sm-2">
                 <label>Code</label>
-                <p>{{ train['train'].code }}</p>
+                <p>{{ train["train"].code }}</p>
               </div>
               <div class="col-sm-2">
                 <label>Price</label>
@@ -233,12 +272,16 @@ It takes id from the url and get the data from the api .
                   class="btn btn-sm btn-primary text-white cursor-pointer mr-1"
                   data-toggle="modal"
                   data-target="#pnrModal"
-                  @click="tranportModal(train.id,'train')"
-                >Add</span>
+                  @click="tranportModal(train.id, 'train')"
+                  >Add</span
+                >
                 <router-link
-                  :to="`/booked-tour-pnr/${'train/'+train.id+'/'+tour.tour_id}`"
+                  :to="`/booked-tour-pnr/${
+                    'train/' + train.id + '/' + tour.tour_id
+                  }`"
                   class="btn btn-sm btn-info text-white cursor-pointer mr-1"
-                >List</router-link>
+                  >List</router-link
+                >
               </div>
 
               <div class="col-sm-1 text-center">
@@ -261,11 +304,11 @@ It takes id from the url and get the data from the api .
             <div class="row" v-for="flight in flight" :key="flight.id">
               <div class="col-sm-2">
                 <label>Name</label>
-                <p>{{ flight['flight'].name }}</p>
+                <p>{{ flight["flight"].name }}</p>
               </div>
               <div class="col-sm-2">
                 <label>Seat Type</label>
-                <p>{{ flight['flight'].code }}</p>
+                <p>{{ flight["flight"].code }}</p>
               </div>
               <div class="col-sm-2">
                 <label>Price</label>
@@ -283,12 +326,16 @@ It takes id from the url and get the data from the api .
                   class="btn btn-sm btn-primary text-white cursor-pointer mr-1"
                   data-toggle="modal"
                   data-target="#pnrModal"
-                  @click="tranportModal(flight.id,'flight')"
-                >Add</span>
+                  @click="tranportModal(flight.id, 'flight')"
+                  >Add</span
+                >
                 <router-link
-                  :to="`/booked-tour-pnr/${'flight/'+flight.id+'/'+tour.tour_id}`"
+                  :to="`/booked-tour-pnr/${
+                    'flight/' + flight.id + '/' + tour.tour_id
+                  }`"
                   class="btn btn-sm btn-info text-white cursor-pointer mr-1"
-                >List</router-link>
+                  >List</router-link
+                >
               </div>
 
               <div class="col-sm-1 text-center">
@@ -311,11 +358,11 @@ It takes id from the url and get the data from the api .
             <div class="row" v-for="bus in bus" :key="bus.id">
               <div class="col-sm-2">
                 <label>Company Name</label>
-                <p>{{ bus['bus'].company_name }}</p>
+                <p>{{ bus["bus"].company_name }}</p>
               </div>
               <div class="col-sm-2">
                 <label>Seat Type</label>
-                <p>{{ bus['bus'].seat_type }}</p>
+                <p>{{ bus["bus"].seat_type }}</p>
               </div>
               <div class="col-sm-2">
                 <label>Price</label>
@@ -333,12 +380,16 @@ It takes id from the url and get the data from the api .
                   class="btn btn-sm btn-primary text-white cursor-pointer mr-1"
                   data-toggle="modal"
                   data-target="#pnrModal"
-                  @click="tranportModal(bus.id,'bus')"
-                >Add</span>
+                  @click="tranportModal(bus.id, 'bus')"
+                  >Add</span
+                >
                 <router-link
-                  :to="`/booked-tour-pnr/${'bus/'+bus.id+'/'+tour.tour_id}`"
+                  :to="`/booked-tour-pnr/${
+                    'bus/' + bus.id + '/' + tour.tour_id
+                  }`"
                   class="btn btn-sm btn-info text-white cursor-pointer mr-1"
-                >List</router-link>
+                  >List</router-link
+                >
               </div>
 
               <div class="col-sm-1 text-center">
@@ -362,17 +413,27 @@ It takes id from the url and get the data from the api .
       <div class="modal" id="pnrModal">
         <div class="modal-dialog">
           <div class="modal-content simple-form-bg">
-            <!-- Modal body -->
             <div class="modal-body" v-if="modal_pnr">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
               <p>Enter {{ label }} Number</p>
               <form class="form simple-form">
                 <div class="row">
-                  <div class="col-sm-6" v-for="(row,index) in total_row" :key="index">
+                  <div
+                    class="col-sm-6"
+                    v-for="(row, index) in total_row"
+                    :key="index"
+                  >
                     <div class="row mb-2">
                       <div class="col pt-1">{{ ++index }}</div>
                       <div class="col-sm-10">
-                        <input class="form-control" type="text" :placeholder="placeholderValue" v-model="row.pnr_number" />
+                        <input
+                          class="form-control"
+                          type="text"
+                          :placeholder="placeholderValue"
+                          v-model="row.pnr_number"
+                        />
                       </div>
                     </div>
                   </div>
@@ -380,15 +441,30 @@ It takes id from the url and get the data from the api .
 
                 <div class="row mt-4">
                   <div class="col-sm-5">
-                    <button type="button" class="btn text-white" @click="submitForm()">SAVE</button>
+                    <button
+                      type="button"
+                      class="btn text-white"
+                      @click="submitForm()"
+                    >
+                      SAVE
+                    </button>
                   </div>
                   <div class="col-sm-3 pt-2 text-right">Add Row :</div>
 
                   <div class="col-sm-4">
                     <div class="input-group">
-                      <input type="number" class="form-control" v-model="row_input" placeholder="1" />
+                      <input
+                        type="number"
+                        class="form-control"
+                        v-model="row_input"
+                        placeholder="1"
+                      />
                       <div class="input-group-append">
-                        <button class="btn text-white" type="button" @click="add_row()">
+                        <button
+                          class="btn text-white"
+                          type="button"
+                          @click="add_row()"
+                        >
                           <i class="fa fa-search"></i>
                         </button>
                       </div>
@@ -402,7 +478,6 @@ It takes id from the url and get the data from the api .
       </div>
     </div>
   </section>
-  <!-- /.content -->
 </template>
 
 <script>
@@ -426,7 +501,10 @@ export default {
       row_input: 2,
       tour_code: 0,
       total_row: [],
-      placeholderValue:'',
+      placeholderValue: "",
+      itinerary: "",
+      sightseeing: [],
+      page: 0,
     };
   },
   created() {
@@ -443,13 +521,13 @@ export default {
     labelChange() {
       if (this.transportType == "bus") {
         this.label = "Buses";
-        this.placeholderValue = 'Enter Bus Number';
-      } else if(this.transportType == 'train') {
+        this.placeholderValue = "Enter Bus Number";
+      } else if (this.transportType == "train") {
         this.label = "PNRs";
-        this.placeholderValue = 'Enter 10 Digits PNR';
-      }else{
+        this.placeholderValue = "Enter 10 Digits PNR";
+      } else {
         this.label = "PNRs";
-        this.placeholderValue = 'Enter 6 Digits PNR';
+        this.placeholderValue = "Enter 6 Digits PNR";
       }
     },
     add_row() {
@@ -477,23 +555,21 @@ export default {
         if (pnr == "") {
           this.total_row.splice(i, 1);
         }
-      
-        if ((this.transportType == "train") && (pnr.length != 10)) {
+
+        if (this.transportType == "train" && pnr.length != 10) {
           this.$toast.fire({
             icon: "error",
             title: "PNR Number should be 10 Digits long !!",
           });
           return false;
-        } else if((this.transportType == "flight") && (pnr.length != 6)) {
+        } else if (this.transportType == "flight" && pnr.length != 6) {
           this.$toast.fire({
             icon: "error",
             title: "PNR Number should be 6 Digits long !!",
           });
           return false;
-        }else{
-          
+        } else {
         }
-
       }
 
       var path = `/api/pnrs`;
@@ -536,6 +612,9 @@ export default {
           this.bus = response.data["bus"];
           this.flight = response.data["flight"];
           this.school = response.data["school"];
+          this.itinerary = response.data["itinerary"];
+          this.sightseeing = response.data["sightseeing"];
+          console.log(this.sightseeing);
         }
       });
     },
@@ -566,9 +645,9 @@ export default {
         });
     },
 
-    deleteBookedHotel(id) {
-      var uri = "api/bookedhotels/" + id;
-       this.$swal
+    deleteBookedsightseeing() {
+      var uri = "api/bookedsightseeings/" + this.tour.tour_id;
+      this.$swal
         .fire({
           title: "Are you sure?",
           text: "You won't be able to revert this!",
@@ -591,7 +670,33 @@ export default {
           }
         });
     },
-    
+
+    deleteBookedHotel(id) {
+      var uri = "api/bookedhotels/" + id;
+      this.$swal
+        .fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        })
+        .then((result) => {
+          if (result.value) {
+            axios.delete(uri).then((response) => {
+              this.getAllData();
+            });
+            this.$swal.fire(
+              "Deleted!",
+              "Your file has been deleted.",
+              "success"
+            );
+          }
+        });
+    },
+
     deleteBookedRestaurant(id) {
       var uri = "api/bookedrestaurants/" + id;
       this.$swal
@@ -617,7 +722,6 @@ export default {
           }
         });
     },
-
 
     deleteBookedEscort(id) {
       var uri = "api/bookedescorts/" + id;

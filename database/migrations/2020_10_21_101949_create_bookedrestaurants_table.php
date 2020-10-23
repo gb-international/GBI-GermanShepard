@@ -18,9 +18,7 @@ class CreateBookedrestaurantsTable extends Migration
             $table->bigInteger('tour_id')->unsigned();
             $table->string('tour_code');
             $table->bigInteger('resaurant_id')->unsigned();
-            $table->string('check_in')->nullable();
-            $table->string('check_out')->nullable();
-            $table->string('price')->nullable();
+            $table->string('date_of_arrival')->nullable();
             $table->timestamps();
         });
     }

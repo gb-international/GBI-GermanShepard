@@ -42,9 +42,7 @@ class BookedrestaurantController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'price'=>'required',
-            'check_in'=>'required',
-            'check_out'=>'required',
+            'date_of_arrival'=>'required',
             'restaurant_id' => 'required' 
         ]);
         $check = Bookedrestaurant::where([

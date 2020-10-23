@@ -24,48 +24,20 @@ data from the api to display the data about the Hotel from the backend .
                 </div>
                 <div class="col-sm-4">
                   <div class="form-group">
-                    <label for="check_in">Check In</label>
+                    <label for="date_of_arrival">Date of arrival</label>
                     <input
                       type="datetime-local"
                       class="form-control"
-                      v-model="form.check_in"
-                      :class="{ 'is-invalid': form.errors.has('check_in') }"
+                      v-model="form.date_of_arrival"
+                      :class="{ 'is-invalid': form.errors.has('date_of_arrival') }"
                       placeholder="Enter Salary Per Day"
-                      name="check_in"
+                      name="date_of_arrival"
                     />
-                    <has-error :form="form" field="check_in"></has-error>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="check_out">Check Out</label>
-                    <input
-                      type="datetime-local"
-                      class="form-control"
-                      v-model="form.check_out"
-                      :class="{ 'is-invalid': form.errors.has('check_out') }"
-                      placeholder="Enter check Out"
-                      name="check_out"
-                    />
-                    <has-error :form="form" field="check_out"></has-error>
+                    <has-error :form="form" field="date_of_arrival"></has-error>
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="price">Price</label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      v-model="form.price"
-                      :class="{ 'is-invalid': form.errors.has('price') }"
-                      placeholder="Enter Price"
-                    />
-                    <has-error :form="form" field="price"></has-error>
-                  </div>
-                </div>
-              </div>
+
               <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
@@ -105,9 +77,7 @@ export default {
         tour_id: "",
         tour_code: "",
         restaurant_id: "",
-        check_in: "",
-        check_out: "",
-        price: ""
+        date_of_arrival: "",
       })
     };
   },

@@ -84,6 +84,7 @@ import BookedTours from './components/admin/bookedtour/List-reservation.vue'
 import BookedEscort from './components/admin/bookedtour/tourmanager/New-tourmanager.vue'
 import BookedHotel from './components/admin/bookedtour/New-hotel.vue'
 import BookedRestaurant from './components/admin/bookedtour/New-restaurant.vue'
+import BookedSightseen from './components/admin/bookedtour/New-sightseen.vue'
 import BookedFlight from './components/admin/bookedtour/New-flight.vue'
 import BookedTrain from './components/admin/bookedtour/New-train.vue'
 import BookedBus from './components/admin/bookedtour/New-bus.vue'
@@ -249,7 +250,8 @@ export const routes = [
     { path:'/booked-tour/:id', component:BookedTours },
     { path:'/booked-tour-manager/:id', component:BookedEscort },
     { path:'/booked-tour-hotel/:id', component:BookedHotel },
-  { path: '/booked-tour-restaurant/:id/:tour_code', component: BookedRestaurant },
+    { path: '/booked-tour-restaurant/:id/:tour_code', component: BookedRestaurant },
+    { path: '/booked-sightseen/:id/:tour_code/:itinerary_id', component: BookedSightseen },
     { path:'/booked-tour-flight/:id', component:BookedFlight },
     { path:'/booked-tour-train/:id', component:BookedTrain },
     { path:'/booked-tour-bus/:id', component:BookedBus },

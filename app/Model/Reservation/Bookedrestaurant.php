@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bookedrestaurant extends Model
 {
-    protected $fillable = ['tour_id','tour_code','restaurant_id','check_in','check_out','price'];
+    protected $fillable = ['tour_id','tour_code','restaurant_id','date_of_arrival'];
     public function tour()
     {
     	return $this->belongsTo('App\Model\Tour\Tour');

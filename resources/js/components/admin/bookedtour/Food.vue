@@ -7,7 +7,7 @@
                 class="top_black_btn"
                 data-toggle="modal"
                 data-target="#foodModal"
-                @click="foodModal()">Add</span>
+                @click="foodModal()">NEW FOOD</span>
           </div>
         <div class="col-sm-12">
           <table
@@ -17,7 +17,7 @@
           >
             <thead>
               <tr>
-                <th>NAME <i class="fas fa-sort"></i></th>
+                <th>FOOD ITEM <i class="fas fa-sort"></i></th>
                 <th>QUANTITY <i class="fas fa-sort"></i></th>
                 <th><i class="fas fa-cog"></i></th>
               </tr>
