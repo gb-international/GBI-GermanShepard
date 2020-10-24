@@ -1,5 +1,7 @@
 <template>
     <div id="app">
-        Hello this is escort
+        
+        <router-view></router-view>
+        
     </div>
 </template>

@@ -1,42 +1,41 @@
-
-import App from '@/components/escort/App.vue';
+require('@/bootstrap');
 import Vue from 'vue';
-import { sync } from 'vuex-router-sync';
-import { createRouter } from './router'
-import axios from 'axios';
-import Vuex from 'vuex';
-import LazyLoadDirective from "@/components/partials/LazyLoadDirective";
-import { filter } from "./filter";
-import { createStore } from './store'
-import EventBus from '@/store/EventBus';
-import VueSweetalert2 from 'vue-sweetalert2';
-import VueMeta from 'vue-meta';
-import api from '@/escort/helpers/api';
-import vuecookies from 'vue-cookies';
-Object.defineProperty(Vue.prototype, '$api', { value: api })
+import Vuex from 'vuex'
+import VueRouter from 'vue-router'
+import VueSession from 'vue-session'
+import { createRouter } from './router';
+import { createStore } from "@/escort/store/index"
+import swal from 'sweetalert2'
+import { Form, HasError, AlertError } from 'vform'
 
-
-Vue.use(VueMeta)
-Vue.use(VueSweetalert2);
-Vue.use(Vuex);
-Vue.use(vuecookies)
-Vue.prototype.$axios = axios
-Vue.prototype.$bus = EventBus
-Vue.directive("lazyload", LazyLoadDirective);
 
 
 Vue.config.productionTip = false;
-Vue.component("App", require("@/escort/App.vue").default);
+Vue.use(Vuex)
+window.$ = window.jQuery = require('jquery');
+Vue.use(VueRouter)
+const store = new createStore();
 
+Vue.component('escort', require('@/escort/App.vue').default);
 
-export function createApp() {
-    const router = createRouter()
-    const store = createStore()
-    sync(store, router);
-    const app = new Vue({
-        store,
-        router,
-        render: h => h(App)
-    })
-    return { app, router, store }
-}
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
+Vue.prototype.$Form = Form;
+Vue.prototype.$swal = swal;
+
+const toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+});
+
+Vue.prototype.$toast = toast
+
+const router = new createRouter();
+const app = new Vue({
+    el: '#app',
+    router,
+    store
+});
+

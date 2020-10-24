@@ -214,14 +214,14 @@ It takes id from the url and get the data from the api .
             <h4>Sightseeings</h4>
             <div class="row">
               <div class="col-sm-11">
-                <div class="row" v-for="(rest, i) in sightseeing" :key="i">
+                <div class="row" v-for="(parent, i) in sightseeing" :key="i+i">
                   <div class="col-sm-4">
-                    <p>Day {{ ++i }}</p>
+                    <p>Day {{ i }}</p>
                   </div>
                   <div class="col-sm-8">
                     <div
                       class="text-dark"
-                      v-for="(single, index) in rest"
+                      v-for="(single, index) in parent"
                       :key="single.id"
                     >
                       {{ ++index }}. {{ single.sightseeing.name }}
@@ -504,7 +504,7 @@ export default {
       placeholderValue: "",
       itinerary: "",
       sightseeing: [],
-      page: 0,
+      counter: 0,
     };
   },
   created() {
