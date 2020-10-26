@@ -5,7 +5,22 @@
     border-radius: 0px !important;
     padding: 10px !important;
     font-weight: 700 !important;
+    &:hover{
+        background-color:#3c3c78;
+    }
 }
+.btn-slot {
+    font-weight: 700 !important;
+    border: 1px solid $btn-indigo !important;
+    border-radius: 0px !important;
+    padding: 8px 25px !important;
+    color: $btn-indigo !important;
+    &:hover{
+        background-color: $btn-indigo !important;
+        color: white !important;
+    }
+}
+
 .relative{
     position: relative;
 }
@@ -21,7 +36,10 @@
     right:0px;
     top:41px;
 }
-
+.w-100{ width: 100%;}
+.whitesomke{ background-color: whitesmoke;}
+.border-0{ border: 0px;}
+.decoration-none{ text-decoration: none !important;}
 .input_straight{
     display: block;
     background-color: #332f58 !important;
