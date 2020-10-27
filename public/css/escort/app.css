@@ -34,6 +34,10 @@ bh=banner header |bp=banner para |ch=content header|cp=content para|cardh=card h
   color: white !important;
 }
 
+.f-12 {
+  font-size: 12px;
+}
+
 .relative {
   position: relative;
 }
@@ -50,21 +54,51 @@ bh=banner header |bp=banner para |ch=content header|cp=content para|cardh=card h
   height: 100vh;
 }
 
-.otp_link {
-  right: 0px;
-  top: 41px;
+.w-95 {
+  width: 95%;
 }
 
 .w-100 {
   width: 100%;
 }
 
-.whitesomke {
-  background-color: whitesmoke;
-}
-
 .border-0 {
   border: 0px;
+}
+
+.m-0 {
+  margin: 0px;
+}
+
+.border-radius-7 {
+  border-radius: 7px;
+}
+
+.bg-red {
+  background-color: #ca0c0c;
+}
+
+.bg-green {
+  background-color: #2fa33a;
+}
+
+.bg-yellow {
+  background-color: #c6cc0d;
+}
+
+@media (max-width: 767px) {
+  .text-sm-right {
+    text-align: right;
+  }
+}
+
+.otp_link {
+  right: 0px;
+  top: 41px;
+}
+
+.whitesomke {
+  background-color: whitesmoke;
 }
 
 .decoration-none {

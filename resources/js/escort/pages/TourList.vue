@@ -1,32 +1,82 @@
 <template>
-    <layout-table>
-        <template #title>
-            Tour List
-        </template>
-        <template #table-head>
-            <th class="border-0">Tour</th>
-            <th class="border-0">Date</th>
-            <th class="border-0">Status</th>
-        </template>
-        <template #table-body>
-            <tr v-for="i in 2" :key="i">
-                <td>
-                    <router-link to='/dashboard' class="text-dark decoration-none"> days Tour To Ahmedabad, statue of Unity, lothel-indus Valley Civilization, anand, amul Dairy, Mt. Abu & Udaip </router-link>
-                </td>
-                <td>26/10/2020</td>
-                <td>Enabled</td>
-            </tr>
-        </template>
-        <template #footer>
+    <div class="container p-4">
+        <h5 class="text-muted">
+            Tour
+        </h5>
+        <div class="mt-4">
+            <router-link to="/dashboard" class="decoration-none">
+                <div class="pt-3 text-white border-radius-7 mb-3 bg-red font-weight-bolder pb-2">
+                    <div class="row m-0 pr-2 pl-2">
+                        <div class="col-sm-8">
+                            <label class="f-12">Tour</label>
+                            <p>06 days Tour To Ahmedabad, statue of Unity, lothel-indus Valley Civilization, anand, amul Dairy, Mt. Abu & Udaipur </p>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col">
+                                    <label class="f-12">Date</label>
+                                    <p>27/10/2020</p>
+                                </div>
+                                
+                                <div class="col text-sm-right">
+                                    <label class="f-12">Status</label>
+                                    <p>Ended</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </router-link>
 
-        </template>
-    </layout-table>
+            <router-link to="/dashboard" class="decoration-none">
+                <div class="pt-3 text-white border-radius-7 mb-3 bg-green font-weight-bolder pb-2">
+                    <div class="row m-0 pr-2 pl-2">
+                        <div class="col-sm-8">
+                            <label class="f-12">Tour</label>
+                            <p>06 days Tour To Ahmedabad, statue of Unity, lothel-indus Valley Civilization, anand, amul Dairy, Mt. Abu & Udaipur </p>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col">
+                                    <label class="f-12">Date</label>
+                                    <p>27/10/2020</p>
+                                </div>
+                                
+                                <div class="col text-sm-right">
+                                    <label class="f-12">Status</label>
+                                    <p>Ended</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </router-link>
+
+            <router-link to="/dashboard" class="decoration-none">
+                <div class="pt-3 text-white border-radius-7 mb-3 bg-yellow font-weight-bolder pb-2">
+                    <div class="row m-0 pr-2 pl-2">
+                        <div class="col-sm-8">
+                            <label class="f-12">Tour</label>
+                            <p>06 days Tour To Ahmedabad, statue of Unity, lothel-indus Valley Civilization, anand, amul Dairy, Mt. Abu & Udaipur </p>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col">
+                                    <label class="f-12">Date</label>
+                                    <p>27/10/2020</p>
+                                </div>
+                                
+                                <div class="col text-sm-right">
+                                    <label class="f-12">Status</label>
+                                    <p>Ended</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </router-link>
+
+
+        </div>
+    </div>
 </template>
-<script>
-import LayoutTable from '@/escort/components/LayoutTable'
-export default {
-    components:{
-        LayoutTable
-    }
-}
-</script>

@@ -1,5 +1,8 @@
 <template>
     <layout-table>
+        <template #back>
+            <img class="back-icon cursor-pointer" @click="$router.go(-1)" src="/assets/front/icons/back.png">
+        </template>
         <template #title>
             Number of Pax
         </template>

@@ -1,6 +1,9 @@
 <template>
     <div class="escort-sightseeing">
         <layout>
+            <template #back>
+                <img class="back-icon cursor-pointer" @click="$router.go(-1)" src="/assets/front/icons/back.png">
+            </template>
             <template #title>
                 MADURAo-KODAIKANAL- MUNNAR- KOCHI
             </template>

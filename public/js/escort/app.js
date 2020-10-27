@@ -1975,6 +1975,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2041,6 +2044,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2060,6 +2066,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/escort/components/LayoutTable */ "./resources/js/escort/components/LayoutTable.vue");
+//
+//
+//
 //
 //
 //
@@ -2145,55 +2154,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     layout: _escort_components_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
     SubmitButton: _escort_components_SubmitButton__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/TourList.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/TourList.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/escort/components/LayoutTable */ "./resources/js/escort/components/LayoutTable.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    LayoutTable: _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -42105,6 +42074,118 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Bus.vue?vue&type=template&id=73b69c20&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Bus.vue?vue&type=template&id=73b69c20& ***!
+  \********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container p-4" }, [
+    _c("div", { staticClass: "back mb-1" }, [
+      _c("img", {
+        staticClass: "back-icon cursor-pointer",
+        attrs: { src: "/assets/front/icons/back.png" },
+        on: {
+          click: function($event) {
+            return _vm.$router.go(-1)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("h5", { staticClass: "text-muted" }, [_vm._v("\n        Bus\n    ")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "pt-4 font-weight-bolder pb-4 whitesomke" },
+      _vm._l(3, function(i) {
+        return _c("div", { key: i }, [
+          _vm._m(0, true),
+          _vm._v(" "),
+          _c("hr", { staticClass: "w-95" })
+        ])
+      }),
+      0
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("label", { staticClass: "text-muted f-12" }, [
+          _vm._v("Bus Number or Name")
+        ]),
+        _vm._v(" "),
+        _c("p", [_vm._v("The Teja bus service (48484 ) ")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Source")]),
+            _vm._v(" "),
+            _c("p", [_vm._v("Delhi")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [
+              _vm._v("Destination")
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("Mumbai")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [
+              _vm._v("Departure")
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("27/10/2020")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [
+              _vm._v("Passengers")
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("100")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2" }, [
+        _c("label", { staticClass: "text-muted f-12" }, [
+          _vm._v("Contact Number")
+        ]),
+        _vm._v(" "),
+        _c("p", [_vm._v("Raj niwas 98989898989")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Dashboard.vue?vue&type=template&id=706d0f98&":
 /*!**************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Dashboard.vue?vue&type=template&id=706d0f98& ***!
@@ -42126,6 +42207,23 @@ var render = function() {
     [
       _c("layout", {
         scopedSlots: _vm._u([
+          {
+            key: "back",
+            fn: function() {
+              return [
+                _c("img", {
+                  staticClass: "back-icon cursor-pointer",
+                  attrs: { src: "/assets/front/icons/back.png" },
+                  on: {
+                    click: function($event) {
+                      return _vm.$router.go(-1)
+                    }
+                  }
+                })
+              ]
+            },
+            proxy: true
+          },
           {
             key: "title",
             fn: function() {
@@ -42190,7 +42288,7 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { attrs: { to: "/dashbaord/sightseeing" } },
+                          { attrs: { to: "/dashbaord/hotel" } },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -42210,7 +42308,7 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { attrs: { to: "/dashbaord/sightseeing" } },
+                          { attrs: { to: "/dashbaord/flight" } },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -42228,18 +42326,14 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c(
-                          "router-link",
-                          { attrs: { to: "/dashbaord/sightseeing" } },
-                          [
-                            _c("img", {
-                              staticClass: "w-100",
-                              attrs: {
-                                src: "/assets/admin/default/icon/bus-icon.png"
-                              }
-                            })
-                          ]
-                        )
+                        _c("router-link", { attrs: { to: "/dashbaord/bus" } }, [
+                          _c("img", {
+                            staticClass: "w-100",
+                            attrs: {
+                              src: "/assets/admin/default/icon/bus-icon.png"
+                            }
+                          })
+                        ])
                       ],
                       1
                     ),
@@ -42250,7 +42344,7 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { attrs: { to: "/dashbaord/sightseeing" } },
+                          { attrs: { to: "/dashbaord/train" } },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -42302,6 +42396,98 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Flight.vue?vue&type=template&id=2aa2d200&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Flight.vue?vue&type=template&id=2aa2d200& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container p-4" }, [
+    _c("div", { staticClass: "back mb-1" }, [
+      _c("img", {
+        staticClass: "back-icon cursor-pointer",
+        attrs: { src: "/assets/front/icons/back.png" },
+        on: {
+          click: function($event) {
+            return _vm.$router.go(-1)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("h5", { staticClass: "text-muted" }, [_vm._v("\n        Flight\n    ")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "pt-4 font-weight-bolder pb-4 whitesomke" },
+      _vm._l(3, function(i) {
+        return _c("div", { key: i }, [
+          _vm._m(0, true),
+          _vm._v(" "),
+          _c("hr", { staticClass: "w-95" })
+        ])
+      }),
+      0
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c("label", { staticClass: "text-muted f-12" }, [
+          _vm._v("Flight Number & Name")
+        ]),
+        _vm._v(" "),
+        _c("p", [_vm._v("HYDI49 ")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [
+              _vm._v("Departure")
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("27/10/2020")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [
+              _vm._v("Arrival")
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("27/10/2020")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2" }, [
+        _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Passengers")]),
+        _vm._v(" "),
+        _c("p", [_vm._v("100")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Home.vue?vue&type=template&id=2da7d5ef&":
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Home.vue?vue&type=template&id=2da7d5ef& ***!
@@ -42333,6 +42519,110 @@ var render = function() {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Hotel.vue?vue&type=template&id=0630f958&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Hotel.vue?vue&type=template&id=0630f958& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container p-4" }, [
+    _c("div", { staticClass: "back mb-1" }, [
+      _c("img", {
+        staticClass: "back-icon cursor-pointer",
+        attrs: { src: "/assets/front/icons/back.png" },
+        on: {
+          click: function($event) {
+            return _vm.$router.go(-1)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("h5", { staticClass: "text-muted" }, [_vm._v("\n        Hotel\n    ")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "hotel-body pt-4 font-weight-bolder pb-4 whitesomke" },
+      _vm._l(3, function(i) {
+        return _c("div", { key: i, staticClass: "hotel-data" }, [
+          _vm._m(0, true),
+          _vm._v(" "),
+          _c("hr", { staticClass: "w-95" })
+        ])
+      }),
+      0
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Hotel Name")]),
+        _vm._v(" "),
+        _c("p", [_vm._v("The Taj Hotel ")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [
+              _vm._v("Check In")
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("27/10/2020")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [
+              _vm._v("Check Out")
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("27/10/2020")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [
+              _vm._v("Group Member")
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("100")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [
+              _vm._v("Contact Number")
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("890383948")])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -42440,6 +42730,23 @@ var render = function() {
   return _c("layout-table", {
     scopedSlots: _vm._u([
       {
+        key: "back",
+        fn: function() {
+          return [
+            _c("img", {
+              staticClass: "back-icon cursor-pointer",
+              attrs: { src: "/assets/front/icons/back.png" },
+              on: {
+                click: function($event) {
+                  return _vm.$router.go(-1)
+                }
+              }
+            })
+          ]
+        },
+        proxy: true
+      },
+      {
         key: "title",
         fn: function() {
           return [_vm._v("\n        Number of Pax\n    ")]
@@ -42504,6 +42811,23 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("layout-table", {
     scopedSlots: _vm._u([
+      {
+        key: "back",
+        fn: function() {
+          return [
+            _c("img", {
+              staticClass: "back-icon cursor-pointer",
+              attrs: { src: "/assets/front/icons/back.png" },
+              on: {
+                click: function($event) {
+                  return _vm.$router.go(-1)
+                }
+              }
+            })
+          ]
+        },
+        proxy: true
+      },
       {
         key: "title",
         fn: function() {
@@ -42573,6 +42897,23 @@ var render = function() {
     [
       _c("layout", {
         scopedSlots: _vm._u([
+          {
+            key: "back",
+            fn: function() {
+              return [
+                _c("img", {
+                  staticClass: "back-icon cursor-pointer",
+                  attrs: { src: "/assets/front/icons/back.png" },
+                  on: {
+                    click: function($event) {
+                      return _vm.$router.go(-1)
+                    }
+                  }
+                })
+              ]
+            },
+            proxy: true
+          },
           {
             key: "title",
             fn: function() {
@@ -42700,71 +43041,263 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("layout-table", {
-    scopedSlots: _vm._u([
-      {
-        key: "title",
-        fn: function() {
-          return [_vm._v("\n        Tour List\n    ")]
-        },
-        proxy: true
-      },
-      {
-        key: "table-head",
-        fn: function() {
-          return [
-            _c("th", { staticClass: "border-0" }, [_vm._v("Tour")]),
-            _vm._v(" "),
-            _c("th", { staticClass: "border-0" }, [_vm._v("Date")]),
-            _vm._v(" "),
-            _c("th", { staticClass: "border-0" }, [_vm._v("Status")])
-          ]
-        },
-        proxy: true
-      },
-      {
-        key: "table-body",
-        fn: function() {
-          return _vm._l(2, function(i) {
-            return _c("tr", { key: i }, [
-              _c(
-                "td",
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "text-dark decoration-none",
-                      attrs: { to: "/dashboard" }
-                    },
-                    [
+  return _c("div", { staticClass: "container p-4" }, [
+    _c("h5", { staticClass: "text-muted" }, [_vm._v("\n        Tour\n    ")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "mt-4" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "decoration-none", attrs: { to: "/dashboard" } },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "pt-3 text-white border-radius-7 mb-3 bg-red font-weight-bolder pb-2"
+              },
+              [
+                _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
+                  _c("div", { staticClass: "col-sm-8" }, [
+                    _c("label", { staticClass: "f-12" }, [_vm._v("Tour")]),
+                    _vm._v(" "),
+                    _c("p", [
                       _vm._v(
-                        " days Tour To Ahmedabad, statue of Unity, lothel-indus Valley Civilization, anand, amul Dairy, Mt. Abu & Udaip "
+                        "06 days Tour To Ahmedabad, statue of Unity, lothel-indus Valley Civilization, anand, amul Dairy, Mt. Abu & Udaipur "
                       )
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("td", [_vm._v("26/10/2020")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("Enabled")])
-            ])
-          })
-        },
-        proxy: true
-      },
-      {
-        key: "footer",
-        fn: function() {
-          return undefined
-        },
-        proxy: true
-      }
-    ])
-  })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col" }, [
+                        _c("label", { staticClass: "f-12" }, [_vm._v("Date")]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("27/10/2020")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col text-sm-right" }, [
+                        _c("label", { staticClass: "f-12" }, [
+                          _vm._v("Status")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Ended")])
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          { staticClass: "decoration-none", attrs: { to: "/dashboard" } },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "pt-3 text-white border-radius-7 mb-3 bg-green font-weight-bolder pb-2"
+              },
+              [
+                _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
+                  _c("div", { staticClass: "col-sm-8" }, [
+                    _c("label", { staticClass: "f-12" }, [_vm._v("Tour")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "06 days Tour To Ahmedabad, statue of Unity, lothel-indus Valley Civilization, anand, amul Dairy, Mt. Abu & Udaipur "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col" }, [
+                        _c("label", { staticClass: "f-12" }, [_vm._v("Date")]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("27/10/2020")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col text-sm-right" }, [
+                        _c("label", { staticClass: "f-12" }, [
+                          _vm._v("Status")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Ended")])
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          { staticClass: "decoration-none", attrs: { to: "/dashboard" } },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "pt-3 text-white border-radius-7 mb-3 bg-yellow font-weight-bolder pb-2"
+              },
+              [
+                _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
+                  _c("div", { staticClass: "col-sm-8" }, [
+                    _c("label", { staticClass: "f-12" }, [_vm._v("Tour")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "06 days Tour To Ahmedabad, statue of Unity, lothel-indus Valley Civilization, anand, amul Dairy, Mt. Abu & Udaipur "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col" }, [
+                        _c("label", { staticClass: "f-12" }, [_vm._v("Date")]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("27/10/2020")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col text-sm-right" }, [
+                        _c("label", { staticClass: "f-12" }, [
+                          _vm._v("Status")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Ended")])
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Train.vue?vue&type=template&id=419969a8&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Train.vue?vue&type=template&id=419969a8& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container p-4" }, [
+    _c("div", { staticClass: "back mb-1" }, [
+      _c("img", {
+        staticClass: "back-icon cursor-pointer",
+        attrs: { src: "/assets/front/icons/back.png" },
+        on: {
+          click: function($event) {
+            return _vm.$router.go(-1)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("h5", { staticClass: "text-muted" }, [_vm._v("\n        Bus\n    ")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "pt-4 font-weight-bolder pb-4 whitesomke" },
+      _vm._l(3, function(i) {
+        return _c("div", { key: i }, [
+          _vm._m(0, true),
+          _vm._v(" "),
+          _c("hr", { staticClass: "w-95" })
+        ])
+      }),
+      0
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("label", { staticClass: "text-muted f-12" }, [
+          _vm._v("Train Number & Name")
+        ]),
+        _vm._v(" "),
+        _c("p", [_vm._v("The Teja bus service (48484 ) ")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Source")]),
+            _vm._v(" "),
+            _c("p", [_vm._v("Delhi")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [
+              _vm._v("Destination")
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("Mumbai")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [
+              _vm._v("Departure")
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("27/10/2020")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("label", { staticClass: "text-muted f-12" }, [
+              _vm._v("Arrival")
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("27/10/2020")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2" }, [
+        _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Passengers")]),
+        _vm._v(" "),
+        _c("p", [_vm._v("100")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -59576,6 +60109,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/escort/pages/Bus.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/escort/pages/Bus.vue ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Bus_vue_vue_type_template_id_73b69c20___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bus.vue?vue&type=template&id=73b69c20& */ "./resources/js/escort/pages/Bus.vue?vue&type=template&id=73b69c20&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _Bus_vue_vue_type_template_id_73b69c20___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Bus_vue_vue_type_template_id_73b69c20___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/escort/pages/Bus.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/escort/pages/Bus.vue?vue&type=template&id=73b69c20&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/escort/pages/Bus.vue?vue&type=template&id=73b69c20& ***!
+  \**************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bus_vue_vue_type_template_id_73b69c20___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bus.vue?vue&type=template&id=73b69c20& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Bus.vue?vue&type=template&id=73b69c20&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bus_vue_vue_type_template_id_73b69c20___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bus_vue_vue_type_template_id_73b69c20___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/escort/pages/Dashboard.vue":
 /*!*************************************************!*\
   !*** ./resources/js/escort/pages/Dashboard.vue ***!
@@ -59645,6 +60231,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/escort/pages/Flight.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/escort/pages/Flight.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Flight_vue_vue_type_template_id_2aa2d200___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Flight.vue?vue&type=template&id=2aa2d200& */ "./resources/js/escort/pages/Flight.vue?vue&type=template&id=2aa2d200&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _Flight_vue_vue_type_template_id_2aa2d200___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Flight_vue_vue_type_template_id_2aa2d200___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/escort/pages/Flight.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/escort/pages/Flight.vue?vue&type=template&id=2aa2d200&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/escort/pages/Flight.vue?vue&type=template&id=2aa2d200& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Flight_vue_vue_type_template_id_2aa2d200___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Flight.vue?vue&type=template&id=2aa2d200& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Flight.vue?vue&type=template&id=2aa2d200&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Flight_vue_vue_type_template_id_2aa2d200___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Flight_vue_vue_type_template_id_2aa2d200___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/escort/pages/Home.vue":
 /*!********************************************!*\
   !*** ./resources/js/escort/pages/Home.vue ***!
@@ -59709,6 +60348,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_2da7d5ef___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_2da7d5ef___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/escort/pages/Hotel.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/escort/pages/Hotel.vue ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Hotel_vue_vue_type_template_id_0630f958___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Hotel.vue?vue&type=template&id=0630f958& */ "./resources/js/escort/pages/Hotel.vue?vue&type=template&id=0630f958&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _Hotel_vue_vue_type_template_id_0630f958___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Hotel_vue_vue_type_template_id_0630f958___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/escort/pages/Hotel.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/escort/pages/Hotel.vue?vue&type=template&id=0630f958&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/escort/pages/Hotel.vue?vue&type=template&id=0630f958& ***!
+  \****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Hotel_vue_vue_type_template_id_0630f958___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Hotel.vue?vue&type=template&id=0630f958& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Hotel.vue?vue&type=template&id=0630f958&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Hotel_vue_vue_type_template_id_0630f958___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Hotel_vue_vue_type_template_id_0630f958___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -59984,17 +60676,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TourList_vue_vue_type_template_id_6dae56b4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TourList.vue?vue&type=template&id=6dae56b4& */ "./resources/js/escort/pages/TourList.vue?vue&type=template&id=6dae56b4&");
-/* harmony import */ var _TourList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TourList.vue?vue&type=script&lang=js& */ "./resources/js/escort/pages/TourList.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-
-
+var script = {}
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _TourList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
   _TourList_vue_vue_type_template_id_6dae56b4___WEBPACK_IMPORTED_MODULE_0__["render"],
   _TourList_vue_vue_type_template_id_6dae56b4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -60011,20 +60701,6 @@ component.options.__file = "resources/js/escort/pages/TourList.vue"
 
 /***/ }),
 
-/***/ "./resources/js/escort/pages/TourList.vue?vue&type=script&lang=js&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/escort/pages/TourList.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TourList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./TourList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/TourList.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TourList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
 /***/ "./resources/js/escort/pages/TourList.vue?vue&type=template&id=6dae56b4&":
 /*!*******************************************************************************!*\
   !*** ./resources/js/escort/pages/TourList.vue?vue&type=template&id=6dae56b4& ***!
@@ -60038,6 +60714,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TourList_vue_vue_type_template_id_6dae56b4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TourList_vue_vue_type_template_id_6dae56b4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/escort/pages/Train.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/escort/pages/Train.vue ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Train_vue_vue_type_template_id_419969a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Train.vue?vue&type=template&id=419969a8& */ "./resources/js/escort/pages/Train.vue?vue&type=template&id=419969a8&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _Train_vue_vue_type_template_id_419969a8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Train_vue_vue_type_template_id_419969a8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/escort/pages/Train.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/escort/pages/Train.vue?vue&type=template&id=419969a8&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/escort/pages/Train.vue?vue&type=template&id=419969a8& ***!
+  \****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Train_vue_vue_type_template_id_419969a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Train.vue?vue&type=template&id=419969a8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Train.vue?vue&type=template&id=419969a8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Train_vue_vue_type_template_id_419969a8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Train_vue_vue_type_template_id_419969a8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -60063,11 +60792,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _escort_pages_Sightseeing_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/escort/pages/Sightseeing.vue */ "./resources/js/escort/pages/Sightseeing.vue");
 /* harmony import */ var _escort_pages_Pack_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/escort/pages/Pack.vue */ "./resources/js/escort/pages/Pack.vue");
 /* harmony import */ var _escort_pages_Restaurant_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/escort/pages/Restaurant.vue */ "./resources/js/escort/pages/Restaurant.vue");
-/* harmony import */ var _components_front_error_404_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/components/front/error/404.vue */ "./resources/js/components/front/error/404.vue");
+/* harmony import */ var _escort_pages_Hotel_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/escort/pages/Hotel.vue */ "./resources/js/escort/pages/Hotel.vue");
+/* harmony import */ var _escort_pages_Bus_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/escort/pages/Bus.vue */ "./resources/js/escort/pages/Bus.vue");
+/* harmony import */ var _escort_pages_Train_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/escort/pages/Train.vue */ "./resources/js/escort/pages/Train.vue");
+/* harmony import */ var _escort_pages_Flight_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/escort/pages/Flight.vue */ "./resources/js/escort/pages/Flight.vue");
+/* harmony import */ var _components_front_error_404_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/components/front/error/404.vue */ "./resources/js/components/front/error/404.vue");
 
  // import AllRoutes from './modules/route';
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // const Home = () => import(/* webpackChunkName: "Home" */ '@/components/front/layouts/FrontHome.vue');
+
+
+
+
 
 
 
@@ -60110,6 +60847,18 @@ function createRouter() {
     }, {
       path: '/dashbaord/restaurant',
       component: _escort_pages_Restaurant_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
+    }, {
+      path: '/dashbaord/hotel',
+      component: _escort_pages_Hotel_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+    }, {
+      path: '/dashbaord/bus',
+      component: _escort_pages_Bus_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
+    }, {
+      path: '/dashbaord/train',
+      component: _escort_pages_Train_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
+    }, {
+      path: '/dashbaord/flight',
+      component: _escort_pages_Flight_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
     } // children: [
     //     { path:'sightseeing', component: Sightseeing },
     // ]
