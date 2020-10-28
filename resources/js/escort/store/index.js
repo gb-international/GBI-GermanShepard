@@ -7,6 +7,7 @@ Vue.use(Vuex)
 export function createStore() {
     return new Vuex.Store({
         state: {
+            loogin: Vue.$cookies.get('escort_id'),
             singlepost: [],
             alldata: [], // All data from the api
             editdata: [],// Get Edit data 
@@ -24,6 +25,9 @@ export function createStore() {
             getEditData(state) {
                 return state.editdata
             },
+            isLoggedIn(state){
+                return state.loogin
+            }
         },
         //getAllTableData();
         actions: {

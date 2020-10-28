@@ -2002,13 +2002,134 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     login: _escort_pages_Login__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {};
+  },
+  created: function created() {
+    if (this.$cookies.get('escort_id') != undefined) {
+      this.$router.push('/tour-list');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Login.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Login.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Login",
+  data: function data() {
+    return {
+      disable: false,
+      form: {
+        number: '',
+        otp: '',
+        otp_id: '',
+        escort_id: ''
+      }
+    };
+  },
+  methods: {
+    sendOTP: function sendOTP() {
+      var _this = this;
+
+      if (this.disable == false) {
+        axios.post('/escort/login', this.form).then(function (response) {
+          if (response.data.success) {
+            _this.disable = true;
+            _this.form.otp_id = response.data.otp_id;
+            _this.form.escort_id = response.data.id;
+
+            _this.$swal.fire('Otp Sent', 'Otp Sent To you number!!', 'success');
+          }
+        });
+      }
+    },
+    validateOTP: function validateOTP() {
+      var _this2 = this;
+
+      if (this.form.otp != '' && this.form.otp_id != '') {
+        axios.post('/escort/login-verify', this.form).then(function (response) {
+          console.log(response);
+
+          if (response.data.type == 'success') {
+            _this2.$toast.fire({
+              icon: "success",
+              title: "Welcome to dashbaord"
+            });
+
+            _this2.$cookies.set('escort_id', _this2.form.escort_id);
+
+            console.log(_this2.$cookies.get('escort_id'));
+
+            _this2.$router.push('/tour-list');
+          } else {
+            _this2.$toast.fire({
+              icon: "error",
+              title: "Please Enter Valid OTP"
+            });
+          }
+        });
+      }
+    }
   }
 });
 
@@ -2163,6 +2284,113 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     layout: _escort_components_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
     SubmitButton: _escort_components_SubmitButton__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/TourList.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/TourList.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "TourList",
+  data: function data() {
+    return {};
+  },
+  created: function created() {
+    if (this.$cookies.get('escort_id') == undefined) {
+      this.$router.push('/');
+    } // this.$cookies.remove('escort_id');
+
   }
 });
 
@@ -41900,6 +42128,157 @@ AlertSuccess_component.options.__file = "AlertSuccess.vue"
 
 /***/ }),
 
+/***/ "./node_modules/vue-cookies/vue-cookies.js":
+/*!*************************************************!*\
+  !*** ./node_modules/vue-cookies/vue-cookies.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Vue Cookies v1.7.4
+ * https://github.com/cmp-cc/vue-cookies
+ *
+ * Copyright 2016, cmp-cc
+ * Released under the MIT license
+ */
+
+(function () {
+
+  var defaultConfig = {
+    expires: '1d',
+    path: '; path=/',
+    domain: '',
+    secure: '',
+    sameSite: '; SameSite=Lax'
+  };
+
+  var VueCookies = {
+    // install of Vue
+    install: function (Vue) {
+      Vue.prototype.$cookies = this;
+      Vue.$cookies = this;
+    },
+    config: function (expireTimes, path, domain, secure, sameSite) {
+      defaultConfig.expires = expireTimes ? expireTimes : '1d';
+      defaultConfig.path = path ? '; path=' + path : '; path=/';
+      defaultConfig.domain = domain ? '; domain=' + domain : '';
+      defaultConfig.secure = secure ? '; Secure' : '';
+      defaultConfig.sameSite = sameSite ? '; SameSite=' + sameSite : '; SameSite=Lax';
+    },
+    get: function (key) {
+      var value = decodeURIComponent(document.cookie.replace(new RegExp('(?:(?:^|.*;)\\s*' + encodeURIComponent(key).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1')) || null;
+
+      if (value && value.substring(0, 1) === '{' && value.substring(value.length - 1, value.length) === '}') {
+        try {
+          value = JSON.parse(value);
+        } catch (e) {
+          return value;
+        }
+      }
+      return value;
+    },
+    set: function (key, value, expireTimes, path, domain, secure, sameSite) {
+      if (!key) {
+        throw new Error('Cookie name is not find in first argument.');
+      } else if (/^(?:expires|max\-age|path|domain|secure|SameSite)$/i.test(key)) {
+        throw new Error('Cookie key name illegality, Cannot be set to ["expires","max-age","path","domain","secure","SameSite"]\t current key name: ' + key);
+      }
+      // support json object
+      if (value && value.constructor === Object) {
+        value = JSON.stringify(value);
+      }
+      var _expires = '';
+      expireTimes = expireTimes == undefined ? defaultConfig.expires : expireTimes;
+      if (expireTimes && expireTimes != 0) {
+        switch (expireTimes.constructor) {
+          case Number:
+            if (expireTimes === Infinity || expireTimes === -1) _expires = '; expires=Fri, 31 Dec 9999 23:59:59 GMT';
+            else _expires = '; max-age=' + expireTimes;
+            break;
+          case String:
+            if (/^(?:\d+(y|m|d|h|min|s))$/i.test(expireTimes)) {
+              // get capture number group
+              var _expireTime = expireTimes.replace(/^(\d+)(?:y|m|d|h|min|s)$/i, '$1');
+              // get capture type group , to lower case
+              switch (expireTimes.replace(/^(?:\d+)(y|m|d|h|min|s)$/i, '$1').toLowerCase()) {
+                  // Frequency sorting
+                case 'm':
+                  _expires = '; max-age=' + +_expireTime * 2592000;
+                  break; // 60 * 60 * 24 * 30
+                case 'd':
+                  _expires = '; max-age=' + +_expireTime * 86400;
+                  break; // 60 * 60 * 24
+                case 'h':
+                  _expires = '; max-age=' + +_expireTime * 3600;
+                  break; // 60 * 60
+                case 'min':
+                  _expires = '; max-age=' + +_expireTime * 60;
+                  break; // 60
+                case 's':
+                  _expires = '; max-age=' + _expireTime;
+                  break;
+                case 'y':
+                  _expires = '; max-age=' + +_expireTime * 31104000;
+                  break; // 60 * 60 * 24 * 30 * 12
+                default:
+                  new Error('unknown exception of "set operation"');
+              }
+            } else {
+              _expires = '; expires=' + expireTimes;
+            }
+            break;
+          case Date:
+            _expires = '; expires=' + expireTimes.toUTCString();
+            break;
+        }
+      }
+      document.cookie =
+          encodeURIComponent(key) + '=' + encodeURIComponent(value) +
+          _expires +
+          (domain ? '; domain=' + domain : defaultConfig.domain) +
+          (path ? '; path=' + path : defaultConfig.path) +
+          (secure == undefined ? defaultConfig.secure : secure ? '; Secure' : '') +
+          (sameSite == undefined ? defaultConfig.sameSite : (sameSite ? '; SameSite=' + sameSite : ''));
+      return this;
+    },
+    remove: function (key, path, domain) {
+      if (!key || !this.isKey(key)) {
+        return false;
+      }
+      document.cookie = encodeURIComponent(key) +
+          '=; expires=Thu, 01 Jan 1970 00:00:00 GMT' +
+          (domain ? '; domain=' + domain : defaultConfig.domain) +
+          (path ? '; path=' + path : defaultConfig.path) +
+          '; SameSite=Lax';
+      return this;
+    },
+    isKey: function (key) {
+      return (new RegExp('(?:^|;\\s*)' + encodeURIComponent(key).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=')).test(document.cookie);
+    },
+    keys: function () {
+      if (!document.cookie) return [];
+      var _keys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, '').split(/\s*(?:\=[^;]*)?;\s*/);
+      for (var _index = 0; _index < _keys.length; _index++) {
+        _keys[_index] = decodeURIComponent(_keys[_index]);
+      }
+      return _keys;
+    }
+  };
+
+  if (true) {
+    module.exports = VueCookies;
+  } else {}
+  // vue-cookies can exist independently,no dependencies library
+  if (typeof window !== 'undefined') {
+    window.$cookies = VueCookies;
+  }
+
+})();
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/front/error/404.vue?vue&type=template&id=3bdcc160&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/front/error/404.vue?vue&type=template&id=3bdcc160& ***!
@@ -41974,30 +42353,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "pt-4 pb-4" }, [
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          { staticClass: "cols-m-1" },
-          [_vm._t("back", [_vm._v("Back")])],
-          2
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-11" }, [
-          _c(
-            "h3",
-            { staticClass: "text-heading text-uppercase text-center" },
-            [_vm._t("title")],
-            2
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "pt-4 pb-4" }, [_vm._t("body")], 2),
-      _vm._v(" "),
-      _c("div", { staticClass: "footer-layout" }, [_vm._t("footer")], 2)
-    ])
+  return _c("div", { staticClass: "container p-4" }, [
+    _c("div", { staticClass: "back" }, [_vm._t("back", [_vm._v("Back")])], 2),
+    _vm._v(" "),
+    _c(
+      "h3",
+      { staticClass: "text-heading text-uppercase text-center" },
+      [_vm._t("title")],
+      2
+    ),
+    _vm._v(" "),
+    _c("div", {}, [_vm._t("body")], 2),
+    _vm._v(" "),
+    _c("div", { staticClass: "footer-layout" }, [_vm._t("footer")], 2)
   ])
 }
 var staticRenderFns = []
@@ -42503,20 +42871,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "bg-blue height-100" },
-    [
-      _c("router-link", { attrs: { to: "/" } }, [_vm._v("Home")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/dashboard" } }, [_vm._v("Dashboard")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/tour-list" } }, [_vm._v("Tour List")]),
-      _vm._v(" "),
-      _c("login")
-    ],
-    1
-  )
+  return _c("div", { staticClass: "bg-blue height-100" }, [_c("login")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -42644,65 +42999,109 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center mt-5 pt-5" }, [
+      _c("div", { staticClass: "col-sm-4" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("form", { staticClass: "mt-5" }, [
+          _c("div", { staticClass: "form-group relative" }, [
+            _c(
+              "span",
+              {
+                staticClass:
+                  "text-info otp_link absolute cursor-pointer font-weight-bold",
+                on: {
+                  click: function($event) {
+                    return _vm.sendOTP()
+                  }
+                }
+              },
+              [_vm._v("Get OTP")]
+            ),
+            _vm._v(" "),
+            _c("label", { staticClass: "text-white font-weight-bold" }, [
+              _vm._v("Enter Mobile Number")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.number,
+                  expression: "form.number"
+                }
+              ],
+              staticClass: "input_straight",
+              attrs: { type: "text", placeholder: "Enter mobile number" },
+              domProps: { value: _vm.form.number },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "number", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { staticClass: "text-white font-weight-bold" }, [
+              _vm._v("Enter OTP")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.otp,
+                  expression: "form.otp"
+                }
+              ],
+              staticClass: "input_straight",
+              attrs: { type: "number", placeholder: "Enter OTP" },
+              domProps: { value: _vm.form.otp },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "otp", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group mt-4" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-block text-white btn-submit",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.validateOTP()
+                  }
+                }
+              },
+              [_vm._v("\n            SUBMIT\n            ")]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center mt-5 pt-5" }, [
-        _c("div", { staticClass: "col-sm-4" }, [
-          _c("p", { staticClass: "text-center" }, [
-            _c("img", { attrs: { src: "assets/admin/default/icon/logo.png" } })
-          ]),
-          _vm._v(" "),
-          _c("form", { staticClass: "mt-5" }, [
-            _c("div", { staticClass: "form-group relative" }, [
-              _c(
-                "span",
-                {
-                  staticClass:
-                    "text-info otp_link absolute cursor-pointer font-weight-bold"
-                },
-                [_vm._v("Get OTP")]
-              ),
-              _vm._v(" "),
-              _c("label", { staticClass: "text-white font-weight-bold" }, [
-                _vm._v("Enter Mobile Number")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "input_straight",
-                attrs: { type: "text", placeholder: "Enter mobile number" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { staticClass: "text-white font-weight-bold" }, [
-                _vm._v("Enter OTP")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "input_straight",
-                attrs: { type: "number", placeholder: "Enter OTP" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group mt-4" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-block text-white btn-submit",
-                  attrs: { type: "submit" }
-                },
-                [_vm._v("\n            SUBMIT\n            ")]
-              )
-            ])
-          ])
-        ])
-      ])
+    return _c("p", { staticClass: "text-center" }, [
+      _c("img", { attrs: { src: "assets/admin/default/icon/logo.png" } })
     ])
   }
 ]
@@ -46428,124 +46827,6 @@ if (inBrowser && window.Vue) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (VueRouter);
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-session/index.js":
-/*!*******************************************!*\
-  !*** ./node_modules/vue-session/index.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var STORAGE = null;
-var VueSession = {
-    key: 'vue-session-key',
-    flash_key: 'vue-session-flash-key',
-    setAll: function(all){
-        STORAGE.setItem(VueSession.key,JSON.stringify(all));
-    }
-}
-
-VueSession.install = function(Vue, options) {
-    if(options && 'persist' in options && options.persist) STORAGE = window.localStorage;
-    else STORAGE = window.sessionStorage;
-    Vue.prototype.$session = {
-        flash: {
-            parent: function(){
-                return Vue.prototype.$session;
-            },
-            get: function(key){
-                var all = this.parent().getAll();
-                var all_flash = all[VueSession.flash_key] || {};
-
-                var flash_value = all_flash[key];
-
-                this.remove(key);
-
-                return flash_value;
-            },
-            set: function(key, value){
-                var all = this.parent().getAll();
-                var all_flash = all[VueSession.flash_key] || {};
-
-                all_flash[key] = value;
-                all[VueSession.flash_key] = all_flash;
-
-                VueSession.setAll(all);
-            },
-            remove: function(key){
-                var all = this.parent().getAll();
-                var all_flash = all[VueSession.flash_key] || {};
-
-                delete all_flash[key];
-
-                all[VueSession.flash_key] = all_flash;
-                VueSession.setAll(all);
-            }
-        },
-        getAll: function(){
-            var all = JSON.parse(STORAGE.getItem(VueSession.key));
-            return all || {};
-        },
-        set: function(key,value){
-            if(key == 'session-id') return false;
-            var all = this.getAll();
-
-            if(!('session-id' in all)){
-                this.start();
-                all = this.getAll();
-            }
-
-            all[key] = value;
-
-            VueSession.setAll(all);
-        },
-        get: function(key){
-            var all = this.getAll();
-            return all[key];
-        },
-        start: function(){
-            var all = this.getAll();
-            all['session-id'] = 'sess:'+Date.now();
-
-            VueSession.setAll(all);
-        },
-        renew: function(sessionId){
-            var all = this.getAll();
-            all['session-id'] = 'sess:' + sessionId;
-            VueSession.setAll(all);
-        },
-        exists: function(){
-            var all = this.getAll();
-            return 'session-id' in all;
-        },
-        has: function(key){
-            var all = this.getAll();
-            return key in all;
-        },
-        remove: function(key){
-            var all = this.getAll();
-            delete all[key];
-
-            VueSession.setAll(all);
-        },
-        clear: function(){
-            var all = this.getAll();
-
-            VueSession.setAll({'session-id': all['session-id']});
-        },
-        destroy: function(){
-            VueSession.setAll({});
-        },
-        id: function(){
-            return this.get('session-id');
-        }
-    }
-};
-
-module.exports = VueSession;
 
 
 /***/ }),
@@ -59906,8 +60187,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var vue_session__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-session */ "./node_modules/vue-session/index.js");
-/* harmony import */ var vue_session__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_session__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue_cookies__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-cookies */ "./node_modules/vue-cookies/vue-cookies.js");
+/* harmony import */ var vue_cookies__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_cookies__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./router */ "./resources/js/escort/router.js");
 /* harmony import */ var _escort_store_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/escort/store/index */ "./resources/js/escort/store/index.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
@@ -59926,6 +60207,7 @@ __webpack_require__(/*! @/bootstrap */ "./resources/js/bootstrap.js");
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.config.productionTip = false;
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_cookies__WEBPACK_IMPORTED_MODULE_3___default.a);
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var store = new _escort_store_index__WEBPACK_IMPORTED_MODULE_5__["createStore"]();
@@ -59942,6 +60224,22 @@ var toast = sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.mixin({
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$toast = toast;
 var router = new _router__WEBPACK_IMPORTED_MODULE_4__["createRouter"]();
+router.beforeEach(function (to, from, next) {
+  console.log(store.getters.isLoggedIn);
+
+  if (to.matched.some(function (record) {
+    return record.meta.requiresAuth;
+  })) {
+    if (store.getters.isLoggedIn) {
+      next();
+      return;
+    }
+
+    next('/');
+  } else {
+    next();
+  }
+});
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   router: router,
@@ -60416,15 +60714,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Login_vue_vue_type_template_id_b59062ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Login.vue?vue&type=template&id=b59062ee& */ "./resources/js/escort/pages/Login.vue?vue&type=template&id=b59062ee&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login.vue?vue&type=script&lang=js& */ "./resources/js/escort/pages/Login.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Login_vue_vue_type_template_id_b59062ee___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Login_vue_vue_type_template_id_b59062ee___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -60438,6 +60738,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/escort/pages/Login.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/escort/pages/Login.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/escort/pages/Login.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Login.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Login.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -60670,21 +60984,24 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************!*\
   !*** ./resources/js/escort/pages/TourList.vue ***!
   \************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TourList_vue_vue_type_template_id_6dae56b4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TourList.vue?vue&type=template&id=6dae56b4& */ "./resources/js/escort/pages/TourList.vue?vue&type=template&id=6dae56b4&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _TourList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TourList.vue?vue&type=script&lang=js& */ "./resources/js/escort/pages/TourList.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _TourList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _TourList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TourList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _TourList_vue_vue_type_template_id_6dae56b4___WEBPACK_IMPORTED_MODULE_0__["render"],
   _TourList_vue_vue_type_template_id_6dae56b4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -60698,6 +61015,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/escort/pages/TourList.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/escort/pages/TourList.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/escort/pages/TourList.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TourList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./TourList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/TourList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TourList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -60859,24 +61190,9 @@ function createRouter() {
     }, {
       path: '/dashbaord/flight',
       component: _escort_pages_Flight_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
-    } // children: [
-    //     { path:'sightseeing', component: Sightseeing },
-    // ]
-    // { path: '*', component: Error404 }
-    ]
+    }]
   });
-} // router.beforeEach((to, from, next) => {
-//     if (to.matched.some(record => record.meta.requiresAuth)) {
-//         if (store.getters.isLoggedIn) {
-//             next()
-//             return
-//         }
-//         next('/')
-//     } else {
-//         next()
-//     }
-// })
-// export default router
+}
 
 /***/ }),
 
@@ -60902,6 +61218,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 function createStore() {
   return new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
     state: {
+      loogin: vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('escort_id'),
       singlepost: [],
       alldata: [],
       // All data from the api
@@ -60920,6 +61237,9 @@ function createStore() {
       },
       getEditData: function getEditData(state) {
         return state.editdata;
+      },
+      isLoggedIn: function isLoggedIn(state) {
+        return state.loogin;
       }
     },
     //getAllTableData();

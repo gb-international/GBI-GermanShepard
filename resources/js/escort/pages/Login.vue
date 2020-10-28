@@ -10,6 +10,7 @@
             <div class="form-group relative">
                 <span
                 class="text-info otp_link absolute cursor-pointer font-weight-bold"
+                @click="sendOTP()"
                 >Get OTP</span
                 >
                 <label class="text-white font-weight-bold"
@@ -19,6 +20,7 @@
                 type="text"
                 class="input_straight"
                 placeholder="Enter mobile number"
+                v-model="form.number"
                 />
             </div>
 
@@ -28,10 +30,11 @@
                 type="number"
                 class="input_straight"
                 placeholder="Enter OTP"
+                v-model="form.otp"
                 />
             </div>
             <div class="form-group mt-4">
-                <button type="submit" class="btn btn-block text-white btn-submit">
+                <button type="button" class="btn btn-block text-white btn-submit" @click="validateOTP()">
                 SUBMIT
                 </button>
             </div>
@@ -41,3 +44,59 @@
     </div>
 
 </template>
+<script>
+export default {
+    name:"Login",
+    data(){
+        return{
+            disable:false,
+            form:{
+                number:'',
+                otp:'',
+                otp_id:'',
+                escort_id:''
+            }
+        }
+    },
+    methods:{
+        sendOTP(){
+            if(this.disable == false){
+                axios.post('/escort/login',this.form).then(response =>{
+                    if(response.data.success){
+                        this.disable = true;
+                        this.form.otp_id = response.data.otp_id;
+                        this.form.escort_id = response.data.id;
+                        this.$swal.fire(
+                            'Otp Sent',
+                            'Otp Sent To you number!!',
+                            'success'
+                        );
+                    }
+                })
+            }
+        },
+
+        validateOTP(){
+            if(this.form.otp != '' && this.form.otp_id != ''){
+                axios.post('/escort/login-verify',this.form).then(response=>{
+                    console.log(response);
+                    if(response.data.type == 'success'){
+                        this.$toast.fire({
+                            icon: "success",
+                            title: "Welcome to dashbaord"
+                        });
+                        this.$cookies.set('escort_id',this.form.escort_id);
+                        console.log(this.$cookies.get('escort_id'));
+                        this.$router.push('/tour-list');
+                    }else{
+                        this.$toast.fire({
+                            icon: "error",
+                            title: "Please Enter Valid OTP"
+                        });
+                    }
+                })
+            }
+        }
+    }
+}
+</script>

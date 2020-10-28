@@ -1,8 +1,5 @@
 <template>
     <div class="bg-blue height-100">
-        <router-link to='/'>Home</router-link>
-        <router-link to='/dashboard'>Dashboard</router-link>
-        <router-link to='/tour-list'>Tour List</router-link>
         <login />
     </div>
 </template>
@@ -11,6 +8,16 @@ import login from '@/escort/pages/Login'
 export default {
     components:{
         login
+    },
+    data(){
+        return{
+
+        }
+    },
+    created(){
+        if(this.$cookies.get('escort_id') != undefined){
+            this.$router.push('/tour-list');
+        }
     }
 }
 </script>

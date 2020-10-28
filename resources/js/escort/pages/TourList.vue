@@ -80,3 +80,20 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    name:"TourList",
+    data(){
+        return{
+
+        }
+    },
+    created(){
+        if(this.$cookies.get('escort_id') == undefined){
+            this.$router.push('/');
+        }
+        // this.$cookies.remove('escort_id');
+    }
+}
+</script>

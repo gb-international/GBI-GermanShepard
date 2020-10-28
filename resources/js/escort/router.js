@@ -34,25 +34,6 @@ export function createRouter() {
             { path: '/dashbaord/bus', component: Bus },
             { path: '/dashbaord/train', component: Train },
             { path: '/dashbaord/flight', component: Flight },
-                // children: [
-                //     { path:'sightseeing', component: Sightseeing },
-                // ]
-
-            // { path: '*', component: Error404 }
         ]
     })
 }
-
-// router.beforeEach((to, from, next) => {
-//     if (to.matched.some(record => record.meta.requiresAuth)) {
-//         if (store.getters.isLoggedIn) {
-//             next()
-//             return
-//         }
-//         next('/')
-//     } else {
-//         next()
-//     }
-// })
-
-// export default router

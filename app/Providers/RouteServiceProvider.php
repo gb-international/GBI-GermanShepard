@@ -44,6 +44,8 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapAdminRoutes();
 
+        $this->mapEscortRoutes();
+
         $this->mapApiRoutes();
         
         $this->mapWebRoutes();
@@ -90,6 +92,12 @@ class RouteServiceProvider extends ServiceProvider
     }
 
     
-
+    protected function mapEscortRoutes()
+    {
+        Route::prefix('escort')
+             ->middleware('api')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/escort.php'));
+    }
 
 }
