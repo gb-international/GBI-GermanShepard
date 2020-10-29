@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import AllRoutes from './modules/route';
 Vue.use(Router);
-// const Home = () => import(/* webpackChunkName: "Home" */ '@/components/front/layouts/FrontHome.vue');
+
 import Home from '@/escort/pages/Home.vue'
 import Dashboard from '@/escort/pages/Dashboard.vue'
 import TourList from '@/escort/pages/TourList.vue'

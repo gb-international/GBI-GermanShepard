@@ -7,6 +7,8 @@ import { createRouter } from './router';
 import { createStore } from "@/escort/store/index"
 import swal from 'sweetalert2'
 import { Form, HasError, AlertError } from 'vform'
+import IdleVue from "idle-vue";
+
 
 Vue.config.productionTip = false;
 Vue.use(Vuex)
@@ -28,9 +30,18 @@ const toast = swal.mixin({
 });
 Vue.prototype.$toast = toast
 
+const eventsHub = new Vue();
+//600000, // 10 Mint Auto logout,
+Vue.use(IdleVue, {
+    eventEmitter: eventsHub,
+    store,
+    idleTime: 60000000, // 10 Mint Auto logout,
+  startAtIdle: false
+});
+
+
 const router = new createRouter();
 router.beforeEach((to, from, next) => {
-    console.log(store.getters.isLoggedIn);
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (store.getters.isLoggedIn) {
             next()
@@ -39,7 +50,6 @@ router.beforeEach((to, from, next) => {
         next('/')
     } else { next() }
 })
-
 const app = new Vue({
     el: '#app',
     router,

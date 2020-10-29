@@ -4,78 +4,30 @@
             Tour
         </h5>
         <div class="mt-4">
-            <router-link to="/dashboard" class="decoration-none">
-                <div class="pt-3 text-white border-radius-7 mb-3 bg-red font-weight-bolder pb-2">
+
+            <router-link to="/dashboard" class="decoration-none" v-for="tour in tours" :key="tour.id">
+                <div :class="[tour.class_name]" class="pt-3 text-white border-radius-7 mb-3 font-weight-bolder pb-2">
                     <div class="row m-0 pr-2 pl-2">
                         <div class="col-sm-8">
                             <label class="f-12">Tour</label>
-                            <p>06 days Tour To Ahmedabad, statue of Unity, lothel-indus Valley Civilization, anand, amul Dairy, Mt. Abu & Udaipur </p>
+                            <p>{{ tour.tour.itinerary.title }}</p>
                         </div>
                         <div class="col-sm-4">
                             <div class="row">
                                 <div class="col">
                                     <label class="f-12">Date</label>
-                                    <p>27/10/2020</p>
+                                    <p>{{ tour.tour.tour_start_date }}</p>
                                 </div>
                                 
                                 <div class="col text-sm-right">
                                     <label class="f-12">Status</label>
-                                    <p>Ended</p>
+                                    <p>{{ tour.tour.status }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </router-link>
-
-            <router-link to="/dashboard" class="decoration-none">
-                <div class="pt-3 text-white border-radius-7 mb-3 bg-green font-weight-bolder pb-2">
-                    <div class="row m-0 pr-2 pl-2">
-                        <div class="col-sm-8">
-                            <label class="f-12">Tour</label>
-                            <p>06 days Tour To Ahmedabad, statue of Unity, lothel-indus Valley Civilization, anand, amul Dairy, Mt. Abu & Udaipur </p>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="row">
-                                <div class="col">
-                                    <label class="f-12">Date</label>
-                                    <p>27/10/2020</p>
-                                </div>
-                                
-                                <div class="col text-sm-right">
-                                    <label class="f-12">Status</label>
-                                    <p>Ended</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </router-link>
-
-            <router-link to="/dashboard" class="decoration-none">
-                <div class="pt-3 text-white border-radius-7 mb-3 bg-yellow font-weight-bolder pb-2">
-                    <div class="row m-0 pr-2 pl-2">
-                        <div class="col-sm-8">
-                            <label class="f-12">Tour</label>
-                            <p>06 days Tour To Ahmedabad, statue of Unity, lothel-indus Valley Civilization, anand, amul Dairy, Mt. Abu & Udaipur </p>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="row">
-                                <div class="col">
-                                    <label class="f-12">Date</label>
-                                    <p>27/10/2020</p>
-                                </div>
-                                
-                                <div class="col text-sm-right">
-                                    <label class="f-12">Status</label>
-                                    <p>Ended</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </router-link>
-
 
         </div>
     </div>
@@ -86,7 +38,7 @@ export default {
     name:"TourList",
     data(){
         return{
-
+            tours:'',
         }
     },
     created(){
@@ -94,6 +46,35 @@ export default {
             this.$router.push('/');
         }
         // this.$cookies.remove('escort_id');
+        this.tourList();
+    },
+    methods:{
+        tourList(){
+            var api = `/escort/tour-list/${this.$cookies.get('escort_id')}`;
+            axios.get(api).then(response=>{
+                this.tours = response.data;
+                for(var i=0;i<this.tours.length;i++){
+                    var today = new Date();
+
+                    var today_date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                    
+                    var start_date = this.tours[i].tour.tour_start_date;
+                    var end_date = this.tours[i].tour.tour_end_date;
+
+                    if(today_date <= end_date && today_date >= start_date){
+                        this.tours[i].tour.status = 'Current';
+                        this.tours[i].class_name = 'bg-green'
+                    }
+                    else if (today_date < start_date){
+                        this.tours[i].tour.status = 'Upcomming';
+                        this.tours[i].class_name = 'bg-yellow'
+                    }else{
+                        this.tours[i].tour.status = 'Ended';
+                        this.tours[i].class_name = 'bg-red'
+                    }
+                }
+            })
+        }
     }
 }
 </script>

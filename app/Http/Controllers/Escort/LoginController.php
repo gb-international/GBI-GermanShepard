@@ -19,13 +19,6 @@ class LoginController extends Controller
             $response = [];
             $today = date("Y-m-d");
             $where = ['phone_no'=>$mobile_number,'otp_date'=>$today];
-            $data = Otp::where($where)
-                    ->orderBy('created_at', 'DESC')
-                    ->get();
-            if(count($data) == 5){
-                $response['error'] = 'You have already Entered 3 times today ! Try Tomorrow now';
-                return $response;
-            }
             $otp = rand(1000, 9999);
             try{
                 $otp_add = new Otp();

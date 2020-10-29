@@ -1,6 +1,6 @@
 <template>
     
-    <div class="container">
+    <div class="container login-div">
         <div class="row justify-content-center mt-5 pt-5">
         <div class="col-sm-4">
             <p class="text-center">
@@ -72,6 +72,14 @@ export default {
                             'success'
                         );
                     }
+                    else{
+                        this.$toast.fire({
+                            icon: "error",
+                            title: "Please check your number"
+                        });
+                    }
+                }).catch(error=>{
+                    console.log(error);
                 })
             }
         },
