@@ -8,22 +8,22 @@
         </h5>
 
         <div class="pt-4 font-weight-bolder pb-4 whitesomke">
-            <div v-for="i in 3" :key="i">
+            <div v-for="flight in flights" :key="flight.id">
                 <div class="row m-0 pr-2 pl-2">
                     <div class="col-sm-6">
                         <label class="text-muted f-12">Flight Number & Name</label>
-                        <p>HYDI49 </p>
+                        <p>{{ flight.flight.name }} {{ flight.flight_number}} </p>
                     </div>
                     <div class="col-sm-4">
                         <div class="row">
                             <div class="col">
                                 <label class="text-muted f-12">Departure</label>
-                                <p>27/10/2020</p>
+                                <p>{{ flight.departure }}</p>
                             </div>
                             
                             <div class="col">
                                 <label class="text-muted f-12">Arrival</label>
-                                <p>27/10/2020</p>
+                                <p>{{ flight.arrival }}</p>
                             </div>
                         </div>
                     </div>
@@ -38,3 +38,24 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    data(){
+        return{
+            flights:''
+        }
+    },
+    created(){
+        this.flightsList();
+    },
+    methods:{
+        flightsList(){
+            axios.get('/escort/flights/'+this.$route.params.tour_code).then(res => {
+                this.flights = res.data;
+                console.log(this.flights);
+            })
+        }
+    }
+}
+</script>

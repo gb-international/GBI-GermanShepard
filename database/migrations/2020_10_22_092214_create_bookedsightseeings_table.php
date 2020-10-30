@@ -19,6 +19,7 @@ class CreateBookedsightseeingsTable extends Migration
             $table->string('tour_code');
             $table->bigInteger('itineraryday_id')->unsigned();
             $table->bigInteger('sightseeing_id')->unsigned();
+            $table->boolean('mark_arrive')->default(0);
             $table->timestamps();
         });
     }

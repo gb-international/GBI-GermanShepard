@@ -11,9 +11,9 @@
             <th class="border-0">Place</th>
         </template>
         <template #table-body>
-            <tr v-for="i in 4" :key="i">
-                <td>Burger Singh</td>
-                <td>Shaikh Sarai</td>
+            <tr v-for="restaurant in restaurants" :key="restaurant.id">
+                <td>{{ restaurant.restaurant.name }}</td>
+                <td>{{ restaurant.restaurant.address }}</td>
             </tr>
         </template>
         <template #footer>
@@ -26,6 +26,23 @@ import LayoutTable from '@/escort/components/LayoutTable'
 export default {
     components:{
         LayoutTable
+    },
+    data(){
+        return{
+            restaurants:''
+        }
+    },
+    created(){
+        this.restaurantsList();
+    },
+    methods:{
+        restaurantsList(){
+            axios.get('/escort/restaurants/'+this.$route.params.tour_code)
+            .then(res => {
+                this.restaurants = res.data;
+                console.log(this.restaurants);
+            })
+        }
     }
 }
 </script>

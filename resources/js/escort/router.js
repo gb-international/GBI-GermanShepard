@@ -24,15 +24,15 @@ export function createRouter() {
             { path: '/login', component: Login },
             { path: '/tour-list', component: TourList },
             { path: '/sightseeing', component: Sightseeing },
-            { path: '/dashboard', component: Dashboard },
+            { path: '/dashboard/:tour_code', component: Dashboard },
             
-            { path: '/dashbaord/sightseeing', component: Sightseeing },
-            { path: '/dashbaord/pack', component: Pack },
-            { path: '/dashbaord/restaurant', component: Restaurant },
-            { path: '/dashbaord/hotel', component: Hotel },
-            { path: '/dashbaord/bus', component: Bus },
-            { path: '/dashbaord/train', component: Train },
-            { path: '/dashbaord/flight', component: Flight },
+            { path: '/dashbaord/sightseeing/:tour_code', component: Sightseeing },
+            { path: '/dashbaord/pack/:tour_code', component: Pack },
+            { path: '/dashbaord/restaurant/:tour_code', component: Restaurant },
+            { path: '/dashbaord/hotel/:tour_code', component: Hotel },
+            { path: '/dashbaord/bus/:tour_code', component: Bus },
+            { path: '/dashbaord/train/:tour_code', component: Train },
+            { path: '/dashbaord/flight/:tour_code', component: Flight },
         ]
     })
 }

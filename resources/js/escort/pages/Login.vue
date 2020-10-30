@@ -87,14 +87,12 @@ export default {
         validateOTP(){
             if(this.form.otp != '' && this.form.otp_id != ''){
                 axios.post('/escort/login-verify',this.form).then(response=>{
-                    console.log(response);
                     if(response.data.type == 'success'){
                         this.$toast.fire({
                             icon: "success",
                             title: "Welcome to dashbaord"
                         });
                         this.$cookies.set('escort_id',this.form.escort_id);
-                        console.log(this.$cookies.get('escort_id'));
                         this.$router.push('/tour-list');
                     }else{
                         this.$toast.fire({

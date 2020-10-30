@@ -4,30 +4,31 @@
             Tour
         </h5>
         <div class="mt-4">
-
-            <router-link to="/dashboard" class="decoration-none" v-for="tour in tours" :key="tour.id">
-                <div :class="[tour.class_name]" class="pt-3 text-white border-radius-7 mb-3 font-weight-bolder pb-2">
-                    <div class="row m-0 pr-2 pl-2">
-                        <div class="col-sm-8">
-                            <label class="f-12">Tour</label>
-                            <p>{{ tour.tour.itinerary.title }}</p>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="row">
-                                <div class="col">
-                                    <label class="f-12">Date</label>
-                                    <p>{{ tour.tour.tour_start_date }}</p>
-                                </div>
-                                
-                                <div class="col text-sm-right">
-                                    <label class="f-12">Status</label>
-                                    <p>{{ tour.tour.status }}</p>
+            <div v-for="tour in tours" :key="tour.id">
+                <router-link :to="`/dashboard/${tour.tour_code}`" class="decoration-none">
+                    <div :class="[tour.class_name]" class="pt-3 text-white border-radius-7 mb-3 font-weight-bolder pb-2">
+                        <div class="row m-0 pr-2 pl-2">
+                            <div class="col-sm-8">
+                                <label class="f-12">Tour</label>
+                                <p>{{ tour.tour.itinerary.title }}</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="f-12">Date</label>
+                                        <p>{{ tour.tour.tour_start_date }}</p>
+                                    </div>
+                                    
+                                    <div class="col text-sm-right">
+                                        <label class="f-12">Status</label>
+                                        <p>{{ tour.tour.status }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </router-link>
+                </router-link>
+            </div>
 
         </div>
     </div>
@@ -63,14 +64,14 @@ export default {
 
                     if(today_date <= end_date && today_date >= start_date){
                         this.tours[i].tour.status = 'Current';
-                        this.tours[i].class_name = 'bg-green'
+                        this.tours[i].class_name = 'bg-green';
                     }
                     else if (today_date < start_date){
                         this.tours[i].tour.status = 'Upcomming';
-                        this.tours[i].class_name = 'bg-yellow'
+                        this.tours[i].class_name = 'bg-yellow';
                     }else{
                         this.tours[i].tour.status = 'Ended';
-                        this.tours[i].class_name = 'bg-red'
+                        this.tours[i].class_name = 'bg-red';
                     }
                 }
             })

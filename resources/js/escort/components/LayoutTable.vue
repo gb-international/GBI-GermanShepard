@@ -7,7 +7,7 @@
             <slot name="title"></slot>
         </h5>
         <div class="escort-body pt-4 pb-4 whitesomke">
-            <table class="table table-hover table-bottom-border">
+            <table class="table table-hover table-bottom-border table-responsive">
 
                 <thead class="text-muted">
                     <slot name="table-head"></slot>

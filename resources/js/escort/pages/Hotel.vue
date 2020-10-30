@@ -8,22 +8,22 @@
         </h5>
 
         <div class="hotel-body pt-4 font-weight-bolder pb-4 whitesomke">
-            <div class="hotel-data" v-for="i in 3" :key="i">
+            <div class="hotel-data" v-for="hotel in hotels" :key="hotel.id">
                 <div class="row m-0 pr-2 pl-2">
                     <div class="col-sm-6">
                         <label class="text-muted f-12">Hotel Name</label>
-                        <p>The Taj Hotel </p>
+                        <p>{{ hotel.hotel.name }} </p>
                     </div>
                     <div class="col-sm-3">
                         <div class="row">
                             <div class="col">
                                 <label class="text-muted f-12">Check In</label>
-                                <p>27/10/2020</p>
+                                <p>{{ hotel.check_in}}</p>
                             </div>
                             
                             <div class="col">
                                 <label class="text-muted f-12">Check Out</label>
-                                <p>27/10/2020</p>
+                                <p>{{ hotel.check_out }}</p>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                             
                             <div class="col">
                                 <label class="text-muted f-12">Contact Number</label>
-                                <p>890383948</p>
+                                <p>{{ hotel.hotel.phoneno }}</p>
                             </div>
                         </div>
                     </div>
@@ -47,3 +47,24 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    data(){
+        return{
+            hotels:''
+        }
+    },
+    created(){
+        this.hotelsList();
+    },
+    methods:{
+        hotelsList(){
+            axios.get('/escort/hotels/'+this.$route.params.tour_code).then(res => {
+                this.hotels = res.data;
+                console.log(this.hotels);
+            })
+        }
+    }
+}
+</script>

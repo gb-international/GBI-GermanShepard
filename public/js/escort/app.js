@@ -1956,6 +1956,92 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Bus.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Bus.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      buses: ''
+    };
+  },
+  created: function created() {
+    this.busesList();
+  },
+  methods: {
+    busesList: function busesList() {
+      var _this = this;
+
+      axios.get('/escort/buses/' + this.$route.params.tour_code).then(function (res) {
+        _this.buses = res.data;
+        console.log(_this.buses);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Dashboard.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Dashboard.vue?vue&type=script&lang=js& ***!
@@ -2011,11 +2097,95 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     layout: _escort_components_Layout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  created: function created() {
+    this.itineraryTitle();
+  },
+  methods: {
+    itineraryTitle: function itineraryTitle() {
+      var _this = this;
+
+      axios.get('/escort/itinerary-title/' + this.$route.params.tour_code).then(function (res) {
+        _this.$store.dispatch('setTitle', res.data.itinerary.title);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Flight.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Flight.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      flights: ''
+    };
+  },
+  created: function created() {
+    this.flightsList();
+  },
+  methods: {
+    flightsList: function flightsList() {
+      var _this = this;
+
+      axios.get('/escort/flights/' + this.$route.params.tour_code).then(function (res) {
+        _this.flights = res.data;
+        console.log(_this.flights);
+      });
+    }
   }
 });
 
@@ -2047,6 +2217,88 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     if (this.$cookies.get('escort_id') != undefined) {
       this.$router.push('/tour-list');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Hotel.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Hotel.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      hotels: ''
+    };
+  },
+  created: function created() {
+    this.hotelsList();
+  },
+  methods: {
+    hotelsList: function hotelsList() {
+      var _this = this;
+
+      axios.get('/escort/hotels/' + this.$route.params.tour_code).then(function (res) {
+        _this.hotels = res.data;
+        console.log(_this.hotels);
+      });
     }
   }
 });
@@ -2149,8 +2401,6 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.form.otp != '' && this.form.otp_id != '') {
         axios.post('/escort/login-verify', this.form).then(function (response) {
-          console.log(response);
-
           if (response.data.type == 'success') {
             _this2.$toast.fire({
               icon: "success",
@@ -2158,8 +2408,6 @@ __webpack_require__.r(__webpack_exports__);
             });
 
             _this2.$cookies.set('escort_id', _this2.form.escort_id);
-
-            console.log(_this2.$cookies.get('escort_id'));
 
             _this2.$router.push('/tour-list');
           } else {
@@ -2213,6 +2461,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     LayoutTable: _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      packs: ''
+    };
+  },
+  created: function created() {
+    this.packsList();
+  },
+  methods: {
+    packsList: function packsList() {
+      var _this = this;
+
+      axios.get('/escort/packs/' + this.$route.params.tour_code).then(function (res) {
+        _this.packs = res.data;
+        console.log(_this.packs);
+      });
+    }
   }
 });
 
@@ -2255,6 +2521,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     LayoutTable: _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      restaurants: ''
+    };
+  },
+  created: function created() {
+    this.restaurantsList();
+  },
+  methods: {
+    restaurantsList: function restaurantsList() {
+      var _this = this;
+
+      axios.get('/escort/restaurants/' + this.$route.params.tour_code).then(function (res) {
+        _this.restaurants = res.data;
+        console.log(_this.restaurants);
+      });
+    }
   }
 });
 
@@ -2317,14 +2601,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     layout: _escort_components_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
     SubmitButton: _escort_components_SubmitButton__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      sightseeings: ''
+    };
+  },
+  created: function created() {
+    this.sightseeingList();
+  },
+  methods: {
+    sightseeingList: function sightseeingList() {
+      var _this = this;
+
+      var api = '/escort/sightseeing/' + this.$route.params.tour_code;
+      axios.get(api).then(function (res) {
+        _this.sightseeings = res.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    submitForm: function submitForm() {
+      var _this2 = this;
+
+      var api = '/escort/sightseeing/' + this.$route.params.tour_code;
+      axios.post(api, this.sightseeings).then(function (res) {
+        _this2.$toast.fire({
+          icon: "success",
+          title: "Successfully updated!!!"
+        });
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -2339,6 +2654,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -2414,6 +2730,92 @@ __webpack_require__.r(__webpack_exports__);
             _this.tours[i].class_name = 'bg-red';
           }
         }
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Train.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Train.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      trains: ''
+    };
+  },
+  created: function created() {
+    this.trainsList();
+  },
+  methods: {
+    trainsList: function trainsList() {
+      var _this = this;
+
+      axios.get('/escort/trains/' + this.$route.params.tour_code).then(function (res) {
+        _this.trains = res.data;
+        console.log(_this.trains);
       });
     }
   }
@@ -42433,11 +42835,17 @@ var render = function() {
     _c("h5", { staticClass: "text-muted" }, [_vm._t("title")], 2),
     _vm._v(" "),
     _c("div", { staticClass: "escort-body pt-4 pb-4 whitesomke" }, [
-      _c("table", { staticClass: "table table-hover table-bottom-border" }, [
-        _c("thead", { staticClass: "text-muted" }, [_vm._t("table-head")], 2),
-        _vm._v(" "),
-        _c("tbody", [_vm._t("table-body")], 2)
-      ]),
+      _c(
+        "table",
+        {
+          staticClass: "table table-hover table-bottom-border table-responsive"
+        },
+        [
+          _c("thead", { staticClass: "text-muted" }, [_vm._t("table-head")], 2),
+          _vm._v(" "),
+          _c("tbody", [_vm._t("table-body")], 2)
+        ]
+      ),
       _vm._v(" "),
       _c("div", [_vm._t("footer")], 2)
     ])
@@ -42512,9 +42920,53 @@ var render = function() {
     _c(
       "div",
       { staticClass: "pt-4 font-weight-bolder pb-4 whitesomke" },
-      _vm._l(3, function(i) {
-        return _c("div", { key: i }, [
-          _vm._m(0, true),
+      _vm._l(_vm.buses, function(bus) {
+        return _c("div", { key: bus.id }, [
+          _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c("label", { staticClass: "text-muted f-12" }, [
+                _vm._v("Bus Number or Name")
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(bus.bus.company_name) + " ")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { staticClass: "text-muted f-12" }, [
+                    _vm._v("Source")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(bus.source))])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { staticClass: "text-muted f-12" }, [
+                    _vm._v("Destination")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(bus.destination))])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { staticClass: "text-muted f-12" }, [
+                    _vm._v("Departure")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(bus.departure))])
+                ]),
+                _vm._v(" "),
+                _vm._m(0, true)
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(1, true)
+          ]),
           _vm._v(" "),
           _c("hr", { staticClass: "w-95" })
         ])
@@ -42528,60 +42980,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
-      _c("div", { staticClass: "col-sm-4" }, [
-        _c("label", { staticClass: "text-muted f-12" }, [
-          _vm._v("Bus Number or Name")
-        ]),
-        _vm._v(" "),
-        _c("p", [_vm._v("The Teja bus service (48484 ) ")])
+    return _c("div", { staticClass: "col" }, [
+      _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Passengers")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("100")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-2" }, [
+      _c("label", { staticClass: "text-muted f-12" }, [
+        _vm._v("Contact Number")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Source")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Delhi")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [
-              _vm._v("Destination")
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Mumbai")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [
-              _vm._v("Departure")
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("27/10/2020")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [
-              _vm._v("Passengers")
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("100")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-2" }, [
-        _c("label", { staticClass: "text-muted f-12" }, [
-          _vm._v("Contact Number")
-        ]),
-        _vm._v(" "),
-        _c("p", [_vm._v("Raj niwas 98989898989")])
-      ])
+      _c("p", [_vm._v("Raj niwas 98989898989")])
     ])
   }
 ]
@@ -42634,7 +43048,9 @@ var render = function() {
             fn: function() {
               return [
                 _vm._v(
-                  "\n            MADURAo-KODAIKANAL- MUNNAR- KOCHI\n        "
+                  "\n            " +
+                    _vm._s(_vm.$store.getters.getTitle) +
+                    "\n        "
                 )
               ]
             },
@@ -42652,7 +43068,13 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { attrs: { to: "/dashbaord/sightseeing" } },
+                          {
+                            attrs: {
+                              to:
+                                "/dashbaord/sightseeing/" +
+                                _vm.$route.params.tour_code
+                            }
+                          },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -42673,7 +43095,12 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { attrs: { to: "/dashbaord/pack" } },
+                          {
+                            attrs: {
+                              to:
+                                "/dashbaord/pack/" + _vm.$route.params.tour_code
+                            }
+                          },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -42693,7 +43120,13 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { attrs: { to: "/dashbaord/hotel" } },
+                          {
+                            attrs: {
+                              to:
+                                "/dashbaord/hotel/" +
+                                _vm.$route.params.tour_code
+                            }
+                          },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -42713,7 +43146,13 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { attrs: { to: "/dashbaord/flight" } },
+                          {
+                            attrs: {
+                              to:
+                                "/dashbaord/flight/" +
+                                _vm.$route.params.tour_code
+                            }
+                          },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -42731,14 +43170,23 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c("router-link", { attrs: { to: "/dashbaord/bus" } }, [
-                          _c("img", {
-                            staticClass: "w-100",
+                        _c(
+                          "router-link",
+                          {
                             attrs: {
-                              src: "/assets/admin/default/icon/bus-icon.png"
+                              to:
+                                "/dashbaord/bus/" + _vm.$route.params.tour_code
                             }
-                          })
-                        ])
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "w-100",
+                              attrs: {
+                                src: "/assets/admin/default/icon/bus-icon.png"
+                              }
+                            })
+                          ]
+                        )
                       ],
                       1
                     ),
@@ -42749,7 +43197,13 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { attrs: { to: "/dashbaord/train" } },
+                          {
+                            attrs: {
+                              to:
+                                "/dashbaord/train/" +
+                                _vm.$route.params.tour_code
+                            }
+                          },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -42769,7 +43223,13 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { attrs: { to: "/dashbaord/restaurant" } },
+                          {
+                            attrs: {
+                              to:
+                                "/dashbaord/restaurant/" +
+                                _vm.$route.params.tour_code
+                            }
+                          },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -42834,9 +43294,46 @@ var render = function() {
     _c(
       "div",
       { staticClass: "pt-4 font-weight-bolder pb-4 whitesomke" },
-      _vm._l(3, function(i) {
-        return _c("div", { key: i }, [
-          _vm._m(0, true),
+      _vm._l(_vm.flights, function(flight) {
+        return _c("div", { key: flight.id }, [
+          _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c("label", { staticClass: "text-muted f-12" }, [
+                _vm._v("Flight Number & Name")
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  _vm._s(flight.flight.name) +
+                    " " +
+                    _vm._s(flight.flight_number) +
+                    " "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { staticClass: "text-muted f-12" }, [
+                    _vm._v("Departure")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(flight.departure))])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { staticClass: "text-muted f-12" }, [
+                    _vm._v("Arrival")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(flight.arrival))])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0, true)
+          ]),
           _vm._v(" "),
           _c("hr", { staticClass: "w-95" })
         ])
@@ -42850,40 +43347,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("label", { staticClass: "text-muted f-12" }, [
-          _vm._v("Flight Number & Name")
-        ]),
-        _vm._v(" "),
-        _c("p", [_vm._v("HYDI49 ")])
-      ]),
+    return _c("div", { staticClass: "col-sm-2" }, [
+      _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Passengers")]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-4" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [
-              _vm._v("Departure")
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("27/10/2020")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [
-              _vm._v("Arrival")
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("27/10/2020")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-2" }, [
-        _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Passengers")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("100")])
-      ])
+      _c("p", [_vm._v("100")])
     ])
   }
 ]
@@ -42950,9 +43417,51 @@ var render = function() {
     _c(
       "div",
       { staticClass: "hotel-body pt-4 font-weight-bolder pb-4 whitesomke" },
-      _vm._l(3, function(i) {
-        return _c("div", { key: i, staticClass: "hotel-data" }, [
-          _vm._m(0, true),
+      _vm._l(_vm.hotels, function(hotel) {
+        return _c("div", { key: hotel.id, staticClass: "hotel-data" }, [
+          _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c("label", { staticClass: "text-muted f-12" }, [
+                _vm._v("Hotel Name")
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(hotel.hotel.name) + " ")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { staticClass: "text-muted f-12" }, [
+                    _vm._v("Check In")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(hotel.check_in))])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { staticClass: "text-muted f-12" }, [
+                    _vm._v("Check Out")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(hotel.check_out))])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3" }, [
+              _c("div", { staticClass: "row" }, [
+                _vm._m(0, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { staticClass: "text-muted f-12" }, [
+                    _vm._v("Contact Number")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(hotel.hotel.phoneno))])
+                ])
+              ])
+            ])
+          ]),
           _vm._v(" "),
           _c("hr", { staticClass: "w-95" })
         ])
@@ -42966,52 +43475,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Hotel Name")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("The Taj Hotel ")])
-      ]),
+    return _c("div", { staticClass: "col" }, [
+      _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Group Member")]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [
-              _vm._v("Check In")
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("27/10/2020")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [
-              _vm._v("Check Out")
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("27/10/2020")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [
-              _vm._v("Group Member")
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("100")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [
-              _vm._v("Contact Number")
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("890383948")])
-          ])
-        ])
-      ])
+      _c("p", [_vm._v("100")])
     ])
   }
 ]
@@ -43203,11 +43670,11 @@ var render = function() {
       {
         key: "table-body",
         fn: function() {
-          return _vm._l(4, function(i) {
-            return _c("tr", { key: i }, [
-              _c("td", [_vm._v("Chips")]),
+          return _vm._l(_vm.packs, function(food) {
+            return _c("tr", { key: food.id }, [
+              _c("td", [_vm._v(_vm._s(food.name))]),
               _vm._v(" "),
-              _c("td", [_vm._v("100pcs")])
+              _c("td", [_vm._v(_vm._s(food.quantity))])
             ])
           })
         },
@@ -43285,11 +43752,11 @@ var render = function() {
       {
         key: "table-body",
         fn: function() {
-          return _vm._l(4, function(i) {
-            return _c("tr", { key: i }, [
-              _c("td", [_vm._v("Burger Singh")]),
+          return _vm._l(_vm.restaurants, function(restaurant) {
+            return _c("tr", { key: restaurant.id }, [
+              _c("td", [_vm._v(_vm._s(restaurant.restaurant.name))]),
               _vm._v(" "),
-              _c("td", [_vm._v("Shaikh Sarai")])
+              _c("td", [_vm._v(_vm._s(restaurant.restaurant.address))])
             ])
           })
         },
@@ -43355,7 +43822,9 @@ var render = function() {
             fn: function() {
               return [
                 _vm._v(
-                  "\n            MADURAo-KODAIKANAL- MUNNAR- KOCHI\n        "
+                  "\n             " +
+                    _vm._s(_vm.$store.getters.getTitle) +
+                    "\n        "
                 )
               ]
             },
@@ -43371,52 +43840,108 @@ var render = function() {
                   [
                     _c("h3", [_vm._v("Itinerary")]),
                     _vm._v(" "),
-                    _vm._l(5, function(i) {
+                    _vm._l(_vm.sightseeings, function(row) {
                       return _c(
                         "div",
-                        { key: i, staticClass: "sightseeing-row" },
+                        { key: row.id, staticClass: "sightseeing-row" },
                         [
                           _c("h6", { staticClass: "mt-2 mb-2" }, [
-                            _vm._v("Sightseeing Day " + _vm._s(i++))
+                            _vm._v("Sightseeing Day")
                           ]),
                           _vm._v(" "),
-                          _c("div", { staticClass: "row" }, [
-                            _c("div", { staticClass: "col-sm-6" }, [
-                              _c("div", { staticClass: "form-check" }, [
-                                _c(
-                                  "label",
-                                  { staticClass: "form-check-label" },
-                                  [
-                                    _c("input", {
-                                      staticClass: "form-check-input",
-                                      attrs: { type: "checkbox", value: "" }
-                                    }),
-                                    _vm._v(
-                                      " Pulkha Mandpam\n                                "
+                          _c(
+                            "div",
+                            { staticClass: "row" },
+                            _vm._l(row, function(data) {
+                              return _c(
+                                "div",
+                                { key: data.id, staticClass: "col-sm-6" },
+                                [
+                                  _c("div", { staticClass: "form-check" }, [
+                                    _c(
+                                      "label",
+                                      { staticClass: "form-check-label" },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: data.mark_arrive,
+                                              expression: "data.mark_arrive"
+                                            }
+                                          ],
+                                          staticClass: "form-check-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            "true-value": 1,
+                                            "false-value": 0
+                                          },
+                                          domProps: {
+                                            value: data.mark_arrive,
+                                            checked:
+                                              data.mark_arrive == 1
+                                                ? true
+                                                : false,
+                                            checked: Array.isArray(
+                                              data.mark_arrive
+                                            )
+                                              ? _vm._i(
+                                                  data.mark_arrive,
+                                                  data.mark_arrive
+                                                ) > -1
+                                              : _vm._q(data.mark_arrive, 1)
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$a = data.mark_arrive,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked ? 1 : 0
+                                              if (Array.isArray($$a)) {
+                                                var $$v = data.mark_arrive,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    _vm.$set(
+                                                      data,
+                                                      "mark_arrive",
+                                                      $$a.concat([$$v])
+                                                    )
+                                                } else {
+                                                  $$i > -1 &&
+                                                    _vm.$set(
+                                                      data,
+                                                      "mark_arrive",
+                                                      $$a
+                                                        .slice(0, $$i)
+                                                        .concat(
+                                                          $$a.slice($$i + 1)
+                                                        )
+                                                    )
+                                                }
+                                              } else {
+                                                _vm.$set(
+                                                  data,
+                                                  "mark_arrive",
+                                                  $$c
+                                                )
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(
+                                          " " +
+                                            _vm._s(data.sightseeing.name) +
+                                            "\n                                "
+                                        )
+                                      ]
                                     )
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-sm-6" }, [
-                              _c("div", { staticClass: "form-check" }, [
-                                _c(
-                                  "label",
-                                  { staticClass: "form-check-label" },
-                                  [
-                                    _c("input", {
-                                      staticClass: "form-check-input",
-                                      attrs: { type: "checkbox", value: "" }
-                                    }),
-                                    _vm._v(
-                                      " Pulkha Mandpam\n                                "
-                                    )
-                                  ]
-                                )
-                              ])
-                            ])
-                          ]),
+                                  ])
+                                ]
+                              )
+                            }),
+                            0
+                          ),
                           _vm._v(" "),
                           _c("hr")
                         ]
@@ -43436,7 +43961,14 @@ var render = function() {
                 _c("div", { staticClass: "row justify-content-center" }, [
                   _c(
                     "div",
-                    { staticClass: "col-sm-4" },
+                    {
+                      staticClass: "col-sm-4",
+                      on: {
+                        click: function($event) {
+                          return _vm.submitForm()
+                        }
+                      }
+                    },
                     [
                       _c("submit-button", { staticClass: "btn-block" }, [
                         _vm._v("update")
@@ -43485,52 +44017,60 @@ var render = function() {
       { staticClass: "mt-4" },
       _vm._l(_vm.tours, function(tour) {
         return _c(
-          "router-link",
-          {
-            key: tour.id,
-            staticClass: "decoration-none",
-            attrs: { to: "/dashboard" }
-          },
+          "div",
+          { key: tour.id },
           [
             _c(
-              "div",
+              "router-link",
               {
-                staticClass:
-                  "pt-3 text-white border-radius-7 mb-3 font-weight-bolder pb-2",
-                class: [tour.class_name]
+                staticClass: "decoration-none",
+                attrs: { to: "/dashboard/" + tour.tour_code }
               },
               [
-                _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
-                  _c("div", { staticClass: "col-sm-8" }, [
-                    _c("label", { staticClass: "f-12" }, [_vm._v("Tour")]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(tour.tour.itinerary.title))])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col" }, [
-                        _c("label", { staticClass: "f-12" }, [_vm._v("Date")]),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "pt-3 text-white border-radius-7 mb-3 font-weight-bolder pb-2",
+                    class: [tour.class_name]
+                  },
+                  [
+                    _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
+                      _c("div", { staticClass: "col-sm-8" }, [
+                        _c("label", { staticClass: "f-12" }, [_vm._v("Tour")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(tour.tour.tour_start_date))])
+                        _c("p", [_vm._v(_vm._s(tour.tour.itinerary.title))])
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col text-sm-right" }, [
-                        _c("label", { staticClass: "f-12" }, [
-                          _vm._v("Status")
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(tour.tour.status))])
+                      _c("div", { staticClass: "col-sm-4" }, [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col" }, [
+                            _c("label", { staticClass: "f-12" }, [
+                              _vm._v("Date")
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v(_vm._s(tour.tour.tour_start_date))])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col text-sm-right" }, [
+                            _c("label", { staticClass: "f-12" }, [
+                              _vm._v("Status")
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v(_vm._s(tour.tour.status))])
+                          ])
+                        ])
                       ])
                     ])
-                  ])
-                ])
+                  ]
+                )
               ]
             )
-          ]
+          ],
+          1
         )
       }),
-      1
+      0
     )
   ])
 }
@@ -43574,9 +44114,66 @@ var render = function() {
     _c(
       "div",
       { staticClass: "pt-4 font-weight-bolder pb-4 whitesomke" },
-      _vm._l(3, function(i) {
-        return _c("div", { key: i }, [
-          _vm._m(0, true),
+      _vm._l(_vm.trains, function(train) {
+        return _c("div", { key: train.id }, [
+          _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c("label", { staticClass: "text-muted f-12" }, [
+                _vm._v("Train Number & Name")
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  _vm._s(train.train.name) +
+                    " (" +
+                    _vm._s(train.train.code) +
+                    ") "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { staticClass: "text-muted f-12" }, [
+                    _vm._v("Source")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(train.source))])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { staticClass: "text-muted f-12" }, [
+                    _vm._v("Destination")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(train.destination))])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { staticClass: "text-muted f-12" }, [
+                    _vm._v("Departure")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(train.departure))])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { staticClass: "text-muted f-12" }, [
+                    _vm._v("Arrival")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(train.arrival))])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0, true)
+          ]),
           _vm._v(" "),
           _c("hr", { staticClass: "w-95" })
         ])
@@ -43590,58 +44187,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
-      _c("div", { staticClass: "col-sm-4" }, [
-        _c("label", { staticClass: "text-muted f-12" }, [
-          _vm._v("Train Number & Name")
-        ]),
-        _vm._v(" "),
-        _c("p", [_vm._v("The Teja bus service (48484 ) ")])
-      ]),
+    return _c("div", { staticClass: "col-sm-2" }, [
+      _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Passengers")]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Source")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Delhi")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [
-              _vm._v("Destination")
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Mumbai")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [
-              _vm._v("Departure")
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("27/10/2020")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c("label", { staticClass: "text-muted f-12" }, [
-              _vm._v("Arrival")
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("27/10/2020")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-2" }, [
-        _c("label", { staticClass: "text-muted f-12" }, [_vm._v("Passengers")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("100")])
-      ])
+      _c("p", [_vm._v("100")])
     ])
   }
 ]
@@ -60391,15 +60940,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Bus_vue_vue_type_template_id_73b69c20___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bus.vue?vue&type=template&id=73b69c20& */ "./resources/js/escort/pages/Bus.vue?vue&type=template&id=73b69c20&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Bus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bus.vue?vue&type=script&lang=js& */ "./resources/js/escort/pages/Bus.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Bus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Bus_vue_vue_type_template_id_73b69c20___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Bus_vue_vue_type_template_id_73b69c20___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -60413,6 +60964,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/escort/pages/Bus.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/escort/pages/Bus.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/escort/pages/Bus.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bus.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Bus.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -60513,15 +61078,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Flight_vue_vue_type_template_id_2aa2d200___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Flight.vue?vue&type=template&id=2aa2d200& */ "./resources/js/escort/pages/Flight.vue?vue&type=template&id=2aa2d200&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Flight_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Flight.vue?vue&type=script&lang=js& */ "./resources/js/escort/pages/Flight.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Flight_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Flight_vue_vue_type_template_id_2aa2d200___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Flight_vue_vue_type_template_id_2aa2d200___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -60535,6 +61102,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/escort/pages/Flight.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/escort/pages/Flight.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/escort/pages/Flight.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Flight_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Flight.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Flight.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Flight_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -60635,15 +61216,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Hotel_vue_vue_type_template_id_0630f958___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Hotel.vue?vue&type=template&id=0630f958& */ "./resources/js/escort/pages/Hotel.vue?vue&type=template&id=0630f958&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Hotel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Hotel.vue?vue&type=script&lang=js& */ "./resources/js/escort/pages/Hotel.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Hotel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Hotel_vue_vue_type_template_id_0630f958___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Hotel_vue_vue_type_template_id_0630f958___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -60657,6 +61240,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/escort/pages/Hotel.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/escort/pages/Hotel.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/escort/pages/Hotel.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Hotel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Hotel.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Hotel.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Hotel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -61033,15 +61630,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Train_vue_vue_type_template_id_419969a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Train.vue?vue&type=template&id=419969a8& */ "./resources/js/escort/pages/Train.vue?vue&type=template&id=419969a8&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Train_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Train.vue?vue&type=script&lang=js& */ "./resources/js/escort/pages/Train.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Train_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Train_vue_vue_type_template_id_419969a8___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Train_vue_vue_type_template_id_419969a8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -61055,6 +61654,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/escort/pages/Train.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/escort/pages/Train.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/escort/pages/Train.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Train_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Train.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Train.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Train_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -61138,28 +61751,28 @@ function createRouter() {
       path: '/sightseeing',
       component: _escort_pages_Sightseeing_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
     }, {
-      path: '/dashboard',
+      path: '/dashboard/:tour_code',
       component: _escort_pages_Dashboard_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
     }, {
-      path: '/dashbaord/sightseeing',
+      path: '/dashbaord/sightseeing/:tour_code',
       component: _escort_pages_Sightseeing_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
     }, {
-      path: '/dashbaord/pack',
+      path: '/dashbaord/pack/:tour_code',
       component: _escort_pages_Pack_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
     }, {
-      path: '/dashbaord/restaurant',
+      path: '/dashbaord/restaurant/:tour_code',
       component: _escort_pages_Restaurant_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
     }, {
-      path: '/dashbaord/hotel',
+      path: '/dashbaord/hotel/:tour_code',
       component: _escort_pages_Hotel_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
     }, {
-      path: '/dashbaord/bus',
+      path: '/dashbaord/bus/:tour_code',
       component: _escort_pages_Bus_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
     }, {
-      path: '/dashbaord/train',
+      path: '/dashbaord/train/:tour_code',
       component: _escort_pages_Train_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
     }, {
-      path: '/dashbaord/flight',
+      path: '/dashbaord/flight/:tour_code',
       component: _escort_pages_Flight_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
     }]
   });
@@ -61190,75 +61803,24 @@ function createStore() {
   return new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
     state: {
       loogin: vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('escort_id'),
-      singlepost: [],
-      alldata: [],
-      // All data from the api
-      editdata: [],
-      // Get Edit data 
-      SearchAll: []
+      itinerary_title: ''
     },
-    // Getters help to fetch the data from the templates 
     getters: {
-      // Return All the data related to the api
-      getAllData: function getAllData(state) {
-        return state.alldata;
-      },
-      getAllSearchData: function getAllSearchData(state) {
-        return state.SearchAll;
-      },
-      getEditData: function getEditData(state) {
-        return state.editdata;
-      },
       isLoggedIn: function isLoggedIn(state) {
         return state.loogin;
+      },
+      getTitle: function getTitle(state) {
+        return state.itinerary_title;
       }
     },
-    //getAllTableData();
     actions: {
-      // Get all the data from the api
-      getAllData: function getAllData(context, api) {
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(api).then(function (response) {
-          context.commit('alldata', response.data.data);
-        });
-      },
-      getEditData: function getEditData(context, api) {
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(api).then(function (response) {
-          context.commit('editdata', response.data);
-        });
-      },
-      getPostById: function getPostById(context, payload) {
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/singlepost/' + payload).then(function (response) {
-          context.commit('siglePost', response.data.post);
-        });
-      },
-      SearchPost: function SearchPost(context, payload) {
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('api/search?s=' + payload).then(function (response) {
-          context.commit('getSearchPost', response.data.data);
-        });
-      },
-      SearchAlldata: function SearchAlldata(context, payload) {
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('api/search-all?s=' + payload.s + '&d=' + payload.d).then(function (response) {
-          console.log(response.data.data);
-          context.commit('getSearchPostAll', response.data.data);
-        });
+      setTitle: function setTitle(context, title) {
+        context.commit('ADD_TITLE', title);
       }
     },
     mutations: {
-      // Return alll the data related to the api call
-      alldata: function alldata(state, data) {
-        return state.alldata = data;
-      },
-      editdata: function editdata(state, payload) {
-        return state.editdata = payload;
-      },
-      siglePost: function siglePost(state, payload) {
-        return state.singlepost = payload;
-      },
-      getSearchPost: function getSearchPost(state, payload) {
-        state.alldata = payload;
-      },
-      getSearchPostAll: function getSearchPostAll(state, payload) {
-        state.SearchAll = payload;
+      ADD_TITLE: function ADD_TITLE(state, payload) {
+        state.itinerary_title = payload;
       }
     }
   });

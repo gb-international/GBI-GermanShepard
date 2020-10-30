@@ -8,22 +8,22 @@
         </h5>
 
         <div class="pt-4 font-weight-bolder pb-4 whitesomke">
-            <div v-for="i in 3" :key="i">
+            <div v-for="bus in buses" :key="bus.id">
                 <div class="row m-0 pr-2 pl-2">
                     <div class="col-sm-4">
                         <label class="text-muted f-12">Bus Number or Name</label>
-                        <p>The Teja bus service (48484 ) </p>
+                        <p>{{ bus.bus.company_name }} </p>
                     </div>
                     <div class="col-sm-3">
                         <div class="row">
                             <div class="col">
                                 <label class="text-muted f-12">Source</label>
-                                <p>Delhi</p>
+                                <p>{{ bus.source }}</p>
                             </div>
                             
                             <div class="col">
                                 <label class="text-muted f-12">Destination</label>
-                                <p>Mumbai</p>
+                                <p>{{ bus.destination }}</p>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                         <div class="row">
                             <div class="col">
                                 <label class="text-muted f-12">Departure</label>
-                                <p>27/10/2020</p>
+                                <p>{{ bus.departure }}</p>
                             </div>
                             <div class="col">
                                 <label class="text-muted f-12">Passengers</label>
@@ -50,3 +50,25 @@
         </div>
     </div>
 </template>
+
+
+<script>
+export default {
+    data(){
+        return{
+            buses:''
+        }
+    },
+    created(){
+        this.busesList();
+    },
+    methods:{
+        busesList(){
+            axios.get('/escort/buses/'+this.$route.params.tour_code).then(res => {
+                this.buses = res.data;
+                console.log(this.buses);
+            })
+        }
+    }
+}
+</script>

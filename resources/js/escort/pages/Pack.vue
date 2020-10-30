@@ -11,9 +11,9 @@
             <th class="border-0">Qty</th>
         </template>
         <template #table-body>
-            <tr v-for="i in 4" :key="i">
-                <td>Chips</td>
-                <td>100pcs</td>
+            <tr v-for="food in packs" :key="food.id">
+                <td>{{ food.name }}</td>
+                <td>{{ food.quantity }}</td>
             </tr>
         </template>
         <template #footer>
@@ -26,6 +26,22 @@ import LayoutTable from '@/escort/components/LayoutTable'
 export default {
     components:{
         LayoutTable
+    },
+    data(){
+        return{
+            packs:''
+        }
+    },
+    created(){
+        this.packsList();
+    },
+    methods:{
+        packsList(){
+            axios.get('/escort/packs/'+this.$route.params.tour_code).then(res => {
+                this.packs = res.data;
+                console.log(this.packs);
+            })
+        }
     }
 }
 </script>
