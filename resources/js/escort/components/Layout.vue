@@ -5,7 +5,7 @@
             <slot name="back">Back</slot>
         </div>
 
-        <h3 class="text-heading text-uppercase text-center">
+        <h3 class="text-heading text-uppercase text-center  word-break">
             <slot name="title"></slot>
         </h3>
 

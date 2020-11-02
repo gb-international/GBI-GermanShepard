@@ -61,6 +61,7 @@ export default {
         this.sightseeingList();
     },
     methods:{
+        
         sightseeingList(){
             var api = '/escort/sightseeing/'+ this.$route.params.tour_code;
             axios.get(api).then(res => {
@@ -69,6 +70,7 @@ export default {
                 console.log(error);
             })
         },
+
         submitForm(){
             var api = '/escort/sightseeing/'+ this.$route.params.tour_code;
             axios.post(api,this.sightseeings).then(res => {

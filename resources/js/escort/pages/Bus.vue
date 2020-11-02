@@ -7,7 +7,7 @@
             Bus
         </h5>
 
-        <div class="pt-4 font-weight-bolder pb-4 whitesomke">
+        <div class="pt-4 font-weight-bolder pb-4 whitesomke word-break" v-if="buses">
             <div v-for="bus in buses" :key="bus.id">
                 <div class="row m-0 pr-2 pl-2">
                     <div class="col-sm-4">
@@ -48,6 +48,10 @@
                 <hr class="w-95" />
             </div>
         </div>
+
+        <div class="text-center pt-4 font-weight-bolder pb-4" v-else>
+            No bus available....
+        </div>
     </div>
 </template>
 
@@ -66,7 +70,6 @@ export default {
         busesList(){
             axios.get('/escort/buses/'+this.$route.params.tour_code).then(res => {
                 this.buses = res.data;
-                console.log(this.buses);
             })
         }
     }

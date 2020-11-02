@@ -66,6 +66,7 @@ export default {
                         this.disable = true;
                         this.form.otp_id = response.data.otp_id;
                         this.form.escort_id = response.data.id;
+                        this.form.escort_name = response.data.name;
                         this.$swal.fire(
                             'Otp Sent',
                             'Otp Sent To you number!!',
@@ -93,6 +94,7 @@ export default {
                             title: "Welcome to dashbaord"
                         });
                         this.$cookies.set('escort_id',this.form.escort_id);
+                        this.$cookies.set('escort_name',this.form.escort_name);
                         this.$router.push('/tour-list');
                     }else{
                         this.$toast.fire({

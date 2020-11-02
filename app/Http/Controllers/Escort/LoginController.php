@@ -31,6 +31,7 @@ class LoginController extends Controller
                     $sendsms->otpSMS($mobile_number,$otp);
                     $response['success'] = 'success';
                     $response['id'] = $escort->id;
+                    $response['name'] = $escort->name;
                 }
                 return $response;
             }catch(Exception $e){

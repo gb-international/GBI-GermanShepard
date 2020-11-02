@@ -7,7 +7,7 @@
             Hotel
         </h5>
 
-        <div class="hotel-body pt-4 font-weight-bolder pb-4 whitesomke">
+        <div class="hotel-body pt-4 font-weight-bolder pb-4 whitesomke" v-if="hotels.length > 0">
             <div class="hotel-data" v-for="hotel in hotels" :key="hotel.id">
                 <div class="row m-0 pr-2 pl-2">
                     <div class="col-sm-6">
@@ -45,6 +45,10 @@
                 <hr class="w-95" />
             </div>
         </div>
+
+        <div class="text-center pt-4 font-weight-bolder pb-4 whitesomke" v-else>
+            No Hotel available....
+        </div>
     </div>
 </template>
 
@@ -62,7 +66,6 @@ export default {
         hotelsList(){
             axios.get('/escort/hotels/'+this.$route.params.tour_code).then(res => {
                 this.hotels = res.data;
-                console.log(this.hotels);
             })
         }
     }

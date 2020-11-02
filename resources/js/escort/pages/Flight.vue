@@ -7,7 +7,7 @@
             Flight
         </h5>
 
-        <div class="pt-4 font-weight-bolder pb-4 whitesomke">
+        <div class="pt-4 font-weight-bolder pb-4 whitesomke" v-if="flights.length>0">
             <div v-for="flight in flights" :key="flight.id">
                 <div class="row m-0 pr-2 pl-2">
                     <div class="col-sm-6">
@@ -36,6 +36,10 @@
                 <hr class="w-95" />
             </div>
         </div>
+
+        <div class="text-center pt-4 font-weight-bolder pb-4 whitesomke" v-else>
+            No Flight available....
+        </div>
     </div>
 </template>
 
@@ -53,7 +57,6 @@ export default {
         flightsList(){
             axios.get('/escort/flights/'+this.$route.params.tour_code).then(res => {
                 this.flights = res.data;
-                console.log(this.flights);
             })
         }
     }

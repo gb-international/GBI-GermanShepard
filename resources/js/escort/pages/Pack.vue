@@ -10,12 +10,21 @@
             <th class="border-0">Food Item</th>
             <th class="border-0">Qty</th>
         </template>
-        <template #table-body>
+        <template #table-body v-if="packs.length > 0">
             <tr v-for="food in packs" :key="food.id">
                 <td>{{ food.name }}</td>
                 <td>{{ food.quantity }}</td>
             </tr>
         </template>
+
+        
+        <template #table-body v-else>
+            <tr class="text-center">
+                No Snack available
+            </tr>
+        </template>
+
+
         <template #footer>
 
         </template>
@@ -39,7 +48,6 @@ export default {
         packsList(){
             axios.get('/escort/packs/'+this.$route.params.tour_code).then(res => {
                 this.packs = res.data;
-                console.log(this.packs);
             })
         }
     }

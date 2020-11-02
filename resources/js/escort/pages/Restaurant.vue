@@ -10,12 +10,21 @@
             <th class="border-0">Restaurant Name</th>
             <th class="border-0">Place</th>
         </template>
-        <template #table-body>
+        <template #table-body v-if="restaurants.length > 0">
             <tr v-for="restaurant in restaurants" :key="restaurant.id">
                 <td>{{ restaurant.restaurant.name }}</td>
                 <td>{{ restaurant.restaurant.address }}</td>
             </tr>
         </template>
+
+        
+        <template #table-body v-else>
+            <tr>
+                <p class="text-center">No Restaurant available</p>
+            </tr>
+        </template>
+
+
         <template #footer>
 
         </template>
@@ -40,7 +49,6 @@ export default {
             axios.get('/escort/restaurants/'+this.$route.params.tour_code)
             .then(res => {
                 this.restaurants = res.data;
-                console.log(this.restaurants);
             })
         }
     }
