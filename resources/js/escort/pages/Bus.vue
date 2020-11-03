@@ -14,7 +14,7 @@
                         <label class="text-muted f-12">Bus Number or Name</label>
                         <p>{{ bus.bus.company_name }} </p>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <div class="row">
                             <div class="col">
                                 <label class="text-muted f-12">Source</label>
@@ -28,21 +28,17 @@
                         </div>
                     </div>
                     
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <div class="row">
                             <div class="col">
                                 <label class="text-muted f-12">Departure</label>
                                 <p>{{ bus.departure }}</p>
                             </div>
                             <div class="col">
-                                <label class="text-muted f-12">Passengers</label>
-                                <p>100</p>
+                                <label class="text-muted f-12">Contact Number</label>
+                                <p>Raj niwas 98989898989</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <label class="text-muted f-12">Contact Number</label>
-                        <p>Raj niwas 98989898989</p>
                     </div>
                 </div>
                 <hr class="w-95" />

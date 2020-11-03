@@ -90,6 +90,7 @@ export default {
             var api = `/escort/tour-list/${this.$cookies.get('escort_id')}`;
             axios.get(api).then(response=>{
                 this.tours = response.data;
+                moment.suppressDeprecationWarnings = true;
                 for(var i=0;i<this.tours.length;i++){
                     var today = new Date();
 

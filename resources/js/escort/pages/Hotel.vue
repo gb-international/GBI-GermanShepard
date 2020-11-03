@@ -30,11 +30,7 @@
                     
                     <div class="col-sm-3">
                         <div class="row">
-                            <div class="col">
-                                <label class="text-muted f-12">Group Member</label>
-                                <p>100</p>
-                            </div>
-                            
+             
                             <div class="col">
                                 <label class="text-muted f-12">Contact Number</label>
                                 <p>{{ hotel.hotel.phoneno }}</p>

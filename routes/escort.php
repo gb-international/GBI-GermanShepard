@@ -15,6 +15,7 @@ Route::namespace('Escort')->group(function(){
     Route::get('/buses/{id}','TourController@buses');
     Route::get('/trains/{id}','TourController@trains');
     Route::get('/restaurants/{id}','TourController@restaurants');
+    Route::get('/pax/{id}','TourController@pax');
 
 
 });

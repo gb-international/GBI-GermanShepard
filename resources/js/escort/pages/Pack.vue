@@ -4,7 +4,7 @@
             <img class="back-icon cursor-pointer" @click="$router.go(-1)" src="/assets/front/icons/back.png">
         </template>
         <template #title>
-            Number of Pax
+            Quantity of items
         </template>
         <template #table-head>
             <th class="border-0">Food Item</th>

@@ -248,7 +248,7 @@ export default {
                 last_name: main_data[i]['last_name'],
                 email:main_data[i]['email'],
                 gender: main_data[i]['gender'],
-                email: main_data[i]['email'],
+                age: main_data[i]['age'],
                 mobile: main_data[i]['mobile'],
                 tour_id:vm.$route.params.id,
               };

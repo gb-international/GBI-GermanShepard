@@ -42811,6 +42811,7 @@ Admin Login page
   border-bottom: 2px solid #d2c9c9;
   color: white;
   font-size: 19px;
+  outline: 0px;
 }
 
 #admin_login #admin_login_form img {

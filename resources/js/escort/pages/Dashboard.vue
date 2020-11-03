@@ -37,6 +37,11 @@
                         <div class="col-sm-4 mb-3">
                             <router-link :to='`/dashbaord/restaurant/${$route.params.tour_code}`'><img src="/assets/admin/default/icon/restaurant.png" class="w-100"></router-link>
                         </div>
+                        
+                        <div class="col-sm-4 mb-3">
+                            <router-link :to='`/dashbaord/pax/${$route.params.tour_code}`'><img src="/assets/admin/default/icon/pax.png" class="w-100"></router-link>
+                        </div>
+
                     </div>
                 </div>
             </template>

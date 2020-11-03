@@ -73,6 +73,7 @@
             <th>Last Name</th>
             <th>Email</th>
             <th>Gender</th>
+            <th>Age</th>
             <th>Contact No.</th>
           </thead>
           <tbody>
@@ -110,6 +111,16 @@
                   :readonly="index != edit_index"
                 />
               </td>
+              
+              <td>
+                <input
+                  type="number"
+                  class="form-control"
+                  v-model="data.age"
+                  :readonly="index != edit_index"
+                />
+              </td>
+
               <td>
                 <div class="row">
                   <div class="col-8">
@@ -158,6 +169,9 @@
               </td>
               <td>
                 <input type="text" class="form-control" v-model="data.gender" />
+              </td>
+              <td>
+                <input type="number" class="form-control" v-model="data.age" />
               </td>
               <td>
                 <input type="text" class="form-control" v-model="data.mobile" />
@@ -253,6 +267,7 @@ export default {
           last_name: "",
           email: "",
           gender: "",
+          age: "",
           mobile: "",
           tour_id: this.$route.params.id,
         });
@@ -372,7 +387,7 @@ export default {
               last_name: main_data[i]["last_name"],
               email: main_data[i]["email"],
               gender: main_data[i]["gender"],
-              email: main_data[i]["email"],
+              age: main_data[i]["age"],
               mobile: main_data[i]["mobile"],
               tour_id: vm.$route.params.id,
             };

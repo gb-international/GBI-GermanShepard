@@ -14,7 +14,7 @@
                         <label class="text-muted f-12">Train Number & Name</label>
                         <p>{{ train.train.name }} ({{ train.train.code}}) </p>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <div class="row">
                             <div class="col">
                                 <label class="text-muted f-12">Source</label>
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <div class="row">
                             <div class="col">
                                 <label class="text-muted f-12">Departure</label>
@@ -40,10 +40,6 @@
                                 <p>{{ train.arrival }}</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <label class="text-muted f-12">Passengers</label>
-                        <p>100</p>
                     </div>
                 </div>
                 <hr class="w-95" />

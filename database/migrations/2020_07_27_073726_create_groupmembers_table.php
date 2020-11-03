@@ -23,6 +23,7 @@ class CreateGroupmembersTable extends Migration
             $table->string('email')->nullable();
             $table->string('gender')->nullable();
             $table->string('mobile')->nullable();
+            $table->string('age')->nullable();
             $table->timestamps();
         });
     }

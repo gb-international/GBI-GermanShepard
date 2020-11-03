@@ -59,6 +59,7 @@
             <th>Last Name</th>
             <th>Email</th>
             <th>Gender</th>
+            <th>Age</th>
             <th>Contact No.</th>
           </thead>
           <tbody>
@@ -93,6 +94,14 @@
                   type="text"
                   class="form-control"
                   v-model="data.gender"
+                  :readonly="index != edit_index"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="form-control"
+                  v-model="data.age"
                   :readonly="index != edit_index"
                 />
               </td>
@@ -251,6 +260,7 @@ export default {
           last_name: "",
           email: "",
           gender: "",
+          age: "",
           mobile: "",
           tour_id: this.$route.params.id,
           school_id: this.$route.params.school_id,
@@ -282,6 +292,7 @@ export default {
           last_name: "",
           email: "",
           gender: "",
+          age: "",
           mobile: "",
           tour_id: this.$route.params.id,
           school_id: this.$route.params.school_id,
@@ -294,6 +305,7 @@ export default {
         .then((response) => {
           if (response.data) {
             this.total_row = response.data;
+            console.log(this.total_row);
           }
         });
 
@@ -433,6 +445,8 @@ export default {
           current.last_name +
           " , Gender :" +
           current.gender +
+          " , Age : " + 
+          current.age +
           " , Contact : " +
           current.mobile +
           "\n";
@@ -470,7 +484,8 @@ export default {
                 last_name: store[1],
                 email: store[2],
                 gender: store[3],
-                mobile: store[4],
+                age: store[4],
+                mobile: store[5],
                 tour_id: vm.$route.params.id,
                 school_id: this.$route.params.school_id,
               };

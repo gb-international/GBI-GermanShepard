@@ -16,8 +16,8 @@ let mix = require('laravel-mix');
 
 
 // Admin
-// mix.js('resources/js/admin.js', 'public/js/admin')
-//    .sass('resources/sass/admin/app.scss', 'public/css/admin')
+mix.js('resources/js/admin.js', 'public/js/admin')
+   .sass('resources/sass/admin/app.scss', 'public/css/admin')
 
 // Escort
 mix.js('resources/js/escort/app.js', 'public/js/escort')

@@ -13,6 +13,7 @@ import Hotel from '@/escort/pages/Hotel.vue'
 import Bus from '@/escort/pages/Bus.vue'
 import Train from '@/escort/pages/Train.vue'
 import Flight from '@/escort/pages/Flight.vue'
+import Pax from '@/escort/pages/Pax.vue'
 
 import Error404 from '@/components/front/error/404.vue'
 export function createRouter() {
@@ -33,6 +34,7 @@ export function createRouter() {
             { path: '/dashbaord/bus/:tour_code', component: Bus },
             { path: '/dashbaord/train/:tour_code', component: Train },
             { path: '/dashbaord/flight/:tour_code', component: Flight },
+            { path: '/dashbaord/pax/:tour_code', component: Pax },
         ]
     })
 }

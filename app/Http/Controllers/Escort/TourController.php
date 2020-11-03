@@ -13,6 +13,7 @@ use App\Model\Reservation\Bookedtrain;
 use App\Model\Reservation\Bookedrestaurant;
 use App\Model\Restaurant\Restaurant;
 use App\Model\Tour\Tour;
+use App\Model\Tour\TourUser;
 use App\Model\Tour\Food;
 
 class TourController extends Controller 
@@ -67,8 +68,6 @@ class TourController extends Controller
         return response()->json($data);
     }
     
-    
-    
     public function hotels($tour_code){
         $data = Bookedhotel::select('hotel_id','id','tour_code','check_in','check_out',)
             ->where('tour_code',$tour_code)
@@ -112,6 +111,30 @@ class TourController extends Controller
             ->get();
         return response()->json($data);
     }
-        
+
+    
+    public function pax($tour_code){
+        // select travel_code from tour table 
+        $tour = Tour::where('tour_id',$tour_code)->select('travel_code')->first();
+        // select user who are going on tour
+        $data = TourUser::select('id','user_id')
+                ->where('travel_code',$tour->travel_code)
+                ->with('user:id','user.information:user_id,gender')
+                ->get();
+        $male = 0;$female = 0;
+        // count male and female from data
+        foreach ($data as $d ) {
+            if($d->user->information->gender == 'male'){
+                $male += 1;
+            }
+            if($d->user->information->gender == 'female'){
+                $female += 1;
+            }
+        };
+        // return male and female
+        $response['male'] = $male;
+        $response['female'] = $female;
+        return response()->json($response);
+    } 
         
 }

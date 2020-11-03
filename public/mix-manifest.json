@@ -1,4 +1,6 @@
 {
-    "/js/escort/app.js": "/js/escort/app.js",
-    "/css/escort/app.css": "/css/escort/app.css"
+    "/js/admin/admin.js": "/js/admin/admin.js",
+    "/css/admin/app.css": "/css/admin/app.css",
+    "/css/escort/app.css": "/css/escort/app.css",
+    "/js/escort/app.js": "/js/escort/app.js"
 }
