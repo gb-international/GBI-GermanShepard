@@ -60,6 +60,7 @@ class User extends Authenticatable
 		return $this->hasMany('App\Model\Tour\Frontbooking');
     }
     
+    
     public function AauthAccessToken(){
         return $this->hasMany('App\Model\User\OauthAccessToken');
     }

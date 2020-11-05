@@ -10,10 +10,12 @@
             <template #body>
                 <div class="sightseeing-body pt-4 pb-4">
                     <h3>Itinerary</h3>
-                    <div class="sightseeing-row" v-for="row in sightseeings" :key="row.id">
-                        <h6 class="mt-2 mb-2">Sightseeing Day</h6>
+                    <div class="sightseeing-row" 
+                        v-for="(obj,key,i) in sightseeings" :key="obj.id"
+                        >
+                        <h6 class="mt-2 mb-2">Sightseeing Day {{ ++i }}</h6>
                         <div class="row">
-                            <div class="col-sm-6"  v-for="data in row" :key="data.id">
+                            <div class="col-sm-6"  v-for="data in obj" :key="data.id">
                                 <div class="form-check">
                                     <label class="form-check-label">
                                         <input type="checkbox" class="form-check-input" 
@@ -26,7 +28,6 @@
                                     </label>
                                 </div>
                             </div>
-
                         </div>
                         <hr />
                     </div>
@@ -60,12 +61,18 @@ export default {
     created(){
         this.sightseeingList();
     },
+    computed:{
+        sightseeingss(){
+
+        }
+    },
     methods:{
         
         sightseeingList(){
             var api = '/escort/sightseeing/'+ this.$route.params.tour_code;
             axios.get(api).then(res => {
                 this.sightseeings = res.data;
+                
             }).catch(error => {
                 console.log(error);
             })

@@ -36,35 +36,115 @@
 
 
         <template #footer>
-
+            <hr />
+            <div class="p-2">
+                <div class="row">
+                    <div class="col">
+                        <p><b>Present Male : {{ present_male}}</b>
+                        <div class="form-group">
+                            <label for="total_male">Absent Male</label>
+                            <input type="number" class="form-control" :placeholder="`Example : 0`" v-model="form.absent_male">
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <p><b>Present Female : {{ present_female }}</b>
+                        <div class="form-group">
+                            <label for="total_male">Absent Female</label>
+                            <input type="number" class="form-control" :placeholder="`Example : 0`" v-model="form.absent_female">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" rows="6" :placeholder="`Write your message...`" v-model="form.message"></textarea>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-4" @click="submitForm()">
+                        <submit-button class="btn-block">submit</submit-button>
+                    </div>
+                </div>
+            </div>
         </template>
     </layout-table>
 </template>
 <script>
 import LayoutTable from '@/escort/components/LayoutTable'
+import SubmitButton from '@/escort/components/SubmitButton'
 export default {
     components:{
-        LayoutTable
+        LayoutTable,
+        SubmitButton
     },
     data(){
         return{
-            pax:''
+            pax:'',
+            form:{
+                tour_code:'',
+                total_male : 0,
+                total_female : 0,
+                absent_male : '',
+                absent_female : '',
+                message : '',
+                escort_id: '',
+            }
         }
     },
+    
     created(){
         this.paxList();
+        this.getPax();
+        this.form.escort_id = this.$cookies.get('escort_id');
     },
     methods:{
         paxList(){
             axios.get('/escort/pax/'+this.$route.params.tour_code).then(res => {
                 this.pax = res.data;
+                this.form.tour_code = this.$route.params.tour_code;
+                this.form.total_male = this.pax.male;
+                this.form.total_female = this.pax.female;
+            })
+        },
+        getPax(){
+            axios.get('/escort/pax/get/'+this.$route.params.tour_code).then(res => {
+                this.form.absent_male = res.data.absent_male;
+                this.form.absent_female = res.data.absent_female;
+                this.form.message = res.data.message;
+            })
+        },
+
+        submitForm(){
+            axios.post('/escort/pax/store',this.form).then(res => {
+                this.$toast.fire({
+                    icon: "success",
+                    title: "Successfull!!!"
+                });
             })
         }
     },
     computed:{
         total(){
             return this.pax.male + this.pax.female;
-        }
+        },        
+        present_male(){
+            if(this.form.total_male >= this.form.absent_male){
+                return this.form.total_male -  this.form.absent_male;
+            }else{
+                this.form.absent_male = 0;
+                return this.form.total_male;
+            }
+        },
+        
+        present_female(){
+            if(this.form.total_female >= this.form.absent_female){
+                return this.form.total_female -  this.form.absent_female;
+            }else{
+                this.form.absent_female = 0;
+                return this.form.total_female;
+            }
+        },
+
+
     }
 }
 </script>

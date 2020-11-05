@@ -76,7 +76,7 @@ data from the api to display the data about the Hotel from the backend .
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
                   <div class="form-group text-center">
-                    <button class="btn btn-primary itrn_add_btn" @click="goBack()">Back</button>
+                    <button type="button" class="btn btn-primary itrn_add_btn" @click="goBack()">Back</button>
                   </div>
                 </div>
                 <div class="col-sm-4">

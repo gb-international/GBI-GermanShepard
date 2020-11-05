@@ -38,7 +38,6 @@
                       <input
                         type="file"
                         name="file"
-                        onchange="this.form.filename.value = this.files.length ? this.files[0].name : ''"
                         accept=".xlsx"
                         @change="changeExcelFile($event)"
                       />Browse
@@ -153,6 +152,9 @@
               </td>
               <td>
                 <input type="text" class="form-control" v-model="data.gender" />
+              </td>              
+              <td>
+                <input type="text" class="form-control" v-model="data.age" />
               </td>
               <td>
                 <input type="text" class="form-control" v-model="data.mobile" />
@@ -305,14 +307,12 @@ export default {
         .then((response) => {
           if (response.data) {
             this.total_row = response.data;
-            console.log(this.total_row);
           }
         });
 
     },
     // Delete Row
     delete_row(index, id) {
-      console.log(id);
       this.$swal
         .fire({
           title: "Are you sure?",
@@ -375,8 +375,6 @@ export default {
         });
     },
 
-
-    
     sendLoginDetails() {
       axios.post("/api/groupmembers/addlogindetail", this.total_row)
         .then((response) => {
@@ -401,7 +399,6 @@ export default {
         });
     },
 
-
     UserGroupSave() {
       for (var i = this.new_row.length - 1; i >= 0; i--) {
         if (this.new_row[i]["first_name"] == "") {
@@ -410,7 +407,6 @@ export default {
       }
       axios.post("/api/groupmember/add", this.new_row)
         .then((response) => {
-          console.log(response);
           if (response.data == "error") {
             this.$swal.fire({
               icon: "error",
@@ -473,7 +469,7 @@ export default {
           var main_data = XLSX.utils.sheet_to_json(worksheet);
           for (var i = 0; i < main_data.length; i++) {
             // if one row consist 5 columns
-            if (Object.keys(main_data[i]).length == 5) {
+            if (Object.keys(main_data[i]).length == 6) {
               //this.total_row.push({first_name:'',last_name:'',gender:'',phoneno:''});
               var store = [];
               for (var j in main_data[i]) {
@@ -487,7 +483,7 @@ export default {
                 age: store[4],
                 mobile: store[5],
                 tour_id: vm.$route.params.id,
-                school_id: this.$route.params.school_id,
+                school_id: vm.$route.params.school_id,
               };
               vm.new_row.push(row);
             }

@@ -42812,6 +42812,7 @@ Admin Login page
   color: white;
   font-size: 19px;
   outline: 0px;
+  box-shadow: none;
 }
 
 #admin_login #admin_login_form img {
@@ -42944,6 +42945,14 @@ Admin Login page
 
 .display-hidden {
   display: none;
+}
+
+.whitesomke {
+  background-color: whitesmoke;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 input[type='text'],

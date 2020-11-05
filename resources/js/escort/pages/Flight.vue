@@ -14,7 +14,7 @@
                         <label class="text-muted f-12">Flight Number & Name</label>
                         <p>{{ flight.flight.name }} {{ flight.flight_number}} </p>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                         <div class="row">
                             <div class="col">
                                 <label class="text-muted f-12">Departure</label>
@@ -26,6 +26,10 @@
                                 <p>{{ flight.arrival }}</p>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-sm-1">
+                        <label class="text-muted f-12">Passengers</label>
+                        <p>{{ flight.pnruser_count }}</p>
                     </div>
                 </div>
                 <hr class="w-95" />

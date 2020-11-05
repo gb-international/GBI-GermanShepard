@@ -59,6 +59,8 @@ Route::namespace('Admin')->group(function (){
 		Route::post('foods','FoodController@store');
 		Route::patch('foods/{id}','FoodController@update');
 		Route::delete('foods/{id}','FoodController@destroy');
+		//escortUpdate
+		Route::get('escortUpdates/{id}','PaxController@index');
 	});
 	Route::namespace('Restaurant')->group(function(){
 		Route::resource('restaurants','RestaurantController');		

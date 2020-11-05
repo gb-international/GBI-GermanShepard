@@ -11,6 +11,7 @@ use App\Model\Reservation\Bookedflight;
 use App\Model\Reservation\Bookedbus;
 use App\Model\Reservation\Bookedtrain;
 use App\Model\Reservation\Bookedrestaurant;
+use App\Model\Reservation\PnrUser;
 use App\Model\Restaurant\Restaurant;
 use App\Model\Tour\Tour;
 use App\Model\Tour\TourUser;
@@ -78,12 +79,13 @@ class TourController extends Controller
     }
     
     public function flights($tour_code){
-        $data = Bookedflight::select('id','flight_id','tour_code','departure','arrival','flight_number')
+
+       return  $data = Bookedflight::select('id','flight_id','tour_code','departure','arrival','flight_number')
         ->where('tour_code',$tour_code)
             ->with('flight:id,name')
+            ->withCount('pnruser')
             ->get();
-
-            return response()->json($data);
+        return response()->json($data);
     }
     
     public function buses($tour_code){

@@ -17,6 +17,10 @@ class Bookedflight extends Model
     {
     	return $this->belongsTo('App\Model\Transport\flight');
     }
-
+    
+    public function pnruser()
+    {
+    	return $this->hasMany('App\Model\Reservation\PnrUser','transport_id');
+    }
 
 }

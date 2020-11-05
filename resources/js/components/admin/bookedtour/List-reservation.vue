@@ -13,7 +13,7 @@ It takes id from the url and get the data from the api .
     ****************************************************-->
     <div class="row justify-content-around">
       <div class="col-md-12">
-        <button class="btn btn-primary" @click="goBack()">Back</button>
+        <img class="back-icon cursor-pointer" @click="goBack()" src="/assets/front/icons/back.png">
         <div class="container container_admin_body">
           <div class="row">
             <div class="col-sm-4">
@@ -104,11 +104,20 @@ It takes id from the url and get the data from the api .
                 <img :src="`assets/admin/default/icon/sightseeing.png`" />
               </router-link>
             </div>
+            
+            <div class="col-sm-3 mb-3 m-30">
+              <router-link
+                :to="`/escort-update/${tour.id}/${tour.tour_id}`"
+              >
+                <img :src="`assets/admin/default/icon/escort_Update.png`" />
+              </router-link>
+            </div>
+
           </div>
           <hr />
-          <div class="card" v-if="escort">
+          <div class="card" v-if="escorts.length > 0">
             <h4>Tour Manager</h4>
-            <div class="row" v-for="escort in escort" :key="escort.id">
+            <div class="row" v-for="escort in escorts" :key="escort.id">
               <div class="col-sm-2">
                 <label>Name</label>
                 <p>{{ escort["escort"].name }}</p>
@@ -140,7 +149,7 @@ It takes id from the url and get the data from the api .
             </div>
           </div>
 
-          <div class="card" v-if="hotel">
+          <div class="card" v-if="hotel.length > 0">
             <h4>Hotel</h4>
             <div class="row" v-for="hotel in hotel" :key="hotel.id">
               <div class="col-sm-2">
@@ -175,7 +184,7 @@ It takes id from the url and get the data from the api .
             </div>
           </div>
 
-          <div class="card" v-if="restaurant">
+          <div class="card" v-if="restaurant.length > 0">
             <h4>Restaurant</h4>
             <div class="row" v-for="rest in restaurant" :key="rest.id">
               <div class="col-sm-2">
@@ -210,13 +219,13 @@ It takes id from the url and get the data from the api .
             </div>
           </div>
 
-          <div class="card" v-if="sightseeing">
-            <h4>Sightseeings</h4>
+          <div class="card" v-if="Object.keys(sightseeing).length > 0">
+            <h4>Sightseeings </h4>
             <div class="row">
               <div class="col-sm-11">
-                <div class="row" v-for="(parent, i) in sightseeing" :key="i+i">
+                <div class="row" v-for="(parent,key,i) in sightseeing" :key="i+i">
                   <div class="col-sm-4">
-                    <p>Day {{ i }}</p>
+                    <p>Day {{ ++i }}</p>
                   </div>
                   <div class="col-sm-8">
                     <div
@@ -245,7 +254,7 @@ It takes id from the url and get the data from the api .
             </div>
           </div>
 
-          <div class="card" v-if="train">
+          <div class="card" v-if="train.length > 0">
             <h4>Train</h4>
             <div class="row" v-for="train in train" :key="train.id">
               <div class="col-sm-2">
@@ -299,7 +308,7 @@ It takes id from the url and get the data from the api .
             </div>
           </div>
 
-          <div class="card" v-if="flight">
+          <div class="card" v-if="flight.length > 0">
             <h4>Flight</h4>
             <div class="row" v-for="flight in flight" :key="flight.id">
               <div class="col-sm-2">
@@ -353,7 +362,7 @@ It takes id from the url and get the data from the api .
             </div>
           </div>
 
-          <div class="card" v-if="bus">
+          <div class="card" v-if="bus.length > 0">
             <h4>Bus</h4>
             <div class="row" v-for="bus in bus" :key="bus.id">
               <div class="col-sm-2">
@@ -491,7 +500,7 @@ export default {
       train: [],
       hotel: [],
       restaurant: [],
-      escort: [],
+      escorts: [],
       bus: [],
       flight: [],
       modal_pnr: false,
@@ -608,13 +617,12 @@ export default {
           this.train = response.data["train"];
           this.hotel = response.data["hotel"];
           this.restaurant = response.data["restaurant"];
-          this.escort = response.data["escort"];
+          this.escorts = response.data["escort"];
           this.bus = response.data["bus"];
           this.flight = response.data["flight"];
           this.school = response.data["school"];
           this.itinerary = response.data["itinerary"];
           this.sightseeing = response.data["sightseeing"];
-          console.log(this.sightseeing);
         }
       });
     },
@@ -801,7 +809,7 @@ export default {
     },
 
     goBack() {
-      this.$router.go(-1);
+      this.$router.push("/tours");
     },
   },
 };

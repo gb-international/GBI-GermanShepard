@@ -2171,6 +2171,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2506,6 +2510,35 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/escort/components/LayoutTable */ "./resources/js/escort/components/LayoutTable.vue");
+/* harmony import */ var _escort_components_SubmitButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/escort/components/SubmitButton */ "./resources/js/escort/components/SubmitButton.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2549,17 +2582,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    LayoutTable: _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__["default"]
+    LayoutTable: _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__["default"],
+    SubmitButton: _escort_components_SubmitButton__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
-      pax: ''
+      pax: '',
+      form: {
+        tour_code: '',
+        total_male: 0,
+        total_female: 0,
+        absent_male: '',
+        absent_female: '',
+        message: '',
+        escort_id: ''
+      }
     };
   },
   created: function created() {
     this.paxList();
+    this.getPax();
+    this.form.escort_id = this.$cookies.get('escort_id');
   },
   methods: {
     paxList: function paxList() {
@@ -2567,12 +2613,50 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/escort/pax/' + this.$route.params.tour_code).then(function (res) {
         _this.pax = res.data;
+        _this.form.tour_code = _this.$route.params.tour_code;
+        _this.form.total_male = _this.pax.male;
+        _this.form.total_female = _this.pax.female;
+      });
+    },
+    getPax: function getPax() {
+      var _this2 = this;
+
+      axios.get('/escort/pax/get/' + this.$route.params.tour_code).then(function (res) {
+        _this2.form.absent_male = res.data.absent_male;
+        _this2.form.absent_female = res.data.absent_female;
+        _this2.form.message = res.data.message;
+      });
+    },
+    submitForm: function submitForm() {
+      var _this3 = this;
+
+      axios.post('/escort/pax/store', this.form).then(function (res) {
+        _this3.$toast.fire({
+          icon: "success",
+          title: "Successfull!!!"
+        });
       });
     }
   },
   computed: {
     total: function total() {
       return this.pax.male + this.pax.female;
+    },
+    present_male: function present_male() {
+      if (this.form.total_male >= this.form.absent_male) {
+        return this.form.total_male - this.form.absent_male;
+      } else {
+        this.form.absent_male = 0;
+        return this.form.total_male;
+      }
+    },
+    present_female: function present_female() {
+      if (this.form.total_female >= this.form.absent_female) {
+        return this.form.total_female - this.form.absent_female;
+      } else {
+        this.form.absent_female = 0;
+        return this.form.total_female;
+      }
     }
   }
 });
@@ -2704,6 +2788,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2718,6 +2803,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.sightseeingList();
+  },
+  computed: {
+    sightseeingss: function sightseeingss() {}
   },
   methods: {
     sightseeingList: function sightseeingList() {
@@ -64025,7 +64113,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container p-4" }, [
-    _c("div", { staticClass: "back" }, [_vm._t("back", [_vm._v("Back")])], 2),
+    _c("div", { staticClass: "back" }, [_vm._t("back")], 2),
     _vm._v(" "),
     _c("h5", { staticClass: "text-muted" }, [_vm._t("title")], 2),
     _vm._v(" "),
@@ -64519,7 +64607,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-sm-6" }, [
+                _c("div", { staticClass: "col-sm-5" }, [
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col" }, [
                       _c("label", { staticClass: "text-muted f-12" }, [
@@ -64537,6 +64625,14 @@ var render = function() {
                       _c("p", [_vm._v(_vm._s(flight.arrival))])
                     ])
                   ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-1" }, [
+                  _c("label", { staticClass: "text-muted f-12" }, [
+                    _vm._v("Passengers")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(flight.pnruser_count))])
                 ])
               ]),
               _vm._v(" "),
@@ -65010,7 +65106,139 @@ var render = function() {
         {
           key: "footer",
           fn: function() {
-            return undefined
+            return [
+              _c("hr"),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-2" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col" }, [
+                    _c("p", [
+                      _c("b", [
+                        _vm._v("Present Male : " + _vm._s(_vm.present_male))
+                      ])
+                    ]),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "total_male" } }, [
+                        _vm._v("Absent Male")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.absent_male,
+                            expression: "form.absent_male"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "number", placeholder: "Example : 0" },
+                        domProps: { value: _vm.form.absent_male },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "absent_male",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col" }, [
+                    _c("p", [
+                      _c("b", [
+                        _vm._v("Present Female : " + _vm._s(_vm.present_female))
+                      ])
+                    ]),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "total_male" } }, [
+                        _vm._v("Absent Female")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.absent_female,
+                            expression: "form.absent_female"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "number", placeholder: "Example : 0" },
+                        domProps: { value: _vm.form.absent_female },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "absent_female",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "message" } }, [
+                    _vm._v("Message")
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.message,
+                        expression: "form.message"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { rows: "6", placeholder: "Write your message..." },
+                    domProps: { value: _vm.form.message },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "message", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row justify-content-center" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "col-sm-4",
+                      on: {
+                        click: function($event) {
+                          return _vm.submitForm()
+                        }
+                      }
+                    },
+                    [
+                      _c("submit-button", { staticClass: "btn-block" }, [
+                        _vm._v("submit")
+                      ])
+                    ],
+                    1
+                  )
+                ])
+              ])
+            ]
           },
           proxy: true
         }
@@ -65190,19 +65418,19 @@ var render = function() {
                   [
                     _c("h3", [_vm._v("Itinerary")]),
                     _vm._v(" "),
-                    _vm._l(_vm.sightseeings, function(row) {
+                    _vm._l(_vm.sightseeings, function(obj, key, i) {
                       return _c(
                         "div",
-                        { key: row.id, staticClass: "sightseeing-row" },
+                        { key: obj.id, staticClass: "sightseeing-row" },
                         [
                           _c("h6", { staticClass: "mt-2 mb-2" }, [
-                            _vm._v("Sightseeing Day")
+                            _vm._v("Sightseeing Day " + _vm._s(++i))
                           ]),
                           _vm._v(" "),
                           _c(
                             "div",
                             { staticClass: "row" },
-                            _vm._l(row, function(data) {
+                            _vm._l(obj, function(data) {
                               return _c(
                                 "div",
                                 { key: data.id, staticClass: "col-sm-6" },

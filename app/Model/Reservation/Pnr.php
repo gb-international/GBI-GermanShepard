@@ -8,4 +8,6 @@ class Pnr extends Model
 {
     protected $fillable = ['transport_id','tour_id','transport_type','pnr_number'];
     public $timestamps = false;
+
+    
 }

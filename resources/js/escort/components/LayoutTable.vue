@@ -1,7 +1,7 @@
 <template>
     <div class="container p-4">
         <div class="back">
-            <slot name="back">Back</slot>
+            <slot name="back"></slot>
         </div>
         <h5 class="text-muted">
             <slot name="title"></slot>
