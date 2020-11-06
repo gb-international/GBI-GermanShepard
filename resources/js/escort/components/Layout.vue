@@ -19,3 +19,12 @@
         
     </div>
 </template>
+<script>
+export default {
+    created(){
+        if(!this.$store.getters.getTourCode){
+            this.$route.push('/tour-list');
+        }
+    }
+}
+</script>

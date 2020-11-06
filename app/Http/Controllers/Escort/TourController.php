@@ -30,11 +30,12 @@ class TourController extends Controller
     }
 
     public function sightseeingList($tour_code){
-        return $data = Bookedsightseeing::select('sightseeing_id','id','itineraryday_id','mark_arrive')
+        $data = Bookedsightseeing::select('sightseeing_id','id','itineraryday_id','mark_arrive')
             ->where('tour_code',$tour_code)
             ->with('sightseeing:id,name')
             ->get()
             ->groupBy('itineraryday_id');
+        return response()->json($data);
     }
     
     public function sightseeingStore(Request $request ,$tour_code){

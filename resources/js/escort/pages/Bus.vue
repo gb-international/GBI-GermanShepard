@@ -53,21 +53,13 @@
 
 
 <script>
+import { mapState } from 'vuex';
 export default {
-    data(){
-        return{
-            buses:''
-        }
-    },
     created(){
-        this.busesList();
+        this.$store.dispatch('getBuses');
     },
-    methods:{
-        busesList(){
-            axios.get('/escort/buses/'+this.$route.params.tour_code).then(res => {
-                this.buses = res.data;
-            })
-        }
+    computed:{
+        ...mapState(['buses']),
     }
 }
 </script>

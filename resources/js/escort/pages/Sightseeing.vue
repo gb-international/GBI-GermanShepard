@@ -41,45 +41,27 @@
                     </div>
                 </div>
             </template>
-
         </layout>
     </div>
 </template>
 <script>
 import layout from '@/escort/components/Layout'
 import SubmitButton from '@/escort/components/SubmitButton'
+import {mapState} from "vuex";
 export default {
     components:{
         layout,
         SubmitButton
     },
-    data(){
-        return{
-            sightseeings:'',
-        }
-    },
     created(){
-        this.sightseeingList();
+        this.$store.dispatch('getSightseeing');
     },
     computed:{
-        sightseeingss(){
-
-        }
+        ...mapState(['sightseeings']),
     },
     methods:{
-        
-        sightseeingList(){
-            var api = '/escort/sightseeing/'+ this.$route.params.tour_code;
-            axios.get(api).then(res => {
-                this.sightseeings = res.data;
-                
-            }).catch(error => {
-                console.log(error);
-            })
-        },
-
         submitForm(){
-            var api = '/escort/sightseeing/'+ this.$route.params.tour_code;
+            var api = '/escort/sightseeing/'+ this.$store.getters.getTourCode;
             axios.post(api,this.sightseeings).then(res => {
                 this.$toast.fire({
                     icon: "success",

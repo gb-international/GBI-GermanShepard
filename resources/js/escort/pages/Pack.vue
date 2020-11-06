@@ -10,8 +10,8 @@
             <th class="border-0">Food Item</th>
             <th class="border-0">Qty</th>
         </template>
-        <template #table-body v-if="packs.length > 0">
-            <tr v-for="food in packs" :key="food.id">
+        <template #table-body v-if="foods.length > 0">
+            <tr v-for="food in foods" :key="food.id">
                 <td>{{ food.name }}</td>
                 <td>{{ food.quantity }}</td>
             </tr>
@@ -32,24 +32,16 @@
 </template>
 <script>
 import LayoutTable from '@/escort/components/LayoutTable'
+import { mapState } from 'vuex'
 export default {
     components:{
         LayoutTable
     },
-    data(){
-        return{
-            packs:''
-        }
-    },
     created(){
-        this.packsList();
+        this.$store.dispatch('getFoods');
     },
-    methods:{
-        packsList(){
-            axios.get('/escort/packs/'+this.$route.params.tour_code).then(res => {
-                this.packs = res.data;
-            })
-        }
+    computed:{
+        ...mapState(['foods'])
     }
 }
 </script>

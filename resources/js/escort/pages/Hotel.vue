@@ -49,21 +49,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
-    data(){
-        return{
-            hotels:''
-        }
-    },
     created(){
-        this.hotelsList();
+        this.$store.dispatch('getHotels');
     },
-    methods:{
-        hotelsList(){
-            axios.get('/escort/hotels/'+this.$route.params.tour_code).then(res => {
-                this.hotels = res.data;
-            })
-        }
+    computed:{
+        ...mapState(['hotels']),
     }
 }
 </script>

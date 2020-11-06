@@ -32,25 +32,16 @@
 </template>
 <script>
 import LayoutTable from '@/escort/components/LayoutTable'
+import { mapState } from 'vuex';
 export default {
     components:{
         LayoutTable
     },
-    data(){
-        return{
-            restaurants:''
-        }
-    },
     created(){
-        this.restaurantsList();
+        this.$store.dispatch('getRestaurants');
     },
-    methods:{
-        restaurantsList(){
-            axios.get('/escort/restaurants/'+this.$route.params.tour_code)
-            .then(res => {
-                this.restaurants = res.data;
-            })
-        }
+    computed:{
+        ...mapState(['restaurants']),
     }
 }
 </script>

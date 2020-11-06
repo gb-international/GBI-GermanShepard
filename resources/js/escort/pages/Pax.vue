@@ -71,6 +71,7 @@
 <script>
 import LayoutTable from '@/escort/components/LayoutTable'
 import SubmitButton from '@/escort/components/SubmitButton'
+import { mapState } from 'vuex'
 export default {
     components:{
         LayoutTable,
@@ -78,7 +79,6 @@ export default {
     },
     data(){
         return{
-            pax:'',
             form:{
                 tour_code:'',
                 total_male : 0,
@@ -90,23 +90,21 @@ export default {
             }
         }
     },
-    
+    watch:{
+        pax:function(){
+            this.form.tour_code = this.$store.getters.getTourCode;
+            this.form.total_male = this.pax.male;
+            this.form.total_female = this.pax.female;
+        }
+    },
     created(){
-        this.paxList();
+        this.$store.dispatch('getPax');
         this.getPax();
         this.form.escort_id = this.$cookies.get('escort_id');
     },
     methods:{
-        paxList(){
-            axios.get('/escort/pax/'+this.$route.params.tour_code).then(res => {
-                this.pax = res.data;
-                this.form.tour_code = this.$route.params.tour_code;
-                this.form.total_male = this.pax.male;
-                this.form.total_female = this.pax.female;
-            })
-        },
         getPax(){
-            axios.get('/escort/pax/get/'+this.$route.params.tour_code).then(res => {
+            axios.get('/escort/pax/get/'+this.$store.getters.getTourCode).then(res => {
                 this.form.absent_male = res.data.absent_male;
                 this.form.absent_female = res.data.absent_female;
                 this.form.message = res.data.message;
@@ -123,6 +121,7 @@ export default {
         }
     },
     computed:{
+        ...mapState(['pax']),
         total(){
             return this.pax.male + this.pax.female;
         },        

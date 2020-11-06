@@ -1938,6 +1938,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   watch: {
     isIdle: function isIdle() {
@@ -1956,10 +1957,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Bus.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Bus.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/components/Layout.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/components/Layout.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1986,57 +1987,92 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      buses: ''
-    };
-  },
   created: function created() {
-    this.busesList();
-  },
-  methods: {
-    busesList: function busesList() {
-      var _this = this;
-
-      axios.get('/escort/buses/' + this.$route.params.tour_code).then(function (res) {
-        _this.buses = res.data;
-      });
+    if (!this.$store.getters.getTourCode) {
+      this.$route.push('/tour-list');
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Bus.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Bus.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.$store.dispatch('getBuses');
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['buses']))
 });
 
 /***/ }),
@@ -2100,23 +2136,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     layout: _escort_components_Layout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   created: function created() {
-    this.itineraryTitle();
-  },
-  methods: {
-    itineraryTitle: function itineraryTitle() {
-      var _this = this;
-
-      axios.get('/escort/itinerary-title/' + this.$route.params.tour_code).then(function (res) {
-        _this.$store.dispatch('setTitle', res.data.itinerary.title);
-      });
-    }
+    this.$store.dispatch('loadItineraryTitle');
   }
 });
 
@@ -2131,68 +2157,63 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      flights: ''
-    };
-  },
-  created: function created() {
-    this.flightsList();
-  },
-  methods: {
-    flightsList: function flightsList() {
-      var _this = this;
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-      axios.get('/escort/flights/' + this.$route.params.tour_code).then(function (res) {
-        _this.flights = res.data;
-      });
-    }
-  }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.$store.dispatch('getFlights');
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['flights']))
 });
 
 /***/ }),
@@ -2238,74 +2259,69 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      hotels: ''
-    };
-  },
-  created: function created() {
-    this.hotelsList();
-  },
-  methods: {
-    hotelsList: function hotelsList() {
-      var _this = this;
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-      axios.get('/escort/hotels/' + this.$route.params.tour_code).then(function (res) {
-        _this.hotels = res.data;
-      });
-    }
-  }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.$store.dispatch('getHotels');
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['hotels']))
 });
 
 /***/ }),
@@ -2442,6 +2458,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/escort/components/LayoutTable */ "./resources/js/escort/components/LayoutTable.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2474,28 +2497,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     LayoutTable: _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  data: function data() {
-    return {
-      packs: ''
-    };
-  },
   created: function created() {
-    this.packsList();
+    this.$store.dispatch('getFoods');
   },
-  methods: {
-    packsList: function packsList() {
-      var _this = this;
-
-      axios.get('/escort/packs/' + this.$route.params.tour_code).then(function (res) {
-        _this.packs = res.data;
-      });
-    }
-  }
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(['foods']))
 });
 
 /***/ }),
@@ -2511,6 +2522,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/escort/components/LayoutTable */ "./resources/js/escort/components/LayoutTable.vue");
 /* harmony import */ var _escort_components_SubmitButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/escort/components/SubmitButton */ "./resources/js/escort/components/SubmitButton.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2581,6 +2599,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2590,7 +2609,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      pax: '',
       form: {
         tour_code: '',
         total_male: 0,
@@ -2602,43 +2620,40 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  watch: {
+    pax: function pax() {
+      this.form.tour_code = this.$store.getters.getTourCode;
+      this.form.total_male = this.pax.male;
+      this.form.total_female = this.pax.female;
+    }
+  },
   created: function created() {
-    this.paxList();
+    this.$store.dispatch('getPax');
     this.getPax();
     this.form.escort_id = this.$cookies.get('escort_id');
   },
   methods: {
-    paxList: function paxList() {
+    getPax: function getPax() {
       var _this = this;
 
-      axios.get('/escort/pax/' + this.$route.params.tour_code).then(function (res) {
-        _this.pax = res.data;
-        _this.form.tour_code = _this.$route.params.tour_code;
-        _this.form.total_male = _this.pax.male;
-        _this.form.total_female = _this.pax.female;
-      });
-    },
-    getPax: function getPax() {
-      var _this2 = this;
-
-      axios.get('/escort/pax/get/' + this.$route.params.tour_code).then(function (res) {
-        _this2.form.absent_male = res.data.absent_male;
-        _this2.form.absent_female = res.data.absent_female;
-        _this2.form.message = res.data.message;
+      axios.get('/escort/pax/get/' + this.$store.getters.getTourCode).then(function (res) {
+        _this.form.absent_male = res.data.absent_male;
+        _this.form.absent_female = res.data.absent_female;
+        _this.form.message = res.data.message;
       });
     },
     submitForm: function submitForm() {
-      var _this3 = this;
+      var _this2 = this;
 
       axios.post('/escort/pax/store', this.form).then(function (res) {
-        _this3.$toast.fire({
+        _this2.$toast.fire({
           icon: "success",
           title: "Successfull!!!"
         });
       });
     }
   },
-  computed: {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])(['pax'])), {}, {
     total: function total() {
       return this.pax.male + this.pax.female;
     },
@@ -2658,7 +2673,7 @@ __webpack_require__.r(__webpack_exports__);
         return this.form.total_female;
       }
     }
-  }
+  })
 });
 
 /***/ }),
@@ -2673,6 +2688,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/escort/components/LayoutTable */ "./resources/js/escort/components/LayoutTable.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2705,28 +2727,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     LayoutTable: _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  data: function data() {
-    return {
-      restaurants: ''
-    };
-  },
   created: function created() {
-    this.restaurantsList();
+    this.$store.dispatch('getRestaurants');
   },
-  methods: {
-    restaurantsList: function restaurantsList() {
-      var _this = this;
-
-      axios.get('/escort/restaurants/' + this.$route.params.tour_code).then(function (res) {
-        _this.restaurants = res.data;
-      });
-    }
-  }
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(['restaurants']))
 });
 
 /***/ }),
@@ -2742,6 +2752,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _escort_components_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/escort/components/Layout */ "./resources/js/escort/components/Layout.vue");
 /* harmony import */ var _escort_components_SubmitButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/escort/components/SubmitButton */ "./resources/js/escort/components/SubmitButton.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2788,7 +2805,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2796,34 +2813,17 @@ __webpack_require__.r(__webpack_exports__);
     layout: _escort_components_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
     SubmitButton: _escort_components_SubmitButton__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  data: function data() {
-    return {
-      sightseeings: ''
-    };
-  },
   created: function created() {
-    this.sightseeingList();
+    this.$store.dispatch('getSightseeing');
   },
-  computed: {
-    sightseeingss: function sightseeingss() {}
-  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])(['sightseeings'])),
   methods: {
-    sightseeingList: function sightseeingList() {
+    submitForm: function submitForm() {
       var _this = this;
 
-      var api = '/escort/sightseeing/' + this.$route.params.tour_code;
-      axios.get(api).then(function (res) {
-        _this.sightseeings = res.data;
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    },
-    submitForm: function submitForm() {
-      var _this2 = this;
-
-      var api = '/escort/sightseeing/' + this.$route.params.tour_code;
+      var api = '/escort/sightseeing/' + this.$store.getters.getTourCode;
       axios.post(api, this.sightseeings).then(function (res) {
-        _this2.$toast.fire({
+        _this.$toast.fire({
           icon: "success",
           title: "Successfully updated!!!"
         });
@@ -2916,8 +2916,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TourList",
@@ -2929,8 +2927,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     if (this.$cookies.get('escort_id') == undefined) {
       this.$router.push('/');
-    } // this.$cookies.remove('escort_id');
-
+    }
 
     this.tourList();
   },
@@ -2966,7 +2963,12 @@ __webpack_require__.r(__webpack_exports__);
     logout: function logout() {
       this.$cookies.remove('escort_id');
       this.$cookies.remove('escort_name');
+      this.$cookies.remove('tour_code');
       this.$router.push('/');
+    },
+    goToDashboard: function goToDashboard(tour_code) {
+      this.$store.dispatch('setTourCode', tour_code);
+      this.$router.push('/dashboard');
     }
   }
 });
@@ -2982,79 +2984,74 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      trains: ''
-    };
-  },
-  created: function created() {
-    this.trainsList();
-  },
-  methods: {
-    trainsList: function trainsList() {
-      var _this = this;
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-      axios.get('/escort/trains/' + this.$route.params.tour_code).then(function (res) {
-        _this.trains = res.data;
-      });
-    }
-  }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.$store.dispatch('getTrains');
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['trains']))
 });
 
 /***/ }),
@@ -64051,7 +64048,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "app" } }, [_c("router-view")], 1)
+  return _c(
+    "div",
+    { attrs: { id: "app" } },
+    [_c("transition", { attrs: { name: "fade" } }, [_c("router-view")], 1)],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -64337,13 +64339,7 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          {
-                            attrs: {
-                              to:
-                                "/dashbaord/sightseeing/" +
-                                _vm.$route.params.tour_code
-                            }
-                          },
+                          { attrs: { to: "/dashbaord/sightseeing" } },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -64364,12 +64360,7 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          {
-                            attrs: {
-                              to:
-                                "/dashbaord/pack/" + _vm.$route.params.tour_code
-                            }
-                          },
+                          { attrs: { to: "/dashbaord/pack" } },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -64389,13 +64380,7 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          {
-                            attrs: {
-                              to:
-                                "/dashbaord/hotel/" +
-                                _vm.$route.params.tour_code
-                            }
-                          },
+                          { attrs: { to: "/dashbaord/hotel" } },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -64415,13 +64400,7 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          {
-                            attrs: {
-                              to:
-                                "/dashbaord/flight/" +
-                                _vm.$route.params.tour_code
-                            }
-                          },
+                          { attrs: { to: "/dashbaord/flight" } },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -64439,23 +64418,14 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c(
-                          "router-link",
-                          {
+                        _c("router-link", { attrs: { to: "/dashbaord/bus" } }, [
+                          _c("img", {
+                            staticClass: "w-100",
                             attrs: {
-                              to:
-                                "/dashbaord/bus/" + _vm.$route.params.tour_code
+                              src: "/assets/admin/default/icon/bus-icon.png"
                             }
-                          },
-                          [
-                            _c("img", {
-                              staticClass: "w-100",
-                              attrs: {
-                                src: "/assets/admin/default/icon/bus-icon.png"
-                              }
-                            })
-                          ]
-                        )
+                          })
+                        ])
                       ],
                       1
                     ),
@@ -64466,13 +64436,7 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          {
-                            attrs: {
-                              to:
-                                "/dashbaord/train/" +
-                                _vm.$route.params.tour_code
-                            }
-                          },
+                          { attrs: { to: "/dashbaord/train" } },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -64492,13 +64456,7 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          {
-                            attrs: {
-                              to:
-                                "/dashbaord/restaurant/" +
-                                _vm.$route.params.tour_code
-                            }
-                          },
+                          { attrs: { to: "/dashbaord/restaurant" } },
                           [
                             _c("img", {
                               staticClass: "w-100",
@@ -64516,23 +64474,12 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: {
-                              to:
-                                "/dashbaord/pax/" + _vm.$route.params.tour_code
-                            }
-                          },
-                          [
-                            _c("img", {
-                              staticClass: "w-100",
-                              attrs: {
-                                src: "/assets/admin/default/icon/pax.png"
-                              }
-                            })
-                          ]
-                        )
+                        _c("router-link", { attrs: { to: "/dashbaord/pax" } }, [
+                          _c("img", {
+                            staticClass: "w-100",
+                            attrs: { src: "/assets/admin/default/icon/pax.png" }
+                          })
+                        ])
                       ],
                       1
                     )
@@ -64960,11 +64907,11 @@ var render = function() {
           },
           proxy: true
         },
-        _vm.packs.length > 0
+        _vm.foods.length > 0
           ? {
               key: "table-body",
               fn: function() {
-                return _vm._l(_vm.packs, function(food) {
+                return _vm._l(_vm.foods, function(food) {
                   return _c("tr", { key: food.id }, [
                     _c("td", [_vm._v(_vm._s(food.name))]),
                     _vm._v(" "),
@@ -65629,68 +65576,62 @@ var render = function() {
       _vm._l(_vm.tours, function(tour) {
         return _c("div", { key: tour.id }, [
           tour.tour.status == "Current"
-            ? _c(
-                "div",
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "decoration-none",
-                      attrs: { to: "/dashboard/" + tour.tour_code }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "pt-3 text-white border-radius-7 mb-3 font-weight-bolder pb-2",
-                          class: [tour.class_name]
-                        },
-                        [
-                          _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
-                            _c("div", { staticClass: "col-sm-8" }, [
-                              _c("label", { staticClass: "f-12" }, [
-                                _vm._v("Tour")
-                              ]),
-                              _vm._v(" "),
-                              _c("p", [
-                                _vm._v(_vm._s(tour.tour.itinerary.title))
-                              ])
+            ? _c("div", [
+                _c(
+                  "div",
+                  {
+                    staticClass: "cursor-pointer",
+                    on: {
+                      click: function($event) {
+                        return _vm.goToDashboard(tour.tour_code)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "pt-3 text-white border-radius-7 mb-3 font-weight-bolder pb-2",
+                        class: [tour.class_name]
+                      },
+                      [
+                        _c("div", { staticClass: "row m-0 pr-2 pl-2" }, [
+                          _c("div", { staticClass: "col-sm-8" }, [
+                            _c("label", { staticClass: "f-12" }, [
+                              _vm._v("Tour")
                             ]),
                             _vm._v(" "),
-                            _c("div", { staticClass: "col-sm-4" }, [
-                              _c("div", { staticClass: "row" }, [
-                                _c("div", { staticClass: "col" }, [
-                                  _c("label", { staticClass: "f-12" }, [
-                                    _vm._v("Date")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", [
-                                    _vm._v(_vm._s(tour.tour.tour_start_date))
-                                  ])
+                            _c("p", [_vm._v(_vm._s(tour.tour.itinerary.title))])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-4" }, [
+                            _c("div", { staticClass: "row" }, [
+                              _c("div", { staticClass: "col" }, [
+                                _c("label", { staticClass: "f-12" }, [
+                                  _vm._v("Date")
                                 ]),
                                 _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "col text-sm-right" },
-                                  [
-                                    _c("label", { staticClass: "f-12" }, [
-                                      _vm._v("Status")
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("p", [_vm._v(_vm._s(tour.tour.status))])
-                                  ]
-                                )
+                                _c("p", [
+                                  _vm._v(_vm._s(tour.tour.tour_start_date))
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col text-sm-right" }, [
+                                _c("label", { staticClass: "f-12" }, [
+                                  _vm._v("Status")
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [_vm._v(_vm._s(tour.tour.status))])
                               ])
                             ])
                           ])
-                        ]
-                      )
-                    ]
-                  )
-                ],
-                1
-              )
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ])
             : _c("div", [
                 _c(
                   "div",
@@ -65771,7 +65712,7 @@ var render = function() {
       })
     ]),
     _vm._v(" "),
-    _c("h5", { staticClass: "text-muted" }, [_vm._v("\n        Bus\n    ")]),
+    _c("h5", { staticClass: "text-muted" }, [_vm._v("\n        Train\n    ")]),
     _vm._v(" "),
     _vm.trains.length > 0
       ? _c(
@@ -82438,15 +82379,17 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layout_vue_vue_type_template_id_5df250ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Layout.vue?vue&type=template&id=5df250ee& */ "./resources/js/escort/components/Layout.vue?vue&type=template&id=5df250ee&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Layout.vue?vue&type=script&lang=js& */ "./resources/js/escort/components/Layout.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Layout_vue_vue_type_template_id_5df250ee___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Layout_vue_vue_type_template_id_5df250ee___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -82460,6 +82403,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/escort/components/Layout.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/escort/components/Layout.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/escort/components/Layout.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Layout.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/components/Layout.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -82584,6 +82541,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SubmitButton_vue_vue_type_template_id_637f462e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/escort/helpers/api.js":
+/*!********************************************!*\
+  !*** ./resources/js/escort/helpers/api.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+
+var apiBaseUrl = 'http://localhost:8000/escort';
+/* harmony default export */ __webpack_exports__["default"] = ({
+  get: function get(url, request) {
+    return axios.get(apiBaseUrl + url, request).then(function (response) {
+      return Promise.resolve(response.data);
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
+  post: function post(url, request) {
+    return axios.post(apiBaseUrl + url, request).then(function (response) {
+      return Promise.resolve(response);
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
+  patch: function patch(url, request) {
+    return axios.patch(apiBaseUrl + url, request).then(function (response) {
+      return Promise.resolve(response);
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
+  "delete": function _delete(url, request) {
+    return axios["delete"](apiBaseUrl + url, request).then(function (response) {
+      return Promise.resolve(response);
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  }
+});
 
 /***/ }),
 
@@ -83479,31 +83482,31 @@ function createRouter() {
       path: '/sightseeing',
       component: _escort_pages_Sightseeing_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
     }, {
-      path: '/dashboard/:tour_code',
+      path: '/dashboard',
       component: _escort_pages_Dashboard_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
     }, {
-      path: '/dashbaord/sightseeing/:tour_code',
+      path: '/dashbaord/sightseeing',
       component: _escort_pages_Sightseeing_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
     }, {
-      path: '/dashbaord/pack/:tour_code',
+      path: '/dashbaord/pack',
       component: _escort_pages_Pack_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
     }, {
-      path: '/dashbaord/restaurant/:tour_code',
+      path: '/dashbaord/restaurant',
       component: _escort_pages_Restaurant_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
     }, {
-      path: '/dashbaord/hotel/:tour_code',
+      path: '/dashbaord/hotel',
       component: _escort_pages_Hotel_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
     }, {
-      path: '/dashbaord/bus/:tour_code',
+      path: '/dashbaord/bus',
       component: _escort_pages_Bus_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
     }, {
-      path: '/dashbaord/train/:tour_code',
+      path: '/dashbaord/train',
       component: _escort_pages_Train_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
     }, {
-      path: '/dashbaord/flight/:tour_code',
+      path: '/dashbaord/flight',
       component: _escort_pages_Flight_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
     }, {
-      path: '/dashbaord/pax/:tour_code',
+      path: '/dashbaord/pax',
       component: _escort_pages_Pax_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
     }]
   });
@@ -83526,6 +83529,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _escort_helpers_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/escort/helpers/api */ "./resources/js/escort/helpers/api.js");
+
 
 
 
@@ -83534,7 +83539,16 @@ function createStore() {
   return new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
     state: {
       loogin: vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('escort_id'),
-      itinerary_title: ''
+      itinerary_title: '',
+      tour_code: vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('tour_code'),
+      sightseeings: [],
+      foods: [],
+      hotels: [],
+      flights: [],
+      buses: [],
+      trains: [],
+      restaurants: [],
+      pax: []
     },
     getters: {
       isLoggedIn: function isLoggedIn(state) {
@@ -83542,16 +83556,121 @@ function createStore() {
       },
       getTitle: function getTitle(state) {
         return state.itinerary_title;
+      },
+      getTourCode: function getTourCode(state) {
+        return state.tour_code;
+      },
+      getSightseeings: function getSightseeings(state) {
+        return state.sightseeings;
       }
     },
     actions: {
-      setTitle: function setTitle(context, title) {
-        context.commit('ADD_TITLE', title);
+      setTourCode: function setTourCode(context, code) {
+        context.commit('TOUR_CODE', code);
+      },
+      loadItineraryTitle: function loadItineraryTitle(context) {
+        _escort_helpers_api__WEBPACK_IMPORTED_MODULE_3__["default"].get('/itinerary-title/' + vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('tour_code')).then(function (response) {
+          return context.commit('ITINERARY_TITLE', response);
+        })["catch"](function (error) {
+          return console.error(error);
+        });
+      },
+      getSightseeing: function getSightseeing(context) {
+        _escort_helpers_api__WEBPACK_IMPORTED_MODULE_3__["default"].get('/sightseeing/' + vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('tour_code')).then(function (response) {
+          return context.commit('SIGHTSEEING', response);
+        }) // eslint-disable-next-line
+        ["catch"](function (error) {
+          return console.error(error);
+        });
+      },
+      getFoods: function getFoods(context) {
+        _escort_helpers_api__WEBPACK_IMPORTED_MODULE_3__["default"].get('/packs/' + vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('tour_code')).then(function (response) {
+          return context.commit('FOODS', response);
+        }) // eslint-disable-next-line
+        ["catch"](function (error) {
+          return console.error(error);
+        });
+      },
+      getHotels: function getHotels(context) {
+        _escort_helpers_api__WEBPACK_IMPORTED_MODULE_3__["default"].get('/hotels/' + vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('tour_code')).then(function (response) {
+          return context.commit('HOTELS', response);
+        }) // eslint-disable-next-line
+        ["catch"](function (error) {
+          return console.error(error);
+        });
+      },
+      getFlights: function getFlights(context) {
+        _escort_helpers_api__WEBPACK_IMPORTED_MODULE_3__["default"].get('/flights/' + vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('tour_code')).then(function (response) {
+          return context.commit('FLIGHTS', response);
+        }) // eslint-disable-next-line
+        ["catch"](function (error) {
+          return console.error(error);
+        });
+      },
+      getBuses: function getBuses(context) {
+        _escort_helpers_api__WEBPACK_IMPORTED_MODULE_3__["default"].get('/buses/' + vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('tour_code')).then(function (response) {
+          return context.commit('BUSES', response);
+        }) // eslint-disable-next-line
+        ["catch"](function (error) {
+          return console.error(error);
+        });
+      },
+      getTrains: function getTrains(context) {
+        _escort_helpers_api__WEBPACK_IMPORTED_MODULE_3__["default"].get('/trains/' + vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('tour_code')).then(function (response) {
+          return context.commit('TRAINS', response);
+        }) // eslint-disable-next-line
+        ["catch"](function (error) {
+          return console.error(error);
+        });
+      },
+      getRestaurants: function getRestaurants(context) {
+        _escort_helpers_api__WEBPACK_IMPORTED_MODULE_3__["default"].get('/restaurants/' + vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('tour_code')).then(function (response) {
+          return context.commit('RESTAURANTS', response);
+        }) // eslint-disable-next-line
+        ["catch"](function (error) {
+          return console.error(error);
+        });
+      },
+      getPax: function getPax(context) {
+        _escort_helpers_api__WEBPACK_IMPORTED_MODULE_3__["default"].get('/pax/' + vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('tour_code')).then(function (response) {
+          return context.commit('PAX', response);
+        }) // eslint-disable-next-line
+        ["catch"](function (error) {
+          return console.error(error);
+        });
       }
     },
     mutations: {
-      ADD_TITLE: function ADD_TITLE(state, payload) {
-        state.itinerary_title = payload;
+      TOUR_CODE: function TOUR_CODE(state, payload) {
+        state.tour_code = payload;
+        vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.set('tour_code', payload);
+      },
+      ITINERARY_TITLE: function ITINERARY_TITLE(state, payload) {
+        state.itinerary_title = payload.itinerary.title;
+      },
+      SIGHTSEEING: function SIGHTSEEING(state, payload) {
+        state.sightseeings = payload;
+      },
+      FOODS: function FOODS(state, payload) {
+        state.foods = payload;
+      },
+      HOTELS: function HOTELS(state, payload) {
+        state.hotels = payload;
+      },
+      FLIGHTS: function FLIGHTS(state, payload) {
+        state.flights = payload;
+      },
+      BUSES: function BUSES(state, payload) {
+        state.buses = payload;
+      },
+      TRAINS: function TRAINS(state, payload) {
+        state.trains = payload;
+      },
+      RESTAURANTS: function RESTAURANTS(state, payload) {
+        state.restaurants = payload;
+      },
+      PAX: function PAX(state, payload) {
+        state.pax = payload;
       }
     }
   });

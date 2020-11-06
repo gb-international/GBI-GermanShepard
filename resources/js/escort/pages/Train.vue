@@ -4,7 +4,7 @@
             <img class="back-icon cursor-pointer" @click="$router.go(-1)" src="/assets/front/icons/back.png">
         </div>
         <h5 class="text-muted">
-            Bus
+            Train
         </h5>
 
         <div class="pt-4 font-weight-bolder pb-4 whitesomke word-break" v-if="trains.length > 0">
@@ -54,21 +54,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
-    data(){
-        return{
-            trains:''
-        }
-    },
     created(){
-        this.trainsList();
+        this.$store.dispatch('getTrains');
     },
-    methods:{
-        trainsList(){
-            axios.get('/escort/trains/'+this.$route.params.tour_code).then(res => {
-                this.trains = res.data;
-            })
-        }
+    computed:{
+        ...mapState(['trains']),
     }
 }
 </script>

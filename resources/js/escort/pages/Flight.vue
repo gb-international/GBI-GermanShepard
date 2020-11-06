@@ -43,21 +43,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
-    data(){
-        return{
-            flights:''
-        }
-    },
     created(){
-        this.flightsList();
+        this.$store.dispatch('getFlights');
     },
-    methods:{
-        flightsList(){
-            axios.get('/escort/flights/'+this.$route.params.tour_code).then(res => {
-                this.flights = res.data;
-            })
-        }
+    computed:{
+        ...mapState(['flights']),
     }
 }
 </script>

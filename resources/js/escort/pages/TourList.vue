@@ -14,7 +14,8 @@
         <div class="mt-4">
             <div v-for="tour in tours" :key="tour.id">
                 <div v-if="tour.tour.status == 'Current'">
-                    <router-link :to="`/dashboard/${tour.tour_code}`" class="decoration-none">
+                    
+                    <div @click="goToDashboard(tour.tour_code)" class="cursor-pointer">
                         <div :class="[tour.class_name]" class="pt-3 text-white border-radius-7 mb-3 font-weight-bolder pb-2">
                             <div class="row m-0 pr-2 pl-2">
                                 <div class="col-sm-8">
@@ -36,7 +37,7 @@
                                 </div>
                             </div>
                         </div>
-                    </router-link>
+                    </div>
                 </div>
                 <div v-else>
                     <div :class="[tour.class_name]" class="pt-3 text-white border-radius-7 mb-3 font-weight-bolder pb-2">
@@ -61,11 +62,8 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
-
         </div>
-
     </div>
 </template>
 
@@ -82,7 +80,6 @@ export default {
         if(this.$cookies.get('escort_id') == undefined){
             this.$router.push('/');
         }
-        // this.$cookies.remove('escort_id');
         this.tourList();
     },
     methods:{
@@ -117,7 +114,12 @@ export default {
         logout(){
             this.$cookies.remove('escort_id');
             this.$cookies.remove('escort_name');
+            this.$cookies.remove('tour_code');          
             this.$router.push('/');
+        },
+        goToDashboard(tour_code){
+            this.$store.dispatch('setTourCode',tour_code);
+            this.$router.push('/dashboard');
         }
     }
 }
