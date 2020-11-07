@@ -55,6 +55,7 @@
                         </div>
                     </div>
                 </div>
+                <p><b>Present pax</b> = {{ present_female + present_male }}</p>
                 <div class="form-group">
                     <label for="message">Message</label>
                     <textarea class="form-control" rows="6" :placeholder="`Write your message...`" v-model="form.message"></textarea>

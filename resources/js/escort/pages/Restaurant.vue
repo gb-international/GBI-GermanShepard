@@ -1,41 +1,41 @@
 <template>
-    <layout-table>
+    <layout>
         <template #back>
             <img class="back-icon cursor-pointer" @click="$router.go(-1)" src="/assets/front/icons/back.png">
         </template>
-        <template #title>
+        <template #title_heading>
             Restaurant
         </template>
-        <template #table-head>
-            <th class="border-0">Restaurant Name</th>
-            <th class="border-0">Place</th>
+        <template #body>
+            <div class="whitesomke p-3">
+                <div class="row">
+                    <div class="col"><b>Restaurant Name</b></div>
+                    <div class="col"><b>Place</b></div>
+                </div>
+                <hr />
+                <div v-if="restaurants.length > 0">
+                    <div class="row mb-3" v-for="restaurant in restaurants" :key="restaurant.id">
+                        <div class="col">{{ restaurant.restaurant.name }}</div>
+                        <div class="col">{{ restaurant.restaurant.address }}</div>
+                    </div>
+                </div>
+                <div v-else>
+                    <p class="text-center">No Restaurant available</p>
+                </div>
+            </div>
         </template>
-        <template #table-body v-if="restaurants.length > 0">
-            <tr v-for="restaurant in restaurants" :key="restaurant.id">
-                <td>{{ restaurant.restaurant.name }}</td>
-                <td>{{ restaurant.restaurant.address }}</td>
-            </tr>
-        </template>
-
-        
-        <template #table-body v-else>
-            <tr>
-                <p class="text-center">No Restaurant available</p>
-            </tr>
-        </template>
-
 
         <template #footer>
 
         </template>
-    </layout-table>
+    </layout>
 </template>
 <script>
-import LayoutTable from '@/escort/components/LayoutTable'
+import Layout from '@/escort/components/Layout'
 import { mapState } from 'vuex';
 export default {
     components:{
-        LayoutTable
+        'layout':Layout
     },
     created(){
         this.$store.dispatch('getRestaurants');

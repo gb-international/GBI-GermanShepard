@@ -49,7 +49,9 @@ router.beforeEach((to, from, next) => {
         }
         next('/')
     } else { next() }
-})
+});
+
+
 const app = new Vue({
     el: '#app',
     router,

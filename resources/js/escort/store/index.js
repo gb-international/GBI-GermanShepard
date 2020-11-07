@@ -112,7 +112,7 @@ export function createStore() {
             },            
             HOTELS(state,payload){
                 state.hotels = payload;
-            },            
+            },
             FLIGHTS(state,payload){
                 state.flights = payload;
             },
@@ -128,9 +128,6 @@ export function createStore() {
             PAX(state,payload){
                 state.pax = payload;
             }
-
-
-
         }
     })
 }

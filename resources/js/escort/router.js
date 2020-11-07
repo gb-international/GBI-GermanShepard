@@ -23,18 +23,19 @@ export function createRouter() {
         routes: [
             { path: '/', component: Home },
             { path: '/login', component: Login },
-            { path: '/tour-list', component: TourList },
-            { path: '/sightseeing', component: Sightseeing },
-            { path: '/dashboard', component: Dashboard },
-            
-            { path: '/dashbaord/sightseeing', component: Sightseeing },
-            { path: '/dashbaord/pack', component: Pack },
-            { path: '/dashbaord/restaurant', component: Restaurant },
-            { path: '/dashbaord/hotel', component: Hotel },
-            { path: '/dashbaord/bus', component: Bus },
-            { path: '/dashbaord/train', component: Train },
-            { path: '/dashbaord/flight', component: Flight },
-            { path: '/dashbaord/pax', component: Pax },
+
+
+            { path: '/tour-list', component: TourList, meta: { requiresAuth: true} },
+            { path: '/dashboard', component: Dashboard, meta:{ requiresAuth: true }},
+            { path: '/sightseeing', component: Sightseeing, meta: { requiresAuth: true }},
+            { path: '/pack', component: Pack , meta:{ requiresAuth: true }},
+            { path: '/restaurant', component: Restaurant , meta:{ requiresAuth: true }},
+            { path: '/hotel', component: Hotel , meta:{ requiresAuth: true }},
+            { path: '/bus', component: Bus , meta:{ requiresAuth: true }},
+            { path: '/train', component: Train, meta: {requiresAuth: true }},
+            { path: '/flight', component: Flight,  meta:{ requiresAuth: true }},
+            { path: '/pax', component: Pax,  meta:{ requiresAuth: true }},
+            { path: '*', component: Home, meta: { requiresAuth: true }},
         ]
     })
 }

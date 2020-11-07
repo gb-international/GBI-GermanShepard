@@ -1957,46 +1957,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/components/Layout.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/components/Layout.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    if (!this.$store.getters.getTourCode) {
-      this.$route.push('/tour-list');
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/pages/Bus.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/escort/pages/Bus.vue?vue&type=script&lang=js& ***!
@@ -2164,6 +2124,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -2599,6 +2560,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -2687,7 +2649,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/escort/components/LayoutTable */ "./resources/js/escort/components/LayoutTable.vue");
+/* harmony import */ var _escort_components_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/escort/components/Layout */ "./resources/js/escort/components/Layout.vue");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -2731,7 +2693,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    LayoutTable: _escort_components_LayoutTable__WEBPACK_IMPORTED_MODULE_0__["default"]
+    'layout': _escort_components_Layout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   created: function created() {
     this.$store.dispatch('getRestaurants');
@@ -64078,7 +64040,16 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container p-4" }, [
-    _c("div", { staticClass: "back" }, [_vm._t("back", [_vm._v("Back")])], 2),
+    _c(
+      "div",
+      { staticClass: "back" },
+      [
+        _vm._t("back", [_vm._v("Back")]),
+        _vm._v(" "),
+        _c("h5", { staticClass: "text-muted" }, [_vm._t("title_heading")], 2)
+      ],
+      2
+    ),
     _vm._v(" "),
     _c(
       "h3",
@@ -64293,7 +64264,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "escort-dashbaord" },
+    { staticClass: "escort-dashboard" },
     [
       _c("layout", {
         scopedSlots: _vm._u([
@@ -64306,7 +64277,7 @@ var render = function() {
                   attrs: { src: "/assets/front/icons/back.png" },
                   on: {
                     click: function($event) {
-                      return _vm.$router.go(-1)
+                      return _vm.$router.push("/tour-list")
                     }
                   }
                 })
@@ -64331,25 +64302,20 @@ var render = function() {
             key: "body",
             fn: function() {
               return [
-                _c("div", { staticClass: "dashbaord-body pt-4 pb-4" }, [
+                _c("div", { staticClass: "dashboard-body pt-4 pb-4" }, [
                   _c("div", { staticClass: "row text-center" }, [
                     _c(
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c(
-                          "router-link",
-                          { attrs: { to: "/dashbaord/sightseeing" } },
-                          [
-                            _c("img", {
-                              staticClass: "w-100",
-                              attrs: {
-                                src:
-                                  "/assets/admin/default/icon/sightseeing.png"
-                              }
-                            })
-                          ]
-                        )
+                        _c("router-link", { attrs: { to: "/sightseeing" } }, [
+                          _c("img", {
+                            staticClass: "w-100",
+                            attrs: {
+                              src: "/assets/admin/default/icon/sightseeing.png"
+                            }
+                          })
+                        ])
                       ],
                       1
                     ),
@@ -64358,18 +64324,14 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c(
-                          "router-link",
-                          { attrs: { to: "/dashbaord/pack" } },
-                          [
-                            _c("img", {
-                              staticClass: "w-100",
-                              attrs: {
-                                src: "/assets/admin/default/icon/snacks.png"
-                              }
-                            })
-                          ]
-                        )
+                        _c("router-link", { attrs: { to: "/pack" } }, [
+                          _c("img", {
+                            staticClass: "w-100",
+                            attrs: {
+                              src: "/assets/admin/default/icon/snacks.png"
+                            }
+                          })
+                        ])
                       ],
                       1
                     ),
@@ -64378,18 +64340,14 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c(
-                          "router-link",
-                          { attrs: { to: "/dashbaord/hotel" } },
-                          [
-                            _c("img", {
-                              staticClass: "w-100",
-                              attrs: {
-                                src: "/assets/admin/default/icon/hotel.png"
-                              }
-                            })
-                          ]
-                        )
+                        _c("router-link", { attrs: { to: "/hotel" } }, [
+                          _c("img", {
+                            staticClass: "w-100",
+                            attrs: {
+                              src: "/assets/admin/default/icon/hotel.png"
+                            }
+                          })
+                        ])
                       ],
                       1
                     ),
@@ -64398,18 +64356,14 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c(
-                          "router-link",
-                          { attrs: { to: "/dashbaord/flight" } },
-                          [
-                            _c("img", {
-                              staticClass: "w-100",
-                              attrs: {
-                                src: "/assets/admin/default/icon/airlines.png"
-                              }
-                            })
-                          ]
-                        )
+                        _c("router-link", { attrs: { to: "/flight" } }, [
+                          _c("img", {
+                            staticClass: "w-100",
+                            attrs: {
+                              src: "/assets/admin/default/icon/airlines.png"
+                            }
+                          })
+                        ])
                       ],
                       1
                     ),
@@ -64418,7 +64372,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c("router-link", { attrs: { to: "/dashbaord/bus" } }, [
+                        _c("router-link", { attrs: { to: "/bus" } }, [
                           _c("img", {
                             staticClass: "w-100",
                             attrs: {
@@ -64434,18 +64388,14 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c(
-                          "router-link",
-                          { attrs: { to: "/dashbaord/train" } },
-                          [
-                            _c("img", {
-                              staticClass: "w-100",
-                              attrs: {
-                                src: "/assets/admin/default/icon/train-icon.png"
-                              }
-                            })
-                          ]
-                        )
+                        _c("router-link", { attrs: { to: "/train" } }, [
+                          _c("img", {
+                            staticClass: "w-100",
+                            attrs: {
+                              src: "/assets/admin/default/icon/train-icon.png"
+                            }
+                          })
+                        ])
                       ],
                       1
                     ),
@@ -64454,18 +64404,14 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c(
-                          "router-link",
-                          { attrs: { to: "/dashbaord/restaurant" } },
-                          [
-                            _c("img", {
-                              staticClass: "w-100",
-                              attrs: {
-                                src: "/assets/admin/default/icon/restaurant.png"
-                              }
-                            })
-                          ]
-                        )
+                        _c("router-link", { attrs: { to: "/restaurant" } }, [
+                          _c("img", {
+                            staticClass: "w-100",
+                            attrs: {
+                              src: "/assets/admin/default/icon/restaurant.png"
+                            }
+                          })
+                        ])
                       ],
                       1
                     ),
@@ -64474,7 +64420,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c("router-link", { attrs: { to: "/dashbaord/pax" } }, [
+                        _c("router-link", { attrs: { to: "/pax" } }, [
                           _c("img", {
                             staticClass: "w-100",
                             attrs: { src: "/assets/admin/default/icon/pax.png" }
@@ -65137,6 +65083,11 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
+                _c("p", [
+                  _c("b", [_vm._v("Present pax")]),
+                  _vm._v(" = " + _vm._s(_vm.present_female + _vm.present_male))
+                ]),
+                _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "message" } }, [
                     _vm._v("Message")
@@ -65217,84 +65168,85 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("layout-table", {
-    scopedSlots: _vm._u(
-      [
-        {
-          key: "back",
-          fn: function() {
-            return [
-              _c("img", {
-                staticClass: "back-icon cursor-pointer",
-                attrs: { src: "/assets/front/icons/back.png" },
-                on: {
-                  click: function($event) {
-                    return _vm.$router.go(-1)
-                  }
+  return _c("layout", {
+    scopedSlots: _vm._u([
+      {
+        key: "back",
+        fn: function() {
+          return [
+            _c("img", {
+              staticClass: "back-icon cursor-pointer",
+              attrs: { src: "/assets/front/icons/back.png" },
+              on: {
+                click: function($event) {
+                  return _vm.$router.go(-1)
                 }
-              })
-            ]
-          },
-          proxy: true
+              }
+            })
+          ]
         },
-        {
-          key: "title",
-          fn: function() {
-            return [_vm._v("\n        Restaurant\n    ")]
-          },
-          proxy: true
+        proxy: true
+      },
+      {
+        key: "title_heading",
+        fn: function() {
+          return [_vm._v("\n        Restaurant\n    ")]
         },
-        {
-          key: "table-head",
-          fn: function() {
-            return [
-              _c("th", { staticClass: "border-0" }, [
-                _vm._v("Restaurant Name")
+        proxy: true
+      },
+      {
+        key: "body",
+        fn: function() {
+          return [
+            _c("div", { staticClass: "whitesomke p-3" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col" }, [
+                  _c("b", [_vm._v("Restaurant Name")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col" }, [_c("b", [_vm._v("Place")])])
               ]),
               _vm._v(" "),
-              _c("th", { staticClass: "border-0" }, [_vm._v("Place")])
-            ]
-          },
-          proxy: true
-        },
-        _vm.restaurants.length > 0
-          ? {
-              key: "table-body",
-              fn: function() {
-                return _vm._l(_vm.restaurants, function(restaurant) {
-                  return _c("tr", { key: restaurant.id }, [
-                    _c("td", [_vm._v(_vm._s(restaurant.restaurant.name))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(restaurant.restaurant.address))])
-                  ])
-                })
-              },
-              proxy: true
-            }
-          : {
-              key: "table-body",
-              fn: function() {
-                return [
-                  _c("tr", [
+              _c("hr"),
+              _vm._v(" "),
+              _vm.restaurants.length > 0
+                ? _c(
+                    "div",
+                    _vm._l(_vm.restaurants, function(restaurant) {
+                      return _c(
+                        "div",
+                        { key: restaurant.id, staticClass: "row mb-3" },
+                        [
+                          _c("div", { staticClass: "col" }, [
+                            _vm._v(_vm._s(restaurant.restaurant.name))
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col" }, [
+                            _vm._v(_vm._s(restaurant.restaurant.address))
+                          ])
+                        ]
+                      )
+                    }),
+                    0
+                  )
+                : _c("div", [
                     _c("p", { staticClass: "text-center" }, [
                       _vm._v("No Restaurant available")
                     ])
                   ])
-                ]
-              },
-              proxy: true
-            },
-        {
-          key: "footer",
-          fn: function() {
-            return undefined
-          },
-          proxy: true
-        }
-      ],
-      null,
-      true
-    )
+            ])
+          ]
+        },
+        proxy: true
+      },
+      {
+        key: "footer",
+        fn: function() {
+          return undefined
+        },
+        proxy: true
+      }
+    ])
   })
 }
 var staticRenderFns = []
@@ -82379,17 +82331,15 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layout_vue_vue_type_template_id_5df250ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Layout.vue?vue&type=template&id=5df250ee& */ "./resources/js/escort/components/Layout.vue?vue&type=template&id=5df250ee&");
-/* harmony import */ var _Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Layout.vue?vue&type=script&lang=js& */ "./resources/js/escort/components/Layout.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-
-
+var script = {}
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
   _Layout_vue_vue_type_template_id_5df250ee___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Layout_vue_vue_type_template_id_5df250ee___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -82403,20 +82353,6 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/escort/components/Layout.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/escort/components/Layout.vue?vue&type=script&lang=js&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/escort/components/Layout.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Layout.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/escort/components/Layout.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -83477,37 +83413,70 @@ function createRouter() {
       component: _escort_pages_Login_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
     }, {
       path: '/tour-list',
-      component: _escort_pages_TourList_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
-    }, {
-      path: '/sightseeing',
-      component: _escort_pages_Sightseeing_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+      component: _escort_pages_TourList_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+      meta: {
+        requiresAuth: true
+      }
     }, {
       path: '/dashboard',
-      component: _escort_pages_Dashboard_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+      component: _escort_pages_Dashboard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+      meta: {
+        requiresAuth: true
+      }
     }, {
-      path: '/dashbaord/sightseeing',
-      component: _escort_pages_Sightseeing_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+      path: '/sightseeing',
+      component: _escort_pages_Sightseeing_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+      meta: {
+        requiresAuth: true
+      }
     }, {
-      path: '/dashbaord/pack',
-      component: _escort_pages_Pack_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+      path: '/pack',
+      component: _escort_pages_Pack_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+      meta: {
+        requiresAuth: true
+      }
     }, {
-      path: '/dashbaord/restaurant',
-      component: _escort_pages_Restaurant_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
+      path: '/restaurant',
+      component: _escort_pages_Restaurant_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+      meta: {
+        requiresAuth: true
+      }
     }, {
-      path: '/dashbaord/hotel',
-      component: _escort_pages_Hotel_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+      path: '/hotel',
+      component: _escort_pages_Hotel_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+      meta: {
+        requiresAuth: true
+      }
     }, {
-      path: '/dashbaord/bus',
-      component: _escort_pages_Bus_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
+      path: '/bus',
+      component: _escort_pages_Bus_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+      meta: {
+        requiresAuth: true
+      }
     }, {
-      path: '/dashbaord/train',
-      component: _escort_pages_Train_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
+      path: '/train',
+      component: _escort_pages_Train_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+      meta: {
+        requiresAuth: true
+      }
     }, {
-      path: '/dashbaord/flight',
-      component: _escort_pages_Flight_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
+      path: '/flight',
+      component: _escort_pages_Flight_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+      meta: {
+        requiresAuth: true
+      }
     }, {
-      path: '/dashbaord/pax',
-      component: _escort_pages_Pax_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
+      path: '/pax',
+      component: _escort_pages_Pax_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
+      meta: {
+        requiresAuth: true
+      }
+    }, {
+      path: '*',
+      component: _escort_pages_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+      meta: {
+        requiresAuth: true
+      }
     }]
   });
 }

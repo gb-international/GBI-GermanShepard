@@ -3,12 +3,15 @@
 
         <div class="back">
             <slot name="back">Back</slot>
+            <h5 class="text-muted">
+                <slot name="title_heading"></slot>
+            </h5>
         </div>
 
         <h3 class="text-heading text-uppercase text-center  word-break">
             <slot name="title"></slot>
         </h3>
-
+        
         <div class="">
             <slot name="body"></slot>
         </div>
@@ -19,12 +22,3 @@
         
     </div>
 </template>
-<script>
-export default {
-    created(){
-        if(!this.$store.getters.getTourCode){
-            this.$route.push('/tour-list');
-        }
-    }
-}
-</script>

@@ -39,6 +39,7 @@
         <div class="text-center pt-4 font-weight-bolder pb-4 whitesomke" v-else>
             No Flight available....
         </div>
+        
     </div>
 </template>
 
