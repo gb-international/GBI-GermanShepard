@@ -85,7 +85,7 @@ Route::group(['middleware' => ['web']], function () {
     }); 
 }); 
 
-Route::get('escort', 'Escort\AppController@index')->where('any', '.*');
+Route::get('escort/{any}', 'Escort\AppController@index')->where('any', '.*');
 
 Route::get('/{any}', 'Front\AppController@get')->where('any', '.*');
 

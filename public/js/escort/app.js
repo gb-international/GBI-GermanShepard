@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1943,7 +1943,7 @@ __webpack_require__.r(__webpack_exports__);
   watch: {
     isIdle: function isIdle() {
       if (this.$store.state.idleVue.isIdle == true && this.$cookies.get('escort_id') != undefined) {
-        this.$router.push('/');
+        this.$router.push('/escort/login');
         this.$cookies.remove('escort_id');
       }
     }
@@ -2204,7 +2204,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     if (this.$cookies.get('escort_id') != undefined) {
-      this.$router.push('/tour-list');
+      this.$router.push('/escort/tour-list');
     }
   }
 });
@@ -2342,16 +2342,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Login",
   data: function data() {
     return {
       disable: false,
       form: {
-        number: '',
-        otp: '',
-        otp_id: '',
-        escort_id: ''
+        number: "",
+        otp: "",
+        otp_id: "",
+        escort_id: ""
       }
     };
   },
@@ -2360,14 +2361,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       if (this.disable == false) {
-        axios.post('/escort/login', this.form).then(function (response) {
+        axios.post("/escort/login", this.form).then(function (response) {
           if (response.data.success) {
             _this.disable = true;
             _this.form.otp_id = response.data.otp_id;
             _this.form.escort_id = response.data.id;
             _this.form.escort_name = response.data.name;
 
-            _this.$swal.fire('Otp Sent', 'Otp Sent To you number!!', 'success');
+            _this.$swal.fire("Otp Sent", "Otp Sent To you number!!", "success");
           } else {
             _this.$toast.fire({
               icon: "error",
@@ -2382,19 +2383,19 @@ __webpack_require__.r(__webpack_exports__);
     validateOTP: function validateOTP() {
       var _this2 = this;
 
-      if (this.form.otp != '' && this.form.otp_id != '') {
-        axios.post('/escort/login-verify', this.form).then(function (response) {
-          if (response.data.type == 'success') {
+      if (this.form.otp != "" && this.form.otp_id != "") {
+        axios.post("/escort/login-verify", this.form).then(function (response) {
+          if (response.data.type == "success") {
             _this2.$toast.fire({
               icon: "success",
               title: "Welcome to dashbaord"
             });
 
-            _this2.$cookies.set('escort_id', _this2.form.escort_id);
+            _this2.$cookies.set("escort_id", _this2.form.escort_id);
 
-            _this2.$cookies.set('escort_name', _this2.form.escort_name);
+            _this2.$cookies.set("escort_name", _this2.form.escort_name);
 
-            _this2.$router.push('/tour-list');
+            _this2.$router.go('/escort/tour-list');
           } else {
             _this2.$toast.fire({
               icon: "error",
@@ -2888,7 +2889,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     if (this.$cookies.get('escort_id') == undefined) {
-      this.$router.push('/');
+      this.$router.push('/escort/login');
     }
 
     this.tourList();
@@ -2926,11 +2927,11 @@ __webpack_require__.r(__webpack_exports__);
       this.$cookies.remove('escort_id');
       this.$cookies.remove('escort_name');
       this.$cookies.remove('tour_code');
-      this.$router.push('/');
+      this.$router.push('/escort/login');
     },
     goToDashboard: function goToDashboard(tour_code) {
       this.$store.dispatch('setTourCode', tour_code);
-      this.$router.push('/dashboard');
+      this.$router.push('/escort/dashboard');
     }
   }
 });
@@ -64277,7 +64278,7 @@ var render = function() {
                   attrs: { src: "/assets/front/icons/back.png" },
                   on: {
                     click: function($event) {
-                      return _vm.$router.push("/tour-list")
+                      return _vm.$router.push("/escort/tour-list")
                     }
                   }
                 })
@@ -64308,14 +64309,19 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c("router-link", { attrs: { to: "/sightseeing" } }, [
-                          _c("img", {
-                            staticClass: "w-100",
-                            attrs: {
-                              src: "/assets/admin/default/icon/sightseeing.png"
-                            }
-                          })
-                        ])
+                        _c(
+                          "router-link",
+                          { attrs: { to: "/escort/sightseeing" } },
+                          [
+                            _c("img", {
+                              staticClass: "w-100",
+                              attrs: {
+                                src:
+                                  "/assets/admin/default/icon/sightseeing.png"
+                              }
+                            })
+                          ]
+                        )
                       ],
                       1
                     ),
@@ -64324,7 +64330,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c("router-link", { attrs: { to: "/pack" } }, [
+                        _c("router-link", { attrs: { to: "/escort/pack" } }, [
                           _c("img", {
                             staticClass: "w-100",
                             attrs: {
@@ -64340,7 +64346,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c("router-link", { attrs: { to: "/hotel" } }, [
+                        _c("router-link", { attrs: { to: "/escort/hotel" } }, [
                           _c("img", {
                             staticClass: "w-100",
                             attrs: {
@@ -64356,7 +64362,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c("router-link", { attrs: { to: "/flight" } }, [
+                        _c("router-link", { attrs: { to: "/escort/flight" } }, [
                           _c("img", {
                             staticClass: "w-100",
                             attrs: {
@@ -64372,7 +64378,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c("router-link", { attrs: { to: "/bus" } }, [
+                        _c("router-link", { attrs: { to: "/escort/bus" } }, [
                           _c("img", {
                             staticClass: "w-100",
                             attrs: {
@@ -64388,7 +64394,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c("router-link", { attrs: { to: "/train" } }, [
+                        _c("router-link", { attrs: { to: "/escort/train" } }, [
                           _c("img", {
                             staticClass: "w-100",
                             attrs: {
@@ -64404,14 +64410,18 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c("router-link", { attrs: { to: "/restaurant" } }, [
-                          _c("img", {
-                            staticClass: "w-100",
-                            attrs: {
-                              src: "/assets/admin/default/icon/restaurant.png"
-                            }
-                          })
-                        ])
+                        _c(
+                          "router-link",
+                          { attrs: { to: "/escort/restaurant" } },
+                          [
+                            _c("img", {
+                              staticClass: "w-100",
+                              attrs: {
+                                src: "/assets/admin/default/icon/restaurant.png"
+                              }
+                            })
+                          ]
+                        )
                       ],
                       1
                     ),
@@ -64420,7 +64430,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-sm-4 mb-3" },
                       [
-                        _c("router-link", { attrs: { to: "/pax" } }, [
+                        _c("router-link", { attrs: { to: "/escort/pax" } }, [
                           _c("img", {
                             staticClass: "w-100",
                             attrs: { src: "/assets/admin/default/icon/pax.png" }
@@ -64776,7 +64786,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("\n            SUBMIT\n            ")]
+              [_vm._v("\n            SUBMIT\n          ")]
             )
           ])
         ])
@@ -64790,7 +64800,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "text-center" }, [
-      _c("img", { attrs: { src: "assets/admin/default/icon/logo.png" } })
+      _c("img", { attrs: { src: "/assets/admin/default/icon/logo.png" } })
     ])
   }
 ]
@@ -82308,7 +82318,7 @@ router.beforeEach(function (to, from, next) {
       return;
     }
 
-    next('/');
+    next('/escort/login');
   } else {
     next();
   }
@@ -83370,16 +83380,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _escort_pages_Home_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/escort/pages/Home.vue */ "./resources/js/escort/pages/Home.vue");
 /* harmony import */ var _escort_pages_Dashboard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/escort/pages/Dashboard.vue */ "./resources/js/escort/pages/Dashboard.vue");
 /* harmony import */ var _escort_pages_TourList_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/escort/pages/TourList.vue */ "./resources/js/escort/pages/TourList.vue");
-/* harmony import */ var _escort_pages_Login_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/escort/pages/Login.vue */ "./resources/js/escort/pages/Login.vue");
-/* harmony import */ var _escort_pages_Sightseeing_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/escort/pages/Sightseeing.vue */ "./resources/js/escort/pages/Sightseeing.vue");
-/* harmony import */ var _escort_pages_Pack_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/escort/pages/Pack.vue */ "./resources/js/escort/pages/Pack.vue");
-/* harmony import */ var _escort_pages_Restaurant_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/escort/pages/Restaurant.vue */ "./resources/js/escort/pages/Restaurant.vue");
-/* harmony import */ var _escort_pages_Hotel_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/escort/pages/Hotel.vue */ "./resources/js/escort/pages/Hotel.vue");
-/* harmony import */ var _escort_pages_Bus_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/escort/pages/Bus.vue */ "./resources/js/escort/pages/Bus.vue");
-/* harmony import */ var _escort_pages_Train_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/escort/pages/Train.vue */ "./resources/js/escort/pages/Train.vue");
-/* harmony import */ var _escort_pages_Flight_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/escort/pages/Flight.vue */ "./resources/js/escort/pages/Flight.vue");
-/* harmony import */ var _escort_pages_Pax_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/escort/pages/Pax.vue */ "./resources/js/escort/pages/Pax.vue");
-/* harmony import */ var _components_front_error_404_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @/components/front/error/404.vue */ "./resources/js/components/front/error/404.vue");
+/* harmony import */ var _escort_pages_Sightseeing_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/escort/pages/Sightseeing.vue */ "./resources/js/escort/pages/Sightseeing.vue");
+/* harmony import */ var _escort_pages_Pack_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/escort/pages/Pack.vue */ "./resources/js/escort/pages/Pack.vue");
+/* harmony import */ var _escort_pages_Restaurant_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/escort/pages/Restaurant.vue */ "./resources/js/escort/pages/Restaurant.vue");
+/* harmony import */ var _escort_pages_Hotel_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/escort/pages/Hotel.vue */ "./resources/js/escort/pages/Hotel.vue");
+/* harmony import */ var _escort_pages_Bus_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/escort/pages/Bus.vue */ "./resources/js/escort/pages/Bus.vue");
+/* harmony import */ var _escort_pages_Train_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/escort/pages/Train.vue */ "./resources/js/escort/pages/Train.vue");
+/* harmony import */ var _escort_pages_Flight_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/escort/pages/Flight.vue */ "./resources/js/escort/pages/Flight.vue");
+/* harmony import */ var _escort_pages_Pax_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/escort/pages/Pax.vue */ "./resources/js/escort/pages/Pax.vue");
+/* harmony import */ var _components_front_error_404_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/components/front/error/404.vue */ "./resources/js/components/front/error/404.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
@@ -83395,10 +83404,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 
 
-
 function createRouter() {
   return new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-    // mode: 'history',
+    mode: 'history',
     scrollBehavior: function scrollBehavior() {
       return {
         x: 0,
@@ -83406,73 +83414,70 @@ function createRouter() {
       };
     },
     routes: [{
-      path: '/',
+      path: '/escort/login',
       component: _escort_pages_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
     }, {
-      path: '/login',
-      component: _escort_pages_Login_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
-    }, {
-      path: '/tour-list',
+      path: '/escort/tour-list',
       component: _escort_pages_TourList_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
       meta: {
         requiresAuth: true
       }
     }, {
-      path: '/dashboard',
+      path: '/escort/dashboard',
       component: _escort_pages_Dashboard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
       meta: {
         requiresAuth: true
       }
     }, {
-      path: '/sightseeing',
-      component: _escort_pages_Sightseeing_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+      path: '/escort/sightseeing',
+      component: _escort_pages_Sightseeing_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
       meta: {
         requiresAuth: true
       }
     }, {
-      path: '/pack',
-      component: _escort_pages_Pack_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+      path: '/escort/pack',
+      component: _escort_pages_Pack_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
       meta: {
         requiresAuth: true
       }
     }, {
-      path: '/restaurant',
-      component: _escort_pages_Restaurant_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+      path: '/escort/restaurant',
+      component: _escort_pages_Restaurant_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
       meta: {
         requiresAuth: true
       }
     }, {
-      path: '/hotel',
-      component: _escort_pages_Hotel_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+      path: '/escort/hotel',
+      component: _escort_pages_Hotel_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
       meta: {
         requiresAuth: true
       }
     }, {
-      path: '/bus',
-      component: _escort_pages_Bus_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+      path: '/escort/bus',
+      component: _escort_pages_Bus_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
       meta: {
         requiresAuth: true
       }
     }, {
-      path: '/train',
-      component: _escort_pages_Train_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+      path: '/escort/train',
+      component: _escort_pages_Train_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
       meta: {
         requiresAuth: true
       }
     }, {
-      path: '/flight',
-      component: _escort_pages_Flight_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+      path: '/escort/flight',
+      component: _escort_pages_Flight_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
       meta: {
         requiresAuth: true
       }
     }, {
-      path: '/pax',
-      component: _escort_pages_Pax_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
+      path: '/escort/pax',
+      component: _escort_pages_Pax_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
       meta: {
         requiresAuth: true
       }
     }, {
-      path: '*',
+      path: '/escort/*',
       component: _escort_pages_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
       meta: {
         requiresAuth: true
@@ -83647,14 +83652,26 @@ function createStore() {
 
 /***/ }),
 
-/***/ 4:
-/*!******************************************!*\
-  !*** multi ./resources/js/escort/app.js ***!
-  \******************************************/
+/***/ "./resources/sass/escort/app.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/escort/app.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 0:
+/*!***************************************************************************!*\
+  !*** multi ./resources/js/escort/app.js ./resources/sass/escort/app.scss ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\web\GBI-GermanShepard\resources\js\escort\app.js */"./resources/js/escort/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\web\GBI-GermanShepard\resources\js\escort\app.js */"./resources/js/escort/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\web\GBI-GermanShepard\resources\sass\escort\app.scss */"./resources/sass/escort/app.scss");
 
 
 /***/ })

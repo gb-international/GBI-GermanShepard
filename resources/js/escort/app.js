@@ -47,7 +47,7 @@ router.beforeEach((to, from, next) => {
             next()
             return
         }
-        next('/')
+        next('/escort/login')
     } else { next() }
 });
 

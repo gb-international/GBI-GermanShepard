@@ -78,7 +78,7 @@ export default {
     },
     created(){
         if(this.$cookies.get('escort_id') == undefined){
-            this.$router.push('/');
+            this.$router.push('/escort/login');
         }
         this.tourList();
     },
@@ -115,11 +115,11 @@ export default {
             this.$cookies.remove('escort_id');
             this.$cookies.remove('escort_name');
             this.$cookies.remove('tour_code');          
-            this.$router.push('/');
+            this.$router.push('/escort/login');
         },
         goToDashboard(tour_code){
             this.$store.dispatch('setTourCode',tour_code);
-            this.$router.push('/dashboard');
+            this.$router.push('/escort/dashboard');
         }
     }
 }

@@ -16,7 +16,7 @@ export default {
     },
     created(){
         if(this.$cookies.get('escort_id') != undefined){
-            this.$router.push('/tour-list');
+            this.$router.push('/escort/tour-list');
         }
     }
 }
