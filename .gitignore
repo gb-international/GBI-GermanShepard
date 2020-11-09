@@ -1,9 +1,9 @@
-/node_modules
-/raw
+node_modules/
+raw/
 /public/hot
 /public/storage
 /storage/*.key
-/vendor
+vendor/
 /.idea
 /.vscode
 /nbproject
