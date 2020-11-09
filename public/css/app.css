@@ -8918,6 +8918,16 @@ a:hover {
   margin-top: 5px;
 }
 
+.loading-img-parent {
+  position: relative;
+}
+
+.loading-img {
+  width: 120px;
+  margin-top: 5px;
+  width: 120px;
+}
+
 @-webkit-keyframes loadingspin {
   100% {
     transform: rotate(360deg);

@@ -39,10 +39,9 @@ import Category from '@/components/front/Blog/Category.vue'
 export function createRouter() {
     return new Router({
         mode: 'history',
+        scrollBehavior() { return { x: 0, y: 0 }; },
         routes:[
-
-            { path: '/', component:  Home },
-
+        { path: '/', component:  Home },
         { path: '/resources/faq', component: faq },
         { path: '/explore-destination', component: ExploreDestination },
         { path: '/resources/safety-security', component: SafetySecurity },

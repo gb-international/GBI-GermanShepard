@@ -34,15 +34,17 @@
             <Observer @intersect="intersected" />
           </div>
         </div>
-        <div class="loadingspinner" v-if="loading"></div>
+        <div class="loading-img-parent text-center w-100 mb-4" v-if="loading">
+          <img class="loading-img" src="/icons/loder-gif_200px.gif">
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Observer from "../../partials/Observer";
-import ItineraryList from "../../partials/ItineraryList";
+import Observer from "@/components/partials/Observer";
+import ItineraryList from "@/components/partials/ItineraryList";
 import _ from "lodash";
 export default {
   name: "ExploreList",
