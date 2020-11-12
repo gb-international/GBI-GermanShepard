@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use Spatie\Permission\Models\Role;
 class UsersDataSeeder extends Seeder
 {
     /**
@@ -13,22 +14,17 @@ class UsersDataSeeder extends Seeder
     {
         
         // Add the master administrator, user id of 1
-        User::create([
-            'name'              => 'Admin User',
-            'email'             => 'admin@test.com',
-            'password'          => '123456'
+        $user = User::create([
+            'name'              => 'GBI Administrator',
+            'email'             => 'admin@gbinternational.in',
+            'password'          => bcrypt('gbi@224225')
         ]);
-
-        User::create([
-            'name'              => 'Moderator User',
-            'email'             => 'moderator@test.com',
-            'password'          => '123456'
-        ]);
-
-        User::create([
-            'name'              => 'Normal User',
-            'email'             => 'user@test.com',
-            'password'          => '123456'
-        ]);
+        $role = Role::create(['name'=>'SuperAdmin']);
+        $role = Role::create(['name'=>'accounts']);
+        $role = Role::create(['name'=>'Reservations']);
+        $user->user_role = '1';
+        $user->user_type = 'SuperAdmin';
+        $user->save();
+        $user->assignRole('SuperAdmin');
     }
 }

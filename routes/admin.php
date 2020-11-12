@@ -81,6 +81,7 @@ Route::namespace('Admin')->group(function (){
 	});
 
 	Route::namespace('Escort')->group(function(){
+		Route::post('escort-login-link','EscortController@sendLink');
 		Route::resource('escort','EscortController');
 	});
 

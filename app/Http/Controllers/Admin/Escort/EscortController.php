@@ -11,6 +11,7 @@ use App\Http\Resources\EscortCollection;
 use App\Model\Escort\Escort;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Helpers\SendSms;
 
 class EscortController extends Controller
 {
@@ -92,6 +93,15 @@ class EscortController extends Controller
         $escort->delete();
         return response()->json('successfully deleted');
     }
+    
+    public function sendLink(Request $request)
+    {
+        $sendsms = new SendSms;
+        $get = $sendsms->escortLoginLink($request->escort_phone_no,$request->name);
+        print_r($get);
+        return response()->json('successfully Sent');
+    }
+
 
     // Validate Escort
     public function validateEscort($request)
