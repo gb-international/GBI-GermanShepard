@@ -62,7 +62,7 @@
               <router-link class="nav-link" :to="`/blog`">GBI Travel Blog</router-link>
             </li>
             <li
-              class="nav-item mr-10 dropdown"
+              class="nav-item mr-10 dropdown dropdown-submenu"
             >
               <router-link
                 class="nav-link dropdown-toggle"
@@ -80,10 +80,20 @@
                   :to="`/about-us/join-our-team`"
                 >Join Our Team</router-link>
                 <router-link
-                  class="dropdown-item mt-10"
-                  :to="`/about-us/image-gallery`"
+                  class="dropdown-item mt-10 dropdown-toggle"
+                  data-toggle="dropdown"
+                  tabindex="-1"
+                  :to="``"
                 >Image Gallery</router-link>
-              </div>
+
+
+                <div class="dropdown-menu custom-dropdown dropright">
+                  <router-link :to="`/about-us/image-gallery/domestic`" class="dropdown-item">Domestic </router-link>
+                  <router-link :to="`/about-us/image-gallery/domestic`" class="dropdown-item">International</router-link>
+                </div>
+
+                
+              </div>              
             </li>
             <li
               class="nav-item mr-10"

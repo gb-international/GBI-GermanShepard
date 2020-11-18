@@ -31,6 +31,32 @@
 		}
 }
 
+@media (max-width: 525px) {
+	.faq-question{
+		.col-11{
+			padding-left: 30px;
+		}
+	}
+	.faq_banner{
+		.content{
+			top: 26% !important;
+		}
+	}
+}
+@media (min-width: 768px) {
+	.faq-question{
+		.col-11{
+			padding-left: 0px;
+		}
+	}
+}
+
+
+
+
+
+
+
 /* new code*/
 .faq_banner_image{
 	position: relative;

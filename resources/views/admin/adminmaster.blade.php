@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">    
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ secure_asset('css/admin/app.css') }}" rel="stylesheet"> --}}
      
 </head>
 <body class="hold-transition sidebar-mini">
@@ -101,6 +102,7 @@
 
 
 <script src="{{ asset('js/admin/admin.js') }}"></script>
+{{-- <script src="{{ secure_asset('js/admin/admin.js') }}"></script> --}}
 
 </body>
 </html>

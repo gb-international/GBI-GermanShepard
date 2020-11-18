@@ -436,6 +436,17 @@
                 </router-link>
             </li>
             @endcan
+
+            
+            @can('bankdetail')
+            <li class="nav-item">
+                <router-link to="/gallery" class="nav-link">
+                <p>Gallery</p>
+                </router-link>
+            </li>
+            @endcan
+
+
             
             </ul>
         </li>

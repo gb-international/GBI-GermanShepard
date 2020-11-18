@@ -26,6 +26,7 @@
 @import 'accept_cookies';
 @import 'blog';
 @import 'loading';
+@import 'gallery';
 @import 'common';
 
 // Bootstrap
@@ -39,6 +40,7 @@
 @import '~vue-form-wizard/dist/vue-form-wizard.min.css';
 @import '~sweetalert2/dist/sweetalert2.min.css';
 @import '~vue-multiselect/dist/vue-multiselect.min.css';
+@import '~viewerjs/dist/viewer.css';
 
 
 #app{

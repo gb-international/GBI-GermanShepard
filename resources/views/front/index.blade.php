@@ -66,6 +66,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 {{-- <script rel="preload" src="{{ asset('assets/front/js/jquery.min.js') }}" as="script"></script> --}}
+
+
 <script src="{{ asset('assets/front/js/bootstrap.min.js') }}"></script>
 
 
@@ -98,11 +100,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </script>
 <script>
-
-
-
-
-
 window.onscroll = function() {myFunction()};
 
 var header = document.getElementById("myHeader");

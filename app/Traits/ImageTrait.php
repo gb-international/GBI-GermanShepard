@@ -16,7 +16,6 @@ trait ImageTrait {
     }
 
     public function verifyAndUpload(Request $request, $fieldname = 'image',$folder='') {
-
         $strpos = strpos($request->$fieldname,';');
         $sub = substr($request->$fieldname,0,$strpos);
         $ex = explode('/',$sub)[1];
@@ -26,5 +25,17 @@ trait ImageTrait {
         $img->save($upload_path.$name);
         return $name;
     }
+    
+    public function singleFile($single,$folder='') {
+        $strpos = strpos($single,';');
+        $sub = substr($single,0,$strpos);
+        $ex = explode('/',$sub)[1];
+        $name = time().".".$ex;
+        $img = Image::make($single);
+        $upload_path = public_path().$folder;
+        $img->save($upload_path.$name);
+        return $name;
+    }
+
 
 }

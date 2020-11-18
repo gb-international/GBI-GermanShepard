@@ -14,12 +14,14 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import VueMeta from 'vue-meta';
 import api from '@/front/helpers/api';
 import vuecookies from 'vue-cookies';
+import Viewer from 'v-viewer'
 Object.defineProperty(Vue.prototype, '$api', { value: api })
 
 
 Vue.use(VueMeta)
 Vue.use(VueSweetalert2);
 Vue.use(Vuex);
+Vue.use(Viewer)
 Vue.use(vuecookies)
 Vue.prototype.$axios = axios
 Vue.prototype.$bus = EventBus

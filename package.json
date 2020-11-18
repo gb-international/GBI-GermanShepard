@@ -46,6 +46,7 @@
         "sweetalert2": "^9.14.3",
         "v-autocomplete": "^1.8.2",
         "v-markdown-editor": "^1.2.5",
+        "v-viewer": "^1.5.1",
         "vform": "^1.0.1",
         "vue-client-only": "^2.0.0",
         "vue-cookies": "^1.7.4",

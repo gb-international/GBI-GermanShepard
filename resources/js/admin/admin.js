@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 import responsive from 'vue-responsive'
 import Permissions from './mixins/Permissions';
 import VueSession from 'vue-session'
-import { routes } from './admin-routes';
+import { routes } from './router';
 import { createStore } from "./store/index"
 import VueHtmlToPaper from 'vue-html-to-paper';
 import { filter } from './filter'
