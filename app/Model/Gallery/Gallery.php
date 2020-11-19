@@ -11,4 +11,14 @@ class Gallery extends Model
     public function images(){
         return $this->hasMany('App\Model\Gallery\Galleryimage');
     }
+    
+    public function itinerary(){
+        return $this->belongsTo('App\Model\Itinerary\Itinerary');
+    }
+    
+    public function school(){
+        return $this->belongsTo('App\Model\School\School');
+    }
+
+
 }

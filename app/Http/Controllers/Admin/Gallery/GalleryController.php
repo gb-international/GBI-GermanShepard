@@ -17,7 +17,10 @@ class GalleryController extends Controller
     use ImageTrait;
     public function index()
     {
-        $gallery = Gallery::get();
+        $gallery = Gallery::with([
+            'itinerary:id,title',
+            'school:id,school_name'
+        ])->get();
         return response()->json($gallery);
     }
 
@@ -74,9 +77,10 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Gallery $gallery)
     {
-        //
+        $gallery->images;
+        return response()->json($gallery);
     }
 
     /**
@@ -86,9 +90,24 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Gallery $gallery)
     {
-        //
+        $data = $this->validate($request,[
+            'itinerary_id'=>'required',
+            'school_id'=>'required',
+            'category'=>'required'
+        ]);
+
+        $gallery->update($data);
+        foreach ($request->images as $tag) {
+            $path = $this->singleFile($tag,'/images/gallery/');
+            Galleryimage::create([
+                'gallery_id'=>$gallery->id,
+                'path'=>$path
+            ]);
+        }
+
+        return response()->json('succesfull updated');
     }
 
     /**
@@ -97,8 +116,20 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Gallery $gallery)
     {
-        //
+        foreach ($gallery->images as $image) {
+            $this->deleteImg('/images/gallery/'.$image->path);
+        }
+        $gallery->delete();
+        return response()->json('Successfully Deleted');
+    }
+
+    public function galleryImageDelete(Request $request){
+        $galleryimage = Galleryimage::where('id',$request->id)->first();
+        // delete image 
+        $this->deleteImg('/images/gallery/'.$galleryimage->path);
+        $galleryimage->delete();
+        return response()->json('Successfully deleted');
     }
 }

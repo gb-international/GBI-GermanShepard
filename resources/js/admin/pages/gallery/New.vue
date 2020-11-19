@@ -33,16 +33,22 @@ to submit the data we are using a function.
               <div class="col-sm-8">
                 <div class="form-group">
                   <label for="category">itinerary</label>
-                  <model-select :options="options" v-model="form.itinerary_id" placeholder="To"></model-select>
-                  <has-error :form="form" field="destination"></has-error>
+                  <model-select 
+                  :options="options" 
+                  v-model="form.itinerary_id" 
+                  placeholder="Select Itinerary"></model-select>
+                  <has-error :form="form" field="itinerary_id"></has-error>
                 </div>
               </div>
               
               <div class="col-sm-8">
                 <div class="form-group">
                   <label for="category">School</label>
-                  <model-select :options="schools" v-model="form.school_id" placeholder="To"></model-select>
-                  <has-error :form="form" field="destination"></has-error>
+                  <model-select 
+                  :options="schools" 
+                  v-model="form.school_id" 
+                  placeholder="Select School"></model-select>
+                  <has-error :form="form" field="school_id"></has-error>
                 </div>
               </div>
             </div>
@@ -59,7 +65,7 @@ to submit the data we are using a function.
               <div class="col-sm-2"></div>
               <div class="col-sm-4">
                 <router-link
-                  :to="`/posts`"
+                  :to="`/gallery`"
                   class="btn btn-primary itrn_add_btn back_btn"
                   >Back</router-link
                 >
@@ -145,72 +151,16 @@ export default {
     },
 
     AddPost() {
-
       this.form.post("/api/gallery")
         .then((response) => {
-          console.log(response);
-          // this.form.reset();
+          this.form.reset();
           this.$toast.fire({
             icon: "success",
             title: "Category Added successfully",
           });
         })
         .catch(() => {});
-    },
-
-    changeDetailPhoto(event) {
-      let file = event.target.files[0];
-      if (file.size > 29048576) {
-        this.$swal.fire({
-          type: "error",
-          title: "Oops...",
-          text: "Please Select a Valid Image",
-        });
-      } else {
-        let reader = new FileReader();
-        reader.onload = (event) => {
-          this.form.image = event.target.result;
-        };
-        reader.readAsDataURL(file);
-      }
-    },
-
-    handleImageAdded: function(file, Editor, cursorLocation, resetUploader) {
-        var formData = new FormData();
-        formData.append("image", file);
-        axios({
-            url: "/api/images",
-            method: "POST",
-            data: formData
-        }).then(result => {
-          let url = result.data.url; // Get url from response
-          Editor.insertEmbed(cursorLocation, "image", url);
-          resetUploader();
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
-
-    
-    handleImageRemoved: function(file, Editor, cursorLocation, resetUploader) {
-        var formData = new FormData();
-        formData.append("image", file);
-        axios({
-            url: "/api/images/delete",
-            method: "POST",
-            data: formData
-        }).then(result => {
-            console.log(result);
-          let url = result.data.url; // Get url from response
-          Editor.insertEmbed(cursorLocation, "image", url);
-          resetUploader();
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
-
+    }
   },
 };
 </script>

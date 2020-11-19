@@ -27,15 +27,15 @@
 
 }
 .imageslist{
-    // .shera-img{
-    //     background-image: url('/icons/Mascot_Chita.png');
-    //     width: 50px;
-    //     height: 61px;
-    //     background-position: center;
-    //     background-repeat: no-repeat;
-    //     background-size: cover;
-    //     margin:0px 0px 20px 17px;
-    // }
+    .shera-img{
+        background-image: url('/icons/Mascot_Chita.png');
+        width: 50px;
+        height: 61px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin:0px 0px 20px 17px;
+    }
     .blog-list{
         .cardimage{
             height: 330px !important;
@@ -43,8 +43,8 @@
             object-fit: cover;
         }
     }
-    .shera-img-size{
-        width: 50px;
-        height: 61px;
-    }
+    // .shera-img-size{
+    //     width: 50px;
+    //     height: 61px;
+    // }
 }

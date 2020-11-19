@@ -86,6 +86,7 @@ Route::namespace('Admin')->group(function (){
 	});
 	
 	Route::namespace('Gallery')->group(function(){
+		Route::post('gallery-img-delete','GalleryController@galleryImageDelete');
 		Route::resource('gallery','GalleryController');
 	});
 

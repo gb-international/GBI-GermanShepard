@@ -30,7 +30,7 @@ trait ImageTrait {
         $strpos = strpos($single,';');
         $sub = substr($single,0,$strpos);
         $ex = explode('/',$sub)[1];
-        $name = time().".".$ex;
+        $name = time().rand(100,1000000).".".$ex;
         $img = Image::make($single);
         $upload_path = public_path().$folder;
         $img->save($upload_path.$name);

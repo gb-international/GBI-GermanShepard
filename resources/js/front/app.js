@@ -21,7 +21,12 @@ Object.defineProperty(Vue.prototype, '$api', { value: api })
 Vue.use(VueMeta)
 Vue.use(VueSweetalert2);
 Vue.use(Vuex);
-Vue.use(Viewer)
+Vue.use(Viewer, {
+    debug: true,
+    defaultOptions: {
+        zIndex: 9999
+    }
+})
 Vue.use(vuecookies)
 Vue.prototype.$axios = axios
 Vue.prototype.$bus = EventBus

@@ -21,9 +21,9 @@ data from the api to display the data about the Category from the backend .
           >
             <thead>
               <tr>
-                <th>NAME <i class="fas fa-sort"></i></th>
-                <th>STATUS <i class="fas fa-sort"></i></th>
-                <th>LAST UPDATED <i class="fas fa-sort"></i></th>
+                <th>CATEGORY NAME <i class="fas fa-sort"></i></th>
+                <th>SCHOOL NAME <i class="fas fa-sort"></i></th>
+                <th>ITINERARY TITLE <i class="fas fa-sort"></i></th>
                 <th><i class="fas fa-cog"></i></th>
               </tr>
             </thead>
@@ -35,19 +35,13 @@ data from the api to display the data about the Category from the backend .
                 class="row_list"
                 :key="post.id"
               >
-                <td>{{ post.title }}</td>
-                <td>
-                  <span 
-                    v-if="post.status == 1" 
-                    class="badge badge-success">Publish</span>
-                  <span class="badge badge-default" v-else>Draft</span></td>
-                <td>
-                  {{ post.updated_at }}
-                </td>
+                <td>{{ post.category }}</td>
+                <td>{{ post.school.school_name }}</td>
+                <td>{{ post.itinerary.title }}</td>
 
                 <td class="edit_section">
                   <router-link
-                    :to="`/posts/${post.id}`"
+                    :to="`/gallery/${post.id}`"
                     class="edit_link"
                   >
                     <span class="badge badge-primary"
@@ -57,19 +51,10 @@ data from the api to display the data about the Category from the backend .
                   <a
                     href=""
                     class="delete_link"
-                    @click.prevent="deletePost(post.id)"
+                    @click.prevent="deleteGallery(post.id)"
                     ><span class="badge badge-danger"
                       ><i class="far fa-trash-alt"></i></span
                   ></a>
-
-                  <router-link
-                    :to="`/posts-view/${post.id}`"
-                    class="edit_link"
-                  >
-                    <span class="badge badge-primary" title="View Itinerary"
-                      ><i class="fas fa-eye"></i
-                    ></span>
-                  </router-link>
                 </td>
               </tr>
             </tbody>
@@ -95,14 +80,14 @@ export default {
   },
   methods: {
     getposts() {
-      axios.get("/api/posts").then((response) => {
+      axios.get("/api/gallery").then((response) => {
         setTimeout(() => $("#example").DataTable(), 1000);
         this.posts = response.data;
       });
     },
 
-    deletePost(id) {
-      var uri = "api/posts/" + id;
+    deleteGallery(id) {
+      var uri = "api/gallery/" + id;
       this.$swal
         .fire({
           title: "Are you sure?",

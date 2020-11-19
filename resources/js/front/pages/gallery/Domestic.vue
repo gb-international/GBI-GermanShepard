@@ -73,7 +73,19 @@ export default {
   },
 
   data() {
-    return {};
+    return {
+      gallery:[],
+    };
   },
+  created(){
+    this.domestic();
+  },
+  methods:{
+    domestic(){
+      this.$axios.get('/api/galleries/domestic').then(res=>{
+        console.log(res);
+      })
+    }
+  }
 };
 </script>

@@ -86,6 +86,9 @@ Route::namespace('Front')->group(function(){
 	Route::get('/ency-comments/{id}','EncyclopediaController@GetComment');
 
 	Route::get('/city-list','LocationController@cityList');
+
+	// Gallery
+	Route::get('/galleries/{slug}','GalleryController@index');
 });
 
 

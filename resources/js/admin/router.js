@@ -192,7 +192,6 @@ import TagEdit from '@/admin/pages/blog/tag/Edit.vue';
 import Gallery from '@/admin/pages/gallery/List.vue';
 import GalleryAdd from '@/admin/pages/gallery/New.vue';
 import GalleryEdit from '@/admin/pages/gallery/Edit.vue';
-import GalleryView from '@/admin/pages/gallery/View.vue';
 
 
 
@@ -377,7 +376,6 @@ export const routes = [
     { path: '/gallery', component: Gallery },
     { path: '/gallery-add', component: GalleryAdd },
     { path: '/gallery/:id', component: GalleryEdit },
-    { path: '/gallery-view/:id', component: GalleryView },
 
 ];
 
