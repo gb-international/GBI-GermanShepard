@@ -36,6 +36,7 @@ import Blogs from '@/front/pages/Blog/list.vue'
 import BlogDetail from '@/front/pages/Blog/Detail.vue'
 import Category from '@/front/pages/Blog/Category.vue'
 import Domestic from '@/front/pages/gallery/Domestic.vue'
+import International from '@/front/pages/gallery/International.vue'
 import ImageList from '@/front/pages/gallery/ImageList.vue'
 
 export function createRouter() {
@@ -55,8 +56,9 @@ export function createRouter() {
         { path: '/about-us/how-we-work', component: HowWework },
         { path: '/about-us/join-our-team', component: JoinOurTeam },
         { path: '/about-us/image-gallery', component: ImageGallery },
-        { path: '/about-us/image-gallery/domestic', component: Domestic,name: 'domestic' },
-        { path: '/about-us/image-gallery/domestic/:slug', component: ImageList,name: 'domestic-images' },
+        { path: '/image-gallery/domestic', component: Domestic,name: 'domestic' },
+        { path: '/image-gallery/international', component: International, name: 'international' },
+        { path: '/image-gallery/images/:slug', component: ImageList,name: 'images' },
         { path: '/explore-list', component: ExploreList },
         { path: '/explore-detail/:id', component: ExploreDetail },
 

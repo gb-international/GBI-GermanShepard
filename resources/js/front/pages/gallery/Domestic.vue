@@ -21,36 +21,28 @@
     </div>
 
     <div class="container mt-5 pt-5">
-      <div class="row">
-        <div class="col-12 col-sm-8 col-md-6 col-lg-4 fullimagecard" v-for="i in 10" :key="i">
-            <router-link :to="{ name: 'domestic-images', params:{slug:'img-slug'}}">
-              <div class="card">
-                <img
-                class="card-img card-image"
-                src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-3.jpg"
-                alt="Bologna"
-                />
-                <div
-                class="card-img-overlay text-white d-flex align-content-end flex-wrap p-0">
-                    <div class="card-text-data p-3 bg-transparent-card">
-                        <h6 class="card-subtitle mb-2">Emilia-Romagna Region, Italy</h6>
-                        <p class="card-text">
-                            It is the seventh most populous city in Italy, at the heart of a
-                            metropolitan area of about one million people.
-                        </p>
-                    </div>
-                </div>
-              </div>
-            </router-link>
-        </div>
+
+      <image-card :gallery="gallery"></image-card>
+
+      <Observer @intersect="intersected" />
+
+      <div class="loading-img-parent text-center w-100 mb-4" v-if="loading">
+          <img class="loading-img" src="/icons/loader.gif">
       </div>
+
     </div>
   </div>
 </template>
 
 <script>
+import Observer from "@/front/components/Observer";
+import ImageCard from '@/front/components/ImageCard.vue'
 export default {
   name: "HowWework",
+  components:{
+    ImageCard,
+    Observer
+  },
   metaInfo: {
     title: "How We Work",
     meta: [
@@ -74,17 +66,25 @@ export default {
 
   data() {
     return {
+      page:1,
+      loading:false,
       gallery:[],
     };
   },
-  created(){
-    this.domestic();
+  mounted(){
+    this.intersected();
   },
   methods:{
-    domestic(){
-      this.$axios.get('/api/galleries/domestic').then(res=>{
-        console.log(res);
-      })
+
+    async intersected() {
+      this.loading = true;
+      var url = `/api/galleries/domestic?page=` + this.page;
+      const res = await fetch(url);
+
+      this.page++;
+      const items = await res.json();
+      this.gallery = [...this.gallery, ...items.data];
+      this.loading = false;
     }
   }
 };

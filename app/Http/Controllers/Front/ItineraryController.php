@@ -91,6 +91,6 @@ class ItineraryController extends Controller
     
     public function list($count=8)
     {
-        return response()->json(Itinerary::paginate($count));
+        return response()->json(Itinerary::simplePaginate($count));
     }
 }

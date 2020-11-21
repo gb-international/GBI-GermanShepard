@@ -11,7 +11,7 @@ data from the api to display the data about the encyclopedia from the backend .
     <div class="row justify-content-around">
       <div class="col-md-12">
         <div class="container container_admin_body">
-          <div class="top_btn">
+          <div class="top_btn mb-3">
             <router-link :to="`/tourprogram-add`">Add tourprogram</router-link>
           </div>
           <!-- Start Card -->
@@ -43,6 +43,7 @@ data from the api to display the data about the encyclopedia from the backend .
               <tr
                 v-for="tourprogram in tourprogram_list"
                 role="row"
+                :key="tourprogram.id"
                 v-bind:class="{ odd: oddclass , 'even': evenclass}"
                 class="row_list"
               >

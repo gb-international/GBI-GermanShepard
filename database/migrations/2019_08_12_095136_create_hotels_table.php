@@ -23,6 +23,8 @@ class CreateHotelsTable extends Migration
             $table->string('phoneno');
             $table->string('email');
             $table->string('room');
+            $table->string('image')->nullable();
+            $table->string('alt')->nullable();
             $table->string('apai_single')->nullable();
             $table->string('apai_double')->nullable();
             $table->string('apai_triple')->nullable();

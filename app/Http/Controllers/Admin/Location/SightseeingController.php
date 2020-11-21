@@ -43,7 +43,7 @@ class SightseeingController extends Controller
         $sightseeing = sightseeing::create($this->validateSightseeing($request));
 
        if($request->image!=$sightseeing->image){
-            $name = $this->verifyAndUpload($request, 'image', '/images/sightseeing/');
+            $name = $this->singleFile($request->image,'/images/sightseeing/',$request->alt);
         }else{
             $name = $sightseeing->image;
         }
@@ -85,7 +85,7 @@ class SightseeingController extends Controller
     {
         $sightseeing->update($this->validateSightseeing($request));
        if($request->image!=$sightseeing->image){
-            $name = $this->verifyAndUpload($request, 'image', '/images/sightseeing/');
+            $name = $this->singleFile($request->image,'/images/sightseeing/',$request->alt);
             $this->deleteImg("/images/sightseeing/{$sightseeing->image}");
         }else{
             $name = $sightseeing->image;
@@ -120,6 +120,7 @@ class SightseeingController extends Controller
           'description'=>'required',
           'adult_price' => '',
           'child_price' => '',
+          'alt'=>'',
           
       ]);
     }

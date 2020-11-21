@@ -9,6 +9,7 @@ use App\Http\Resources\Admin\HotelCollection;
 use App\Model\Hotel\hotel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Traits\ImageTrait;
 use Image;
 class HotelController extends Controller
 {
@@ -17,6 +18,7 @@ class HotelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    use ImageTrait;
     public function index()
     {
         return HotelCollection::collection(hotel::all());
@@ -42,19 +44,15 @@ class HotelController extends Controller
     {
        $hotel = hotel::create($this->validateHotel($request));
 
-       if($request->image!=$hotel->image){
-            $strpos = strpos($request->image,';');
-            $sub = substr($request->image,0,$strpos);
-            $ex = explode('/',$sub)[1];
-            $name = time().".".$ex;
-            $img = Image::make($request->image)->resize(210, 120);
-            $upload_path = public_path()."/images/hotel/";
-            $image = $upload_path. $hotel->image;
-            $img->save($upload_path.$name);
+       if($request->image){
+            $imagename = explode('.',$request->image[0]['name'])[0];
+            $path = $this->singleFile($request->image[0]['file'],'/images/hotel/',$imagename);
+            $hotel->alt = $imagename;
+
         }else{
-            $name = $hotel->image;
+            $path = $hotel->image;
         }
-        $hotel->image = $name;
+        $hotel->image = $path;
         $hotel->save();
 
         return response()->json(['Message'=> 'Successfully Added...']);
@@ -93,23 +91,15 @@ class HotelController extends Controller
     {
 
         $data = $hotel->update($this->validateHotel($request));
-        if($request->image!=$hotel->image){
-            $strpos = strpos($request->image,';');
-            $sub = substr($request->image,0,$strpos);
-            $ex = explode('/',$sub)[1];
-            $name = time().".".$ex;
-            $img = Image::make($request->image)->resize(210, 120);
-            $upload_path = public_path()."/images/hotel/";
-            $image = $upload_path. $hotel->image;
-            $img->save($upload_path.$name);
+        if($request->image){
+            $imagename = explode('.',$request->image[0]['name'])[0];
+            $path = $this->singleFile($request->image[0]['file'],'/images/hotel/',$imagename);
+            $hotel->alt = $imagename;
 
-            if(file_exists($image)){
-                @unlink($image);
-            }
         }else{
-            $name = $hotel->image;
+            $path = $hotel->image;
         }
-        $hotel->image = $name;
+        $hotel->image = $path;
         $hotel->save();
 
 

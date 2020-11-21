@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class sightseeing extends Model
 {
-    protected $fillable = ['name','state_id','city_id','address','image','description','adult_price','child_price'];
+    protected $fillable = ['name','state_id','city_id','address','image','alt','description','adult_price','child_price'];
 
     public function city(){
         return $this->belongsTo('App\Model\Location\City');

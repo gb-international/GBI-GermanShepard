@@ -114,6 +114,7 @@ export default {
         title:'',
         description: '',
         image:'',
+        alt:'',
         itinerary:[],
       })
     }
@@ -156,11 +157,12 @@ export default {
 
     changeImage(event){
       let file = event.target.files[0];
-       let reader = new FileReader();
-       reader.onload = event => {
-           this.form.image = event.target.result
-       };
-       reader.readAsDataURL(file);
+      let reader = new FileReader();
+      reader.onload = event => {
+        this.form.image = event.target.result;
+        this.form.alt = file.name;
+      };
+      reader.readAsDataURL(file);
     },
 
 

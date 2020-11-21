@@ -18,6 +18,7 @@ class CreateTourprogramTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('image')->nullable();
+            $table->string('alt')->nullable();
             $table->timestamps();
         });
     }

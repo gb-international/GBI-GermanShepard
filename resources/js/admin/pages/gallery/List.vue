@@ -21,9 +21,9 @@ data from the api to display the data about the Category from the backend .
           >
             <thead>
               <tr>
+                <th>TITLE <i class="fas fa-sort"></i></th>
                 <th>CATEGORY NAME <i class="fas fa-sort"></i></th>
                 <th>SCHOOL NAME <i class="fas fa-sort"></i></th>
-                <th>ITINERARY TITLE <i class="fas fa-sort"></i></th>
                 <th><i class="fas fa-cog"></i></th>
               </tr>
             </thead>
@@ -35,9 +35,9 @@ data from the api to display the data about the Category from the backend .
                 class="row_list"
                 :key="post.id"
               >
-                <td>{{ post.category }}</td>
+                <td>{{ post.title }}</td>
                 <td>{{ post.school.school_name }}</td>
-                <td>{{ post.itinerary.title }}</td>
+                <td>{{ post.category }}</td>
 
                 <td class="edit_section">
                   <router-link

@@ -17,10 +17,7 @@ class GalleryController extends Controller
     use ImageTrait;
     public function index()
     {
-        $gallery = Gallery::with([
-            'itinerary:id,title',
-            'school:id,school_name'
-        ])->get();
+        $gallery = Gallery::with('school:id,school_name')->get();
         return response()->json($gallery);
     }
 
@@ -42,20 +39,25 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $data = $this->validate($request,[
-            'itinerary_id'=>'required',
+            'title'=>'required',
             'school_id'=>'required',
-            'category'=>'required'
+            'category'=>'required',
+            'slug'=>''
         ]);
 
         $gallery = Gallery::create($data);
-        foreach ($request->images as $tag) {
-            $path = $this->singleFile($tag,'/images/gallery/');
+        
+        foreach ($request->images as $imagedata) {
+            $imagename = explode('.',$imagedata['name'])[0];
+            $path = $this->singleFile($imagedata['file'],'/images/gallery/',$imagename);
             Galleryimage::create([
                 'gallery_id'=>$gallery->id,
-                'path'=>$path
-            ]);
-        }
-
+                'path'=>$path,
+                'alt'=>$imagename
+                ]);
+            }
+            
+        $gallery = $gallery->update(['slug'=>$gallery->slug.'-'.$gallery->id]);
         return response()->json('succesfull created');
         
     }
@@ -93,20 +95,23 @@ class GalleryController extends Controller
     public function update(Request $request,Gallery $gallery)
     {
         $data = $this->validate($request,[
-            'itinerary_id'=>'required',
+            'title'=>'required',
             'school_id'=>'required',
-            'category'=>'required'
+            'category'=>'required',
+            'slug'=>''
         ]);
 
         $gallery->update($data);
-        foreach ($request->images as $tag) {
-            $path = $this->singleFile($tag,'/images/gallery/');
+        foreach ($request->images as $imagedata) {
+            $imagename = explode('.',$imagedata['name'])[0];
+            $path = $this->singleFile($imagedata['file'],'/images/gallery/',$imagename);
             Galleryimage::create([
                 'gallery_id'=>$gallery->id,
-                'path'=>$path
+                'path'=>$path,
+                'alt'=>$imagename
             ]);
         }
-
+        $gallery = $gallery->update(['slug'=>$gallery->slug.'-'.$gallery->id]);
         return response()->json('succesfull updated');
     }
 

@@ -31,7 +31,8 @@ to submit the data we are using a function.
                     <label class="label" for="image">Image !</label><br>
                       <input @change = "changeImage($event,'image')" type="file" :class="{ 'is-invalid': form.errors.has('image') }" accept="jpeg,jpg,png,gif" class="select_image">
                       
-                      <img :src="getImgUrl(form.image)" alt="" width="80" height="80">
+                      <img :src="img_image" alt="" width="80" height="80">
+
                       <has-error :form="form" field="image"></has-error>
                   </div>
                 </div>
@@ -112,12 +113,13 @@ export default {
   },
   data(){
     return {
-
+      img_image:'',
       itinerary_list:[],
       form: new Form({
         title:'',
         description: '',
         image:'',
+        alt:'',
         itinerary:[],
       })
     }
@@ -140,6 +142,7 @@ export default {
       var api = `/api/tourprogram/${this.$route.params.id}/edit`;
       axios.get(api).then((response)=>{
         this.form.fill(response.data);
+        this.img_image = "images/tourprogram/" + this.form.image;
         var data = this.form.itinerary;
         this.form.itinerary = [];
         for(var i=0;i<this.data.length;i++){
@@ -153,12 +156,13 @@ export default {
     },
     changeImage(event){
       let file = event.target.files[0];
-       let reader = new FileReader();
-       reader.onload = event => {
-          this.form.image = "";
-           this.form.image = event.target.result
-       };
-       reader.readAsDataURL(file);
+      let reader = new FileReader();
+      reader.onload = event => {
+        this.form.image = event.target.result;
+        this.form.alt = file.name;
+        this.img_image =event.target.result;
+      };
+      reader.readAsDataURL(file);
     },
     slugCreate(event){
       var slug = "";

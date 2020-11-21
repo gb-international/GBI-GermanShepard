@@ -17,6 +17,7 @@ to submit the data we are using a function.
             @submit.prevent="AddPost()"
           >
             <div class="row">
+
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="category">Gallery Category</label>
@@ -29,15 +30,13 @@ to submit the data we are using a function.
                 </div>
               </div>
 
-              
               <div class="col-sm-8">
                 <div class="form-group">
-                  <label for="category">itinerary</label>
-                  <model-select 
-                  :options="options" 
-                  v-model="form.itinerary_id" 
-                  placeholder="Select Itinerary"></model-select>
-                  <has-error :form="form" field="itinerary_id"></has-error>
+                  <label for="title">Gallery Title</label>
+                  <input type="text"
+                  v-model="form.title" 
+                  placeholder="Tour to Surat" class="form-control">
+                  <has-error :form="form" field="title"></has-error>
                 </div>
               </div>
               
@@ -54,13 +53,14 @@ to submit the data we are using a function.
             </div>
 
             <div class="row">
-              <div class="col-sm-12">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label for="images">Select Multiple Images</label>
-                  <input type="file"  multiple="multiple" class="form-control"  ref="attachments" @change="changePhoto">
+                  <input type="file"  multiple="multiple" class="form-control w-100"  ref="attachments" @change="changePhoto">
                 </div>
               </div>
             </div>
+
             <div class="row">
               <div class="col-sm-2"></div>
               <div class="col-sm-4">
@@ -106,28 +106,17 @@ export default {
       schools:[],
       form: new Form({
         category: "",
-        itinerary_id: "",
+        title: "",
         school_id:"",
         images:[],
       }),
     };
   },
   mounted(){
-    this.getItineraries();
     this.getSchools();
   },
   methods: {
-    getItineraries() {
-      axios.get("/api/itinerary").then((response) => {
-        for (var i = 0; i < response.data.data.length; i++) {
-          this.options.push({
-            value: response.data.data[i].id,
-            text: response.data.data[i].title
-          });
-        }
-      });
-    },
-    
+   
     getSchools() {
       axios.get("/api/school").then((response) => {
         for (var i = 0; i < response.data.data.length; i++) {
@@ -144,13 +133,17 @@ export default {
         let file = event.target.files[i];
         let reader = new FileReader();
         reader.onload = event => {
-          this.form.images.push(event.target.result);
+          this.form.images.push({
+            'name':file.name,
+            'file':event.target.result
+            });
         };
         reader.readAsDataURL(file);
       }
     },
 
     AddPost() {
+    
       this.form.post("/api/gallery")
         .then((response) => {
           this.form.reset();

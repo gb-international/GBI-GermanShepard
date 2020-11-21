@@ -88,8 +88,8 @@
 
 
                 <div class="dropdown-menu custom-dropdown dropright">
-                  <router-link :to="`/about-us/image-gallery/domestic`" class="dropdown-item">Domestic </router-link>
-                  <router-link :to="`/about-us/image-gallery/domestic`" class="dropdown-item">International</router-link>
+                  <router-link :to="`/image-gallery/domestic`" class="dropdown-item">Domestic </router-link>
+                  <router-link :to="`/image-gallery/international`" class="dropdown-item">International</router-link>
                 </div>
 
                 

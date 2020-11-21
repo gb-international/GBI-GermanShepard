@@ -8,16 +8,11 @@ namespace App\Http\Controllers\Admin\Itinerary;
 
 use App\Model\Itinerary\Itinerary;
 use App\Model\Itinerary\Itineraryday;
-use App\Model\Tour\Tour;
-use App\Model\Location\City;
 use App\Model\Tour\Tourtype;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Admin\ItineraryCollection;
-use DB;
-use Auth;
-use Image;
+use App\Traits\ImageTrait;
 
 class ItineraryController extends Controller
 {
@@ -26,6 +21,7 @@ class ItineraryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    use ImageTrait;
     public function index()
     {
         // return Itinerary::all();
@@ -50,70 +46,28 @@ class ItineraryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'source' => 'required|min:2|max:100',
-            'destination' => 'required|min:3|max:100',
-            'noofdays' => 'required|numeric|min:1|max:15',
-            'title' => 'required|min:3|max:100',
-            'description' => 'required|min:3',
-            'tourtype' => 'required',
-            'food' => 'required',
-            'transport'=>'required',
-        ]);
-        $rules = array(
-           'photo' => 'mimes:jpeg,jpg,png,gif|required|max:10000', // max 10000kb
-           'detail_photo' => 'mimes:jpeg,jpg,png,gif|required|max:10000', // max 10000kb           
-        );
-
+        $data = $this->validateItinerary($request);
         // linux and windows file staructure image path error and uploadig error.
+        $data['photo']=$this->thumbnail($request->photo,'/uploadimage/',$request->photo_alt);
 
+        $data['detail_photo'] = $this->banner($request->detail_photo,'/uploadimage/',$request->detail_photo_alt);
+        $itinerary = new Itinerary();
+        $id = $itinerary->insertGetId($data);
+        $itinerary = Itinerary::where('id',$id)->first();
 
-            $strpos = strpos($request->input('photo'),';');
-            $sub = substr($request->input('photo'),0,$strpos);
-            $ex = explode('/',$sub)[1];
-            $name = time().".".$ex;
-            $img = Image::make($request->input('photo'));
-            $upload_path = public_path()."/uploadimage/";
-            $img->save($upload_path.$name);
-            
-            $strpos = strpos($request->input('detail_photo'),';');
-            $sub = substr($request->input('detail_photo'),0,$strpos);
-            $ex = explode('/',$sub)[1];
-            $name1 = 'bn'.time().".".$ex;
-            $img = Image::make($request->input('detail_photo'));
-            $img->save($upload_path.$name1);
-            // $name = 'thumbnail.jpg';
-            // $name1 = 'banner-image.jpg';
-            $itinerary = new Itinerary();
-            $itinerary->source = $request->input('source');
-            $itinerary->destination = $request->input('destination');
-            $itinerary->title = $request->input('title');
-            $itinerary->noofdays = $request->input('noofdays');
-            $itinerary->description = $request->input('description');
-            $itinerary->tourtype = $request->input('tourtype');
-            $itinerary->hotel_type = $request->input('hoteltype');
-            $itinerary->bus = $request->input('bus');
-            $itinerary->train = $request->input('train');
-            $itinerary->flight = $request->input('flight');
-            $itinerary->food = $request->food;
-            $itinerary->photo = $name;
-            $itinerary->detail_photo = $name1;
-            $itinerary->save();
-
-            $dayModels = [];
-            foreach ($request->itinerarydays as $data) {
-                $dayModels[] = new Itineraryday($data);
-            }
-           $itinerary->itinerarydays()->saveMany($dayModels);
-           // Tour Type
-           $dayModels = [];
-            foreach ($request->tourtypes as $data) {
-                $dayModels[] = $data['id'];
-            }
-            $dayModels = Tourtype::find($dayModels);
-            $itinerary->tourtypes()->attach($dayModels);               
-
-           return response()->json(['success'=>'Successfully added']);
+        $dayModels = [];
+        foreach ($request->itinerarydays as $data) {
+            $dayModels[] = new Itineraryday($data);
+        }
+        $itinerary->itinerarydays()->saveMany($dayModels);
+        // Tour Type
+        $dayModels = [];
+        foreach ($request->tourtypes as $data) {
+            $dayModels[] = $data['id'];
+        }
+        $dayModels = Tourtype::find($dayModels);
+        $itinerary->tourtypes()->attach($dayModels);
+        return response()->json(['success'=>'Successfully added']);
     }
 
     /**
@@ -150,89 +104,38 @@ class ItineraryController extends Controller
      */
     public function update(Request $request, Itinerary $itinerary)
     {
-        $this->validate($request, [
-            'source' => 'required|min:2|max:100',
-            'destination' => 'required|min:3|max:100',
-            'noofdays' => 'required|numeric|min:1|max:15',
-            'title' => 'required|min:3|max:100',
-            'description' => 'required|min:3',
-            'tourtype' => 'required',
-            'food' => 'required',
-            'transport'=>'required',
-            ]);
-
-
-        if($request->photo!=$itinerary->photo){
-            $strpos = strpos($request->photo,';');
-            $sub = substr($request->photo,0,$strpos);
-            $ex = explode('/',$sub)[1];
-            $name = time().".".$ex;
-            $img = Image::make($request->photo)->resize(210, 120);
-            $upload_path = public_path()."/uploadimage/";
-            $image = $upload_path. $itinerary->photo;
-            $img->save($upload_path.$name);
-
+        $data = $this->validateItinerary($request);
+        if($request->photo){
+            $name = $this->thumbnail($request->photo,'/uploadimage/',$request->photo_alt);
+            $data['photo'] = $name;
+            $image = '/uploadimage/' . $itinerary->photo;
             if(file_exists($image)){
                 @unlink($image);
             }
-        }else{
-            $name = $itinerary->photo;
-        }
-
-
-
-        if($request->detail_photo!=$itinerary->detail_photo){
-            $strpos = strpos($request->detail_photo,';');
-            $sub = substr($request->detail_photo,0,$strpos);
-            $ex = explode('/',$sub)[1];
-            $name1 = time().".".$ex;
-            // $img = Image::make($request->detail_photo)->resize(2400, 450);
-            $img = Image::make($request->detail_photo)->resize(1140, 214);
-            $upload_path = public_path()."/uploadimage/";
-            $image = $upload_path. $itinerary->detail_photo;
-            $img->save($upload_path.$name1);
-
+        }       
+        if($request->detail_photo){
+            $name1 = $this->banner($request->detail_photo,'/uploadimage/',$request->detail_photo_alt);
+            $data['detail_photo'] = $name1;
+            $image = '/uploadimage/' . $itinerary->detail_photo;
             if(file_exists($image)){
                 @unlink($image);
             }
-        }else{
-            $name1 = $itinerary->detail_photo;
-        }
-
-
-        
-        $itinerary->source = $request->source;
-        $itinerary->destination = $request->destination;
-        $itinerary->title = $request->title;
-        $itinerary->photo = $name;
-        $itinerary->detail_photo = $name1;
-        $itinerary->noofdays = $request->noofdays;
-        $itinerary->description = $request->description;
-        $itinerary->tourtype = $request->tourtype;
-        $itinerary->hotel_type = $request->hotel_type;
-        $itinerary->bus = $request->input('bus');
-        $itinerary->train = $request->input('train');
-        $itinerary->flight = $request->input('flight');
-        $itinerary->food = $request->food;
-        $itinerary->save();   
-
+        }        
+        $itinerary->update($data);
         // Itinerary Day
         $itinerary->itinerarydays()->delete();
         $dayModels = [];
         foreach ($request->itinerarydays as $data) {
             $dayModels[] = new Itineraryday($data);
         }
-       $itinerary->itinerarydays()->saveMany($dayModels);
-
+        $itinerary->itinerarydays()->saveMany($dayModels);
        // Itinerary tour type
-
         $dayModels = [];
         foreach ($request->tourtypes as $data) {
             $dayModels[] = $data['id'];
         }
         $dayModels = Tourtype::find($dayModels);
-        $itinerary->tourtypes()->sync($dayModels); 
-
+        $itinerary->tourtypes()->sync($dayModels);
         return response()->json(['message'=>'Successfully Addedd']);
     }
 
@@ -248,4 +151,26 @@ class ItineraryController extends Controller
         $itinerary->delete();
         return response()->json('successfully deleted');
     }
+
+    public function validateItinerary($request)
+    {
+      return $this->validate($request, [
+          'source' => 'required|min:2|max:100',
+            'destination' => 'required|min:3|max:100',
+            'noofdays' => 'required|numeric|min:1|max:15',
+            'title' => 'required|min:3|max:100',
+            'description' => 'required|min:3',
+            'tourtype' => 'required',
+            'food' => 'required',
+            'photo_alt' => '',
+            'detail_photo_alt'=>'',
+            'hotel_type'=>'',
+            'bus'=>'',
+            'train'=>'',
+            'flight'=>'',
+            'price'=>'',          
+      ]);
+    }
+
+
 }

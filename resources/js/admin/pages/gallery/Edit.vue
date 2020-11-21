@@ -34,12 +34,12 @@ to submit the data we are using a function.
               
               <div class="col-sm-8">
                 <div class="form-group">
-                  <label for="category">itinerary</label>
-                  <model-select 
+                  <label for="category">Gallery Title</label>
+                  <input type="text" class="form-control" 
                   :options="options" 
-                  v-model="form.itinerary_id" 
-                  placeholder="Select Itinerary"></model-select>
-                  <has-error :form="form" field="itinerary_id"></has-error>
+                  v-model="form.title" 
+                  placeholder="Select Itinerary">
+                  <has-error :form="form" field="title"></has-error>
                 </div>
               </div>
               
@@ -67,10 +67,10 @@ to submit the data we are using a function.
             </div>
 
             <div class="row">
-              <div class="col-sm-12">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label for="images">Select Multiple Images</label>
-                  <input type="file"  multiple="multiple" class="form-control"  ref="attachments" @change="changePhoto">
+                  <input type="file"  multiple="multiple" class="form-control w-100"  ref="attachments" @change="changePhoto">
                 </div>
               </div>
             </div>
@@ -116,11 +116,10 @@ export default {
     return {
       options: [],
       schools:[],
-      itinerary_id : '',
       images:[],
       form: new Form({
         category: "",
-        itinerary_id: "",
+        title: "",
         school_id:"",
         images:[],
       }),
@@ -129,7 +128,6 @@ export default {
 
   mounted(){
     this.getGalleryList();
-    this.getItineraries();
     this.getSchools();
   },
   methods: {
@@ -137,20 +135,9 @@ export default {
       axios.get(`/api/gallery/${this.$route.params.id}/edit`).then((response) => {
         setTimeout(() => $("#example").DataTable(), 1000);
         this.form.fill(response.data);
-        this.form.itinerary_id = parseInt(response.data.itinerary_id);
         this.form.school_id = parseInt(response.data.school_id);
         this.form.images= [];
         this.images = response.data.images;
-      });
-    },
-    getItineraries() {
-      axios.get("/api/itinerary").then((response) => {
-        for (var i = 0; i < response.data.data.length; i++) {
-          this.options.push({
-            value: response.data.data[i].id,
-            text: response.data.data[i].title
-          });
-        }
       });
     },
     
@@ -182,7 +169,10 @@ export default {
         let file = event.target.files[i];
         let reader = new FileReader();
         reader.onload = event => {
-          this.form.images.push(event.target.result);
+          this.form.images.push({
+            'name':file.name,
+            'file':event.target.result
+            });
         };
         reader.readAsDataURL(file);
       }

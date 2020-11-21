@@ -17,6 +17,7 @@ class CreateGalleryimagesTable extends Migration
             $table->bigIncrements('id');
              $table->unsignedBigInteger('gallery_id');
              $table->string('path');
+             $table->string('alt')->nullable();
             $table->foreign('gallery_id')->references('id')->on('galleries')->onDelete('cascade');
             $table->timestamps();
         });

@@ -435,7 +435,7 @@ export default {
         name: "",
         state: "",
         city: "",
-        image: "",
+        image: [],
         room: "",
         phoneno: "",
         email: "",
@@ -465,7 +465,8 @@ export default {
     hotelData() {
       axios.get(`/api/hotel/${this.$route.params.id}/edit`).then(response => {
         this.form.fill(response.data);
-        this.img_image = "images/hotel/" + this.form.image;
+        this.form.image = [];
+        this.img_image = "images/hotel/" + response.data.image;
       });
     },
     UpdateHotel() {
@@ -473,7 +474,7 @@ export default {
       this.form
         .put(`/api/hotel/${this.$route.params.id}`)
         .then(response => {
-          this.$router.push(`/hotel-list/`);
+          console.log(response);
           this.$toast.fire({
             icon: "success",
             title: "Successfully Updated"
@@ -483,21 +484,15 @@ export default {
     },
     changeDetailPhoto(event) {
       let file = event.target.files[0];
-      if (file.size > 10048576) {
-        this.$swal.fire({
-          type: "error",
-          title: "Oops...",
-          text: "Something went wrong!",
-          footer: "<a href>Why do I have this issue?</a>"
-        });
-      } else {
-        let reader = new FileReader();
-        reader.onload = event => {
-          this.form.image = event.target.result;
-          this.img_image = this.form.image;
-        };
-        reader.readAsDataURL(file);
-      }
+      let reader = new FileReader();
+      reader.onload = event => {
+        this.form.image.push({
+          'name':file.name,
+          'file':event.target.result
+          });
+          this.img_image =event.target.result;
+      };
+      reader.readAsDataURL(file);
     }
   }
 };

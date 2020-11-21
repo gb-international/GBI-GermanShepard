@@ -174,6 +174,7 @@ export default {
         state_id: "",
         city_id: "",
         image: "",
+        alt:'',
         adult_price: "",
         child_price: "",
         address: "",
@@ -212,7 +213,7 @@ export default {
       this.form
         .put(`/api/sightseeings/${this.$route.params.id}`)
         .then(response => {
-          this.$router.push(`/sightseeing/`);
+          console.log(response);
           this.$toast.fire({
             icon: "success",
             title: "Successfully Updated"
@@ -222,21 +223,13 @@ export default {
     },
     changeDetailPhoto(event) {
       let file = event.target.files[0];
-      if (file.size > 10048576) {
-        this.$swal.fire({
-          type: "error",
-          title: "Oops...",
-          text: "Something went wrong!",
-          footer: "<a href>Why do I have this issue?</a>"
-        });
-      } else {
-        let reader = new FileReader();
-        reader.onload = event => {
-          this.form.image = event.target.result;
-          this.img_image = this.form.image;
-        };
-        reader.readAsDataURL(file);
-      }
+      let reader = new FileReader();
+      reader.onload = event => {
+        this.form.image = event.target.result;
+        this.form.alt = file.name;
+        this.img_image =event.target.result;
+      };
+      reader.readAsDataURL(file);
     }
   }
 };

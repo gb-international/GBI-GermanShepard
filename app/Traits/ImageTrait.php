@@ -4,6 +4,7 @@ namespace App\Traits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Image;
+use Illuminate\Support\Str;
 
 trait ImageTrait {
     public $imgdata;
@@ -26,16 +27,36 @@ trait ImageTrait {
         return $name;
     }
     
-    public function singleFile($single,$folder='') {
+    public function singleFile($single,$folder='',$imagename='') {
         $strpos = strpos($single,';');
         $sub = substr($single,0,$strpos);
         $ex = explode('/',$sub)[1];
-        $name = time().rand(100,1000000).".".$ex;
+        $name = Str::slug($imagename).time().rand(100,1000000).".".$ex;
         $img = Image::make($single);
         $upload_path = public_path().$folder;
         $img->save($upload_path.$name);
         return $name;
     }
+    
+    public function thumbnail($single,$folder='',$imagename='') {
+        $strpos = strpos($single,';');
+        $sub = substr($single,0,$strpos);
+        $ex = explode('/',$sub)[1];
+        $name = Str::slug($imagename).time().rand(100,1000000).".".$ex;
+        $img = Image::make($single)->resize(210, 120);
+        $upload_path = public_path().$folder;
+        $img->save($upload_path.$name);
+        return $name;
+    }
 
-
+    public function banner($single,$folder='',$imagename='') {
+        $strpos = strpos($single,';');
+        $sub = substr($single,0,$strpos);
+        $ex = explode('/',$sub)[1];
+        $name = Str::slug($imagename).time().rand(100,1000000).".".$ex;
+        $img = Image::make($single)->resize(1140, 214);
+        $upload_path = public_path().$folder;
+        $img->save($upload_path.$name);
+        return $name;
+    }
 }

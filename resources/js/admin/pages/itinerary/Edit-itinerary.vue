@@ -10,7 +10,6 @@
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="sourceId">Source</label>
-                  <!-- <input type="text" class="form-control" name="source" v-model="form.source" :class="{ 'is-invalid': form.errors.has('source') }" placeholder="Enter Source" > -->
                   <model-select :options="options" v-model="sources" placeholder="From"></model-select>
                   {{ sources.value }}
                   <has-error :form="form" field="source"></has-error>
@@ -19,8 +18,6 @@
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="destinationId">Destination</label>
-                  <!-- <input type="text" class="form-control" v-model="form.destination" :class="{ 'is-invalid': form.errors.has('destination') }"  placeholder="Enter Destination" name="destination"> -->
-
                   <model-select :options="options" v-model="destinations" placeholder="To"></model-select>
                   {{ destinations.value }}
                   <has-error :form="form" field="destination"></has-error>
@@ -290,7 +287,7 @@
                     type="file"
                     :class="{ 'is-invalid': form.errors.has('photo') }"
                   />
-                  <img :src="img_photo" alt width="80" height="80" />
+                  <img :src="photo" alt width="80" height="80" />
                   <has-error :form="form" field="photo"></has-error>
                 </div>
               </div>
@@ -303,7 +300,7 @@
                     type="file"
                     :class="{ 'is-invalid': form.errors.has('detail_photo') }"
                   />
-                  <img :src="img_detail_photo" alt class="detail_photo" />
+                  <img :src="detail_photo" alt class="detail_photo" />
                   <has-error :form="form" field="detail_photo"></has-error>
                 </div>
               </div>
@@ -375,12 +372,11 @@ export default {
       sources: { value: "", text: "" },
       destinations: { value: "", text: "" },
       itinerarydays: [],
-      img_photo: "",
-      img_detail_photo: "",
       tour_type_list: [],
 
       selected: null,
-
+      photo:'',
+      detail_photo:'',
       form: new Form({
         source: "",
         destination: "",
@@ -390,7 +386,9 @@ export default {
         tourtype: "",
         hotel_type: "",
         photo: "",
+        photo_alt:"",
         detail_photo: "",
+        detail_photo_alt:"",
         food: "",
         train: "",
         bus: "",
@@ -424,9 +422,11 @@ export default {
         .then(response => {
           setTimeout(() => $("#example").DataTable(), 1000);
           this.form.fill(response.data);
-          console.log(this.form);
+          this.form.photo = '';
+          this.form.detail_photo = '';
+          this.photo = '/uploadimage/' + response.data.photo;
+          this.detail_photo = '/uploadimage/' + response.data.detail_photo;
           var day_data = response.data.itinerarydays;
-
           this.sources.value = this.form.source;
           this.sources.text = this.form.source;
 
@@ -473,40 +473,23 @@ export default {
 
     changePhoto(event) {
       let file = event.target.files[0];
-
-      if (file.size > 10048576) {
-        this.$swal.fire({
-          type: "error",
-          title: "Oops...",
-          text: "Something went wrong!",
-          footer: "<a href>Why do I have this issue?</a>"
-        });
-      } else {
-        let reader = new FileReader();
-        reader.onload = event => {
-          this.form.photo = event.target.result;
-          this.img_photo = this.form.photo;
-        };
-        reader.readAsDataURL(file);
-      }
+      let reader = new FileReader();
+      reader.onload = event => {
+        this.form.photo = event.target.result;
+        this.form.photo_alt = file.name;
+        this.photo = event.target.result;
+      };
+      reader.readAsDataURL(file);
     },
     changeDetailPhoto(event) {
       let file = event.target.files[0];
-      if (file.size > 10048576) {
-        this.$swal.fire({
-          type: "error",
-          title: "Oops...",
-          text: "Something went wrong!",
-          footer: "<a href>Why do I have this issue?</a>"
-        });
-      } else {
-        let reader = new FileReader();
-        reader.onload = event => {
-          this.form.detail_photo = event.target.result;
-          this.img_detail_photo = this.form.detail_photo;
-        };
-        reader.readAsDataURL(file);
-      }
+      let reader = new FileReader();
+      reader.onload = event => {
+        this.form.detail_photo = event.target.result;
+        this.form.detail_photo_alt = file.name;
+        this.detail_photo = event.target.result;
+      };
+      reader.readAsDataURL(file);
     },
     updateItinerary() {
       // Set noofdays in the local storage to make it avaliable to the daypage....
@@ -544,7 +527,6 @@ export default {
       this.form
         .put(`/api/itinerary/${this.$route.params.itineraryid}`)
         .then(response => {
-          this.$router.push(`/itinerary-list`);
           this.$toast.fire({
             icon: "success",
             title: "Itinerary Updated successfully"

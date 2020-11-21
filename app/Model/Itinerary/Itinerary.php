@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Itinerary extends Model
 {
+	protected $fillable = ['source','destination','title','photo','photo_alt','detail_photo','detail_photo_alt','noofdays','description','tourtype','hotel_type','bus','train','flight','food','price','status'];
+
 
 	public function itinerarydays()
 	{
