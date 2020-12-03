@@ -6,7 +6,7 @@ Purpose : Manage Hotel
 */
 namespace App\Http\Controllers\Admin\Hotel;
 use App\Http\Resources\Admin\HotelCollection;
-use App\Model\Hotel\hotel;
+use App\Model\Hotel\Hotel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Traits\ImageTrait;
@@ -21,7 +21,7 @@ class HotelController extends Controller
     use ImageTrait;
     public function index()
     {
-        return HotelCollection::collection(hotel::all());
+        return HotelCollection::collection(Hotel::all());
     }
 
     /**
@@ -42,7 +42,7 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-       $hotel = hotel::create($this->validateHotel($request));
+       $hotel = Hotel::create($this->validateHotel($request));
 
        if($request->image){
             $imagename = explode('.',$request->image[0]['name'])[0];
@@ -64,7 +64,7 @@ class HotelController extends Controller
      * @param  \App\hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function show(hotel $hotel)
+    public function show(Hotel $hotel)
     {
         //
     }
@@ -75,7 +75,7 @@ class HotelController extends Controller
      * @param  \App\hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function edit(hotel $hotel)
+    public function edit(Hotel $hotel)
     {
         return response()->json($hotel);
     }
@@ -87,7 +87,7 @@ class HotelController extends Controller
      * @param  \App\hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, hotel $hotel)
+    public function update(Request $request, Hotel $hotel)
     {
 
         $data = $hotel->update($this->validateHotel($request));
@@ -112,7 +112,7 @@ class HotelController extends Controller
      * @param  \App\hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(hotel $hotel)
+    public function destroy(Hotel $hotel)
     {
         $hotel->delete();
         return response()->json('successfully deleted');

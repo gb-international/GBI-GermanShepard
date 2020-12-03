@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('image');
+            $table->string('alt')->nullable();
             $table->text('summery')->nullable();
             $table->text('description');
             $table->string('meta_title');

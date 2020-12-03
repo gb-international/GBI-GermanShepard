@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Gallery\Gallery;
 
+use App\Model\Encyclopedia\Encyclopedia;
+use App\Model\Encyclopedia\EncyclopediaImage;
+
 class GalleryController extends Controller
 {
 
@@ -26,5 +29,4 @@ class GalleryController extends Controller
             ->first();
         return response()->json($data);
     }
-
 }

@@ -35,7 +35,7 @@ const eventsHub = new Vue();
 Vue.use(IdleVue, {
     eventEmitter: eventsHub,
     store,
-    idleTime: 60000000, // 10 Mint Auto logout,
+    idleTime: 600000, // 10 Mint Auto logout,
   startAtIdle: false
 });
 

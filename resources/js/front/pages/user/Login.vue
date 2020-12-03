@@ -116,8 +116,8 @@
 </template>
 <script>
 import { Form, HasError, AlertError } from "vform";
-import Register from "./Register";
-import changePssword from "./ChangePassword";
+import Register from "@/front/pages/user/Register";
+import changePssword from "@/front/pages/user/ChangePassword";
 import loader from '@/front/components/Loader.vue';
 
 export default {

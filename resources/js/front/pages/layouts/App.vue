@@ -3,6 +3,7 @@
       Author:@Ajay
       ****************************************************-->
   <div id="app">
+
     <nav class="navbar navbar-expand-md bg-white navbar-light fixed-top" id="navbar">
       <div class="container">
         <router-link class="navbar-brand" :to="`/`">
@@ -125,6 +126,7 @@
         </div>
       </div>
     </nav>
+
     <div class="modal" id="LoginForm">
       <div class="modal-dialog w-100">
         <div class="modal-content">
@@ -144,7 +146,6 @@
         </div>
       </div>
     </div>
-
     <div class="body-content mt-85 pb-50">
 
       <transition 
@@ -152,7 +153,8 @@
         mode="out-in">
         <router-view></router-view>
       </transition>
-      
+    
+      <!-- Alert for cookies -->
       <transition name="fade" mode="out-in">
         <div class="accept_cookies" v-show="cookies_alert">
           <div class="cookies">
@@ -162,6 +164,11 @@
           </div>
         </div>
       </transition>
+
+      <!-- Intro modal -->
+      <intro></intro>
+
+
     </div>
     <gbi-footer></gbi-footer>
     <div class="col-md-12 m-bottom">
@@ -196,9 +203,10 @@
 </template>
 <script>
 import login from "@/front/pages/user/Login.vue";
+import Intro from "@/front/components/Intro.vue";
 export default {
   name: "App",
-  components: { login },
+  components: { login,Intro },
   data() {
     return {
       nav_active_el: 0,
@@ -211,6 +219,7 @@ export default {
       isnav_active: false,
       user:{name:'',photo:''},
       cookies_alert:false,
+      
     };
   },
 
@@ -240,6 +249,7 @@ export default {
     if(!this.$cookies.isKey('cookies_alert')){
       this.cookies_alert = true;
     }
+    
     this.loginCheck();
     this.login = this.$cookies.get('login');
     if(this.login == null){
@@ -291,6 +301,7 @@ export default {
     makeActive: function(el) {
       this.nav_active_el = el;
     },
+    
     acceptCookies:function(){
       this.$cookies.set('cookies_alert','yes','1y');
       // this.$cookies.set('cookies_alert','yes','6s');

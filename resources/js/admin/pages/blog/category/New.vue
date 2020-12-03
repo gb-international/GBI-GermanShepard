@@ -17,7 +17,6 @@ to submit the data we are using a function.
             @submit.prevent="AddCategory()"
           >
             <div class="row">
-
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="title">Title</label>
@@ -32,64 +31,67 @@ to submit the data we are using a function.
                 </div>
               </div>
 
-              
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="description">Description</label>
-                  <vue-editor v-model="form.description" 
+                  <vue-editor
+                    v-model="form.description"
                     :class="{ 'is-invalid': form.errors.has('description') }"
-                    ></vue-editor>
+                  ></vue-editor>
                   <has-error :form="form" field="description"></has-error>
                 </div>
               </div>
 
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="meta_title">Meta Title</label>
-                    <input
-                        type="text"
-                        class="form-control"
-                        v-model="form.meta_title"
-                        :class="{ 'is-invalid': form.errors.has('meta_title') }"
-                        placeholder="Enter meta title"
-                    />
-                    <has-error :form="form" field="meta_title"></has-error>
-                </div>
-            </div>
-            
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="meta_keyword">Meta Keywords</label>
-                    <input
-                        type="text"
-                        class="form-control"
-                        v-model="form.meta_keyword"
-                        :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
-                        placeholder="Enter meta title"
-                    />
-                    <has-error :form="form" field="meta_keyword"></has-error>
-                </div>
-            </div>
-
-              
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label class="label" for="input">Please upload a Banner image !</label>
-                  <br />
+                  <label for="meta_title">Meta Title</label>
                   <input
-                    @change="changeDetailPhoto($event)"
-                    type="file"
-                    :class="{ 'is-invalid': form.errors.has('image') }"
-                    required
+                    type="text"
+                    class="form-control"
+                    v-model="form.meta_title"
+                    :class="{ 'is-invalid': form.errors.has('meta_title') }"
+                    placeholder="Enter meta title"
                   />
-
-                  <img :src="form.image" alt class="image ml-2" width="100"/>
-                  <has-error :form="form" field="image"></has-error>
+                  <has-error :form="form" field="meta_title"></has-error>
                 </div>
               </div>
 
-
-
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="meta_keyword">Meta Keywords</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="form.meta_keyword"
+                    :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
+                    placeholder="Enter meta title"
+                  />
+                  <has-error :form="form" field="meta_keyword"></has-error>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="image">Please upload a Banner image !</label>
+                  <br />
+                  <input
+                    @change="changeDetailPhoto($event)"
+                    name="image"
+                    type="file"
+                    :class="{ 'is-invalid': form.errors.has('image') }"
+                  />
+                  <has-error :form="form" field="image"></has-error>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <div class="form-group">
+                  <label for="image"></label>
+                  <br />
+                  <img :src="img_image" alt class="image w-100" />
+                  <has-error :form="form" field="image"></has-error>
+                </div>
+              </div>
             </div>
             <div class="row">
               <div class="col-sm-2"></div>
@@ -125,17 +127,18 @@ import { VueEditor, Quill } from "vue2-editor";
 
 export default {
   name: "New",
-  components: { 
-      Form, 
-      "has-error": HasError,
-      'vue-editor': VueEditor,
-    },
+  components: {
+    Form,
+    "has-error": HasError,
+    "vue-editor": VueEditor,
+  },
   data() {
     return {
+      img_image:false,
       form: new Form({
         title: "",
         description: "",
-        image: "",
+        image: [],
         meta_title: "",
         meta_keyword: "",
       }),
@@ -146,7 +149,7 @@ export default {
       this.form
         .post("/api/categories")
         .then((response) => {
-            this.form.reset();
+          this.form.reset();
           this.$toast.fire({
             icon: "success",
             title: "Category Added successfully",
@@ -155,25 +158,20 @@ export default {
         .catch(() => {});
     },
 
-
     changeDetailPhoto(event) {
-        let file = event.target.files[0];
-        if (file.size > 29048576) {
-            this.$swal.fire({
-                type: "error",
-                title: "Oops...",
-                text: "Please Select a Valid Image"
-            });
-        } else {
-            let reader = new FileReader();
-            reader.onload = event => {
-                this.form.image = event.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    }
+      let file = event.target.files[0];
+      let reader = new FileReader();
+      reader.onload = event => {
+        this.form.image.push({
+          'name':file.name,
+          'file':event.target.result
+          });
+          this.img_image = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
   },
-}
+};
 </script>
 
 <style scoped>

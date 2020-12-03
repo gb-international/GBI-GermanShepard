@@ -15,7 +15,7 @@ class Bookedflight extends Model
 
     public function flight()
     {
-    	return $this->belongsTo('App\Model\Transport\flight');
+    	return $this->belongsTo('App\Model\Transport\Flight');
     }
     
     public function pnruser()

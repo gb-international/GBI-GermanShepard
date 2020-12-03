@@ -88,8 +88,7 @@ to submit the data we are using a function.
                     accept="jpeg, jpg, png, gif"
                     class="select_image"
                   />
-
-                  <img :src="getImgUrl(form.thumbnail)" alt width="80" height="80" />
+                  <img :src="images.thumbnail" alt width="80" height="80" />
                   <has-error :form="form" field="thumbnail"></has-error>
                 </div>
               </div>
@@ -105,7 +104,7 @@ to submit the data we are using a function.
                     :class="{ 'is-invalid': form.errors.has('banner_image') }"
                   />
 
-                  <img :src="getImgUrl(form.banner_image)" alt class="banner_image" />
+                  <img :src="images.banner_image" alt class="banner_image" />
                   <has-error :form="form" field="banner_image"></has-error>
                 </div>
               </div>
@@ -113,172 +112,23 @@ to submit the data we are using a function.
 
             <hr />
 
+            <div class="row img-card-delete-icon" v-if="list_images">
+              <div class="col-sm-4 position-relative" v-for="img in list_images" :key="img.id">
+                <div class="card">
+                  <div class="card-body">
+                    <img :src="`/encyclopedia/${img.image}`" class="w-100">
+                  </div>
+                </div>
+                <span class="badge badge-danger position-absolute cursor-pointer" @click="deleteImage(img.id)"><i class="far fa-trash-alt" aria-hidden="true"></i></span>
+              </div>
+      
+            </div>
+
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <div class="form-group">
-                  <label class="label" for="image_one">Image One</label>
-                  <input
-                    @change="changeImage($event,1)"
-                    type="file"
-                    :class="{ 'is-invalid': form.errors.has('image_one') }"
-                    class="select_image"
-                  />
-
-                  <img
-                    :src="getImgUrl(form.image_one)"
-                    alt
-                    class="image_one"
-                    width="80"
-                    height="80"
-                  />
-                  <has-error :form="form" field="image_one"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label class="label" for="image_one">Image Two</label>
-                  <input
-                    @change="changeImage($event,2)"
-                    type="file"
-                    :class="{ 'is-invalid': form.errors.has('image_two') }"
-                    class="select_image"
-                  />
-
-                  <img
-                    :src="getImgUrl(form.image_two)"
-                    alt
-                    class="image_two"
-                    width="80"
-                    height="80"
-                  />
-                  <has-error :form="form" field="image_two"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label class="label" for="image_one">Image Three</label>
-                  <input
-                    @change="changeImage($event,3)"
-                    type="file"
-                    :class="{ 'is-invalid': form.errors.has('image_three') }"
-                    class="select_image"
-                  />
-
-                  <img
-                    :src="getImgUrl(form.image_three)"
-                    alt
-                    class="image_three"
-                    width="80"
-                    height="80"
-                  />
-                  <has-error :form="form" field="image_three"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label class="label" for="image_four">Image Four</label>
-                  <input
-                    @change="changeImage($event,4)"
-                    type="file"
-                    :class="{ 'is-invalid': form.errors.has('image_four') }"
-                    class="select_image"
-                  />
-
-                  <img
-                    :src="getImgUrl(form.image_four)"
-                    alt
-                    class="image_four"
-                    width="80"
-                    height="80"
-                  />
-                  <has-error :form="form" field="image_four"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label class="label" for="image_five">Image Five</label>
-                  <input
-                    @change="changeImage($event,5)"
-                    type="file"
-                    :class="{ 'is-invalid': form.errors.has('image_five') }"
-                    class="select_image"
-                  />
-
-                  <img
-                    :src="getImgUrl(form.image_five)"
-                    alt
-                    class="image_five"
-                    width="80"
-                    height="80"
-                  />
-                  <has-error :form="form" field="image_five"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label class="label" for="image_six">Image Six</label>
-                  <input
-                    @change="changeImage($event,6)"
-                    type="file"
-                    :class="{ 'is-invalid': form.errors.has('image_six') }"
-                    class="select_image"
-                  />
-
-                  <img
-                    :src="getImgUrl(form.image_six)"
-                    alt
-                    class="image_six"
-                    width="80"
-                    height="80"
-                  />
-                  <has-error :form="form" field="image_six"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label class="label" for="image_seven">Image Seven</label>
-                  <input
-                    @change="changeImage($event,7)"
-                    type="file"
-                    :class="{ 'is-invalid': form.errors.has('image_seven') }"
-                    class="select_image"
-                  />
-
-                  <img
-                    :src="getImgUrl(form.image_seven)"
-                    alt
-                    class="image_seven"
-                    width="80"
-                    height="80"
-                  />
-                  <has-error :form="form" field="image_seven"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label class="label" for="image_eight">Image Eight</label>
-                  <input
-                    @change="changeImage($event,8)"
-                    type="file"
-                    :class="{ 'is-invalid': form.errors.has('image_eight') }"
-                    class="select_image"
-                  />
-
-                  <img
-                    :src="getImgUrl(form.image_eight)"
-                    alt
-                    class="image_eight"
-                    width="80"
-                    height="80"
-                  />
-                  <has-error :form="form" field="image_eight"></has-error>
+                  <label for="images">Select Multiple Images</label>
+                  <input type="file"  multiple="multiple" class="form-control w-100"  ref="attachments" @change="changePhotos">
                 </div>
               </div>
             </div>
@@ -331,7 +181,6 @@ to submit the data we are using a function.
         </div>
       </div>
     </div>
-    <!-- /.container-fluid -->
   </section>
 </template>
 
@@ -354,21 +203,16 @@ export default {
       state_list: [],
       list_data: [],
       pdf_list: [],
+      images:[],
+      list_images:[],
       form: new Form({
         state_name: "",
         map_link: "",
         slug: "",
         description: "",
-        thumbnail: "",
-        banner_image: "",
-        image_one: "",
-        image_two: "",
-        image_three: "",
-        image_four: "",
-        image_five: "",
-        image_six: "",
-        image_seven: "",
-        image_eight: "",
+        thumbnail: [],
+        banner_image: [],
+        images:[],
         files: []
       })
     };
@@ -389,6 +233,14 @@ export default {
       axios.get(api).then(response => {
         this.form.fill(response.data);
         this.pdf_list = response.data.itinerarypdfs;
+        this.images['thumbnail'] = '/encyclopedia/' + response.data.thumbnail;
+        this.images['banner_image'] = '/encyclopedia/' + response.data.banner_image;
+
+        this.list_images = response.data.images;
+
+        this.form.thumbnail = [];
+        this.form.banner_image = [];
+        this.form.images = [];
         this.form.files = [];
       });
     },
@@ -417,38 +269,38 @@ export default {
       reader.onload = event => {
         switch (model) {
           case "thumbnail":
-            this.form.thumbnail = event.target.result;
+            this.form.thumbnail.push({
+              'name' : file.name,
+              'file' : event.target.result,
+              });
+              this.images['thumbnail'] = event.target.result;
             break;
           case "banner":
-            this.form.banner_image = event.target.result;
+            this.form.banner_image.push({
+              'name' : file.name,
+              'file' : event.target.result,
+              });
+              this.images.banner_image = event.target.result;
             break;
-          case 1:
-            this.form.image_one = event.target.result;
-            break;
-          case 2:
-            this.form.image_two = event.target.result;
-            break;
-          case 3:
-            this.form.image_three = event.target.result;
-            break;
-          case 4:
-            this.form.image_four = event.target.result;
-            break;
-          case 5:
-            this.form.image_five = event.target.result;
-            break;
-          case 6:
-            this.form.image_six = event.target.result;
-            break;
-          case 7:
-            this.form.image_seven = event.target.result;
-            break;
-          case 8:
-            this.form.image_eight = event.target.result;
-            break;
+            default:
+              console.log('please select valid image');
         }
       };
       reader.readAsDataURL(file);
+    },
+
+    changePhotos(event) {
+      for(var i=0;i<event.target.files.length;i++){
+        let file = event.target.files[i];
+        let reader = new FileReader();
+        reader.onload = event => {
+          this.form.images.push({
+            'name':file.name,
+            'file':event.target.result
+            });
+        };
+        reader.readAsDataURL(file);
+      }
     },
 
     slugCreate(event) {
@@ -464,9 +316,15 @@ export default {
       return "/encyclopedia/" + img;
     },
 
+    deleteImage(id){
+      var data = {'id':id};
+      axios.post('/api/encyclopedia-img',data).then(response=>{
+        this.EncyclopediaList();
+      })
+    },
+
     addItinerary() {
       // Submit form
-
       var api = `/api/encyclopedias/${this.$route.params.id}`;
       this.form
         .put(api)

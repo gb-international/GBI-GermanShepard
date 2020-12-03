@@ -70,7 +70,7 @@ export default {
       });
     },
     getImgPath(img){
-      return `/images/post/`+img;
+      return `/images/category/`+img;
     },
   }
 };

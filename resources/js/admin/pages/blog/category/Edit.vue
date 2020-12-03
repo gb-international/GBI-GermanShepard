@@ -79,26 +79,30 @@ to submit the data we are using a function.
                     <has-error :form="form" field="meta_keyword"></has-error>
                 </div>
             </div>
+            </div>
 
-              
-              <div class="col-sm-6">
+            <div class="row">
+              <div class="col-sm-4">
                 <div class="form-group">
-                  <label class="label" for="input">Please upload a Banner image !</label>
+                  <label for="image">Please upload a Banner image !</label>
                   <br />
                   <input
                     @change="changeDetailPhoto($event)"
+                    name="image"
                     type="file"
                     :class="{ 'is-invalid': form.errors.has('image') }"
                   />
-
-                  <img v-if="newImage" :src="form.image" alt class="image ml-2" width="100"/>
-                  <img :src="imagePath()" alt class="image ml-2" width="100"/>
                   <has-error :form="form" field="image"></has-error>
                 </div>
               </div>
-
-
-
+              <div class="col-sm-2">
+                <div class="form-group">
+                  <label for="image"></label>
+                  <br />
+                  <img :src="img_image" alt class="image w-100" />
+                  <has-error :form="form" field="image"></has-error>
+                </div>
+              </div>
             </div>
             <div class="row">
               <div class="col-sm-2"></div>
@@ -144,7 +148,7 @@ export default {
   },
   data() {
     return {
-        newImage:false,
+        img_image:false,
         customModulesForEditor: [
             { alias: "imageDrop", module: ImageDrop },
             { alias: "imageResize", module: ImageResize }
@@ -172,6 +176,8 @@ export default {
       axios.get(`/api/categories/${this.$route.params.id}/edit`).then((response) => {
         setTimeout(() => $("#example").DataTable(), 1000);
         this.form.fill(response.data);
+        this.form.image = [];
+        this.img_image = "/images/category/" + response.data.image;
       });
     },
     UpdateCategory() {
@@ -187,22 +193,18 @@ export default {
         })
         .catch(() => {});
     },
+
     changeDetailPhoto(event) {
-        let file = event.target.files[0];
-        if (file.size > 29048576) {
-            this.$swal.fire({
-                type: "error",
-                title: "Oops...",
-                text: "Please Select a Valid Image"
-            });
-        } else {
-            let reader = new FileReader();
-            reader.onload = event => {
-                this.newImage = true;
-                this.form.image = event.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
+      let file = event.target.files[0];
+      let reader = new FileReader();
+      reader.onload = event => {
+        this.form.image.push({
+          'name':file.name,
+          'file':event.target.result
+          });
+          this.img_image = event.target.result;
+      };
+      reader.readAsDataURL(file);
     },
     handleImageAdded: function(file, Editor, cursorLocation, resetUploader) {
         var formData = new FormData();

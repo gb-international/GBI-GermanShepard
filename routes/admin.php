@@ -125,6 +125,7 @@ Route::namespace('Admin')->group(function (){
 	});
 
 	Route::namespace('Encyclopedia')->group(function(){
+		Route::post('/encyclopedia-img','EncyclopediaController@deleteImage');
 		Route::resource('encyclopedias','EncyclopediaController');
 		Route::resource('encyclopediacomments','EncyclopediacommentController');
 	});

@@ -4,7 +4,7 @@ namespace App\Model\Transport;
 
 use Illuminate\Database\Eloquent\Model;
 
-class flight extends Model
+class Flight extends Model
 {
 	protected $fillable = ['code','name'];
     public function bookedflights()

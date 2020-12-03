@@ -1,5 +1,3 @@
-
-import App from '@/front/pages/layouts/App.vue';
 import Vue from 'vue';
 import { sync } from 'vuex-router-sync';
 import { createRouter } from './router'
@@ -14,19 +12,13 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import VueMeta from 'vue-meta';
 import api from '@/front/helpers/api';
 import vuecookies from 'vue-cookies';
-import Viewer from 'v-viewer'
+
 Object.defineProperty(Vue.prototype, '$api', { value: api })
 
 
 Vue.use(VueMeta)
 Vue.use(VueSweetalert2);
 Vue.use(Vuex);
-Vue.use(Viewer, {
-    debug: true,
-    defaultOptions: {
-        zIndex: 9999
-    }
-})
 Vue.use(vuecookies)
 Vue.prototype.$axios = axios
 Vue.prototype.$bus = EventBus
@@ -47,16 +39,16 @@ Vue.component("vue-headful", vueHeadful);
 
 Vue.component("ImageSpinner", require("@/front/components/ImageSpinner.vue").default);
 Vue.component("gbi-footer", require("@/front/pages/layouts/Footer.vue").default);
+Vue.component("front", require("@/front/pages/layouts/App.vue").default);
 
 
-export function createApp() {
-    const router = createRouter()
-    const store = createStore()
-    sync(store, router);
-    const app = new Vue({
-        store,
-        router,
-        render: h => h(App)
-    })
-    return { app, router, store }
-}
+const router = createRouter()
+const store = createStore()
+sync(store, router);
+const app = new Vue({
+    el:'#app',
+    store,
+    router
+});
+
+

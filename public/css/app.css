@@ -6849,10 +6849,6 @@ select {
   padding-right: 5 !important;
 }
 
-.explor-content #menu1 {
-  margin-left: 10%;
-}
-
 .explor-content .button_group {
   margin-bottom: 10px;
 }
@@ -9260,9 +9256,13 @@ a:hover {
   width: 100%;
 }
 
-.imageslist .shera-img {
-  background-image: url("/icons/Mascot_Chita.png");
-  width: 50px;
+.shera-img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("/images/icons/Mascot_Chita.png");
+  width: 56px;
   height: 61px;
   background-position: center;
   background-repeat: no-repeat;
@@ -9275,6 +9275,65 @@ a:hover {
   text-align: center;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+#ImagePreviewModal .modal-color {
+  background: #f1f1f1;
+}
+
+#ImagePreviewModal .fade-flip {
+  transform: rotateX(-90deg);
+  opacity: 0;
+  transition: all .25s linear;
+}
+
+#ImagePreviewModal .fade-flip.in {
+  opacity: 1;
+  transform: rotateX(0deg);
+}
+
+#ImagePreviewModal .fade-flip .modal-dialog {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) !important;
+}
+
+#ImagePreviewModal .img-preview {
+  position: relative;
+  overflow: hidden;
+  min-height: 370px;
+}
+
+#ImagePreviewModal .img-preview img {
+  transition: 1 linear;
+  min-height: 370px;
+}
+
+#ImagePreviewModal .img-preview .img-preview-bottom {
+  background: #c5cccca1;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 13px;
+  font-size: 23px;
+}
+
+#ImagePreviewModal .shera-img-modal {
+  height: 103px;
+  width: 90px;
+  margin: 0px 0px 0px 2px !important;
+}
+
+.intro .intro-page-image {
+  height: 230px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.intro .intro-btn {
+  padding: 6px 30px;
 }
 
 .link {
@@ -9423,6 +9482,26 @@ a:hover {
 
 .w-60 {
   width: 60px;
+}
+
+.display-none {
+  display: none;
+}
+
+.position-absoulte {
+  position: absolute;
+}
+
+.zoom1 {
+  transform: scale(1.4);
+}
+
+.zoom2 {
+  transform: scale(1.75);
+}
+
+.zoom3 {
+  transform: scale(1.95);
 }
 
 .font-13 {

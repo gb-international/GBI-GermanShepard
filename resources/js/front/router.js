@@ -5,7 +5,7 @@ import VueMeta from 'vue-meta'
 Vue.use(Router);
 Vue.use(VueMeta);
 
-// const Home = () => import(/* webpackChunkName: "Home" */ '@/components/front/layouts/FrontHome.vue');
+// const Home = () => import(/* webpackChunkName: "Home" */ '@/front/pages/layouts/FrontHome.vue');
 import Home from '@/front/pages/layouts/FrontHome.vue'
 import faq from '@/front/pages/Resources/Faq.vue'
 import ExploreDestination from '@/front/pages/Explore/ExploreDestination.vue'

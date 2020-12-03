@@ -15,7 +15,7 @@ class Bookedbus extends Model
 
     public function bus()
     {
-    	return $this->belongsTo('App\Model\Transport\bus');
+    	return $this->belongsTo('App\Model\Transport\Bus');
     }
 
 

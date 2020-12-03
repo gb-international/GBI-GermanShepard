@@ -88,7 +88,7 @@ to submit the data we are using a function.
                 </div>
               </div>
 
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label class="label" for="input"
                     >Please upload a Banner image !</label
@@ -98,10 +98,16 @@ to submit the data we are using a function.
                     @change="changeDetailPhoto($event)"
                     type="file"
                     :class="{ 'is-invalid': form.errors.has('image') }"
-                    required
                   />
 
-                  <img :src="form.image" alt class="image ml-2" width="100" />
+                  <has-error :form="form" field="image"></has-error>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <div class="form-group">
+                  <label for="image"></label>
+                  <br />
+                  <img :src="img_image" alt class="image w-100" />
                   <has-error :form="form" field="image"></has-error>
                 </div>
               </div>
@@ -210,11 +216,12 @@ export default {
       },
       categories:[],
       tags:[],
+      img_image:false,
       form: new Form({
         title: "",
         description: "",
         summery:"",
-        image: "",
+        image: [],
         meta_title: "",
         meta_keyword: "",
         status:"",
@@ -255,19 +262,15 @@ export default {
 
     changeDetailPhoto(event) {
       let file = event.target.files[0];
-      if (file.size > 29048576) {
-        this.$swal.fire({
-          type: "error",
-          title: "Oops...",
-          text: "Please Select a Valid Image",
-        });
-      } else {
-        let reader = new FileReader();
-        reader.onload = (event) => {
-          this.form.image = event.target.result;
-        };
-        reader.readAsDataURL(file);
-      }
+      let reader = new FileReader();
+      reader.onload = event => {
+        this.form.image.push({
+          'name':file.name,
+          'file':event.target.result
+          });
+          this.img_image = event.target.result;
+      };
+      reader.readAsDataURL(file);
     },
 
     handleImageAdded: function(file, Editor, cursorLocation, resetUploader) {

@@ -54,8 +54,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- {!! $ssr !!}
-  <script src="{{ asset('js/entry-client.js') }}" type="text/javascript"></script>
+ {{-- {!! $ssr !!}
+  <script src="{{ asset('js/entry-client.js') }}" type="text/javascript"></script> --}}
+
+  {!! ssr('js/entry-server.js')
+            // Share the packages with the server script through context
+            // If ssr fails, we need a container to render the app client-side
+            ->fallback('<div id="app"></div>')
+            ->render() !!}
+
 
 <script>
   window.Laravel = <?php echo json_encode([
@@ -103,7 +110,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 window.onscroll = function() {myFunction()};
 
 var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
+// var sticky = header.offsetTop;
 
 function myFunction() {
   if (window.pageYOffset > sticky) {

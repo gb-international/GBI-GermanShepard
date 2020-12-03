@@ -20,62 +20,14 @@
 
           <div class="card state_images">
             <div class="row">
-              <div class="col-6">
+              <div class="col-6" v-for="img in state_data.images" :key="img.id">
                 <img
-                  :src="getImgUrl(state_data.image_one)"
+                  :src="getImgUrl(img.image)"
                   loading="lazy"
-                  :alt="state_data.state_name"
+                  :alt="img.alt"
                 />
               </div>
-              <div class="col-6">
-                <img
-                  :src="getImgUrl(state_data.image_two)"
-                  loading="lazy"
-                  :alt="state_data.state_name"
-                />
-              </div>
-              <div class="col-6">
-                <img
-                  :src="getImgUrl(state_data.image_three)"
-                  loading="lazy"
-                  :alt="state_data.state_name"
-                />
-              </div>
-              <div class="col-6">
-                <img
-                  :src="getImgUrl(state_data.image_four)"
-                  loading="lazy"
-                  :alt="state_data.state_name"
-                />
-              </div>
-              <div class="col-6">
-                <img
-                  :src="getImgUrl(state_data.image_five)"
-                  loading="lazy"
-                  :alt="state_data.state_name"
-                />
-              </div>
-              <div class="col-6">
-                <img
-                  :src="getImgUrl(state_data.image_six)"
-                  loading="lazy"
-                  :alt="state_data.state_name"
-                />
-              </div>
-              <div class="col-6">
-                <img
-                  :src="getImgUrl(state_data.image_seven)"
-                  loading="lazy"
-                  :alt="state_data.state_name"
-                />
-              </div>
-              <div class="col-6">
-                <img
-                  :src="getImgUrl(state_data.image_eight)"
-                  loading="lazy"
-                  :alt="state_data.state_name"
-                />
-              </div>
+              
             </div>
           </div>
           <div class="card state_card">

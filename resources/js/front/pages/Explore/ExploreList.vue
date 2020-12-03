@@ -25,18 +25,21 @@
       </div>
     </section>
     <div class="container">
-      <div class="row">
+      <div class="row m-0">
         <div class="col-lg-12">
           <div class="row">
             
-            <itinerary-list :list="items"></itinerary-list>
+            <itinerary-list :list="items_list"></itinerary-list>
 
             <Observer @intersect="intersected" />
+
           </div>
         </div>
+
         <div class="loading-img-parent text-center w-100 mb-4" v-if="loading">
-          <img class="loading-img" src="/icons/loader.gif">
+          <img class="loading-img" src="/images/icons/loader.gif">
         </div>
+
       </div>
     </div>
   </div>
@@ -56,17 +59,17 @@ export default {
     return {
       keyword: "",
       page: 1,
-      items: [],
+      items_list: [],
       itineraryData: {},
       loading: false
-    };
+    }
   },
   // get api data itinerary data
   mounted() {
     this.$store.dispatch("getAllData", "/api/itinerary");
     this.intersected();
   },
-  //fetch all data function itinerary
+  // fetch all data function itinerary
   computed: {
     alldata() {
       return this.$store.getters.getAllData;
@@ -75,12 +78,16 @@ export default {
   methods: {
     async intersected() {
       this.loading = true;
+      
       var url = `/api/itinerary-list?page=` + this.page;
       const res = await fetch(url);
 
       this.page++;
-      const items = await res.json();
-      this.items = [...this.items, ...items.data];
+      var items = await res.json();
+      if(items.data.length > 0){
+        this.items_list = [...this.items_list, ...items.data];
+      }
+      items = [];
       this.loading = false;
     },
     RealSearch: _.debounce(function() {

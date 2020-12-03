@@ -1,5 +1,6 @@
 import Vue from 'vue'
-const apiBaseUrl = 'http://localhost:8000/escort';
+const apiBaseUrl = '/escort';
+
 export default {
     get(url, request) {
         return axios.get( apiBaseUrl+ url, request)

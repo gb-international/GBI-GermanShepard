@@ -13,7 +13,7 @@ class School extends Model
 
     public function students()
     {
-    	return $this->hasMany('App\Model\School\student');
+    	return $this->hasMany('App\Model\School\Student');
     }
     public function tours()
     {

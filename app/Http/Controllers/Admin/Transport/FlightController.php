@@ -6,7 +6,7 @@ Purpose : Manage Flight
 */
 namespace App\Http\Controllers\Admin\Transport;
 use App\Http\Resources\AirCollection;
-use App\Model\Transport\flight;
+use App\Model\Transport\Flight;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,7 +19,7 @@ class FlightController extends Controller
      */
     public function index()
     {
-        return response()->json(flight::get());
+        return response()->json(Flight::get());
     }
 
     /**
@@ -50,7 +50,7 @@ class FlightController extends Controller
      * @param  \App\flight  $flight
      * @return \Illuminate\Http\Response
      */
-    public function show(flight $flight)
+    public function show(Flight $flight)
     {
         return response()->json($flight);
     }
@@ -61,7 +61,7 @@ class FlightController extends Controller
      * @param  \App\flight  $flight
      * @return \Illuminate\Http\Response
      */
-    public function edit(flight $flight)
+    public function edit(Flight $flight)
     {
         return response()->json($flight);
     }
@@ -73,7 +73,7 @@ class FlightController extends Controller
      * @param  \App\flight  $flight
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, flight $flight)
+    public function update(Request $request, Flight $flight)
     {
         $flight->update($this->validateFlight($request));
         return response()->json('successfully updated');
@@ -85,7 +85,7 @@ class FlightController extends Controller
      * @param  \App\flight  $flight
      * @return \Illuminate\Http\Response
      */
-    public function destroy(flight $flight)
+    public function destroy(Flight $flight)
     {
         $flight->delete();
         return response()->json('successfully deleted');

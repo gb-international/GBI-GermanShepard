@@ -9,7 +9,7 @@
         <div class="container-fluid mb-30">
           <div class="row">
             <div class="col-sm-12">
-              <form role="form">
+              <form role="form" autocomplete="off">
                 <div class="nav-sreach-explo">
                   <ul class="nav nav-tabs serch-explo-menu">
                     <li class="nav-item">
@@ -39,6 +39,7 @@
                             :options="options"
                             v-model="sources"
                             placeholder="Leave from"
+                            autocomplete="off"
                           ></model-select>
                         </div>
                         <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">

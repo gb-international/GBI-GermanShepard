@@ -39,7 +39,12 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $data = $request->all();
-        $data['image'] = $this->verifyAndUpload($request,'image','/images/post/');
+
+        if($request->image){
+            $imagename = explode('.',$request->image[0]['name'])[0];
+            $data['image'] = $this->singleFile($request->image[0]['file'],'/images/category/',$imagename);
+            $data['alt'] = $imagename;
+        }
         Category::create($data);
         return response()->json('succesfull created');
     }
@@ -76,10 +81,11 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request, Category $category)
     {
         $data = $request->all();
-        if($request->image != $category->image){
-            $path = '/images/post/'.$category->image;
-            $this->deleteImg($path);
-            $data['image'] = $this->verifyAndUpload($request,'image','/images/post/');
+        if($request->image){
+            $imagename = explode('.',$request->image[0]['name'])[0];
+            $data['image'] = $this->singleFile($request->image[0]['file'],'/images/category/',$imagename);
+            $this->deleteImg("/images/category/{$category->image}");
+            $data['alt'] = $imagename;
         }
         $category->update($data);
         return response()->json('succesfull created');
@@ -93,8 +99,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $path = '/images/post/'.$category->image;
-        $this->deleteImg($path);
+        $this->deleteImg("/images/category/{$category->image}");
         $category->delete();
         return response()->json('successfully deleted');
     }

@@ -4,7 +4,7 @@ namespace App\Model\Transport;
 
 use Illuminate\Database\Eloquent\Model;
 
-class train extends Model
+class Train extends Model
 {
 	protected $fillable = ['code','name'];
     public function bookedtrains()

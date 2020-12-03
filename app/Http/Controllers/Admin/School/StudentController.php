@@ -6,7 +6,7 @@ Purpose : Manage Student
 */
 namespace App\Http\Controllers\Admin\School;
 use App\Http\Resources\StudentCollection;
-use App\Model\School\student;
+use App\Model\School\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,7 +19,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return new StudentCollection(student::with('school')->get());
+        return new StudentCollection(Student::with('school')->get());
     }
 
     /**
@@ -48,7 +48,7 @@ class StudentController extends Controller
 
         foreach ($data as $student) {
             $student['school_id'] = $school_id;
-            student::create($student);
+            Student::create($student);
         }
         return response()->json(['Message'=> 'Successfully Added...']);
     }
@@ -59,7 +59,7 @@ class StudentController extends Controller
      * @param  \App\school  $school
      * @return \Illuminate\Http\Response
      */
-    public function show(student $student)
+    public function show(Student $student)
     {
         return response()->json($student);
     }
@@ -70,7 +70,7 @@ class StudentController extends Controller
      * @param  \App\student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(student $student)
+    public function edit(Student $student)
     {
         return response()->json($student);
     }
@@ -82,7 +82,7 @@ class StudentController extends Controller
      * @param  \App\student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, student $student)
+    public function update(Request $request, Student $student)
     {
         $student->update($request->all());
         return response()->json(['message'=>'Successfully Updated']);
@@ -94,7 +94,7 @@ class StudentController extends Controller
      * @param  \App\student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(student $student)
+    public function destroy(Student $student)
     {
         $student->delete();
         return response()->json('successfully deleted');
@@ -103,7 +103,7 @@ class StudentController extends Controller
     // Validate Escort
     public function validateStudent($request)
     {
-      return $this->validate($request, [
+        return $this->validate($request, [
             'school_id' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
@@ -114,6 +114,6 @@ class StudentController extends Controller
             'dob' => 'required',
             'class' => 'required',
             'address' => 'required',
-      ]);
+        ]);
     }
 }

@@ -14,7 +14,7 @@ class Bookedhotel extends Model
 
     public function hotel()
     {
-    	return $this->belongsTo('App\Model\Hotel\hotel');
+    	return $this->belongsTo('App\Model\Hotel\Hotel');
     }
     
 }

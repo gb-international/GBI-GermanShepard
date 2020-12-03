@@ -16,7 +16,7 @@ class Bookedtrain extends Model
 
     public function train()
     {
-    	return $this->belongsTo('App\Model\Transport\train');
+    	return $this->belongsTo('App\Model\Transport\Train');
     }
 
 

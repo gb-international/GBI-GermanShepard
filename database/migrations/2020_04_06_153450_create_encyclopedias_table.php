@@ -21,15 +21,6 @@ class CreateEncyclopediasTable extends Migration
             $table->text('description')->nullable();
             $table->text('map_link')->nullable();
             $table->string('slug')->nullable();
-            $table->string('image_one')->nullable();
-            $table->string('image_two')->nullable();
-            $table->string('image_three')->nullable();
-            $table->string('image_four')->nullable();
-            $table->string('image_five')->nullable();
-            $table->string('image_six')->nullable();
-            $table->string('image_seven')->nullable();
-            $table->string('image_eight')->nullable();
-
             $table->timestamps();
         });
     }

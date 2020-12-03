@@ -45,7 +45,12 @@ class PostController extends Controller
             array_push($tag_id,$tag['id']);
         }
 
-        $data['image'] = $this->verifyAndUpload($request,'image','/images/post/');
+        if($request->image){
+            $imagename = explode('.',$request->image[0]['name'])[0];
+            $data['image'] = $this->singleFile($request->image[0]['file'],'/images/post/',$imagename);
+            $data['alt'] = $imagename;
+        }
+
         $post = Post::create($data);
         $post->tags()->sync($tag_id);
 
@@ -93,11 +98,15 @@ class PostController extends Controller
         foreach ($request->tags as $tag) {
             array_push($tag_id,$tag['id']);
         }
-        if($request->image != $post->image){
-            $path = '/images/post/'.$post->image;
-            $this->deleteImg($path);
-            $data['image'] = $this->verifyAndUpload($request,'image','/images/post/');
+        
+        
+        if($request->image){
+            $imagename = explode('.',$request->image[0]['name'])[0];
+            $data['image'] = $this->singleFile($request->image[0]['file'],'/images/post/',$imagename);
+            $this->deleteImg("/images/post/{$post->image}");
+            $data['alt'] = $imagename;
         }
+
         $post->update($data);
         $post->tags()->sync($tag_id);
         return $data;

@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('image');
+            $table->string('alt')->nullable();
             $table->string('slug');
             $table->text('description');
             $table->string('meta_title');

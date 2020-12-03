@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Http\Resources\SightseeingCollection;
-use App\Model\Reservation\sightseeing;
+use App\Model\Reservation\Sightseeing;
 use App\Traits\ImageTrait;
 
 class SightseeingController extends Controller
@@ -19,7 +19,7 @@ class SightseeingController extends Controller
      */
     public function index()
     {
-        return new SightseeingCollection(sightseeing::with(['city','state'])->get());
+        return new SightseeingCollection(Sightseeing::with(['city','state'])->get());
     }
 
     /**
@@ -40,7 +40,7 @@ class SightseeingController extends Controller
      */
     public function store(Request $request)
     {
-        $sightseeing = sightseeing::create($this->validateSightseeing($request));
+        $sightseeing = Sightseeing::create($this->validateSightseeing($request));
 
        if($request->image!=$sightseeing->image){
             $name = $this->singleFile($request->image,'/images/sightseeing/',$request->alt);
@@ -69,7 +69,7 @@ class SightseeingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(sightseeing $sightseeing)
+    public function edit(Sightseeing $sightseeing)
     {
         return response()->json($sightseeing);
     }
@@ -81,7 +81,7 @@ class SightseeingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, sightseeing $sightseeing)
+    public function update(Request $request, Sightseeing $sightseeing)
     {
         $sightseeing->update($this->validateSightseeing($request));
        if($request->image!=$sightseeing->image){
@@ -101,7 +101,7 @@ class SightseeingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(sightseeing $sightseeing)
+    public function destroy(Sightseeing $sightseeing)
     {
         $this->deleteImg("/images/sightseeing/{$sightseeing->image}");
         $sightseeing->delete();

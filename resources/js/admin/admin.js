@@ -64,8 +64,6 @@ const router = new VueRouter({
     scrollBehavior() { return { x: 0, y: 0 }; },
 })
 
-
-
 const app = new Vue({
     el: '#app',
     router,

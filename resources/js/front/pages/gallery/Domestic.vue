@@ -71,9 +71,6 @@ export default {
       gallery:[],
     };
   },
-  mounted(){
-    this.intersected();
-  },
   methods:{
 
     async intersected() {
@@ -82,8 +79,11 @@ export default {
       const res = await fetch(url);
 
       this.page++;
-      const items = await res.json();
-      this.gallery = [...this.gallery, ...items.data];
+      var items = await res.json();
+      if(items.data.length > 0){
+        this.gallery = [...this.gallery, ...items.data];
+      }
+      items = [];
       this.loading = false;
     }
   }

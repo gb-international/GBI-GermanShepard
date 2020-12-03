@@ -6,7 +6,7 @@ Purpose : Manage train
 */
 namespace App\Http\Controllers\Admin\Transport;
 
-use App\Model\Transport\train;
+use App\Model\Transport\Train;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -40,7 +40,7 @@ class TrainController extends Controller
      */
     public function store(Request $request)
     {
-        train::create($this->validateTrain($request));
+        Train::create($this->validateTrain($request));
         return response()->json('successfully added');
     }
 
@@ -50,7 +50,7 @@ class TrainController extends Controller
      * @param  \App\train  $train
      * @return \Illuminate\Http\Response
      */
-    public function show(train $train)
+    public function show(Train $train)
     {
         //
     }
@@ -61,7 +61,7 @@ class TrainController extends Controller
      * @param  \App\train  $train
      * @return \Illuminate\Http\Response
      */
-    public function edit(train $train)
+    public function edit(Train $train)
     {
         return response()->json($train);
     }
@@ -73,7 +73,7 @@ class TrainController extends Controller
      * @param  \App\train  $train
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, train $train)
+    public function update(Request $request, Train $train)
     {
         $train->update($this->validateTrain($request));
         return response()->json('successfully updated');
@@ -85,7 +85,7 @@ class TrainController extends Controller
      * @param  \App\train  $train
      * @return \Illuminate\Http\Response
      */
-    public function destroy(train $train)
+    public function destroy(Train $train)
     {
         $train->delete();
         return response()->json('successfully deleted');

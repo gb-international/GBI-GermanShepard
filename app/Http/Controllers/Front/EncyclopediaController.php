@@ -20,7 +20,7 @@ class EncyclopediaController extends Controller
     {    	
 
 
-        $data = Encyclopedia::with('comments','itinerarypdfs','comments.user','comments.user.information')->where('slug',$slug)->first();
+        $data = Encyclopedia::with('comments','images','itinerarypdfs','comments.user','comments.user.information')->where('slug',$slug)->first();
         
     	return response()->json($data);
     }
