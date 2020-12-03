@@ -51,26 +51,27 @@
   float: right;
   font-weight: 600;
  }
-.listexplore:hover{
-	color: #666666;
+.listexplore:hover{ color: #666666; }
+.explore_banner{
+	.content{
+		top: 27% !important;
+	}
 }
 
 .explore_banner_img{
-      background-image: url('https://gbi-assets.s3.ap-south-1.amazonaws.com/explore-dest.webp') !important;
-      background-repeat: no-repeat;
-      background-size: cover;
-      padding: 11% 0%;
-
+	background-image: url('https://gbi-assets.s3.ap-south-1.amazonaws.com/explore-dest.webp') !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 11% 0%;
 }
 
 
 
 .explore_list_search{
 	background-image: url('https://gbi-assets.s3.ap-south-1.amazonaws.com/explore-dest.webp') !important;
-      background-repeat: no-repeat;
-      background-size: cover;
-      padding: 11% 0%;
-
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 11% 0%;
 }
 
 

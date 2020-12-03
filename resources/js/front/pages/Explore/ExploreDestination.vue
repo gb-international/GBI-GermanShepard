@@ -465,10 +465,16 @@ export default {
           vm.searchForm.source.push(source);
           vm.searchForm.destination.push(destination);
         } else {
-          swal.fire({
-            text: "Select all the locations!",
-            type: "warning"
-          });
+          console.log('hi');
+          this.$swal.fire(
+            'Error',
+            'Please select all the fields',
+            'error'
+          );
+          // swal.fire({
+          //   text: "Select all the locations!",
+          //   type: "warning"
+          // });
         }
         var rows_length = vm.rows.length;
         for (var i = 0; i <= rows_length - 1; i++) {
@@ -489,25 +495,27 @@ export default {
           .post("api/search-itinerary")
           .then(response => {
             vm.allSearchdata = response.data.data;
-            if (vm.allSearchdata != "") {
-            } else {
-              swal({
-                text: "Not found!",
-                width: 300
-              });
+            if (vm.allSearchdata.length == 0) {
+              this.$swal.fire(
+                'Alert',
+                'Not Found!!1',
+                'info'
+              );
             }
           })
           .catch(error => {
-            swal({
-              text: "please select the fields",
-              width: 300
-            });
+            this.$swal.fire(
+              'Alert',
+              'please select the fields',
+              'error'
+            );
           });
       } else {
-        swal({
-          text: "please select locations",
-          width: 300
-        });
+        this.$swal.fire(
+          'Alert',
+          'please select locations',
+          'error'
+        );
       }
     }
   },

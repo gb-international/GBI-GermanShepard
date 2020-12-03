@@ -28,9 +28,9 @@ class AuthController extends Controller{
 
     public function login(Request $request){ 
         
+        
         // Check if a user with the specified email exists
         $user = User::whereEmail($request->email)->first();
-
         if (!$user) {
             return response()->json([
                 'message' => 'Wrong email or password',
@@ -38,20 +38,23 @@ class AuthController extends Controller{
             ], 422);
         }
         
+        
+        
         // If a user with the email was found - check if the specified password
-    
+        
         if (!Hash::check($request->password, $user->password)) {
             return response()->json([
                 'message' => 'Wrong email or password',
                 'status' => 422
             ], 422);
         }
-
+        
+        
         // Send an internal API request to get an access token
         $client = DB::table('oauth_clients')
             ->where('password_client', true)
             ->first();
-
+        
         // Make sure a Password Client exists in the DB
         if (!$client) {
             return response()->json([
@@ -59,7 +62,7 @@ class AuthController extends Controller{
                 'status' => 500
             ], 500);
         }
-
+        
         $data = [
             'grant_type' => 'password',
             'client_id' => $client->id,
@@ -67,11 +70,11 @@ class AuthController extends Controller{
             'username' => $request->email,
             'password' => $request->password,
         ];
+   
 
         $request = Request::create('/oauth/token', 'POST', $data);
-
+        
         $response = app()->handle($request);
-
         // Check if the request was successful
         if ($response->getStatusCode() != 200) {
             return response()->json([
