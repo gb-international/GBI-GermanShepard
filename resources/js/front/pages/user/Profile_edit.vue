@@ -8,7 +8,7 @@
         <form role="form" enctype="multipart/form-data">
           <div class="avatar-edit">
             <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" @change="onChange" />
-            <label for="imageUpload"><i class="fas fa-pencil-alt"></i></label>
+            <label for="imageUpload"><img src="/images/icons/edit.png" class="icon-width"></label>
           </div>
           <div class="avatar-preview">
             <div id="imagePreview" style="background-image: url();">

@@ -112,7 +112,7 @@
                 data-target="#LoginForm"
               >
                 login
-                <i class="fa fa-user"></i>
+                <img src="/images/icons/profile.png" class="icon-width">
               </a>
             </li>
 

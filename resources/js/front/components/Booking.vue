@@ -92,7 +92,7 @@
             <label for="numofday">Number of Days</label>
             <div class="row align-content-center">
               <div class="col">
-                <button @click="down()" class="btn circle-btn f-12" type="button"><i class="fas fa-minus"></i></button>
+                <img src="/images/icons/minus.png" @click="down()" class="w-40 link">
               </div>
               
               <div class="col">
@@ -100,7 +100,7 @@
               </div>
               
               <div class="col">
-                <button @click="up()" class="btn circle-btn f-12" type="button"><i class="fas fa-plus"></i></button>
+                <img src="/images/icons/add.png" @click="up()" class="w-40 link">
               </div>
 
             </div>

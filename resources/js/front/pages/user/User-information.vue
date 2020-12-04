@@ -114,11 +114,9 @@ export default {
     this.$axios.get("/api/school-list").then(response => {
       this.school_list = response.data;
     });
-
-
+    
     var data = [];
-    this.$axios
-      .post("/api/user-show", [])
+    this.$api.POST("/api/user-show", [])
       .then(response => {
         if (response.success.status == 1) {
             this.$router.push("/dashboard");
@@ -167,10 +165,13 @@ export default {
 
       this.$axios
         .post("/api/user-info-update", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` }
+          headers: { Authorization: `Bearer ${this.$cookies.get('access_token')}` }
         })
         .then(response => {
-
+          const data = this.$cookies.get('user');
+          data.status = 1;
+          this.$cookies.remove('user');
+          this.$cookies.set('user',data);
           this.$router.push("/dashboard");
         })
         .catch(error => {

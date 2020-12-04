@@ -1,88 +1,10 @@
-Category
-	-> image image
-	-> title 
-	-> Description
-	-> Seo Friendly ( Seo Information )
-		-> meta title ( Category title )
-		-> meta description ( Cateogry Description )
-		-> meta keywords ( user will add dropdown multiselect and can add new one also)
 
-Tags ->
-	name
-	
-meta keywords:
-	-> Add edit delete
+1. if admin login is redirecting to http ( edit appservice provider and
+	forceScheme to https)
 
+2. secure_assets() should be added while pushing local project to live
 
-Font end blog 
-	->Travel journal
-	-> search ( title key word search )
-	-> Category
-		-> blog 
-			-> category_id
-			-> user_id
-			-> title
-			-> image image
-			-> Author (GBI Author)
-				-> GBI Logo in the place of Author image
-			-> last updated
-
-
-			-> Comments 
-			-> Show relevant blogs ( slider )
-			-> Seo Friendly ( Seo Information )
-				-> meta title ( Blog title )
-				-> meta description ( Blog Description )
-				-> meta keywords ( user will add dropdown multiselect and can add new one also)
-
-		-> Share ( Social media Icon )
-
-Subscription
-	-> Email
-
-
-Tables
-	-> Cateogry
-		-> id
-		-> name
-		-> image 
-		-> Description
-		-> slug
-		-> meta_title
-	-> Tag	
-		-> id
-		-> name
-		-> slug
-		-> description
-		-> meta_title
-	-> Post
-		-> id
-		-> user_id
-		-> name
-		-> slug
-		-> summary
-		-> description
-		-> status
-		-> created_at
-		-> updated_at
-		-> published_at
-		-> meta_title
-
-	-> PostComment
-		-> post_id
-		-> user_id
-		-> parent_id
-		-> description
-		-> created_at
-		-> updated_at
-
-	-> PostCategory
-		-> post_id
-		-> category_id
-
-	-> postTag
-		-> post_id
-		-> tag_id
-
-
+3. have not taken backup of live project 
+4. local project in GBI_GermanShepard folder
+5. We have removed SSR from project 
 

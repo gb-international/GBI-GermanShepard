@@ -6,11 +6,11 @@
     <div class="user_dashboard_profile">
       <div class="container">
         <div class="text-right">
-          <router-link :to="`/profile-edit`" class="user_edit">
-            <i class="fas fa-user-edit"></i>
+          <router-link :to="`/profile-edit`" class="user_edit" title="edit profile">
+            <img src="/images/icons/profile.png" class="icon-width">
           </router-link><br>
-          <router-link :to="`/update-password`" class="user_edit">
-            <i class="fas fa-cog"></i>
+          <router-link :to="`/update-password`" class="user_edit" title="setting">
+            <img src="/images/icons/setting.png" class="icon-width">
           </router-link>
         </div>
         <div class="row" v-if="userinfo">
@@ -18,7 +18,7 @@
             <figure v-lazyload class="image__wrapper">
               <ImageSpinner class="image__spinner" />
               <img
-                class="image__item img img-circle"
+                class="image__item img img-circle profile-img"
                 :data-url="`/uploadimage/${userinfo.photo}`"
                 alt="user profile"
               />
@@ -243,7 +243,10 @@ export default {
 
   
   mounted() {
-    
+    const userdata = this.$cookies.get('user');
+    if(userdata.status == 0){
+      this.$router.push("/user-information");
+    }
     this.checkLogin();
     this.upComingData();
   },

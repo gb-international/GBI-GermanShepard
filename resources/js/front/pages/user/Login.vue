@@ -48,7 +48,7 @@
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="fas fa-envelope"></i>
+                    <img src="/images/icons/email.png" class="icon-width">
                   </span>
                 </div>
 
@@ -65,7 +65,7 @@
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="fas fa-key"></i>
+                    <img src="/images/icons/key.png" class="icon-width">
                   </span>
                 </div>
                 <input
@@ -156,7 +156,9 @@ export default {
           window.$(".login_close").click();
           this.login_message = "";
           this.$bus.$emit("logged", "User logged");
-          this.$router.push("/explore-destination");
+          if(response.data.user.status == 0){
+            this.$router.push("/user-information");
+          }
           this.isLoading = false;
         })
         .catch(err =>{

@@ -20,7 +20,7 @@
           <p class="font-13 pl-10 mb-10">{{itinerary.noofdays}} Days Tour</p>
           <div class="row m-0 text-left pl-10">
             <div class="col p-0" v-if="itinerary.hotel_type != '0'">
-              <i class="fas fa-hotel" aria-hidden="true"></i>
+              <img src="/images/icons/hotel.png" class="footer-icon-width">
               <br />
               <span>Hotel</span>
             </div>
@@ -30,12 +30,12 @@
               <span>Train</span>
             </div>
             <div class="col p-0"  v-if="itinerary.bus =='1'">
-              <i class="fas fa-bus" aria-hidden="true"></i>
+              <img src="/images/icons/bus.png" class="footer-icon-width">
               <br />
               <span>Bus</span>
             </div>
             <div class="col p-0" v-if="itinerary.flight== '1'">
-              <i class="fas fa-plane" aria-hidden="true"></i>
+              <img src="/images/icons/flight.png" class="footer-icon-width">
               <br />
               <span>Flight</span>
             </div>

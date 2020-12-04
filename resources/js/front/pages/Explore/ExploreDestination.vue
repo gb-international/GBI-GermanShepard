@@ -1,8 +1,7 @@
 <template>
-      <!--************************************************
-      Author:@Ajay
-      ****************************************************-->
-  
+  <!--************************************************
+  Author:@Ajay
+  ****************************************************-->
   <div id="exploreDestination">
     <div class="explore_banner text_on_image banner_bg explore_bg_img">
       <div class="content">
@@ -128,27 +127,18 @@
                         <div class="col-lg-2">
                           <div class="row button_group">
                             <div class="col-12">
-                              <div class="buttons save_btn" v-if="city_button == current_counter">
-                                <button
+                              <div class="buttons save_btn link" v-if="city_button == current_counter">
+                                  <img src="/images/icons/multiple_add.png"
                                   v-if="city_button == current_counter"
-                                  type="button"
-                                  class="btn btn-default multi_city_btn"
+                                  class="" 
                                   v-bind:class="{ disable : save_disable_btn }"
-                                  @click="addRow"
-                                >
-                                  <i class="fas fa-plus"></i>
-                                </button>
+                                  @click="addRow">
                               </div>
 
-                              <div class="buttons remove_btn" v-if="city_button == current_counter">
-                                <button
-                                  type="button"
-                                  class="btn text-center btn-default multi_city_btn"
-                                  v-bind:class="{ disable : remove_disable_btn }"
-                                  @click="deleteRow(current_counter-1)"
-                                >
-                                  <i class="fas fa-minus"></i>
-                                </button>
+                              <div class="buttons remove_btn link" v-if="city_button == current_counter">
+                                  <img src="/images/icons/multiple_minus.png" class="" v-bind:class="{ disable : remove_disable_btn }"
+                                  @click="deleteRow(current_counter-1)">
+
                               </div>
                             </div>
                           </div>

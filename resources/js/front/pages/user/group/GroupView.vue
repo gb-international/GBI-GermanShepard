@@ -19,7 +19,7 @@
           >ADD Number of person</button>
 
           <a class="text-gray ml-2" :href="`/assets/sample-group-list.xlsx`" download>
-            <i class="fas fa-download"></i> Name list formate
+            <img src="/images/icons/download.png" class="icon-width"> Name list formate
           </a>
         </div>
 

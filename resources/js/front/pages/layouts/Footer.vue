@@ -24,31 +24,31 @@
                           <p>New Delhi 110017</p>
                         </li>
                         <li>
-                          <p><i class="fa fa-phone fa-lg" aria-hidden="true"></i> 011-41864453</p>
-                          <p><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>csrikhi@gbinternational.in</p>
+                          <p><img src="/images/icons/handphone.png" class="icon-width"> 011-41864453</p>
+                          <p><img src="/images/icons/email.png" class="icon-width">csrikhi@gbinternational.in</p>
                           <p>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;info@gbinternational.in</p>
                         </li>
                         
                         <li>
                           <h3>Connect With Us</h3>
-                          <a href="https://www.facebook.com/gowithgbi/">
-                            <i class="fab fa-facebook-f fa-lg" aria-hidden="true"></i>
+                          <a href="https://www.facebook.com/gowithgbi/" class="mr-1">
+                            <img src="/images/icons/facebook.png" class="footer-icon-width">
                           </a>
-                          <a href="https://twitter.com/gowithgbi">
-                            <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+                          <a href="https://twitter.com/gowithgbi" class="mr-1">
+                            <img src="/images/icons/twitter.png" class="footer-icon-width">
                           </a>
-                          <a href="https://www.linkedin.com/company/13592478/admin/">
-                            <i class="fab fa-linkedin-in fa-lg" aria-hidden="true"></i>
+                          <a href="https://www.linkedin.com/company/13592478/admin/" class="mr-1">
+                            <img src="/images/icons/linkedin.png" class="footer-icon-width">
                           </a>
-                          <a href="https://wordpress.com/view/gowithgbi.wordpress.com">
-                            <i class="fab fa-wordpress fa-lg" aria-hidden="true"></i>
+                          <a href="https://wordpress.com/view/gowithgbi.wordpress.com" class="mr-1">
+                            <img src="/images/icons/wordpress.png" class="footer-icon-width">
                           </a>
                           <a href="https://www.instagram.com/gbirikhi/">
-                            <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
+                            <img src="/images/icons/instagram.png" class="footer-icon-width">
                           </a>
-                          <a href="#">
+                          <!-- <a href="#">
                             <i class="fab fa-youtube fa-lg" aria-hidden="true"></i>
-                          </a>
+                          </a> -->
                         </li>
                     </ul>
               </div>
