@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "axios": "^0.19",
-        "bootstrap": "^4.0.0",
+        "bootstrap": "^4.5.3",
         "cross-env": "^7.0",
         "jquery": "^3.2",
         "laravel-mix": "^5.0.1",
@@ -20,9 +20,9 @@
         "resolve-url-loader": "2.3.1",
         "sass": "^1.20.1",
         "sass-loader": "7.*",
-        "vue": "^2.6.11",
+        "vue": "^2.6.12",
         "vue-loader": "^15.9.2",
-        "vue-template-compiler": "^2.6.11"
+        "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
         "@babel/runtime": "^7.10.3",
@@ -30,11 +30,13 @@
         "@ckeditor/ckeditor5-vue": "^1.0.1",
         "admin-lte": "^3.0.5",
         "babel-runtime": "^6.26.0",
+        "bootstrap-vue": "^2.21.1",
         "datatables.net-bs": "^1.10.21",
         "datatables.net-dt": "^1.10.21",
         "html2canvas": "^1.0.0-rc.5",
         "idle-vue": "^2.0.5",
         "jspdf": "^1.5.3",
+        "laravel-vue-pagination": "^2.3.1",
         "moment": "^2.26.0",
         "node-sass": "^4.14.1",
         "quill-image-drop-module": "^1.0.3",

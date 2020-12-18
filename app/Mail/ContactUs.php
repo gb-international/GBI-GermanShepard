@@ -21,6 +21,6 @@ class ContactUs extends Mailable
     public function build()
     {
         return $this->subject('GBI-Contact Us')
-                ->markdown('email.contactus')->with('data',$this->user);
+                ->markdown('emails.contactus')->with('data',$this->user);
     }
 }

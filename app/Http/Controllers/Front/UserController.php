@@ -77,6 +77,8 @@ class UserController extends Controller{
         $more->save();
         $sendsms = new SendSms; // send welcome sms
         $sendsms->signUpSMS($request->phone_no,$user);
+        // send email
+        WelcomeJob::dispatch($user);
         return response()->json('Successfully Registered !!!');
     }
 

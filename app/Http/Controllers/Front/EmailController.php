@@ -21,13 +21,13 @@ class EmailController extends Controller
 
         if($user_data){
             // send email
-            $key = bin2hex(random_bytes(64));
+            $key = bin2hex(random_bytes(24));
             $time = Carbon::now()->toDateTimeString();
             $user_data->reset_link = $key;
             $user_data->link_time = $time;
             $user_data->save();
             $link = url('/').'/reset/'.$key;
-            $data = ['name'=>$user_data->name,'email'=>$email,'link'=>$link];
+            $data = ['name'=>$user_data->name,'email'=>$email,'link'=>$link,'valid'=>'1 hour'];
             
             SendEmailJob::dispatch($data);
 

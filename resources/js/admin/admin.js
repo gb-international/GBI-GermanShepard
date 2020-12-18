@@ -12,6 +12,7 @@ import { filter } from './filter'
 import swal from 'sweetalert2'
 import { Form, HasError, AlertError } from 'vform'
 import DisableAutocomplete from 'vue-disable-autocomplete';
+import { BootstrapVue,TablePlugin } from 'bootstrap-vue'
 
 
 
@@ -24,7 +25,11 @@ window.$ = window.jQuery = require('jquery');
 require('datatables.net');
 require('datatables.net-bs');
 Vue.use(DisableAutocomplete);
-Vue.use(VueRouter)
+Vue.use(VueRouter);
+// bootstrapvue
+Vue.use(BootstrapVue);
+Vue.use(TablePlugin);
+// end bootstrapvue
 const options = {
     name: '_blank',
     specs: [

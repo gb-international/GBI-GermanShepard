@@ -6,6 +6,7 @@
 
 use App\Mail\ForgetPasswordMail;
 use App\Mail\PasswordResetMail;
+use App\Mail\WelcomeMail;
 
 
 Route::post('/payment','Front\PaymentController@payment');
@@ -27,6 +28,7 @@ Route::get('/check',function(){
 
         $data = ['name'=>'Ajay','email'=>'ajay_yadav@gbinternational.in','link'=>'https:sdjf.com'];
         // Mail::to($data['email'])->send( new PasswordResetMail($data));
+        Mail::to($data['email'])->send( new WelcomeMail($data));
 
         // dd('done');
    

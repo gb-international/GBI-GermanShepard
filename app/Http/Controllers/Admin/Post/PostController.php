@@ -16,10 +16,24 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     use ImageTrait;
+    public function all($size)
+    {
+        return response()->json(Post::select([
+            'id','status','title','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
+    
     public function index()
     {
-        return response()->json(Post::get());
+        return response()->json(Post::select([
+            'id','status','title','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate(7));
     }
+
 
     /**
      * Show the form for creating a new resource.

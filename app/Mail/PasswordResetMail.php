@@ -20,6 +20,6 @@ class PasswordResetMail extends Mailable
     public function build()
     {
         return $this->subject('GBI-password reset mail')
-                ->markdown('password.passwordResetMail')->with('data',$this->user);
+                ->view('emails.passwordResetMail')->with('data',$this->user);
     }
 }

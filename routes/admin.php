@@ -140,6 +140,7 @@ Route::namespace('Admin')->group(function (){
 
 	Route::namespace('Post')->group(function(){
 		Route::resource('categories','CategoryController');
+		Route::get('posts/all/{size}','PostController@all');
 		Route::resource('posts','PostController');
 		Route::resource('tags','TagController');
 	});

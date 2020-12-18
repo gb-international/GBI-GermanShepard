@@ -118,9 +118,9 @@ class JoinourteamController extends Controller
                 'messagecon'=>$request->messagecon,
                 'emailto'=>'ajay_yadav@gbinternational.in'
                 );
-
+        // contact us mail for admin
         ContactUsJob::dispatch($data);
-        $data['emailto'] = $request->email; // override emailto
+        $data['emailto'] = $request->email; // override emailto for user
         ContactUsUserJob::dispatch($data);
         return 'succss';
     }

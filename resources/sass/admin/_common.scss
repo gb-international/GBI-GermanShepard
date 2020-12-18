@@ -140,16 +140,15 @@ form{padding-top: 20px;}
 
 }
 
-
+.radius-0{ border-radius: 0px;}
 
 .top_btn{
 	display: block;
 	margin-top:10px;
 	a{
 		padding: 10px 30px;
-	    background: black;
+	    background: $admin-bg;
 	    border: none;
-	    border-radius: 4px;
 	    color: white;
 	    &:hover{
 	    	color: white;
@@ -157,6 +156,65 @@ form{padding-top: 20px;}
 	    }
 	}
 }
+
+.admin-bg-color{ color: $admin-bg;}
+.pagination{
+	.page-link{
+		padding: 5px 10px;
+		background: #cecece;
+		color: $black;
+		border: none;
+		margin-right: 2px;
+		outline: none;
+		cursor: pointer;
+
+	}
+	.page-item.active{
+		.page-link{
+			background-color: $admin-bg;
+			color: white
+		}
+	}
+}
+.list-section{
+	.sticky-header{
+		max-height: 400px;	
+	}
+	th{
+		outline: 0px;
+		box-shadow: none;
+		background-color: $admin-bg !important;
+		color: white !important;
+	}
+	.b-table{
+		tbody{
+			tr{
+				padding: 20px;
+				font-size: 15px;
+				background-color: white;
+				border: none;
+				td{
+					padding: 0.75rem;
+					vertical-align: top;
+					border-top: 1px solid #dee2e6;
+					border-radius: 5px 0px 0px 5px;				
+				}
+				&:hover{					
+					box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+					height: 50px;
+					color: orange;
+				}
+			}
+		}
+	}
+}
+
+
+table#table-transition .flip-list-move {
+  transition: transform 1s;
+}
+
+
 
 #example_wrapper{
 	.row{
