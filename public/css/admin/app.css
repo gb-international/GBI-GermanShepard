@@ -55357,10 +55357,6 @@ form {
   color: white;
 }
 
-.list-section .sticky-header {
-  max-height: 400px;
-}
-
 .list-section th {
   outline: 0px;
   box-shadow: none;

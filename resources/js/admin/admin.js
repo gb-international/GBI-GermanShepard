@@ -14,8 +14,6 @@ import { Form, HasError, AlertError } from 'vform'
 import DisableAutocomplete from 'vue-disable-autocomplete';
 import { BootstrapVue,TablePlugin } from 'bootstrap-vue'
 
-
-
 Vue.use(VueSession);
 Vue.mixin(Permissions);
 Vue.config.productionTip = false;
@@ -46,22 +44,18 @@ Vue.use(VueHtmlToPaper, options);
 const store = new createStore();
 
 Vue.component('admin-main', require('@/admin/pages/AdminMaster.vue').default);
-
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 Vue.prototype.$Form = Form;
 // Sweet alert 2
 Vue.prototype.$swal = swal;
-
 const toast = swal.mixin({
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
     timer: 3000
 });
-
 Vue.prototype.$toast = toast
-
 const router = new VueRouter({
     // mode : 'history',
     routes, // short for `routes: routes`

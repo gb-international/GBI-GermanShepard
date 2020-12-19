@@ -1,198 +1,186 @@
 <!-- 
-This template helps us to create a new Category it takes the data from the form and sumbit with the help of the api
+This template helps us to create a new Post it takes the data from the form and sumbit with the help of the api
 to submit the data we are using a function.
  -->
 <template>
-  <section class="content">
-    <div class="container-fluid">
-      <!--************************************************
-        Template Type: Adding New Category
-        Author:@Ajay
-        ****************************************************-->
-      <div class="row justify-content-around">
-        <div class="col-md-12">
-          <form
-            role="form"
-            enctype="multipart/form-data"
-            @submit.prevent="AddPost()"
-          >
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="form-group">
-                  <label for="title">Title</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="form.title"
-                    :class="{ 'is-invalid': form.errors.has('title') }"
-                    placeholder="Enter title"
-                  />
-                  <has-error :form="form" field="title"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-12">
-                <div class="form-group">
-                  <label for="description">Description</label>
-                  <vue-editor
-                    :customModules="customModulesForEditor" :editorOptions="editorSettings"
-                    id="editor" useCustomImageHandler @image-added="handleImageAdded"
-                    @image-removed="handleImageRemoved"
-                    v-model="form.description"
-                    :class="{ 'is-invalid': form.errors.has('description') }"
-                  ></vue-editor>
-                  <has-error :form="form" field="description"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-12">
-                <div class="form-group">
-                  <label for="description">Summery</label>
-                  <textarea
-                    row="3"
-                    type="text"
-                    class="form-control"
-                    v-model="form.summery"
-                    :class="{ 'is-invalid': form.errors.has('summery') }"
-                    placeholder="Enter summery"
-                  ></textarea>
-                  <has-error :form="form" field="summery"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="meta_title">Meta Title</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="form.meta_title"
-                    :class="{ 'is-invalid': form.errors.has('meta_title') }"
-                    placeholder="Enter meta title"
-                  />
-                  <has-error :form="form" field="meta_title"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="meta_keyword">Meta Keywords</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="form.meta_keyword"
-                    :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
-                    placeholder="Enter meta title"
-                  />
-                  <has-error :form="form" field="meta_keyword"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label class="label" for="input"
-                    >Please upload a Banner image !</label
-                  >
-                  <br />
-                  <input
-                    @change="changeDetailPhoto($event)"
-                    type="file"
-                    :class="{ 'is-invalid': form.errors.has('image') }"
-                  />
-
-                  <has-error :form="form" field="image"></has-error>
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <div class="form-group">
-                  <label for="image"></label>
-                  <br />
-                  <img :src="img_image" alt class="image w-100" />
-                  <has-error :form="form" field="image"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="meta_keyword">Status</label>
-                  <select
-                    class="form-control"
-                    v-model="form.status"
-                    :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
-                  >
-                    <option value="0">Draft</option>
-                    <option value="1">Publish</option>
-                  </select>
-                  <has-error :form="form" field="meta_keyword"></has-error>
-                </div>
-              </div>
-             
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="categories">Category</label>
-
-                   <select class="form-control" v-model="form.category_id">
-                    <option v-for="cat in categories" :key="cat.id" :value="cat.id">{{ cat.title }}</option>
-                  </select>
-
-                  <has-error :form="form" field="categories"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="tags">Tags</label>
-
-                  <multiselect
-                    v-model="form.tags"
-                    :options="tags"
-                    :multiple="true"
-                    :close-on-select="true"
-                    placeholder="Pick Tags"
-                    label="title"
-                    track-by="title"
-                  ></multiselect>
-
-                  <has-error :form="form" field="tags"></has-error>
-                </div>
-              </div>
-
+  <form-layout>
+    <template #formdata>
+      <form
+        role="form"
+        enctype="multipart/form-data"
+        @submit.prevent="AddPost()"
+      >
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.title"
+                :class="{ 'is-invalid': form.errors.has('title') }"
+                placeholder="Enter title"
+              />
+              <has-error :form="form" field="title"></has-error>
             </div>
-            <div class="row">
-              <div class="col-sm-2"></div>
-              <div class="col-sm-4">
-                <router-link
-                  :to="`/posts`"
-                  class="btn btn-primary itrn_add_btn back_btn"
-                  >Back</router-link
-                >
-              </div>
-              <div class="col-sm-4">
-                <div class="form-group text-center">
-                  <button
-                    type="submit"
-                    class="btn btn-primary btn-block itrn_add_btn"
-                  >
-                    SUBMIT
-                  </button>
-                </div>
-              </div>
-              <div class="col-sm-2"></div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <vue-editor
+                :customModules="customModulesForEditor" :editorOptions="editorSettings"
+                id="editor" useCustomImageHandler @image-added="handleImageAdded"
+                @image-removed="handleImageRemoved"
+                v-model="form.description"
+                :class="{ 'is-invalid': form.errors.has('description') }"
+              ></vue-editor>
+              <has-error :form="form" field="description"></has-error>
             </div>
-          </form>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="description">Summery</label>
+              <textarea
+                row="3"
+                type="text"
+                class="form-control"
+                v-model="form.summery"
+                :class="{ 'is-invalid': form.errors.has('summery') }"
+                placeholder="Enter summery"
+              ></textarea>
+              <has-error :form="form" field="summery"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="meta_title">Meta Title</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.meta_title"
+                :class="{ 'is-invalid': form.errors.has('meta_title') }"
+                placeholder="Enter meta title"
+              />
+              <has-error :form="form" field="meta_title"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="meta_keyword">Meta Keywords</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.meta_keyword"
+                :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
+                placeholder="Enter meta title"
+              />
+              <has-error :form="form" field="meta_keyword"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label class="label" for="input"
+                >Please upload a Banner image !</label
+              >
+              <br />
+              <input
+                @change="changeDetailPhoto($event)"
+                type="file"
+                :class="{ 'is-invalid': form.errors.has('image') }"
+              />
+
+              <has-error :form="form" field="image"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label for="image"></label>
+              <br />
+              <img :src="img_image" alt class="image w-100" />
+              <has-error :form="form" field="image"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="meta_keyword">Status</label>
+              <select
+                class="form-control"
+                v-model="form.status"
+                :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
+              >
+                <option value="0">Draft</option>
+                <option value="1">Publish</option>
+              </select>
+              <has-error :form="form" field="meta_keyword"></has-error>
+            </div>
+          </div>
+          
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="categories">Category</label>
+
+                <select class="form-control" v-model="form.category_id">
+                <option v-for="cat in categories" :key="cat.id" :value="cat.id">{{ cat.title }}</option>
+              </select>
+
+              <has-error :form="form" field="categories"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="tags">Tags</label>
+
+              <multiselect
+                v-model="form.tags"
+                :options="tags"
+                :multiple="true"
+                :close-on-select="true"
+                placeholder="Pick Tags"
+                label="title"
+                track-by="title"
+              ></multiselect>
+
+              <has-error :form="form" field="tags"></has-error>
+            </div>
+          </div>
+
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-4">
+            <back-button url="/posts"></back-button>
+
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group text-center">
+              <submit-button />
+            </div>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+      </form>
+    </template>
+  </form-layout>
 </template>
 
 <script>
+
 import { Form, HasError } from "vform";
 import { VueEditor, Quill } from "vue2-editor";
 import { ImageDrop } from "quill-image-drop-module";
 import ImageResize from "quill-image-resize-module";
 import "vue-search-select/dist/VueSearchSelect.css";
 import Multiselect from "vue-multiselect";
+import BackButton from '@/admin/components/buttons/BackButton.vue';
+import SubmitButton from '@/admin/components/buttons/SubmitButton.vue';
+import FormLayout from '@/admin/components/layout/FormLayout.vue';
 
 export default {
   name: "New",
@@ -201,6 +189,9 @@ export default {
     "has-error": HasError,
     "vue-editor": VueEditor,
     Multiselect,
+    'back-button':BackButton,
+    'submit-button':SubmitButton,
+    'form-layout':FormLayout,
   },
   data() {
     return {
@@ -254,7 +245,7 @@ export default {
           // this.form.reset();
           this.$toast.fire({
             icon: "success",
-            title: "Category Added successfully",
+            title: "Post Added successfully",
           });
         })
         .catch(() => {});

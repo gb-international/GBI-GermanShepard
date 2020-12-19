@@ -1,6 +1,16 @@
 import Vue from 'vue';
 import axios from 'axios';
 import Vuex from 'vuex';
+import Api from '@/admin/helpers/api';
+import swal from 'sweetalert2';
+Vue.prototype.$swal = swal;
+const toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+});
+Vue.prototype.$toast = toast
 
 Vue.use(Vuex)
 
@@ -11,6 +21,9 @@ export function createStore() {
             alldata:[], // All data from the api
             editdata:[],// Get Edit data 
             SearchAll:[],
+            isBusy:false,
+            items:[],
+            response:'',
         },
         // Getters help to fetch the data from the templates 
         getters:{
@@ -24,6 +37,15 @@ export function createStore() {
             getEditData(state){
                 return state.editdata
             },
+            getItems(state){
+                return state.items
+            },
+            isBusy(state){
+                return state.isBusy
+            },
+            getResponse(state){
+                return state.response
+            }
         },
         //getAllTableData();
         actions:{
@@ -61,7 +83,40 @@ export function createStore() {
                         context.commit('getSearchPostAll',response.data.data)
 
                     })
-
+            },
+            getItems({commit,state},payload){
+                state.isBusy = true;
+                Api.get(payload)
+                    .then(res => commit('ITEMS', res))
+                    .catch(error => console.error(error));
+            },
+            removePosts({commit},payload){
+                commit('REMOVE_POSTS',payload)
+            },
+            deleteItem({commit,state},payload){
+                swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon:'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!",
+                })
+                .then((result) => {
+                    if (result.value) {
+                        Api.delete(payload.api).then((res) => {
+                            if(payload.index != -1){
+                                state.items.data.splice(payload.index,1)
+                            }
+                        });
+                        swal.fire(
+                            "Deleted!",
+                            "Item deleted successfully",
+                            "success"
+                        );
+                    }
+                });
             }
         
         },
@@ -82,6 +137,17 @@ export function createStore() {
             getSearchPostAll(state,payload){
                 state.SearchAll = payload
             },
+            ITEMS(state,payload){
+                state.items = payload;
+                state.isBusy = !state.isBusy
+            },
+            RESPONSE(state,payload){
+                state.response = payload
+            },
+            REMOVE_POSTS(state,payload){
+                state.posts.data.slice(payload,1)
+            }
+        
         }
     })
 }

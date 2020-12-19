@@ -169,20 +169,11 @@ to submit the data we are using a function.
             <div class="row">
               <div class="col-sm-2"></div>
               <div class="col-sm-4">
-                <button
-                    type="button"
-                    @click="back()"
-                    class="btn btn-primary itrn_add_btn back_btn"
-                >Back</button>
+                <back-button url="/posts"></back-button>
               </div>
               <div class="col-sm-4">
                 <div class="form-group text-center">
-                  <button
-                    type="submit"
-                    class="btn btn-primary btn-block itrn_add_btn"
-                  >
-                    SUBMIT
-                  </button>
+                  <submit-button />
                 </div>
               </div>
               <div class="col-sm-2"></div>
@@ -201,6 +192,8 @@ import { ImageDrop } from "quill-image-drop-module";
 import ImageResize from "quill-image-resize-module";
 import "vue-search-select/dist/VueSearchSelect.css";
 import Multiselect from "vue-multiselect";
+import BackButton from '@/admin/components/buttons/BackButton.vue';
+import SubmitButton from '@/admin/components/buttons/SubmitButton.vue';
 
 export default {
   name: "New",
@@ -209,6 +202,8 @@ export default {
     "has-error": HasError,
     "vue-editor": VueEditor,
     Multiselect,
+    'back-button':BackButton,
+    'submit-button':SubmitButton,
   },
   data() {
     return {

@@ -98,7 +98,7 @@ class EscortController extends Controller
     {
         $sendsms = new SendSms;
         $get = $sendsms->escortLoginLink($request->escort_phone_no,$request->name);
-        print_r($get);
+        
         return response()->json('successfully Sent');
     }
 

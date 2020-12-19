@@ -36,13 +36,19 @@ to submit the data we are using a function.
               </div>
               <div class="col-sm-4">
                 <div class="row">
+                  <div class="col-sm-3">
+                    <label></label>
+                    <button type="button" class="btn btn_plus text-white mt-35" @click="addRow()">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label for="noofdaysId">Number Of Days</label>
                       <input
                         type="text"
                         readonly="readonly"
-                        class="form-control"
+                        class="form-control text-center"
                         v-model="form.noofdays"
                         :class="{ 'is-invalid': form.errors.has('noofdays') }"
                         placeholder="Enter Number Of Days"
@@ -52,12 +58,7 @@ to submit the data we are using a function.
                       <has-error :form="form" field="noofdays"></has-error>
                     </div>
                   </div>
-                  <div class="col-sm-3">
-                    <label></label>
-                    <button type="button" class="btn btn_plus text-white mt-35" @click="addRow()">
-                      <i class="fas fa-plus"></i>
-                    </button>
-                  </div>
+                  
                   <div class="col-sm-3">
                     <label></label>
                     <button
