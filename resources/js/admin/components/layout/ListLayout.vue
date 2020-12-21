@@ -14,8 +14,9 @@ data from the api to display the data about the Category from the backend .
 
           <b-row class="mb-3 mt-1" align-h="between">
               <b-col md="3" cols="4"  class="top_btn p-0">
-                  <!-- Slot for add link -->
-                  <slot name="addlink"></slot>
+                <div v-if="addurl">
+                  <add-button :url="addurl">{{ buttontext }}</add-button>
+                </div>
               </b-col>
               <b-col cols="2"></b-col>
               <b-col cols="3" class="p-0">
@@ -41,3 +42,12 @@ data from the api to display the data about the Category from the backend .
     </div>
   </section>
 </template>
+<script>
+import AddButton from '@/admin/components/buttons/AddButton.vue';
+export default {
+  components:{
+    'add-button':AddButton
+  },
+  props:['addurl','buttontext'],
+}
+</script>

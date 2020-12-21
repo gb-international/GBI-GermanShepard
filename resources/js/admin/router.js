@@ -345,10 +345,10 @@ export const routes = [
     { path:'/country-list', component:ListCountry },
     { path:'/country-add', component:AddCountry },
      
-    { path:'/encyclopedia-list', component: EncyclopediaList},
-    { path:'/encyclopedia-view/:id', component:EncyclopediaView},
-    { path:'/encyclopedia/:id', component:EncyclopediaEdit},
-    { path:'/encyclopedia-add', component:EncyclopediaAdd},
+    { path:'/encyclopedias', component: EncyclopediaList},
+    { path:'/encyclopedias-view/:id', component:EncyclopediaView},
+    { path:'/encyclopedias/:id', component:EncyclopediaEdit},
+    { path:'/encyclopedias-add', component:EncyclopediaAdd},
     
     { path:'/encyclopediacomment-list', component:  EncyclopediacommentList},
     { path:'/encyclopediacomment-view/:id', component: EncyclopediacommentView},

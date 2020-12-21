@@ -12,9 +12,22 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function all($size)
+    {
+        return response()->json(Tag::select([
+            'id','title','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
+
     public function index()
     {
-        return response()->json(Tag::get());
+        return response()->json(Tag::select([
+            'id','title','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate(7));
     }
 
     /**

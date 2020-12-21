@@ -23,9 +23,22 @@ class EncyclopediaController extends Controller
     public function __construct(){
         $this->data = [];
     }
+    public function all($size)
+    {
+        return response()->json(Encyclopedia::select([
+            'id','thumbnail','banner_image','state_name','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
+
     public function index()
     {
-        return response()->json(Encyclopedia::get());
+        return response()->json(Encyclopedia::select([
+            'id','thumbnail','banner_image','state_name','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate(7));
     }
 
     /**
@@ -72,7 +85,7 @@ class EncyclopediaController extends Controller
      */
     public function show($encyclopedia)
     {
-        $encyclopedia = Encyclopedia::findOrFail($encyclopedia);
+        $encyclopedia = Encyclopedia::with(['itinerarypdfs','images'])->findOrFail($encyclopedia);
         return response()->json($encyclopedia);
     }
 
@@ -147,9 +160,9 @@ class EncyclopediaController extends Controller
      public function validateEncyclopedia($request)
     {
       return $this->validate($request, [
-            'state_name'=>'',
-            'description'=>'',
-            'map_link'=>'',
+            'state_name'=>'required',
+            'description'=>'required',
+            'map_link'=>'required',
             'slug'=>'',
       ]);
     }

@@ -5,136 +5,127 @@ to submit the data we are using a function.
 
  -->
 <template>
-  <section class="content">
-    <div class="container-fluid">
-    <!--************************************************
-
-    Template Type: Add New encyclopedia
-    Author:@Ajay
-
-    ****************************************************-->
-      <div class="row justify-content-around">
-        <!-- left column -->
-        <div class="col-md-12 itinerary_form">
-          <form role="form" enctype="multipart/form-data" @submit.prevent="addData()">
-            
-              <div class="row">
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="state_name">State</label>
-                    <select class="form-control select-field" v-model="form.state_name" @change="slugCreate($event)">
-                      <option v-for="state in state_list" :value="state.name" :key="state.id">{{ state.name }}</option>
-                    </select>
-                     <has-error :form="form" field="state_name"></has-error>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="slug">Slug</label>
-                    <input type="text" class="form-control" v-model="form.slug" :class="{ 'is-invalid': form.errors.has('slug') }" placeholder="Enter Map Link" rows="6" readonly="">
-                     <has-error :form="form" field="slug"></has-error>
-                  </div>
-
-                  
-                </div>
-                <div class="col-sm-8">
-                  <div class="form-group">
-                    <label for="map_link">Map Link</label>
-                    <textarea class="form-control" v-model="form.map_link" :class="{ 'is-invalid': form.errors.has('map_link') }" placeholder="Enter Map Link" rows="6"></textarea>
-                     <has-error :form="form" field="map_link"></has-error>
-                  </div>
-                </div>
-                <div class="col-sm-4"></div>
+  <form-layout>
+    <template #formdata>
+      <form role="form" enctype="multipart/form-data" @submit.prevent="addData()">
+        
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="state_name">State</label>
+                <select class="form-control select-field" v-model="form.state_name" @change="slugCreate($event)">
+                  <option v-for="state in state_list" :value="state.name" :key="state.id">{{ state.name }}</option>
+                </select>
+                  <has-error :form="form" field="state_name"></has-error>
               </div>
 
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                      <label for="descriptionId">Description</label>
-
-                      <vue-editor v-model="form.description" 
-                      :class="{ 'is-invalid': form.errors.has('description') }"
-                      ></vue-editor>
-
-                      <has-error :form="form" field="description"></has-error>
-                  </div>
-                </div>
-              </div>
-              <!-- Adding photo for the itinerary -->
-              <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group itinerary_image">
-                  <label class="label" for="thumbnail">Please upload thumbnail image !</label>
-                  <br />
-                  <input
-                    @change="changeImage($event,'thumbnail')"
-                    type="file"
-                    :class="{ 'is-invalid': form.errors.has('thumbnail') }"
-                    accept="jpeg, jpg, png, gif"
-                    class="select_image"
-                  />
-                  <img :src="images.thumbnail" alt width="80" height="80" />
-                  <has-error :form="form" field="thumbnail"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label class="label" for="input">Please upload a Banner image !</label>
-                  <br />
-                  <input
-                    @change="changeImage($event,'banner')"
-                    name="banner_image"
-                    type="file"
-                    :class="{ 'is-invalid': form.errors.has('banner_image') }"
-                  />
-
-                  <img :src="images.banner_image" alt class="banner_image" />
-                  <has-error :form="form" field="banner_image"></has-error>
-                </div>
-              </div>
-            </div>
-
-
-
-              <hr>  
-
-              <div class="row">
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="images">Select Multiple Images</label>
-                    <input type="file"  multiple="multiple" class="form-control w-100"  ref="attachments" @change="changePhotos">
-                  </div>
-                </div>
-              </div>
-
-
-
-              <hr>
-              <div class="row">
-                <div class="col-sm-6">
-                  <label for="pdfs">Upload Itinerary Pdf ( Multiple )</label>
-                  <input type="file" accept=".pdf" multiple="multiple" class="form-control" @change="uploadFieldChange">
-                </div>
-              </div>
-
-
-              <div class="row text-center">
-                <div class="col-sm-4">
-                  <router-link :to="`/encyclopedia-list`" class="btn btn-primary itrn_add_btn back_btn">Back</router-link>
-                </div>
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-primary itrn_add_btn">SUBMIT</button>
-                  </div>
-                </div>
+              <div class="form-group">
+                <label for="slug">Slug</label>
+                <input type="text" class="form-control" v-model="form.slug" :class="{ 'is-invalid': form.errors.has('slug') }" placeholder="Enter Map Link" rows="6" readonly="">
+                  <has-error :form="form" field="slug"></has-error>
               </div>
 
               
-          </form>
+            </div>
+            <div class="col-sm-8">
+              <div class="form-group">
+                <label for="map_link">Map Link</label>
+                <textarea class="form-control" v-model="form.map_link" :class="{ 'is-invalid': form.errors.has('map_link') }" placeholder="Enter Map Link" rows="6"></textarea>
+                  <has-error :form="form" field="map_link"></has-error>
+              </div>
+            </div>
+            <div class="col-sm-4"></div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                  <label for="descriptionId">Description</label>
+
+                  <vue-editor v-model="form.description" 
+                  :class="{ 'is-invalid': form.errors.has('description') }"
+                  ></vue-editor>
+
+                  <has-error :form="form" field="description"></has-error>
+              </div>
+            </div>
+          </div>
+          <!-- Adding photo for the itinerary -->
+          <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group itinerary_image">
+              <label class="label" for="thumbnail">Please upload thumbnail image !</label>
+              <br />
+              <input
+                @change="changeImage($event,'thumbnail')"
+                type="file"
+                :class="{ 'is-invalid': form.errors.has('thumbnail') }"
+                accept="jpeg, jpg, png, gif"
+                class="select_image"
+              />
+              <img :src="images.thumbnail" alt width="80" height="80" />
+              <has-error :form="form" field="thumbnail"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="label" for="input">Please upload a Banner image !</label>
+              <br />
+              <input
+                @change="changeImage($event,'banner')"
+                name="banner_image"
+                type="file"
+                :class="{ 'is-invalid': form.errors.has('banner_image') }"
+              />
+
+              <img :src="images.banner_image" alt class="banner_image" />
+              <has-error :form="form" field="banner_image"></has-error>
+            </div>
+          </div>
         </div>
-      </div>
-    </div><!-- /.container-fluid -->
-  </section>
+
+
+
+          <hr>  
+
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="images">Select Multiple Images</label>
+                <input type="file"  multiple="multiple" class="form-control w-100"  ref="attachments" @change="changePhotos">
+              </div>
+            </div>
+          </div>
+
+
+
+          <hr>
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="pdfs">Upload Itinerary Pdf ( Multiple )</label>
+              <input type="file" accept=".pdf" multiple="multiple" class="form-control" @change="uploadFieldChange">
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+              <back-button url="/encyclopedias"></back-button>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group text-center">
+                <submit-button />
+              </div>
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+
+          
+      </form>
+    </template>
+  </form-layout>
 </template>
 
 <script>
@@ -143,13 +134,19 @@ import 'vue-search-select/dist/VueSearchSelect.css'
 import { ModelSelect } from 'vue-search-select'
 import { Form, HasError } from 'vform'
 
+import BackButton from "@/admin/components/buttons/BackButton.vue";
+import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
+import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
   name: "New",
   components: {
     ModelSelect,
     VueEditor,
     Form,
-    'has-error':HasError
+    'has-error':HasError,
+    "back-button": BackButton,
+    "submit-button": SubmitButton,
+    "form-layout": FormLayout,
   },
   data(){
     return {
@@ -181,7 +178,6 @@ export default {
 
      // This function will be called every time you add a file
     uploadFieldChange(e) {
-
         var files = e.target.files || e.dataTransfer.files;
         if (!files.length)
             return;
@@ -202,15 +198,13 @@ export default {
 
     addData()
     {
-      console.log(this.form);
       this.form.post('/api/encyclopedias')
-        .then((response)=>{
-             this.$router.push(`/encyclopedia-list`)
-              this.$toast.fire({
-                  icon: 'success',
-                  title: 'Itinerary Added successfully'
-              })
-           }).catch(()=>{})
+      .then((response)=>{
+          this.$toast.fire({
+              icon: 'success',
+              title: 'Encyclopedia Added successfully'
+          })
+        }).catch(()=>{})
     },
 
     slugCreate(event){

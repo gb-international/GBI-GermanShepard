@@ -18,9 +18,22 @@ class TourprogramController extends Controller
      * @return \Illuminate\Http\Response
      */
     use ImageTrait;
+    public function all($size)
+    {
+        return response()->json(Tourprogram::select([
+            'id','description','title','image','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
+
     public function index()
     {
-        return response()->json(Tourprogram::get());
+        return response()->json(Tourprogram::select([
+            'id','description','title','image','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate(7));
     }
 
     /**

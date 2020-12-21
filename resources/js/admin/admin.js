@@ -8,7 +8,7 @@ import VueSession from 'vue-session'
 import { routes } from './router';
 import { createStore } from "./store/index"
 import VueHtmlToPaper from 'vue-html-to-paper';
-import { filter } from './filter'
+import  './filter'
 import swal from 'sweetalert2'
 import { Form, HasError, AlertError } from 'vform'
 import DisableAutocomplete from 'vue-disable-autocomplete';

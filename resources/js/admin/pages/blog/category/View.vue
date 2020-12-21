@@ -4,17 +4,8 @@ This template helps us to create a View Category it takes the data from the form
 to submit the data we are using a function.
  -->
 <template>
-  <section class="content">
-    <div class="container-fluid">
-      <!--************************************************
-        Template Type: Adding View Category
-        Author:@Ajay
-        ****************************************************-->
-        <h2 class="text-center">
-          Category View
-        </h2>
-        <hr />
-      <div class="row">
+  <view-layout backurl="/categories">
+    <template #viewdata>
         <div class="col-sm-12">
           <h5>Title</h5>
           <p>{{categories.title }}</p>
@@ -22,7 +13,7 @@ to submit the data we are using a function.
 
         <div class="col-sm-4">
           <h5>Banner image </h5>
-          <img :src="imagePath(categories.image)" />
+          <img :src="imagePath(categories.image)" class="w-100" />
         </div>
 
         <div class="col-sm-12">
@@ -50,19 +41,18 @@ to submit the data we are using a function.
           <h5>Created At </h5>
           <p>{{ categories.created_at }}</p>
         </div>
+    </template>
+  </view-layout>
 
-
-        <button @click="goBack()" class="btn btn-primary itrn_add_btn back_btn">Back</button>
-
-      </div>
-    </div>
-  </section>
 </template>
 
 <script>
-
+import ViewLayout from '@/admin/components/layout/ViewLayout.vue';
 export default {
   name: "ViewCategories",
+  components:{
+    'view-layout':ViewLayout
+  },
   data() {
     return {
       categories:[]
@@ -79,11 +69,8 @@ export default {
     },
 
     imagePath(img){
-        return '/images/post/'+ img;
+        return '/images/category/'+ img;
     },
-    goBack(){
-        this.$router.push('/categories');
-    }
   },
 };
 </script> 

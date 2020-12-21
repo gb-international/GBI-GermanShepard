@@ -55139,6 +55139,10 @@ Admin Login page
   cursor: pointer;
 }
 
+iframe {
+  width: 100%;
+}
+
 .top_black_btn {
   padding: 10px 30px;
   background: black;

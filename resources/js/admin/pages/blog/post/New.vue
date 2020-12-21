@@ -9,7 +9,7 @@ to submit the data we are using a function.
         role="form"
         enctype="multipart/form-data"
         @submit.prevent="AddPost()"
-      >
+        >
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
@@ -156,7 +156,6 @@ to submit the data we are using a function.
           <div class="col-sm-2"></div>
           <div class="col-sm-4">
             <back-button url="/posts"></back-button>
-
           </div>
           <div class="col-sm-4">
             <div class="form-group text-center">
@@ -178,6 +177,7 @@ import { ImageDrop } from "quill-image-drop-module";
 import ImageResize from "quill-image-resize-module";
 import "vue-search-select/dist/VueSearchSelect.css";
 import Multiselect from "vue-multiselect";
+
 import BackButton from '@/admin/components/buttons/BackButton.vue';
 import SubmitButton from '@/admin/components/buttons/SubmitButton.vue';
 import FormLayout from '@/admin/components/layout/FormLayout.vue';

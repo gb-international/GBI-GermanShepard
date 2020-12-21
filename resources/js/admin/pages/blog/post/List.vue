@@ -3,11 +3,7 @@ This Template is for listing for the Category profile using function to get the
 data from the api to display the data about the Category from the backend .
 -->
 <template>
-  <list-layout>
-    <template #addlink>
-      <add-button url="/posts-add">add post</add-button>
-    </template>
-    
+  <list-layout addurl="/posts-add" buttontext="add post">
     <template #perpage>
       <b-form-group
         label="Per page"
@@ -45,11 +41,9 @@ data from the api to display the data about the Category from the backend .
         primary-key="updated_at"
         :tbody-transition-props="transProps"
       >
-      
         <template #table-busy>
           <table-loader />
         </template>
-
         <template #cell(status)="data">
           <span 
               v-if="data.item.status == 1" 
@@ -59,18 +53,16 @@ data from the api to display the data about the Category from the backend .
         <template #cell(action)="data">
           <edit-icon :url="`/posts/${data.item.id}`"></edit-icon>
           <delete-icon 
-            @click.native="deletePost(data.item.id,data.index)"
+            @click.native="deleteItem(data.item.id,data.index)"
             >
           </delete-icon>
-
           <view-icon :url="`/posts-view/${data.item.id}`"></view-icon>
-
         </template>
       </b-table> 
     </template>
     
     <template #pagination  v-if="items.data">
-      <pagination :data="items" @pagination-change-page="getposts" :align="`right`">
+      <pagination :data="items" @pagination-change-page="getitems" :align="`right`">
         <span slot="prev-nav">Previous</span>
         <span slot="next-nav">Next</span>
       </pagination>
@@ -82,7 +74,6 @@ data from the api to display the data about the Category from the backend .
 <script>
 import listLayout from '@/admin/components/layout/ListLayout.vue';
 import pagination  from 'laravel-vue-pagination';
-import AddButton from '@/admin/components/buttons/AddButton.vue';
 import EditIcon from '@/admin/components/icons/EditIcon.vue';
 import DeleteIcon from '@/admin/components/icons/DeleteIcon.vue';
 import ViewIcon from '@/admin/components/icons/ViewIcon.vue';
@@ -95,7 +86,6 @@ export default {
     'list-layout':listLayout,
     'table-loader':TableLoader,
     'pagination':pagination,
-    'add-button':AddButton,
     'edit-icon':EditIcon,
     'delete-icon':DeleteIcon,
     'view-icon':ViewIcon,
@@ -118,22 +108,22 @@ export default {
     };
   },
   mounted() {
-    this.getposts();
+    this.getitems();
   },
   computed:{
     ...mapState(['items']),
   },
   watch:{
     perPage:function(){
-      this.getposts(1,this.perPage);
+      this.getitems(1,this.perPage);
     }
   },
 
   methods: {
-    getposts(page=1,size= this.perPage) {
+    getitems(page=1,size= this.perPage) {
       this.$store.dispatch('getItems','/posts/all/'+size+'?page='+page);
     },
-    deletePost(id,index=-1) {
+    deleteItem(id,index=-1) {
       let payload = {'api':"/posts/"+id,index,'index':index};
       this.$store.dispatch('deleteItem',payload);
     },

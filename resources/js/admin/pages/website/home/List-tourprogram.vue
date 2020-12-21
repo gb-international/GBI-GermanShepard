@@ -3,130 +3,141 @@ This Template is for listing for the encyclopedia profile using function to get 
 data from the api to display the data about the encyclopedia from the backend .
 -->
 <template>
-  <section class="content">
-    <!--************************************************
-      Template Type: encyclopedias List
-      Author:@Ajay
-    ****************************************************-->
-    <div class="row justify-content-around">
-      <div class="col-md-12">
-        <div class="container container_admin_body">
-          <div class="top_btn mb-3">
-            <router-link :to="`/tourprogram-add`">Add tourprogram</router-link>
-          </div>
-          <!-- Start Card -->
-          <table
-            id="example"
-            class="display table table-striped table-bordered nowrap"
-            style="width:100%"
-          >
-            <thead>
-              <tr>
-                <th>
-                  TITLE
-                  <i class="fas fa-sort"></i>
-                </th>
-                <th>
-                  IMAGE
-                  <i class="fas fa-sort"></i>
-                </th>
-                <th>
-                  DESCRIPTION
-                  <i class="fas fa-sort"></i>
-                </th>
-                <th>
-                  <i class="fas fa-cog"></i>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                v-for="tourprogram in tourprogram_list"
-                role="row"
-                :key="tourprogram.id"
-                v-bind:class="{ odd: oddclass , 'even': evenclass}"
-                class="row_list"
-              >
-                <td>{{ tourprogram.title }}</td>
-                <td>
-                  <img :src="getImgUrl(tourprogram.image)" />
-                </td>
-                <td>
-                  <span v-html="tourprogram.description"></span>
-                </td>
-                <td class="edit_section">
-                  <router-link :to="`tourprogram/${tourprogram.id}`" class="edit_link">
-                    <span class="badge badge-primary">
-                      <i class="fas fa-pencil-alt"></i>
-                    </span>
-                  </router-link>
-                  <!-- <a href="" class="delete_link" @click.prevent = "deletetourprogram(tourprogram.id)" ><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a> -->
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- end -->
-      </div>
-    </div>
-  </section>
-  <!-- /.content -->
+  <list-layout addurl="/tourprogram-add" buttontext="add tourprogram">
+    <template #perpage>
+      <b-form-group
+        label="Per page"
+        label-for="per-page-select"
+        label-cols-sm="6"
+        label-cols-md="4"
+        label-cols-lg="3"
+        label-align-sm="right"
+        label-size="sm"
+        class="mb-0"
+      >
+        <b-form-select
+          id="per-page-select"
+          class="radius-0"
+          v-model="perPage"
+          :options="options"
+        ></b-form-select>
+      </b-form-group>
+    </template>
+    <template #searchbar>
+      <b-form-input v-model="filter" type="search" placeholder="Type to Search" class="radius-0"></b-form-input>
+    </template>
+    <template #table>
+      <b-table
+        id="table-transition"
+        striped
+        hover
+        outlined
+        sticky-header="405px"
+        class="w-100 table-layout"
+        :fields="fields"
+        :items="items.data"
+        :busy="$store.getters.isBusy"
+        :filter="filter"
+        primary-key="updated_at"
+        :tbody-transition-props="transProps"
+      >
+        <template #table-busy>
+          <table-loader />
+        </template>
+        <template #cell(image)="data">
+          
+          <img :src="getImgUrl(data.item.image)" class="w-60">
+        </template>
+        <template #cell(description)="data">
+          <span :inner-html.prop="data.item.description | readMore(90)"></span>
+        </template>
+        <template #cell(status)="data">
+          <span 
+              v-if="data.item.status == 1" 
+              class="badge badge-success">Publish</span>
+          <span class="badge badge-default" v-else>Draft</span>
+        </template>
+        <template #cell(action)="data">
+          <edit-icon :url="`/tourprogram/${data.item.id}`"></edit-icon>
+        </template>
+      </b-table> 
+    </template>
+    
+    <template #pagination  v-if="items.data">
+      <pagination :data="items" @pagination-change-page="getitems" :align="`right`">
+        <span slot="prev-nav">Previous</span>
+        <span slot="next-nav">Next</span>
+      </pagination>
+    </template>
+
+  </list-layout>
 </template>
 
 <script>
+
+import listLayout from '@/admin/components/layout/ListLayout.vue';
+import pagination  from 'laravel-vue-pagination';
+import EditIcon from '@/admin/components/icons/EditIcon.vue';
+import DeleteIcon from '@/admin/components/icons/DeleteIcon.vue';
+import ViewIcon from '@/admin/components/icons/ViewIcon.vue';
+import TableLoader from '@/admin/components/TableLoader.vue';
+import { mapState } from 'vuex';
+
 export default {
   name: "List",
+  components:{
+    'list-layout':listLayout,
+    'table-loader':TableLoader,
+    'pagination':pagination,
+    'edit-icon':EditIcon,
+    'delete-icon':DeleteIcon,
+    'view-icon':ViewIcon,
+  },
   data() {
     return {
-      oddclass: false,
-      evenclass: true,
-      tourprogram_list: []
+      transProps: {
+        // Transition name
+        name: 'flip-list'
+      },
+      fields: [
+        {key:'title',label:'TITLE',sortable:true,thClass: 'table-head'},
+        {key:'image',label:'IMAGE',sortable:true,thClass: 'table-head'},
+        {key:'description',label:'DESCRIPTION',sortable:true,thClass: 'table-head'},
+        {key:'action',label:'ACTION',thClass: 'table-head'}
+      ],
+      filter:'',
+      perPage:7,
+      options:[7,25,50,100],
     };
   },
-  created() {
-    this.encyclopediaData();
+  mounted() {
+    this.getitems();
+  },
+  computed:{
+    ...mapState(['items']),
+  },
+  watch:{
+    perPage:function(){
+      this.getitems(1,this.perPage);
+    }
   },
 
   methods: {
-    encyclopediaData() {
-      axios.get("/api/tourprogram").then(response => {
-        setTimeout(() => $("#example").DataTable(), 1000);
-        this.tourprogram_list = response.data;
-      });
+    getitems(page=1,size= this.perPage) {
+      this.$store.dispatch('getItems','/tourprogram/all/'+size+'?page='+page);
+    },
+    deleteItem(id,index=-1) {
+      let payload = {'api':"/tourprogram/"+id,index,'index':index};
+      this.$store.dispatch('deleteItem',payload);
     },
     getImgUrl(img) {
       return "/images/tourprogram/" + img;
     },
-
-    deletetourprogram(id) {
-      var uri = "/api/tourprogram/" + id;
-      this.$swal
-        .fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!"
-        })
-        .then(result => {
-          if (result.value) {
-            axios.delete(uri).then(response => {
-              console.log(response);
-              this.encyclopediaData();
-            });
-            this.$swal.fire(
-              "Deleted!",
-              "Your file has been deleted.",
-              "success"
-            );
-          }
-        });
-    }
-  }
+  },
 };
 </script>
+
+
 
 <style scoped="">
 img {

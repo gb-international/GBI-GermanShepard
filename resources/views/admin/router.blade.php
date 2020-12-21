@@ -398,7 +398,7 @@
 
             @can('encyclopedia')
             <li class="nav-item">
-                <router-link to="/encyclopedia-list" class="nav-link">
+                <router-link to="/encyclopedias" class="nav-link">
                 <p> Encyclopedia </p>
                 </router-link>
             </li>

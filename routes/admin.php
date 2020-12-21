@@ -43,6 +43,7 @@ Route::namespace('Admin')->group(function (){
 	Route::namespace('Tour')->group(function(){
 		Route::resource('tour','TourController');
 		Route::resource('tourtype','TourtypeController');
+		Route::get('tourprogram/all/{size}','TourprogramController@all');
 		Route::resource('tourprogram','TourprogramController');
 		Route::resource('schoolbankdetails','SchoolbankdetailController');
 		Route::resource('userpayments','UserpaymentController');
@@ -126,6 +127,7 @@ Route::namespace('Admin')->group(function (){
 
 	Route::namespace('Encyclopedia')->group(function(){
 		Route::post('/encyclopedia-img','EncyclopediaController@deleteImage');
+		Route::get('encyclopedias/all/{size}','EncyclopediaController@all');
 		Route::resource('encyclopedias','EncyclopediaController');
 		Route::resource('encyclopediacomments','EncyclopediacommentController');
 	});
@@ -139,9 +141,11 @@ Route::namespace('Admin')->group(function (){
 	});
 
 	Route::namespace('Post')->group(function(){
+		Route::get('categories/all/{size}','CategoryController@all');
 		Route::resource('categories','CategoryController');
 		Route::get('posts/all/{size}','PostController@all');
 		Route::resource('posts','PostController');
+		Route::get('tags/all/{size}','TagController@all');
 		Route::resource('tags','TagController');
 	});
 	

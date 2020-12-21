@@ -15,9 +15,23 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     use ImageTrait;
+
+    public function all($size)
+    {
+        return response()->json(Category::select([
+            'id','description','title','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
+
     public function index()
     {
-        return response()->json(Category::get());
+        return response()->json(Category::select([
+            'id','description','title','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate(7));
     }
 
     /**
