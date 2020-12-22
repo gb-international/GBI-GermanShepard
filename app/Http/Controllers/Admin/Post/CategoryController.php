@@ -31,7 +31,7 @@ class CategoryController extends Controller
             'id','description','title','updated_at'
             ])
             ->latest('updated_at')
-            ->paginate(7));
+            ->get());
     }
 
     /**

@@ -10,7 +10,7 @@
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="sourceId">Source</label>
-                  <model-select :options="options" v-model="sources" placeholder="From"></model-select>
+                  <model-select :options="options" v-model="sources" placeholder="From" ></model-select>
                   {{ sources.value }}
                   <has-error :form="form" field="source"></has-error>
                 </div>
@@ -212,6 +212,7 @@
                     :options="tour_type_list"
                     :multiple="true"
                     :close-on-select="true"
+                    :show-labels="false"
                     placeholder="Pick some"
                     label="name"
                     track-by="name"

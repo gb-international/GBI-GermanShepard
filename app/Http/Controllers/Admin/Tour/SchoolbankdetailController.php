@@ -15,6 +15,16 @@ class SchoolbankdetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function all($size)
+    {
+        return response()->json(Schoolbankdetail::select([
+            'id','name','bank_name','account_number','ifsc_code','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
+    
     public function index()
     {
         return Schoolbankdetail::get();

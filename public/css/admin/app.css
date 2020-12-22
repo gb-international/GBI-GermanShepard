@@ -55267,6 +55267,12 @@ input[type='datetime-local'],
   width: 100%;
 }
 
+.ui.selection.dropdown {
+  color: #737879 !important;
+  background: #e1e1e1e1 !important;
+  border: none !important;
+}
+
 input[type='text'],
 input[type='email'],
 input[type='date'],
@@ -55282,6 +55288,40 @@ input[type='datetime-local'] {
 
 .ui.search.dropdown > .text {
   top: 7px;
+}
+
+.multiselect__tags {
+  min-height: 53px !important;
+  font-size: 17px !important;
+  padding: 11px 40px 0 8px !important;
+  color: #737879 !important;
+  background: #e1e1e1e1 !important;
+  font-weight: 600;
+}
+
+.multiselect__tags .multiselect__tag {
+  background: #a9a9a9 !important;
+}
+
+.multiselect__option--selected.multiselect__option--highlight {
+  background: #dee2e6 !important;
+}
+
+.multiselect__option--highlight {
+  background: #171f36 !important;
+}
+
+.multiselect__tag-icon:focus,
+.multiselect__tag-icon:hover {
+  background: rgba(135, 130, 130, 0.89) !important;
+}
+
+.multiselect__select {
+  top: 8px !important;
+}
+
+.ql-editor:focus {
+  background: white;
 }
 
 .ui.selection.dropdown > .delete.icon,

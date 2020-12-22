@@ -5,148 +5,160 @@ to submit the data we are using a function.
 
  -->
 <template>
-  <section class="content">
-    <div class="container-fluid">
-      <!--************************************************
-        Template Type: Adding New Category
-        Author:@Ajay
-        ****************************************************-->
-      <div class="row justify-content-around">
-        <div class="col-md-12">
-          <form
-            role="form"
-            enctype="multipart/form-data"
-            @submit.prevent="updateGallery()"
-          >
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="category">Gallery Category</label>
-                  <select class="form-control" :class="{ 'is-invalid': form.errors.has('category') }" v-model="form.category">
-                    <option default="default" value="">Select Category</option>
-                    <option value="domestic">Domestic</option>
-                    <option value="international">International</option>
-                  </select>
-                  <has-error :form="form" field="category"></has-error>
-                </div>
-              </div>
+  <form-layout>
+    <template #formdata>
+      <form
+        role="form"
+        enctype="multipart/form-data"
+        @submit.prevent="updateGallery()"
+      >
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="category">Gallery Category</label>
+              <select
+                class="form-control"
+                :class="{ 'is-invalid': form.errors.has('category') }"
+                v-model="form.category"
+              >
+                <option default="default" value="">Select Category</option>
+                <option value="domestic">Domestic</option>
+                <option value="international">International</option>
+              </select>
+              <has-error :form="form" field="category"></has-error>
+            </div>
+          </div>
 
-              
-              <div class="col-sm-8">
-                <div class="form-group">
-                  <label for="category">Gallery Title</label>
-                  <input type="text" class="form-control" 
-                  :options="options" 
-                  v-model="form.title" 
-                  placeholder="Select Itinerary">
-                  <has-error :form="form" field="title"></has-error>
-                </div>
-              </div>
-              
-              <div class="col-sm-8">
-                <div class="form-group">
-                  <label for="category">School</label>
-                  <model-select 
-                  :options="schools" 
-                  v-model="form.school_id" 
-                  placeholder="Select School"></model-select>
-                  <has-error :form="form" field="school_id"></has-error>
-                </div>
-              </div>
+          <div class="col-sm-8">
+            <div class="form-group">
+              <label for="category">Gallery Title</label>
+              <input
+                type="text"
+                class="form-control"
+                :options="options"
+                v-model="form.title"
+                placeholder="Select Itinerary"
+              />
+              <has-error :form="form" field="title"></has-error>
             </div>
+          </div>
 
-            <div class="row img-card-delete-icon">
-              <div class="col-sm-4 position-relative" v-for="img in images" :key="img.id">
-                <div class="card">
-                  <div class="card-body">
-                    <img :src="`/images/gallery/${img.path}`" class="w-100">
-                  </div>
-                </div>
-                <span class="badge badge-danger position-absolute cursor-pointer" @click="deleteImage(img.id)"><i class="far fa-trash-alt" aria-hidden="true"></i></span>
-              </div>
+          <div class="col-sm-8">
+            <div class="form-group">
+              <label for="category">School</label>
+              <model-select
+                :options="schools"
+                v-model="form.school_id"
+                placeholder="Select School"
+              ></model-select>
+              <has-error :form="form" field="school_id"></has-error>
             </div>
-
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="images">Select Multiple Images</label>
-                  <input type="file"  multiple="multiple" class="form-control w-100"  ref="attachments" @change="changePhoto">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-2"></div>
-              <div class="col-sm-4">
-                <router-link
-                  :to="`/gallery`"
-                  class="btn btn-primary itrn_add_btn back_btn text-black"
-                  >BACK</router-link
-                >
-              </div>
-              <div class="col-sm-4">
-                <div class="form-group text-center">
-                  <button
-                    type="submit"
-                    class="btn btn-primary btn-block itrn_add_btn"
-                  >
-                    SUBMIT
-                  </button>
-                </div>
-              </div>
-              <div class="col-sm-2"></div>
-            </div>
-          </form>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
+
+        <div class="row img-card-delete-icon">
+          <div
+            class="col-sm-4 position-relative"
+            v-for="img in images"
+            :key="img.id"
+          >
+            <div class="card">
+              <div class="card-body">
+                <img :src="`/images/gallery/${img.path}`" class="w-100" />
+              </div>
+            </div>
+            <span
+              class="badge badge-danger position-absolute cursor-pointer"
+              @click="deleteImage(img.id)"
+              ><i class="far fa-trash-alt" aria-hidden="true"></i
+            ></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="images">Select Multiple Images</label>
+              <input
+                type="file"
+                multiple="multiple"
+                class="form-control w-100"
+                ref="attachments"
+                @change="changePhoto"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-4">
+            <back-button url="/gallery"></back-button>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group text-center">
+              <submit-button />
+            </div>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+      </form>
+    </template>
+  </form-layout>
 </template>
 
 <script>
 import { Form, HasError } from "vform";
 import { ModelSelect } from "vue-search-select";
+import BackButton from "@/admin/components/buttons/BackButton.vue";
+import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
+import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
   name: "New",
   components: {
     Form,
     "has-error": HasError,
     ModelSelect,
+    "back-button": BackButton,
+    "submit-button": SubmitButton,
+    "form-layout": FormLayout,
   },
   data() {
     return {
       options: [],
-      schools:[],
-      images:[],
+      schools: [],
+      images: [],
       form: new Form({
         category: "",
         title: "",
-        school_id:"",
-        images:[],
+        school_id: "",
+        images: [],
       }),
     };
   },
 
-  mounted(){
+  mounted() {
     this.getGalleryList();
     this.getSchools();
   },
   methods: {
     getGalleryList() {
-      axios.get(`/api/gallery/${this.$route.params.id}/edit`).then((response) => {
-        setTimeout(() => $("#example").DataTable(), 1000);
-        this.form.fill(response.data);
-        this.form.school_id = parseInt(response.data.school_id);
-        this.form.images= [];
-        this.images = response.data.images;
-      });
+      axios
+        .get(`/api/gallery/${this.$route.params.id}/edit`)
+        .then((response) => {
+          setTimeout(() => $("#example").DataTable(), 1000);
+          this.form.fill(response.data);
+          this.form.school_id = parseInt(response.data.school_id);
+          this.form.images = [];
+          this.images = response.data.images;
+        });
     },
-    
+
     getSchools() {
       axios.get("/api/school").then((response) => {
         for (var i = 0; i < response.data.data.length; i++) {
           this.schools.push({
             value: response.data.data[i].id,
-            text: response.data.data[i].school_name
+            text: response.data.data[i].school_name,
           });
         }
       });
@@ -165,32 +177,32 @@ export default {
         .catch(() => {});
     },
     changePhoto(event) {
-      for(var i=0;i<event.target.files.length;i++){
+      for (var i = 0; i < event.target.files.length; i++) {
         let file = event.target.files[i];
         let reader = new FileReader();
-        reader.onload = event => {
+        reader.onload = (event) => {
           this.form.images.push({
-            'name':file.name,
-            'file':event.target.result
-            });
+            name: file.name,
+            file: event.target.result,
+          });
         };
         reader.readAsDataURL(file);
       }
     },
 
-    deleteImage(id){
-      var data = {'id':id};
-      axios.post('/api/gallery-img-delete',data).then(response=>{
+    deleteImage(id) {
+      var data = { id: id };
+      axios.post("/api/gallery-img-delete", data).then((response) => {
         this.getGalleryList();
-      })
+      });
     },
 
-    imagePath(){
-        return '/images/gallery/'+ this.form.image;
+    imagePath() {
+      return "/images/gallery/" + this.form.image;
     },
-    back(){
-        this.$router.push('/gallery');
-    }
+    back() {
+      this.$router.push("/gallery");
+    },
   },
 };
 </script> 

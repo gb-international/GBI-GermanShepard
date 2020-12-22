@@ -3,113 +3,122 @@ This Template is for listing for the Category profile using function to get the
 data from the api to display the data about the Category from the backend .
 -->
 <template>
-  <section class="content">
-    <!--************************************************
-    Template Type: Category List
-    Author:@Ajay
-    ****************************************************-->
-    <div class="row justify-content-around">
-      <div class="col-md-12">
-        <div class="container container_admin_body">
-          <div class="top_btn mb-4">
-            <router-link :to="`/gallery-add`">Add Gallery</router-link>
-          </div>
-          <table
-            id="example"
-            class="display table table-striped table-bordered nowrap"
-            style="width: 100%"
-          >
-            <thead>
-              <tr>
-                <th>TITLE <i class="fas fa-sort"></i></th>
-                <th>CATEGORY NAME <i class="fas fa-sort"></i></th>
-                <th>SCHOOL NAME <i class="fas fa-sort"></i></th>
-                <th><i class="fas fa-cog"></i></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                v-for="post in posts"
-                role="row"
-                v-bind:class="{ odd: oddclass, even: evenclass }"
-                class="row_list"
-                :key="post.id"
-              >
-                <td>{{ post.title }}</td>
-                <td>{{ post.school.school_name }}</td>
-                <td>{{ post.category }}</td>
-
-                <td class="edit_section">
-                  <router-link
-                    :to="`/gallery/${post.id}`"
-                    class="edit_link"
-                  >
-                    <span class="badge badge-primary"
-                      ><i class="fas fa-pencil-alt"></i
-                    ></span>
-                  </router-link>
-                  <a
-                    href=""
-                    class="delete_link"
-                    @click.prevent="deleteGallery(post.id)"
-                    ><span class="badge badge-danger"
-                      ><i class="far fa-trash-alt"></i></span
-                  ></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
+  <list-layout addurl="/gallery-add" buttontext="add gallery">
+    <template #perpage>
+      <b-form-group
+        label="Per page"
+        label-for="per-page-select"
+        label-cols-sm="6"
+        label-cols-md="4"
+        label-cols-lg="3"
+        label-align-sm="right"
+        label-size="sm"
+        class="mb-0"
+      >
+        <b-form-select
+          id="per-page-select"
+          class="radius-0"
+          v-model="perPage"
+          :options="options"
+        ></b-form-select>
+      </b-form-group>
+    </template>
+    <template #searchbar>
+      <b-form-input v-model="filter" type="search" placeholder="Type to Search" class="radius-0"></b-form-input>
+    </template>
+    <template #table>
+      <b-table
+        id="table-transition"
+        striped
+        hover
+        outlined
+        sticky-header="405px"
+        class="w-100 table-layout"
+        :fields="fields"
+        :items="items.data"
+        :busy="$store.getters.isBusy"
+        :filter="filter"
+        primary-key="updated_at"
+        :tbody-transition-props="transProps"
+      >
+        <template #table-busy>
+          <table-loader />
+        </template>
+        <template #cell(action)="data">
+          <edit-icon :url="`/gallery/${data.item.id}`"></edit-icon>
+          <delete-icon 
+            @click.native="deleteItem(data.item.id,data.index)"
+            >
+          </delete-icon>
+        </template>
+      </b-table> 
+    </template>
+    <template #pagination  v-if="items.data">
+      <pagination :data="items" @pagination-change-page="getitems" :align="`right`">
+        <span slot="prev-nav">Previous</span>
+        <span slot="next-nav">Next</span>
+      </pagination>
+    </template>
+  </list-layout>
 </template>
 
 <script>
+import listLayout from '@/admin/components/layout/ListLayout.vue';
+import pagination  from 'laravel-vue-pagination';
+import EditIcon from '@/admin/components/icons/EditIcon.vue';
+import DeleteIcon from '@/admin/components/icons/DeleteIcon.vue';
+import ViewIcon from '@/admin/components/icons/ViewIcon.vue';
+import TableLoader from '@/admin/components/TableLoader.vue';
+import { mapState } from 'vuex';
+
 export default {
   name: "List",
+  components:{
+    'list-layout':listLayout,
+    'table-loader':TableLoader,
+    'pagination':pagination,
+    'edit-icon':EditIcon,
+    'delete-icon':DeleteIcon,
+    'view-icon':ViewIcon,
+  },
   data() {
     return {
-      oddclass: false,
-      evenclass: true,
-      posts: [],
+      transProps: {
+        // Transition name
+        name: 'flip-list'
+      },
+      fields: [
+        {key:'title',label:'TITLE',sortable:true,thClass: 'table-head'},
+        {key:'category',label:'CATEGORY NAME',sortable:true,thClass: 'table-head'},
+        {key:'school.school_name',label:'SCHOOL NAME',sortable:true,thClass: 'table-head'},
+        {key:'updated_at',label:'LAST UPDATE',sortable:true,thClass: 'table-head'},
+        {key:'action',label:'ACTION',thClass: 'table-head'}
+      ],
+      filter:'',
+      perPage:7,
+      options:[7,25,50,100],
     };
   },
   mounted() {
-    this.getposts();
+    this.getitems();
   },
-  methods: {
-    getposts() {
-      axios.get("/api/gallery").then((response) => {
-        setTimeout(() => $("#example").DataTable(), 1000);
-        this.posts = response.data;
-      });
+  computed:{
+    ...mapState(['items']),
+  },
+  watch:{
+    perPage:function(){
+      this.getitems(1,this.perPage);
     },
+    
+  },
 
-    deleteGallery(id) {
-      var uri = "api/gallery/" + id;
-      this.$swal
-        .fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        })
-        .then((result) => {
-          if (result.value) {
-            axios.delete(uri).then((response) => {
-              this.getposts();
-            });
-            this.$swal.fire(
-              "Deleted!",
-              "Category has been deleted.",
-              "success"
-            );
-          }
-        });
+  methods: {
+    getitems(page=1,size= this.perPage) {
+      this.$store.dispatch('getItems','/gallery/all/'+size+'?page='+page);
+    },
+    deleteItem(id,index=-1) {
+      let payload = {'api':"/gallery/"+id,index,'index':index};
+      this.$store.dispatch('deleteItem',payload);
     },
   },
 };

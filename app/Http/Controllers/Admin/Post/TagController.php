@@ -27,7 +27,7 @@ class TagController extends Controller
             'id','title','updated_at'
             ])
             ->latest('updated_at')
-            ->paginate(7));
+            ->get(7));
     }
 
     /**

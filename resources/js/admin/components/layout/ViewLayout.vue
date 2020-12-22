@@ -6,7 +6,7 @@ to submit the data we are using a function.
 <template>
   <section class="content">
     <div class="row pt-3 pb-4">
-        <div class="col-sm-12">
+        <div class="col-sm-12 card_view">
             <slot name="viewdata"></slot>
             <div class="text-center" v-if="backurl">
                 <back-button :url="backurl"></back-button>

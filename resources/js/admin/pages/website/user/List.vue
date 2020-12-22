@@ -67,30 +67,30 @@ export default {
     },
 
     deleteuser(id){
-        var uri = 'api/train/'+id;
-        this.$swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-          if (result.value) {
-            axios.delete(uri).then((response)=>{
-              this.getTrain();
-            })
-            this.$swal.fire(
-              'Deleted!',
-              'Your file has been deleted.',
-              'success'
-            )
-             
-          }
-        });
-      },
-} 
+      var uri = 'api/train/'+id;
+      this.$swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.value) {
+          axios.delete(uri).then((response)=>{
+            this.getTrain();
+          })
+          this.$swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+            
+        }
+      });
+    },
+  } 
 }
 
 

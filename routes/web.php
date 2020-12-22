@@ -12,6 +12,7 @@ use App\Mail\WelcomeMail;
 Route::post('/payment','Front\PaymentController@payment');
 Route::post('/response','Front\PaymentController@response');
 Route::post('/cancel','Front\PaymentController@cancel');
+// marketing
 Route::get('/marketings/{slug}','Front\MarketingController@index');
 Route::post('/marketings','Front\MarketingController@store');
 

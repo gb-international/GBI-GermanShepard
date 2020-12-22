@@ -41,10 +41,13 @@ Route::namespace('Admin')->group(function (){
 	});
 
 	Route::namespace('Tour')->group(function(){
+		Route::get('tour/all/{size}','TourController@all');
 		Route::resource('tour','TourController');
+		Route::get('tourtype/all/{size}','TourtypeController@all');
 		Route::resource('tourtype','TourtypeController');
 		Route::get('tourprogram/all/{size}','TourprogramController@all');
 		Route::resource('tourprogram','TourprogramController');
+		Route::get('schoolbankdetails/all/{size}','SchoolbankdetailController@all');
 		Route::resource('schoolbankdetails','SchoolbankdetailController');
 		Route::resource('userpayments','UserpaymentController');
 		Route::get('frontbooking','FrontbookingController@index');
@@ -88,6 +91,7 @@ Route::namespace('Admin')->group(function (){
 	
 	Route::namespace('Gallery')->group(function(){
 		Route::post('gallery-img-delete','GalleryController@galleryImageDelete');
+		Route::get('gallery/all/{size}','GalleryController@all');
 		Route::resource('gallery','GalleryController');
 	});
 

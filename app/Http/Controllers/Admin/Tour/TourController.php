@@ -22,6 +22,13 @@ class TourController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function all($size)
+    {
+        return response()->json(Tour::with('school:id,school_name')
+            ->latest('updated_at')
+            ->paginate($size));
+    }
     public function index()
     {
         return new TourCollection(Tour::with('school')->get());

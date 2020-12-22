@@ -15,6 +15,14 @@ class GalleryController extends Controller
      * @return \Illuminate\Http\Response
      */
     use ImageTrait;
+
+    public function all($size)
+    {
+        return response()->json(Gallery::with('school:id,school_name')
+            ->latest('updated_at')
+            ->paginate($size));
+    }
+
     public function index()
     {
         $gallery = Gallery::with('school:id,school_name')->get();

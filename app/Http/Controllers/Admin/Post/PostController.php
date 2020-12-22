@@ -31,7 +31,7 @@ class PostController extends Controller
             'id','status','title','updated_at'
             ])
             ->latest('updated_at')
-            ->paginate(7));
+            ->get());
     }
 
 

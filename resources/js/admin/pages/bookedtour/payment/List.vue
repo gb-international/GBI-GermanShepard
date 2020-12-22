@@ -102,7 +102,6 @@ It takes id from the url and get the data from the api .
                 <p v-else>
                   <span class="badge badge-primary">Pending</span>
                 </p>
-                </p>
               </div>
               <div class="col-sm-4">
                 <h5>Added At</h5>

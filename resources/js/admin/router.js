@@ -75,6 +75,7 @@ import TourprogramEdit from '@/admin/pages/website/home/Edit-tourprogram.vue'
 import Bankdetail from '@/admin/pages/website/bankdetail/Bankdetail.vue'
 import BankdetailAdd from '@/admin/pages/website/bankdetail/New-Bankdetail.vue'
 import BankdetailEdit from '@/admin/pages/website/bankdetail/Edit-Bankdetail.vue'
+import BankdetailView from '@/admin/pages/website/bankdetail/View-Bankdetail.vue'
 
 
 
@@ -254,7 +255,8 @@ export const routes = [
     // Tour
     { path:'/tours', component:Tours },
     { path:'/tours/:id', component:TourEdit },
-    { path:'/add-tour', component:TourAdd },
+    { path:'/tour-view/:id', component:TourView },
+    { path:'/tour-add', component:TourAdd },
     { path:'/view-tour/:id', component:TourView },
     { path:'/booked-tour/:id', component:BookedTours },
     { path:'/booked-tour-manager/:id', component:BookedEscort },
@@ -301,9 +303,10 @@ export const routes = [
 
     
     // Bank detail
-    { path:'/bankdetail',component:Bankdetail},
-    { path:'/bankdetail/:id',component:BankdetailEdit},
-    { path:'/bankdetail-add',component:BankdetailAdd},
+    { path:'/schoolbankdetails',component:Bankdetail},
+    { path:'/schoolbankdetails/:id',component:BankdetailEdit},
+    { path:'/schoolbankdetails-view/:id',component:BankdetailView},
+    { path:'/schoolbankdetails-add',component:BankdetailAdd},
 
     
 

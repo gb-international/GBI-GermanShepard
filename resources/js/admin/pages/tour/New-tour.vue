@@ -5,161 +5,177 @@ to submit the data we are using a function.
 
  -->
 <template>
-  <section class="content">
-    <div class="container-fluid">
-      <!--************************************************
-        Template Type: Adding New Hotel
-        Author:@Ajay
+  <form-layout>
+    <template #formdata>
+      <form
+        role="form"
+        enctype="multipart/form-data"
+        @submit.prevent="AddSchool()"
+      >
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="tour_id">Tour Code</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.tour_id"
+                :class="{ 'is-invalid': form.errors.has('tour_id') }"
+                placeholder="Enter School name"
+              />
+              <has-error :form="form" field="tour_id"></has-error>
+            </div>
+          </div>
 
-      ****************************************************-->
-      <div class="row justify-content-around">
-        <!-- left column -->
-        <div class="col-md-12">
-          <form role="form" enctype="multipart/form-data" @submit.prevent="AddSchool()">
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="tour_id">Tour Code</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="form.tour_id"
-                    :class="{ 'is-invalid': form.errors.has('tour_id') }"
-                    placeholder="Enter School name"
-                  />
-                  <has-error :form="form" field="tour_id"></has-error>
-                </div>
-              </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="travel_code">School Travel Code</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.travel_code"
+                :class="{ 'is-invalid': form.errors.has('travel_code') }"
+                placeholder="Enter Travel Code to share with school"
+              />
+              <has-error :form="form" field="travel_code"></has-error>
+            </div>
+          </div>
 
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="travel_code">School Travel Code</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="form.travel_code"
-                    :class="{ 'is-invalid': form.errors.has('travel_code') }"
-                    placeholder="Enter Travel Code to share with school"
-                  />
-                  <has-error :form="form" field="travel_code"></has-error>
-                </div>
-              </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="no_of_person">No. Of Person</label>
+              <input
+                type="number"
+                class="form-control"
+                v-model="form.no_of_person"
+                :class="{ 'is-invalid': form.errors.has('no_of_person') }"
+                placeholder="Enter No. of person"
+              />
+              <has-error :form="form" field="no_of_person"></has-error>
+            </div>
+          </div>
 
-              
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="no_of_person">No. Of Person</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    v-model="form.no_of_person"
-                    :class="{ 'is-invalid': form.errors.has('no_of_person') }"
-                    placeholder="Enter No. of person"
-                  />
-                  <has-error :form="form" field="no_of_person"></has-error>
-                </div>
-              </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="itinerary_id">Itinerary</label>
 
-
-
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="itinerary_id">Itinerary</label>
-
-                  <select class="form-control select-field" v-model="form.itinerary_id">
-                    <option
-                      v-for="data in itinerary_list"
-                      :value="data.id"
-                      :key="data.id"
-                    >{{ data.title }}</option>
-                  </select>
-                  <div class="error" v-if="form.errors.has('itinerary_id')">
-                    <label class="danger text-danger">{{ form.errors.get("itinerary_id") }}</label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="itinerary_id">School</label>
-
-                  <select class="form-control select-field" v-model="form.school_id">
-                    <option
-                      v-for="data in school_list"
-                      :value="data.id"
-                      :key="data.id"
-                    >{{ data.school_name }}</option>
-                  </select>
-                  <div class="error" v-if="form.errors.has('school_id')">
-                    <label class="danger text-danger">{{ form.errors.get("school_id") }}</label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="tour_start_date">Tour Start Date</label>
-                  <input
-                    type="date"
-                    class="form-control"
-                    placeholder="Enter Tour Start Date"
-                    v-model="form.tour_start_date"
-                    :class="{ 'is-invalid': form.errors.has('tour_start_date') }"
-                  />
-                  <has-error :form="form" field="tour_start_date"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="tour_end_date">Tour End Date</label>
-                  <input
-                    type="date"
-                    class="form-control"
-                    placeholder="Enter Enter Date"
-                    v-model="form.tour_end_date"
-                    :class="{ 'is-invalid': form.errors.has('tour_end_date') }"
-                  />
-                  <has-error :form="form" field="tour_end_date"></has-error>
-                </div>
-              </div>
-
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="tour_price">Tour Price</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter Tour Price"
-                    v-model="form.tour_price"
-                    :class="{ 'is-invalid': form.errors.has('tour_price') }"
-                  />
-                  <has-error :form="form" field="tour_price"></has-error>
-                </div>
+              <select
+                class="form-control select-field"
+                v-model="form.itinerary_id"
+              >
+                <option
+                  v-for="data in itinerary_list"
+                  :value="data.id"
+                  :key="data.id"
+                >
+                  {{ data.title }}
+                </option>
+              </select>
+              <div class="error" v-if="form.errors.has('itinerary_id')">
+                <label class="danger text-danger">{{
+                  form.errors.get("itinerary_id")
+                }}</label>
               </div>
             </div>
+          </div>
 
-            <div class="row">
-              <div class="col-sm-4"></div>
-              <div class="col-sm-4">
-                <div class="form-group text-center">
-                  <button type="submit" class="btn btn-primary btn-block itrn_add_btn">SUBMIT</button>
-                </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="itinerary_id">School</label>
+
+              <select
+                class="form-control select-field"
+                v-model="form.school_id"
+              >
+                <option
+                  v-for="data in school_list"
+                  :value="data.id"
+                  :key="data.id"
+                >
+                  {{ data.school_name }}
+                </option>
+              </select>
+              <div class="error" v-if="form.errors.has('school_id')">
+                <label class="danger text-danger">{{
+                  form.errors.get("school_id")
+                }}</label>
               </div>
-              <div class="col-sm-4"></div>
             </div>
-          </form>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="tour_start_date">Tour Start Date</label>
+              <input
+                type="date"
+                class="form-control"
+                placeholder="Enter Tour Start Date"
+                v-model="form.tour_start_date"
+                :class="{ 'is-invalid': form.errors.has('tour_start_date') }"
+              />
+              <has-error :form="form" field="tour_start_date"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="tour_end_date">Tour End Date</label>
+              <input
+                type="date"
+                class="form-control"
+                placeholder="Enter Enter Date"
+                v-model="form.tour_end_date"
+                :class="{ 'is-invalid': form.errors.has('tour_end_date') }"
+              />
+              <has-error :form="form" field="tour_end_date"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="tour_price">Tour Price</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Tour Price"
+                v-model="form.tour_price"
+                :class="{ 'is-invalid': form.errors.has('tour_price') }"
+              />
+              <has-error :form="form" field="tour_price"></has-error>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-</template>
 
+        <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-4">
+            <back-button url="/tours"></back-button>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group text-center">
+              <submit-button />
+            </div>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+      </form>
+    </template>
+  </form-layout>
+</template>
 <script>
 import { Form, HasError } from "vform";
+import BackButton from "@/admin/components/buttons/BackButton.vue";
+import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
+import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
   name: "NewTour",
-  components: { Form, "has-error": HasError },
+  components: {
+    Form,
+    "has-error": HasError,
+    "back-button": BackButton,
+    "submit-button": SubmitButton,
+    "form-layout": FormLayout,
+  },
   data() {
     return {
       itinerary_list: [],
@@ -168,7 +184,7 @@ export default {
       form: new Form({
         tour_id: "",
         travel_code: "",
-        no_of_person:'',
+        no_of_person: "",
         itinerary_id: "",
         school_id: "",
         tour_start_date: "",

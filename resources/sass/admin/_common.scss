@@ -97,6 +97,11 @@ input[type='time'],input[type='datetime-local'],.ui.selection.dropdown,input[typ
 	display: block;
 	width: 100%;
 }
+.ui.selection.dropdown{ 
+	color: $input-box-text !important;
+	background: $input-box !important;
+	border:none !important;
+}
 input[type='text'],input[type='email'],
 input[type='date'],input[type='number'],
 input[type='time'],.select-field,.ui.selection.dropdown,input[type='datetime-local']{
@@ -105,8 +110,33 @@ input[type='time'],.select-field,.ui.selection.dropdown,input[type='datetime-loc
 	font-weight: 600;
 }
 // dropdown for the city
-.ui.search.dropdown>.text {
-	top: 7px;
+.ui.search.dropdown>.text {	top: 7px; }
+.multiselect__tags{ 
+	min-height: 53px !important;
+	font-size: 17px !important;
+	padding: 11px 40px 0 8px !important;
+	color: #737879 !important;
+	background: #e1e1e1e1 !important;
+	font-weight: 600;
+	.multiselect__tag{
+		background: #a9a9a9 !important;
+	}
+}
+.multiselect__option--selected.multiselect__option--highlight{ 
+	background:#dee2e6 !important;
+}
+.multiselect__option--highlight{
+	background:#171f36 !important;
+}
+.multiselect__tag-icon:focus, .multiselect__tag-icon:hover{
+	background: hsla(0, 2%, 52%, 0.89) !important;
+}
+.multiselect__select{
+	top: 8px !important;
+}
+// text editor
+.ql-editor:focus{
+	background:white;
 }
 
 .ui.selection.dropdown>.delete.icon, .ui.selection.dropdown>.dropdown.icon, .ui.selection.dropdown>.search.icon{
