@@ -17,6 +17,15 @@ class FlightController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function all($size)
+    {
+        return response()->json(Flight::select([
+            'id','name','code'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
+
     public function index()
     {
         return response()->json(Flight::get());

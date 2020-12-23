@@ -41,7 +41,7 @@ data from the api to display the data about the Itinerary from the backend .
                           <span class="badge badge-primary" title="Booking Details"><i class="fas fa-book-reader"></i></span>
                         </router-link>
 
-                        <router-link :to="`/account-itinerary-view/${itinerary.id}`" class="edit_link">
+                        <router-link :to="`/view-itinerary/${itinerary.id}`" class="edit_link">
                           <span class="badge badge-primary" title="View Itinerary"><i class="fas fa-eye"></i></span>
                         </router-link>
 

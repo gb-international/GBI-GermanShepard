@@ -44,15 +44,6 @@
                 </router-link>
                 </li>
                 @endcan
-                
-                @can('front booking')
-                <li class="nav-item">
-                <router-link to="/front-booking" class="nav-link" title="Booking from Website">
-                    
-                    <p> Booking From Website</p>
-                </router-link>
-                </li>
-                @endcan
 
             </ul>
         </li>

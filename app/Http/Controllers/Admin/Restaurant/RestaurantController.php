@@ -14,6 +14,15 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function all($size)
+    {
+        return response()->json(Restaurant::select([
+            'id','name','address','contact_number','contact_name'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
     public function index()
     {
         return response()->json(Restaurant::get());

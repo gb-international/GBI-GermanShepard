@@ -5,96 +5,98 @@ to submit the data we are using a function.
 
  -->
 <template>
-  <section class="content">
-    <div class="container-fluid">
-      <!--************************************************
-        Template Type: Adding New Hotel
-        Author:@Ajay
+  <form-layout>
+    <template #formdata>
+      <form
+        role="form"
+        enctype="multipart/form-data"
+        @submit.prevent="AddSchool()"
+      >
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="code">Flight Code</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.code"
+                :class="{ 'is-invalid': form.errors.has('code') }"
+                placeholder="Enter Flight Number"
+              />
+              <has-error :form="form" field="code"></has-error>
+            </div>
+          </div>
 
-        ****************************************************-->
-      <div class="row justify-content-around">
-        <!-- left column -->
-        <div class="col-md-12">
-          
-          <form role="form" enctype="multipart/form-data" @submit.prevent="AddSchool()">
-              <div class="row">        
-                <div class="col-sm-6">
-                  <div class="form-group">
-                      <label for="code">Flight Code</label>
-                      <input type="text" class="form-control" v-model="form.code" :class="{ 'is-invalid': form.errors.has('code') }"  placeholder="Enter Flight Number">
-                      <has-error :form="form" field="code"></has-error>
-                  </div>
-                </div>
-                  
-                <div class="col-sm-6">
-                  <div class="form-group">
-                      <label for="name">Flight Name </label>
-                      <input type="text" class="form-control"  placeholder="Enter Flight Name" v-model="form.name" :class="{ 'is-invalid': form.errors.has('name') }">
-                      <has-error :form="form" field="name"></has-error>
-                  </div>
-                </div>
-              </div>        
-
-              <div class="row">
-                <div class="col-sm-2">
-                </div>
-                <div class="col-sm-4">
-                  <router-link :to="`/flight-list`" class="btn btn-primary itrn_add_btn back_btn">Back</router-link>
-                </div>
-                <div class="col-sm-4">
-                  <div class="form-group text-center">
-                    <button type="submit" class="btn btn-primary btn-block itrn_add_btn">SUBMIT</button>
-                  </div>
-                </div>
-                <div class="col-sm-2"></div>
-              </div> 
-          </form>
-
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="name">Flight Name </label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Flight Name"
+                v-model="form.name"
+                :class="{ 'is-invalid': form.errors.has('name') }"
+              />
+              <has-error :form="form" field="name"></has-error>
+            </div>
+          </div>
         </div>
-      </div>
-        <!-- /.row -->
-    </div><!-- /.container-fluid -->
-  </section>
+
+        <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-4">
+            <back-button url="/flight-list"></back-button>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group text-center">
+              <submit-button />
+            </div>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+      </form>
+    </template>
+  </form-layout>
 </template>
 
 <script>
-import { Form, HasError } from 'vform'
+import { Form, HasError } from "vform";
+import BackButton from "@/admin/components/buttons/BackButton.vue";
+import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
+import FormLayout from "@/admin/components/layout/FormLayout.vue";
+
 export default {
   name: "New",
-  components:{Form,
-  'has-error': HasError
+  components: {
+    Form,
+    "has-error": HasError,
+    "back-button": BackButton,
+    "submit-button": SubmitButton,
+    "form-layout": FormLayout,
   },
-  data(){
+  data() {
     return {
-      // Create a new form instance
       form: new Form({
-        code: '',
-        name:'',
-      })
-    }
+        code: "",
+        name: "",
+      }),
+    };
   },
-  methods:
-  {
-
-    AddSchool()
-    {
-      // Submit the form via a itinerary request
-      this.form.post('/api/flight')
-        .then((response)=>{
-             this.$router.push(`/flight-list/`)
-              this.$toast.fire({
-                  icon: 'success',
-                  title: 'School Added successfully'
-              })
-          })
-          .catch(()=>{
-
-          })
-    }
-  }
-}
+  methods: {
+    AddSchool() {
+      this.form
+        .post("/api/flight")
+        .then((response) => {
+          this.$toast.fire({
+            icon: "success",
+            title: "Flight Added successfully",
+          });
+        })
+        .catch(() => {});
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 </style>  

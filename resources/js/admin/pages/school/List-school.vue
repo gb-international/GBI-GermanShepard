@@ -1,105 +1,124 @@
 <!--
-This Template is for listing for the Hotel profile using function to get the 
-data from the api to display the data about the Hotel from the backend .
+This Template is for listing for the Category profile using function to get the 
+data from the api to display the data about the Category from the backend .
 -->
 <template>
-  <section class="content">
-      <!--************************************************
-      Template Type: Hotel List
-      Author:@Ajay
-
-      ****************************************************-->
-      <div class="row justify-content-around" >
-          <div class="col-md-12">
-            <div class="container container_admin_body">
-                <!-- Start Card -->
-              <table id="example" class="display table table-striped table-bordered nowrap" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>NAME  <i class="fas fa-sort"></i></th>
-                        <th>LOCATION  <i class="fas fa-sort"></i></th>
-                        <th>CONTACT NO.  <i class="fas fa-sort"></i></th>
-                        <th>PRINCIPLE  <i class="fas fa-sort"></i></th>
-                        <th> <i class="fas fa-cog"></i></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="school in school_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}" class="row_list">
-                        <td>{{school.school_name}}</td>
-                        <td>{{school.street }} {{school.city_name }} {{school.state_name }} {{school.country_name }} </td>
-                        <td>{{ school.mobile }}</td>
-                        <td>{{ school.principle_email_id }}</td>
-                        <td class="edit_section">
-                          <router-link :to="`/schools/${school.id}`" class="edit_link">
-                            <span class="badge badge-primary"><i class="fas fa-pencil-alt"></i></span>
-                          </router-link>
-                          <a href="" class="delete_link" @click.prevent = "deleteschool(school.id)" ><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
-
-                          <router-link :to="`/view-school/${school.id}`" class="edit_link">
-                            <span class="badge badge-primary" title="View Itinerary"><i class="fas fa-eye"></i></span>
-                          </router-link>
-                        </td>
-                    </tr>                 
-                  </tbody>
-              </table>
-            </div>                          
-              <!-- end -->
-          </div>
-      </div>
-  </section>
-    <!-- /.content -->
+  <list-layout addurl="/add-school" buttontext="add school">
+    <template #perpage>
+      <b-form-group
+        label="Per page"
+        label-for="per-page-select"
+        label-cols-sm="6"
+        label-cols-md="4"
+        label-cols-lg="3"
+        label-align-sm="right"
+        label-size="sm"
+        class="mb-0"
+      >
+        <b-form-select
+          id="per-page-select"
+          class="radius-0"
+          v-model="perPage"
+          :options="options"
+        ></b-form-select>
+      </b-form-group>
+    </template>
+    <template #searchbar>
+      <b-form-input v-model="filter" type="search" placeholder="Type to Search" class="radius-0"></b-form-input>
+    </template>
+    <template #table>
+      <b-table
+        id="table-transition"
+        striped
+        hover
+        outlined
+        sticky-header="405px"
+        class="w-100 table-layout"
+        :fields="fields"
+        :items="items.data"
+        :busy="$store.getters.isBusy"
+        :filter="filter"
+        primary-key="updated_at"
+      >
+        <template #table-busy>
+          <table-loader />
+        </template>
+        <template #cell(address)="data">
+          {{ data.item.address | readMore(50) }}
+        </template>
+        <template #cell(action)="data">
+          <view-icon :url="`/school-view/${data.item.id}`"></view-icon>
+          <edit-icon :url="`/schools/${data.item.id}`"></edit-icon>
+          <delete-icon 
+            @click.native="deleteItem(data.item.id,data.index)"
+            >
+          </delete-icon>
+        </template>
+      </b-table> 
+    </template>
+    <template #pagination  v-if="items.data">
+      <div class="w-100">
+        <pagination :data="items" @pagination-change-page="getitems" :align="`right`" limit="-1">
+          <span slot="prev-nav">Previous</span>
+          <span slot="next-nav">Next</span>
+        </pagination>
+      </div>  
+    </template>
+  </list-layout>
 </template>
 
 <script>
-  export default {
-    name: "ListSchool",
-    data(){
-      return{
-        oddclass:false,
-        evenclass:true,
-        school_list:[]
-      }
-    },
-  created(){
-    this.schoolData();
+import listLayout from '@/admin/components/layout/ListLayout.vue';
+import pagination  from 'laravel-vue-pagination';
+import EditIcon from '@/admin/components/icons/EditIcon.vue';
+import DeleteIcon from '@/admin/components/icons/DeleteIcon.vue';
+import ViewIcon from '@/admin/components/icons/ViewIcon.vue';
+import TableLoader from '@/admin/components/TableLoader.vue';
+import { mapState } from 'vuex';
+
+export default {
+  name: "List",
+  components:{
+    'list-layout':listLayout,
+    'table-loader':TableLoader,
+    'pagination':pagination,
+    'edit-icon':EditIcon,
+    'delete-icon':DeleteIcon,
+    'view-icon':ViewIcon,
+  },
+  data() {
+    return {
+      fields: [
+        {key:'school_name',label:'NAME',sortable:true,thClass: 'table-head'},
+        {key:'address',label:'ADDRESS',sortable:true,thClass: 'table-head'},
+        {key:'mobile',label:'CONTACT NO.',sortable:true,thClass: 'table-head'},
+        {key:'action',label:'ACTION',thClass: 'table-head'}
+      ],
+      filter:'',
+      perPage:7,
+      options:[7,25,50,100],
+    };
+  },
+  mounted() {
+    this.getitems();
+  },
+  computed:{
+    ...mapState(['items']),
+  },
+  watch:{
+    perPage:function(){
+      this.getitems(1,this.perPage);
+    }
   },
 
-   methods:
-   {
-    schoolData(){
-      setTimeout(() => $('#example').DataTable(), 1000);
-      axios.get('/api/school').then((response)=>{
-        this.school_list = response.data.data;
-      })
+  methods: {
+    getitems(page=1,size= this.perPage) {
+      this.$store.dispatch('getItems','/school/all/'+size+'?page='+page);
     },
-
-   deleteschool(id){
-      var uri = 'api/school/'+id;
-      this.$swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.value) {
-          axios.delete(uri).then((response)=>{
-            this.schoolData();
-          })
-          this.$swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
-           
-        }
-      });
-    }
-   
-   } 
-}
-
-
+    deleteItem(id,index=-1) {
+      let payload = {'api':"/school/"+id,index,'index':index};
+      this.$store.dispatch('deleteItem',payload);
+    },
+  },
+};
 </script>

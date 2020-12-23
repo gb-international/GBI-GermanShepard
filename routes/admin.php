@@ -23,8 +23,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::namespace('Admin')->group(function (){
 
 	Route::namespace('Transport')->group(function(){
+		Route::get('bus/all/{size}','BusController@all');
 		Route::resource('bus', 'BusController');
+		Route::get('train/all/{size}','TrainController@all');
 		Route::resource('train', 'TrainController');
+		Route::get('flight/all/{size}','FlightController@all');
 		Route::resource('flight', 'FlightController');
 	});
 
@@ -49,6 +52,7 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('tourprogram','TourprogramController');
 		Route::get('schoolbankdetails/all/{size}','SchoolbankdetailController@all');
 		Route::resource('schoolbankdetails','SchoolbankdetailController');
+		Route::get('userpayments/all/{size}','UserpaymentController@all');
 		Route::resource('userpayments','UserpaymentController');
 		Route::get('frontbooking','FrontbookingController@index');
 		Route::get('frontbooking/{id}','FrontbookingController@show');
@@ -67,13 +71,16 @@ Route::namespace('Admin')->group(function (){
 		Route::get('escortUpdates/{id}','PaxController@index');
 	});
 	Route::namespace('Restaurant')->group(function(){
+		Route::get('restaurants/all/{size}','RestaurantController@all');
 		Route::resource('restaurants','RestaurantController');		
 	});
 
 	Route::namespace('Hotel')->group(function(){
+		Route::get('hotel/all/{size}','HotelController@all');
 		Route::resource('hotel','HotelController');
 	});
 	Route::namespace('School')->group(function(){
+		Route::get('school/all/{size}','SchoolController@all');
 		Route::resource('school','SchoolController');
 		Route::resource('student','StudentController');
 		Route::get('groupmembers/{tour_code}','GroupmemberController@getMember');

@@ -17,6 +17,14 @@ class SchoolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function all($size)
+    {
+        return response()->json(School::select([
+            'id','school_name','address','mobile','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
     public function index()
     {
         return SchoolCollection::collection(School::all());

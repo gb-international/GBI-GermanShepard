@@ -19,6 +19,14 @@ class BusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function all($size)
+    {
+        return response()->json(Bus::select([
+            'id','company_name','seater','seat_type','updated_at','price'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
     public function index()
     {
         return new BusCollection(Bus::get());
@@ -52,8 +60,9 @@ class BusController extends Controller
      * @param  \App\bus  $bus
      * @return \Illuminate\Http\Response
      */
-    public function show(Bus $bus)
+    public function show($bus)
     {
+        $bus = Bus::where('id',$bus)->first();
         return response()->json($bus);
     }
 
@@ -63,8 +72,9 @@ class BusController extends Controller
      * @param  \App\bus  $bus
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bus $bus)
+    public function edit($bus)
     {
+        $bus = Bus::where('id',$bus)->first();
         return response()->json($bus);
     }
 

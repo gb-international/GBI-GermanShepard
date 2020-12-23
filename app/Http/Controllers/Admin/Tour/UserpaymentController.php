@@ -13,6 +13,16 @@ class UserpaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function all($size)
+    {
+        return response()->json(Userpayment::select([
+            'id','tour_code','amount','added_by','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
+
     public function index()
     {
         return response()->json(Userpayment::orderBy('created_at')->get());

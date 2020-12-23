@@ -19,6 +19,15 @@ class HotelController extends Controller
      * @return \Illuminate\Http\Response
      */
     use ImageTrait;
+
+    public function all($size)
+    {
+        return response()->json(Hotel::select([
+            'id','type','name','address','phoneno'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
     public function index()
     {
         return HotelCollection::collection(Hotel::all());
