@@ -19,6 +19,12 @@ class CityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function all($size)
+    {
+        return response()->json(City::with('state')
+            ->latest('updated_at')
+            ->paginate($size));
+    }
     public function index()
     {
         return CityCollection::collection(City::with('state')->get());

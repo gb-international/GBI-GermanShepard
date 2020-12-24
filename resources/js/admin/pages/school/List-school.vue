@@ -47,7 +47,7 @@ data from the api to display the data about the Category from the backend .
           {{ data.item.address | readMore(50) }}
         </template>
         <template #cell(action)="data">
-          <view-icon :url="`/school-view/${data.item.id}`"></view-icon>
+          <view-icon :url="`/view-school/${data.item.id}`"></view-icon>
           <edit-icon :url="`/schools/${data.item.id}`"></edit-icon>
           <delete-icon 
             @click.native="deleteItem(data.item.id,data.index)"
@@ -58,7 +58,7 @@ data from the api to display the data about the Category from the backend .
     </template>
     <template #pagination  v-if="items.data">
       <div class="w-100">
-        <pagination :data="items" @pagination-change-page="getitems" :align="`right`" limit="-1">
+        <pagination :data="items" @pagination-change-page="getitems" :align="`right`" :limit="limit">
           <span slot="prev-nav">Previous</span>
           <span slot="next-nav">Next</span>
         </pagination>
@@ -94,6 +94,7 @@ export default {
         {key:'mobile',label:'CONTACT NO.',sortable:true,thClass: 'table-head'},
         {key:'action',label:'ACTION',thClass: 'table-head'}
       ],
+      limit:-1,
       filter:'',
       perPage:7,
       options:[7,25,50,100],

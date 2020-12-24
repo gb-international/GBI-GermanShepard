@@ -1,106 +1,122 @@
 <template>
-  <section class="content">
-    <div class="container-fluid">
-      <div class="row justify-content-around">
-        <div class="col-md-12">
-          <form role="form" enctype="multipart/form-data" @submit.prevent="updateEscort()">
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="name"
-                    placeholder="Add Name"
-                    v-model="form.name"
-                    name="name"
-                    :class="{ 'is-invalid': form.errors.has('name') }"
-                  />
-                  <has-error :form="form" field="name"></has-error>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="salaryPerday">Salary Per Day</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="salaryPerday"
-                    placeholder="Salary Per Day"
-                    v-model="form.salaryPerday"
-                    name="salaryPerday"
-                    :class="{ 'is-invalid': form.errors.has('salaryPerday') }"
-                  />
-                  <has-error :form="form" field="salaryPerday"></has-error>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="phoneno">Phone Number</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="phoneno"
-                    placeholder="Phone Number"
-                    v-model="form.phoneno"
-                    name="phoneno"
-                    :class="{ 'is-invalid': form.errors.has('phoneno') }"
-                  />
-                  <has-error :form="form" field="phoneno"></has-error>
-                </div>
-              </div>
+  <form-layout>
+    <template #formdata>
+      <form
+        role="form"
+        enctype="multipart/form-data"
+        @submit.prevent="updateEscort()"
+      >
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Add Name"
+                v-model="form.name"
+                name="name"
+                :class="{ 'is-invalid': form.errors.has('name') }"
+              />
+              <has-error :form="form" field="name"></has-error>
             </div>
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    placeholder="Enter Email"
-                    v-model="form.email"
-                    name="email"
-                    :class="{ 'is-invalid': form.errors.has('email') }"
-                  />
-                  <has-error :form="form" field="email"></has-error>
-                </div>
-              </div>
-              <div class="col-sm-8">
-                <div class="form-group">
-                  <label for="address">Address</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="address"
-                    placeholder="Enter Address"
-                    v-model="form.address"
-                    name="address"
-                    :class="{ 'is-invalid': form.errors.has('address') }"
-                  />
-                  <has-error :form="form" field="address"></has-error>
-                </div>
-              </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="salaryPerday">Salary Per Day</label>
+              <input
+                type="text"
+                class="form-control"
+                id="salaryPerday"
+                placeholder="Salary Per Day"
+                v-model="form.salaryPerday"
+                name="salaryPerday"
+                :class="{ 'is-invalid': form.errors.has('salaryPerday') }"
+              />
+              <has-error :form="form" field="salaryPerday"></has-error>
             </div>
-
-            <div class="form-group text-center">
-              <button type="submit" class="btn btn-primary itrn_add_btn">Update</button>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="phoneno">Phone Number</label>
+              <input
+                type="text"
+                class="form-control"
+                id="phoneno"
+                placeholder="Phone Number"
+                v-model="form.phoneno"
+                name="phoneno"
+                :class="{ 'is-invalid': form.errors.has('phoneno') }"
+              />
+              <has-error :form="form" field="phoneno"></has-error>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
-      <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-  </section>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter Email"
+                v-model="form.email"
+                name="email"
+                :class="{ 'is-invalid': form.errors.has('email') }"
+              />
+              <has-error :form="form" field="email"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input
+                type="text"
+                class="form-control"
+                id="address"
+                placeholder="Enter Address"
+                v-model="form.address"
+                name="address"
+                :class="{ 'is-invalid': form.errors.has('address') }"
+              />
+              <has-error :form="form" field="address"></has-error>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-4">
+            <back-button url="/escort-list"></back-button>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group text-center">
+              <submit-button />
+            </div>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+      </form>
+    </template>
+  </form-layout>
 </template>
 
 <script>
 import { Form, HasError } from "vform";
+import BackButton from "@/admin/components/buttons/BackButton.vue";
+import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
+import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
   name: "Edit",
-  components: { Form, "has-error": HasError },
+  components: {
+    Form,
+    "has-error": HasError,
+    "back-button": BackButton,
+    "submit-button": SubmitButton,
+    "form-layout": FormLayout,
+  },
   data() {
     return {
       form: new Form({

@@ -17,6 +17,12 @@ class SightseeingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function all($size)
+    {
+        return response()->json(Sightseeing::with(['city'])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
     public function index()
     {
         return new SightseeingCollection(Sightseeing::with(['city','state'])->get());

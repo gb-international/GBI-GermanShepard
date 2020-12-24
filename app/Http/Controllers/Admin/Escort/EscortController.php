@@ -20,6 +20,14 @@ class EscortController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function all($size)
+    {
+        return response()->json(Escort::select([
+            'id','salaryPerday','name','phoneno','email'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
     public function index()
     {
         return new EscortCollection(Escort::all());

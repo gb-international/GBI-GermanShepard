@@ -1,131 +1,121 @@
 <!--
-This Template is for listing for the Hotel profile using function to get the 
-data from the api to display the data about the Hotel from the backend .
+This Template is for listing for the Category profile using function to get the 
+data from the api to display the data about the Category from the backend .
 -->
 <template>
-  <section class="content">
-    <!--************************************************
-      Template Type: Hotel List
-      Author:@Ajay
-
-    ****************************************************-->
-
-    <div class="row">
-      <div class="col-md-12">
-        <div class="container container_admin_body">
-          <div class="row mb-10">
-            <div class="col-sm-12 top_btn float-right">
-              <router-link :to="`/add-city`">Add City</router-link>
-            </div>
-          </div>
-
-          <!-- <div v-if="$can('edit posts')">You can edit posts.</div>
-          <div v-else>hi</div>-->
-
-          <!-- Start Card -->
-          <table
-            id="example"
-            class="display table table-striped table-bordered nowrap"
-            style="width:100%"
-          >
-            <thead>
-              <tr>
-                <th>
-                  CITY SNAME
-                  <i class="fas fa-sort"></i>
-                </th>
-                
-                <th>
-                  STATE NAME
-                  <i class="fas fa-sort"></i>
-                </th>
-
-                <th>
-                  <i class="fas fa-cog"></i>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                v-for="city in alldata"
-                role="row"
-                v-bind:class="{ odd: oddclass , 'even': evenclass}"
-                class="row_list"
-                :key="city.id"
-              >
-                <td>{{city.name}}</td>
-                <td>{{city.state.name}}</td>
-                <td class="edit_section">
-
-                  <router-link :to="`/city/${city.id}`" class="edit_link">
-                    <span class="badge badge-primary"><i class="fas fa-pencil-alt"></i></span>
-                  </router-link>
-                  <a href class="delete_link" @click.prevent="deleteCity(city.id)">
-                    <span class="badge badge-danger">
-                      <i class="far fa-trash-alt"></i>
-                    </span>
-                  </a>
-
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- end -->
-      </div>
-    </div>
-    <p id="post"></p>
-  </section>
-  <!-- /.content -->
+  <list-layout addurl="/add-city" buttontext="add city">
+    <template #perpage>
+      <b-form-group
+        label="Per page"
+        label-for="per-page-select"
+        label-cols-sm="6"
+        label-cols-md="4"
+        label-cols-lg="3"
+        label-align-sm="right"
+        label-size="sm"
+        class="mb-0"
+      >
+        <b-form-select
+          id="per-page-select"
+          class="radius-0"
+          v-model="perPage"
+          :options="options"
+        ></b-form-select>
+      </b-form-group>
+    </template>
+    <template #searchbar>
+      <b-form-input v-model="filter" type="search" placeholder="Type to Search" class="radius-0"></b-form-input>
+    </template>
+    <template #table>
+      <b-table
+        id="table-transition"
+        striped
+        hover
+        outlined
+        sticky-header="405px"
+        class="w-100 table-layout"
+        :fields="fields"
+        :items="items.data"
+        :busy="$store.getters.isBusy"
+        :filter="filter"
+        primary-key="updated_at"
+      >
+        <template #table-busy>
+          <table-loader />
+        </template>
+        <template #cell(state)="data">
+          <span v-if="data.item.state">{{ data.item.state.name }}</span>
+        </template>
+        <template #cell(action)="data">
+          <edit-icon :url="`/city/${data.item.id}`"></edit-icon>
+          <delete-icon 
+            @click.native="deleteItem(data.item.id,data.index)"
+            >
+          </delete-icon>
+        </template>
+      </b-table> 
+    </template>
+    <template #pagination  v-if="items.data">
+      <div class="w-100">
+        <pagination :data="items" @pagination-change-page="getitems" :align="`right`" :limit="limit">
+          <span slot="prev-nav">Previous</span>
+          <span slot="next-nav">Next</span>
+        </pagination>
+      </div>  
+    </template>
+  </list-layout>
 </template>
 
 <script>
+import listLayout from '@/admin/components/layout/ListLayout.vue';
+import pagination  from 'laravel-vue-pagination';
+import EditIcon from '@/admin/components/icons/EditIcon.vue';
+import DeleteIcon from '@/admin/components/icons/DeleteIcon.vue';
+import TableLoader from '@/admin/components/TableLoader.vue';
+import { mapState } from 'vuex';
+
 export default {
-  name: "ListCity",
+  name: "List",
+  components:{
+    'list-layout':listLayout,
+    'table-loader':TableLoader,
+    'pagination':pagination,
+    'edit-icon':EditIcon,
+    'delete-icon':DeleteIcon,
+  },
   data() {
     return {
-      oddclass: false,
-      evenclass: true,
-      hotelData: {}
+      fields: [
+        {key:'name',label:'CITY',sortable:true,thClass: 'table-head'},
+        {key:'state',label:'STATE',sortable:true,thClass: 'table-head'},
+        {key:'action',label:'ACTION',thClass: 'table-head'}
+      ],
+      limit:2,
+      filter:'',
+      perPage:7,
+      options:[7,25,50,100],
     };
   },
-  // Get all the data
   mounted() {
-    this.$store.dispatch("getAllData", "/api/city");
+    this.getitems();
   },
-  computed: {
-    alldata() {
-      setTimeout(() => $("#example").DataTable(), 1000);
-      return this.$store.getters.getAllData;
+  computed:{
+    ...mapState(['items']),
+  },
+  watch:{
+    perPage:function(){
+      this.getitems(1,this.perPage);
     }
   },
-  // End the process of the the fetching data
+
   methods: {
-    deleteCity(id) {
-      var uri = "/api/city/" + id;
-      this.$swal
-        .fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!"
-        })
-        .then(result => {
-          if (result.value) {
-            axios.delete(uri).then(response => {
-              this.$store.dispatch("getAllData", "/api/city");
-            });
-            this.$swal.fire(
-              "Deleted!",
-              "Your file has been deleted.",
-              "success"
-            );
-          }
-        });
-    }
-  }
+    getitems(page=1,size= this.perPage) {
+      this.$store.dispatch('getItems','/city/all/'+size+'?page='+page);
+    },
+    deleteItem(id,index=-1) {
+      let payload = {'api':"/city/"+id,index,'index':index};
+      this.$store.dispatch('deleteItem',payload);
+    },
+  },
 };
 </script>

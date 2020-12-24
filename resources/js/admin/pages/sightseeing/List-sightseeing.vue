@@ -1,120 +1,125 @@
 <!--
-This Template is for listing for the Sightseeing profile using function to get the 
-data from the api to display the data about the Sightseeing from the backend .
+This Template is for listing for the Category profile using function to get the 
+data from the api to display the data about the Category from the backend .
 -->
 <template>
-  <section class="content">
-    <!--************************************************
-      Template Type: Sightseeing List
-      Author:@Ajay
-
-    ****************************************************-->
-    <div class="row justify-content-around">
-      <div class="col-md-12">
-        <div class="container container_admin_body">
-          <div class="top_btn mb-20">
-              <router-link :to="`/sightseeing-add`">Add Sightseeing</router-link>
-          </div>
-          <table
-            id="example"
-            class="display table table-striped table-bordered nowrap"
-            style="width:100%"
-          >
-            <thead>
-              <tr>
-                <th>
-                  SIGHTSEEING NAME
-                  <i class="fas fa-sort"></i>
-                </th>
-                <th>
-                  ADDRESS
-                  <i class="fas fa-sort"></i>
-                </th>
-                
-                <th>
-                  CITY
-                  <i class="fas fa-sort"></i>
-                </th>
-
-                <th>
-                  <i class="fas fa-cog"></i>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                v-for="hotel in sightseeing_list"
-                role="row"
-                v-bind:class="{ odd: oddclass , 'even': evenclass}"
-                class="row_list"
-                :key="hotel.id"
-              >
-                <td>{{hotel.name}}</td>
-                <td>{{ hotel.address }}</td>
-                <td v-if="hotel.city">{{ hotel.city.name }}</td>
-                <td class="edit_section">
-                  <router-link :to="`/sightseeing/${hotel.id}`" class="edit_link">
-                    <span class="badge badge-primary">
-                      <i class="fas fa-pencil-alt"></i>
-                    </span>
-                  </router-link>
-                  <a href class="delete_link" @click.prevent="deletehotel(hotel.id)">
-                    <span class="badge badge-danger">
-                      <i class="far fa-trash-alt"></i>
-                    </span>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
+  <list-layout addurl="/sightseeing-add" buttontext="add sightseeing">
+    <template #perpage>
+      <b-form-group
+        label="Per page"
+        label-for="per-page-select"
+        label-cols-sm="6"
+        label-cols-md="4"
+        label-cols-lg="3"
+        label-align-sm="right"
+        label-size="sm"
+        class="mb-0"
+      >
+        <b-form-select
+          id="per-page-select"
+          class="radius-0"
+          v-model="perPage"
+          :options="options"
+        ></b-form-select>
+      </b-form-group>
+    </template>
+    <template #searchbar>
+      <b-form-input v-model="filter" type="search" placeholder="Type to Search" class="radius-0"></b-form-input>
+    </template>
+    <template #table>
+      <b-table
+        id="table-transition"
+        striped
+        hover
+        outlined
+        sticky-header="405px"
+        class="w-100 table-layout"
+        :fields="fields"
+        :items="items.data"
+        :busy="$store.getters.isBusy"
+        :filter="filter"
+        primary-key="updated_at"
+      >
+        <template #table-busy>
+          <table-loader />
+        </template>
+        <template #cell(address)="data">
+          {{ data.item.address | readMore(50) }}
+        </template>
+        <template #cell(city)="data">
+          <span v-if="data.item.city">{{ data.item.city.name }}</span>
+        </template>
+        <template #cell(action)="data">
+          <edit-icon :url="`/sightseeing/${data.item.id}`"></edit-icon>
+          <delete-icon 
+            @click.native="deleteItem(data.item.id,data.index)"
+            >
+          </delete-icon>
+        </template>
+      </b-table> 
+    </template>
+    <template #pagination  v-if="items.data">
+      <div class="w-100">
+        <pagination :data="items" @pagination-change-page="getitems" :align="`right`" :limit="limit">
+          <span slot="prev-nav">Previous</span>
+          <span slot="next-nav">Next</span>
+        </pagination>
+      </div>  
+    </template>
+  </list-layout>
 </template>
 
 <script>
+import listLayout from '@/admin/components/layout/ListLayout.vue';
+import pagination  from 'laravel-vue-pagination';
+import EditIcon from '@/admin/components/icons/EditIcon.vue';
+import DeleteIcon from '@/admin/components/icons/DeleteIcon.vue';
+import TableLoader from '@/admin/components/TableLoader.vue';
+import { mapState } from 'vuex';
+
 export default {
   name: "List",
+  components:{
+    'list-layout':listLayout,
+    'table-loader':TableLoader,
+    'pagination':pagination,
+    'edit-icon':EditIcon,
+    'delete-icon':DeleteIcon,
+  },
   data() {
     return {
-      oddclass: false,
-      evenclass: true,
-      sightseeing_list: []
+      fields: [
+        {key:'name',label:'CITY',sortable:true,thClass: 'table-head'},
+        {key:'address',label:'ADDRESS',sortable:true,thClass: 'table-head'},
+        {key:'city',label:'CITY',sortable:true,thClass: 'table-head'},
+        {key:'action',label:'ACTION',thClass: 'table-head'}
+      ],
+      limit:2,
+      filter:'',
+      perPage:7,
+      options:[7,25,50,100],
     };
   },
   mounted() {
-    this.SightseeingData();
+    this.getitems();
   },
-  methods: {
-    SightseeingData() {
-      axios.get("/api/sightseeings").then(response => {
-        setTimeout(() => $("#example").DataTable(), 1000);
-        this.sightseeing_list = response.data.data;
-      });
-    },
-
-    deletehotel(id) {
-      var uri = "api/sightseeings/" + id;
-      this.$swal
-        .fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!"
-        })
-        .then(result => {
-          if (result.value) {
-            axios.delete(uri).then(response => {
-              this.SightseeingData();
-            });
-            this.$swal.fire("Deleted!", "Your file has been deleted.", "success");
-          }
-        });
+  computed:{
+    ...mapState(['items']),
+  },
+  watch:{
+    perPage:function(){
+      this.getitems(1,this.perPage);
     }
-  }
+  },
+
+  methods: {
+    getitems(page=1,size= this.perPage) {
+      this.$store.dispatch('getItems','/sightseeings/all/'+size+'?page='+page);
+    },
+    deleteItem(id,index=-1) {
+      let payload = {'api':"/sightseeings/"+id,index,'index':index};
+      this.$store.dispatch('deleteItem',payload);
+    },
+  },
 };
 </script>

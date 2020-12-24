@@ -13,6 +13,12 @@ class StateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function all($size)
+    {
+        return response()->json(State::with('country')
+            ->latest('updated_at')
+            ->paginate($size));
+    }
     public function index()
     {
         return response()->json(State::with('country')->get());

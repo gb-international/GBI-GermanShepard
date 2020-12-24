@@ -32,9 +32,13 @@ Route::namespace('Admin')->group(function (){
 	});
 
 	Route::namespace('Location')->group(function(){
+		Route::get('country/all/{size}','CountryController@all');
 		Route::resource('country','CountryController');
+		Route::get('city/all/{size}','CityController@all');
 		Route::resource('city','CityController');
+		Route::get('state/all/{size}','StateController@all');
 		Route::resource('state','StateController');
+		Route::get('sightseeings/all/{size}','SightseeingController@all');
 		Route::resource('sightseeings','SightseeingController');
 	});
 
@@ -54,10 +58,10 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('schoolbankdetails','SchoolbankdetailController');
 		Route::get('userpayments/all/{size}','UserpaymentController@all');
 		Route::resource('userpayments','UserpaymentController');
-		Route::get('frontbooking','FrontbookingController@index');
+		Route::get('frontbooking/all/{size}','FrontbookingController@all');
 		Route::get('frontbooking/{id}','FrontbookingController@show');
 		Route::post('frontbooking-status','FrontbookingController@status');
-		Route::post('frontbooking-delete','FrontbookingController@destroy');
+		Route::delete('frontbooking-delete/{id}','FrontbookingController@destroy');
 		Route::post('touruser-list','TouruserController@touruserList');
 		Route::post('add-pnr-user','TouruserController@addPnrUser');
 		Route::post('pnruser/get','TouruserController@PnrUserGet');
@@ -92,6 +96,7 @@ Route::namespace('Admin')->group(function (){
 	});
 
 	Route::namespace('Escort')->group(function(){
+		Route::get('escort/all/{size}','EscortController@all');
 		Route::post('escort-login-link','EscortController@sendLink');
 		Route::resource('escort','EscortController');
 	});

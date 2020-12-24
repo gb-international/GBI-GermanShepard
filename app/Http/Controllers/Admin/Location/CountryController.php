@@ -17,6 +17,12 @@ class CountryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function all($size)
+    {
+        return response()->json(Country::select('id','name','updated_at')
+            ->latest('updated_at')
+            ->paginate($size));
+    }
     public function index()
     {
         return response()->json(Country::get());

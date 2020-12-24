@@ -9,9 +9,13 @@ use Auth;
 
 class FrontbookingController extends Controller
 {
-    public function index(){
-        return response()->json(Frontbooking::latest('id')->get());
+
+    public function all($size)
+    {
+        return response()->json(Frontbooking::latest('updated_at')
+            ->paginate($size));
     }
+
     public function show($id){
         return response()->json(Frontbooking::with(['itinerary','user'])->where('id',$id)->first());
     }
