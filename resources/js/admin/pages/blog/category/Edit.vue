@@ -97,18 +97,7 @@ to submit the data we are using a function.
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-2"></div>
-          <div class="col-sm-4">
-            <back-button url="/categories"></back-button>
-          </div>
-          <div class="col-sm-4">
-            <div class="form-group text-center">
-              <submit-button />
-            </div>
-          </div>
-          <div class="col-sm-2"></div>
-        </div>
+        <form-buttons />
       </form>
     </template>
   </form-layout>
@@ -120,8 +109,7 @@ import { VueEditor, Quill } from "vue2-editor";
 
 import { ImageDrop } from "quill-image-drop-module";
 import ImageResize from "quill-image-resize-module";
-import BackButton from "@/admin/components/buttons/BackButton.vue";
-import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
+import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 
 export default {
@@ -130,8 +118,7 @@ export default {
     Form,
     "has-error": HasError,
     "vue-editor": VueEditor,
-    "back-button": BackButton,
-    "submit-button": SubmitButton,
+    "form-buttons": FormButtons,
     "form-layout": FormLayout,
   },
   data() {
@@ -174,12 +161,11 @@ export default {
       this.form
         .put(`/api/categories/${this.$route.params.id}`)
         .then((response) => {
-          console.log(response);
-          //   this.$router.go(-1);
-          this.$toast.fire({
-            icon: "success",
-            title: "Successfully Updated",
-          });
+          this.$swal.fire(
+            "Updated!",
+            "Item Updated successfully",
+            "success"
+          );
         })
         .catch(() => {});
     },

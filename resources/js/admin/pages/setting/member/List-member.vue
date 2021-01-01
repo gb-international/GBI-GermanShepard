@@ -1,116 +1,119 @@
 <!--
-This Template is for listing for the Hotel profile using function to get the 
-data from the api to display the data about the Hotel from the backend .
+This Template is for listing for the Category profile using function to get the 
+data from the api to display the data about the Category from the backend .
 -->
 <template>
-  <section class="content">
-    <!--************************************************
-      Template Type: Hotel List
-      Author:@Ajay
+  <list-layout addurl="/add-member" buttontext="add member">
+    <template #perpage>
+      <b-form-group
+        label="Per page"
+        label-for="per-page-select"
+        label-cols-sm="6"
+        label-cols-md="4"
+        label-cols-lg="3"
+        label-align-sm="right"
+        label-size="sm"
+        class="mb-0"
+      >
+        <b-form-select
+          id="per-page-select"
+          class="radius-0"
+          v-model="perPage"
+          :options="options"
+        ></b-form-select>
+      </b-form-group>
+    </template>
+    <template #searchbar>
+      <b-form-input v-model="filter" type="search" placeholder="Type to Search" class="radius-0"></b-form-input>
+    </template>
+    <template #table>
+      <b-table
+        id="table-transition"
+        striped
+        hover
+        outlined
+        sticky-header="405px"
+        class="w-100 table-layout"
+        :fields="fields"
+        :items="items.data"
+        :busy="$store.getters.isBusy"
+        :filter="filter"
+        primary-key="updated_at"
+      >
+        <template #table-busy>
+          <table-loader />
+        </template>
+        <template #cell(action)="data">
+          <delete-icon 
+            @click.native="deleteItem(data.item.id,data.index)"
+            >
+          </delete-icon>
+        </template>
+      </b-table> 
+    </template>
+    
+    <template #pagination  v-if="items.data">
+      <pagination :data="items" @pagination-change-page="getitems" :align="`right`" :limit="limit">
+        <span slot="prev-nav">Previous</span>
+        <span slot="next-nav">Next</span>
+      </pagination>
+    </template>
 
-    ****************************************************-->
-
-    <div class="row">
-      <div class="col-md-12">
-        <div class="container container_admin_body">
-          <div class="row mb-10">
-            <div class="col-sm-12 top_btn float-right">
-              <router-link :to="`/add-member`">Add Member</router-link>
-            </div>
-          </div>
-          <!-- <div v-if="$can('edit posts')">You can edit posts.</div>
-          <div v-else>hi</div>-->
-          <!-- Start Card -->
-          <table
-            id="example"
-            class="display table table-striped table-bordered nowrap"
-            style="width:100%"
-          >
-            <thead>
-              <tr>
-                <th>
-                  NAME
-                  <i class="fas fa-sort"></i>
-                </th>
-                <th>
-                  Email
-                  <i class="fas fa-sort"></i>
-                </th>
-                <th>
-                  <i class="fas fa-cog"></i>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                v-for="role in member_list"
-                role="row"
-                v-bind:class="{ odd: oddclass , 'even': evenclass}"
-                class="row_list"
-                :key="role.id"
-              >
-                <td>{{role.name}}</td>
-                <td>{{role.email}}</td>
-                <td class="edit_section">
-                  <a href class="delete_link" @click.prevent="deleteMember(role.id)">
-                    <span class="badge badge-danger">
-                      <i class="far fa-trash-alt"></i>
-                    </span>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- end -->
-      </div>
-    </div>
-  </section>
+  </list-layout>
 </template>
 
 <script>
+import listLayout from '@/admin/components/layout/ListLayout.vue';
+import pagination  from 'laravel-vue-pagination';
+import EditIcon from '@/admin/components/icons/EditIcon.vue';
+import DeleteIcon from '@/admin/components/icons/DeleteIcon.vue';
+import ViewIcon from '@/admin/components/icons/ViewIcon.vue';
+import TableLoader from '@/admin/components/TableLoader.vue';
+import { mapState } from 'vuex';
+
 export default {
-  name: "ListMember",
+  name: "List",
+  components:{
+    'list-layout':listLayout,
+    'table-loader':TableLoader,
+    'pagination':pagination,
+    'edit-icon':EditIcon,
+    'delete-icon':DeleteIcon,
+    'view-icon':ViewIcon,
+  },
   data() {
     return {
-      oddclass: false,
-      evenclass: true,
-      member_list: {}
+      fields: [
+        {key:'name',label:'PERMISSION NAME',sortable:true,thClass: 'table-head'},
+        {key:'updated_at',label:'LAST UPDATE',sortable:true,thClass: 'table-head'},
+        {key:'action',label:'ACTION',thClass: 'table-head'}
+      ],
+      filter:'',
+      limit:2,
+      perPage:7,
+      options:[7,25,50,100],
     };
   },
-  created() {
-    axios.get("/api/members").then(response => {
-      setTimeout(() => $("#example").DataTable(), 1000);
-      console.log(response);
-      this.member_list = response.data;
-    });
+  mounted() {
+    this.getitems();
   },
-  // End the process of the the fetching data
-  methods: {
-    deleteMember(id) {
-      var uri = "api/members/destroy/" + id;
-      this.$swal
-        .fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!"
-        })
-        .then(result => {
-          if (result.value) {
-            axios.post(uri).then(response => {
-              axios.get("/api/members").then(response => {
-                setTimeout(() => $("#example").DataTable(), 1000);
-                this.member_list = response.data;
-              });
-            });
-            this.$swal.fire("Deleted!", "Your file has been deleted.", "success");
-          }
-        });
+  computed:{
+    ...mapState(['items']),
+  },
+  watch:{
+    perPage:function(){
+      this.getitems(1,this.perPage);
     }
-  }
+  },
+
+  methods: {
+    getitems(page=1,size= this.perPage) {
+      this.$store.dispatch('getItems','/members/all/'+size+'?page='+page);
+    },
+    deleteItem(id,index=-1) {
+      let payload = {'api':"/members/"+id,index,'index':index};
+      this.$store.dispatch('deleteItem',payload);
+    },
+  },
 };
 </script>

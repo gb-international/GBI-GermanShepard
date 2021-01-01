@@ -20,6 +20,14 @@ class PermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function all($size)
+    {
+        return response()->json(Permission::select([
+            'id','name','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
     public function index()
     {
         return Permission::all();

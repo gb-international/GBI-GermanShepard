@@ -18,6 +18,16 @@ use Illuminate\Http\Request;
 class GBIMemberController extends Controller
 {
 
+    public function all($size)
+    {
+        return response()->json(User::select([
+            'id','name','email','updated_at'
+            ])
+            ->where('user_role','1')
+            ->latest('updated_at')
+            ->paginate($size));
+    }
+
 	public function index()
 	{
 		return User::where('user_role','1')->get();

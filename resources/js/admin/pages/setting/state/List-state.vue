@@ -3,7 +3,7 @@ This Template is for listing for the Category profile using function to get the
 data from the api to display the data about the Category from the backend .
 -->
 <template>
-  <list-layout addurl="/add-city" buttontext="add city">
+  <list-layout addurl="/add-state" buttontext="add state">
     <template #perpage>
       <b-form-group
         label="Per page"
@@ -47,7 +47,6 @@ data from the api to display the data about the Category from the backend .
           <span v-if="data.item.country">{{ data.item.country.name }}</span>
         </template>
         <template #cell(action)="data">
-          <edit-icon :url="`/city/${data.item.id}`"></edit-icon>
           <delete-icon 
             @click.native="deleteItem(data.item.id,data.index)"
             >

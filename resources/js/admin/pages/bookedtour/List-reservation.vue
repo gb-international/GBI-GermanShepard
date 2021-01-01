@@ -12,7 +12,7 @@ It takes id from the url and get the data from the api .
     ****************************************************-->
     <div class="row justify-content-around">
       <div class="col-md-12">
-        <img class="back-icon cursor-pointer" @click="goBack()" src="/assets/front/icons/back.png">
+        <img class="back-icon cursor-pointer pl-4" @click="goBack()" src="/assets/front/icons/back.png">
         <div class="container container_admin_body">
           <div class="row">
             <div class="col-sm-4">

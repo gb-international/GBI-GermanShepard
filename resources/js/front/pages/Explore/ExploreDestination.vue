@@ -7,7 +7,7 @@
       <div class="content">
         <div class="container-fluid mb-30">
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 m-0 p-0">
               <form role="form" autocomplete="off">
                 <div class="nav-sreach-explo">
                   <ul class="nav nav-tabs serch-explo-menu">
@@ -29,7 +29,7 @@
                     </li>
                   </ul>
                   <!-- start single location Tab panes serach bar for source and destination-->
-                  <div class="tab-content explor-content">
+                  <div class="tab-content explor-content pb-1">
                     <div id="home" class="container tab-pane active">
                       <br />
                       <div class="row p-0 parent_padding">

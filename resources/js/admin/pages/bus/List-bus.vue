@@ -58,7 +58,7 @@ data from the api to display the data about the Category from the backend .
     </template>
     
     <template #pagination  v-if="items.data">
-      <pagination :data="items" @pagination-change-page="getitems" :align="`right`">
+      <pagination :data="items" @pagination-change-page="getitems" :align="`right`" :limit="limit">
         <span slot="prev-nav">Previous</span>
         <span slot="next-nav">Next</span>
       </pagination>
@@ -84,7 +84,7 @@ export default {
     'pagination':pagination,
     'edit-icon':EditIcon,
     'delete-icon':DeleteIcon,
-    'view-icon':ViewIcon,
+    'view-icon':ViewIcon
   },
   data() {
     return {
@@ -96,6 +96,7 @@ export default {
         {key:'action',label:'ACTION',thClass: 'table-head'}
       ],
       filter:'',
+      limit:2,
       perPage:7,
       options:[7,25,50,100],
     };

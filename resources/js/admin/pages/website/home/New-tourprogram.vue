@@ -27,20 +27,25 @@ to submit the data we are using a function.
           </div>
 
           <div class="col-sm-6">
-            <div class="form-group itinerary_image">
-              <label class="label" for="image">Please upload image !</label
-              ><br />
-              <input
-                @change="changeImage($event, 'image')"
-                type="file"
-                :class="{ 'is-invalid': form.errors.has('image') }"
-                accept="jpeg,jpg,png,gif"
-                class="select_image"
-              />
-
-              <img :src="form.image" alt="" width="80" height="80" />
-              <has-error :form="form" field="image"></has-error>
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="form-group itinerary_image">
+                  <label class="label" for="image">Please upload image !</label
+                  ><br />
+                  <input
+                    @change="changeImage($event, 'image')"
+                    type="file"
+                    :class="{ 'is-invalid': form.errors.has('image') }"
+                    accept="jpeg,jpg,png,gif"
+                    class="select_image mt-2"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <img :src="form.image" alt="" width="80" height="80" />
+              </div>
             </div>
+              <has-error :form="form" field="image"></has-error>
           </div>
         </div>
 

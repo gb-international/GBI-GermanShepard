@@ -30,7 +30,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="bank_name">Bank Name</label>
               <select
-                class="form-control"
+                class="form-control select-field"
                 v-model="form.bank_name"
                 :class="{ 'is-invalid': form.errors.has('bank_name') }"
               >
@@ -65,7 +65,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="account_type">Account Type</label>
               <select
-                class="form-control"
+                class="form-control select-field"
                 v-model="form.account_type"
                 :class="{ 'is-invalid': form.errors.has('account_type') }"
               >

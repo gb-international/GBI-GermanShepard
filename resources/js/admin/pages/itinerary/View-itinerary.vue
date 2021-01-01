@@ -5,118 +5,107 @@ It takes id from the url and get the data from the api .
 
 -->
 <template>
-  <section class="content">
-      <!--************************************************
-      Template Type: View Itinerary Deatails
-      Author:@Ajay
+  <view-layout>
+    <template #viewdata>
+      <div class="row pl-3">
+        <div class="col-sm-3">
+          <h5>Source</h5>
+          <p>{{ itineraryData.source }}</p>
+        </div>
+        <div class="col-sm-3">
+          <h5>Destination</h5>
+          <p>{{ itineraryData.destination }}</p>
+        </div>
+        <div class="col-sm-3">
+          <h5>Number of Days</h5>
+          <p>{{ itineraryData.noofdays }}</p>
+        </div>
+        <div class="col-sm-3">
+          <h5>Tour Type</h5>
+          <p>{{ itineraryData.tourtype }}</p>
+        </div>
 
-      ****************************************************-->
-    <div class="row justify-content-around" >
-      <div class="col-md-12">
-        <div class="container container_admin_body">
-          <!-- Start Card -->        
-            <div class="card_view">
-              <!-- This row will show the itinerary detail -->
-              <div class="row">
-                <div class="col-sm-3">
-                  <h5>Source</h5>
-                  <p>{{itineraryData.source}}</p>
-                </div>
-                <div class="col-sm-3">
-                  <h5>Destination</h5>
-                  <p>{{itineraryData.destination}}</p>
-                </div>
-                <div class="col-sm-3">
-                  <h5>Number of Days</h5>
-                  <p>{{itineraryData.noofdays}}</p>
-                </div>
-                <div class="col-sm-3">
-                  <h5>Tour Type</h5>
-                  <p>{{itineraryData.tourtype}}</p>
-                </div>
-              </div>
-            
-              <div class="row">
-                <div class="col-sm-12">
-                  <h5>Title</h5>
-                  <p>{{itineraryData.title}}</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <h5>Description</h5>
-                  <p v-html="itineraryData.description"></p>
-                </div>
-              </div>
-              <!-- This div will show the itinerary days and its description -->
-              <div v-for="data in itineraryData.itinerarydays" :key="data.id">
-                <hr>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <h4><strong>Day {{ data.day}}</strong></h4>
-                    <h5>Title</h5>
-                    <p>{{data.day_source }} - {{ data.day_destination }}</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <h5>Description</h5>
-                    <p v-html="data.day_description"></p>
-                  </div>
-                </div>
-              </div>
+        <div class="col-sm-12">
+          <h5>Title</h5>
+          <p>{{ itineraryData.title }}</p>
+        </div>
+        <div class="col-sm-12">
+          <h5>Description</h5>
+          <p v-html="itineraryData.description"></p>
+        </div>
+        <!-- This div will show the itinerary days and its description -->
+        <div
+          class="col-sm-12"
+          v-for="data in itineraryData.itinerarydays"
+          :key="data.id"
+        >
+          <hr />
+          <div class="row">
+            <div class="col-sm-12">
+              <h4>
+                <strong>Day {{ data.day }}</strong>
+              </h4>
+              <h5>Title</h5>
+              <p>{{ data.day_source }} - {{ data.day_destination }}</p>
             </div>
-            <!-- End card -->
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <h5>Description</h5>
+              <p v-html="data.day_description"></p>
+            </div>
+          </div>
+        </div>
+        <!-- End card -->
 
-            <button @click="goBack()" class="btn btn-primary itrn_add_btn back_btn">Back</button>
-        </div>                          
-          <!-- end -->
+        <button @click="goBack()" class="btn btn-primary itrn_add_btn back_btn">
+          Back
+        </button>
       </div>
-    </div>
-  </section>
-    <!-- /.content -->
+    </template>
+  </view-layout>
 </template>
 
 <script>
-    export default {
-        name: "ListItinerary",
-        data(){
-          return{
-            day:0,
-            itineraryData:[]
-          }
-        },
-       
-       created() {
-        var api = `/api/itinerary/${this.$route.params.id}`;
-        
-          axios.get(api).then(response => {
-            this.itineraryData = response.data; // add data to the itineraryData
-          });
-        },
-        computed:{
-        },
+import ViewLayout from "@/admin/components/layout/ViewLayout.vue";
 
-       methods:
-       {
-       
-        deleteItinerary(id){
-          axios.get('/delete/'+id)
-          .then(()=>{
-          this.$store.dispatch('getAllitinerary')
+export default {
+  name: "View",
+  components: {
+    "view-layout": ViewLayout,
+  },
+  data() {
+    return {
+      day: 0,
+      itineraryData: [],
+    };
+  },
+
+  created() {
+    var api = `/api/itinerary/${this.$route.params.id}`;
+
+    axios.get(api).then((response) => {
+      this.itineraryData = response.data; // add data to the itineraryData
+    });
+  },
+  computed: {},
+
+  methods: {
+    deleteItinerary(id) {
+      axios
+        .get("/delete/" + id)
+        .then(() => {
+          this.$store.dispatch("getAllitinerary");
           this.$toast.fire({
-          icon: 'success',
-          title: 'Itinerary Deleted successfully'
-          })
-          })
-          .catch(()=>{
-          })
-        },
-        goBack(){
-          this.$router.go(-1);
-        }
-       } 
-    }
-
-
+            icon: "success",
+            title: "Itinerary Deleted successfully",
+          });
+        })
+        .catch(() => {});
+    },
+    goBack() {
+      this.$router.go(-1);
+    },
+  },
+};
 </script>

@@ -24,6 +24,17 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function all($size)
+    {
+        $data['data'] = Account::leftjoin('itineraries', 'itineraries.id', '=', 'accounts.itinerary_id')
+                ->leftjoin('users', 'users.id', '=' ,'accounts.salesdp_id')
+                ->select('itineraries.title','accounts.price','accounts.status','accounts.id','users.name')
+                ->where('accounts.status' ,'!=', 'confirm')
+                ->orderBy('accounts.id','desc')
+                ->paginate($size);
+        return response()->json($data['data']);
+    }
+
     public function index()
     {
         $data['data'] = Account::leftjoin('itineraries', 'itineraries.id', '=', 'accounts.itinerary_id')

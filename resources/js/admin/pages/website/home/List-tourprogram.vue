@@ -39,7 +39,6 @@ data from the api to display the data about the encyclopedia from the backend .
         :busy="$store.getters.isBusy"
         :filter="filter"
         primary-key="updated_at"
-        :tbody-transition-props="transProps"
       >
         <template #table-busy>
           <table-loader />
@@ -95,10 +94,6 @@ export default {
   },
   data() {
     return {
-      transProps: {
-        // Transition name
-        name: 'flip-list'
-      },
       fields: [
         {key:'title',label:'TITLE',sortable:true,thClass: 'table-head'},
         {key:'image',label:'IMAGE',sortable:true,thClass: 'table-head'},
@@ -136,11 +131,3 @@ export default {
   },
 };
 </script>
-
-
-
-<style scoped="">
-img {
-  width: 60px;
-}
-</style>

@@ -43,12 +43,7 @@ data from the api to display the data about the Category from the backend .
         <template #table-busy>
           <table-loader />
         </template>
-        <template #cell(status)="data">
-          <span 
-              v-if="data.item.status == 1" 
-              class="badge badge-success">Publish</span>
-          <span class="badge badge-default" v-else>Draft</span>
-        </template>
+       
         <template #cell(action)="data">
           <edit-icon :url="`/tags/${data.item.id}`"></edit-icon>
           <delete-icon 

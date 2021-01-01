@@ -1,198 +1,202 @@
-import AdminHome from '@/admin/pages/AdminHome.vue'
+const AdminHome = () => import(/* webpackChunkName: "js/admin/AdminHome" */ '@/admin/pages/AdminHome.vue');
 // ADMIN PANEL
-import AdminDashboard from '@/admin/pages/Dashboard.vue'
+const AdminDashboard = () => import(/* webpackChunkName: "js/admin/AdminDashboard" */ '@/admin/pages/Dashboard.vue');
 // Itinerary
-import ItineraryList from '@/admin/pages/itinerary/List-itinerary.vue'
-import AddItinerary from '@/admin/pages/itinerary/New-itinerary.vue'
-import EditItinerary from '@/admin/pages/itinerary/Edit-itinerary.vue'
-import ItineraryView from '@/admin/pages/itinerary/View-itinerary.vue'
+const ItineraryList = () => import(/* webpackChunkName: "js/admin/ItineraryList" */ '@/admin/pages/itinerary/List-itinerary.vue');
+const AddItinerary = () => import(/* webpackChunkName: "js/admin/ItineraryAdd" */ '@/admin/pages/itinerary/New-itinerary.vue');
+const EditItinerary = () => import(/* webpackChunkName: "js/admin/ItineraryEdit" */ '@/admin/pages/itinerary/Edit-itinerary.vue');
+const ItineraryView = () => import(/* webpackChunkName: "js/admin/Itineraryview" */ '@/admin/pages/itinerary/View-itinerary.vue');
 
-import AccountItinerary from '@/admin/pages/itinerary/Account-itinerary.vue'
-import SendItinerary from '@/admin/pages/itinerary/Send-itinerary.vue'
-import AccountItineraryView from '@/admin/pages/itinerary/Account-itinerary-view.vue'
-import FrontBooking from '@/admin/pages/itinerary/FrontBooking.vue'
-import FrontBookingView from '@/admin/pages/itinerary/ViewFrontbooking.vue'
-import CalculatorItinerary from '@/admin/pages/itinerary/Calculator-itinerary.vue'
-
-
-//escort
-import EscortList from '@/admin/pages/escort/List-escort.vue'
-import AddEscort from '@/admin/pages/escort/New-escort.vue'
-import EditEscort from '@/admin/pages/escort/Edit-escort.vue'
-import EscortView from '@/admin/pages/escort/View_escort.vue'
+const AccountItinerary = () => import(/* webpackChunkName: "js/admin/accountititnerary" */ '@/admin/pages/itinerary/Account-itinerary.vue');
+const SendItinerary = () => import(/* webpackChunkName: "js/admin/sendititnerary" */ '@/admin/pages/itinerary/Send-itinerary.vue');
+const AccountItineraryView = () => import(/* webpackChunkName: "js/admin/accountitineraryview" */ '@/admin/pages/itinerary/Account-itinerary-view.vue');
+const FrontBooking = () => import(/* webpackChunkName: "js/admin/frontbooking" */ '@/admin/pages/itinerary/FrontBooking.vue');
+const FrontBookingView = () => import(/* webpackChunkName: "js/admin/frontbookingview" */ '@/admin/pages/itinerary/ViewFrontbooking.vue');
+const CalculatorItinerary = () => import(/* webpackChunkName: "js/admin/calculateitinerary" */ '@/admin/pages/itinerary/Calculator-itinerary.vue');
 
 
-//Hotel
-import HotelList from '@/admin/pages/hotel/List-hotel.vue'
-import HotelAdd from '@/admin/pages/hotel/New-hotel.vue' 
-import HotelEdit from '@/admin/pages/hotel/Edit-hotel.vue'
-import HotelView from '@/admin/pages/hotel/View_hotel.vue'
-
-//Restaurant
-import restaurantList from '@/admin/pages/restaurant/List-restaurant.vue'
-import restaurantAdd from '@/admin/pages/restaurant/New-restaurant.vue' 
-import restaurantEdit from '@/admin/pages/restaurant/Edit-restaurant.vue'
-import restaurantView from '@/admin/pages/restaurant/View_restaurant.vue'
+// //escort
+const EscortList = () => import(/* webpackChunkName: "js/admin/escort" */ '@/admin/pages/escort/List-escort.vue');
+const AddEscort = () => import(/* webpackChunkName: "js/admin/escortadd" */ '@/admin/pages/escort/New-escort.vue');
+const EditEscort = () => import(/* webpackChunkName: "js/admin/escortedit" */ '@/admin/pages/escort/Edit-escort.vue');
+const EscortView = () => import(/* webpackChunkName: "js/admin/escortview" */ '@/admin/pages/escort/View_escort.vue');
 
 
+// //Hotel
+const HotelList = () => import(/* webpackChunkName: "js/admin/hotel" */ '@/admin/pages/hotel/List-hotel.vue');
+const HotelAdd = () => import(/* webpackChunkName: "js/admin/hoteladd" */'@/admin/pages/hotel/New-hotel.vue');
+const HotelEdit = () => import(/* webpackChunkName: "js/admin/hoteledit" */ '@/admin/pages/hotel/Edit-hotel.vue');
+const HotelView = () => import(/* webpackChunkName: "js/admin/hotelview" */ '@/admin/pages/hotel/View_hotel.vue');
 
-//SALES department
-import ItineraryFromAccount from '@/admin/pages/sales/ItineraryFromAccount.vue'
-import SendDetails from '@/admin/pages/sales/Submit-details.vue'
-
-// School
-import Schools from '@/admin/pages/school/List-school.vue'
-import SchoolAdd from '@/admin/pages/school/New-school.vue'
-import SchoolEdit from '@/admin/pages/school/Edit-school.vue'
-import SchoolView from '@/admin/pages/school/View-school.vue'
-
-// Students
-import Students from '@/admin/pages/student/List-student.vue'
-import StudentAdd from '@/admin/pages/student/New-student.vue'
-import StudentEdit from '@/admin/pages/student/Edit-student.vue'
-import StudentView from '@/admin/pages/student/View-student.vue'
-
-// Tour
-import Tours from '@/admin/pages/tour/List-tour.vue'
-import TourAdd from '@/admin/pages/tour/New-tour.vue'
-import TourEdit from '@/admin/pages/tour/Edit-tour.vue'
-import TourView from '@/admin/pages/tour/View-tour.vue'
-
-import Tourtype from '@/admin/pages/tour/tourtype/List-tourtype.vue'
-import TourtypeAdd from '@/admin/pages/tour/tourtype/New-tourtype.vue'
-import TourtypeEdit from '@/admin/pages/tour/tourtype/Edit-tourtype.vue'
-
-import Userpayments from '@/admin/pages/tour/userpayment/List-payment.vue'
-import UserpaymentsAdd from '@/admin/pages/tour/userpayment/New-payment.vue'
-import UserpaymentsEdit from '@/admin/pages/tour/userpayment/Edit-payment.vue'
-import UserpaymentsView from '@/admin/pages/tour/userpayment/View-payment.vue'
-
-
-import Tourprogram from '@/admin/pages/website/home/List-tourprogram.vue'
-import TourprogramAdd from '@/admin/pages/website/home/New-tourprogram.vue'
-import TourprogramEdit from '@/admin/pages/website/home/Edit-tourprogram.vue'
-
-import Bankdetail from '@/admin/pages/website/bankdetail/Bankdetail.vue'
-import BankdetailAdd from '@/admin/pages/website/bankdetail/New-Bankdetail.vue'
-import BankdetailEdit from '@/admin/pages/website/bankdetail/Edit-Bankdetail.vue'
-import BankdetailView from '@/admin/pages/website/bankdetail/View-Bankdetail.vue'
+// //Restaurant
+const restaurantList = () => import(/* webpackChunkName: "js/admin/restaurant" */ '@/admin/pages/restaurant/List-restaurant.vue');
+const restaurantAdd = () => import(/* webpackChunkName: "js/admin/restauradd" */ '@/admin/pages/restaurant/New-restaurant.vue' );
+const restaurantEdit = () => import(/* webpackChunkName: "js/admin/restauedit" */ '@/admin/pages/restaurant/Edit-restaurant.vue');
+const restaurantView = () => import(/* webpackChunkName: "js/admin/restaurantView" */ '@/admin/pages/restaurant/View_restaurant.vue');
 
 
 
-// Booked Tour
+// //SALES department
+const ItineraryFromAccount = () => import(/* webpackChunkName: "js/admin/itineraryAccount" */ '@/admin/pages/sales/ItineraryFromAccount.vue');
+const SendDetails = () => import(/* webpackChunkName: "js/admin/senddetails" */ '@/admin/pages/sales/Submit-details.vue');
 
-import BookedTours from '@/admin/pages/bookedtour/List-reservation.vue'
-import BookedEscort from '@/admin/pages/bookedtour/tourmanager/New-tourmanager.vue'
-import BookedHotel from '@/admin/pages/bookedtour/New-hotel.vue'
-import BookedRestaurant from '@/admin/pages/bookedtour/New-restaurant.vue'
-import BookedSightseen from '@/admin/pages/bookedtour/New-sightseen.vue'
-import BookedFlight from '@/admin/pages/bookedtour/New-flight.vue'
-import BookedTrain from '@/admin/pages/bookedtour/New-train.vue'
-import BookedBus from '@/admin/pages/bookedtour/New-bus.vue'
-import BookedFood from '@/admin/pages/bookedtour/Food.vue'
-import BookedPnr from '@/admin/pages/bookedtour/Pnr-List.vue'
-import BookedStudent from '@/admin/pages/bookedtour/Groupmember-list.vue'
-import PnrUser from '@/admin/pages/bookedtour/PnrUser.vue'
-import EscortUpdate from '@/admin/pages/bookedtour/New-EscortUpdate.vue'
-import PaymentList from '@/admin/pages/bookedtour/payment/List.vue'
-import StudentPayment from '@/admin/pages/bookedtour/payment/Student-payment.vue'
-import addPaymentMethod from '@/admin/pages/bookedtour/payment/Add-payment.vue'
-import UpdatePaymentMethod from '@/admin/pages/bookedtour/payment/Update-payment.vue'
+// // School
+const Schools = () => import(/* webpackChunkName: "js/admin/schools" */ '@/admin/pages/school/List-school.vue');
+const SchoolAdd = () => import(/* webpackChunkName: "js/admin/schooladd" */ '@/admin/pages/school/New-school.vue');
+const SchoolEdit = () => import(/* webpackChunkName: "js/admin/schooledit" */ '@/admin/pages/school/Edit-school.vue');
+const SchoolView = () => import(/* webpackChunkName: "js/admin/schoolview" */ '@/admin/pages/school/View-school.vue');
 
+// // Students
+const Students = () => import(/* webpackChunkName: "js/admin/students" */ '@/admin/pages/student/List-student.vue');
+const StudentAdd = () => import(/* webpackChunkName: "js/admin/studentadd" */ '@/admin/pages/student/New-student.vue');
+const StudentEdit = () => import(/* webpackChunkName: "js/admin/studentEdit" */ '@/admin/pages/student/Edit-student.vue');
+const StudentView = () => import(/* webpackChunkName: "js/admin/studentview" */ '@/admin/pages/student/View-student.vue');
 
+// // Tour
+const Tours = () => import(/* webpackChunkName: "js/admin/tours" */ '@/admin/pages/tour/List-tour.vue');
+const TourAdd = () => import(/* webpackChunkName: "js/admin/touradd" */ '@/admin/pages/tour/New-tour.vue');
+const TourEdit = () => import(/* webpackChunkName: "js/admin/touredit" */ '@/admin/pages/tour/Edit-tour.vue');
+const TourView = () => import(/* webpackChunkName: "js/admin/tourview" */ '@/admin/pages/tour/View-tour.vue');
 
-// Add City 
-import ListCity from '@/admin/pages/setting/List-city.vue'
-import AddCity from '@/admin/pages/setting/New-city.vue'
-import EditCity from '@/admin/pages/setting/Edit-city.vue'
-// Add State 
-import ListState from '@/admin/pages/setting/state/List-state.vue'
-import AddState from '@/admin/pages/setting/state/New-state.vue'
+const Tourtype = () => import(/* webpackChunkName: "js/admin/tourtype" */ '@/admin/pages/tour/tourtype/List-tourtype.vue');
+const TourtypeAdd = () => import(/* webpackChunkName: "js/admin/tourtypeadd" */ '@/admin/pages/tour/tourtype/New-tourtype.vue');
+const TourtypeEdit = () => import(/* webpackChunkName: "js/admin/tourtypeedit" */ '@/admin/pages/tour/tourtype/Edit-tourtype.vue');
 
-// Add Country 
-import ListCountry from '@/admin/pages/setting/country/List-country.vue'
-import AddCountry from '@/admin/pages/setting/country/New-country.vue'
-
-// Add SightSeeing 
-import ListSightseeing from '@/admin/pages/sightseeing/List-sightseeing.vue'
-import AddSightseeing from '@/admin/pages/sightseeing/New-sightseeing.vue'
-import EditSightseeing from '@/admin/pages/sightseeing/Edit-sightseeing.vue'
+const Userpayments = () => import(/* webpackChunkName: "js/admin/userpayments" */ '@/admin/pages/tour/userpayment/List-payment.vue');
+const UserpaymentsAdd = () => import(/* webpackChunkName: "js/admin/userpayadd" */ '@/admin/pages/tour/userpayment/New-payment.vue');
+const UserpaymentsEdit = () => import(/* webpackChunkName: "js/admin/userpayedit" */ '@/admin/pages/tour/userpayment/Edit-payment.vue');
+const UserpaymentsView = () => import(/* webpackChunkName: "js/admin/userpayview" */ '@/admin/pages/tour/userpayment/View-payment.vue');
 
 
-// Role & permission
-import ListRole from '@/admin/pages/setting/role/List-role.vue'
-import AddRole from '@/admin/pages/setting/role/New-role.vue'
-import EditRole from '@/admin/pages/setting/role/Edit-role.vue'
+const Tourprogram = () => import(/* webpackChunkName: "js/admin/Tourprogram" */ '@/admin/pages/website/home/List-tourprogram.vue');
+const TourprogramAdd = () => import(/* webpackChunkName: "js/admin/TourprogramAdd" */ '@/admin/pages/website/home/New-tourprogram.vue');
+const TourprogramEdit = () => import(/* webpackChunkName: "js/admin/TourprogramEdit" */ '@/admin/pages/website/home/Edit-tourprogram.vue');
 
-import ListPermission from '@/admin/pages/setting/permission/List-permission.vue'
-import AddPermission from '@/admin/pages/setting/permission/New-permission.vue'
-import EditPermission from '@/admin/pages/setting/permission/Edit-permission.vue'
-
-// GBI member
-
-import ListMember from '@/admin/pages/setting/member/List-member.vue'
-import AddMember from '@/admin/pages/setting/member/New-member.vue'
+const Bankdetail = () => import(/* webpackChunkName: "js/admin/bankdetail" */ '@/admin/pages/website/bankdetail/Bankdetail.vue');
+const BankdetailAdd = () => import(/* webpackChunkName: "js/admin/bankdetailadd" */ '@/admin/pages/website/bankdetail/New-Bankdetail.vue');
+const BankdetailEdit = () => import(/* webpackChunkName: "js/admin/bandkdetailedit" */ '@/admin/pages/website/bankdetail/Edit-Bankdetail.vue');
+const BankdetailView = () => import(/* webpackChunkName: "js/admin/BankdetailView" */ '@/admin/pages/website/bankdetail/View-Bankdetail.vue');
 
 
 
-// Transport 
-// 
-//________ Bus 
+// // Booked Tour
 
-import BusList from '@/admin/pages/bus/List-bus.vue'
-import BusEdit from '@/admin/pages/bus/Edit-bus.vue'
-import BusView from '@/admin/pages/bus/View-bus.vue'
-import BusAdd from '@/admin/pages/bus/New-bus.vue'
+const BookedTours = () => import(/* webpackChunkName: "js/admin/BookedTours" */ '@/admin/pages/bookedtour/List-reservation.vue');
+const BookedEscort = () => import(/* webpackChunkName: "js/admin/BookedEscort" */ '@/admin/pages/bookedtour/tourmanager/New-tourmanager.vue');
+const BookedHotel = () => import(/* webpackChunkName: "js/admin/BookedHotel" */ '@/admin/pages/bookedtour/New-hotel.vue');
+const BookedRestaurant = () => import(/* webpackChunkName: "js/admin/bookedRestaurant" */ '@/admin/pages/bookedtour/New-restaurant.vue');
+const BookedSightseen = () => import(/* webpackChunkName: "js/admin/bookedsightseeing" */ '@/admin/pages/bookedtour/New-sightseen.vue');
+const BookedFlight = () => import(/* webpackChunkName: "js/admin/bookedflight" */ '@/admin/pages/bookedtour/New-flight.vue');
+const BookedTrain = () => import(/* webpackChunkName: "js/admin/bookedtrain" */ '@/admin/pages/bookedtour/New-train.vue');
 
-//________ Train 
-
-import TrainList from '@/admin/pages/train/List-train.vue'
-import TrainEdit from '@/admin/pages/train/Edit-train.vue'
-import TrainView from '@/admin/pages/train/View-train.vue'
-import TrainAdd from '@/admin/pages/train/New-train.vue'
-
-//________ Flight 
-
-import FlightList from '@/admin/pages/flight/List-flight.vue'
-import FlightEdit from '@/admin/pages/flight/Edit-flight.vue'
-import FlightView from '@/admin/pages/flight/View-flight.vue'
-import FlightAdd from '@/admin/pages/flight/New-flight.vue'
-
-// ------------ Encyclopedia -----------------// 
-import EncyclopediaList from '@/admin/pages/encyclopedia/List-encyclopedia.vue'
-import EncyclopediaEdit from '@/admin/pages/encyclopedia/Edit-encyclopedia.vue'
-import EncyclopediaView from '@/admin/pages/encyclopedia/View-encyclopedia.vue'
-import EncyclopediaAdd from '@/admin/pages/encyclopedia/New-encyclopedia.vue'
-
-import EncyclopediacommentList from '@/admin/pages/encyclopedia/comment/List-encyclopediacomment.vue'
-import EncyclopediacommentEdit from '@/admin/pages/encyclopedia/comment/Edit-encyclopediacomment.vue'
-import EncyclopediacommentView from '@/admin/pages/encyclopedia/comment/View-encyclopediacomment.vue'
-import EncyclopediacommentAdd from '@/admin/pages/encyclopedia/comment/New-encyclopediacomment.vue'
-
-// Home page
-import Homepage from '@/admin/pages/website/home/Page.vue'
-import User from '@/admin/pages/website/user/List.vue'
-import UserView from '@/admin/pages/website/user/View.vue'
-
-// Blog
-import Categories from '@/admin/pages/blog/Category/List.vue';
-import CategoriesAdd from '@/admin/pages/blog/Category/New.vue';
-import CategoriesEdit from '@/admin/pages/blog/Category/Edit.vue';
-import CategoriesView from '@/admin/pages/blog/Category/View.vue';
-
-import Post from '@/admin/pages/blog/post/List.vue';
-import PostAdd from '@/admin/pages/blog/post/New.vue';
-import PostEdit from '@/admin/pages/blog/post/Edit.vue';
-import PostView from '@/admin/pages/blog/post/View.vue';
-
-import Tag from '@/admin/pages/blog/tag/List.vue';
-import TagAdd from '@/admin/pages/blog/tag/New.vue';
-import TagEdit from '@/admin/pages/blog/tag/Edit.vue';
+const BookedBus = () => import(/* webpackChunkName: "js/admin/bookedbus" */ '@/admin/pages/bookedtour/New-bus.vue');
+const BookedFood = () => import(/* webpackChunkName: "js/admin/bookedfood" */ '@/admin/pages/bookedtour/Food.vue');
+const BookedPnr = () => import(/* webpackChunkName: "js/admin/bookpnr" */ '@/admin/pages/bookedtour/Pnr-List.vue');
+const BookedStudent = () => import(/* webpackChunkName: "js/admin/BookedStudent" */ '@/admin/pages/bookedtour/Groupmember-list.vue');
+const PnrUser = () => import(/* webpackChunkName: "js/admin/PnrUser" */ '@/admin/pages/bookedtour/PnrUser.vue');
+const EscortUpdate = () => import(/* webpackChunkName: "js/admin/EscortList" */ '@/admin/pages/bookedtour/New-EscortUpdate.vue');
+const PaymentList = () => import(/* webpackChunkName: "js/admin/paymentlist" */ '@/admin/pages/bookedtour/payment/List.vue');
+const StudentPayment = () => import(/* webpackChunkName: "js/admin/StudentPay" */ '@/admin/pages/bookedtour/payment/Student-payment.vue');
+const addPaymentMethod = () => import(/* webpackChunkName: "js/admin/AddPaymethod" */ '@/admin/pages/bookedtour/payment/Add-payment.vue');
+const UpdatePaymentMethod = () => import(/* webpackChunkName: "js/admin/UpdatePaymethod" */ '@/admin/pages/bookedtour/payment/Update-payment.vue');
 
 
-import Gallery from '@/admin/pages/gallery/List.vue';
-import GalleryAdd from '@/admin/pages/gallery/New.vue';
-import GalleryEdit from '@/admin/pages/gallery/Edit.vue';
+
+// // Add City 
+const ListCity = () => import(/* webpackChunkName: "js/admin/CityList" */ '@/admin/pages/setting/List-city.vue');
+const AddCity = () => import(/* webpackChunkName: "js/admin/CityAdd" */ '@/admin/pages/setting/New-city.vue');
+const EditCity = () => import(/* webpackChunkName: "js/admin/CityEdit" */ '@/admin/pages/setting/Edit-city.vue');
+// // Add State 
+const ListState = () => import(/* webpackChunkName: "js/admin/State" */ '@/admin/pages/setting/state/List-state.vue');
+const AddState = () => import(/* webpackChunkName: "js/admin/StateAdd" */ '@/admin/pages/setting/state/New-state.vue');
+
+// // Add Country 
+const ListCountry = () => import(/* webpackChunkName: "js/admin/CountryList" */ '@/admin/pages/setting/country/List-country.vue');
+const AddCountry = () => import(/* webpackChunkName: "js/admin/CountryAdd" */ '@/admin/pages/setting/country/New-country.vue');
+
+// // Add SightSeeing 
+const ListSightseeing = () => import(/* webpackChunkName: "js/admin/sightList" */ '@/admin/pages/sightseeing/List-sightseeing.vue');
+const AddSightseeing = () => import(/* webpackChunkName: "js/admin/sightAdd" */ '@/admin/pages/sightseeing/New-sightseeing.vue');
+const EditSightseeing = () => import(/* webpackChunkName: "js/admin/sightEdit" */ '@/admin/pages/sightseeing/Edit-sightseeing.vue');
+
+
+// // Role & permission
+const ListRole = () => import(/* webpackChunkName: "js/admin/Role" */ '@/admin/pages/setting/role/List-role.vue');
+const AddRole = () => import(/* webpackChunkName: "js/admin/RoleAdd" */ '@/admin/pages/setting/role/New-role.vue');
+const EditRole = () => import(/* webpackChunkName: "js/admin/RoleEdit" */ '@/admin/pages/setting/role/Edit-role.vue');
+
+const ListPermission = () => import(/* webpackChunkName: "js/admin/PermissionList" */ '@/admin/pages/setting/permission/List-permission.vue');
+const AddPermission = () => import(/* webpackChunkName: "js/admin/PermissionAdd" */ '@/admin/pages/setting/permission/New-permission.vue');
+const EditPermission = () => import(/* webpackChunkName: "js/admin/PermissionEdit" */ '@/admin/pages/setting/permission/Edit-permission.vue');
+
+// // GBI member
+
+const ListMember = () => import(/* webpackChunkName: "js/admin/MemberList" */ '@/admin/pages/setting/member/List-member.vue');
+const AddMember = () => import(/* webpackChunkName: "js/admin/MemberAdd" */ '@/admin/pages/setting/member/New-member.vue');
+
+
+
+// // Transport 
+// // 
+// //________ Bus 
+
+const BusList = () => import(/* webpackChunkName: "js/admin/BusList" */ '@/admin/pages/bus/List-bus.vue');
+const BusEdit = () => import(/* webpackChunkName: "js/admin/BusEdit" */ '@/admin/pages/bus/Edit-bus.vue');
+const BusView = () => import(/* webpackChunkName: "js/admin/BusView" */ '@/admin/pages/bus/View-bus.vue');
+const BusAdd = () => import(/* webpackChunkName: "js/admin/BusAdd" */ '@/admin/pages/bus/New-bus.vue');
+
+// //________ Train 
+
+const TrainList = () => import(/* webpackChunkName: "js/admin/TrainList" */ '@/admin/pages/train/List-train.vue');
+const TrainEdit = () => import(/* webpackChunkName: "js/admin/TrainEdit" */ '@/admin/pages/train/Edit-train.vue');
+const TrainView = () => import(/* webpackChunkName: "js/admin/TrainView" */ '@/admin/pages/train/View-train.vue');
+const TrainAdd = () => import(/* webpackChunkName: "js/admin/TrainAdd" */ '@/admin/pages/train/New-train.vue');
+
+// //________ Flight 
+
+const FlightList = () => import(/* webpackChunkName: "js/admin/FlightList" */ '@/admin/pages/flight/List-flight.vue');
+const FlightEdit = () => import(/* webpackChunkName: "js/admin/FlightEdit" */ '@/admin/pages/flight/Edit-flight.vue');
+const FlightView = () => import(/* webpackChunkName: "js/admin/FightView" */ '@/admin/pages/flight/View-flight.vue');
+const FlightAdd = () => import(/* webpackChunkName: "js/admin/FlightAdd" */ '@/admin/pages/flight/New-flight.vue');
+
+// // ------------ Encyclopedia -----------------// 
+const EncyclopediaList = () => import(/* webpackChunkName: "js/admin/EncyclopediaList" */ '@/admin/pages/encyclopedia/List-encyclopedia.vue');
+const EncyclopediaEdit = () => import(/* webpackChunkName: "js/admin/EncyclopediaEdit" */ '@/admin/pages/encyclopedia/Edit-encyclopedia.vue');
+const EncyclopediaView = () => import(/* webpackChunkName: "js/admin/EncyclopediaView" */ '@/admin/pages/encyclopedia/View-encyclopedia.vue');
+const EncyclopediaAdd = () => import(/* webpackChunkName: "js/admin/EncyclopediaAdd" */ '@/admin/pages/encyclopedia/New-encyclopedia.vue');
+
+const EncyclopediacommentList = () => import(/* webpackChunkName: "js/admin/EncycllopediaListComment" */ '@/admin/pages/encyclopedia/comment/List-encyclopediacomment.vue');
+// const EncyclopediacommentEdit = () => import(/* webpackChunkName: "js/admin/EncyclopediaEditComment" */ '@/admin/pages/encyclopedia/comment/Edit-encyclopediacomment.vue');
+// const EncyclopediacommentView = () => import(/* webpackChunkName: "js/admin/encyclopediaViewComment" */ '@/admin/pages/encyclopedia/comment/View-encyclopediacomment.vue');
+// const EncyclopediacommentAdd = () => import(/* webpackChunkName: "js/admin/EncycloPediaComment" */ '@/admin/pages/encyclopedia/comment/New-encyclopediacomment.vue');
+
+
+
+
+// // Home page
+
+const User = () => import(/* webpackChunkName: "js/admin/User" */ '@/admin/pages/website/user/List.vue');
+const UserView = () => import(/* webpackChunkName: "js/admin/UserView" */ '@/admin/pages/website/user/View.vue');
+
+// // Blog
+const Categories = () => import(/* webpackChunkName: "js/admin/Category" */ '@/admin/pages/blog/Category/List.vue');
+const CategoriesAdd = () => import(/* webpackChunkName: "js/admin/CategoryAdd" */ '@/admin/pages/blog/Category/New.vue');
+const CategoriesEdit = () => import(/* webpackChunkName: "js/admin/CategoryEdit" */ '@/admin/pages/blog/Category/Edit.vue');
+const CategoriesView = () => import(/* webpackChunkName: "js/admin/CategoryView" */ '@/admin/pages/blog/Category/View.vue');
+
+const Post = () => import(/* webpackChunkName: "js/admin/Post" */ '@/admin/pages/blog/post/List.vue');
+const PostAdd = () => import(/* webpackChunkName: "js/admin/PostAdd" */ '@/admin/pages/blog/post/New.vue');
+const PostEdit = () => import(/* webpackChunkName: "js/admin/PostEdit" */ '@/admin/pages/blog/post/Edit.vue');
+const PostView = () => import(/* webpackChunkName: "js/admin/PostView" */ '@/admin/pages/blog/post/View.vue');
+
+const Tag = () => import(/* webpackChunkName: "js/admin/Tag" */ '@/admin/pages/blog/tag/List.vue');
+const TagAdd = () => import(/* webpackChunkName: "js/admin/TagAdd" */ '@/admin/pages/blog/tag/New.vue');
+const TagEdit = () => import(/* webpackChunkName: "js/admin/TagEdit" */ '@/admin/pages/blog/tag/Edit.vue');
+
+
+const Gallery = () => import(/* webpackChunkName: "js/admin/Gallery" */ '@/admin/pages/gallery/List.vue');
+const GalleryAdd = () => import(/* webpackChunkName: "js/admin/galleryAdd" */ '@/admin/pages/gallery/New.vue');
+const GalleryEdit = () => import(/* webpackChunkName: "js/admin/galleryEdit" */ '@/admin/pages/gallery/Edit.vue');
 
 
 
@@ -354,11 +358,10 @@ export const routes = [
     { path:'/encyclopedias-add', component:EncyclopediaAdd},
     
     { path:'/encyclopediacomment-list', component:  EncyclopediacommentList},
-    { path:'/encyclopediacomment-view/:id', component: EncyclopediacommentView},
-    { path:'/encyclopediacomment/:id', component: EncyclopediacommentEdit},
-    { path:'/encyclopediacomment-add', component: EncyclopediacommentAdd},
+    // { path:'/encyclopediacomment-view/:id', component: EncyclopediacommentView},
+    // { path:'/encyclopediacomment/:id', component: EncyclopediacommentEdit},
+    // { path:'/encyclopediacomment-add', component: EncyclopediacommentAdd},
     
-    { path:'/homepage', component: Homepage},
     { path:'/user', component: User},
     { path: '/user/:id', component: UserView},  
     // categories
@@ -379,6 +382,9 @@ export const routes = [
     { path: '/gallery', component: Gallery },
     { path: '/gallery-add', component: GalleryAdd },
     { path: '/gallery/:id', component: GalleryEdit },
+
+
+
 
 ];
 

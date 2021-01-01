@@ -22,6 +22,14 @@ class ItineraryController extends Controller
      * @return \Illuminate\Http\Response
      */
     use ImageTrait;
+    public function all($size)
+    {
+        return response()->json(Itinerary::select([
+            'id','title','source','destination','noofdays'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
     public function index()
     {
         // return Itinerary::all();

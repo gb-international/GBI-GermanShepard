@@ -1,5 +1,5 @@
 <nav class="mt-2" id="mynavigation">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
         <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
 
@@ -28,14 +28,7 @@
                 </router-link>
                 </li>
                 @endcan
-                @can('add itineraries')
-                <li class="nav-item">
-                <router-link to="/add-itinerary" class="nav-link" title="Itinerary Add">
-                    
-                    <p> Add Itinerary</p>
-                </router-link>
-                </li>
-                @endcan
+
                 @can('account itineraries')
                 <li class="nav-item">
                 <router-link to="/account-itinerary" class="nav-link" title="Account Itinerary">
@@ -103,7 +96,7 @@
             <a href="#" class="nav-link">
             <i class="nav-icon fas fa-hotel"></i>
             <p>
-                Hotel
+                Hotel & Restaurant
                 <i class="right fas fa-angle-right"></i>
             </p>
             </a>
@@ -112,32 +105,10 @@
             <li class="nav-item">
                 <router-link to="/hotel-list" class="nav-link" title="Hotel List">
                 
-                <p> Hotel List</p>
+                <p> Hotel</p>
                 </router-link>
             </li>
             @endcan
-            @can('add hotels')
-            <li class="nav-item">
-                <router-link to="/add-hotel" class="nav-link" title="Hotel Add">
-                <p> Add Hotel </p>
-                </router-link>
-            </li>
-            @endcan
-            </ul>
-        </li>
-        @endcanany
-
-        
-        @canany(['add restaurants','edit restaurants','delete restaurants'])
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link" title="Restaurant">
-            <i class="nav-icon fas fa-utensils"></i>
-            <p>
-                Restaurant
-                <i class="right fas fa-angle-right"></i>
-            </p>
-            </a>
-            <ul class="nav nav-treeview">
             @can('list restaurants')
             <li class="nav-item">
                 <router-link to="/restaurant-list" class="nav-link" title="Restaurant List">
@@ -146,18 +117,9 @@
                 </router-link>
             </li>
             @endcan
-            @can('add restaurants')
-            <li class="nav-item">
-                <router-link to="/add-restaurant" class="nav-link" title="Restaurant Add">
-                <p> Add Restaurant </p>
-                </router-link>
-            </li>
-            @endcan
             </ul>
         </li>
         @endcanany
-
-
         
         @canany(['add transports','edit transports','delete transports'])
         <li class="nav-item has-treeview">
@@ -303,14 +265,6 @@
                 </router-link>
             </li>
             @endcan
-            @can('add escorts')
-            <li class="nav-item">
-                <router-link to="/add-escort" class="nav-link">
-                
-                <p> Add Escort</p>
-                </router-link>
-            </li>
-            @endcan
             </ul>
         </li>
         @endcanany
@@ -393,14 +347,6 @@
             <li class="nav-item">
                 <router-link to="/encyclopediacomment-list" class="nav-link">
                 <p> Encyclopedia Comment</p>
-                </router-link>
-            </li>
-            @endcan
-
-            @can('homepage')
-            <li class="nav-item">
-                <router-link to="/homepage" class="nav-link">
-                <p>Homepage</p>
                 </router-link>
             </li>
             @endcan

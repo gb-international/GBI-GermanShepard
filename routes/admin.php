@@ -43,6 +43,7 @@ Route::namespace('Admin')->group(function (){
 	});
 
 	Route::namespace('Itinerary')->group(function(){
+		Route::get('itinerary/all/{size}','ItineraryController@all');
 		Route::resource('itinerary','ItineraryController');
 		Route::get('itinerarydayget/{id}','ItinerarydayController@index');
 	});
@@ -109,7 +110,9 @@ Route::namespace('Admin')->group(function (){
 
 
 	Route::namespace('RoleAndPermission')->group(function(){
+		Route::get('role/all/{size}','RoleController@all');
 		Route::resource('role','RoleController');
+		Route::get('permission/all/{size}','PermissionController@all');
 		Route::resource('permission','PermissionController');
 	});
 
@@ -132,12 +135,14 @@ Route::namespace('Admin')->group(function (){
 		Route::post('getUserpayments','UserpaymentController@getUserpayments');
 	});
 	Route::namespace('GbiMember')->group(function(){
+		Route::get('/members/all/{size}','GBIMemberController@all');
 		Route::get('/members','GBIMemberController@index');
 		Route::post('/members/create','GBIMemberController@register');
 		Route::post('/members/destroy/{user}',"GBIMemberController@destroy");
 		Route::get('/members/salesman',"GBIMemberController@memberType");
 	});
 	Route::namespace('Account')->group(function(){
+		Route::get('/accounts/all/{size}','AccountController@all');
 		Route::get('/accounts','AccountController@index');
 	});
 

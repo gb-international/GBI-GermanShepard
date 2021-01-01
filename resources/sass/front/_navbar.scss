@@ -1,4 +1,5 @@
-$bottom-nav-bgcolor: #ebebeb;
+$bottom-nav-bgcolor:  #d1d3d4;
+$mob-link: #001041;
 .navbar-bottom{ display: none;}
 
 #navbar{
@@ -33,7 +34,7 @@ $bottom-nav-bgcolor: #ebebeb;
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color: #ebebeb;
+        background-color:$bottom-nav-bgcolor;
         color: white;
         text-align: center;
         display: block;
@@ -48,7 +49,7 @@ $bottom-nav-bgcolor: #ebebeb;
     }
 
     .navbar-bottom a {
-        background-color: #ebebeb;
+        background-color:$bottom-nav-bgcolor;
         width: 24.33%;
         color: #666666;
         text-align: center;
@@ -65,7 +66,7 @@ $bottom-nav-bgcolor: #ebebeb;
 
     .navbar-bottom a:hover {
         background: none;
-        color: black;
+        color: $mob-link;
         text-decoration: none;
     }
 

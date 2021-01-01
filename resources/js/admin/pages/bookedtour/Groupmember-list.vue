@@ -512,14 +512,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.delete_icon {
-  float: right;
-  padding-top: 20px;
-  cursor: pointer;
-}
-.delete_icon:hover {
-  color: red;
-}
-</style>

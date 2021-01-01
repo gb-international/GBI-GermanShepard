@@ -17,7 +17,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="category">Gallery Category</label>
               <select
-                class="form-control"
+                class="form-control select-field"
                 :class="{ 'is-invalid': form.errors.has('category') }"
                 v-model="form.category"
               >
@@ -89,18 +89,7 @@ to submit the data we are using a function.
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-2"></div>
-          <div class="col-sm-4">
-            <back-button url="/gallery"></back-button>
-          </div>
-          <div class="col-sm-4">
-            <div class="form-group text-center">
-              <submit-button />
-            </div>
-          </div>
-          <div class="col-sm-2"></div>
-        </div>
+        <form-buttons />
       </form>
     </template>
   </form-layout>
@@ -109,8 +98,7 @@ to submit the data we are using a function.
 <script>
 import { Form, HasError } from "vform";
 import { ModelSelect } from "vue-search-select";
-import BackButton from "@/admin/components/buttons/BackButton.vue";
-import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
+import FormButton from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
   name: "New",
@@ -118,8 +106,7 @@ export default {
     Form,
     "has-error": HasError,
     ModelSelect,
-    "back-button": BackButton,
-    "submit-button": SubmitButton,
+    "form-buttons": FormButton,
     "form-layout": FormLayout,
   },
   data() {
@@ -169,7 +156,7 @@ export default {
         .put(`/api/gallery/${this.$route.params.id}`)
         .then((response) => {
           this.getGalleryList();
-          this.$toast.fire({
+          this.$swal.fire({
             icon: "success",
             title: "Successfully Updated",
           });

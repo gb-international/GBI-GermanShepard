@@ -180,18 +180,7 @@ to submit the data we are using a function.
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-sm-2"></div>
-          <div class="col-sm-4">
-            <back-button url="/encyclopedias"></back-button>
-          </div>
-          <div class="col-sm-4">
-            <div class="form-group text-center">
-              <submit-button />
-            </div>
-          </div>
-          <div class="col-sm-2"></div>
-        </div>
+        <form-buttons />
       </form>
     </template>
   </form-layout>
@@ -203,7 +192,7 @@ import { ModelSelect } from "vue-search-select";
 import { Form, HasError } from "vform";
 import { VueEditor, Quill } from "vue2-editor";
 
-import BackButton from "@/admin/components/buttons/BackButton.vue";
+import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
@@ -213,7 +202,7 @@ export default {
     Form,
     VueEditor,
     "has-erro": HasError,
-    "back-button": BackButton,
+    "form-buttons": FormButtons,
     "submit-button": SubmitButton,
     "form-layout": FormLayout,
   },

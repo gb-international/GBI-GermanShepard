@@ -3,10 +3,6 @@ This Template is for listing for the Category profile using function to get the
 data from the api to display the data about the Category from the backend .
 -->
 
-<!--
-This Template is for listing for the Category profile using function to get the 
-data from the api to display the data about the Category from the backend .
--->
 <template>
   <list-layout addurl="/categories-add" buttontext="add category">
     <template #perpage>
@@ -44,19 +40,12 @@ data from the api to display the data about the Category from the backend .
         :busy="$store.getters.isBusy"
         :filter="filter"
         primary-key="updated_at"
-        :tbody-transition-props="transProps"
       >
         <template #table-busy>
           <table-loader />
         </template>
         <template #cell(description)="data">
           <span :inner-html.prop="data.item.description | readMore(90)"></span>
-        </template>
-        <template #cell(status)="data">
-          <span 
-              v-if="data.item.status == 1" 
-              class="badge badge-success">Publish</span>
-          <span class="badge badge-default" v-else>Draft</span>
         </template>
         <template #cell(action)="data">
           <edit-icon :url="`/categories/${data.item.id}`"></edit-icon>
@@ -68,13 +57,12 @@ data from the api to display the data about the Category from the backend .
         </template>
       </b-table> 
     </template>
-    
-    <template #pagination  v-if="items.data">
-      <pagination :data="items" @pagination-change-page="getitems" :align="`right`">
-        <span slot="prev-nav">Previous</span>
-        <span slot="next-nav">Next</span>
-      </pagination>
-    </template>
+      <template #pagination v-if="items.data">
+        <paginationlink :data="items" @pagination-change-page="getitems" :align="`right`">
+          <span slot="prev-nav">Previous</span>
+          <span slot="next-nav">Next</span>
+        </paginationlink>
+      </template>
 
   </list-layout>
 </template>
@@ -82,7 +70,7 @@ data from the api to display the data about the Category from the backend .
 <script>
 
 import listLayout from '@/admin/components/layout/ListLayout.vue';
-import pagination  from 'laravel-vue-pagination';
+import paginationlink  from 'laravel-vue-pagination';
 import EditIcon from '@/admin/components/icons/EditIcon.vue';
 import DeleteIcon from '@/admin/components/icons/DeleteIcon.vue';
 import ViewIcon from '@/admin/components/icons/ViewIcon.vue';
@@ -94,17 +82,13 @@ export default {
   components:{
     'list-layout':listLayout,
     'table-loader':TableLoader,
-    'pagination':pagination,
+    'paginationlink':paginationlink,
     'edit-icon':EditIcon,
     'delete-icon':DeleteIcon,
     'view-icon':ViewIcon,
   },
   data() {
     return {
-      transProps: {
-        // Transition name
-        name: 'flip-list'
-      },
       fields: [
         {key:'title',label:'TITLE',sortable:true,thClass: 'table-head'},
         {key:'description',label:'DESCRIPTION',sortable:true,thClass: 'table-head'},

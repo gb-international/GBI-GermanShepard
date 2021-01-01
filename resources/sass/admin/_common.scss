@@ -3,9 +3,7 @@
 	padding: 8px 12px !important;
 	background-color: $admin-bg !important;
 }
-.pointer{
-	cursor: pointer;
-}
+.pointer{ cursor: pointer; }
 iframe{ width: 100%;}
 .top_black_btn{
 	padding: 10px 30px;
@@ -27,150 +25,59 @@ iframe{ width: 100%;}
 	margin-bottom: 10px;
 }
 
-.mt-35{
-	margin-top:35px;
-}
-.mb-30{
-	margin-bottom: 30px;
-}
-.mb-20{
-	margin-bottom: 20px;
-}
+.mt-35{	margin-top:35px;}
+.mb-30{	margin-bottom: 30px;}
+.mb-20{	margin-bottom: 20px;}
 .mb-10{	margin-bottom: 10px;}
 .toggle_nv{ display: block;}
 // Margin top 25
-.m-60{
-	margin-top:60px;
-}
+.m-60{	margin-top:60px;}
 
-.back_btn{
-	margin-right:20px;
-}
+.back_btn{	margin-right:20px;}
 
 .btn{background-color:$admin-bg;border-radius:0px;
 	&:hover{border-radius: 4px;}
 }
 
-.card{
-	padding: 10px;
-}
+.card{	padding: 10px;}
 
-.text-danger{
-	font-size: 11px !important;
-}
+.text-danger{font-size: 11px !important;}
 
-.font-18{
-	font-size: 18px !important;
-}
+.font-18{ font-size: 18px !important; }
+.font-14{ font-size: 14px !important; }
 
-.p-0{
-	padding: 0px;
-}
+.p-0{padding: 0px;}
 .pl-10{ padding-left: 10px;}
-.m-0{
-	margin:0px;
-}
-.text-right{
-	text-align: right;
-}
+.m-0{margin:0px;}
+.text-right{text-align: right;}
 
-.text-black{
-	color: black !important;
-}
+.text-black{color: black !important;}
 
 
 .w-80{ width: 80px;}
+.w-60{ width: 60px;}
 
 .display-hidden{ display: none;}
 .whitesomke{ background-color: whitesmoke;}
 .cursor-pointer{ cursor: pointer;}
 
 
-// Input box css
-input[type='text'],input[type='email'],
-input[type='date'],textarea,input[type='number'],.textarea,
-input[type='time'],input[type='datetime-local'],
-.ui.selection.dropdown,
-.ui.dropdown, .ui.dropdown input,
-input[type='datetime-local'],
-.select-field{
-	border: 0px;
-	background-color: $admin-top;
-	font-size: 17px;
-	color: #737879;
-	display: block;
-	width: 100%;
+// ----------------------------------------
+.delete_icon {
+  float: right;
+  padding-top: 20px;
+  cursor: pointer;
+}
+.delete_icon:hover {
+  color: red;
 }
 
-.ui.selection.dropdown{ 
-	color: $input-box-text !important;
-	background: $input-box !important;
-	border:none !important;
+.images_row img {
+  margin-bottom: 10px;
 }
-input[type='text'],input[type='email'],
-input[type='date'],input[type='number'],
-input[type='time'],.select-field,
-.ui.selection.dropdown,
-.ui.dropdown, .ui.dropdown input,
-input[type='datetime-local']{
-	height: 53px;
-	margin-bottom: 5px;
-	font-weight: 600;
-}
-
-// dropdown for the city
-.ui.search.dropdown>.text {	top: 7px; }
-.multiselect__tags{ 
-	min-height: 53px !important;
-	font-size: 17px !important;
-	padding: 11px 40px 0 8px !important;
-	color: #737879 !important;
-	background: #e1e1e1e1 !important;
-	font-weight: 600;
-	.multiselect__tag{
-		background: #a9a9a9 !important;
-	}
-}
-.multiselect__option--selected.multiselect__option--highlight{ 
-	background:#dee2e6 !important;
-}
-.multiselect__option--highlight{
-	background:#171f36 !important;
-}
-.multiselect__tag-icon:focus, .multiselect__tag-icon:hover{
-	background: hsla(0, 2%, 52%, 0.89) !important;
-}
-.multiselect__select{
-	top: 8px !important;
-}
-// text editor
-.ql-editor:focus{
-	background:white;
-}
-
-.ui.selection.dropdown>.delete.icon, .ui.selection.dropdown>.dropdown.icon, .ui.selection.dropdown>.search.icon{
-	top: 15px !important;
-}
-
-.ui.search.selection.dropdown>input.search, .ui.search.selection.dropdown>span.sizer{
-	padding: 20px 15px !important;
-}
-
-
-label{color: #7f7f7f;font-size: 15px;font-weight: 600 !important;}
-form{padding-top: 20px;}
-
 // Content background color
-.content{
-	background-color: $admin-body;
-}
+.content{ background-color: $admin-body; }
 //  input type date icon csss
-.input-group-text{
-	height: 53px;
-	background-color: $admin-top;
-	border:none;
-	font-size: 20px;
-}
 
 .pdf_show{
 	.fa-file-pdf{
@@ -296,4 +203,20 @@ table#table-transition .flip-list-move {
 		top: 7px;
     	right: 28px;
 	}
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #adadad !important;
+  opacity: 1; /* Firefox */
+}
+
+
+
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #adadad !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #adadad !important;
 }

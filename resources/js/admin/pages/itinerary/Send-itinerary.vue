@@ -5,92 +5,92 @@ to submit the data we are using a function.
 
  -->
 <template>
-  <section class="content">
-    <div class="container-fluid">
-      <!--************************************************
-      Template Type: Send Itinerary To Sales Department.
-      Author:@Ajay
-
-      ****************************************************-->
-      <div class="row justify-content-around">
-        <!-- left column -->
-        <div class="col-md-12">
-          <form
-            role="form"
-            enctype="multipart/form-data"
-            @submit.prevent="addAccount()"
-          >
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="name">Itinerary ID </label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="form.itinerary_id"
-                    :class="{ 'is-invalid': form.errors.has('itinerary_id') }"
-                    name="itinerary_id"
-                    readonly=""
-                  />
-                  <has-error :form="form" field="name"></has-error>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="position">Price</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    v-model="form.price"
-                    :class="{ 'is-invalid': form.errors.has('price') }"
-                    placeholder="Enter price"
-                    name="price"
-                    min="1"
-                  />
-                  <has-error :form="form" field="price"></has-error>
-                </div>
-              </div>
+  <form-layout>
+    <template #formdata>
+      <form
+        role="form"
+        enctype="multipart/form-data"
+        @submit.prevent="addAccount()"
+      >
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="name">Itinerary ID </label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.itinerary_id"
+                :class="{ 'is-invalid': form.errors.has('itinerary_id') }"
+                name="itinerary_id"
+                readonly=""
+              />
+              <has-error :form="form" field="name"></has-error>
             </div>
-
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="Location">Sales Dep</label>
-                  <model-select :options="options" v-model="form.salesdp_id" placeholder="Sales department"></model-select>
-                  <has-error :form="form" field="salesdp_id"></has-error>
-                </div>
-              </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="position">Price</label>
+              <input
+                type="number"
+                class="form-control"
+                v-model="form.price"
+                :class="{ 'is-invalid': form.errors.has('price') }"
+                placeholder="Enter price"
+                name="price"
+                min="1"
+              />
+              <has-error :form="form" field="price"></has-error>
             </div>
-
-            <div class="row">
-              <div class="col-sm-4"></div>
-              <div class="col-sm-4">
-                <div class="form-group text-center">
-                  <button
-                    type="submit"
-                    class="btn btn-primary btn-block itrn_add_btn"
-                  >
-                    Send
-                  </button>
-                </div>
-              </div>
-              <div class="col-sm-4"></div>
-            </div>
-          </form>
+          </div>
         </div>
-      </div>
-      <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-  </section>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="Location">Sales Dep</label>
+              <model-select
+                :options="options"
+                v-model="form.salesdp_id"
+                placeholder="Sales department"
+              ></model-select>
+              <has-error :form="form" field="salesdp_id"></has-error>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-4">
+            <back-button url="/itinerary-list"></back-button>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group text-center">
+              <submit-button>send</submit-button>
+            </div>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+      </form>
+    </template>
+  </form-layout>
 </template>
 
 <script>
 import { Form, HasError } from "vform";
 import { ModelSelect } from "vue-search-select";
+import BackButton from "@/admin/components/buttons/BackButton.vue";
+import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
+import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
   name: "NewItinerary",
-  components: { Form, "has-error": HasError, ModelSelect },
+  components: {
+    Form,
+    "has-error": HasError,
+    ModelSelect,
+    "back-button": BackButton,
+    "submit-button": SubmitButton,
+    "form-layout": FormLayout,
+  },
   data() {
     return {
       // Create a new form instance
@@ -109,7 +109,7 @@ export default {
       for (var i = 0; i < response.data.length; i++) {
         this.options.push({
           value: response.data[i].name,
-          text: response.data[i].name
+          text: response.data[i].name,
         });
       }
     });

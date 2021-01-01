@@ -2,113 +2,139 @@
 This Template is for listing for the Itinerary using function to get the 
 data from the api to display the data about the Itinerary from the backend .
 -->
+
+<!--
+This Template is for listing for the Itinerary using function to get the 
+data from the api to display the data about the Itinerary from the backend .
+-->
 <template>
-  <section class="content">
-    <!--************************************************
-    Template Type: Itinerary List
-    Author:@Ajay
+  <list-layout addurl="/add-itinerary" buttontext="add itinerary">
+    <template #perpage>
+      <b-form-group
+        label="Per page"
+        label-for="per-page-select"
+        label-cols-sm="6"
+        label-cols-md="4"
+        label-cols-lg="3"
+        label-align-sm="right"
+        label-size="sm"
+        class="mb-0"
+      >
+        <b-form-select
+          id="per-page-select"
+          class="radius-0"
+          v-model="perPage"
+          :options="options"
+        ></b-form-select>
+      </b-form-group>
+    </template>
+    <template #searchbar>
+      <b-form-input v-model="filter" type="search" placeholder="Type to Search" class="radius-0"></b-form-input>
+    </template>
+    <template #table>
+      <b-table
+        id="table-transition"
+        striped
+        hover
+        outlined
+        sticky-header="405px"
+        class="w-100 table-layout"
+        :fields="fields"
+        :items="items.data"
+        :busy="$store.getters.isBusy"
+        :filter="filter"
+        primary-key="updated_at"
+      >
+        <template #table-busy>
+          <table-loader />
+        </template>
+        <template #cell(address)="data">
+          {{ data.item.title | readMore(50) }}
+        </template>
 
-    ****************************************************-->
-    <div class="row justify-content-around" >
-      <div class="col-md-12">
-        <div class="container container_admin_body">
-            <!-- Start Card -->
-            <table id="example" class="display table nowrap" style="width:100%">
-              <thead>
-                <tr>
-                    <th>Itinerary Title <i class="fas fa-sort"></i></th>
-                    <th>Sales Man <i class="fas fa-sort"></i></th>
-                    <th>Price <i class="fas fa-sort"></i></th>
-                    <th>Status <i class="fas fa-sort"></i></th>
-                    <th>Action <i class="fas fa-cog"></i></th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr v-for="itinerary in itinerary_list" role="row" v-bind:class="{ odd: oddclass , 'even': evenclass}"  class="row_list" v-if="itinerary.status != 'confirm'" :key="itinerary.id">
-                      <td>{{itinerary.title}}</td>
-                      <td>{{itinerary.name}}</td>
-                      <td>{{itinerary.price}} /-</td>
-                      <td>
-                        <span  v-if="itinerary.status == 'confirm'" class="badge badge-success">{{itinerary.status}}</span>
-                        <span  v-if="itinerary.status == 'cancel'" class="badge badge-danger">{{itinerary.status}}</span>
-                        <span  v-if="itinerary.status == 'pending'" class="badge badge-warning">{{itinerary.status}}</span>
-                      </td>
-                      <td class="edit_section">
+        <template #cell(status)="data">
+          <span  v-if="data.item.status == 'cancel'" class="badge badge-danger">{{data.item.status}}</span>
+          <span  v-if="data.item.status == 'pending'" class="badge badge-warning">{{data.item.status}}</span>
+        </template>
 
-                        <a href="" class="delete_link" @click.prevent = "deleteitinerary(itinerary.id)" title="Delete"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
-
-                        <router-link :to="`account-itinerary-view/${itinerary.id}`" class="edit_link">
-                          <span class="badge badge-primary" title="Booking Details"><i class="fas fa-book-reader"></i></span>
-                        </router-link>
-
-                        <router-link :to="`/view-itinerary/${itinerary.id}`" class="edit_link">
-                          <span class="badge badge-primary" title="View Itinerary"><i class="fas fa-eye"></i></span>
-                        </router-link>
-
-                      </td>
-                  </tr>
-                </tbody>
-            </table>
-        </div>                          
-          <!-- end -->
-      </div>
-    </div>
-  </section>
-    <!-- /.content -->
+        <template #cell(action)="data">
+          <bookingdetail :url="`/account-itinerary-view/${data.item.id}`"></bookingdetail>
+          
+          <delete-icon 
+            @click.native="deleteItem(data.item.id,data.index)"
+            >
+          </delete-icon>
+          <view-icon :url="`/view-itinerary/${data.item.id}`"></view-icon>
+        </template>
+      </b-table> 
+    </template>
+    <template #pagination  v-if="items.data">
+      <div class="w-100">
+        <pagination :data="items" @pagination-change-page="getitems" :align="`right`" :limit="limit">
+          <span slot="prev-nav">Previous</span>
+          <span slot="next-nav">Next</span>
+        </pagination>
+      </div>  
+    </template>
+  </list-layout>
 </template>
 
 <script>
+import listLayout from '@/admin/components/layout/ListLayout.vue';
+import pagination  from 'laravel-vue-pagination';
+import EditIcon from '@/admin/components/icons/EditIcon.vue';
+import DeleteIcon from '@/admin/components/icons/DeleteIcon.vue';
+import ViewIcon from '@/admin/components/icons/ViewIcon.vue';
+import BookingDetail from '@/admin/components/icons/BookingDetail.vue';
+import TableLoader from '@/admin/components/TableLoader.vue';
+import { mapState } from 'vuex';
+
 export default {
-  name: "ListAccountItinerary",
-  data(){
-    return{
-      oddclass:false,
-      evenclass:true,
-      itinerary_list:[],
+  name: "List",
+  components:{
+    'list-layout':listLayout,
+    'table-loader':TableLoader,
+    'pagination':pagination,
+    'delete-icon':DeleteIcon,
+    'view-icon':ViewIcon,
+    'bookingdetail':BookingDetail,
+  },
+  data() {
+    return {
+      fields: [
+        {key:'title',label:'TITLE',sortable:true,thClass: 'table-head'},
+        {key:'name',label:'SALES MAN',sortable:true,thClass: 'table-head'},
+        {key:'price',label:'PRICE',sortable:true,thClass: 'table-head'},
+        {key:'status',label:'STATUS',sortable:true,thClass: 'table-head'},
+        {key:'action',label:'ACTION',thClass: 'table-head'}
+      ],
+      limit:2,
+      filter:'',
+      perPage:7,
+      options:[7,25,50,100],
+    };
+  },
+  mounted() {
+    this.getitems();
+  },
+  computed:{
+    ...mapState(['items']),
+  },
+  watch:{
+    perPage:function(){
+      this.getitems(1,this.perPage);
     }
   },
-  created(){
-    this.accountList();
-  },
 
-   methods:{
-    accountList(){
-      axios.get('/api/accounts').then((response)=>{
-        setTimeout(() => $('#example').DataTable(), 1000);
-        this.itinerary_list = response.data.data;
-      });
+  methods: {
+    getitems(page=1,size= this.perPage) {
+      this.$store.dispatch('getItems','/accounts/all/'+size+'?page='+page);
     },
-
-
-     deleteitinerary(id){
-      var uri = 'account/destroy/'+id;
-      this.$swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.value) {
-          axios.get(uri).then((response)=>{
-            console.log(response);
-            this.$store.dispatch('getAllData','/api/accounts')
-                  //response contains your data sent front your controller/route
-              })
-          this.$swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
-           
-        }
-      });
-    }
-
-   } 
-}
-
-
+    deleteItem(id,index=-1) {
+      let payload = {'api':"/accounts/"+id,index,'index':index};
+      this.$store.dispatch('deleteItem',payload);
+    },
+  },
+};
 </script>
+

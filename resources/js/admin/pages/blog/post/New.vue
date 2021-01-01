@@ -82,35 +82,12 @@ to submit the data we are using a function.
             </div>
           </div>
 
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label class="label" for="input"
-                >Please upload a Banner image !</label
-              >
-              <br />
-              <input
-                @change="changeDetailPhoto($event)"
-                type="file"
-                :class="{ 'is-invalid': form.errors.has('image') }"
-              />
-
-              <has-error :form="form" field="image"></has-error>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <div class="form-group">
-              <label for="image"></label>
-              <br />
-              <img :src="img_image" alt class="image w-100" />
-              <has-error :form="form" field="image"></has-error>
-            </div>
-          </div>
 
           <div class="col-sm-6">
             <div class="form-group">
               <label for="meta_keyword">Status</label>
               <select
-                class="form-control"
+                class="form-control select-field"
                 v-model="form.status"
                 :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
               >
@@ -125,7 +102,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="categories">Category</label>
 
-                <select class="form-control" v-model="form.category_id">
+                <select class="form-control select-field" v-model="form.category_id">
                 <option v-for="cat in categories" :key="cat.id" :value="cat.id">{{ cat.title }}</option>
               </select>
 
@@ -151,19 +128,32 @@ to submit the data we are using a function.
             </div>
           </div>
 
-        </div>
-        <div class="row">
-          <div class="col-sm-2"></div>
           <div class="col-sm-4">
-            <back-button url="/posts"></back-button>
-          </div>
-          <div class="col-sm-4">
-            <div class="form-group text-center">
-              <submit-button />
+            <div class="form-group">
+              <label class="label" for="input"
+                >Please upload a Banner image !</label
+              >
+              <br />
+              <input
+                @change="changeDetailPhoto($event)"
+                type="file"
+                :class="{ 'is-invalid': form.errors.has('image') }"
+              />
+
+              <has-error :form="form" field="image"></has-error>
             </div>
           </div>
-          <div class="col-sm-2"></div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label for="image"></label>
+              <br />
+              <img :src="img_image" alt class="image w-100" />
+              <has-error :form="form" field="image"></has-error>
+            </div>
+          </div>
+
         </div>
+        <form-buttons />
       </form>
     </template>
   </form-layout>
@@ -178,7 +168,7 @@ import ImageResize from "quill-image-resize-module";
 import "vue-search-select/dist/VueSearchSelect.css";
 import Multiselect from "vue-multiselect";
 
-import BackButton from '@/admin/components/buttons/BackButton.vue';
+import FormButtons from '@/admin/components/buttons/FormButtons.vue';
 import SubmitButton from '@/admin/components/buttons/SubmitButton.vue';
 import FormLayout from '@/admin/components/layout/FormLayout.vue';
 
@@ -189,7 +179,7 @@ export default {
     "has-error": HasError,
     "vue-editor": VueEditor,
     Multiselect,
-    'back-button':BackButton,
+    'form-buttons':FormButtons,
     'submit-button':SubmitButton,
     'form-layout':FormLayout,
   },
@@ -243,10 +233,11 @@ export default {
         .post("/api/posts")
         .then((response) => {
           // this.form.reset();
-          this.$toast.fire({
-            icon: "success",
-            title: "Post Added successfully",
-          });
+          this.$swal.fire(
+            "Added!",
+            "Item Added successfully",
+            "success"
+          );
         })
         .catch(() => {});
     },
@@ -304,5 +295,3 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>  

@@ -20,6 +20,16 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function all($size)
+    {
+        return response()->json(Role::select([
+            'id','name','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
+
     public function index()
     {
         return \Spatie\Permission\Models\Role::all();

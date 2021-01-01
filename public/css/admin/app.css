@@ -55213,6 +55213,10 @@ iframe {
   font-size: 18px !important;
 }
 
+.font-14 {
+  font-size: 14px !important;
+}
+
 .p-0 {
   padding: 0px;
 }
@@ -55237,6 +55241,10 @@ iframe {
   width: 80px;
 }
 
+.w-60 {
+  width: 60px;
+}
+
 .display-hidden {
   display: none;
 }
@@ -55249,116 +55257,22 @@ iframe {
   cursor: pointer;
 }
 
-input[type='text'],
-input[type='email'],
-input[type='date'],
-textarea,
-input[type='number'],
-.textarea,
-input[type='time'],
-input[type='datetime-local'],
-.ui.selection.dropdown,
-.ui.dropdown,
-.ui.dropdown input,
-input[type='datetime-local'],
-.select-field {
-  border: 0px;
-  background-color: #e1e1e1e1;
-  font-size: 17px;
-  color: #737879;
-  display: block;
-  width: 100%;
-}
-
-.ui.selection.dropdown {
-  color: #737879 !important;
-  background: #e1e1e1e1 !important;
-  border: none !important;
-}
-
-input[type='text'],
-input[type='email'],
-input[type='date'],
-input[type='number'],
-input[type='time'],
-.select-field,
-.ui.selection.dropdown,
-.ui.dropdown,
-.ui.dropdown input,
-input[type='datetime-local'] {
-  height: 53px;
-  margin-bottom: 5px;
-  font-weight: 600;
-}
-
-.ui.search.dropdown > .text {
-  top: 7px;
-}
-
-.multiselect__tags {
-  min-height: 53px !important;
-  font-size: 17px !important;
-  padding: 11px 40px 0 8px !important;
-  color: #737879 !important;
-  background: #e1e1e1e1 !important;
-  font-weight: 600;
-}
-
-.multiselect__tags .multiselect__tag {
-  background: #a9a9a9 !important;
-}
-
-.multiselect__option--selected.multiselect__option--highlight {
-  background: #dee2e6 !important;
-}
-
-.multiselect__option--highlight {
-  background: #171f36 !important;
-}
-
-.multiselect__tag-icon:focus,
-.multiselect__tag-icon:hover {
-  background: rgba(135, 130, 130, 0.89) !important;
-}
-
-.multiselect__select {
-  top: 8px !important;
-}
-
-.ql-editor:focus {
-  background: white;
-}
-
-.ui.selection.dropdown > .delete.icon,
-.ui.selection.dropdown > .dropdown.icon,
-.ui.selection.dropdown > .search.icon {
-  top: 15px !important;
-}
-
-.ui.search.selection.dropdown > input.search,
-.ui.search.selection.dropdown > span.sizer {
-  padding: 20px 15px !important;
-}
-
-label {
-  color: #7f7f7f;
-  font-size: 15px;
-  font-weight: 600 !important;
-}
-
-form {
+.delete_icon {
+  float: right;
   padding-top: 20px;
+  cursor: pointer;
+}
+
+.delete_icon:hover {
+  color: red;
+}
+
+.images_row img {
+  margin-bottom: 10px;
 }
 
 .content {
   background-color: #f4f6f9;
-}
-
-.input-group-text {
-  height: 53px;
-  background-color: #e1e1e1e1;
-  border: none;
-  font-size: 20px;
 }
 
 .pdf_show .fa-file-pdf {
@@ -55477,6 +55391,44 @@ table#table-transition .flip-list-move {
 .img-card-delete-icon .position-absolute {
   top: 7px;
   right: 28px;
+}
+
+::-moz-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #adadad !important;
+  opacity: 1;
+  /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #adadad !important;
+  opacity: 1;
+  /* Firefox */
+}
+
+::-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #adadad !important;
+  opacity: 1;
+  /* Firefox */
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #adadad !important;
+  opacity: 1;
+  /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #adadad !important;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #adadad !important;
 }
 
 .calculator label {
@@ -55645,6 +55597,152 @@ table#table-transition .flip-list-move {
   text-shadow: 0 -1px 0 rgba(0, 200, 0, 0.25);
 }
 
+label {
+  color: #7f7f7f;
+  font-size: 15px;
+  font-weight: 600 !important;
+}
+
+form {
+  padding-top: 20px;
+}
+
+.form-control {
+  box-shadow: #0745C7 !important;
+  outline: #073189 !important;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='date'],
+input[type='number'],
+.textarea,
+input[type='time'],
+input[type='datetime-local'],
+.ui.selection.dropdown,
+.ui.dropdown,
+.ui.dropdown input,
+input[type='datetime-local'],
+.select-field {
+  border: 0px;
+  font-size: 15px;
+  background-color: #fff;
+  color: #737879;
+  display: block;
+  width: 100%;
+}
+
+.input-box-grey {
+  background-color: #e1e1e1e1;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='date'],
+input[type='number'],
+input[type='time'],
+.select-field,
+.ui.selection.dropdown,
+.ui.dropdown,
+.ui.dropdown input,
+input[type='datetime-local'] {
+  height: 53px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.input-group-text {
+  height: 53px;
+  background-color: #e1e1e1e1;
+  border: none;
+  font-size: 20px;
+}
+
+.form-control:-moz-placeholder-shown {
+  /* if placeholder is shown - meaning - no value in input */
+  background-color: #fff !important;
+}
+
+.form-control:-ms-input-placeholder {
+  /* if placeholder is shown - meaning - no value in input */
+  background-color: #fff !important;
+}
+
+.form-control:placeholder-shown {
+  /* if placeholder is shown - meaning - no value in input */
+  background-color: #fff !important;
+}
+
+.form-control {
+  /* placeholder isn't shown - we have a value in input */
+  background-color: #e1e1e1e1 !important;
+}
+
+.ui.selection.dropdown {
+  color: #737879 !important;
+  background: #fff !important;
+  border: none !important;
+}
+
+.ui.search.dropdown > .text {
+  top: 7px;
+}
+
+.multiselect__tags {
+  min-height: 53px !important;
+  font-size: 17px !important;
+  padding: 11px 40px 0 8px !important;
+  color: #737879 !important;
+  background: #fff !important;
+  font-weight: 600;
+}
+
+.multiselect__tags .multiselect__tag {
+  background: #a9a9a9 !important;
+}
+
+.multiselect__option--selected.multiselect__option--highlight {
+  background: #dee2e6 !important;
+}
+
+.multiselect__option--highlight {
+  background: #171f36 !important;
+}
+
+.multiselect__tag-icon:focus,
+.multiselect__tag-icon:hover {
+  background: rgba(135, 130, 130, 0.89) !important;
+}
+
+.multiselect__select {
+  top: 8px !important;
+}
+
+.ui.selection.dropdown > .delete.icon,
+.ui.selection.dropdown > .dropdown.icon,
+.ui.selection.dropdown > .search.icon {
+  top: 15px !important;
+}
+
+.ui.search.selection.dropdown > input.search,
+.ui.search.selection.dropdown > span.sizer {
+  padding: 20px 15px !important;
+}
+
+.ql-editor {
+  background-color: #fff;
+}
+
+.ui.search.dropdown > .text {
+  top: 6px;
+}
+
+.calculator select,
+.calculator option {
+  font-size: 14px !important;
+  padding-left: 3px;
+}
+
 .navbar-laravel {
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -55662,3 +55760,4 @@ table#table-transition .flip-list-move {
   opacity: 0;
 }
 
+/* (ignored) *//* (ignored) *//* (ignored) */

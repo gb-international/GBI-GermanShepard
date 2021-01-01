@@ -5,73 +5,58 @@ to submit the data we are using a function.
 
  -->
 <template>
-  <section class="content">
-    <div class="container-fluid">
-      <!--************************************************
-            Template Type: Adding New Hotel
-            Author:@Ajay
-
-      ****************************************************-->
-      <div class="row justify-content-around">
-        <!-- left column -->
-        <div class="col-md-12">
-          <form role="form" enctype="multipart/form-data" @submit.prevent="UpdateRole()">
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="name">Permission name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="form.name"
-                    :class="{ 'is-invalid': form.errors.has('name') }"
-                    placeholder="Enter School name"
-                  />
-                  <has-error :form="form" field="name"></has-error>
-                </div>
-              </div>
+  <form-layout>
+    <template #formdata>
+      <form
+        role="form"
+        enctype="multipart/form-data"
+        @submit.prevent="UpdateRole()"
+      >
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Permission name</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.name"
+                :class="{ 'is-invalid': form.errors.has('name') }"
+                placeholder="Enter School name"
+              />
+              <has-error :form="form" field="name"></has-error>
             </div>
-
-            <div class="row">
-              <div class="col-sm-2"></div>
-              <div class="col-sm-4">
-                <div class="form-group text-center">
-                  <button class="btn btn-primary itrn_add_btn" @click="goBack()">Back</button>
-                  <!-- <router-link :to="`/list-city`">Back</router-link> -->
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="form-group text-center">
-                  <button type="submit" class="btn btn-primary btn-block itrn_add_btn">SUBMIT</button>
-                </div>
-              </div>
-              <div class="col-sm-2"></div>
-            </div>
-          </form>
+          </div>
         </div>
-      </div>
-      <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-  </section>
+
+        <form-buttons />
+      </form>
+    </template>
+  </form-layout>
 </template>
 
 <script>
 import { Form, HasError } from "vform";
+import FormButtons from "@/admin/components/buttons/FormButtons.vue";
+import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
-  name: "EditPermission",
-  components: { Form, "has-error": HasError },
+  name: "NewRole",
+  components: {
+    Form,
+    "has-error": HasError,
+    "form-buttons": FormButtons,
+    "form-layout": FormLayout,
+  },
   data() {
     return {
       // Create a new form instance
       form: new Form({
-        name: ""
-      })
+        name: "",
+      }),
     };
   },
   created() {
     var url = `/api/permission/${this.$route.params.id}/edit`;
-    axios.get(url).then(response => {
+    axios.get(url).then((response) => {
       setTimeout(() => $("#example").DataTable(), 1000);
       this.form.fill(response.data);
     });
@@ -81,20 +66,18 @@ export default {
       // Submit the form via a itinerary request
       this.form
         .put(`/api/permission/${this.$route.params.id}`)
-        .then(response => {
+        .then((response) => {
           this.$router.push(`/list-permission`);
           this.$toast.fire({
             icon: "success",
-            title: "Successfully Updated"
+            title: "Successfully Updated",
           });
         })
         .catch(() => {});
     },
     goBack() {
       this.$router.push(`/list-permission`);
-    }
-  }
+    },
+  },
 };
 </script>
-<style scoped>
-</style>  

@@ -87,35 +87,11 @@ to submit the data we are using a function.
             </div>
           </div>
 
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label class="label" for="input"
-                >Please upload a Banner image !</label
-              >
-              <br />
-              <input
-                @change="changeDetailPhoto($event)"
-                type="file"
-                :class="{ 'is-invalid': form.errors.has('image') }"
-              />
-
-              <has-error :form="form" field="image"></has-error>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <div class="form-group">
-              <label for="image"></label>
-              <br />
-              <img :src="img_image" alt class="image w-100" />
-              <has-error :form="form" field="image"></has-error>
-            </div>
-          </div>
-
           <div class="col-sm-6">
             <div class="form-group">
               <label for="meta_keyword">Status</label>
               <select
-                class="form-control"
+                class="form-control select-field"
                 v-model="form.status"
                 :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
               >
@@ -129,7 +105,7 @@ to submit the data we are using a function.
           <div class="col-sm-6">
             <div class="form-group">
               <label for="categories">Category</label>
-              <select class="form-control" v-model="form.category_id">
+              <select class="form-control select-field" v-model="form.category_id">
                 <option v-for="cat in categories" :key="cat.id" :value="cat.id">
                   {{ cat.title }}
                 </option>
@@ -156,19 +132,35 @@ to submit the data we are using a function.
               <has-error :form="form" field="tags"></has-error>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-2"></div>
+
+
           <div class="col-sm-4">
-            <back-button url="/posts"></back-button>
-          </div>
-          <div class="col-sm-4">
-            <div class="form-group text-center">
-              <submit-button />
+            <div class="form-group">
+              <label class="label" for="input"
+                >Please upload a Banner image !</label
+              >
+              <br />
+              <input
+                class="mt-2"
+                @change="changeDetailPhoto($event)"
+                type="file"
+                :class="{ 'is-invalid': form.errors.has('image') }"
+              />
+
+              <has-error :form="form" field="image"></has-error>
             </div>
           </div>
-          <div class="col-sm-2"></div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label for="image"></label>
+              <br />
+              <img :src="img_image" alt class="image w-100" />
+              <has-error :form="form" field="image"></has-error>
+            </div>
+          </div>  
         </div>
+
+        <form-buttons />
       </form>
     </template>
   </form-layout>
@@ -181,8 +173,7 @@ import { ImageDrop } from "quill-image-drop-module";
 import ImageResize from "quill-image-resize-module";
 import "vue-search-select/dist/VueSearchSelect.css";
 import Multiselect from "vue-multiselect";
-import BackButton from "@/admin/components/buttons/BackButton.vue";
-import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
+import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 
 export default {
@@ -192,8 +183,7 @@ export default {
     "has-error": HasError,
     "vue-editor": VueEditor,
     Multiselect,
-    "back-button": BackButton,
-    "submit-button": SubmitButton,
+    "form-buttons": FormButtons,
     "form-layout": FormLayout,
   },
   data() {
@@ -254,10 +244,11 @@ export default {
       this.form
         .put(`/api/posts/${this.$route.params.id}`)
         .then((response) => {
-          this.$toast.fire({
-            icon: "success",
-            title: "Successfully Updated",
-          });
+          this.$swal.fire(
+            "Updated!",
+            "Item Updated successfully",
+            "success"
+          );
         })
         .catch(() => {});
     },

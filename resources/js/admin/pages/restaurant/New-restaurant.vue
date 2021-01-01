@@ -75,18 +75,7 @@ to submit the data we are using a function.
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-2"></div>
-          <div class="col-sm-4">
-            <back-button url="/restaurant-list"></back-button>
-          </div>
-          <div class="col-sm-4">
-            <div class="form-group text-center">
-              <submit-button />
-            </div>
-          </div>
-          <div class="col-sm-2"></div>
-        </div>
+        <form-buttons />
       </form>
     </template>
   </form-layout>
@@ -95,8 +84,7 @@ to submit the data we are using a function.
 <script>
 import { ModelSelect } from "vue-search-select";
 import { Form, HasError, AlertError } from "vform";
-import BackButton from "@/admin/components/buttons/BackButton.vue";
-import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
+import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
   name: "New",
@@ -104,8 +92,7 @@ export default {
     Form,
     "has-error": HasError,
     ModelSelect,
-    "back-button": BackButton,
-    "submit-button": SubmitButton,
+    "form-buttons": FormButtons,
     "form-layout": FormLayout,
   },
   data() {

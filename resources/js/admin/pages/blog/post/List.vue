@@ -39,7 +39,6 @@ data from the api to display the data about the Category from the backend .
         :busy="$store.getters.isBusy"
         :filter="filter"
         primary-key="updated_at"
-        :tbody-transition-props="transProps"
       >
         <template #table-busy>
           <table-loader />
@@ -92,10 +91,6 @@ export default {
   },
   data() {
     return {
-      transProps: {
-        // Transition name
-        name: 'flip-list'
-      },
       fields: [
         {key:'title',label:'TITLE',sortable:true,thClass: 'table-head'},
         {key:'status',label:'STATUS',sortable:true,thClass: 'table-head'},

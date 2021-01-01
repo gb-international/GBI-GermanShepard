@@ -55,9 +55,7 @@
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
-#frontmaster{
-	width: 100%;
-}
+#frontmaster{width: 100%;}
 
 .error404
 {
@@ -66,23 +64,14 @@
 	margin-top: 2px;
 }
 
-i{
-	font-style:italic;
-}
+i{ font-style:italic; }
 
 
-#frontmaster,#myHeader{
-	max-width: 100%;
-	margin:0 auto;
-}
+#frontmaster,#myHeader{max-width: 100%;	margin:0 auto;}
 
 
-.sticky{
-	padding: 0px 0px;
-}
-.how-we-work{
-	padding: 10px;
-}
+.sticky{padding: 0px 0px;}
+.how-we-work{padding: 10px;}
 @media screen and (max-width: 800px){
 	#frontmaster{
 		margin-bottom: 40px;
@@ -100,14 +89,7 @@ i{
   transition-timing-function: ease;
 }
 
-.fade-enter,
-.fade-leave-active {
-  opacity: 0
-}
+.fade-enter,.fade-leave-active { opacity: 0 }
 
-.modal-backdrop {
-  position:unset !important;
-}
-.modal-dialog{
-	margin: 0px;
-}
+.modal-backdrop { position:unset !important;}
+.modal-dialog{margin: 0px;}

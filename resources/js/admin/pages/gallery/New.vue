@@ -15,7 +15,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="category">Gallery Category</label>
               <select
-                class="form-control"
+                class="form-control select-field"
                 :class="{ 'is-invalid': form.errors.has('category') }"
                 v-model="form.category"
               >
@@ -89,8 +89,7 @@ to submit the data we are using a function.
 import { Form, HasError } from "vform";
 import { ModelSelect } from "vue-search-select";
 
-import BackButton from "@/admin/components/buttons/BackButton.vue";
-import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
+import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
   name: "New",
@@ -98,8 +97,7 @@ export default {
     Form,
     "has-error": HasError,
     ModelSelect,
-    "back-button": BackButton,
-    "submit-button": SubmitButton,
+    "form-buttons": FormButtons,
     "form-layout": FormLayout,
   },
   data() {

@@ -2,131 +2,123 @@
 This Template is for listing for the Hotel profile using function to get the 
 data from the api to display the data about the Hotel from the backend .
 -->
+
 <template>
-  <section class="content">
-    <!--************************************************
-      Template Type: Reservation List
-      Author:@Ajay
+  <form-layout>
+    <template #formdata>
+      <form
+        role="form"
+        enctype="multipart/form-data"
+        @submit.prevent="addFlight()"
+      >
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="flight_id">Airline name</label>
+              <select
+                class="form-control select-field"
+                v-model="form.flight_id"
+              >
+                <option
+                  v-for="flight in flight_list"
+                  :value="flight.id"
+                  :key="flight.id"
+                >
+                  {{ flight.name }} ( {{ flight.code }} )
+                </option>
+              </select>
+              <has-error :form="form" field="flight_id"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="flight_number">Flight Number</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.flight_number"
+                :class="{ 'is-invalid': form.errors.has('flight_number') }"
+                placeholder="Enter flight_number"
+              />
+              <has-error :form="form" field="flight_number"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="source">Source</label>
+              <city-select @update:option="SourceUpdate"></city-select>
+              <has-error :form="form" field="source"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="destination">Destination</label>
+              <city-select @update:option="DestinationUpdate"></city-select>
+              <has-error :form="form" field="destination"></has-error>
+            </div>
+          </div>
 
-    ****************************************************-->
-    <div class="row justify-content-around">
-      <div class="col-md-12">
-        <div class="container container_admin_body">
-          <div class="reservation">
-            <!-- Table -->
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="departure">Departure</label>
+              <input
+                type="datetime-local"
+                class="form-control"
+                v-model="form.departure"
+                :class="{ 'is-invalid': form.errors.has('departure') }"
+                placeholder="Enter departure"
+              />
+              <has-error :form="form" field="departure"></has-error>
+            </div>
+          </div>
 
-            <form role="form" enctype="multipart/form-data" @submit.prevent="addFlight()">
-              <div class="row">
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="flight_id">Airline name</label>
-                    <select class="form-control select-field" v-model="form.flight_id">
-                      <option
-                        v-for="flight in flight_list"
-                        :value="flight.id"
-                        :key="flight.id"
-                      >{{ flight.name }} ( {{ flight.code }} )</option>
-                    </select>
-                    <has-error :form="form" field="flight_id"></has-error>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="flight_number">Flight Number</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      v-model="form.flight_number"
-                      :class="{ 'is-invalid': form.errors.has('flight_number') }"
-                      placeholder="Enter flight_number"
-                    />
-                    <has-error :form="form" field="flight_number"></has-error>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="source">Source</label>
-                    <city-select @update:option="SourceUpdate"></city-select>
-                    <has-error :form="form" field="source"></has-error>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="destination">Destination</label>
-                    <city-select @update:option="DestinationUpdate"></city-select>
-                    <has-error :form="form" field="destination"></has-error>
-                  </div>
-                </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="arrival">Arrival</label>
+              <input
+                type="datetime-local"
+                class="form-control"
+                v-model="form.arrival"
+                :class="{ 'is-invalid': form.errors.has('arrival') }"
+                placeholder="Enter arrival"
+              />
+              <has-error :form="form" field="arrival"></has-error>
+            </div>
+          </div>
 
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="departure">Departure</label>
-                    <input
-                      type="datetime-local"
-                      class="form-control"
-                      v-model="form.departure"
-                      :class="{ 'is-invalid': form.errors.has('departure') }"
-                      placeholder="Enter departure"
-                    />
-                    <has-error :form="form" field="departure"></has-error>
-                  </div>
-                </div>
-
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="arrival">Arrival</label>
-                    <input
-                      type="datetime-local"
-                      class="form-control"
-                      v-model="form.arrival"
-                      :class="{ 'is-invalid': form.errors.has('arrival') }"
-                      placeholder="Enter arrival"
-                    />
-                    <has-error :form="form" field="arrival"></has-error>
-                  </div>
-                </div>
-
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="price">Price</label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      v-model="form.price"
-                      :class="{ 'is-invalid': form.errors.has('price') }"
-                      placeholder="Enter Price"
-                    />
-                    <has-error :form="form" field="price"></has-error>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4">
-                  <div class="form-group text-center">
-                    <button type="button" class="btn btn-primary itrn_add_btn" @click="goBack()">Back</button>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <button type="submit" class="btn btn-primary itrn_add_btn">SAVE</button>
-                </div>
-                <div class="col-sm-2"></div>
-              </div>
-            </form>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input
+                type="number"
+                class="form-control"
+                v-model="form.price"
+                :class="{ 'is-invalid': form.errors.has('price') }"
+                placeholder="Enter Price"
+              />
+              <has-error :form="form" field="price"></has-error>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <p id="post"></p>
-  </section>
-  <!-- /.content -->
+        <form-buttons />
+      </form>
+    </template>
+  </form-layout>
 </template>
 <script>
 import { Form, HasError } from "vform";
 import CitySelect from "@/admin/components/City-select.vue";
+import FormButtons from "@/admin/components/buttons/FormButtons.vue";
+import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
-  name: "BookedFlight",
-  components: { CitySelect, Form, "has-error": HasError },
+  name: "List",
+  components: {
+    CitySelect,
+    Form,
+    "has-error": HasError,
+    "form-buttons": FormButtons,
+    "form-layout": FormLayout,
+  },
   data() {
     return {
       row_input: "",
