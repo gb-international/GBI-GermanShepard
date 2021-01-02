@@ -10,7 +10,7 @@ to submit the data we are using a function.
         Author:@Ajay
         ****************************************************-->
       <div class="row justify-content-around">
-        <div class="col-md-12">
+        <div class="col-md-12 pl-4 pb-5">
           <slot name="formdata"></slot>
         </div>
       </div>

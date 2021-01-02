@@ -57,11 +57,13 @@ data from the api to display the data about the Category from the backend .
       </b-table> 
     </template>
     
-    <template #pagination  v-if="items.data">
-      <pagination :data="items" @pagination-change-page="getitems" :align="`right`" :limit="limit">
-        <span slot="prev-nav">Previous</span>
-        <span slot="next-nav">Next</span>
-      </pagination>
+    <template #pagination>
+      <div class="w-100" v-if="items.data">
+        <pagination :data="items" @pagination-change-page="getitems" :align="`right`" :limit="limit">
+          <span slot="prev-nav">Previous</span>
+          <span slot="next-nav">Next</span>
+        </pagination>
+      </div>
     </template>
 
   </list-layout>

@@ -96,6 +96,3 @@ components:{Form,
   }
 };
 </script>
-
-<style scoped>
-</style>  

@@ -169,7 +169,6 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    // Function to add the form data
     addAccount: function addAccount() {
       var _this2 = this;
 
@@ -189,8 +188,7 @@ __webpack_require__.r(__webpack_exports__);
         } // End if else part
 
       })["catch"](function () {});
-    } // End the function
-
+    }
   }
 });
 
@@ -306,7 +304,12 @@ var render = function() {
   return _c("section", { staticClass: "content" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _c("div", { staticClass: "row justify-content-around" }, [
-        _c("div", { staticClass: "col-md-12" }, [_vm._t("formdata")], 2)
+        _c(
+          "div",
+          { staticClass: "col-md-12 pl-4 pb-5" },
+          [_vm._t("formdata")],
+          2
+        )
       ])
     ])
   ])
@@ -318,10 +321,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/itinerary/Send-itinerary.vue?vue&type=template&id=54e97f5a&scoped=true&":
-/*!****************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/pages/itinerary/Send-itinerary.vue?vue&type=template&id=54e97f5a&scoped=true& ***!
-  \****************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/itinerary/Send-itinerary.vue?vue&type=template&id=54e97f5a&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/pages/itinerary/Send-itinerary.vue?vue&type=template&id=54e97f5a& ***!
+  \****************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -702,7 +705,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Send_itinerary_vue_vue_type_template_id_54e97f5a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Send-itinerary.vue?vue&type=template&id=54e97f5a&scoped=true& */ "./resources/js/admin/pages/itinerary/Send-itinerary.vue?vue&type=template&id=54e97f5a&scoped=true&");
+/* harmony import */ var _Send_itinerary_vue_vue_type_template_id_54e97f5a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Send-itinerary.vue?vue&type=template&id=54e97f5a& */ "./resources/js/admin/pages/itinerary/Send-itinerary.vue?vue&type=template&id=54e97f5a&");
 /* harmony import */ var _Send_itinerary_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Send-itinerary.vue?vue&type=script&lang=js& */ "./resources/js/admin/pages/itinerary/Send-itinerary.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -714,11 +717,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _Send_itinerary_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Send_itinerary_vue_vue_type_template_id_54e97f5a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Send_itinerary_vue_vue_type_template_id_54e97f5a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Send_itinerary_vue_vue_type_template_id_54e97f5a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Send_itinerary_vue_vue_type_template_id_54e97f5a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "54e97f5a",
+  null,
   null
   
 )
@@ -744,19 +747,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/admin/pages/itinerary/Send-itinerary.vue?vue&type=template&id=54e97f5a&scoped=true&":
-/*!**********************************************************************************************************!*\
-  !*** ./resources/js/admin/pages/itinerary/Send-itinerary.vue?vue&type=template&id=54e97f5a&scoped=true& ***!
-  \**********************************************************************************************************/
+/***/ "./resources/js/admin/pages/itinerary/Send-itinerary.vue?vue&type=template&id=54e97f5a&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/admin/pages/itinerary/Send-itinerary.vue?vue&type=template&id=54e97f5a& ***!
+  \**********************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Send_itinerary_vue_vue_type_template_id_54e97f5a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Send-itinerary.vue?vue&type=template&id=54e97f5a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/itinerary/Send-itinerary.vue?vue&type=template&id=54e97f5a&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Send_itinerary_vue_vue_type_template_id_54e97f5a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Send_itinerary_vue_vue_type_template_id_54e97f5a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Send-itinerary.vue?vue&type=template&id=54e97f5a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/itinerary/Send-itinerary.vue?vue&type=template&id=54e97f5a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Send_itinerary_vue_vue_type_template_id_54e97f5a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Send_itinerary_vue_vue_type_template_id_54e97f5a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Send_itinerary_vue_vue_type_template_id_54e97f5a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

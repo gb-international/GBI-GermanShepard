@@ -117,6 +117,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -251,168 +253,171 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("list-layout", {
     attrs: { addurl: "/add-bus", buttontext: "add bus" },
-    scopedSlots: _vm._u(
-      [
-        {
-          key: "perpage",
-          fn: function() {
-            return [
-              _c(
-                "b-form-group",
-                {
-                  staticClass: "mb-0",
-                  attrs: {
-                    label: "Per page",
-                    "label-for": "per-page-select",
-                    "label-cols-sm": "6",
-                    "label-cols-md": "4",
-                    "label-cols-lg": "3",
-                    "label-align-sm": "right",
-                    "label-size": "sm"
-                  }
-                },
-                [
-                  _c("b-form-select", {
-                    staticClass: "radius-0",
-                    attrs: { id: "per-page-select", options: _vm.options },
-                    model: {
-                      value: _vm.perPage,
-                      callback: function($$v) {
-                        _vm.perPage = $$v
-                      },
-                      expression: "perPage"
-                    }
-                  })
-                ],
-                1
-              )
-            ]
-          },
-          proxy: true
-        },
-        {
-          key: "searchbar",
-          fn: function() {
-            return [
-              _c("b-form-input", {
-                staticClass: "radius-0",
-                attrs: { type: "search", placeholder: "Type to Search" },
-                model: {
-                  value: _vm.filter,
-                  callback: function($$v) {
-                    _vm.filter = $$v
-                  },
-                  expression: "filter"
-                }
-              })
-            ]
-          },
-          proxy: true
-        },
-        {
-          key: "table",
-          fn: function() {
-            return [
-              _c("b-table", {
-                staticClass: "w-100 table-layout",
+    scopedSlots: _vm._u([
+      {
+        key: "perpage",
+        fn: function() {
+          return [
+            _c(
+              "b-form-group",
+              {
+                staticClass: "mb-0",
                 attrs: {
-                  id: "table-transition",
-                  striped: "",
-                  hover: "",
-                  outlined: "",
-                  "sticky-header": "405px",
-                  fields: _vm.fields,
-                  items: _vm.items.data,
-                  busy: _vm.$store.getters.isBusy,
-                  filter: _vm.filter,
-                  "primary-key": "updated_at"
-                },
-                scopedSlots: _vm._u([
-                  {
-                    key: "table-busy",
-                    fn: function() {
-                      return [_c("table-loader")]
+                  label: "Per page",
+                  "label-for": "per-page-select",
+                  "label-cols-sm": "6",
+                  "label-cols-md": "4",
+                  "label-cols-lg": "3",
+                  "label-align-sm": "right",
+                  "label-size": "sm"
+                }
+              },
+              [
+                _c("b-form-select", {
+                  staticClass: "radius-0",
+                  attrs: { id: "per-page-select", options: _vm.options },
+                  model: {
+                    value: _vm.perPage,
+                    callback: function($$v) {
+                      _vm.perPage = $$v
                     },
-                    proxy: true
-                  },
-                  {
-                    key: "cell(address)",
-                    fn: function(data) {
-                      return [
-                        _vm._v(
-                          "\n        " +
-                            _vm._s(_vm._f("readMore")(data.item.address, 50)) +
-                            "\n      "
-                        )
-                      ]
-                    }
-                  },
-                  {
-                    key: "cell(action)",
-                    fn: function(data) {
-                      return [
-                        _c("view-icon", {
-                          attrs: { url: "/view-bus/" + data.item.id }
-                        }),
-                        _vm._v(" "),
-                        _c("edit-icon", {
-                          attrs: { url: "/bus/" + data.item.id }
-                        }),
-                        _vm._v(" "),
-                        _c("delete-icon", {
-                          nativeOn: {
-                            click: function($event) {
-                              return _vm.deleteItem(data.item.id, data.index)
-                            }
-                          }
-                        })
-                      ]
-                    }
+                    expression: "perPage"
                   }
-                ])
-              })
-            ]
-          },
-          proxy: true
+                })
+              ],
+              1
+            )
+          ]
         },
-        _vm.items.data
-          ? {
-              key: "pagination",
-              fn: function() {
-                return [
-                  _c(
-                    "pagination",
-                    {
-                      attrs: {
-                        data: _vm.items,
-                        align: "right",
-                        limit: _vm.limit
-                      },
-                      on: { "pagination-change-page": _vm.getitems }
-                    },
-                    [
-                      _c(
-                        "span",
-                        { attrs: { slot: "prev-nav" }, slot: "prev-nav" },
-                        [_vm._v("Previous")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        { attrs: { slot: "next-nav" }, slot: "next-nav" },
-                        [_vm._v("Next")]
+        proxy: true
+      },
+      {
+        key: "searchbar",
+        fn: function() {
+          return [
+            _c("b-form-input", {
+              staticClass: "radius-0",
+              attrs: { type: "search", placeholder: "Type to Search" },
+              model: {
+                value: _vm.filter,
+                callback: function($$v) {
+                  _vm.filter = $$v
+                },
+                expression: "filter"
+              }
+            })
+          ]
+        },
+        proxy: true
+      },
+      {
+        key: "table",
+        fn: function() {
+          return [
+            _c("b-table", {
+              staticClass: "w-100 table-layout",
+              attrs: {
+                id: "table-transition",
+                striped: "",
+                hover: "",
+                outlined: "",
+                "sticky-header": "405px",
+                fields: _vm.fields,
+                items: _vm.items.data,
+                busy: _vm.$store.getters.isBusy,
+                filter: _vm.filter,
+                "primary-key": "updated_at"
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "table-busy",
+                  fn: function() {
+                    return [_c("table-loader")]
+                  },
+                  proxy: true
+                },
+                {
+                  key: "cell(address)",
+                  fn: function(data) {
+                    return [
+                      _vm._v(
+                        "\n        " +
+                          _vm._s(_vm._f("readMore")(data.item.address, 50)) +
+                          "\n      "
                       )
                     ]
-                  )
-                ]
-              },
-              proxy: true
-            }
-          : null
-      ],
-      null,
-      true
-    )
+                  }
+                },
+                {
+                  key: "cell(action)",
+                  fn: function(data) {
+                    return [
+                      _c("view-icon", {
+                        attrs: { url: "/view-bus/" + data.item.id }
+                      }),
+                      _vm._v(" "),
+                      _c("edit-icon", {
+                        attrs: { url: "/bus/" + data.item.id }
+                      }),
+                      _vm._v(" "),
+                      _c("delete-icon", {
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.deleteItem(data.item.id, data.index)
+                          }
+                        }
+                      })
+                    ]
+                  }
+                }
+              ])
+            })
+          ]
+        },
+        proxy: true
+      },
+      {
+        key: "pagination",
+        fn: function() {
+          return [
+            _vm.items.data
+              ? _c(
+                  "div",
+                  { staticClass: "w-100" },
+                  [
+                    _c(
+                      "pagination",
+                      {
+                        attrs: {
+                          data: _vm.items,
+                          align: "right",
+                          limit: _vm.limit
+                        },
+                        on: { "pagination-change-page": _vm.getitems }
+                      },
+                      [
+                        _c(
+                          "span",
+                          { attrs: { slot: "prev-nav" }, slot: "prev-nav" },
+                          [_vm._v("Previous")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { attrs: { slot: "next-nav" }, slot: "next-nav" },
+                          [_vm._v("Next")]
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              : _vm._e()
+          ]
+        },
+        proxy: true
+      }
+    ])
   })
 }
 var staticRenderFns = []

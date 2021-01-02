@@ -136,17 +136,3 @@ export default {
     }
   }
 }
-
-
-</script>
-<style scoped="">
-img{
-  width: 100%;
-}
-
-.images_row img{
-  margin-bottom: 10px;
-}
-
-
-</style>

@@ -171,6 +171,7 @@
 
     </div>
     <gbi-footer></gbi-footer>
+    
     <div class="col-md-12 m-bottom">
       <div class="navbar-bottom">
         <router-link :to="`/`">

@@ -1,0 +1,73 @@
+#footer{
+    .footer-content{
+        background-image: url('/images/icons/footer-image.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 275px;
+        padding:0px;
+        background-size: 100% 100%;
+
+
+        .footer-icons-section{
+            .icons{
+                width: 60%;
+                hr{ border: 1px solid white; width: 167px; }
+                .three-icons{
+                    img{
+                        width: 42px;
+                    }
+                }
+                .social{
+                    img{
+                        width: 28px;
+                        margin-right: 3px;
+                    }
+                }
+            }
+        }
+    }
+    .footer-bottom{
+            background: #182265;
+            color: white;
+            font-size: 11px;
+            padding: 2px 0px;
+    }
+}
+.subscribe-form{
+    input{
+        border-radius: 21px !important;
+        padding-left: 16px;
+    }
+    button{
+        color: white;
+        border: 2px solid white;
+        padding: 4px 30px;
+        border-radius: 20px;
+        &:hover{
+            color: #e9f8ff;
+        }
+    }
+}
+@media only screen and (max-width:1000px) and (min-width: 766px) {
+    #footer{
+        font-size: 13px;
+        .footer-icons-section{
+            .icons{
+                width: 100% !important;
+                hr{ border: 1px solid white; width: 167px; }
+                .three-icons{
+                    img{
+                        width: 42px;
+                    }
+                }
+                .social{
+                    img{
+                        width: 28px;
+                        margin-right: 3px;
+                    }
+                }
+            }
+        }
+    }
+
+}

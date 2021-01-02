@@ -70,6 +70,7 @@ to submit the data we are using a function.
                 class="form-control textarea"
                 v-model="form.address"
                 :class="{ 'is-invalid': form.errors.has('address') }"
+                placeholder="Enter Address"
               ></textarea>
               <has-error :form="form" field="address"></has-error>
             </div>
@@ -137,9 +138,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.image {
-  width: 100%;
-}
-</style>  

@@ -3,67 +3,59 @@
       Author:@Ajay
       ****************************************************-->
   <div class="">
-      <footer id="footer">
-        <div class="footer-top">
-          <div class="footer-content">
-              <div class="single-footer">
-                  <h3>ACCREDITAION & RECOGNITIONS</h3> 
-                    <ul>
-                        <li><img  class="footr-img" src="/assets/front/images/lato_logo.png" alt="GBI tourisum" loading="lazy"></li>
-                        <li><img  class="footr-img" src="/assets/front/images/telangana_tourisum.png" alt="telangana tourisum" loading="lazy"></li>
-                        <li><img  class="footr-img" src="/assets/front/images/mt_log.png" alt="minisrty of tourism" loading="lazy"></li>
-                    </ul>
+      <footer id="footer">       
+        <div class="footer-content">
+          <div class="container">
+            <div class="row text-white pt-5">
+              <div class="col-sm-3">
+                <p class="text-white m-0 p-0 pb-1">Link</p>
+                <router-link class="text-white d-block pb-1" to="/">Home</router-link>
+                <router-link class="text-white d-block pb-1" to="/resources/explore-destination">Explore Destination</router-link>
+                <router-link class="text-white d-block pb-1" to="/resources/travel-education">Travel & Education</router-link>
+                <router-link class="text-white d-block pb-1" to="/resources/faq">FAQ</router-link>
+                <router-link class="text-white d-block pb-1" to="/blog">GBI Travel Blog</router-link>
+                <router-link class="text-white d-block pb-1" to="/image-gallery/domestic">Gallery</router-link>
               </div>
-              <div class="single-footer">
-                  <ul>
-                      
-                        <li>
-                          <h3>GBI Holidays Pvt. ltd.</h3>
-                          <p>G-32,DDA Commercial Complex</p>
-                          <p>Sheikh Sarai Phase-1</p>
-                          <p>New Delhi 110017</p>
-                        </li>
-                        <li>
-                          <p><img src="/images/icons/handphone.png" class="icon-width"> 011-41864453</p>
-                          <p><img src="/images/icons/email.png" class="icon-width">csrikhi@gbinternational.in</p>
-                          <p>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;info@gbinternational.in</p>
-                        </li>
-                        
-                        <li>
-                          <h3>Connect With Us</h3>
-                          <a href="https://www.facebook.com/gowithgbi/" class="mr-1">
-                            <img src="/images/icons/facebook.png" class="footer-icon-width">
-                          </a>
-                          <a href="https://twitter.com/gowithgbi" class="mr-1">
-                            <img src="/images/icons/twitter.png" class="footer-icon-width">
-                          </a>
-                          <a href="https://www.linkedin.com/company/13592478/admin/" class="mr-1">
-                            <img src="/images/icons/linkedin.png" class="footer-icon-width">
-                          </a>
-                          <a href="https://wordpress.com/view/gowithgbi.wordpress.com" class="mr-1">
-                            <img src="/images/icons/wordpress.png" class="footer-icon-width">
-                          </a>
-                          <a href="https://www.instagram.com/gbirikhi/">
-                            <img src="/images/icons/instagram.png" class="footer-icon-width">
-                          </a>
-                          <!-- <a href="#">
-                            <i class="fab fa-youtube fa-lg" aria-hidden="true"></i>
-                          </a> -->
-                        </li>
-                    </ul>
+              <div class="col-sm-2">
+                <p class="text-white m-0 p-0 pb-1">More About GBI</p>
+                <router-link class="text-white d-block pb-1" to="/about-us/our-story">Our Story</router-link>
+                <router-link class="text-white d-block pb-1" to="/resources/safety-security">Safety & Security</router-link>
+                <router-link class="text-white d-block pb-1" to="/about-us/how-we-work">How We Work</router-link>
+                <router-link class="text-white d-block pb-1" to="/about-us/join-our-team">Join Our Team</router-link>
+                <router-link class="text-white d-block pb-1" to="/contact-us">Contact Us</router-link>
               </div>
+              <div class="col-sm-3 footer-icons-section">
+                <p class="text-white m-0 p-0 pb-2">Accreditaion & Recognitions</p>
+                <div class="icons">
+                  <div class="three-icons">
+                    <img src="/images/icons/lato.png">
+                    <img src="/images/icons/box.png">
+                    <img src="/images/icons/elephant.png">
+                  </div>
+                  <hr class="mt-4 mb-4"/>
+                  <div class="social">
+                    <img src="/images/icons/fb.png">
+                    <img src="/images/icons/insta.png">
+                    <img src="/images/icons/twitt.png">
+                    <img src="/images/icons/youtube.png">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-white m-0 p-0 pb-4 text-center">Get Latest Update</p>
+                <Subscribe />
+              </div>
+            </div>
           </div>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom pl-5">
           <div class="container">
             <div class="row">
-              <div class="col-md-12">
-                <div class="footer-bottom-area">
-                  <p class="copy-right">Â©{{ new Date().getFullYear() }} GBI Holidays Pvt. ltd. All right reserved.</p>
-                </div>
-                <div class="footer-bottom-term">
-                  <p class="copy-left"><a herf="#"> Terms & Condition</a></p>
-                </div>
+              <div class="col-sm-6">
+                <span class="text-uppercase">©{{ new Date().getFullYear() }} GBI Holidays </span>Pvt. ltd. All right reserved.
+              </div>
+              <div class="col-sm-6 text-right pr-5">
+                Privacy & Policy | Terms & Condition
               </div>
             </div>
           </div>
@@ -73,8 +65,12 @@
 </template>
 
 <script>
+import Subscribe from "@/front/components/form/Subscribe.vue";
 export default {
-  name:"Footer"
+  name:"Footer",
+  components:{
+    Subscribe,
+  }
     
 }
 

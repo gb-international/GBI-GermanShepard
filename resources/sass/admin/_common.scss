@@ -17,6 +17,16 @@ iframe{ width: 100%;}
 	}
 }
 
+.delete_icon {
+  float: right;
+  padding-top: 20px;
+  cursor: pointer;
+}
+.delete_icon:hover {
+  color: red;
+}
+
+
 .card-layout{
     background-color: #fff;
     background-clip: border-box;
@@ -63,14 +73,6 @@ iframe{ width: 100%;}
 
 
 // ----------------------------------------
-.delete_icon {
-  float: right;
-  padding-top: 20px;
-  cursor: pointer;
-}
-.delete_icon:hover {
-  color: red;
-}
 
 .images_row img {
   margin-bottom: 10px;

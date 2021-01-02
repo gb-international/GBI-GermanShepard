@@ -39,6 +39,7 @@ input[type='datetime-local']{
 	font-size: 20px;
 }
 
+
 .form-control:placeholder-shown {
 /* if placeholder is shown - meaning - no value in input */
     background-color: $input-box-white !important;
@@ -47,6 +48,7 @@ input[type='datetime-local']{
     /* placeholder isn't shown - we have a value in input */
     background-color: $input-box-grey !important;
 }
+
 
 
 .ui.selection.dropdown{ 
@@ -100,3 +102,7 @@ input[type='datetime-local']{
         padding-left: 3px;
     }
 }
+
+.detail_photo { height: 80px; width: 250px; }
+input[type="file"] { width: 200px; }
+.images_row img{ margin-bottom: 10px;}

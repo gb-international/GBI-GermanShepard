@@ -187,7 +187,6 @@ to submit the data we are using a function.
 </template>
 
 <script>
-import "vue-search-select/dist/VueSearchSelect.css";
 import { ModelSelect } from "vue-search-select";
 import { Form, HasError } from "vform";
 import { VueEditor, Quill } from "vue2-editor";
@@ -348,17 +347,3 @@ export default {
   },
 };
 </script>
-
-<style>
-input[type="file"] {
-  width: 200px;
-}
-.banner_image {
-  height: 80px;
-  width: 250px;
-}
-
-.ck-editor__editable {
-  min-height: 200px !important;
-}
-</style>

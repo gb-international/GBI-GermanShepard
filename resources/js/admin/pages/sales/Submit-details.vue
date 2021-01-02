@@ -150,7 +150,3 @@ import { Form, HasError } from 'vform'
     }
  }
 </script>
-
-<style scoped>
-
-</style>

@@ -116,7 +116,6 @@ export default {
   },
 
   methods: {
-    // Function to add the form data
     addAccount() {
       this.form
         .post("/account/store")
@@ -137,10 +136,6 @@ export default {
         })
         .catch(() => {});
     },
-    // End the function
   },
 };
 </script>
-
-<style scoped>
-</style>

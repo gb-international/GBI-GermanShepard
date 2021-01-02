@@ -346,10 +346,10 @@ to submit the data we are using a function.
                 :class="{ 'is-invalid': form.errors.has('photo') }"
                 required
                 accept="jpeg, jpg, png, gif"
-                class="select_image"
+                class="select_image overflow-hidden"
               />
 
-              <img :src="form.photo" alt width="80" height="80" />
+              <img v-if="form.photo != ''" :src="form.photo" alt width="80" height="80" />
               <has-error :form="form" field="photo"></has-error>
             </div>
           </div>
@@ -363,12 +363,13 @@ to submit the data we are using a function.
               <input
                 @change="changeDetailPhoto($event)"
                 name="detail_photo"
+                class="overflow-hiden"
                 type="file"
                 :class="{ 'is-invalid': form.errors.has('detail_photo') }"
                 required
               />
 
-              <img :src="form.detail_photo" alt class="detail_photo" />
+              <img v-if="form.detail_photo != ''" :src="form.detail_photo" alt class="detail_photo" />
               <has-error :form="form" field="detail_photo"></has-error>
             </div>
           </div>
@@ -413,7 +414,7 @@ to submit the data we are using a function.
 </template>
 
 <script>
-import "vue-search-select/dist/VueSearchSelect.css";
+
 import { ModelSelect } from "vue-search-select";
 import Multiselect from "vue-multiselect";
 import { Form, HasError, AlertError } from "vform";
@@ -586,18 +587,4 @@ export default {
 };
 </script>
 
-<style>
-input[type="file"] {
-  width: 200px;
-}
-.detail_photo {
-  height: 80px;
-  width: 250px;
-}
 
-.ck-editor__editable {
-  min-height: 200px !important;
-}
-</style>
-
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>

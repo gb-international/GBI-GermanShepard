@@ -314,28 +314,39 @@
         </div>
         <div class="row mb-30">
           <div class="col-sm-6">
-            <div class="form-group">
-              <input
-                @change="changePhoto($event)"
-                name="photo"
-                type="file"
-                :class="{ 'is-invalid': form.errors.has('photo') }"
-              />
-              <img :src="photo" alt width="80" height="80" />
-              <has-error :form="form" field="photo"></has-error>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input
+                    @change="changePhoto($event)"
+                    name="photo"
+                    type="file"
+                    class="overflow-hidden"
+                    :class="{ 'is-invalid': form.errors.has('photo') }"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <img v-if="photo != ''" :src="photo" alt width="80" height="80" />
+              </div>
             </div>
           </div>
 
           <div class="col-sm-6">
-            <div class="form-group">
-              <input
-                @change="changeDetailPhoto($event)"
-                name="detail_photo"
-                type="file"
-                :class="{ 'is-invalid': form.errors.has('detail_photo') }"
-              />
-              <img :src="detail_photo" alt class="detail_photo" />
-              <has-error :form="form" field="detail_photo"></has-error>
+            <div class="row">
+              <div class="col-sm-5">
+                <div class="form-group">
+                  <input
+                    @change="changeDetailPhoto($event)"
+                    type="file"
+                    class="overflow-hidden"
+                    :class="{ 'is-invalid': form.errors.has('detail_photo') }"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-7">
+                <img v-if="detail_photo != ''" :src="detail_photo" alt width="80" height="80" class="detail_photo" />
+              </div>
             </div>
           </div>
         </div>
@@ -383,7 +394,6 @@
 </template>
 
 <script>
-import "vue-search-select/dist/VueSearchSelect.css";
 import { ModelSelect } from "vue-search-select";
 import Multiselect from "vue-multiselect";
 import { Form, HasError, AlertError } from "vform";
@@ -598,16 +608,3 @@ export default {
 };
 </script>
 
-<style>
-input[type="file"] {
-  width: 200px;
-}
-.detail_photo {
-  height: 80px;
-  width: 250px;
-}
-.ck-editor__editable {
-  min-height: 200px !important;
-}
-</style>
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>

@@ -94,7 +94,6 @@ It takes id from the url and get the data from the api .
           </div>
         </div>
       </div>
-    </div>
   </section>
 </template>
 

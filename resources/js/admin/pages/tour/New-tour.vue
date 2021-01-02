@@ -124,6 +124,7 @@ to submit the data we are using a function.
                 type="date"
                 class="form-control"
                 placeholder="Enter Enter Date"
+                
                 v-model="form.tour_end_date"
                 :class="{ 'is-invalid': form.errors.has('tour_end_date') }"
               />
@@ -231,6 +232,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-</style>  

@@ -454,7 +454,12 @@ var render = function() {
   return _c("section", { staticClass: "content" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _c("div", { staticClass: "row justify-content-around" }, [
-        _c("div", { staticClass: "col-md-12" }, [_vm._t("formdata")], 2)
+        _c(
+          "div",
+          { staticClass: "col-md-12 pl-4 pb-5" },
+          [_vm._t("formdata")],
+          2
+        )
       ])
     ])
   ])
