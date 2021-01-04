@@ -34,10 +34,12 @@
                   </div>
                   <hr class="mt-4 mb-4"/>
                   <div class="social">
-                    <img src="/images/icons/fb.png">
-                    <img src="/images/icons/insta.png">
-                    <img src="/images/icons/twitt.png">
-                    <img src="/images/icons/youtube.png">
+                    <a href="https://www.facebook.com/gowithgbi/" target="blank">
+                      <img src="/images/icons/fb.png">
+                    </a>
+                    <a href="https://www.instagram.com/gbirikhi/" target="blan"><img src="/images/icons/insta.png"></a>
+                    <a href="https://twitter.com/gowithgbi" target="blan"><img src="/images/icons/twitt.png"></a>
+                    <a href="#" target="blan"><img src="/images/icons/youtube.png"></a>
                   </div>
                 </div>
               </div>
