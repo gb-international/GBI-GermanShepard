@@ -350,7 +350,7 @@ var render = function() {
           [
             _c(
               "b-row",
-              { staticClass: "mb-3 mt-1", attrs: { "align-h": "between" } },
+              { staticClass: "mb-1 mt-1", attrs: { "align-h": "between" } },
               [
                 _c(
                   "b-col",
@@ -498,7 +498,7 @@ var render = function() {
                   striped: "",
                   hover: "",
                   outlined: "",
-                  "sticky-header": "405px",
+                  "sticky-header": "460px",
                   fields: _vm.fields,
                   items: _vm.items.data,
                   busy: _vm.$store.getters.isBusy,

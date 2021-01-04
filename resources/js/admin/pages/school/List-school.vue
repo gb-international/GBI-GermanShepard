@@ -32,7 +32,7 @@ data from the api to display the data about the Category from the backend .
         striped
         hover
         outlined
-        sticky-header="405px"
+        sticky-header="460px"
         class="w-100 table-layout"
         :fields="fields"
         :items="items.data"
@@ -94,7 +94,7 @@ export default {
         {key:'mobile',label:'CONTACT NO.',sortable:true,thClass: 'table-head'},
         {key:'action',label:'ACTION',thClass: 'table-head'}
       ],
-      limit:-1,
+      limit:2,
       filter:'',
       perPage:7,
       options:[7,25,50,100],

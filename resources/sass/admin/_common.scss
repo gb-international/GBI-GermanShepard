@@ -133,6 +133,7 @@ iframe{ width: 100%;}
 		color: white !important;
 	}
 	.b-table{
+		border:0px !important;
 		tbody{
 			tr{
 				padding: 20px;
@@ -142,19 +143,21 @@ iframe{ width: 100%;}
 				td{
 					padding: 0.75rem;
 					vertical-align: top;
-					border-top: 1px solid #dee2e6;
-					border-radius: 5px 0px 0px 5px;				
+					border-top: 0px solid #dee2e6;
 				}
 				&:hover{					
-					box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-					height: 50px;
-					color: orange;
+					box-shadow:0 3px 4px 0 rgba(0, 0, 0, -0.8), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+					color: $blue;
 				}
 			}
 		}
 	}
 }
 
+table {
+    border-collapse: separate;
+	border-spacing: 0 8px;
+}
 
 table#table-transition .flip-list-move {
   transition: transform 1s;

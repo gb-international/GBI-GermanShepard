@@ -171,7 +171,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -446,8 +445,7 @@ var render = function() {
                   id: "table-transition",
                   striped: "",
                   hover: "",
-                  outlined: "",
-                  "sticky-header": "405px",
+                  "sticky-header": "460px",
                   fields: _vm.fields,
                   items: _vm.items.data,
                   busy: _vm.$store.getters.isBusy,

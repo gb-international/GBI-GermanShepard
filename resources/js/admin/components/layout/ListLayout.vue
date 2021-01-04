@@ -12,7 +12,7 @@ data from the api to display the data about the Category from the backend .
       <div class="col-md-12">
         <div class="container container_admin_body list-section">
 
-          <b-row class="mb-3 mt-1" align-h="between">
+          <b-row class="mb-1 mt-1" align-h="between">
               <b-col md="3" cols="4"  class="top_btn p-0">
                 <div v-if="addurl">
                   <add-button :url="addurl">{{ buttontext }}</add-button>

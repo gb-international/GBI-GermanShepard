@@ -243,7 +243,7 @@ var render = function() {
                   striped: "",
                   hover: "",
                   outlined: "",
-                  "sticky-header": "405px",
+                  "sticky-header": "460px",
                   fields: _vm.fields,
                   items: _vm.items.data,
                   busy: _vm.$store.getters.isBusy,

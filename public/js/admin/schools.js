@@ -156,7 +156,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         label: 'ACTION',
         thClass: 'table-head'
       }],
-      limit: -1,
+      limit: 2,
       filter: '',
       perPage: 7,
       options: [7, 25, 50, 100]
@@ -315,7 +315,7 @@ var render = function() {
                   striped: "",
                   hover: "",
                   outlined: "",
-                  "sticky-header": "405px",
+                  "sticky-header": "460px",
                   fields: _vm.fields,
                   items: _vm.items.data,
                   busy: _vm.$store.getters.isBusy,

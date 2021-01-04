@@ -32,7 +32,7 @@ data from the api to display the data about the encyclopedia from the backend .
         striped
         hover
         outlined
-        sticky-header="405px"
+        sticky-header="460px"
         class="w-100 table-layout"
         :fields="fields"
         :items="items.data"
