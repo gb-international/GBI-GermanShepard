@@ -91,7 +91,7 @@
 		float: left;
 		height: 116px;
 		img{
-			height: 116px;
+			height: max-content;
 			border-radius: 10px 0px 0px 10px;
 		}
 	}
@@ -100,7 +100,7 @@
 		color: #666666;
 		border-radius: 0px 10px 10px 0px;
 		width: 62%;
-		height: 116px;
+		height: 121px;
 		float: right;
 		padding-top: 5px;
 		.heading{ font-size: 13px;}
@@ -112,11 +112,24 @@
 			text-align: center;
 			font-size: 12px;
 		}
+		.card-icon{ width: 70px;}
 	}
 }
 
-
-
+@media only screen and (max-width:510px){
+	.cardlist{
+		.cardtext-col{
+			.card-icon{ width: 43px;}			
+		}
+	}
+}
+@media only screen and (max-width:1205px) and (min-width:990px){
+	.cardlist{
+		.cardtext-col{
+			.card-icon{ width: 55px;}			
+		}
+	}
+}
 
 
 

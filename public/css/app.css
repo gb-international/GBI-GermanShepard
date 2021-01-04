@@ -5833,7 +5833,9 @@ article {
 }
 
 .cardlist .image-col img {
-  height: 116px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   border-radius: 10px 0px 0px 10px;
 }
 
@@ -5842,7 +5844,7 @@ article {
   color: #666666;
   border-radius: 0px 10px 10px 0px;
   width: 62%;
-  height: 116px;
+  height: 121px;
   float: right;
   padding-top: 5px;
 }
@@ -5862,6 +5864,22 @@ article {
 .cardlist .cardtext-col span {
   text-align: center;
   font-size: 12px;
+}
+
+.cardlist .cardtext-col .card-icon {
+  width: 70px;
+}
+
+@media only screen and (max-width: 510px) {
+  .cardlist .cardtext-col .card-icon {
+    width: 43px;
+  }
+}
+
+@media only screen and (max-width: 1205px) and (min-width: 990px) {
+  .cardlist .cardtext-col .card-icon {
+    width: 55px;
+  }
 }
 
 #explore_detail_part .col-sm-4 {
@@ -8696,6 +8714,10 @@ a:hover {
   width: 75px !important;
 }
 
+.w-70 {
+  width: 70px !important;
+}
+
 .w-45 {
   width: 45px;
 }
@@ -9067,6 +9089,12 @@ a:hover {
   #footer .footer-icons-section .icons .social img {
     width: 28px;
     margin-right: 3px;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 1001px) {
+  #footer .footer-icons-section .icons {
+    width: 80% !important;
   }
 }
 

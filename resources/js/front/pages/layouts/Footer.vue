@@ -53,7 +53,7 @@
         <div class="footer-bottom pl-5">
           <div class="container">
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-6 p-0">
                 <span class="text-uppercase">©{{ new Date().getFullYear() }} GBI Holidays </span>Pvt. ltd. All right reserved.
               </div>
               <div class="col-sm-6 text-right pr-5">
