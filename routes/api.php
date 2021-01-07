@@ -90,6 +90,9 @@ Route::namespace('Front')->group(function(){
 	// Gallery
 	Route::get('/galleries/{slug}','GalleryController@index');
 	Route::get('/get-gallery/{slug}','GalleryController@show');
+
+	// Subscriber
+	Route::post('subscribe','SubscriberController@store');
 });
 
 

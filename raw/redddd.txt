@@ -1,4 +1,4 @@
-1. In the in edit profile ( give checkbox for newsletter )
+1. In the edit profile ( give checkbox for newsletter )(unsubscribe gbi newsletter)
     users:
         email,phoneno.
             (booking info )
@@ -7,8 +7,8 @@
                     send(newsletter_stutus)
                 }
 2. independent subscription for new user
--> unsubscription module  apply on both
--> send notification remender to each unsubscribed users onces in a month
+    -> unsubscription module  apply on both
+    -> send notification remender to each unsubscribed users onces in a month
 ----------------------------------------------------------
 Table
     subscription
@@ -20,3 +20,8 @@ Table
 Teacher, Student, Admin, Escort , Reservation , Account , Sales
 ------------------------------------------------------
 Add  'message' box in the modal form of booking 
+------------------------------------------------------
+make profile image on top in the menu section after login
+-----------------------------------------------------
+add social media icons in menu section ( all )
+-----------------------------------------

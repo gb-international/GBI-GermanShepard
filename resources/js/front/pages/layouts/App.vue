@@ -172,34 +172,6 @@
     </div>
     <gbi-footer></gbi-footer>
     
-    <div class="col-md-12 m-bottom">
-      <div class="navbar-bottom">
-        <router-link :to="`/`">
-          <div class="nav-font">
-            <i class="fas fa-home"></i>
-          </div>
-          <div class="nav-font">home</div>
-        </router-link>
-        <router-link :to="`/explore-destination`">
-          <div class="nav-font">
-            <i class="fas fa-map-marked-alt"></i>
-          </div>
-          <div class="nav-font">explore</div>
-        </router-link>
-        <a href="tel:+9810055102" class>
-          <div class="nav-font">
-            <i class="fas fa-phone-alt"></i>
-          </div>
-          <div class="nav-font">call</div>
-        </a>
-        <a href="#" @click="loginClick()">
-          <div class="nav-font">
-            <i class="fas fa-user-alt"></i>
-          </div>
-          <div class="nav-font">profile</div>
-        </a>
-      </div>
-    </div>
   </div>
 </template>
 <script>
@@ -283,15 +255,7 @@ export default {
         }
       }
     },
-    loginClick() {
-      if (this.$cookies.get('access_token') == null || this.$cookies.get('access_token') == "") {
-        alert("please login first");
-        window.$(".loginLink").click();
-        return false;
-      } else {
-        this.$router.push("/dashboard");
-      }
-    },
+    
     toggleClass() {
       if (this.isnav_active == false) {
         this.isnav_active = true;

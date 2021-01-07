@@ -1,6 +1,21 @@
-$bottom-nav-bgcolor:  #d1d3d4;
+$bottom-nav-bgcolor:  #1c1650;
+$bottom-nav-active:  #1c1650;
 $mob-link: #001041;
-.navbar-bottom{ display: none;}
+.navbar-bottom{ 
+    display: none;
+    background-color: white;
+    color: $bottom-nav-active;
+    a{
+        height: inherit;
+        height: 80px;
+        padding-top: 14px;
+        margin: 0 auto;
+    }
+}
+.mobile_nav_active{
+    background-color: $bottom-nav-bgcolor !important;
+    a{ color: white !important;  }
+}
 
 #navbar{
     height: 85px;
@@ -34,8 +49,6 @@ $mob-link: #001041;
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color:$bottom-nav-bgcolor;
-        color: white;
         text-align: center;
         display: block;
         overflow: hidden;
@@ -49,14 +62,9 @@ $mob-link: #001041;
     }
 
     .navbar-bottom a {
-        background-color:$bottom-nav-bgcolor;
-        width: 24.33%;
-        color: #666666;
-        text-align: center;
         text-decoration: none;
         display: block;
         font-size: 17px;
-        float: left;
     }
     .nav-font{
         font-size: 14px;
@@ -64,18 +72,8 @@ $mob-link: #001041;
         text-transform: capitalize;
     }
 
-    .navbar-bottom a:hover {
-        background: none;
-        color: $mob-link;
-        text-decoration: none;
-    }
-
     a:hover {
         text-decoration: none;
-    }
-    .navbar-bottom a.active {
-        background-color: $bottom-nav-bgcolor;
-        color: #00aeef;
     }
     .nav-font .fa, .nav-font .fas {
         font-size: 20px;

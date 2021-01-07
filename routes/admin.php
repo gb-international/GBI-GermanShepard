@@ -154,6 +154,11 @@ Route::namespace('Admin')->group(function (){
 	});
 
 	Route::namespace('Website')->group(function(){
+		
+		Route::get('subscribers/all/{size}','SubscriberController@all');
+		Route::post('subscribers','SubscriberController@store');
+		Route::delete('subscribers/{id}','SubscriberController@destroy');
+		
 		Route::resource('website','WebsiteController');
 		Route::get('user','UserController@index');
 		Route::get('user/{id}','UserController@show');

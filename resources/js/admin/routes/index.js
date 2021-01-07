@@ -13,6 +13,7 @@ import Setting from '@/admin/routes/Setting.js';
 import Sightseeing from '@/admin/routes/Sightseeing.js';
 import Tour from '@/admin/routes/Tour.js';
 import Transport from '@/admin/routes/Transport.js';
+import Website from '@/admin/routes/Website.js';
 
 
 export const routes = [
@@ -31,4 +32,5 @@ export const routes = [
     ...Sightseeing,
     ...Tour,
     ...Transport,
+    ...Website,
 ]

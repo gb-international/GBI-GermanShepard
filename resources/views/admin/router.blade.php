@@ -327,6 +327,15 @@
             </li>
             @endcan
             
+            @can('subscribe')
+            <li class="nav-item">
+                <router-link to="/subscribers" class="nav-link" title="GBI Customers">
+                <p>Subscribers</p>
+                </router-link>
+            </li>
+            @endcan
+
+            
             @can('bankdetail')
             <li class="nav-item">
                 <router-link to="/schoolbankdetails" class="nav-link" title="GBI Bankdetails">
@@ -423,6 +432,7 @@
                 </router-link>
             </li>
             @endcan
+
             </ul>
         </li>
         @endcan
