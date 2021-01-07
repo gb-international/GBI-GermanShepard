@@ -64,6 +64,11 @@ class User extends Authenticatable
     public function AauthAccessToken(){
         return $this->hasMany('App\Model\User\OauthAccessToken');
     }
+    
+    public function subscribe(){
+        return $this->hasOne('App\Model\User\Subscriber');
+    }
+
 
     public function getAllPermissionsAttribute() {
         $permissions = [];

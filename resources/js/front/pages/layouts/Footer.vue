@@ -61,7 +61,7 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-6 p-0">
-                <span class="text-uppercase">©{{ new Date().getFullYear() }} GBI Holidays </span>Pvt. ltd. All right reserved.
+                <span class="text-uppercase">©{{ new Date().getFullYear() }} GBI Holidays </span>Pvt. Ltd. All right reserved.
               </div>
               <div class="col-sm-6 text-right pr-5">
                 Privacy & Policy | Terms & Condition
@@ -70,8 +70,26 @@
           </div>
         </div>
       </footer>
+
       <!-- Mobile footer -->
       <div class="m-bottom">
+        <div class="bg-blue pb-3 mobile-subscription">
+          <div class="container">
+
+            <p class="text-white p-0 pt-4 text-center font-20">Get Latest Update</p>
+            <Subscribe />
+            <div class="m-social-icon mb-3 mt-2">
+              <a href="https://www.facebook.com/gowithgbi/" target="blank">
+                <img src="/images/icons/fb.png">
+              </a>
+              <a href="https://www.instagram.com/gbirikhi/" target="blan"><img src="/images/icons/insta.png"></a>
+              <a href="https://twitter.com/gowithgbi" target="blan"><img src="/images/icons/twitt.png"></a>
+              <a href="#" target="blan"><img src="/images/icons/youtube.png"></a>
+              <a href="#" target="blan"><img src="/images/icons/linked-in.png"></a>
+              <a href="#" target="blan"><img src="/images/icons/whatsapp.png"></a>
+            </div>
+          </div>
+        </div>
         <div class="navbar-bottom">
 
           <div class="row text-center text-uppercase">

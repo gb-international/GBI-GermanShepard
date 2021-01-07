@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; 
 use App\User;
 use App\Model\User\Information;
+use App\Model\User\Subscriber;
 use App\Model\Tour\TourUser;
 use App\Model\Tour\Tour;
 use App\Model\School\School;
@@ -95,7 +96,7 @@ class UserController extends Controller{
         $user->email = $request->email;
         $user->save();
         $information = Information::where('user_id',$user->id)->firstOrFail();
-
+        
         $information->gbi_link = $request->gbi_link;
         $information->user_profession = $request->user_profession;
         $information->school_id = $request->school_id;
@@ -115,6 +116,20 @@ class UserController extends Controller{
         $information->admission_year = $request->admission_year;
         $information->gender = $request->gender;
         $information->save();
+        
+        // if user is already subscribed
+        if($subscriber = Subscriber::where('email',$user->email)->first()){
+            $subscriber->status = $request->subscribe;
+            $subscriber->user_id = $user->id;
+            $subscriber->save();           
+        }else{            
+            if($request->subscribe){
+                $data['email'] = $user->email;
+                $data['user_id'] = $user->id;
+                Subscriber::create($data);
+            }
+        }
+
         return response()->json('Successuflly updated');
 
     }
@@ -154,6 +169,7 @@ class UserController extends Controller{
     public function show(){
         $user = Auth::user();
         $information = $user->information;
+        $information = $user->subscribe;
         return response()->json(['success' => $user], $this-> successStatus); 
     }
     /// user more information on model from model

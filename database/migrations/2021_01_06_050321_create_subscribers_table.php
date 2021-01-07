@@ -17,7 +17,7 @@ class CreateSubscribersTable extends Migration
             $table->bigIncrements('id');
             $table->string('user_id')->nullable();
             $table->string('email')->nullable();
-            $table->enum('status', ['0', '1'])->default('1');// 1 subscribe 0 unsubscribe
+            $table->integer('status')->default('1');// 1 subscribe 0 unsubscribe
             $table->timestamps();
         });
     }
