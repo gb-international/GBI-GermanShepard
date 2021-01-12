@@ -76,6 +76,15 @@ class UserController extends Controller{
         $more->photo = 'user.png';
         $more->gender = '';
         $more->save();
+
+        // subscribe for newsletter
+        if( !$subscriber = Subscriber::where('email',$user->email)->first()){
+            $data['email'] = $user->email;
+            $data['user_id'] = $user->id;
+            Subscriber::create($data);
+        }
+
+        
         $sendsms = new SendSms; // send welcome sms
         $sendsms->signUpSMS($request->phone_no,$user);
         // send email

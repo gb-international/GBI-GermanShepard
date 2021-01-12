@@ -1,6 +1,10 @@
 $bottom-nav-bgcolor:  #1c1650;
 $bottom-nav-active:  #1c1650;
 $mob-link: #001041;
+.nav-link-active{
+    color: rgb(0, 0, 0) !important;
+    font-weight: 600 !important;
+}
 .navbar-bottom{ 
     display: none;
     background-color: white;

@@ -39,9 +39,9 @@
                     </a>
                     <a href="https://www.instagram.com/gbirikhi/" target="blan"><img src="/images/icons/insta.png"></a>
                     <a href="https://twitter.com/gowithgbi" target="blan"><img src="/images/icons/twitt.png"></a>
-                    <a href="#" target="blan"><img src="/images/icons/youtube.png"></a>
-                    <a href="#" target="blan"><img src="/images/icons/linked-in.png"></a>
-                    <a href="#" target="blan"><img src="/images/icons/whatsapp.png"></a>
+                    <a href="https://www.youtube.com/channel/UCYaTBxhqqXaMOUNZiAqvI_A" target="blan"><img src="/images/icons/youtube.png"></a>
+                    <a href="https://www.linkedin.com/company/gowithgbi/about/" target="blan"><img src="/images/icons/linked-in.png"></a>
+                    <a href="tel:+9717922240"><img src="/images/icons/whatsapp.png"></a>
                   </div>
                   <hr class="mt-2 mb-2"/>
                   <div class="ssl-icon">
@@ -84,9 +84,9 @@
               </a>
               <a href="https://www.instagram.com/gbirikhi/" target="blan"><img src="/images/icons/insta.png"></a>
               <a href="https://twitter.com/gowithgbi" target="blan"><img src="/images/icons/twitt.png"></a>
-              <a href="#" target="blan"><img src="/images/icons/youtube.png"></a>
-              <a href="#" target="blan"><img src="/images/icons/linked-in.png"></a>
-              <a href="#" target="blan"><img src="/images/icons/whatsapp.png"></a>
+              <a href="https://www.youtube.com/channel/UCYaTBxhqqXaMOUNZiAqvI_A" target="blan"><img src="/images/icons/youtube.png"></a>
+              <a href="https://www.linkedin.com/company/gowithgbi/about/" target="blan"><img src="/images/icons/linked-in.png"></a>
+              <a href="tel:+9717922240"><img src="/images/icons/whatsapp.png"></a>
             </div>
           </div>
         </div>
@@ -111,22 +111,33 @@
               </router-link>
             </div>
 
-            <div class="col">
-              <a href="tel:+9810055102" class>
+            <div class="col" @click="makeActive(3)" :class="{ mobile_nav_active : active_element == 3 }">
+              <router-link :to="`/contact-us`">
                 <div class="nav-font">
                   <i class="fas fa-phone-alt"></i>
                 </div>
                 <div class="nav-font">call</div>
-              </a>
+              </router-link>
             </div>
 
             <div class="col"  @click="makeActive(2)" :class="{ mobile_nav_active : active_element == 2 }">
-              <a href="#" @click="loginClick()" >
+              <!-- if loogedin -->
+
+              <a v-if="login == false" href="#" @click="loginCheck()"
+                data-toggle="modal"
+                data-target="#LoginForm">
                 <div class="nav-font">
                   <i class="fas fa-user-alt"></i>
                 </div>
-                <div class="nav-font">profile</div>
+                <div class="nav-font text-jquery">profile</div>
               </a>
+              <!-- if not looged in -->
+              <router-link :to="`/dashboard`" v-else>
+                <div class="nav-font">
+                  <i class="fas fa-user-alt"></i>
+                </div>
+                <div class="nav-font">Profile</div>
+              </router-link>
             </div>
           </div>
 
@@ -145,19 +156,23 @@ export default {
   data(){
     return{
       active_element:0,
-
+      login:false,
     }
+  },
+  created(){
+    this.$bus.$on("logged", () => {
+      this.isLogged = this.loginCheck();
+    });
   },
   methods:{
     makeActive: function(el) {
       this.active_element = el;
     },
-    loginClick() {
+    loginCheck() {
       if (this.$cookies.get('access_token') == null || this.$cookies.get('access_token') == "") {
-        alert("please login first");
-        window.$(".loginLink").click();
-        return false;
+        this.login = false;
       } else {
+        this.login = true;
         this.$router.push("/dashboard");
       }
     },

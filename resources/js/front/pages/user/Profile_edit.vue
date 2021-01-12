@@ -62,8 +62,8 @@
             <div class="form-group">
               <label for="genderId">Gender</label>
               <br />
-              <br />
-              <div>
+              <!-- <br /> -->
+              <div class="mt-2">
                 <div class="custom-control custom-radio custom-control-inline">
                   <input
                     type="radio"
@@ -420,7 +420,6 @@ export default {
           }else{
             this.form.subscribe = false;
           }
-          console.log("hi");
         }
 
         var type = this.form.user_profession;
@@ -524,7 +523,6 @@ export default {
           headers: { Authorization: `Bearer ${localStorage.token}` },
         })
         .then((response) => {
-          console.log(response);
           this.$swal.fire({ icon: "success", title: "Profile updated!!" });
         })
         .catch((error) => {

@@ -668,6 +668,11 @@ bh=banner header |bp=banner para |ch=content header|cp=content para|cardh=card h
 |customerf=customer feedback||fh=footer header|fp=footer para|m=mobile|d=desktop|vpannel=video panel
 */
 
+.nav-link-active {
+  color: black !important;
+  font-weight: 600 !important;
+}
+
 .navbar-bottom {
   display: none;
   background-color: white;
@@ -5783,9 +5788,17 @@ article {
   margin-top: 20px;
 }
 
+.modal-dialog {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .book_btn {
   padding: 9px 28px !important;
   margin: 0px !important;
+}
+
+.card-text-ul ul {
+  padding-left: 18px;
 }
 
 .listexplore {
@@ -5828,13 +5841,11 @@ article {
 .cardlist .image-col {
   width: 38%;
   float: left;
-  height: 116px;
+  height: 128px;
 }
 
 .cardlist .image-col img {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
+  height: 128px;
   border-radius: 10px 0px 0px 10px;
 }
 
@@ -5843,7 +5854,7 @@ article {
   color: #666666;
   border-radius: 0px 10px 10px 0px;
   width: 62%;
-  height: 121px;
+  height: 128px;
   float: right;
   padding-top: 5px;
 }
@@ -5888,15 +5899,14 @@ article {
 #explore_detail_part .col-sm-4 .day_tab {
   background-color: #a1a1a1;
   color: #ffffff;
-  padding: 10px;
+  padding: 7px;
   border: 1px solid #a1a1a1;
-  border-radius: 35px;
+  border-radius: 20px;
   text-align: center;
   font-weight: 600;
   font-size: 20px;
   text-transform: capitalize;
   width: 150px;
-  margin: 0 auto;
   margin-bottom: 10px;
 }
 
@@ -8123,7 +8133,7 @@ a:hover {
   padding: 10px 0;
   color: #fff;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 20px;
   box-sizing: border-box;
   background: #2c3e50;
   color: #ecf0f1;
@@ -8131,17 +8141,6 @@ a:hover {
 
 .accept_cookies .cookies .container {
   position: relative;
-}
-
-@media only screen and (min-width: 1025px) {
-  .accept_cookies .cookies .container {
-    height: 40px;
-  }
-}
-
-.accept_cookies .cookies .container div {
-  padding-left: 60px;
-  padding-right: 10px;
 }
 
 .accept_cookies .cookies a {
@@ -8199,14 +8198,6 @@ a:hover {
   }
 }
 
-@media (max-width: 32rem) {
-  .accept_cookies .cookie__accept,
-  .accept_cookies .cookie__decline,
-  .accept_cookies .cookie__link {
-    width: 100%;
-  }
-}
-
 .accept_cookies .cookie__accept {
   background: #3498db;
   color: #ecf0f1;
@@ -8233,12 +8224,6 @@ a:hover {
 
 .accept_cookies .cookie__decline:active {
   background: #1e2a36;
-}
-
-@media only screen and (max-width: 767px) {
-  .accept_cookies .mobile-hidden {
-    display: none;
-  }
 }
 
 .text_on_image .content-blog-banner {
@@ -8566,11 +8551,23 @@ a:hover {
 .intro .intro-page-image {
   height: 230px;
   padding: 20px;
-  margin-bottom: 40px;
 }
 
 .intro .intro-btn {
   padding: 6px 30px;
+}
+
+@media only screen and (max-width: 473px) {
+  .intro .intro-page-image {
+    height: 150px !important;
+    margin-bottom: 25px;
+  }
+
+  .intro .intro-btn {
+    margin-top: 15px;
+    padding: 6px 30px;
+    margin-right: 2px;
+  }
 }
 
 .link {

@@ -14,17 +14,15 @@
     </section>
     {{editData}}
     <div class="container">
-      <div class="row">
-        <div class="col-sm-9 text-center">
-          <h1 class="main-head pt-2 pb-2">{{itineraryData.title}}</h1>
-        </div>
-        <div class="col-sm-3 pt-3">
-          <button
-            class="btn float-right profile_button text-white book_btn"
-            data-toggle="modal"
-            data-target="#bookModal"
-          >Book Now</button>
-        </div>
+      <div class="w-100 text-right mt-2">
+        <button
+          class="btn profile_button text-white book_btn"
+          data-toggle="modal"
+          data-target="#bookModal"
+        >Book Now</button>
+      </div>
+      <div class="w-100 pt-2 text-center">
+        <h1 class="font-20 text-uppercase pt-2 pb-2"><u>{{itineraryData.title}}</u></h1>
       </div>
       <div class="description" v-html="description"></div>
       <div class="row w-100 pt-3" id="explore_detail_part">
@@ -35,7 +33,7 @@
             v-if="data.day_source != data.day_destination"
           >{{data.day_source.toUpperCase() }} - {{data.day_destination.toUpperCase()}}</h1>
           <h1 class="explor-head" v-else>{{ data.day_source.toUpperCase() }}</h1>
-          <div class="card-text" v-html="data.day_description"></div>
+          <div class="card-text card-text-ul" v-html="data.day_description"></div>
         </div>
       </div>
     </div>

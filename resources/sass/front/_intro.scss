@@ -2,10 +2,22 @@
     .intro-page-image{
         height: 230px;
         padding: 20px;
-        margin-bottom: 40px;
-
     }
     .intro-btn{
         padding: 6px 30px;
     }
 }
+@media only screen and (max-width: 473px) {
+    .intro{
+        .intro-page-image{
+            height: 150px !important;
+            margin-bottom: 25px;
+        }
+        .intro-btn{
+            margin-top: 15px;
+            padding: 6px 30px;
+            margin-right: 2px;
+        }
+    }
+}
+

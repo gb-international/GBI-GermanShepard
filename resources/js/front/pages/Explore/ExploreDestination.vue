@@ -5,7 +5,7 @@
   <div id="exploreDestination">
     <div class="explore_banner text_on_image banner_bg explore_bg_img">
       <div class="content">
-        <div class="container-fluid mb-30">
+        <div class="container-fluid">
           <div class="row">
             <div class="col-sm-12 m-0 p-0">
               <form role="form" autocomplete="off">
@@ -199,10 +199,10 @@
         </div>
       </div>
     </div>
-    <div class="explore_bg_img"></div>
-    <main>
+ 
+    <main class="pl-2 pr-2">
       <div class="container">
-        <div class="row mt-10 p-20">
+        <div class="row">
           <searchexplor :allSearchdata="allSearchdata"></searchexplor>
           <div class="col-lg-12 p-0" v-if="allSearchdata == ''">
             <h4 class="text-center">UPCOMING TOUR</h4>
@@ -217,7 +217,7 @@
       </div>
 
       <div class="container">
-        <div class="row p-20">
+        <div class="row">
           <div class="col-lg-12 p-0" v-if="allSearchdata == ''">
             <h4 class="text-center">POPULAR TOUR</h4>
 

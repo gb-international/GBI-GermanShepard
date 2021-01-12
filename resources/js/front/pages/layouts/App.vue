@@ -23,22 +23,21 @@
           <ul class="navbar-nav">
             <li
               class="nav-item mr-10"
-              @click="makeActive(1)"
-              :class="{ nav_active : nav_active_el == 1 }"
+              
             >
               <router-link class="nav-link" :to="`/explore-destination`">Explore Destination</router-link>
             </li>
             <li
               class="nav-item dropdown mr-10"
             >
-              <router-link
+              <a
                 class="nav-link dropdown-toggle"
-                :to="``"
+                href="#"
                 id="navbarDropdownMenuLink"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
-              >Resources</router-link>
+              >Resources</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <router-link
                   class="dropdown-item mt-10"
@@ -57,22 +56,21 @@
             </li>
             <li
               class="nav-item mr-10"
-              @click="makeActive(3)"
-              :class="{ nav_active : nav_active_el == 3 }"
+              
             >
               <router-link class="nav-link" :to="`/blog`">GBI Travel Blog</router-link>
             </li>
             <li
               class="nav-item mr-10 dropdown dropdown-submenu"
             >
-              <router-link
+              <a
                 class="nav-link dropdown-toggle"
-                :to="``"
+                href="#"
                 id="navbarDropdownMenuLink"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
-              >About Us</router-link>
+              >About Us</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <router-link class="dropdown-item mt-10" :to="`/about-us/our-story`">Our Story</router-link>
                 <router-link class="dropdown-item mt-10" :to="`/about-us/how-we-work`">How We Work</router-link>
@@ -80,12 +78,12 @@
                   class="dropdown-item mt-10"
                   :to="`/about-us/join-our-team`"
                 >Join Our Team</router-link>
-                <router-link
+                <a
                   class="dropdown-item mt-10 dropdown-toggle"
                   data-toggle="dropdown"
                   tabindex="-1"
-                  :to="``"
-                >Image Gallery</router-link>
+                  href="#"
+                >Image Gallery</a>
 
 
                 <div class="dropdown-menu custom-dropdown dropright">
@@ -98,8 +96,7 @@
             </li>
             <li
               class="nav-item mr-10"
-              @click="makeActive(5)"
-              :class="{ nav_active : nav_active_el == 5 }"
+              
             >
               <router-link class="nav-link" :to="`/contact-us`">Contact Us</router-link>
             </li>
@@ -117,8 +114,7 @@
             </li>
 
             <li class="nav-item mr-10" v-else
-              @click="makeActive(4)"
-              :class="{ nav_active : nav_active_el == 4 }"
+              
             >
               <router-link class="nav-link" :to="`/dashboard`"> <img :src="`/uploadimage/${user.photo}`" class="img img-circle nav_profile"> {{ user.name }}</router-link>
             </li>
@@ -146,6 +142,7 @@
         </div>
       </div>
     </div>
+    
     <div class="body-content mt-85 pb-50">
 
       <transition 
@@ -155,19 +152,10 @@
       </transition>
     
       <!-- Alert for cookies -->
-      <transition name="fade" mode="out-in">
-        <div class="accept_cookies" v-show="cookies_alert">
-          <div class="cookies">
-            <div class="container">
-              <div class="col-sm-12">We use cookies to help us give you the best experience on our website.<span class="mobile-hidden">If you continue without changing your settings, we'll assume that you are happy to receive all cookies on our website. However, if you would like to, you can change your cookie settings at any time.</span><button class="cookie__accept" @click="acceptCookies()">Accept cookies</button><button class="cookie__decline" @click="acceptCookies()">Decline cookies</button></div>
-            </div>
-          </div>
-        </div>
-      </transition>
+      <Cookies />
 
       <!-- Intro modal -->
       <intro></intro>
-
 
     </div>
     <gbi-footer></gbi-footer>
@@ -177,12 +165,16 @@
 <script>
 import login from "@/front/pages/user/Login.vue";
 import Intro from "@/front/components/Intro.vue";
+import Cookies from "@/front/components/Cookies.vue";
 export default {
   name: "App",
-  components: { login,Intro },
+  components: {
+    login,
+    Intro,
+    Cookies
+  },
   data() {
     return {
-      nav_active_el: 0,
       login: 1,
       isLogged: 1,
       dashboard: false,
@@ -219,10 +211,6 @@ export default {
     // this.$cookies.set('login',1);
     // check is cookies is accepted or not
 
-    if(!this.$cookies.isKey('cookies_alert')){
-      this.cookies_alert = true;
-    }
-    
     this.loginCheck();
     this.login = this.$cookies.get('login');
     if(this.login == null){
@@ -262,11 +250,7 @@ export default {
       } else {
         this.isnav_active = false;
       }
-    },
-    makeActive: function(el) {
-      this.nav_active_el = el;
-    },
-    
+    },    
     acceptCookies:function(){
       this.$cookies.set('cookies_alert','yes','1y');
       // this.$cookies.set('cookies_alert','yes','6s');

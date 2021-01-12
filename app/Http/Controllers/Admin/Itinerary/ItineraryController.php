@@ -163,10 +163,10 @@ class ItineraryController extends Controller
     public function validateItinerary($request)
     {
       return $this->validate($request, [
-          'source' => 'required|min:2|max:100',
+            'source' => 'required|min:2|max:100',
             'destination' => 'required|min:3|max:100',
             'noofdays' => 'required|numeric|min:1|max:15',
-            'title' => 'required|min:3|max:100',
+            'title' => 'required|min:3|max:50',
             'description' => 'required|min:3',
             'tourtype' => 'required',
             'food' => 'required',

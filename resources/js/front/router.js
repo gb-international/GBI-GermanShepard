@@ -43,6 +43,7 @@ export function createRouter() {
     return new Router({
         mode: 'history',
         scrollBehavior() { return { x: 0, y: 0 }; },
+        linkActiveClass: "nav-link-active",
         routes:[
         { path: '/', component:  Home },
         { path: '/resources/faq', component: faq },

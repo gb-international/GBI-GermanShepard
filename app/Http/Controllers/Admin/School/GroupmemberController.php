@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\School;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\School\Groupmember;
+use App\Model\User\Subscriber;
 use App\Model\User\Information;
 use App\Model\Tour\Tour;
 use App\Model\Tour\TourUser;
@@ -49,6 +50,12 @@ class GroupmemberController extends Controller
             if(!$user){
                 $user = $this->createUser($groupmember);
                 $message = 'Welcome in GBI-International Please login to GBI panel with credentials Email Id : '. $groupmember['email']. ' And password : '. $groupmember['email'].' Thank you.';
+                // subscribe for newsletter
+                if( !$subscriber = Subscriber::where('email',$user->email)->first()){
+                    $data['email'] = $user->email;
+                    $data['user_id'] = $user->id;
+                    Subscriber::create($data);
+                }
             }else{
                 $message = 'Welcome in GBI-International Please login to GBI panel with your existing Account Thank you.';
             }
