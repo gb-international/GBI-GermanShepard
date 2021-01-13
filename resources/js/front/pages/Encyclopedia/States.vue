@@ -16,7 +16,7 @@
                 >Explore and embrace the vibrancy of cultures and traditions of the beautiful countries and states of the globe</span>
               </div>
             </div>
-            <div class="col-sm-6 search_filter">
+            <div class="col-sm-8 search_filter">
               <!--  serach itinerary list in serach bar-->
               <div class="search-p-top">
                 <div class="input-group">

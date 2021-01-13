@@ -92,7 +92,7 @@
       <!-- End Mission -->
 
       <!-- Start Behind Face GBI-->
-      <section class="bgcolor-section">
+      <section class="bgcolor-section mt-3">
         <div class="col-lg-12">
           <article class="about-story-face">
             <h1>FACES BEHIND GBI</h1>

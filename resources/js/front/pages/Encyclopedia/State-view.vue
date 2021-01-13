@@ -18,12 +18,13 @@
             <div class="map_show" v-html="state_data.map_link"></div>
           </div>
 
-          <div class="card state_images">
-            <div class="row">
-              <div class="col-6" v-for="img in state_data.images" :key="img.id">
+          <div class="state_images p-0">
+            <div class="row p-0">
+              <div class="col-6 p-0" v-for="img in state_data.images" :key="img.id">
                 <img
                   :src="getImgUrl(img.image)"
                   loading="lazy"
+                  class="p-0"
                   :alt="img.alt"
                 />
               </div>
@@ -31,8 +32,9 @@
             </div>
           </div>
           <div class="card state_card">
-            <p class="link" v-for="pdf in state_data.itinerarypdfs" :key="pdf.id">
-              <a :href="`/encyclopedia/pdf/${pdf.name}`" target="black">{{ pdf.name | pdfFilter }}</a>
+            <p class="p-0 m-0">Itinerary</p>
+            <p class="link pl-2" v-for="pdf in state_data.itinerarypdfs" :key="pdf.id">
+              <a :href="`/encyclopedia/pdf/${pdf.name}`" target="black">{{ pdf.name | pdfFilter }} <img class="encylopedia-pdf" src="/images/icons/pdf.png"></a>
             </p>
           </div>
         </div>
@@ -97,7 +99,7 @@
                       <img
                         :src="getProfileImage(comment.user.information.photo)"
                         alt="John Doe"
-                        class="mr-3 mt-3 rounded-circle w-45"
+                        class="mr-3 rounded-circle w-45"
                       />
                       <div class="media-body">
                         <h6>
@@ -138,7 +140,7 @@
                             <img
                               :src="getProfileImage(comment.user.information.photo)"
                               alt="Jane Doe"
-                              class="mr-3 mt-3 rounded-circle w-45"
+                              class="mr-3  rounded-circle w-45"
                             />
                             <div class="media-body">
                               <h6>
@@ -175,7 +177,9 @@ export default {
       settings: {
         dots: true,
         infinite: false,
+        autoplay: true,
         speed: 500,
+        autoplaySpeed:1500,
         slidesToShow: 3,
         slidesToScroll: 3,
         initialSlide: 0,
