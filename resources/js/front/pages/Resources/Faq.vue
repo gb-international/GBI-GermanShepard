@@ -13,7 +13,7 @@
                 <h1 class="heading">Frequently Asked Questions (FAQ)</h1>
               </div>
             </div>
-            <div class="col-sm-6 search_filter">
+            <div class="col-sm-8 search_filter">
               <div class="search-p-top mt-5">
                 <div class="input-group">
                   <input
@@ -26,7 +26,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-2"></div>
+            <!-- <div class="col-sm-2"></div> -->
           </div>
         </div>
       </div>
@@ -38,7 +38,7 @@
     </div>
     <!-- Start how we work -->
     <section class="faq-question">
-      <h3>Confused? Need not worry, we have answers to your queries.</h3>
+      <h3 class="text-center p-3 font-weight-normal">Confused? Need not worry, we have answers to your queries.</h3>
       <div class="container">
         <div class="mb-2" v-for="(data,i) in resultQuery" :key="i">
           <div class="row mt-1">

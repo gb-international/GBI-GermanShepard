@@ -30,6 +30,7 @@
 @import 'intro';
 @import 'common';
 @import 'footer';
+@import 'join_team';
 
 // Bootstrap
 // @import '~bootstrap/scss/bootstrap';
@@ -78,11 +79,11 @@ i{ font-style:italic; }
 		margin-bottom: 40px;
 	}
 }
-@media (max-width: 767px){
-	body{
-		text-align: justify;
-	}
-}
+// @media (max-width: 767px){
+// 	body{
+// 		text-align: justify;
+// 	}
+// }
 .fade-enter-active,
 .fade-leave-active {
   transition-duration: 0.2s;

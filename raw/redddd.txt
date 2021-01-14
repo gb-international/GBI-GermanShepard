@@ -49,3 +49,8 @@ today worrk
     -> Created component for contact us form ( to reduce code lines in contactus page)
     -> re-wrote address in contact us page ( it was written in table and body , i replaced it with row and column ) reduced css 
     -> 
+--------------------------------------------------------------
+
+encyclopedia ( bold font size ) - done
+make bold title "mission and learn " in our story
+remove all justify content center from all the css

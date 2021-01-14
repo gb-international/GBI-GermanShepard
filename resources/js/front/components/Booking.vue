@@ -111,7 +111,7 @@
 
         <div class="col-sm-6">
           <label for="accommodation">Accommodation Preference</label>
-          <select id="accomodation" v-model="form.accommodation">
+          <select id="accomodation" class="form-control" v-model="form.accommodation">
             <option value="2">2 Star</option>
             <option value="3">3 Star</option>
             <option value="4">4 Star</option>

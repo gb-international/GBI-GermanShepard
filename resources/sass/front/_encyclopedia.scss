@@ -66,9 +66,11 @@
 .encyclopedia{
   .ui.selection.dropdown{
     min-height: 50px;
+    font-weight: 600;
   }
   .ui.search.dropdown>input.search,.ui.search.dropdown>.text{
     top: 7px;
+    font-weight: 600;
   }
   .ui.selection.dropdown>.delete.icon, .ui.selection.dropdown>.dropdown.icon, .ui.selection.dropdown>.search.icon{
     top: 17px;

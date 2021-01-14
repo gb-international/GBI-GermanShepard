@@ -33,9 +33,9 @@
     border-radius:0;
 }
 .search-blog-form{
-    padding: 21px 21px;
+    padding: 21px 21px 12px;
     background: rgba(43, 188, 255, 0.8);
-    select{
+    select,input{
         height: 43px;
     }
     .or-text{

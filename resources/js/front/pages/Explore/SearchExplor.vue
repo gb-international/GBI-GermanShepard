@@ -13,12 +13,9 @@
           <div class="row">
             <itinerary-list :list="allSearchdata"></itinerary-list>
           </div>
-          <!-- end card-->
         </div>
       </div>
-      <!-- /.row -->
     </div>
-    <!-- /.container-->
   </div>
 </template>
 

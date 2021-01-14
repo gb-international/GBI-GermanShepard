@@ -886,7 +886,6 @@ section {
   width: 100%;
   margin-top: 20px;
   margin-bottom: 30px;
-  text-align: justify;
 }
 
 .how-we-work h1 {
@@ -908,7 +907,6 @@ section {
   font-size: 17px;
   margin-bottom: 20px;
   font-family: Raleway;
-  text-align: justify;
 }
 
 .cards-img {
@@ -983,7 +981,6 @@ section {
   color: #333333;
   font-size: 25px;
   display: inline-block;
-  text-align: justify;
   margin-top: 10px;
   font-family: "Raleway";
 }
@@ -991,7 +988,6 @@ section {
 .about-story .ourstory-content {
   width: 100%;
   display: inline-block;
-  text-align: justify;
   float: right;
   padding-top: 30px;
 }
@@ -1027,14 +1023,12 @@ section {
   color: #333333;
   font-size: 25px;
   display: inline-block;
-  text-align: justify;
   padding-top: 26px;
 }
 
 .about-vision .ourstory-content {
   width: 100%;
   display: inline-block;
-  text-align: justify;
   float: left;
   padding-top: 18px;
 }
@@ -1078,14 +1072,12 @@ section {
     color: #333333;
     font-size: 25px;
     display: inline-block;
-    text-align: justify;
     padding: 53px 0px 2px 16px;
   }
 
   .about-story .ourstory-content {
     width: 100%;
     display: inline-block;
-    text-align: justify;
     float: left;
   }
 
@@ -1117,13 +1109,11 @@ section {
     color: #333333;
     font-size: 25px;
     display: inline-block;
-    text-align: justify;
   }
 
   .about-vision .ourstory-content {
     width: 100%;
     display: inline-block;
-    text-align: justify;
     float: left;
   }
 
@@ -1164,14 +1154,12 @@ section {
     color: #333333;
     font-size: 25px;
     display: inline-block;
-    text-align: justify;
     padding: 30px 0px 0px 18px;
   }
 
   .about-story .ourstory-content {
     width: 100%;
     display: inline-block;
-    text-align: justify;
     float: left;
   }
 
@@ -1203,13 +1191,11 @@ section {
     color: #333333;
     font-size: 25px;
     display: inline-block;
-    text-align: justify;
   }
 
   .about-vision .ourstory-content {
     width: 100%;
     display: inline-block;
-    text-align: justify;
     float: left;
   }
 
@@ -1284,14 +1270,12 @@ section {
     color: #333333;
     font-size: 25px;
     display: inline-block;
-    text-align: justify;
     margin-bottom: 15px;
   }
 
   .about-story .ourstory-content {
     width: 100%;
     display: inline-block;
-    text-align: justify;
     float: left;
   }
 
@@ -1323,14 +1307,12 @@ section {
     color: #333333;
     font-size: 25px;
     display: inline-block;
-    text-align: justify;
     margin-bottom: 15px;
   }
 
   .about-vision .ourstory-content {
     width: 100%;
     display: inline-block;
-    text-align: justify;
     float: left;
   }
 
@@ -1405,7 +1387,6 @@ section {
   .about-vision .ourstory-content {
     width: 100%;
     display: inline-block;
-    text-align: justify;
     float: left;
   }
 
@@ -1413,7 +1394,6 @@ section {
     color: gray;
     font-size: 25px;
     display: inline-block;
-    text-align: justify;
   }
 
   .about-vision .ourstory-content h2 {
@@ -1471,7 +1451,6 @@ section {
     color: #333333;
     font-size: 25px;
     display: inline-block;
-    text-align: justify;
     font-family: Raleway;
     padding: 0px 0px 0px 0px;
   }
@@ -1479,7 +1458,6 @@ section {
   .about-story .ourstory-content {
     width: 100%;
     display: inline-block;
-    text-align: justify;
     float: right;
     padding-top: 18px;
   }
@@ -1513,7 +1491,6 @@ section {
   .about-vision .ourstory-content {
     width: 100%;
     display: inline-block;
-    text-align: justify;
     float: left;
   }
 
@@ -1521,7 +1498,6 @@ section {
     color: #333333;
     font-size: 25px;
     display: inline-block;
-    text-align: justify;
     font-family: Raleway;
     padding-top: 15px;
   }
@@ -1625,7 +1601,6 @@ section {
   .about-vision .ourstory-content {
     width: 100%;
     display: inline-block;
-    text-align: justify;
     float: left;
     padding-top: 0px;
   }
@@ -1634,7 +1609,6 @@ section {
     color: #333333;
     font-size: 25px;
     display: inline-block;
-    text-align: justify;
     font-family: "Raleway";
   }
 
@@ -1693,14 +1667,12 @@ section {
     color: #333333;
     font-size: 25px;
     display: inline-block;
-    text-align: justify;
     font-family: "Raleway";
   }
 
   .about-story .ourstory-content {
     width: 100%;
     display: inline-block;
-    text-align: justify;
     float: left;
     font-family: "Raleway";
   }
@@ -1764,14 +1736,12 @@ section {
     color: #333333;
     font-size: 25px;
     display: inline-block;
-    text-align: justify;
     padding: 27px 0px 4px 0px;
   }
 
   .about-story .ourstory-content {
     width: 100%;
     display: inline-block;
-    text-align: justify;
     float: left;
     padding-top: 0px;
   }
@@ -1804,7 +1774,6 @@ section {
   .about-vision .ourstory-content {
     width: 100%;
     display: inline-block;
-    text-align: justify;
     float: right;
     padding-top: 20px;
   }
@@ -1813,7 +1782,6 @@ section {
     color: #333333;
     font-size: 25px;
     display: inline-block;
-    text-align: justify;
     padding-top: 30px;
   }
 
@@ -2920,34 +2888,16 @@ input[type="submit"]:hover {
 
 /* End Contact Us*/
 
-/*  start faq css */
+.faq_banner input {
+  height: 47px;
+}
 
-.searchbarfaq {
+.faq-question {
   width: 100%;
-  margin: 0 auto;
   display: inline-block;
-  position: relative;
-  bottom: 338px;
-}
-
-.searchbarfaq h1 {
-  position: relative;
-  top: 172px;
-  font-size: 33px;
-  color: #ffffff;
-}
-
-.searchbarfaq .searchbar-faq {
-  position: absolute;
-  top: 185px;
-  width: 93%;
-  height: 40px;
-}
-
-.searchbarfaq .input-aligment {
-  margin: 0 auto;
-  text-align: center;
-  display: block;
+  margin: 0 auto 30px;
+  font-family: Raleway;
+  font-size: 17px;
 }
 
 @media (max-width: 525px) {
@@ -2966,911 +2916,8 @@ input[type="submit"]:hover {
   }
 }
 
-/* new code*/
-
-.faq_banner_image {
-  position: relative;
-}
-
-.faq_banner_image .search_faq {
-  width: 100%;
-  position: absolute;
-  top: 30%;
-  margin: auto;
-}
-
-.faq_banner_image .search_faq .search_section .col-8 {
-  margin: auto;
-}
-
-.faq_banner_image .search_faq .search_section .col-8 p {
-  font-size: 20px;
-  color: white;
-}
-
-/* End New Code*/
-
-.ques-content {
-  font-weight: 700;
-  font-family: Raleway;
-}
-
-.faq-question {
-  width: 100%;
-  margin: 0 auto;
-  display: inline-block;
-  margin-bottom: 30px;
-  font-family: Raleway;
-  font-size: 17px;
-}
-
-.faq-question h3 {
-  width: 100%;
-  margin: 0 auto;
-  display: block;
-  text-align: center;
-  padding-top: 25px;
-  padding-bottom: 10px;
-  font-size: 30px;
-  color: #333333;
-}
-
-.faq-question .faq-content-search {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  padding: 20px;
-}
-
-.faq-question .faq-content-search ul li {
-  font-size: 20px;
-  color: #333333;
-  font-family: Raleway;
-  padding-bottom: 10px;
-}
-
-.faq-question .faq-content-search ul li a {
-  font-size: 19px;
-  color: #1c1650;
-  font-family: Raleway;
-  padding-bottom: 10px;
-}
-
-.faq-question .faq-content-search ul li p {
-  padding-left: 26px;
-  font-family: Raleway;
-}
-
-.faq-question .td-font {
-  font-family: Raleway;
-}
-
-/* RESPONSIVE STYLE */
-
-@media (max-width: 320px) {
-  .searchbarfaq {
-    width: 100%;
-  }
-
-  .searchbarfaq h1 {
-    position: absolute;
-    top: 106px;
-    color: #ffffff;
-    font-size: 12px;
-  }
-
-  .searchbarfaq .searchbar-faq {
-    position: absolute;
-    top: 134px;
-    width: 100%;
-  }
-
-  .faq-question {
-    width: 100%;
-    margin: 0 auto;
-    display: inline-block;
-    margin-bottom: 30px;
-  }
-
-  .faq-question h3 {
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 10px;
-    font-size: 20px;
-    color: #333333;
-  }
-
-  .faq-question .faq-content-search {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    padding: 15px;
-    text-align: justify;
-  }
-
-  .faq-question .faq-content-search ul li {
-    font-size: 20px;
-    color: #333333;
-    font-family: Raleway;
-    padding-bottom: 10px;
-  }
-
-  .faq-question .faq-content-search ul li a {
-    font-size: 15px;
-    color: #1c1650;
-    font-family: Raleway;
-    padding-bottom: 10px;
-    text-align: justify;
-  }
-
-  .faq-question .faq-content-search ul li p {
-    padding-left: 26px;
-  }
-}
-
-@media screen and (min-width: 320px) and (max-width: 360px) {
-  .searchbarfaq {
-    width: 50%;
-  }
-
-  .searchbarfaq h1 {
-    position: absolute;
-    top: 106px;
-    color: #ffffff;
-    font-size: 12px;
-  }
-
-  .searchbarfaq .searchbar-faq {
-    position: absolute;
-    top: 134px;
-  }
-
-  .faq-question {
-    width: 100%;
-    margin: 0 auto;
-    display: inline-block;
-    margin-bottom: 30px;
-  }
-
-  .faq-question h3 {
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 10px;
-    font-size: 20px;
-    color: #333333;
-  }
-
-  .faq-question .faq-content-search {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    padding: 15px;
-    text-align: justify;
-  }
-
-  .faq-question .faq-content-search ul li {
-    font-size: 20px;
-    color: #333333;
-    font-family: Raleway;
-    padding-bottom: 10px;
-  }
-
-  .faq-question .faq-content-search ul li a {
-    font-size: 15px;
-    color: #1c1650;
-    font-family: Raleway;
-    padding-bottom: 10px;
-    text-align: justify;
-  }
-
-  .faq-question .faq-content-search ul li p {
-    padding-left: 26px;
-  }
-}
-
-@media screen and (min-width: 360px) and (max-width: 480px) {
-  /* new code*/
-
-  .faq_banner_image {
-    position: relative;
-  }
-
-  .faq_banner_image .search_faq {
-    width: 100%;
-    position: absolute;
-    top: 4%;
-    margin: auto;
-  }
-
-  .faq_banner_image .search_faq .search_section .col-8 {
-    margin: auto;
-  }
-
-  .faq_banner_image .search_faq .search_section .col-8 p {
-    font-style: 13px;
-    color: white;
-  }
-
-  /* End New Code*/
-
-  .searchbarfaq {
-    width: 100%;
-  }
-
-  .searchbarfaq h1 {
-    position: absolute;
-    top: 106px;
-    color: #ffffff;
-    font-size: 12px;
-  }
-
-  .searchbarfaq .searchbar-faq {
-    position: absolute;
-    top: 134px;
-    width: 100%;
-  }
-
-  .faq-question {
-    width: 100%;
-    margin: 0 auto;
-    display: inline-block;
-    margin-bottom: 30px;
-  }
-
-  .faq-question h3 {
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 10px;
-    font-size: 20px;
-    color: #333333;
-  }
-
-  .faq-question .faq-content-search {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    padding: 15px;
-    text-align: justify;
-  }
-
-  .faq-question .faq-content-search ul li {
-    font-size: 20px;
-    color: #333333;
-    font-family: Raleway;
-    padding-bottom: 10px;
-  }
-
-  .faq-question .faq-content-search ul li a {
-    font-size: 15px;
-    color: #1c1650;
-    font-family: Raleway;
-    padding-bottom: 10px;
-    text-align: justify;
-  }
-
-  .faq-question .faq-content-search ul li p {
-    padding-left: 26px;
-  }
-}
-
-@media screen and (min-width: 480px) and (max-width: 640px) {
-  .searchbarfaq {
-    width: 100%;
-  }
-
-  .searchbarfaq h1 {
-    position: absolute;
-    top: 106px;
-    color: #ffffff;
-    font-size: 12px;
-  }
-
-  .searchbarfaq .searchbar-faq {
-    position: absolute;
-    top: 134px;
-    width: 100%;
-  }
-
-  .faq-question {
-    width: 100%;
-    margin: 0 auto;
-    display: inline-block;
-    margin-bottom: 30px;
-  }
-
-  .faq-question h3 {
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 10px;
-    font-size: 20px;
-    color: #333333;
-  }
-
-  .faq-question .faq-content-search {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    padding: 15px;
-    text-align: justify;
-  }
-
-  .faq-question .faq-content-search ul li {
-    font-size: 20px;
-    color: #333333;
-    font-family: Raleway;
-    padding-bottom: 10px;
-  }
-
-  .faq-question .faq-content-search ul li a {
-    font-size: 15px;
-    color: #1c1650;
-    font-family: Raleway;
-    padding-bottom: 10px;
-    text-align: justify;
-  }
-
-  .faq-question .faq-content-search ul li p {
-    padding-left: 26px;
-  }
-}
-
-@media screen and (min-width: 364px) and (max-width: 767px) {
-  /* new code*/
-
-  .faq_banner_image {
-    position: relative;
-  }
-
-  .faq_banner_image .search_faq {
-    width: 100%;
-    position: absolute;
-    top: 7%;
-    margin: auto;
-  }
-
-  .faq_banner_image .search_faq .search_section .col-8 {
-    margin: auto;
-  }
-
-  .faq_banner_image .search_faq .search_section .col-8 p {
-    font-size: 14px;
-    color: white;
-  }
-
-  /* End New Code*/
-
-  .searchbarfaq {
-    width: 100%;
-  }
-
-  .searchbarfaq h1 {
-    position: absolute;
-    top: 237px;
-    color: #ffffff;
-    font-size: 12px;
-  }
-
-  .searchbarfaq .searchbar-faq {
-    position: absolute;
-    top: 264px;
-  }
-
-  .faq-question {
-    width: 100%;
-    margin: 0 auto;
-    display: inline-block;
-    margin-bottom: 30px;
-  }
-
-  .faq-question h3 {
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 10px;
-    font-size: 20px;
-    color: #333333;
-  }
-
-  .faq-question .faq-content-search {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    padding: 15px;
-    text-align: justify;
-  }
-
-  .faq-question .faq-content-search ul li {
-    font-size: 20px;
-    color: #333333;
-    font-family: Raleway;
-    padding-bottom: 10px;
-  }
-
-  .faq-question .faq-content-search ul li a {
-    font-size: 15px;
-    color: #1c1650;
-    font-family: Raleway;
-    padding-bottom: 10px;
-    text-align: justify;
-  }
-
-  .faq-question .faq-content-search ul li p {
-    padding-left: 26px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  /* new code*/
-
-  .faq_banner_image {
-    position: relative;
-  }
-
-  .faq_banner_image .search_faq {
-    width: 100%;
-    position: absolute;
-    top: 20%;
-    margin: auto;
-  }
-
-  .faq_banner_image .search_faq .search_section .col-8 {
-    margin: auto;
-  }
-
-  .faq_banner_image .search_faq .search_section .col-8 p {
-    font-size: 15px;
-    color: white;
-  }
-
-  /* End New Code*/
-
-  .searchbarfaq {
-    width: 100%;
-  }
-
-  .searchbarfaq h1 {
-    position: absolute;
-    top: 208px;
-    color: #ffffff;
-    font-size: 20px;
-  }
-
-  .searchbarfaq .searchbar-faq {
-    position: absolute;
-    top: 238px;
-  }
-
-  .faq-question {
-    width: 100%;
-    margin: 0 auto;
-    display: inline-block;
-    margin-bottom: 30px;
-  }
-
-  .faq-question h3 {
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 10px;
-    font-size: 20px;
-    color: #333333;
-  }
-
-  .faq-question .faq-content-search {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    padding: 30px;
-  }
-
-  .faq-question .faq-content-search ul li {
-    font-size: 20px;
-    color: #333333;
-    font-family: Raleway;
-    padding-bottom: 10px;
-  }
-
-  .faq-question .faq-content-search ul li a {
-    font-size: 19px;
-    color: #1c1650;
-    font-family: Raleway;
-    padding-bottom: 10px;
-    text-decoration: none;
-  }
-
-  .faq-question .faq-content-search ul li p {
-    padding-left: 26px;
-  }
-}
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-  .searchbarfaq {
-    width: 80%;
-  }
-
-  .searchbarfaq h1 {
-    position: absolute;
-    top: 171px;
-    color: #ffffff;
-    font-family: "Raleway";
-    font-size: 23px;
-  }
-
-  .searchbarfaq .searchbar-faq {
-    position: absolute;
-    top: 210px;
-  }
-
-  .faq-question {
-    width: 100%;
-    margin: 0 auto;
-    display: inline-block;
-    margin-bottom: 30px;
-  }
-
-  .faq-question h3 {
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 10px;
-    font-size: 30px;
-    color: #333333;
-    font-family: "Raleway";
-  }
-
-  .faq-question .faq-content-search {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    padding: 20px;
-  }
-
-  .faq-question .faq-content-search ul li {
-    font-size: 20px;
-    color: #333333;
-    font-family: Raleway;
-    padding-bottom: 10px;
-  }
-
-  .faq-question .faq-content-search ul li a {
-    font-size: 19px;
-    color: #1c1650;
-    font-family: Raleway;
-    padding-bottom: 10px;
-  }
-
-  .faq-question .faq-content-search ul li p {
-    padding-left: 26px;
-  }
-}
-
-/*  end faq css */
-
 #feedback-page {
   text-align: center;
-}
-
-.join-team {
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 5px;
-  background-color: #c3e2f5bd;
-  padding: 20px;
-}
-
-.join-team h1 {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 25px;
-  padding: 20px;
-  color: #000;
-}
-
-/* Style inputs, select elements and textareas */
-
-input[type=text],
-input[type=email],
-select,
-textarea {
-  width: 100%;
-  padding: 12px;
-  border: 0px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  resize: vertical;
-  border-radius: 0px !important;
-}
-
-input[type='text'],
-input[type='email'],
-select {
-  height: 43px;
-}
-
-/* Style the submit button */
-
-input[type=submit] {
-  background-color: #ffffff;
-  color: #000000;
-  padding: 12px 35px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  border: solid 0px #eae7e7;
-}
-
-/* Floating column for labels: 25% width */
-
-.form-fullwidth {
-  float: left;
-  width: 99%;
-  margin-top: 10px;
-}
-
-.alignbtn {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.p-20-input {
-  padding: 4px;
-}
-
-.p-20-input input[type="text"],
-.p-20-input select,
-.p-20-input textarea {
-  height: 47px;
-}
-
-/* Floating column for inputs: 50% width */
-
-.form-input {
-  float: left;
-  width: 49%;
-  margin-top: 10px;
-  margin-right: 10px;
-}
-
-.upload-btn-wrapper {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-}
-
-.upload-btn-wrapper .btn {
-  border: 1px solid #d8d5d5;
-  color: #302f2f;
-  background-color: white;
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.upload-btn-wrapper input[type=file] {
-  font-size: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-}
-
-.bgimg {
-  /* Control the height of the image */
-  min-height: 600px;
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-.join-team {
-  height: auto;
-}
-
-/*responsive css form */
-
-@media screen and (max-width: 320px) {
-  .form-fullwidth,
-  .form-input,
-  input[type=file] {
-    width: 100%;
-    margin-top: 3px;
-  }
-
-  .form-fullwidth textarea {
-    height: 112px;
-  }
-
-  .join-team {
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #c3e2f5bd;
-    padding: 20px;
-  }
-
-  .join-team h1 {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 18px;
-    padding: 20px;
-    color: #000;
-  }
-}
-
-@media screen and (min-width: 320px) and (max-width: 480px) {
-  .form-fullwidth,
-  .form-input,
-  input[type=file] {
-    width: 100%;
-    margin-top: 3px;
-  }
-
-  .form-fullwidth textarea {
-    height: 112px;
-  }
-
-  .join-team {
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #c3e2f5bd;
-    padding: 20px;
-  }
-
-  .join-team h1 {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 18px;
-    padding: 20px;
-    color: #000;
-  }
-}
-
-@media screen and (min-width: 480px) and (max-width: 640px) {
-  .form-fullwidth,
-  .form-input,
-  input[type=file] {
-    width: 100%;
-    margin-top: 3px !important;
-  }
-
-  .form-fullwidth textarea {
-    height: 112px;
-  }
-
-  .join-team {
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #c3e2f5bd;
-    padding: 20px;
-  }
-
-  .join-team h1 {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 18px;
-    padding: 20px;
-    color: #000;
-  }
-}
-
-@media screen and (min-width: 640px) and (max-width: 767px) {
-  .join-team {
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #c3e2f5bd;
-    padding: 20px;
-  }
-
-  .join-team h1 {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 18px;
-    padding: 20px;
-    color: #000;
-  }
-
-  .form-fullwidth,
-  .form-input,
-  input[type=file] {
-    width: 100%;
-    margin-top: 0;
-  }
-
-  .form-fullwidth textarea {
-    height: 112px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .form-fullwidth,
-  .form-input,
-  input[type=file] {
-    width: 100%;
-    margin-top: 3px;
-  }
-
-  .form-fullwidth textarea {
-    height: 112px;
-  }
-
-  .join-team {
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #c3e2f5bd;
-    padding: 20px;
-  }
-
-  .join-team h1 {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 25px;
-    padding: 20px;
-    color: #000;
-  }
-}
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-  .form-input {
-    width: 49%;
-    margin-top: 8px;
-  }
-
-  .form-fullwidth,
-  input[type=file] {
-    width: 99%;
-    margin-top: 2;
-  }
-
-  .join-team {
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #c3e2f5bd;
-    padding: 20px;
-  }
-
-  .join-team h1 {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 25px;
-    padding: 20px;
-    color: #000;
-  }
 }
 
 /* Start resources*/
@@ -3909,7 +2956,6 @@ input[type=submit] {
   color: #333333;
   font-size: 17px;
   margin-bottom: 20px;
-  text-align: justify;
   padding: 10px;
   font-family: Raleway;
 }
@@ -3981,7 +3027,6 @@ input[type=submit] {
   width: 100%;
   margin-top: 60px;
   margin-bottom: 70px;
-  text-align: justify;
 }
 
 .safety-security h1 {
@@ -4009,7 +3054,6 @@ input[type=submit] {
   width: 49%;
   margin-top: 0px;
   margin-bottom: 0px;
-  text-align: justify;
   float: left;
 }
 
@@ -4065,7 +3109,6 @@ input[type=submit] {
     color: #333333;
     font-size: 17px;
     margin-bottom: 20px;
-    text-align: justify;
   }
 
   .section-edu {
@@ -4135,7 +3178,6 @@ input[type=submit] {
     width: 100%;
     margin-top: 40px;
     margin-bottom: 30px;
-    text-align: justify;
   }
 
   .safety-security h1 {
@@ -4166,7 +3208,6 @@ input[type=submit] {
     width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
-    text-align: justify;
     float: left;
   }
 
@@ -4221,7 +3262,6 @@ input[type=submit] {
     color: #333333;
     font-size: 17px;
     margin-bottom: 20px;
-    text-align: justify;
   }
 
   .section-edu {
@@ -4291,7 +3331,6 @@ input[type=submit] {
     width: 100%;
     margin-top: 40px;
     margin-bottom: 30px;
-    text-align: justify;
   }
 
   .safety-security h1 {
@@ -4322,7 +3361,6 @@ input[type=submit] {
     width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
-    text-align: justify;
     float: left;
   }
 
@@ -4377,7 +3415,6 @@ input[type=submit] {
     color: #333333;
     font-size: 17px;
     margin-bottom: 20px;
-    text-align: justify;
   }
 
   .section-edu {
@@ -4477,7 +3514,6 @@ input[type=submit] {
     color: #333333;
     font-size: 17px;
     margin-bottom: 20px;
-    text-align: justify;
   }
 
   .section-edu {
@@ -4547,7 +3583,6 @@ input[type=submit] {
     width: 100%;
     margin-top: 40px;
     margin-bottom: 30px;
-    text-align: justify;
   }
 
   .safety-security h1 {
@@ -4579,7 +3614,6 @@ input[type=submit] {
     width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
-    text-align: justify;
     float: left;
   }
 
@@ -4634,7 +3668,6 @@ input[type=submit] {
     color: #333333;
     font-size: 17px;
     margin-bottom: 20px;
-    text-align: justify;
   }
 
   .section-edu {
@@ -4693,7 +3726,6 @@ input[type=submit] {
     width: 100%;
     margin-top: 35px;
     margin-bottom: 70px;
-    text-align: justify;
   }
 
   .safety-security h1 {
@@ -4730,7 +3762,6 @@ input[type=submit] {
     width: 49%;
     margin-top: 20px;
     margin-bottom: 30px;
-    text-align: justify;
     float: left;
   }
 
@@ -4787,7 +3818,6 @@ input[type=submit] {
     color: #333333;
     font-size: 17px;
     margin-bottom: 20px;
-    text-align: justify;
   }
 
   .section-edu {
@@ -4847,7 +3877,6 @@ input[type=submit] {
     width: 100%;
     margin-top: 35px;
     margin-bottom: 70px;
-    text-align: justify;
   }
 
   .safety-security h1 {
@@ -4878,7 +3907,6 @@ input[type=submit] {
     width: 49%;
     margin-top: 20px;
     margin-bottom: 30px;
-    text-align: justify;
     float: left;
   }
 
@@ -5140,7 +4168,6 @@ article {
   color: #000000;
   padding: 0 1%;
   font-size: 20px;
-  text-align: justify;
   font-family: Raleway;
   line-height: 29px;
 }
@@ -5998,10 +5025,6 @@ article {
   border-bottom: 0px solid #88b5c633 !important;
 }
 
-.serch-explo-menu li {
-  /* background-color: #ffffff; */
-}
-
 .serch-explo-menu a {
   color: #000;
   font-weight: 700;
@@ -6322,10 +5345,6 @@ a {
 /* end explor list */
 
 /*start exploe detail page */
-
-.textexp {
-  text-align: justify !important;
-}
 
 .actual-grid {
   width: 33.33%;
@@ -7432,11 +6451,13 @@ a:hover {
 
 .encyclopedia .ui.selection.dropdown {
   min-height: 50px;
+  font-weight: 600;
 }
 
 .encyclopedia .ui.search.dropdown > input.search,
 .encyclopedia .ui.search.dropdown > .text {
   top: 7px;
+  font-weight: 600;
 }
 
 .encyclopedia .ui.selection.dropdown > .delete.icon,
@@ -8277,11 +7298,12 @@ a:hover {
 }
 
 .search-blog-form {
-  padding: 21px 21px;
+  padding: 21px 21px 12px;
   background: rgba(43, 188, 255, 0.8);
 }
 
-.search-blog-form select {
+.search-blog-form select,
+.search-blog-form input {
   height: 43px;
 }
 
@@ -8471,7 +7493,7 @@ a:hover {
 #imagegallery .gallery-search .outer {
   padding: 5px;
   padding: 9px;
-  background: #0d11329e;
+  background: rgba(43, 188, 255, 0.8);
 }
 
 #imagegallery .gallery-search .outer .search-field {
@@ -9146,6 +8168,65 @@ a:hover {
   }
 }
 
+.join-team {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: #c3e2f5bd;
+}
+
+.join-team form .col-sm-6,
+.join-team form .col-sm-12 {
+  padding: 10px;
+}
+
+.join-team form .col-sm-6 .form-group,
+.join-team form .col-sm-12 .form-group {
+  margin-bottom: 0px;
+}
+
+.join-team h1 {
+  margin: 0 auto;
+  font-size: 25px;
+  padding: 20px;
+  color: #000;
+}
+
+.join-team input,
+.join-team select {
+  padding: 12px;
+  border: 0px solid #ccc;
+  border-radius: 4px;
+  border-radius: 0px !important;
+  height: 47px;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload-btn-wrapper .btn {
+  border: 1px solid #d8d5d5;
+  color: #302f2f;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
 #app {
   width: 100%;
   overflow: hidden;
@@ -9189,12 +8270,6 @@ i {
 @media screen and (max-width: 800px) {
   #frontmaster {
     margin-bottom: 40px;
-  }
-}
-
-@media (max-width: 767px) {
-  body {
-    text-align: justify;
   }
 }
 

@@ -23,7 +23,7 @@
     <div class="container">
       <div class="col-lg-12">
         <article class="how-we-work">
-          <h1>Our Story</h1>
+          <h1 class="font-weight-bold">Our Story</h1>
           <h2>One’s action can inspire others to dream bigger</h2>
           <p>The journey of GB International dates back to 1983 when Mr. Jasbir Singh Rikhi founded the company single-handedly with the desire of guiding students for a better future. He seeks to use travel as a tool to guide young minds learn from experiences outside their comfort zone. GBI has been working hard to transform this very idea into reality through finely curated travel tours.</p>
           <br />
@@ -39,7 +39,7 @@
             <div class="row">
               <div class="col-md-6 col-lg-7">
                 <div class="ourstory-content">
-                  <h1>Mission</h1>
+                  <h1 class="font-weight-bold">Mission</h1>
                   <h2>Learn from the diversity</h2>
                   <p>Our mission is to facilitate a true connection between the students and the educational tour by trying to compliment classroom learning with a touch of the real. At GBI, we strive to combine reliable travel support with practical knowledge of textbooks to create an enriching travel experience that last a lifetime.</p>
                 </div>
@@ -80,7 +80,7 @@
               </div>
               <div class="col-md-6 col-lg-7">
                 <div class="ourstory-content">
-                  <h1>Vision</h1>
+                  <h1 class="font-weight-bold">Vision</h1>
                   <h2>The choice of journey shapes mundane reality</h2>
                   <p>GBI’s philosophy behind all its program is to reach out to young minds to bring in them confidence and expand their horizons to prepare them face the challenges of mundane reality. We aim to enhance their skills through excursion to understand how various culture and different countries work.</p>
                 </div>

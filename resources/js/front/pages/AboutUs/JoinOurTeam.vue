@@ -1,8 +1,8 @@
   <template>
-        <!--************************************************
+  <!--************************************************
       Author:@Ajay
       ****************************************************-->
-      
+
   <div id="joinOurteam">
     <div class="career_banner text_on_image banner_bg">
       <div class="content">
@@ -15,163 +15,169 @@
       <section>
         <article class="join-team">
           <div class="container">
-            <h1>JOIN OUR BRILLIANT MINDS</h1>
+            <h1 class="text-center">JOIN OUR BRILLIANT MINDS</h1>
             <form
               role="form"
               method="POST"
               @submit.prevent="sendmailResume()"
               enctype="multipart/form-data"
             >
-              <div class="form-input">
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="form.firstname"
-                  :class="{ 'is-invalid': form.errors.has('firstname') }"
-                  placeholder="Enter first name"
-                />
-                <has-error :form="form" field="firstname"></has-error>
-              </div>
-
-              <div class="form-input">
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="form.lastname"
-                  :class="{ 'is-invalid': form.errors.has('lastname') }"
-                  placeholder="Enter last name"
-                />
-                <has-error :form="form" field="lastname"></has-error>
-              </div>
-
-              <div class="form-input">
-                <input
-                  type="email"
-                  class="form-control"
-                  v-model="form.email"
-                  :class="{ 'is-invalid': form.errors.has('email') }"
-                  placeholder="Enter Email"
-                />
-                <has-error :form="form" field="email"></has-error>
-              </div>
-
-              <div class="form-input">
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="form.contactno"
-                  :class="{ 'is-invalid': form.errors.has('contactno') }"
-                  placeholder="Enter contactno"
-                />
-                <has-error :form="form" field="contactno"></has-error>
-              </div>
-
-              <div class="form-input">
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="form.address"
-                  :class="{ 'is-invalid': form.errors.has('address') }"
-                  placeholder="Enter address"
-                />
-                <has-error :form="form" field="address"></has-error>
-              </div>
-
-              <div class="form-input">
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="form.state"
-                  :class="{ 'is-invalid': form.errors.has('state') }"
-                  placeholder="Enter state"
-                />
-                <has-error :form="form" field="state"></has-error>
-              </div>
-
-              <div class="form-input">
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="form.city"
-                  :class="{ 'is-invalid': form.errors.has('city') }"
-                  placeholder="Enter city"
-                />
-                <has-error :form="form" field="city"></has-error>
-              </div>
-
-              <div class="form-input">
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="form.zipcode"
-                  :class="{ 'is-invalid': form.errors.has('zipcode') }"
-                  placeholder="Enter zipcode"
-                />
-                <has-error :form="form" field="zipcode"></has-error>
-              </div>
-
-              <div class="form-input">
-                <select
-                  id="postvancy"
-                  name="postvancy"
-                  v-model="form.postvancy"
-                  :class="{ 'is-invalid': form.errors.has('postvancy') }"
-                >
-                  <option value>Select Post</option>
-                  <option
-                    value="Business Development Executive"
-                  >Business Development Executive (Delhi)</option>
-                  <option
-                    value="Business Development Executive"
-                  >Business Development Executive (Panjab)</option>
-                  <option
-                    value="Business Development Executive"
-                  >Business Development Executive (Hyderabad)</option>
-                  <option value="Software Developer">Software Developer</option>
-                  <option
-                    value="Business Lead Generation Executive"
-                  >Business Lead Generation Executive</option>
-                </select>
-                <has-error :form="form" field="postvancy"></has-error>
-              </div>
-
-              <div class="form-fullwidth">
-                <div class="upload-btn-wrapper">
-                  <button class="btn button3">Select File</button>
-                  <input
-                    name="resume"
-                    type="file"
-                    @change="onFileChange"
-                    :class="{ 'is-invalid': form.errors.has('resume') }"
-                    accept=".pdf, .doc, .docx"
-                  />
-                  <has-error :form="form" field="resume"></has-error>
-                  <span v-if="filename">{{ filename }}</span>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.firstname"
+                      :class="{ 'is-invalid': form.errors.has('firstname') }"
+                      placeholder="Enter first name"
+                    />
+                    <has-error :form="form" field="firstname"></has-error>
+                  </div>
                 </div>
-                <p>
-                  <span>Please uplod PDF file only</span>
-                </p>
-              </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.lastname"
+                      :class="{ 'is-invalid': form.errors.has('lastname') }"
+                      placeholder="Enter last name"
+                    />
+                    <has-error :form="form" field="lastname"></has-error>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      class="form-control"
+                      v-model="form.email"
+                      :class="{ 'is-invalid': form.errors.has('email') }"
+                      placeholder="Enter Email"
+                    />
+                    <has-error :form="form" field="email"></has-error>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.contactno"
+                      :class="{ 'is-invalid': form.errors.has('contactno') }"
+                      placeholder="Enter contactno"
+                    />
+                    <has-error :form="form" field="contactno"></has-error>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.address"
+                      :class="{ 'is-invalid': form.errors.has('address') }"
+                      placeholder="Enter address"
+                    />
+                    <has-error :form="form" field="address"></has-error>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.state"
+                      :class="{ 'is-invalid': form.errors.has('state') }"
+                      placeholder="Enter state"
+                    />
+                    <has-error :form="form" field="state"></has-error>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.city"
+                      :class="{ 'is-invalid': form.errors.has('city') }"
+                      placeholder="Enter city"
+                    />
+                    <has-error :form="form" field="city"></has-error>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.zipcode"
+                      :class="{ 'is-invalid': form.errors.has('zipcode') }"
+                      placeholder="Enter zipcode"
+                    />
+                    <has-error :form="form" field="zipcode"></has-error>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <select
+                      class="form-control"
+                      v-model="form.postvancy"
+                      :class="{ 'is-invalid': form.errors.has('postvancy') }"
+                    >
+                      <option value default="default">Select Post</option>
 
-              <div class="form-fullwidth">
-                <textarea
-                  id="messagescon"
-                  v-model="form.messagescon"
-                  :class="{ 'is-invalid': form.errors.has('messagescon') }"
-                  rows="4"
-                  placeholder="Write something.."
-                ></textarea>
-                <has-error :form="form" field="messagescon"></has-error>
-              </div>
+                      <option 
+                        v-for="position in positions" 
+                        :key="position" 
+                        :value="position">{{ position}}</option>
+                    </select>
+                    <has-error :form="form" field="postvancy"></has-error>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-fullwidth">
+                    <div class="upload-btn-wrapper">
+                      <button class="btn button3">Select File</button>
+                      <input
+                        name="resume"
+                        type="file"
+                        @change="onFileChange"
+                        :class="{ 'is-invalid': form.errors.has('resume') }"
+                        accept=".pdf, .doc, .docx"
+                      />
+                      <has-error :form="form" field="resume"></has-error>
+                      <span v-if="filename">{{ filename }}</span>
+                    </div>
+                    <p>
+                      <small>Please uplod PDF file only</small>
+                    </p>
+                  </div>
+                </div>
 
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <textarea
+                      class="form-control"
+                      v-model="form.messagescon"
+                      :class="{ 'is-invalid': form.errors.has('messagescon') }"
+                      rows="4"
+                      placeholder="Write something.."
+                    ></textarea>
+                    <has-error :form="form" field="messagescon"></has-error>
+                  </div>
+                </div>
+              </div>
               <div class="text-center">
-                <button type="submit" class="btn profile_button" value="Submit">Submit</button>
+                <button type="submit" class="btn profile_button mb-5" value="Submit">
+                  Submit
+                </button>
               </div>
             </form>
           </div>
         </article>
       </section>
-      <div class="clear"></div>
     </main>
   </div>
 </template>
@@ -181,15 +187,26 @@ import { Form, HasError } from "vform";
 export default {
   name: "JoinOurTeam",
   metaInfo: {
-    title: 'Join Our Team',
-    meta:[
-      { name: 'description', content: '@GoWithGBI Lets travel together and make the world a better place .Join our brilliant minds' },
-      { name: 'keywords', content: '@GoWithGBI,join our team,explore Your career with GBI,exciting journey,research oriented process,challenges,explore your travel instinct,discover ,travel passion,learn,explore,discover' },
-      { name: 'url', content: 'https://www.gowithgbi.com/about-us/join-our-team' },
-    ]
+    title: "Join Our Team",
+    meta: [
+      {
+        name: "description",
+        content:
+          "@GoWithGBI Lets travel together and make the world a better place .Join our brilliant minds",
+      },
+      {
+        name: "keywords",
+        content:
+          "@GoWithGBI,join our team,explore Your career with GBI,exciting journey,research oriented process,challenges,explore your travel instinct,discover ,travel passion,learn,explore,discover",
+      },
+      {
+        name: "url",
+        content: "https://www.gowithgbi.com/about-us/join-our-team",
+      },
+    ],
   },
   components: {
-    HasError
+    HasError,
   },
   data() {
     return {
@@ -205,8 +222,9 @@ export default {
         zipcode: "",
         postvancy: "",
         resume: "",
-        messagescon: ""
-      })
+        messagescon: "",
+      }),
+      positions:["Business Development Executive (Delhi)","Business Development Executive (Punjab)", "Business Development Executive (Hyderabad)", "Software Developer", "Business Lead Generation Executive"],
     };
   },
   methods: {
@@ -231,7 +249,7 @@ export default {
       var image = new Image();
       var reader = new FileReader();
       var vm = this;
-      reader.onload = e => {
+      reader.onload = (e) => {
         vm.form.resume = e.target.result;
       };
       reader.readAsDataURL(file);
@@ -240,8 +258,7 @@ export default {
     sendmailResume() {
       this.form
         .post("/api/join-our-team/send")
-        .then(response => {
-          
+        .then((response) => {
           this.form.reset();
           this.filename = "";
           this.$swal.fire(
@@ -252,7 +269,7 @@ export default {
         })
 
         .catch(() => {});
-    } // end sendmailResume
-  }
+    }, // end sendmailResume
+  },
 };
 </script>

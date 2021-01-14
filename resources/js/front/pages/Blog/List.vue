@@ -18,7 +18,7 @@
                   />
                 </div>
                 
-                <div class="col-lg-1 col-md-1 col-sm-12 p-0 or-section">
+                <div class="col-lg-1 col-md-1 col-sm-12 p-0 or-section pt-2">
                   <p class="text-center or-text"><b>OR</b></p>
                 </div>
 

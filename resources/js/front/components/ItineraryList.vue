@@ -16,7 +16,7 @@
           </figure>
         </div>
         <div class="cardtext-col text-left">
-          <p class="m-0 font-13 pl-10 fw-500">{{itinerary.title | sortlength(35,"")}}</p>
+          <p class="m-0 font-13 pl-10 font-weight-bold">{{itinerary.title | sortlength(35,"")}}</p>
           <p class="font-13 pl-10 mb-10">{{itinerary.noofdays}} Days Tour</p>
           <div class="pt-1 pb-2 pl-10">
             <div class="card-icon float-left p-0" v-if="itinerary.hotel_type != '0'">
