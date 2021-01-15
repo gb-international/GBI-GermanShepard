@@ -12,13 +12,10 @@
 			font-weight: 500;
 			background: #e1e1e1;
 			height: 45px;
-			border-radius: 0px;
-			border: 0px;
 		}
 		
 		input{
 			//placeholder = #b2b2b2
-			border: none;
 			font-size: 16px;
 		    ::placeholder {
 			  color: #b2b2b2;
@@ -74,6 +71,7 @@
 	}
 	select,input{
 	  border:1px solid lightgrey !important;
+	  border-radius: 4px;
 	  height: 45px;
 	}	
 }

@@ -1881,8 +1881,7 @@ section {
 }
 
 .contact-form input[type="text"],
-.contact-form select,
-.contact-form textarea {
+.contact-form select {
   height: 40px;
 }
 
@@ -2892,6 +2891,10 @@ input[type="submit"]:hover {
   height: 47px;
 }
 
+.faq_banner .content {
+  top: 32% !important;
+}
+
 .faq-question {
   width: 100%;
   display: inline-block;
@@ -2918,6 +2921,10 @@ input[type="submit"]:hover {
 
 #feedback-page {
   text-align: center;
+}
+
+.close {
+  outline: none !important;
 }
 
 /* Start resources*/
@@ -6291,12 +6298,9 @@ a:hover {
   font-weight: 500;
   background: #e1e1e1;
   height: 45px;
-  border-radius: 0px;
-  border: 0px;
 }
 
 .grey-form form input {
-  border: none;
   font-size: 16px;
 }
 
@@ -6376,6 +6380,7 @@ a:hover {
 #user_inform_model select,
 #user_inform_model input {
   border: 1px solid lightgrey !important;
+  border-radius: 4px;
   height: 45px;
 }
 
@@ -6450,20 +6455,19 @@ a:hover {
 }
 
 .encyclopedia .ui.selection.dropdown {
-  min-height: 50px;
+  min-height: 47px;
   font-weight: 600;
 }
 
 .encyclopedia .ui.search.dropdown > input.search,
 .encyclopedia .ui.search.dropdown > .text {
-  top: 7px;
   font-weight: 600;
 }
 
 .encyclopedia .ui.selection.dropdown > .delete.icon,
 .encyclopedia .ui.selection.dropdown > .dropdown.icon,
 .encyclopedia .ui.selection.dropdown > .search.icon {
-  top: 17px;
+  top: 15px;
 }
 
 .states_card {
@@ -7293,18 +7297,16 @@ a:hover {
   color: #55595c;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 0;
 }
 
 .search-blog-form {
-  padding: 21px 21px 12px;
+  padding: 15px 13px 9px;
   background: rgba(43, 188, 255, 0.8);
 }
 
 .search-blog-form select,
 .search-blog-form input {
-  height: 43px;
+  height: 47px;
 }
 
 .search-blog-form .or-text {
@@ -7790,6 +7792,10 @@ a:hover {
 
 .bg-blue {
   background-color: #1c1650;
+}
+
+.bg-skyblue {
+  background-color: rgba(43, 188, 255, 0.8);
 }
 
 .display-none {

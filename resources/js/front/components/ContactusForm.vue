@@ -47,12 +47,10 @@
       <div class="form-fullwidth">
         <label class="lable-title">Message</label>
         <textarea
-          id="messagecon"
+          class="form-control"
           v-model="form.messagecon"
-          name="messagecon"
           rows="5"
-          cols="40"
-          class="form-control { 'is-invalid': form.errors.has('messagecon') }"
+          :class="{ 'is-invalid': form.errors.has('messagecon') }"
           placeholder="Message....."
         ></textarea>
         <has-error :form="form" field="messagecon"></has-error>

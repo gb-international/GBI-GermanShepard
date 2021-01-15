@@ -6,27 +6,18 @@
 
     <div class="faq_banner text_on_image banner_bg explore_bg_img">
       <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-4 mb-3">
-              <div class="content">
-                <h1 class="heading">Frequently Asked Questions (FAQ)</h1>
-              </div>
+        <div class="row">
+          <div class="col-sm-8 mb-3">
+            <h1 class="heading mb-3">Frequently Asked Questions (FAQ)</h1>
+            <div class="input-group p-2 bg-skyblue">
+              <input
+                type="text"
+                class="form-control"
+                v-model="searchQuery"
+                placeholder="Got a question? Shoot at us"
+                title="Type in a name"
+              />
             </div>
-            <div class="col-sm-8 search_filter">
-              <div class="search-p-top mt-5">
-                <div class="input-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="searchQuery"
-                    placeholder="Got a question? Shoot at us"
-                    title="Type in a name"
-                  />
-                </div>
-              </div>
-            </div>
-            <!-- <div class="col-sm-2"></div> -->
           </div>
         </div>
       </div>

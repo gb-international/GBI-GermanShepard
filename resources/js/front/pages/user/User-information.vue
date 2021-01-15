@@ -26,7 +26,9 @@
               </select>
             </tab-content>
 
-            <tab-content title="Additional Info">
+            <tab-content title="Additional Info" :before-change="validateAsyncSecond">
+
+
               <div class="form-group" v-if="school_field">
                 <label>Select Your Educational Institution</label>
                 <select class="form-control" v-model="institution">
@@ -99,6 +101,8 @@ export default {
       addressfield:false,
       institutionfield:false,
 
+      second_step:false,
+
       label_name:'',
       oddclass: false,
       evenclass: true,
@@ -110,7 +114,13 @@ export default {
       institution_code: "",
     };
   },
+  beforeMount(){
+    if (this.$cookies.get('access_token') == null) {
+      this.$router.push("/");
+    }
+  },
   mounted() {
+
     this.$axios.get("/api/school-list").then(response => {
       this.school_list = response.data;
     });
@@ -128,6 +138,10 @@ export default {
   },
   watch:{
     institution:function(){
+      if(this.institution != ''){
+        this.second_step = true;
+      }
+
       if(this.institution == 'other'){
         this.namefield = true;
         this.addressfield = true;
@@ -150,6 +164,16 @@ export default {
         this.label_name = "Occupation";
       }else{
         this.school_field = true;
+      }
+    },
+    name:function(){
+      if(this.name != ''){
+        this.second_step = true;
+      }
+    },
+    address:function(){
+      if(this.address != ''){
+        this.second_step = true;
       }
     }
   },
@@ -201,10 +225,22 @@ export default {
         }, 500);
       });
     },
+    
+    validateAsyncSecond: function() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (this.second_step != true) {
+            reject("Please enter additional information");
+          } else {
+            resolve(true);
+          }
+        }, 500);
+      });
+    },
+
     validateAsyncLast: function() {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          console.log(this.institution_code);
           if (this.institution_code == "") {
             reject("Enter your institution code");
           } else {

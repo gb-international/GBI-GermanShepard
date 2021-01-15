@@ -46,7 +46,7 @@ class ItineraryController extends Controller
         $destination = $request->destination;
         $tourtype = $request->tourtype;
         $noofday = $request->noofday;
-        if(count($source) > 1){ // Search on the basis of their title of the itinerary
+        if(count($source) > 1){ // Search on the basis of source of the itinerary
             $data = DB::table('itineraries')
                 ->where('noofdays',$noofday)
                 ->whereIn('source',$source)

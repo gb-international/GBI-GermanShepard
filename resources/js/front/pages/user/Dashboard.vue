@@ -241,12 +241,13 @@ export default {
     };
   },
 
-  
-  mounted() {
+  beforeMount(){
     const userdata = this.$cookies.get('user');
     if(userdata.status == 0){
       this.$router.push("/user-information");
     }
+  },
+  mounted() {
     this.checkLogin();
     this.upComingData();
   },
