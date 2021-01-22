@@ -128,6 +128,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -147,7 +151,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       // Create a new form instance
       itineraryData: "",
-      options: [],
+      users: [],
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         itinerary_id: "",
         price: "",
@@ -160,12 +164,7 @@ __webpack_require__.r(__webpack_exports__);
 
     this.form.itinerary_id = this.$route.params.id;
     axios.get("api/members/salesman").then(function (response) {
-      for (var i = 0; i < response.data.length; i++) {
-        _this.options.push({
-          value: response.data[i].name,
-          text: response.data[i].name
-        });
-      }
+      _this.users = response.data;
     });
   },
   methods: {
@@ -173,6 +172,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.form.post("/account/store").then(function (response) {
+        console.log(response);
+
         if (response.data == "error") {
           _this2.$swal.fire({
             title: "opps",
@@ -461,19 +462,57 @@ var render = function() {
                           _vm._v("Sales Dep")
                         ]),
                         _vm._v(" "),
-                        _c("model-select", {
-                          attrs: {
-                            options: _vm.options,
-                            placeholder: "Sales department"
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.salesdp_id,
+                                expression: "form.salesdp_id"
+                              }
+                            ],
+                            staticClass: "form-control select-field",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "salesdp_id",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
                           },
-                          model: {
-                            value: _vm.form.salesdp_id,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "salesdp_id", $$v)
-                            },
-                            expression: "form.salesdp_id"
-                          }
-                        }),
+                          [
+                            _c(
+                              "option",
+                              {
+                                attrs: { value: "", disabled: "", hidden: "" }
+                              },
+                              [_vm._v("Select Sales Man")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.users, function(data) {
+                              return _c(
+                                "option",
+                                { key: data.id, domProps: { value: data.id } },
+                                [_vm._v(_vm._s(data.name))]
+                              )
+                            })
+                          ],
+                          2
+                        ),
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "salesdp_id" }

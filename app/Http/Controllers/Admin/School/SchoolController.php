@@ -5,7 +5,6 @@ Purpose : Manage school
 
 */
 namespace App\Http\Controllers\Admin\School;
-use App\Http\Resources\Admin\SchoolCollection;
 use App\Model\School\School;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -27,7 +26,7 @@ class SchoolController extends Controller
     }
     public function index()
     {
-        return SchoolCollection::collection(School::all());
+        return response()->json(School::all());
     }
 
     /**

@@ -101,6 +101,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -261,20 +262,30 @@ var render = function() {
                               }
                             }
                           },
-                          _vm._l(_vm.bus_list, function(bus) {
-                            return _c(
+                          [
+                            _c(
                               "option",
-                              { key: bus.id, domProps: { value: bus.id } },
-                              [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(bus.company_name) +
-                                    "\n              "
-                                )
-                              ]
-                            )
-                          }),
-                          0
+                              {
+                                attrs: { value: "", disabled: "", hidden: "" }
+                              },
+                              [_vm._v("Select Bus")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.bus_list, function(bus) {
+                              return _c(
+                                "option",
+                                { key: bus.id, domProps: { value: bus.id } },
+                                [
+                                  _vm._v(
+                                    "\n                " +
+                                      _vm._s(bus.company_name) +
+                                      "\n              "
+                                  )
+                                ]
+                              )
+                            })
+                          ],
+                          2
                         ),
                         _vm._v(" "),
                         _c("has-error", {

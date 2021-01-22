@@ -129,6 +129,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -592,17 +593,31 @@ var render = function() {
                                         }
                                       }
                                     },
-                                    _vm._l(_vm.options, function(data) {
-                                      return _c(
+                                    [
+                                      _c(
                                         "option",
                                         {
-                                          key: data.id,
-                                          domProps: { value: data.id }
+                                          attrs: {
+                                            value: "",
+                                            disabled: "",
+                                            hidden: ""
+                                          }
                                         },
-                                        [_vm._v(_vm._s(data.name))]
-                                      )
-                                    }),
-                                    0
+                                        [_vm._v("Select Sightseeing")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.options, function(data) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: data.id,
+                                            domProps: { value: data.id }
+                                          },
+                                          [_vm._v(_vm._s(data.name))]
+                                        )
+                                      })
+                                    ],
+                                    2
                                   )
                                 ])
                               ]

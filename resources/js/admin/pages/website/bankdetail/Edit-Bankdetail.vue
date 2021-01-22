@@ -30,6 +30,7 @@
                 v-model="form.bank_name"
                 :class="{ 'is-invalid': form.errors.has('bank_name') }"
               >
+              <option value="" disabled hidden>Select Bank</option>
                 <option
                   v-for="bank in banknames"
                   :value="bank.name"
@@ -65,6 +66,7 @@
                 v-model="form.account_type"
                 :class="{ 'is-invalid': form.errors.has('account_type') }"
               >
+              <option value="" disabled hidden>Select Account Type</option>
                 <option v-for="type in account_type" :value="type" :key="type">
                   {{ type }}
                 </option>

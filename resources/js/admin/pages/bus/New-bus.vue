@@ -31,6 +31,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="seater">Seater </label>
               <select class="from-control select-field" v-model="form.seater">
+                <option value="" disabled hidden>Select Seater</option>
                 <option v-for="seat in seater" :value="seat" :key="seat.id">
                   {{ seat }}
                 </option>
@@ -46,6 +47,7 @@ to submit the data we are using a function.
                 class="from-control select-field"
                 v-model="form.seat_type"
               >
+              <option value="" disabled hidden>Select Seat Type</option>
                 <option v-for="seat in seat_type" :value="seat" :key="seat.id">
                   {{ seat }}
                 </option>

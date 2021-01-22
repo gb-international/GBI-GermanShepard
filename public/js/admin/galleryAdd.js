@@ -156,17 +156,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -178,7 +167,8 @@ __webpack_require__.r(__webpack_exports__);
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
     ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_1__["ModelSelect"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    FormButtons: _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -200,10 +190,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/school").then(function (response) {
-        for (var i = 0; i < response.data.data.length; i++) {
+        for (var i = 0; i < response.data.length; i++) {
           _this.schools.push({
-            value: response.data.data[i].id,
-            text: response.data.data[i].school_name
+            value: response.data[i].id,
+            text: response.data[i].school_name
           });
         }
       });
@@ -597,28 +587,9 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-2" }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-sm-4" },
-                    [_c("back-button", { attrs: { url: "/gallery" } })],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group text-center" },
-                      [_c("submit-button")],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-2" })
-                ])
-              ]
+                _c("form-buttons")
+              ],
+              1
             )
           ]
         },

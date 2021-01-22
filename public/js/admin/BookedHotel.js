@@ -155,6 +155,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -469,20 +470,33 @@ var render = function() {
                               }
                             }
                           },
-                          _vm._l(_vm.hotel_list, function(hotel) {
-                            return _c(
+                          [
+                            _c(
                               "option",
-                              { key: hotel.id, domProps: { value: hotel.id } },
-                              [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(hotel.name) +
-                                    "\n              "
-                                )
-                              ]
-                            )
-                          }),
-                          0
+                              {
+                                attrs: { value: "", disabled: "", hidden: "" }
+                              },
+                              [_vm._v("Select Hotel")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.hotel_list, function(hotel) {
+                              return _c(
+                                "option",
+                                {
+                                  key: hotel.id,
+                                  domProps: { value: hotel.id }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                " +
+                                      _vm._s(hotel.name) +
+                                      "\n              "
+                                  )
+                                ]
+                              )
+                            })
+                          ],
+                          2
                         ),
                         _vm._v(" "),
                         _c("has-error", {

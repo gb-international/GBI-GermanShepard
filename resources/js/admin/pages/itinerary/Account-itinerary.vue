@@ -8,7 +8,7 @@ This Template is for listing for the Itinerary using function to get the
 data from the api to display the data about the Itinerary from the backend .
 -->
 <template>
-  <list-layout addurl="/add-itinerary" buttontext="add itinerary">
+  <list-layout>
     <template #perpage>
       <b-form-group
         label="Per page"
@@ -49,6 +49,7 @@ data from the api to display the data about the Itinerary from the backend .
           <table-loader />
         </template>
         <template #cell(address)="data">
+          
           {{ data.item.title | readMore(50) }}
         </template>
 

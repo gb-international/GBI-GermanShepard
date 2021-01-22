@@ -138,7 +138,7 @@ export default {
   methods: {
     itineraryData() {
       axios.get("/api/itinerary").then((response) => {
-        this.data = response.data.data;
+        this.data = response.data;
         for (var i = 0; i < this.data.length; i++) {
           this.itinerary_list.push({
             id: this.data[i]["id"],

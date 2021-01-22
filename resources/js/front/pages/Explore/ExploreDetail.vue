@@ -6,7 +6,7 @@
   <div id="explorelist">
     <section class="banner-block">
       <img
-        class="top-img"
+        
         :src="`/uploadimage/${itineraryData.detail_photo}`"
         loading="lazy"
         alt="itinerary"

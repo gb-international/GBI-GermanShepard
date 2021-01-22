@@ -193,7 +193,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/itinerary").then(function (response) {
-        _this.data = response.data.data;
+        _this.data = response.data;
 
         for (var i = 0; i < _this.data.length; i++) {
           _this.itinerary_list.push({

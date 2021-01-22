@@ -20,15 +20,7 @@ import JoinOurTeam from '@/front/pages/AboutUs/JoinOurTeam.vue'
 import ImageGallery from '@/front/pages/AboutUs/ImageGallery.vue'
 import ExploreList from '@/front/pages/Explore/ExploreList.vue'
 import ExploreDetail from '@/front/pages/Explore/ExploreDetail.vue'
-import UserInformation from '@/front/pages/user/User-information.vue'
-import Dashboard from '@/front/pages/user/Dashboard.vue'
-import ProfileEdit from '@/front/pages/user/Profile_edit.vue'
-import UpdatePassword from '@/front/pages/user/UpdatePassword.vue'
-import ViewGroup from '@/front/pages/user/group/GroupView.vue'
-import TourDetail from '@/front/pages/user/tour/Tour-detail.vue'
-import TourList from '@/front/pages/user/tour/Tour-list.vue'
-import TourPayment from '@/front/pages/user/tour/Tour-payment.vue'
-import PaymentMode from '@/front/pages/user/tour/Payment-mode.vue'
+
 import Error404 from '@/front/pages/error/404.vue'
 import PaymentCancel from '@/front/pages/extra/PaymentCancel.vue'
 import PaymentSuccess from '@/front/pages/extra/PaymentSuccess.vue'
@@ -38,6 +30,18 @@ import Category from '@/front/pages/Blog/Category.vue'
 import Domestic from '@/front/pages/gallery/Domestic.vue'
 import International from '@/front/pages/gallery/International.vue'
 import ImageList from '@/front/pages/gallery/ImageList.vue'
+
+
+import UserInformation from '@/front/pages/user/User-information.vue'
+import Dashboard from '@/front/pages/user/Dashboard.vue'
+import ProfileEdit from '@/front/pages/user/Profile_edit.vue'
+import UpdatePassword from '@/front/pages/user/UpdatePassword.vue'
+import ViewGroup from '@/front/pages/user/group/GroupView.vue'
+import TourDetail from '@/front/pages/user/tour/Tour-detail.vue'
+import TourList from '@/front/pages/user/tour/Tour-list.vue'
+import TourPayment from '@/front/pages/user/tour/Tour-payment.vue'
+import PaymentMode from '@/front/pages/user/tour/Payment-mode.vue'
+import Billing from '@/front/pages/user/payment/BillingInformation.vue'
 
 export function createRouter() {
     return new Router({
@@ -72,6 +76,7 @@ export function createRouter() {
         { path: '/group-member/:id', component: ViewGroup },
         { path: '/tour-payment/:id', component: TourPayment },
         { path: '/payment-mode/:id', component: PaymentMode },
+        { path: '/payment-billing', component: Billing },
         { path: '/payment-cancel', component: PaymentCancel },
         { path: '/payment-success', component: PaymentSuccess },
 

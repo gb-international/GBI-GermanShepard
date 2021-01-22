@@ -158,8 +158,8 @@ var render = function() {
         }
       },
       [
-        _c("option", { attrs: { disabled: "" } }, [
-          _vm._v("Please Select City")
+        _c("option", { attrs: { value: "", disabled: "", hidden: "" } }, [
+          _vm._v("Select City")
         ]),
         _vm._v(" "),
         _vm._l(_vm.list, function(city) {

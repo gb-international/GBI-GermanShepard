@@ -21,6 +21,7 @@ to submit the data we are using a function.
                 v-model="form.state_name"
                 @change="slugCreate($event)"
               >
+              <option value="" disabled hidden>Select State</option>
                 <option
                   v-for="state in state_list"
                   :value="state.name"

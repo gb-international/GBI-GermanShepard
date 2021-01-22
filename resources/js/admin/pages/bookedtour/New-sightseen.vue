@@ -27,6 +27,7 @@ data from the api to display the data about the Hotel from the backend .
                   v-model="total_row[index][i].sightseeing_id"
                   placeholder="From"
                 >
+                <option value="" disabled hidden>Select Sightseeing</option>
                   <option v-for="data in options" :value="data.id" :key="data.id">{{data.name }}</option>
                 </select>
 

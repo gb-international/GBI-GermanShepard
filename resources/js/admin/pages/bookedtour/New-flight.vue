@@ -19,6 +19,7 @@ data from the api to display the data about the Hotel from the backend .
                 class="form-control select-field"
                 v-model="form.flight_id"
               >
+              <option value="" disabled hidden>Select Airline</option>
                 <option
                   v-for="flight in flight_list"
                   :value="flight.id"

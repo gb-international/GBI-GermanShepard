@@ -18,6 +18,7 @@ data from the api to display the data about the Hotel from the backend .
                 class="form-control select-field"
                 v-model.lazy="escort_id"
               >
+              <option value="" disabled hidden>Select Tour Manager</option>
                 <option
                   v-for="data in escort_list"
                   :key="data.id"

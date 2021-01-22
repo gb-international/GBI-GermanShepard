@@ -156,6 +156,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -491,20 +493,30 @@ var render = function() {
                               }
                             }
                           },
-                          _vm._l(_vm.seater, function(seat) {
-                            return _c(
+                          [
+                            _c(
                               "option",
-                              { key: seat.id, domProps: { value: seat } },
-                              [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(seat) +
-                                    "\n              "
-                                )
-                              ]
-                            )
-                          }),
-                          0
+                              {
+                                attrs: { value: "", disabled: "", hidden: "" }
+                              },
+                              [_vm._v("Select Seater Type")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.seater, function(seat) {
+                              return _c(
+                                "option",
+                                { key: seat.id, domProps: { value: seat } },
+                                [
+                                  _vm._v(
+                                    "\n                " +
+                                      _vm._s(seat) +
+                                      "\n              "
+                                  )
+                                ]
+                              )
+                            })
+                          ],
+                          2
                         ),
                         _vm._v(" "),
                         _c("has-error", {
@@ -556,20 +568,30 @@ var render = function() {
                               }
                             }
                           },
-                          _vm._l(_vm.seat_type, function(seat) {
-                            return _c(
+                          [
+                            _c(
                               "option",
-                              { key: seat.id, domProps: { value: seat } },
-                              [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(seat) +
-                                    "\n              "
-                                )
-                              ]
-                            )
-                          }),
-                          0
+                              {
+                                attrs: { value: "", disabled: "", hidden: "" }
+                              },
+                              [_vm._v("Select Seat Type")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.seat_type, function(seat) {
+                              return _c(
+                                "option",
+                                { key: seat.id, domProps: { value: seat } },
+                                [
+                                  _vm._v(
+                                    "\n                " +
+                                      _vm._s(seat) +
+                                      "\n              "
+                                  )
+                                ]
+                              )
+                            })
+                          ],
+                          2
                         ),
                         _vm._v(" "),
                         _c("has-error", {

@@ -11,7 +11,6 @@ use App\Model\Itinerary\Itineraryday;
 use App\Model\Tour\Tourtype;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Admin\ItineraryCollection;
 use App\Traits\ImageTrait;
 
 class ItineraryController extends Controller
@@ -33,7 +32,7 @@ class ItineraryController extends Controller
     public function index()
     {
         // return Itinerary::all();
-        return ItineraryCollection::collection(Itinerary::all());
+       return response()->json(Itinerary::all());
     }
 
     /**
@@ -54,6 +53,7 @@ class ItineraryController extends Controller
      */
     public function store(Request $request)
     {
+        
         $data = $this->validateItinerary($request);
         // linux and windows file staructure image path error and uploadig error.
         $data['photo']=$this->thumbnail($request->photo,'/uploadimage/',$request->photo_alt);

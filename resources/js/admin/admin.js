@@ -14,6 +14,7 @@ import { Form, HasError, AlertError } from 'vform'
 import DisableAutocomplete from 'vue-disable-autocomplete';
 import { BootstrapVue,TablePlugin } from 'bootstrap-vue'
 
+
 Vue.use(VueSession);
 Vue.mixin(Permissions);
 Vue.config.productionTip = false;
@@ -42,6 +43,7 @@ const options = {
 }
 Vue.use(VueHtmlToPaper, options);
 const store = new createStore();
+
 
 Vue.component('admin-main', require('@/admin/pages/AdminMaster.vue').default);
 Vue.component(HasError.name, HasError)

@@ -91,6 +91,7 @@ to submit the data we are using a function.
                 v-model="form.status"
                 :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
               >
+                <option disabled value="">Select Status</option>
                 <option value="0">Draft</option>
                 <option value="1">Publish</option>
               </select>
@@ -103,7 +104,8 @@ to submit the data we are using a function.
               <label for="categories">Category</label>
 
                 <select class="form-control select-field" v-model="form.category_id">
-                <option v-for="cat in categories" :key="cat.id" :value="cat.id">{{ cat.title }}</option>
+                  <option disabled value="" hidden>Select Category</option>
+                  <option v-for="cat in categories" :key="cat.id" :value="cat.id">{{ cat.title }}</option>
               </select>
 
               <has-error :form="form" field="categories"></has-error>

@@ -14,6 +14,7 @@ to submit the data we are using a function.
               <div class="form-group">
                 <label for="state_name">State</label>
                 <select class="form-control select-field" v-model="form.state_name" @change="slugCreate($event)">
+                  <option value="" disabled hidden>Select State</option>
                   <option v-for="state in state_list" :value="state.name" :key="state.id">{{ state.name }}</option>
                 </select>
                   <has-error :form="form" field="state_name"></has-error>

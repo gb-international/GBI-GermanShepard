@@ -10,12 +10,21 @@ use App\Model\Tour\Trackpayment;
 use App\Model\Tour\Userpayment;
 use App\User;
 use App\Helpers\SendSms;
+use App\Helpers\Crypto;
 use App\Jobs\PaymentSuccessJob;
 
 class PaymentController extends Controller
 {
-    public function payment(Request $request){
-      
+
+  public function test(Request $request){
+    $requests = $request->all();
+    unset($requests['_token']);
+    $requests['user_id'] = 2;
+    $order = Indipay::prepare($requests);
+    $result = Indipay::process($order);
+    return $result;
+  }
+    public function payment(Request $request){      
       $check = Userpayment::where(['user_id'=>$request->user_id,'tour_code'=>$request->tour_id])->first();
       
       if($check){
@@ -55,12 +64,12 @@ class PaymentController extends Controller
         ];
         
       $order = Indipay::prepare($parameters);
-      // dd($order);
       $result = Indipay::process($order);
       return $result;
     }
 
     public function cancel(Request $request){
+      dd($request);
       $track = Trackpayment::where('id',(int)$request->orderNo)->first();
       $track->delete();
       header("Location: /payment-cancel");
@@ -68,8 +77,9 @@ class PaymentController extends Controller
     }
 
     public function response(Request $request){
-        $response = Indipay::response($request);
-        $track = Trackpayment::where('id',$response['order_id'])->first();
+      $response = Indipay::response($request);
+      dd($response);
+      $track = Trackpayment::where('id',$response['order_id'])->first();
         
         Userpayment::create([
           'user_id' => $track->user_id,

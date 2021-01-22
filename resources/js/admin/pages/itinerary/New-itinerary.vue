@@ -16,11 +16,16 @@ to submit the data we are using a function.
             <!-- Source for the ititnerary  -->
             <div class="form-group">
               <label for="sourceId">Source</label>
-              <model-select
+              <select class="form-control select-field" v-model="form.source">
+                <option value="" disabled hidden>Select Source</option>
+                <option v-for="data in cities" :value="data.name" :key="data.id">{{data.name }}</option>
+              </select>
+
+              <!-- <model-select
                 :options="options"
                 v-model="form.source"
                 placeholder="From"
-              ></model-select>
+              ></model-select> -->
               <has-error :form="form" field="source"></has-error>
             </div>
           </div>
@@ -28,11 +33,15 @@ to submit the data we are using a function.
             <!-- Desctiantion for the itinerary -->
             <div class="form-group">
               <label for="destinationId">Destination</label>
-              <model-select
+              <select class="form-control select-field" v-model="form.destination">
+                <option value="" disabled hidden>Select Source</option>
+                <option v-for="data in cities" :value="data.name" :key="data.id">{{data.name }}</option>
+              </select>
+              <!-- <model-select
                 :options="options"
                 v-model="form.destination"
                 placeholder="To"
-              ></model-select>
+              ></model-select> -->
               <has-error :form="form" field="destination"></has-error>
             </div>
           </div>
@@ -382,19 +391,27 @@ to submit the data we are using a function.
           <div class="row">
             <div class="col-sm-6">
               <label>Source</label>
-              <model-select
+              <select class="form-control select-field" v-model="data.day_source">
+                <option value="" disabled hidden>Select Source</option>
+                <option v-for="data in cities" :value="data.name" :key="data.id">{{data.name }}</option>
+              </select>
+              <!-- <model-select
                 :options="options"
                 v-model="data.day_source"
                 placeholder="From"
-              ></model-select>
+              ></model-select> -->
             </div>
             <div class="col-sm-6">
               <label>Destination</label>
-              <model-select
+              <select class="form-control select-field" v-model="data.day_destination">
+                <option value="" disabled hidden>Select Source</option>
+                <option v-for="data in cities" :value="data.name" :key="data.id">{{data.name }}</option>
+              </select>
+              <!-- <model-select
                 :options="options"
                 v-model="data.day_destination"
                 placeholder="To"
-              ></model-select>
+              ></model-select> -->
             </div>
 
             <div class="col-sm-12">
@@ -436,12 +453,13 @@ export default {
   data() {
     return {
       options: [],
+      cities:[],
       tour_type_list: [],
       selected: null,
 
       form: new Form({
-        source: { value: "", text: "" },
-        destination: { value: "", text: "" },
+        source: '',
+        destination:'',
         noofdays: 1,
         title: "",
         description: "",
@@ -458,8 +476,8 @@ export default {
         itinerarydays: [
           {
             day: 1,
-            day_source: { value: "", text: "" },
-            day_destination: { value: "", text: "" },
+            day_source: '',
+            day_destination: '',
             day_description: "",
           },
         ],
@@ -474,12 +492,13 @@ export default {
   methods: {
     cityList() {
       axios.get("/api/city").then((response) => {
-        for (var i = 0; i < response.data.data.length; i++) {
-          this.options.push({
-            value: response.data.data[i].name,
-            text: response.data.data[i].name,
-          });
-        }
+        this.cities = response.data.data;
+        // for (var i = 0; i < response.data.data.length; i++) {
+        //   this.options.push({
+        //     value: response.data.data[i].name,
+        //     text: response.data.data[i].name,
+        //   });
+        // }
       });
     },
     tourTypeData() {
@@ -538,19 +557,16 @@ export default {
           });
           return false;
         }
-        this.form.itinerarydays[i]["day_source"] = this.form.itinerarydays[i][
-          "day_source"
-        ].value;
-        this.form.itinerarydays[i]["day_destination"] = this.form.itinerarydays[
-          i
-        ]["day_destination"].value;
+        // this.form.itinerarydays[i]["day_source"] = this.form.itinerarydays[i][
+        //   "day_source"
+        // ].value;
+        // this.form.itinerarydays[i]["day_destination"] = this.form.itinerarydays[
+        //   i
+        // ]["day_destination"].value;
         //
       }
-      this.form.source = this.form["source"].value;
-      this.form.destination = this.form["destination"].value;
-
-      console.log(this.form);
-
+      // this.form.source = this.form["source"].value;
+      // this.form.destination = this.form["destination"].value;
       // add noofdays fields data to form data
       // Submit form
       this.form
@@ -570,8 +586,8 @@ export default {
       var index = this.form.itinerarydays.length;
       this.form.itinerarydays.push({
         day: index + 1,
-        day_source: { value: "", text: "" },
-        day_destination: { value: "", text: "" },
+        day_source: '',
+        day_destination: '',
         day_description: "",
       });
     },

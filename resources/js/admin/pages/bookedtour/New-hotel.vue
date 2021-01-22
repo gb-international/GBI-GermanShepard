@@ -15,6 +15,7 @@ data from the api to display the data about the Hotel from the backend .
             <div class="form-group">
               <label for="name">Hotel Name</label>
               <select class="form-control select-field" v-model="form.hotel_id">
+                <option value="" disabled hidden>Select Hotel</option>
                 <option
                   v-for="hotel in hotel_list"
                   :value="hotel.id"

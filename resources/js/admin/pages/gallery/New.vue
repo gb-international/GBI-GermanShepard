@@ -68,18 +68,7 @@ to submit the data we are using a function.
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-sm-2"></div>
-          <div class="col-sm-4">
-            <back-button url="/gallery"></back-button>
-          </div>
-          <div class="col-sm-4">
-            <div class="form-group text-center">
-              <submit-button />
-            </div>
-          </div>
-          <div class="col-sm-2"></div>
-        </div>
+        <form-buttons />
       </form>
     </template>
   </form-layout>
@@ -99,6 +88,7 @@ export default {
     ModelSelect,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
+    FormButtons,
   },
   data() {
     return {
@@ -118,10 +108,10 @@ export default {
   methods: {
     getSchools() {
       axios.get("/api/school").then((response) => {
-        for (var i = 0; i < response.data.data.length; i++) {
+        for (var i = 0; i < response.data.length; i++) {
           this.schools.push({
-            value: response.data.data[i].id,
-            text: response.data.data[i].school_name,
+            value: response.data[i].id,
+            text: response.data[i].school_name
           });
         }
       });

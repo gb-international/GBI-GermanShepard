@@ -43,7 +43,8 @@ trait ImageTrait {
         $sub = substr($single,0,$strpos);
         $ex = explode('/',$sub)[1];
         $name = Str::slug($imagename).time().rand(100,1000000).".".$ex;
-        $img = Image::make($single)->resize(210, 120);
+        $img = Image::make($single);
+        // $img = Image::make($single)->resize(210, 120);
         $upload_path = public_path().$folder;
         $img->save($upload_path.$name);
         return $name;
@@ -54,7 +55,8 @@ trait ImageTrait {
         $sub = substr($single,0,$strpos);
         $ex = explode('/',$sub)[1];
         $name = Str::slug($imagename).time().rand(100,1000000).".".$ex;
-        $img = Image::make($single)->resize(1140, 214);
+        $img = Image::make($single);
+        // $img = Image::make($single)->resize(1140, 214);
         $upload_path = public_path().$folder;
         $img->save($upload_path.$name);
         return $name;

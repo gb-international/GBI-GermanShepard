@@ -43,54 +43,6 @@ to submit the data we are using a function.
 
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="itinerary_id">Itinerary</label>
-
-              <select
-                class="form-control select-field"
-                v-model="form.itinerary_id"
-              >
-                <option
-                  v-for="data in itinerary_list"
-                  :value="data.id"
-                  :key="data.id"
-                >
-                  {{ data.title }}
-                </option>
-              </select>
-              <div class="error" v-if="form.errors.has('itinerary_id')">
-                <label class="danger text-danger">{{
-                  form.errors.get("itinerary_id")
-                }}</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="itinerary_id">School</label>
-
-              <select
-                class="form-control select-field"
-                v-model="form.school_id"
-              >
-                <option
-                  v-for="data in school_list"
-                  :value="data.id"
-                  :key="data.id"
-                >
-                  {{ data.school_name }}
-                </option>
-              </select>
-              <div class="error" v-if="form.errors.has('school_id')">
-                <label class="danger text-danger">{{
-                  form.errors.get("school_id")
-                }}</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="form-group">
               <label for="no_of_person">No. Of Person</label>
               <input
                 type="number"
@@ -102,6 +54,36 @@ to submit the data we are using a function.
               <has-error :form="form" field="no_of_person"></has-error>
             </div>
           </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="itinerary_id">Itinerary</label>
+
+              <dropdown-filter class="mb-2" :itemList="itinerary_list" @update:option="itineraryUpdate" :selectedId="form.itinerary_id"/>
+
+              <div class="error" v-if="form.errors.has('itinerary_id')">
+                <label class="danger text-danger">{{
+                  form.errors.get("itinerary_id")
+                }}</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="itinerary_id">School</label>
+
+              <dropdown-filter class="mb-2" :itemList="school_list" @update:option="schoolUpdate" :selectedId="form.school_id"/>
+
+              <div class="error" v-if="form.errors.has('school_id')">
+                <label class="danger text-danger">{{
+                  form.errors.get("school_id")
+                }}</label>
+              </div>
+            </div>
+          </div>
+
+          
 
           <div class="col-sm-4">
             <div class="form-group">
@@ -156,6 +138,7 @@ to submit the data we are using a function.
 import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
+import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 export default {
   name: "NewTour",
   components: {
@@ -163,6 +146,7 @@ export default {
     "has-error": HasError,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
+    "dropdown-filter": DropdownFilter,
   },
   data() {
     return {
@@ -195,7 +179,12 @@ export default {
     schoolData() {
       axios.get(`/api/school`).then((response) => {
         if (response.data) {
-          this.school_list = response.data.data;
+          for(let i = 0;i<response.data.length;i++){
+            this.school_list.push({
+              name:response.data[i].school_name,
+              id:response.data[i].id
+            });
+          }
         }
       });
     },
@@ -203,7 +192,12 @@ export default {
     itineraryData() {
       axios.get(`/api/itinerary`).then((response) => {
         if (response.data) {
-          this.itinerary_list = response.data.data;
+          for(let i = 0;i<response.data.length;i++){
+            this.itinerary_list.push({
+              name:response.data[i].title,
+              id:response.data[i].id
+            });
+          }
         }
       });
     },
@@ -212,13 +206,20 @@ export default {
       this.form
         .put(`/api/tour/${this.$route.params.id}`)
         .then((response) => {
-          this.$router.push(`/tours/`);
+          // this.$router.push(`/tours/`);
           this.$toast.fire({
             icon: "success",
             title: "Successfully Updated",
           });
         })
         .catch(() => {});
+    },
+    schoolUpdate(value){
+      this.form.school_id = value.id;
+    },
+    
+    itineraryUpdate(value){
+      this.form.itinerary_id = value.id;
     },
   },
 };

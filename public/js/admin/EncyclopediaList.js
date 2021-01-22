@@ -348,6 +348,7 @@ var render = function() {
                     fn: function(data) {
                       return [
                         _c("img", {
+                          staticClass: "w-60",
                           attrs: { src: _vm.getImgUrl(data.item.thumbnail) }
                         })
                       ]
@@ -358,6 +359,7 @@ var render = function() {
                     fn: function(data) {
                       return [
                         _c("img", {
+                          staticClass: "w-60",
                           attrs: { src: _vm.getImgUrl(data.item.banner_image) }
                         })
                       ]

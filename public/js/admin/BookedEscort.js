@@ -130,6 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -449,20 +450,28 @@ var render = function() {
                             }
                           }
                         },
-                        _vm._l(_vm.escort_list, function(data) {
-                          return _c(
+                        [
+                          _c(
                             "option",
-                            { key: data.id, domProps: { value: data.id } },
-                            [
-                              _vm._v(
-                                "\n                " +
-                                  _vm._s(data.name) +
-                                  "\n              "
-                              )
-                            ]
-                          )
-                        }),
-                        0
+                            { attrs: { value: "", disabled: "", hidden: "" } },
+                            [_vm._v("Select Tour Manager")]
+                          ),
+                          _vm._v(" "),
+                          _vm._l(_vm.escort_list, function(data) {
+                            return _c(
+                              "option",
+                              { key: data.id, domProps: { value: data.id } },
+                              [
+                                _vm._v(
+                                  "\n                " +
+                                    _vm._s(data.name) +
+                                    "\n              "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
                       )
                     ])
                   ]),

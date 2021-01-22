@@ -143,7 +143,7 @@ Route::namespace('Admin')->group(function (){
 	});
 	Route::namespace('Account')->group(function(){
 		Route::get('/accounts/all/{size}','AccountController@all');
-		Route::get('/accounts','AccountController@index');
+		Route::resource('/accounts','AccountController');
 	});
 
 	Route::namespace('Encyclopedia')->group(function(){

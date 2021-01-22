@@ -67,7 +67,7 @@ to submit the data we are using a function.
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <label for="mode_of_transport">Tour category</label><br />
+              <label for="mode_of_transport">Itineraries</label><br />
 
               <multiselect
                 v-model="form.itinerary"
@@ -141,7 +141,7 @@ export default {
   methods: {
     itineraryData() {
       axios.get("/api/itinerary").then((response) => {
-        this.data = response.data.data;
+        this.data = response.data;
         for (var i = 0; i < this.data.length; i++) {
           this.itinerary_list.push({
             id: this.data[i]["id"],

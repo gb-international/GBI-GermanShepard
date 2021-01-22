@@ -155,6 +155,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -326,7 +327,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("list-layout", {
-    attrs: { addurl: "/add-itinerary", buttontext: "add itinerary" },
     scopedSlots: _vm._u(
       [
         {
@@ -416,7 +416,7 @@ var render = function() {
                     fn: function(data) {
                       return [
                         _vm._v(
-                          "\n        " +
+                          "\n        \n        " +
                             _vm._s(_vm._f("readMore")(data.item.title, 50)) +
                             "\n      "
                         )

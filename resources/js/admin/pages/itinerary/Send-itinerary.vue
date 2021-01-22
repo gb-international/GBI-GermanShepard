@@ -48,11 +48,15 @@ to submit the data we are using a function.
           <div class="col-sm-6">
             <div class="form-group">
               <label for="Location">Sales Dep</label>
-              <model-select
+              <select class="form-control select-field" v-model="form.salesdp_id">
+                <option value="" disabled hidden>Select Sales Man</option>
+                <option v-for="data in users" :value="data.id" :key="data.id">{{data.name }}</option>
+              </select>
+              <!-- <model-select
                 :options="options"
                 v-model="form.salesdp_id"
                 placeholder="Sales department"
-              ></model-select>
+              ></model-select> -->
               <has-error :form="form" field="salesdp_id"></has-error>
             </div>
           </div>
@@ -95,7 +99,7 @@ export default {
     return {
       // Create a new form instance
       itineraryData: "",
-      options: [],
+      users: [],
       form: new Form({
         itinerary_id: "",
         price: "",
@@ -106,12 +110,7 @@ export default {
   created() {
     this.form.itinerary_id = this.$route.params.id;
     axios.get(`api/members/salesman`).then((response) => {
-      for (var i = 0; i < response.data.length; i++) {
-        this.options.push({
-          value: response.data[i].name,
-          text: response.data[i].name,
-        });
-      }
+      this.users = response.data;
     });
   },
 
@@ -120,6 +119,7 @@ export default {
       this.form
         .post("/account/store")
         .then((response) => {
+          console.log(response);
           if (response.data == "error") {
             this.$swal.fire({
               title: "opps",

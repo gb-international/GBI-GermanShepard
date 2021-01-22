@@ -21,7 +21,7 @@ to submit the data we are using a function.
                 :class="{ 'is-invalid': form.errors.has('category') }"
                 v-model="form.category"
               >
-                <option default="default" value="">Select Category</option>
+                <option default="default" value="" hidden>Select Category</option>
                 <option value="domestic">Domestic</option>
                 <option value="international">International</option>
               </select>

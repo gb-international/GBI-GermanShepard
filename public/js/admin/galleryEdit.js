@@ -528,7 +528,13 @@ var render = function() {
                           [
                             _c(
                               "option",
-                              { attrs: { default: "default", value: "" } },
+                              {
+                                attrs: {
+                                  default: "default",
+                                  value: "",
+                                  hidden: ""
+                                }
+                              },
                               [_vm._v("Select Category")]
                             ),
                             _vm._v(" "),

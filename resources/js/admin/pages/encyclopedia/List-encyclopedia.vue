@@ -45,11 +45,11 @@ data from the api to display the data about the encyclopedia from the backend .
           <table-loader />
         </template>
         <template #cell(thumbnail)="data">
-          <img :src="getImgUrl(data.item.thumbnail)" />
+          <img :src="getImgUrl(data.item.thumbnail)" class="w-60" />
         </template>
         
         <template #cell(banner_image)="data">
-          <img :src="getImgUrl(data.item.banner_image)" />
+          <img :src="getImgUrl(data.item.banner_image)" class="w-60" />
         </template>
 
         <template #cell(action)="data">

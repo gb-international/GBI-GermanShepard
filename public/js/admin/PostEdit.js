@@ -254,6 +254,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -867,6 +869,14 @@ var render = function() {
                             }
                           },
                           [
+                            _c(
+                              "option",
+                              {
+                                attrs: { disabled: "", value: "", hidden: "" }
+                              },
+                              [_vm._v("Select Status")]
+                            ),
+                            _vm._v(" "),
                             _c("option", { attrs: { value: "0" } }, [
                               _vm._v("Draft")
                             ]),
@@ -926,20 +936,28 @@ var render = function() {
                               }
                             }
                           },
-                          _vm._l(_vm.categories, function(cat) {
-                            return _c(
+                          [
+                            _c(
                               "option",
-                              { key: cat.id, domProps: { value: cat.id } },
-                              [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(cat.title) +
-                                    "\n              "
-                                )
-                              ]
-                            )
-                          }),
-                          0
+                              { attrs: { disabled: "", value: "" } },
+                              [_vm._v("Select Category")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.categories, function(cat) {
+                              return _c(
+                                "option",
+                                { key: cat.id, domProps: { value: cat.id } },
+                                [
+                                  _vm._v(
+                                    "\n                " +
+                                      _vm._s(cat.title) +
+                                      "\n              "
+                                  )
+                                ]
+                              )
+                            })
+                          ],
+                          2
                         ),
                         _vm._v(" "),
                         _c("has-error", {
