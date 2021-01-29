@@ -21,7 +21,7 @@ use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
 use App\Helpers\SendSms;
 use App\Jobs\ChangePasswordJob;
-
+use App\Rules\EmailValidate;
 
 
 class AuthController extends Controller{
@@ -115,7 +115,7 @@ class AuthController extends Controller{
     { 
         $validator = Validator::make($request->all(), [ 
             'name' => 'required', 
-            'email' => 'required|email', 
+            'email' => ['required','email',new EmailValidate],
             'password' => 'required', 
             'c_password' => 'required|same:password', 
         ]);

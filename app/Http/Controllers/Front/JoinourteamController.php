@@ -22,19 +22,20 @@ use App\Jobs\ContactUsJob;
 use App\Jobs\ContactUsUserJob;
 use App\Jobs\JoinOurTeamJob;
 use App\Jobs\JoinOurTeamUserJob;
+use App\Rules\EmailValidate;
 
 class JoinourteamController extends Controller
 {
     public function resumeSend(Request $request)
     {
     	$this->validate($request, [
-    		'firstname' => 'required',
-    		'lastname' => 'required',
-    		'email' => 'required|email',
-    		'contactno' => 'required|numeric|min:10',
+    		'firstname' => 'required|alpha',
+    		'lastname' => 'required|alpha',
+    		'email' => ['required','email',new EmailValidate],
+    		'contactno' => 'required|numeric|regex:/^[0-9\-\+]{9,10}$/ix',
     		'address' => 'required',
-    		'state' => 'required',
-    		'city' => 'required',
+    		'state' => 'required|regex:/^[a-zA-Z ]*$/',
+    		'city' => 'required|regex:/^[a-zA-Z ]*$/',
     		'zipcode' => 'required|numeric',
     		'postvancy' => 'required',
     		'resume' => 'required',
@@ -105,10 +106,10 @@ class JoinourteamController extends Controller
     public function contactUs(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email',
-            'mobile' => 'required|numeric|min:10',
-            'messagecon' => 'required',
+            'name' => 'required|regex:/^[a-zA-Z ]*$/',
+            'email' => ['required','email',new EmailValidate],
+            'mobile' => 'required|numeric|regex:/^[0-9\-\+]{9,10}$/ix',
+            'messagecon' => 'required|min:3',
         ]);
 
         $data = array(

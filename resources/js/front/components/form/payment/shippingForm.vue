@@ -4,13 +4,13 @@
             <div class="col-sm-6">
                 <div class="form-group m-1">
                     <label for="name">Shipping Name</label>
-                    <input type="text" class="form-control" v-model="form.name">
+                    <input type="text" class="form-control" v-model="form.delivery_name">
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group m-1">
                     <label for="address">Shipping Address</label>
-                    <input type="text" class="form-control" v-model="form.address">
+                    <input type="text" class="form-control" v-model="form.delivery_address">
                 </div>
             </div>
         </div>
@@ -19,20 +19,20 @@
             <div class="col-sm-4">
                 <div class="form-group m-1">
                     <label for="city">Shipping City</label>
-                    <input type="text" class="form-control" v-model="form.city">
+                    <input type="text" class="form-control" v-model="form.delivery_city">
                 </div>
             </div>
             
             <div class="col-sm-4">
                 <div class="form-group m-1">
                     <label for="state">Shipping State</label>
-                    <input type="text" class="form-control" v-model="form.state">
+                    <input type="text" class="form-control" v-model="form.delivery_state">
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group m-1">
                     <label for="zipcode">Shipping Zip Code</label>
-                    <input type="number" class="form-control" v-model="form.zipcode">
+                    <input type="number" class="form-control" v-model="form.delivery_zip">
                 </div>
             </div>
 
@@ -41,7 +41,7 @@
              <div class="col-sm-4">
                 <div class="form-group m-1">
                     <label for="country">Shipping Country</label>
-                    <input type="text" class="form-control" v-model="form.country">
+                    <input type="text" class="form-control" v-model="form.delivery_country">
                 </div>
             </div>
         </div>
@@ -50,14 +50,14 @@
              <div class="col-sm-6">
                 <div class="form-group m-1">
                     <label for="phone_no">Phone Number</label>
-                    <input type="number" class="form-control" v-model="form.phone_no">
+                    <input type="number" class="form-control" v-model="form.delivery_tel">
                 </div>
             </div>
 
              <div class="col-sm-6">
                 <div class="form-group m-1">
                     <label for="email">Shipping Email</label>
-                    <input type="email" class="form-control" v-model="form.email">
+                    <input type="email" class="form-control" v-model="form.delivery_email">
                 </div>
             </div>
         </div>
@@ -69,26 +69,26 @@ export default {
     data(){
         return{
             form:{
-                name:'',
-                address:'',
-                city:'',
-                state:'',
-                zipcode:'',
-                country:'',
-                phone_no:'',
-                email:''
+                delivery_name:'',
+                delivery_address:'',
+                delivery_city:'',
+                delivery_state:'',
+                delivery_zip:'',
+                delivery_country:'',
+                delivery_tel:'',
+                delivery_email:''
             }
         }
     },
     watch:{
-        'form.name':function(){ this.ShippingFormChanged(); },
-        'form.address':function(){ this.ShippingFormChanged(); },
-        'form.city':function(){ this.ShippingFormChanged(); },
-        'form.state':function(){ this.ShippingFormChanged(); },
-        'form.zipcode':function(){ this.ShippingFormChanged(); },
-        'form.country':function(){ this.ShippingFormChanged(); },
-        'form.phone_no':function(){ this.ShippingFormChanged(); },
-        'form.email':function(){ this.ShippingFormChanged(); }
+        'form.delivery_name':function(){ this.ShippingFormChanged(); },
+        'form.delivery_address':function(){ this.ShippingFormChanged(); },
+        'form.delivery_city':function(){ this.ShippingFormChanged(); },
+        'form.delivery_state':function(){ this.ShippingFormChanged(); },
+        'form.delivery_zip':function(){ this.ShippingFormChanged(); },
+        'form.delivery_country':function(){ this.ShippingFormChanged(); },
+        'form.delivery_tel':function(){ this.ShippingFormChanged(); },
+        'form.delivery_email':function(){ this.ShippingFormChanged(); }
     },
     methods:{
         ShippingFormChanged(){

@@ -29,9 +29,8 @@ class SchoolbankdetailController extends Controller
             'added_by' => 'teacher'
             ])
             ->with('schoolbankdetail')
-            ->firstOrFail();
-        return $bank->schoolbankdetail; 
-               
+            ->first();
+        return $bank->schoolbankdetail;
     }
 
     public function store(Request $request){

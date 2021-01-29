@@ -64,6 +64,8 @@ Route::namespace('Front')->group(function(){
 		Route::post('/tour-bankdetail-store', 'SchoolbankdetailController@store');
 		Route::post('/tour-submit-payment', 'UserpaymentController@store');
 		Route::post('/tour-payment-status', 'UserpaymentController@tourPayStatus');
+		// payment by ccavenue
+		Route::post('/user-tour-payment','PaymentController@payment');
 		// Comments
 		Route::post('/encyclopedia-comments','EncyclopediaController@PostComment');
 		Route::post('/booking','FrontbookingController@booking');

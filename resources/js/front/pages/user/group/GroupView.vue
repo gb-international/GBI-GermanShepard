@@ -210,14 +210,19 @@
         <div class="modal-content modal-color">
           <div class="modal-body">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <p>Add Number of Persion</p>
+            <p>Add Number of Person</p>
             <div class="form-group">
-              <label for="no_row">Enter Number</label>
-              <input type="number" class="form-control p-20" v-model="row_input" />
+
+              <div class="row align-content-center">
+                <div class="col">
+                  <img src="/images/icons/minus.png" @click="down" class="w-40 link">
+                </div>                
+                <div class="col">{{ row_input }}</div>                
+                <div class="col">
+                  <img src="/images/icons/add.png" @click="up" class="w-40 link">
+                </div>
+              </div>
             </div>
-            <p class="text-center">
-              <button type="button" class="btn btn-info" @click="add_row">ADD</button>
-            </p>
           </div>
         </div>
       </div>
@@ -236,7 +241,7 @@ export default {
   data() {
     return {
       searchQuery: null,
-      row_input: 0,
+      row_input: 1,
       submit_btn: false,
       edit_index: -1,
       total_row: "",
@@ -260,20 +265,27 @@ export default {
   },
 
   methods: {
-    add_row() {
-      for (var i = 0; i < this.row_input; i++) {
-        this.new_row.push({
-          first_name: "",
-          last_name: "",
-          email: "",
-          gender: "",
-          age: "",
-          mobile: "",
-          tour_id: this.$route.params.id,
-        });
-      }
-      this.row_input = "";
+    up() {
+      this.new_row.push({
+        first_name: "",
+        last_name: "",
+        email: "",
+        gender: "",
+        age: "",
+        mobile: "",
+        tour_id: this.$route.params.id,
+      });
+      this.row_input++;
     },
+    
+    down() {
+      if(this.new_row.length >= 1){
+        this.new_row.splice(-1);
+        this.row_input--;
+        console.log('hi');
+      }
+    },
+
     groupMember() {
       var data = { tour_id: this.$route.params.id };
       this.$api.POST("/api/group-member", data)

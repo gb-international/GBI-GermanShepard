@@ -38,7 +38,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="student-section" v-if="userinfo.profession=='student'">
-                <div class="col-sm-6">
+                <div class="col-sm-6" v-if="student_bank">
                   <label>Bank Details to pay</label>
                   <div class="ml-5">
                     <div class="row">
@@ -157,7 +157,7 @@
               </div>
             </div>
           </div>
-
+          
           <div class="row" v-if="teacherform.payment_mode == 'student'">
             <div class="col-sm-6" v-for="bank in bankdetail" :key="bank.id">
               <hr />
@@ -239,26 +239,16 @@
             </div>
           </div>
           <div class="row justify-content-center mt-5">
-            
-
-            <form action="/payment" method="post" v-if="teacherform.payment_type == 'net'">
-              <input type="hidden" name="user_id" :value=userinfo.user_id>
-              <input type="hidden" name="travel_code" :value=userinfo.travel_code>
-              <input type="hidden" name="tour_id" :value=$route.params.id>
-              <input type="hidden" name="school_id" :value=userinfo.school_id>
-              <input type="hidden" name="added_by" :value=userinfo.profession>
               <button 
-                type="submit"
+                v-if="teacherform.payment_type == 'net'"
+                type="button"
+                @click="onlinePayment()"
                 class="btn btn-outline-primary btn-square ml-2"
                   >SUBMIT
               </button>
-            </form>
 
-            <button v-else
-              type="button"
-              class="btn btn-outline-primary btn-square"
-              @click="submitPayment()"
-            >SUBMIT</button>
+              <button v-else type="button" class="btn btn-outline-primary btn-square"
+              @click="submitPayment()">SUBMIT</button>
 
           </div>
         </form>
@@ -540,7 +530,6 @@ export default {
 
       this.teacherform.tour_code = this.$route.params.id;
       if(this.userinfo.profession == 'teacher'){
-        this.
         this.teacherform.amount = this.userinfo.tour_price * this.userinfo.no_of_person;
       }else{
         this.teacherform.amount = this.userinfo.tour_price;        
@@ -598,6 +587,7 @@ export default {
         })
         .then((response) => {
           this.student_bank = response.data;
+          console.log(response);
         })
         .catch((error) => {
           this.handleError(error);
@@ -612,7 +602,6 @@ export default {
           headers: { Authorization: `Bearer ${localStorage.token}` },
         })
         .then((response) => {
-          console.log(response);
           if(response.data['error']){
             this.$swal.fire({
               icon: "error",
@@ -629,6 +618,34 @@ export default {
           this.handleError(error);
         });
     },
+    onlinePayment(){
+      if (this.robot == false) {
+        this.$swal.fire({
+          icon: "error",
+          title: "Try Again !!",
+        });
+        return false;
+      }
+      var data = {
+        user_id:'',
+        travel_code:'',
+        tour_id:'',
+        school_id:'',
+        added_by:'',
+        tour_price:'',
+        no_of_person:'',
+      };
+      data.user_id = this.userinfo.user_id;
+      data.travel_code = this.userinfo.travel_code;
+      data.tour_id = this.$route.params.id;
+      data.school_id = this.userinfo.school_id;
+      data.added_by = this.userinfo.profession;
+      data.tour_price = this.userinfo.tour_price;
+      data.no_of_person = this.userinfo.no_of_person;
+      this.$cookies.set('payment-data',data,60 * 60 * 1);// expire in 1 hour
+      this.$router.push('/payment-billing')
+    },
+
     backReset() {
       this.chequePage = false;
       this.teacherform.cheque_bank_name = "";

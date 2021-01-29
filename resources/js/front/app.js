@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { sync } from 'vuex-router-sync';
-import { createRouter } from './router'
+import { createRouter } from './routes/Index.js'
 import axios from 'axios';
 import Vuex from 'vuex';
 import vueHeadful from "vue-headful";
@@ -10,9 +10,10 @@ import { createStore } from './store'
 import EventBus from '@/front/store/EventBus';
 import VueSweetalert2 from 'vue-sweetalert2';
 import VueMeta from 'vue-meta';
-import api from '@/front/helpers/api';
 import vuecookies from 'vue-cookies';
 
+
+import api from '@/front/helpers/api';
 Object.defineProperty(Vue.prototype, '$api', { value: api })
 
 
@@ -45,6 +46,24 @@ Vue.component("front", require("@/front/pages/layouts/App.vue").default);
 const router = createRouter()
 const store = createStore()
 sync(store, router);
+
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        // this route requires auth, check if logged in
+        // if not, redirect to login page.
+        if (vuecookies.get('access_token') == null) {
+            next({
+                path: '/',
+                name: 'home' 
+            })
+        } else {
+            next()
+        }
+    } else {
+        next() // make sure to always call next()!
+    }
+});
+
 const app = new Vue({
     el:'#app',
     store,

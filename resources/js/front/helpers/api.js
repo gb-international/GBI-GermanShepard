@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
-import { createRouter } from '@/front/router'
-const router = createRouter()
+// import { createRouter } from '@/front/routes'
+// const router = createRouter()
 
 let config = {
     baseURL: '',
@@ -64,7 +64,7 @@ function outputError(error) {
             }).catch(error=>{
                 console.log(error);
                 resetAll();
-                router.replace({ name: 'Home' })                
+                this.$router.replace({ name: 'Home' })                
             })
             return
         }

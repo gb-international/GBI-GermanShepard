@@ -1,16 +1,21 @@
 <template>
-      <!--************************************************
+  <!--************************************************
       Author:@Ajay
       ****************************************************-->
   <div class="register-component">
-    <form id="register-form" action="#" method="post" role="form" @submit.prevent="registerUser()">
-
+    <form
+      id="register-form"
+      action="#"
+      method="post"
+      role="form"
+      @submit.prevent="registerUser()"
+    >
       <span class="text-danger">{{ register_sms }}</span>
 
       <div class="input-group mb-1">
         <div class="input-group-prepend">
           <span class="input-group-text">
-            <img src="/images/icons/profile.png" class="icon-width">
+            <img src="/images/icons/profile.png" class="icon-width" />
           </span>
         </div>
         <input
@@ -26,7 +31,7 @@
       <div class="input-group mb-1">
         <div class="input-group-prepend">
           <span class="input-group-text">
-            <img src="/images/icons/email.png" class="icon-width">
+            <img src="/images/icons/email.png" class="icon-width" />
           </span>
         </div>
         <input
@@ -44,7 +49,7 @@
         <div class="input-group mb-1">
           <div class="input-group-prepend">
             <span class="input-group-text">
-              <img src="/images/icons/mobile.png" class="icon-width">
+              <img src="/images/icons/mobile.png" class="icon-width" />
             </span>
           </div>
           <input
@@ -61,7 +66,9 @@
 
       <div class="input_button" v-if="otp_button">
         <div class="input-group mb-1">
-          <button class="btn btn-default" type="button" v-on:click="send_otp">Send OTP</button>
+          <button class="btn btn-default" type="button" v-on:click="send_otp">
+            Send OTP
+          </button>
         </div>
       </div>
 
@@ -89,10 +96,18 @@
             type="button"
             v-if="verify_button"
             v-on:click="otp_verify_user"
-          >VERIFY</button>
+          >
+            VERIFY
+          </button>
           <p
             v-if="otp_validate"
-            style="font-size: 30px;color: green;margin-top: 12px;position: absolute;right: 30px;"
+            style="
+              font-size: 30px;
+              color: green;
+              margin-top: 12px;
+              position: absolute;
+              right: 30px;
+            "
           >
             <i class="fas fa-check-circle"></i>
           </p>
@@ -102,7 +117,7 @@
       <div class="input-group mb-1">
         <div class="input-group-prepend">
           <span class="input-group-text">
-            <img src="/images/icons/key.png" class="icon-width">
+            <img src="/images/icons/key.png" class="icon-width" />
           </span>
         </div>
         <input
@@ -119,7 +134,7 @@
       <div class="input-group mb-1">
         <div class="input-group-prepend">
           <span class="input-group-text">
-            <img src="/images/icons/key.png" class="icon-width">
+            <img src="/images/icons/key.png" class="icon-width" />
           </span>
         </div>
         <input
@@ -130,6 +145,9 @@
           :class="{ 'is-invalid': registerForm.errors.has('c_password') }"
           placeholder="Re-Type Password"
         />
+        <div class="w-100">
+          <small class="text-danger text-left" v-if="password_error">{{ password_error }}</small>
+        </div>
         <has-error :form="registerForm" field="c_password"></has-error>
       </div>
       <div class="form-group register_button">
@@ -148,11 +166,12 @@ export default {
   name: "Register",
   components: {
     Form,
-    HasError
+    HasError,
   },
   data() {
     return {
       register_sms: "",
+      password_error:'',
       registerForm: new Form({
         name: "",
         email: "",
@@ -160,7 +179,7 @@ export default {
         phone_no: "",
         otp: "",
         password: "",
-        c_password: ""
+        c_password: "",
       }),
       otp_validate: 0,
       otp_button: 1,
@@ -169,13 +188,18 @@ export default {
       otp_id: "",
       interval: null,
       running_time: 0,
-      time: 90
+      time: 90,
     };
+  },
+  watch:{
+    'registerForm.password':function(){
+      this.checkPassword(this.registerForm.password);
+    }
   },
   methods: {
     // Login for the user
     // *******************************************************************************
-    send_otp: function(e) {
+    send_otp: function (e) {
       var phone_no = this.registerForm.phone_no;
       var pattern = /^[789]\d{9}$/;
       if (phone_no.match(pattern)) {
@@ -188,7 +212,7 @@ export default {
         var api = "/api/sendotp";
         this.$axios
           .post(api, data) // change this to post )
-          .then(res => {
+          .then((res) => {
             if (res.data.success) {
               this.otp_id = res.data.otp_id;
               this.otp_button = 0;
@@ -197,15 +221,17 @@ export default {
               this.running_time = 1;
               this.toggleTimer();
               this.$swal.fire(
-                'Otp Sent',
-                'Otp Sent To you number!!',
-                'success'
+                "Otp Sent",
+                "Otp Sent To you number!!",
+                "success"
               );
             } else {
               this.$swal.fire(res.data.error);
             }
           })
-          .catch(error => this.$swal.fire("The phone no. has already been taken.")); 
+          .catch((error) =>
+            this.$swal.fire("The phone no. has already been taken.")
+          );
       } else {
         // If Not Valid Number
         this.$swal.fire("Please Enter Valid Number");
@@ -237,7 +263,7 @@ export default {
     },
     // End timer here
     // Otp Varification
-    otp_verify_user: function(e) {
+    otp_verify_user: function (e) {
       var otp = this.registerForm.otp;
       if (otp.length == 4) {
         let data = new FormData();
@@ -247,7 +273,7 @@ export default {
         var api = "/api/otpverify";
         this.$axios
           .post(api, data) //   this to post )
-          .then(res => {
+          .then((res) => {
             this.otp_button = 0;
             if (res.data.type == "success") {
               this.otp_validate = 1;
@@ -258,20 +284,16 @@ export default {
               this.verify_button = 0;
               this.toggleTimer();
 
-               this.$swal.fire(
-                'Valid',
-                'Otp is valid',
-                'success'
-              );
+              this.$swal.fire("Valid", "Otp is valid", "success");
             } else {
               this.$swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Invalid OTP!!!'
+                icon: "error",
+                title: "Oops...",
+                text: "Invalid OTP!!!",
               });
             }
           })
-          .catch(error => this.$swal.fire(error)); //
+          .catch((error) => this.$swal.fire(error)); //
       } else {
         this.$swal.fire("Please Enter Valid Otp");
       }
@@ -280,38 +302,87 @@ export default {
     // Register user
     // ******************************************
     registerUser() {
-      if((this.registerForm.email =='') || (this.registerForm.name == '') || (this.otp_validate != 1) ){
-        this.register_sms = 'Please Fill all the filelds';
+      if (
+        this.registerForm.email == "" ||
+        this.registerForm.name == "" 
+        // this.otp_validate != 1
+      ) {
+        this.register_sms = "Please Fill all the filelds";
         return false;
       }
-      
-      if (this.registerForm.password.length > 7) {
-        if (this.registerForm.password == this.registerForm.c_password) {
-          this.registerForm
-            .post("/api/register-user")
-            .then(response => {
-              if (response.status === 200) {
-                // Front User Dashboard
-                this.registerForm.reset();
-                this.otp_validate = 0;
-                this.otp_button = 1;
-                this.verify_button = 0;
-                this.otp_verify = 0;
-                this.register_sms = '';
-                window.$(".login_close").click();
-              }
-              this.$swal.fire("Successfull!", " Please Login now !!!", "success");
-            })
-            .catch(err => {
-              this.register_sms = "please provide valide credentials";
-            });
-        } else {
-          this.register_sms = "Password is not equal";
-        }
-      } else {
-        this.register_sms = "Password length should be 8 character or more!";
+      if(!this.checkPassword(this.registerForm.password)){
+        return false;
+      }else{
+        this.password_error = '';
       }
-    }
-  }
+      if (this.registerForm.password == this.registerForm.c_password) {
+        this.registerForm
+          .post("/api/register-user")
+          .then((response) => {
+            if (response.status === 200) {
+              // Front User Dashboard
+              this.registerForm.reset();
+              this.otp_validate = 0;
+              this.otp_button = 1;
+              this.verify_button = 0;
+              this.otp_verify = 0;
+              this.register_sms = "";
+              window.$(".login_close").click();
+            }
+            this.$swal.fire(
+              "Successfull!",
+              " Please Login now !!!",
+              "success"
+            );
+          })
+          .catch((err) => {
+            this.register_sms = "please provide valide credentials";
+          });
+      } else {
+        this.register_sms = "Password is not equal";
+      }
+      
+    },
+    checkPassword(str){
+      var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+      // if (str.length < 8) {
+      //   this.password_error = "Your password must be at least 8 characters";
+      //   return false;
+      // }
+      // if (str.search(/[a-z]/i) < 0) {
+      //     this.password_error = "Your password must contain at least one letter.";
+      //     return false;
+      // }
+      
+      // if (str.search(/[0-9]/i) < 0) {
+      //     this.password_error = "Your password must contain at least one Digit.";
+      //     return false;
+      // }
+
+      
+      // if (str.search(/[A-Z]/i) < 0) {
+      //     this.password_error = "Your password must contain at least one Upper case letter.";
+      //     return false;
+      // }
+      
+      // if (str.search(/[*@!#%&()^~{}]+/i) < 0) {
+      //     this.password_error = "Your password must contain at least one special character.";
+      //     return false;
+      // }
+      // if (str.search(/[0-9]/) < 0) {
+      //   this.password_error = "Your password must contain at least one digit.";
+      // }
+      // if(this.password_error.length > 0 ){
+      //   return false;
+      // }
+      let result = re.test(str);
+      if(result == false){
+        this.password_error = 'Password should contain 8 letters, with at least a symbol, upper and lower case letters and a number ';
+      }else{
+        this.password_error = '';
+      }
+      return result;
+    },
+  },
 };
 </script>

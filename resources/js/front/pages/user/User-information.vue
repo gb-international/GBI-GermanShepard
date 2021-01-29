@@ -135,6 +135,8 @@ export default {
       .catch(error => {
         this.handleError(error);
       });
+
+      
   },
   watch:{
     institution:function(){
@@ -155,6 +157,7 @@ export default {
       this.namefield = false;
       this.addressfield = false;
       this.school_field = false;
+      console.log(this.school_field);
       if(this.profession == 'corporate'){
         this.namefield = true;
         this.addressfield = true;

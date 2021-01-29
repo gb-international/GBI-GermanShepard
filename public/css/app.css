@@ -3201,7 +3201,7 @@ input[type="submit"]:hover {
     font-size: 20px;
     margin-bottom: 15px;
     font-family: Raleway;
-    padding: 10px;
+    padding: 10px 0px;
   }
 
   .safety-security p {
@@ -3354,7 +3354,7 @@ input[type="submit"]:hover {
     font-size: 20px;
     margin-bottom: 15px;
     font-family: Raleway;
-    padding: 10px;
+    padding: 10px 0px;
   }
 
   .safety-security p {
@@ -3748,7 +3748,7 @@ input[type="submit"]:hover {
     font-size: 20px;
     margin-bottom: 5px;
     font-family: Raleway;
-    padding: 10px;
+    padding: 10px 0px;
   }
 
   .safety-security p {
@@ -8374,3 +8374,4 @@ i {
   margin: 0px;
 }
 
+/* (ignored) *//* (ignored) *//* (ignored) */
