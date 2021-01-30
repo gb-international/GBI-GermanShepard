@@ -64,6 +64,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UpdatePassword",
@@ -73,12 +89,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      password_error_mismatch: "",
+      password_error: "",
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         current_password: "",
         new_password: "",
         confirm_password: ""
       })
     };
+  },
+  watch: {
+    "form.new_password": function formNew_password() {
+      this.checkPassword(this.form.new_password);
+    },
+    "form.confirm_password": function formConfirm_password() {
+      this.checkPasswordMatch();
+    }
   },
   methods: {
     UpdatePassword: function UpdatePassword() {
@@ -89,15 +115,41 @@ __webpack_require__.r(__webpack_exports__);
         new_password: this.form.new_password,
         confirm_password: this.form.confirm_password
       };
-      this.$api.POST("/api/update-password", data).then(function (response) {
-        _this.form.reset();
 
-        _this.$router.push('/dashboard');
+      if (this.password_error_mismatch == "" && this.password_error == "" && this.new_password != "") {
+        this.$api.POST("/api/update-password", data).then(function (response) {
+          console.log(response);
 
-        _this.$swal.fire("Password Updated !!", "Your password has been updated", "success");
-      })["catch"](function (error) {
-        _this.handleError(error);
-      });
+          _this.form.reset();
+
+          _this.$router.push("/dashboard");
+
+          _this.$swal.fire("Password Updated !!", "Your password has been updated", "success");
+        })["catch"](function (error) {
+          _this.$swal.fire("Error !!", "Something Wrong Try again", "error");
+
+          _this.handleError(error);
+        });
+      }
+    },
+    checkPassword: function checkPassword(str) {
+      var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+      var result = re.test(str);
+
+      if (result == false) {
+        this.password_error = "Password should contain 8 letters, with at least a symbol, upper and lower case letters and a number ";
+      } else {
+        this.password_error = "";
+      }
+
+      return result;
+    },
+    checkPasswordMatch: function checkPasswordMatch() {
+      if (this.form.new_password != this.form.confirm_password) {
+        this.password_error_mismatch = "Password Mismatch";
+      } else {
+        this.password_error_mismatch = "";
+      }
     }
   }
 });
@@ -284,6 +336,20 @@ var render = function() {
                   ],
                   1
                 ),
+                _vm._v(" "),
+                _c("div", { staticClass: "w-100" }, [
+                  _vm.password_error
+                    ? _c("small", { staticClass: "text-danger text-left" }, [
+                        _vm._v(_vm._s(_vm.password_error))
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.password_error_mismatch
+                    ? _c("small", { staticClass: "text-danger text-left" }, [
+                        _vm._v(_vm._s(_vm.password_error_mismatch))
+                      ])
+                    : _vm._e()
+                ]),
                 _vm._v(" "),
                 _vm._m(0)
               ]

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Tour\Food;
 
+use App\Rules\AlphaSpace;
+
 class FoodController extends Controller
 {
     /**
@@ -26,11 +28,7 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'name'=>'required',
-            'quantity'=>'required'
-        ]);
-        $food = Food::create($request->all());
+        $food = Food::create($this->validateFood($request));
         return response()->json($food);
     }
 
@@ -54,12 +52,9 @@ class FoodController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'name'=>'required',
-            'quantity'=>'required'
-        ]);
+
         $food = Food::find($id);
-        $food = $food->update($request->all());        
+        $food = $food->update($this->validateFood($request));        
         return response()->json($food);
     }
 
@@ -74,5 +69,13 @@ class FoodController extends Controller
         Food::find($id)->delete();
         return response()->json('successfully deleted');
 
+    }
+
+     public function validateFood($request)
+    {
+        return $this->validate($request, [
+            'name' => ['required',new AlphaSpace],
+            'quantity' => 'required',
+        ]);
     }
 }

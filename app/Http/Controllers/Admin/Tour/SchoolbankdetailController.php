@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Model\Tour\Schoolbankdetail;
 use Auth;
+use App\Rules\AlphaSpace;
 
 class SchoolbankdetailController extends Controller
 {
@@ -106,8 +107,8 @@ class SchoolbankdetailController extends Controller
     public function validateBankdetail($request)
     {
       return $this->validate($request, [
-            'name' => 'required',
-            'bank_name' => 'required',
+            'name' => ['required',new AlphaSpace],
+            'bank_name' => ['required',new AlphaSpace],
             'account_number' => 'required',
             'account_type' => 'required',
             'ifsc_code' => 'required',

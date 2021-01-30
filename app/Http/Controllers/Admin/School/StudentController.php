@@ -10,6 +10,10 @@ use App\Model\School\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Rules\EmailValidate;
+use App\Rules\PhoneNubmerValidate;
+use App\Rules\AlphaSpace;
+
 class StudentController extends Controller
 {
     /**
@@ -104,13 +108,14 @@ class StudentController extends Controller
     public function validateStudent($request)
     {
         return $this->validate($request, [
+            'first_name' => ['required',new AlphaSpace],
+            'last_name' => ['required',new AlphaSpace],
+            'father_name' => ['required',new AlphaSpace],
+            'email' => ['required','email',new EmailValidate],
+    		'mobile' => ['required','numeric',new PhoneNubmerValidate],
+
             'school_id' => 'required',
-            'first_name' => 'required',
-            'last_name' => 'required',
             'gender' => 'required',
-            'father_name' => 'required',
-            'email' => 'required',
-            'mobile' => 'required',
             'dob' => 'required',
             'class' => 'required',
             'address' => 'required',

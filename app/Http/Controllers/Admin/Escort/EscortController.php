@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Helpers\SendSms;
 
+use App\Rules\EmailValidate;
+use App\Rules\PhoneNubmerValidate;
+use App\Rules\AlphaSpace;
+
 class EscortController extends Controller
 {
     /**
@@ -115,10 +119,10 @@ class EscortController extends Controller
     public function validateEscort($request)
     {
       return $this->validate($request, [
-            'name' => 'required|min:3|max:100',
+            'name' => ['required',new AlphaSpace],
+            'email' => ['required','email',new EmailValidate],
+    		'phoneno' => ['required','numeric',new PhoneNubmerValidate],
             'address' => 'required|min:3',
-            'email' => 'required',
-            'phoneno' => 'required|numeric|digits:10',
             'salaryPerday' => 'required|numeric|min:1'
       ]);
     }

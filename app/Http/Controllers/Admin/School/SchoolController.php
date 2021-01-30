@@ -9,6 +9,10 @@ use App\Model\School\School;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Rules\EmailValidate;
+use App\Rules\PhoneNubmerValidate;
+use App\Rules\AlphaSpace;
+
 class SchoolController extends Controller
 {
     /**
@@ -103,14 +107,15 @@ class SchoolController extends Controller
     public function validateSchool($request)
     {
       return $this->validate($request, [
-            'school_name' => 'required|min:3|max:100',
+            'school_name' => ['required',new AlphaSpace],
+            'finance_email_id' => ['required','email',new EmailValidate],
+            'principle_email_id' => ['required','email',new EmailValidate],
+    		'mobile' => 'required|numeric|regex:/^[0-9\-\+]{9,11}$/ix',
+
             'street' => 'required',
             'city_name' => 'required',
             'state_name' => 'required',
             'country_name' => 'required',
-            'finance_email_id' => 'required',
-            'principle_email_id' => 'required',
-            'mobile' => 'required|numeric',
             'pincode' => 'required|numeric|min:1',
             'address' => 'required',
       ]);

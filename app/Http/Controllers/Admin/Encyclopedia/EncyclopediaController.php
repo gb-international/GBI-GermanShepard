@@ -11,6 +11,8 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\Traits\ImageTrait;
 use Image;
+
+
 class EncyclopediaController extends Controller
 {
     /**

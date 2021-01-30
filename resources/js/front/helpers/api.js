@@ -54,6 +54,7 @@ function outputError(error) {
          * The request was made and the server responded with a
          * status code that falls out of the range of 2xx
          */
+        
         if (error.response.status === 401) {
             var data = {refresh_token:Vue.$cookies.get('refresh_token')};
             axios.post('/api/refreshtoken',data).then((resp)=>{
@@ -70,7 +71,7 @@ function outputError(error) {
         }
         else {
             /* other response status such as 403, 404, 422, etc */
-            resetAll();
+            // resetAll();
         }
     }
     else if (error.request) {

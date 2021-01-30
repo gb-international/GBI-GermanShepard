@@ -131,7 +131,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="pincode">School Pincode</label>
               <input
-                type="text"
+                type="number"
                 class="form-control"
                 placeholder="Enter pincode"
                 v-model="form.pincode"

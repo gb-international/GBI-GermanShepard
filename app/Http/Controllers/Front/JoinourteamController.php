@@ -22,7 +22,10 @@ use App\Jobs\ContactUsJob;
 use App\Jobs\ContactUsUserJob;
 use App\Jobs\JoinOurTeamJob;
 use App\Jobs\JoinOurTeamUserJob;
+
 use App\Rules\EmailValidate;
+use App\Rules\PhoneNubmerValidate;
+use App\Rules\AlphaSpace;
 
 class JoinourteamController extends Controller
 {
@@ -32,10 +35,10 @@ class JoinourteamController extends Controller
     		'firstname' => 'required|alpha',
     		'lastname' => 'required|alpha',
     		'email' => ['required','email',new EmailValidate],
-    		'contactno' => 'required|numeric|regex:/^[0-9\-\+]{9,10}$/ix',
+    		'contactno' => ['required','numeric',new PhoneNubmerValidate],
     		'address' => 'required',
-    		'state' => 'required|regex:/^[a-zA-Z ]*$/',
-    		'city' => 'required|regex:/^[a-zA-Z ]*$/',
+    		'state' => ['required',new AlphaSpace],
+    		'city' => ['required',new AlphaSpace],
     		'zipcode' => 'required|numeric',
     		'postvancy' => 'required',
     		'resume' => 'required',
@@ -106,9 +109,9 @@ class JoinourteamController extends Controller
     public function contactUs(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|regex:/^[a-zA-Z ]*$/',
+            'name' => ['required',new AlphaSpace],
             'email' => ['required','email',new EmailValidate],
-            'mobile' => 'required|numeric|regex:/^[0-9\-\+]{9,10}$/ix',
+            'mobile' => ['required','numeric',new PhoneNubmerValidate],
             'messagecon' => 'required|min:3',
         ]);
 

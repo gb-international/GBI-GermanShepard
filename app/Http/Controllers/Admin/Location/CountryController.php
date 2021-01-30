@@ -100,7 +100,7 @@ class CountryController extends Controller
     public function validateCountry($request)
     {
         return $this->validate($request,[
-            'name'=>'required|unique:countries,name' 
+            'name' => ['required','unique:countries,name',new AlphaSpace],
         ]);
     }
 }

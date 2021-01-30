@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Traits\ImageTrait;
 use Image;
+
+use App\Rules\EmailValidate;
+use App\Rules\PhoneNubmerValidate;
+use App\Rules\AlphaSpace;
 class HotelController extends Controller
 {
     /**
@@ -132,30 +136,32 @@ class HotelController extends Controller
 
     public function validateHotel($request)
     {
-      return $this->validate($request, [
-          'type' => 'required',
-          'name' => 'required|min:3|max:100',
-          'state'=>'required',
-          'city' =>'required',
-          'address' => 'required',
-          'phoneno' => 'required',
-          'email' => 'required',
-          'room'=>'required|numeric|min:1',
+         return $this->validate($request, [
 
-          'apai_single' => '',
-          'apai_double' => '',
-          'apai_triple' => '',
-          'apai_quad' => '',
+            'address' => 'required|min:3',
+            'type' => 'required',
+            'name' => ['required',new AlphaSpace],
+            'state'=>'required',
+            'city' =>'required',
+            'address' => 'required',
+            'phoneno' => ['required','numeric',new PhoneNubmerValidate],
+            'email' => ['required','email',new EmailValidate],
+            'room'=>'required|numeric|min:1',
 
-          'mapai_single' => '',
-          'mapai_double' => '',
-          'mapai_triple' => '',
-          'mapai_quad' => '',
+            'apai_single' => '',
+            'apai_double' => '',
+            'apai_triple' => '',
+            'apai_quad' => '',
 
-          'cpai_single' => '',
-          'cpai_double' => '',
-          'cpai_triple' => '',
-          'cpai_quad' => '',
+            'mapai_single' => '',
+            'mapai_double' => '',
+            'mapai_triple' => '',
+            'mapai_quad' => '',
+
+            'cpai_single' => '',
+            'cpai_double' => '',
+            'cpai_triple' => '',
+            'cpai_quad' => '',
           
       ]);
     }

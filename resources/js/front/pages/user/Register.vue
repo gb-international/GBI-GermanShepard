@@ -147,6 +147,7 @@
         />
         <div class="w-100">
           <small class="text-danger text-left" v-if="password_error">{{ password_error }}</small>
+          <small class="text-danger text-left" v-if="password_error_mismatch">{{ password_error_mismatch }}</small>
         </div>
         <has-error :form="registerForm" field="c_password"></has-error>
       </div>
@@ -172,6 +173,7 @@ export default {
     return {
       register_sms: "",
       password_error:'',
+      password_error_mismatch:'',
       registerForm: new Form({
         name: "",
         email: "",
@@ -194,7 +196,12 @@ export default {
   watch:{
     'registerForm.password':function(){
       this.checkPassword(this.registerForm.password);
-    }
+    },
+    
+    'registerForm.c_password':function(){
+      this.checkPasswordMatch();
+    },
+
   },
   methods: {
     // Login for the user
@@ -304,8 +311,8 @@ export default {
     registerUser() {
       if (
         this.registerForm.email == "" ||
-        this.registerForm.name == "" 
-        // this.otp_validate != 1
+        this.registerForm.name == "" ||
+        this.otp_validate != 1
       ) {
         this.register_sms = "Please Fill all the filelds";
         return false;
@@ -327,6 +334,8 @@ export default {
               this.verify_button = 0;
               this.otp_verify = 0;
               this.register_sms = "";
+              this.password_error = '';
+              this.password_error_mismatch = '';
               window.$(".login_close").click();
             }
             this.$swal.fire(
@@ -345,36 +354,6 @@ export default {
     },
     checkPassword(str){
       var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-      // if (str.length < 8) {
-      //   this.password_error = "Your password must be at least 8 characters";
-      //   return false;
-      // }
-      // if (str.search(/[a-z]/i) < 0) {
-      //     this.password_error = "Your password must contain at least one letter.";
-      //     return false;
-      // }
-      
-      // if (str.search(/[0-9]/i) < 0) {
-      //     this.password_error = "Your password must contain at least one Digit.";
-      //     return false;
-      // }
-
-      
-      // if (str.search(/[A-Z]/i) < 0) {
-      //     this.password_error = "Your password must contain at least one Upper case letter.";
-      //     return false;
-      // }
-      
-      // if (str.search(/[*@!#%&()^~{}]+/i) < 0) {
-      //     this.password_error = "Your password must contain at least one special character.";
-      //     return false;
-      // }
-      // if (str.search(/[0-9]/) < 0) {
-      //   this.password_error = "Your password must contain at least one digit.";
-      // }
-      // if(this.password_error.length > 0 ){
-      //   return false;
-      // }
       let result = re.test(str);
       if(result == false){
         this.password_error = 'Password should contain 8 letters, with at least a symbol, upper and lower case letters and a number ';
@@ -383,6 +362,14 @@ export default {
       }
       return result;
     },
+    checkPasswordMatch(){
+      if(this.registerForm.password != this.registerForm.c_password){
+        this.password_error_mismatch = "Password Mismatch";
+      }else{
+        this.password_error_mismatch = '';
+      }
+    }
+
   },
 };
 </script>

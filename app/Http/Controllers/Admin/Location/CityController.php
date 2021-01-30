@@ -11,6 +11,7 @@ use App\Model\Location\City;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CityCollection;
+use App\Rules\AlphaSpace;
 
 class CityController extends Controller
 {
@@ -84,7 +85,7 @@ class CityController extends Controller
     public function update(Request $request, City $city)
     {   
         $validated =  $this->validate($request, [
-            'name' => 'required',
+            'name' => ['required',new AlphaSpace],
             'country_id' => 'required',
             'state_id' => 'required',
         ]);
@@ -107,7 +108,7 @@ class CityController extends Controller
     public function validateCity($request)
     {
       return $this->validate($request, [
-        'name' => 'required|unique:cities',
+        'name' => ['required','unique:cities',new AlphaSpace],
         'country_id' => 'required',
         'state_id' => 'required',
       ]);

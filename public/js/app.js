@@ -3238,6 +3238,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Register",
@@ -3249,6 +3250,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       register_sms: "",
       password_error: '',
+      password_error_mismatch: '',
       registerForm: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         name: "",
         email: "",
@@ -3271,6 +3273,9 @@ __webpack_require__.r(__webpack_exports__);
   watch: {
     'registerForm.password': function registerFormPassword() {
       this.checkPassword(this.registerForm.password);
+    },
+    'registerForm.c_password': function registerFormC_password() {
+      this.checkPasswordMatch();
     }
   },
   methods: {
@@ -3388,11 +3393,10 @@ __webpack_require__.r(__webpack_exports__);
     registerUser: function registerUser() {
       var _this3 = this;
 
-      if (this.registerForm.email == "" || this.registerForm.name == "" // this.otp_validate != 1
-      ) {
-          this.register_sms = "Please Fill all the filelds";
-          return false;
-        }
+      if (this.registerForm.email == "" || this.registerForm.name == "" || this.otp_validate != 1) {
+        this.register_sms = "Please Fill all the filelds";
+        return false;
+      }
 
       if (!this.checkPassword(this.registerForm.password)) {
         return false;
@@ -3411,6 +3415,8 @@ __webpack_require__.r(__webpack_exports__);
             _this3.verify_button = 0;
             _this3.otp_verify = 0;
             _this3.register_sms = "";
+            _this3.password_error = '';
+            _this3.password_error_mismatch = '';
             window.$(".login_close").click();
           }
 
@@ -3423,33 +3429,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     checkPassword: function checkPassword(str) {
-      var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/; // if (str.length < 8) {
-      //   this.password_error = "Your password must be at least 8 characters";
-      //   return false;
-      // }
-      // if (str.search(/[a-z]/i) < 0) {
-      //     this.password_error = "Your password must contain at least one letter.";
-      //     return false;
-      // }
-      // if (str.search(/[0-9]/i) < 0) {
-      //     this.password_error = "Your password must contain at least one Digit.";
-      //     return false;
-      // }
-      // if (str.search(/[A-Z]/i) < 0) {
-      //     this.password_error = "Your password must contain at least one Upper case letter.";
-      //     return false;
-      // }
-      // if (str.search(/[*@!#%&()^~{}]+/i) < 0) {
-      //     this.password_error = "Your password must contain at least one special character.";
-      //     return false;
-      // }
-      // if (str.search(/[0-9]/) < 0) {
-      //   this.password_error = "Your password must contain at least one digit.";
-      // }
-      // if(this.password_error.length > 0 ){
-      //   return false;
-      // }
-
+      var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
       var result = re.test(str);
 
       if (result == false) {
@@ -3459,6 +3439,13 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return result;
+    },
+    checkPasswordMatch: function checkPasswordMatch() {
+      if (this.registerForm.password != this.registerForm.c_password) {
+        this.password_error_mismatch = "Password Mismatch";
+      } else {
+        this.password_error_mismatch = '';
+      }
     }
   }
 });
@@ -42431,6 +42418,12 @@ var render = function() {
                 ? _c("small", { staticClass: "text-danger text-left" }, [
                     _vm._v(_vm._s(_vm.password_error))
                   ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.password_error_mismatch
+                ? _c("small", { staticClass: "text-danger text-left" }, [
+                    _vm._v(_vm._s(_vm.password_error_mismatch))
+                  ])
                 : _vm._e()
             ]),
             _vm._v(" "),
@@ -61786,7 +61779,7 @@ function outputError(error) {
       return;
     } else {
       /* other response status such as 403, 404, 422, etc */
-      resetAll();
+      // resetAll();
     }
   } else if (error.request) {
     /**

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\SightseeingCollection;
 use App\Model\Reservation\Sightseeing;
 use App\Traits\ImageTrait;
+use App\Rules\AlphaSpace;
 
 class SightseeingController extends Controller
 {
@@ -121,7 +122,7 @@ class SightseeingController extends Controller
       return $this->validate($request, [
           'state_id' => 'required',
           'city_id' => 'required',
-          'name' => 'required|min:3|max:100',
+          'name' => ['required',new AlphaSpace],
           'address'=>'required',
           'description'=>'required',
           'adult_price' => '',
