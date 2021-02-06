@@ -26,7 +26,7 @@
 
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="number_of_person">Number of Persion</label>
+            <label for="number_of_person">Number of Person</label>
             <input
               type="number"
               class="form-control"

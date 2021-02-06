@@ -1,314 +1,595 @@
 <template>
   <div class="container" id="payment_information">
-    <div class="desktop">
-      <div class="row pt-4 pb-4">
-        <div class="col-sm-8">
-          <h6>Billing Information</h6>
-          <billing-form @update="billingUpdate"></billing-form>
+    <form class="form" method="POST" action="/payment">
+      <div class="desktop">
+        <!-- desktop view -->
+        <div class="row pt-4 pb-4">
+          <div class="col-sm-8">
+            <h6>Billing Information</h6>
+            <div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group m-1">
+                    <label for="name">Billing Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.billing_name"
+                      name="billing_name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group m-1">
+                    <label for="address">Billing Address</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.billing_address"
+                      name="billing_address"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
 
-          <p class="mt-3 pl-1">
-            <label for="checkbox"
-              ><input type="checkbox" id="checkbox" @click="toggleShipping" />
-              <small
-                >My billing and shipping address are different</small
-              ></label
-            >
-          </p>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group m-1">
+                    <label for="city">Billing City</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.billing_city"
+                      name="billing_city"
+                      required
+                    />
+                  </div>
+                </div>
 
-          <div v-if="shipping_toggle">
-            <h6>Shipping Information</h6>
-            <shipping-form @update="shippingUpdate" />
-          </div>
-        </div>
-        <div class="col-sm-4 pl-4 pr-4">
-          <div class="payment-card">
-            <payment-card :pax="pax" :amount="amount"></payment-card>
-          </div>
+                <div class="col-sm-4">
+                  <div class="form-group m-1">
+                    <label for="state">Billing State</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.billing_state"
+                      name="billing_state"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group m-1">
+                    <label for="billing_zip">Billing Zip Code</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      v-model="form.billing_zip"
+                      name="billing_zip"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group m-1">
+                    <label for="country">Billing Country</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.billing_country"
+                      name="billing_country"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
 
-          <form class="form" method="POST" action="/payment">
-            <div class="d-none">
-              <input
-                type="text"
-                name="billing_customer_name"
-                :value="formdata.billing_customer_name"
-              />
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group m-1">
+                    <label for="phone_no">Phone Number</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      v-model="form.billing_tel"
+                      name="billing_tel"
+                      required
+                    />
+                  </div>
+                  <p>
+                    <small class="text-danger">{{ errors.billing_tel }}</small>
+                  </p>
+                </div>
 
-              <input
-                type="text"
-                name="billing_name"
-                :value="formdata.billing_name"
-              />
-              <input
-                type="text"
-                name="billing_address"
-                :value="formdata.billing_address"
-              />
-              <input
-                type="text"
-                name="billing_city"
-                :value="formdata.billing_city"
-              />
-              <input
-                type="text"
-                name="billing_state"
-                :value="formdata.billing_state"
-              />
-              <input
-                type="text"
-                name="billing_country"
-                :value="formdata.billing_country"
-              />
-              <input
-                type="text"
-                name="billing_zip"
-                :value="formdata.billing_zip"
-              />
-              <input
-                type="text"
-                name="billing_tel"
-                :value="formdata.billing_tel"
-              />
-              <input
-                type="text"
-                name="billing_email"
-                :value="formdata.billing_email"
-              />
-
-              <input
-                type="text"
-                name="shipping_name"
-                :value="formdata.delivery_name"
-              />
-              <input
-                type="text"
-                name="shipping_address"
-                :value="formdata.delivery_address"
-              />
-              <input
-                type="text"
-                name="shipping_city"
-                :value="formdata.shipping_city"
-              />
-              <input
-                type="text"
-                name="shipping_state"
-                :value="formdata.shipping_state"
-              />
-              <input
-                type="text"
-                name="shipping_country"
-                :value="formdata.shipping_country"
-              />
-              <input
-                type="text"
-                name="shipping_zipcode"
-                :value="formdata.shipping_zipcode"
-              />
-              <input
-                type="text"
-                name="shipping_tel"
-                :value="formdata.shipping_tel"
-              />
-              <input
-                type="text"
-                name="shipping_email"
-                :value="formdata.shipping_email"
-              />
-
-              <input type="text" name="user_id" :value="formdata.user_id" />
-              <input
-                type="text"
-                name="travel_code"
-                :value="formdata.travel_code"
-              />
-              <input type="text" name="tour_id" :value="formdata.tour_id" />
-              <input
-                type="text"
-                name="tour_price"
-                :value="formdata.tour_price"
-              />
-              <input type="text" name="added_by" :value="formdata.added_by" />
-              <input
-                type="text"
-                name="no_of_person"
-                :value="formdata.no_of_person"
-              />
-              <input type="text" name="school_id" :value="formdata.school_id" />
+                <div class="col-sm-6">
+                  <div class="form-group m-1">
+                    <label for="email">Billing Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      v-model="form.billing_email"
+                      name="billing_email"
+                      required
+                    />
+                  </div>
+                  <p>
+                    <small class="text-danger">{{
+                      errors.billing_email
+                    }}</small>
+                  </p>
+                </div>
+                <div class="d-none">
+                  <input type="text" v-model="form.user_id" name="user_id" />
+                  <input
+                    type="text"
+                    v-model="form.travel_code"
+                    name="travel_code"
+                  />
+                  <input type="text" v-model="form.tour_id" name="tour_id" />
+                  <input
+                    type="text"
+                    v-model="form.school_id"
+                    name="school_id"
+                  />
+                  <input type="text" v-model="form.added_by" name="added_by" />
+                  <input
+                    type="text"
+                    v-model="form.tour_price"
+                    name="tour_price"
+                  />
+                  <input
+                    type="text"
+                    v-model="form.no_of_person"
+                    name="no_of_person"
+                  />
+                </div>
+              </div>
             </div>
 
+            <p class="mt-3 pl-1">
+              <label for="checkbox"
+                ><input type="checkbox" id="checkbox" @click="toggleShipping" />
+                <small
+                  >My billing and shipping address are different</small
+                ></label
+              >
+            </p>
+
+            <div v-if="shipping_toggle">
+              <h6>Shipping Information</h6>
+              <div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group m-1">
+                      <label for="name">Shipping Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="form.delivery_name"
+                        name="delivery_name"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group m-1">
+                      <label for="address">Shipping Address</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="form.delivery_address"
+                        name="delivery_address"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group m-1">
+                      <label for="city">Shipping City</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="form.delivery_city"
+                        name="delivery_city"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-sm-4">
+                    <div class="form-group m-1">
+                      <label for="state">Shipping State</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="form.delivery_state"
+                        name="delivery_state"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group m-1">
+                      <label for="zipcode">Shipping Zip Code</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        v-model="form.delivery_zip"
+                        name="delivery_zip"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group m-1">
+                      <label for="country">Shipping Country</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="form.delivery_country"
+                        name="delivery_country"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group m-1">
+                      <label for="phone_no">Phone Number</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        v-model="form.delivery_tel"
+                        name="delivery_tel"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group m-1">
+                      <label for="email">Shipping Email</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        v-model="form.delivery_email"
+                        name="delivery_email"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 pl-4 pr-4">
+            <div class="payment-card">
+              <payment-card
+                :amount="amount"
+                :pax="form.no_of_person"
+              ></payment-card>
+            </div>
             <button
               v-if="submit_button == false"
               @click="submitForm"
               type="button"
               class="btn btn-block submit-button btn-info p-3 font-weight-bold border-radius-0"
-            >Confirm & Pay</button>
+            >
+              Confirm & Pay
+            </button>
 
-            <button v-else
+            <button
+              v-else
               type="submit"
               class="btn btn-block submit-button btn-info p-3 font-weight-bold border-radius-0"
             >
               Confirm & Pay
             </button>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <div class="mobile m-0 p-0">
-      <div class="row bg-white text-center">
-        <div
-          class="col pt-4 pb-2 link font-weight-bold"
-          @click="activate(0)"
-          :class="{ active: mobile.active_el == 0 }"
-        >
-          Payment info
-        </div>
-        <div
-          class="col pt-4 pb-2 link font-weight-bold"
-          @click="activate(1)"
-          :class="{ active: mobile.active_el == 1 }"
-        >
-          Billing info
-        </div>
-        <div
-          class="col pt-4 pb-2 link font-weight-bold"
-          @click="activate(2)"
-          :class="{ active: mobile.active_el == 2 }"
-        >
-          Shipping info
-        </div>
-      </div>
-      <div class="p-1 pt-3">
-        <payment-card
-          v-if="mobile.active_el == 0"
-          :amount="amount"
-          :pax="pax"
-        ></payment-card>
-
-        <div v-if="mobile.active_el == 1">
-          <h5 class="pl-1">Billing Information</h5>
-          <billing-form @update="billingUpdate"></billing-form>
-        </div>
-
-        <div v-if="mobile.active_el == 2" class="min-height-90">
-          <p class="mt-3 pl-1">
-            <label for="mobile-checkbox"
-              ><input
-                type="checkbox"
-                id="mobile-checkbox"
-                @click="toggleShipping"
-              />
-              <small
-                >My billing and shipping address are different</small
-              ></label
-            >
-          </p>
-          <div v-if="shipping_toggle">
-            <h5 class="pl-1">Shipping Information</h5>
-            <shipping-form @update="shippingUpdate"></shipping-form>
           </div>
         </div>
       </div>
 
-      <form class="form" method="POST" action="/payment">
-        <div class="d-none">
-          <input
-            type="text"
-            name="billing_customer_name"
-            :value="formdata.billing_customer_name"
-          />
-
-          <input
-            type="text"
-            name="billing_name"
-            :value="formdata.billing_name"
-          />
-          <input
-            type="text"
-            name="billing_address"
-            :value="formdata.billing_address"
-          />
-          <input
-            type="text"
-            name="billing_city"
-            :value="formdata.billing_city"
-          />
-          <input
-            type="text"
-            name="billing_state"
-            :value="formdata.billing_state"
-          />
-          <input
-            type="text"
-            name="billing_country"
-            :value="formdata.billing_country"
-          />
-          <input
-            type="text"
-            name="billing_zip"
-            :value="formdata.billing_zip"
-          />
-          <input type="text" name="billing_tel" :value="formdata.billing_tel" />
-          <input
-            type="text"
-            name="billing_email"
-            :value="formdata.billing_email"
-          />
-
-          <input
-            type="text"
-            name="shipping_name"
-            :value="formdata.delivery_name"
-          />
-          <input
-            type="text"
-            name="shipping_address"
-            :value="formdata.delivery_address"
-          />
-          <input
-            type="text"
-            name="shipping_city"
-            :value="formdata.shipping_city"
-          />
-          <input
-            type="text"
-            name="shipping_state"
-            :value="formdata.shipping_state"
-          />
-          <input
-            type="text"
-            name="shipping_country"
-            :value="formdata.shipping_country"
-          />
-          <input
-            type="text"
-            name="shipping_zipcode"
-            :value="formdata.shipping_zipcode"
-          />
-          <input
-            type="text"
-            name="shipping_tel"
-            :value="formdata.shipping_tel"
-          />
-          <input
-            type="text"
-            name="shipping_email"
-            :value="formdata.shipping_email"
-          />
-
-          <input type="text" name="user_id" :value="formdata.user_id" />
-          <input type="text" name="travel_code" :value="formdata.travel_code" />
-          <input type="text" name="tour_id" :value="formdata.tour_id" />
-          <input type="text" name="tour_price" :value="formdata.tour_price" />
-          <input type="text" name="added_by" :value="formdata.added_by" />
-          <input
-            type="text"
-            name="no_of_person"
-            :value="formdata.no_of_person"
-          />
-          <input type="text" name="school_id" :value="formdata.school_id" />
+      <div class="mobile m-0 p-0">
+        <div class="row bg-white text-center">
+          <div
+            class="col pt-4 pb-2 link font-weight-bold"
+            @click="activate(0)"
+            :class="{ active: mobile.active_el == 0 }"
+          >
+            Payment info
+          </div>
+          <div
+            class="col pt-4 pb-2 link font-weight-bold"
+            @click="activate(1)"
+            :class="{ active: mobile.active_el == 1 }"
+          >
+            Billing info
+          </div>
+          <div
+            class="col pt-4 pb-2 link font-weight-bold"
+            @click="activate(2)"
+            :class="{ active: mobile.active_el == 2 }"
+          >
+            Shipping info
+          </div>
         </div>
+        <div class="p-1 pt-3">
+          <payment-card
+            v-if="mobile.active_el == 0"
+            :amount="amount"
+            :pax="form.no_of_person"
+          ></payment-card>
 
+          <div v-if="mobile.active_el == 1">
+            <h5 class="pl-1">Billing Information</h5>
+            <div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group m-1">
+                    <label for="name">Billing Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.billing_name"
+                      name="billing_name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group m-1">
+                    <label for="address">Billing Address</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.billing_address"
+                      name="billing_address"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group m-1">
+                    <label for="city">Billing City</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.billing_city"
+                      name="billing_city"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="form-group m-1">
+                    <label for="state">Billing State</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.billing_state"
+                      name="billing_state"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group m-1">
+                    <label for="billing_zip">Billing Zip Code</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      v-model="form.billing_zip"
+                      name="billing_zip"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group m-1">
+                    <label for="country">Billing Country</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="form.billing_country"
+                      name="billing_country"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group m-1">
+                    <label for="phone_no">Phone Number</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      v-model="form.billing_tel"
+                      name="billing_tel"
+                      required
+                    />
+                  </div>
+                  <p>
+                    <small class="text-danger">{{ errors.billing_tel }}</small>
+                  </p>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group m-1">
+                    <label for="email">Billing Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      v-model="form.billing_email"
+                      name="billing_email"
+                      required
+                    />
+                  </div>
+                  <p>
+                    <small class="text-danger">{{
+                      errors.billing_email
+                    }}</small>
+                  </p>
+                </div>
+                <div class="d-none">
+                  <input type="text" v-model="form.user_id" name="user_id" />
+                  <input
+                    type="text"
+                    v-model="form.travel_code"
+                    name="travel_code"
+                  />
+                  <input type="text" v-model="form.tour_id" name="tour_id" />
+                  <input
+                    type="text"
+                    v-model="form.school_id"
+                    name="school_id"
+                  />
+                  <input type="text" v-model="form.added_by" name="added_by" />
+                  <input
+                    type="text"
+                    v-model="form.tour_price"
+                    name="tour_price"
+                  />
+                  <input
+                    type="text"
+                    v-model="form.no_of_person"
+                    name="no_of_person"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="mobile.active_el == 2" class="min-height-90">
+            <p class="mt-3 pl-1">
+              <label for="mobile-checkbox"
+                ><input
+                  type="checkbox"
+                  id="mobile-checkbox"
+                  @click="toggleShipping"
+                />
+                <small
+                  >My billing and shipping address are different</small
+                ></label
+              >
+            </p>
+            <div v-if="shipping_toggle">
+              <h5 class="pl-1">Shipping Information</h5>
+              <div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group m-1">
+                      <label for="name">Shipping Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="form.delivery_name"
+                        name="delivery_name"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group m-1">
+                      <label for="address">Shipping Address</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="form.delivery_address"
+                        name="delivery_address"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group m-1">
+                      <label for="city">Shipping City</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="form.delivery_city"
+                        name="delivery_city"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-sm-4">
+                    <div class="form-group m-1">
+                      <label for="state">Shipping State</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="form.delivery_state"
+                        name="delivery_state"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group m-1">
+                      <label for="zipcode">Shipping Zip Code</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        v-model="form.delivery_zip"
+                        name="delivery_zip"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group m-1">
+                      <label for="country">Shipping Country</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="form.delivery_country"
+                        name="delivery_country"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group m-1">
+                      <label for="phone_no">Phone Number</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        v-model="form.delivery_tel"
+                        name="delivery_tel"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group m-1">
+                      <label for="email">Shipping Email</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        v-model="form.delivery_email"
+                        name="delivery_email"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <button
           v-if="submit_button == false"
           @click="submitForm"
@@ -325,34 +606,30 @@
         >
           Confirm & Pay
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
 </template>
 <script>
-import BillingForm from "@/front/components/form/payment/BillingForm.vue";
-import ShippingForm from "@/front/components/form/payment/ShippingForm.vue";
 import PaymentCard from "@/front/components/form/payment/TeacherPaymentCard.vue";
 export default {
   components: {
-    BillingForm,
     PaymentCard,
-    ShippingForm,
   },
   data() {
     return {
       shipping_toggle: false,
-      form: {
-        billing: {},
-        shipping: {},
-      },
       mobile: {
         active_el: 0,
       },
       validated: false,
       submit_button: false,
-      formdata: {
-        billing_customer_name: "",
+      errors: {
+        billing_email: "",
+        billing_tel: "",
+      },
+      form: {
+        // billing_customer_name: "",
         billing_name: "",
         billing_address: "",
         billing_city: "",
@@ -378,8 +655,35 @@ export default {
         no_of_person: "",
       },
       amount: 0,
-      pax: 1,
     };
+  },
+  watch: {
+    "form.billing_name": function () {
+      this.billingFormat();
+    },
+    "form.billing_address": function () {
+      this.billingFormat();
+    },
+    "form.billing_city": function () {
+      this.billingFormat();
+    },
+    "form.billing_state": function () {
+      this.billingFormat();
+    },
+    "form.billing_zip": function () {
+      this.billingFormat();
+    },
+    "form.billing_country": function () {
+      this.billingFormat();
+    },
+    "form.billing_email": function () {
+      this.validateEmail(this.form.billing_email);
+      this.billingFormat();
+    },
+    "form.billing_tel": function () {
+      this.validateTel(this.form.billing_tel);
+      this.billingFormat();
+    },
   },
   created() {
     if (this.$cookies.get("payment-data") == null) {
@@ -387,34 +691,33 @@ export default {
     }
     var data = this.$cookies.get("payment-data");
     this.amount = parseInt(data.tour_price);
-    this.pax = parseInt(data.no_of_person);
-    this.formdata.user_id = data.user_id;
-    this.formdata.travel_code = data.travel_code;
-    this.formdata.tour_id = data.tour_id;
-    this.formdata.school_id = data.school_id;
-    this.formdata.added_by = data.added_by;
-    this.formdata.tour_price = data.tour_price;
-    this.formdata.no_of_person = data.no_of_person;
+    this.form.user_id = data.user_id;
+    this.form.travel_code = data.travel_code;
+    this.form.tour_id = data.tour_id;
+    this.form.school_id = data.school_id;
+    this.form.added_by = data.added_by;
+    this.form.tour_price = data.tour_price;
+    this.form.no_of_person = parseInt(data.no_of_person);
   },
 
   methods: {
     activate(nav_number) {
       this.mobile.active_el = nav_number;
     },
-    billingUpdate(value) {
-      this.form.billing = value;
-      this.billingFormat();
-    },
-    shippingUpdate(value) {
-      this.form.shipping = value;
-      this.shippingFormat();
-    },
     toggleShipping() {
       this.shipping_toggle = !this.shipping_toggle;
     },
     submitForm() {
-      var billing = this.form.billing;
-      if (billing.billing_name == undefined) {
+      if (
+        this.form.billing_name.length < 1 ||
+        this.form.billing_address.length < 1 ||
+        this.form.billing_country.length < 1 ||
+        this.form.billing_state.length < 1 ||
+        this.form.billing_city.length < 1 ||
+        this.form.billing_zip.length < 1 ||
+        this.form.billing_tel.length < 1 ||
+        this.form.billing_email.length < 1
+      ) {
         this.$swal.fire({
           icon: "error",
           title: "Oops...",
@@ -422,44 +725,73 @@ export default {
         });
         return false;
       }
-      for (const field in billing) {
-        if (billing[field] == "") {
-          this.$swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Please fill Billing  fields",
-          });
-          return false;
-        }
-      }
     },
     billingFormat() {
-      for (const field in this.form.billing) {
-        if (this.form.billing[field] == "") {
-          return false;
-        }
+      if (
+        this.form.billing_name.length < 1 ||
+        this.form.billing_address.length < 1 ||
+        this.form.billing_country.length < 1 ||
+        this.form.billing_state.length < 1 ||
+        this.form.billing_city.length < 1 ||
+        this.form.billing_zip.length < 1 ||
+        this.form.billing_tel.length < 1 ||
+        this.form.billing_email.length < 1 ||
+        this.errors.billing_email != "" ||
+        this.errors.billing_tel != ""
+      ) {
+        this.submit_button = false;
+        return false;
+      } else {
+        this.submit_button = true;
       }
-      this.formdata.billing_customer_name = this.form.billing.billing_customer_name;
-      this.formdata.billing_name = this.form.billing.billing_name;
-      this.formdata.billing_address = this.form.billing.billing_address;
-      this.formdata.billing_city = this.form.billing.billing_city;
-      this.formdata.billing_state = this.form.billing.billing_state;
-      this.formdata.billing_zip = this.form.billing.billing_zip;
-      this.formdata.billing_country = this.form.billing.billing_country;
-      this.formdata.billing_tel = this.form.billing.billing_tel;
-      this.formdata.billing_email = this.form.billing.billing_email;
-      this.submit_button = true;
     },
     shippingFormat() {
-      this.formdata.delivery_name = this.form.shipping.delivery_name;
-      this.formdata.delivery_name = this.form.shipping.delivery_name;
-      this.formdata.delivery_address = this.form.shipping.delivery_address;
-      this.formdata.delivery_city = this.form.shipping.delivery_address;
-      this.formdata.delivery_state = this.form.shipping.delivery_state;
-      this.formdata.delivery_zipcode = this.form.shipping.delivery_zipcode;
-      this.formdata.delivery_country = this.form.shipping.delivery_country;
-      this.formdata.delivery_tel = this.form.shipping.delivery_tel;
-      this.formdata.delivery_email = this.form.shipping.delivery_email;
+      if (this.shipping_toggle == true) {
+        if (
+          this.form.shipping_name.length < 1 ||
+          this.form.shipping_address.length < 1 ||
+          this.form.shipping_country.length < 1 ||
+          this.form.shipping_state.length < 1 ||
+          this.form.shipping_city.length < 1 ||
+          this.form.shipping_zip.length < 1 ||
+          this.form.shipping_tel.length < 1 ||
+          this.form.shipping_email.length < 1 ||
+          this.errors.billing_email != "" ||
+          this.errors.billing_tel != ""
+        ) {
+          this.submit_button = false;
+          return false;
+        } else {
+          this.submit_button = true;
+        }
+      }
+    },
+    validateEmail(email) {
+      if (email != "") {
+        var re = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,3}$/;
+        let result = re.test(email);
+        if (result == false) {
+          this.errors.billing_email = "Please Enter Valid Email";
+          return false;
+        } else {
+          this.errors.billing_email = "";
+        }
+      }
+      this.billingFormat();
+    },
+
+    validateTel(tel) {
+      if (tel != "") {
+        var re = /^[789]\d{9}$/;
+        let result = re.test(tel);
+        if (result == false) {
+          this.errors.billing_tel = "Please Enter Valid Phone number";
+          return false;
+        } else {
+          this.errors.billing_tel = "";
+        }
+      }
+      this.billingFormat();
     },
   },
 };

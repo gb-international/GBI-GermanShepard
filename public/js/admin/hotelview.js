@@ -287,14 +287,12 @@ var render = function() {
         [
           _vm._t("viewdata"),
           _vm._v(" "),
-          _vm.backurl
-            ? _c(
-                "div",
-                { staticClass: "text-center" },
-                [_c("back-button", { attrs: { url: _vm.backurl } })],
-                1
-              )
-            : _vm._e()
+          _c(
+            "div",
+            { staticClass: "text-center" },
+            [_c("back-button", { attrs: { url: _vm.backurl } })],
+            1
+          )
         ],
         2
       )

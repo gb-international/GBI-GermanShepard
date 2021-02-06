@@ -56,11 +56,6 @@ It takes id from the url and get the data from the api .
             </div>
           </div>
         </div>
-        <!-- End card -->
-
-        <button @click="goBack()" class="btn btn-primary itrn_add_btn back_btn">
-          Back
-        </button>
       </div>
     </template>
   </view-layout>
@@ -102,10 +97,7 @@ export default {
           });
         })
         .catch(() => {});
-    },
-    goBack() {
-      this.$router.go(-1);
-    },
+    }
   },
 };
 </script>

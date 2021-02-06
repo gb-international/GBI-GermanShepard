@@ -125,6 +125,11 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('bookedtrains','BookedtrainController');
 		Route::resource('bookedbuses','BookedbusController');
 		Route::resource('pnrs','PnrController');
+		Route::get('/bookedusers/bankdetails/{id}','BookeduserController@bankdetails');
+		Route::get('/bookedusers/{id}','BookeduserController@all');
+		Route::get('/bookedusers-view/{id}','BookeduserController@show');
+		Route::resource('bookedusers','BookeduserController');
+
 		Route::post('pnrs/get','PnrController@getData');
 		Route::post('payments/list','UserpaymentController@paymentList');
 		Route::post('payments/student','UserpaymentController@paymentStudent');
@@ -161,6 +166,7 @@ Route::namespace('Admin')->group(function (){
 		
 		Route::resource('website','WebsiteController');
 		Route::get('user','UserController@index');
+		Route::get('user/all/{size}','UserController@all');
 		Route::get('user/{id}','UserController@show');
 		Route::post('/images','ImageController@upload');
 		Route::post('/images/delete','ImageController@delete');

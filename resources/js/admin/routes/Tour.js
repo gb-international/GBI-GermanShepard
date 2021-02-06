@@ -19,6 +19,11 @@ const Tourprogram = () => import(/* webpackChunkName: "js/admin/Tourprogram" */ 
 const TourprogramAdd = () => import(/* webpackChunkName: "js/admin/TourprogramAdd" */ '@/admin/pages/website/home/New-tourprogram.vue');
 const TourprogramEdit = () => import(/* webpackChunkName: "js/admin/TourprogramEdit" */ '@/admin/pages/website/home/Edit-tourprogram.vue');
 
+// bookeduser
+const ListStudentPayment = () => import(/* webpackChunkName: "js/admin/ListStudentPayment" */ '@/admin/pages/bookedtour/payment/ListStudentPayment.vue');
+const EditStudentPayment = () => import(/* webpackChunkName: "js/admin/EditStudentPayment" */ '@/admin/pages/bookedtour/payment/EditStudentPayment');
+const ViewStudentPayment = () => import(/* webpackChunkName: "js/admin/ViewStudentPayment" */ '@/admin/pages/bookedtour/payment/ViewStudentPayment');
+
 export default [
     // Tour
     { path: '/tours', component: Tours },
@@ -41,4 +46,8 @@ export default [
     { path: '/tourprogram', component: Tourprogram },
     { path: '/tourprogram/:id', component: TourprogramEdit },
     { path: '/tourprogram-add', component: TourprogramAdd },
+
+    { path: '/bookedusers/:school_id/:tour_code',component: ListStudentPayment},
+    { path: '/bookedusers/:id', component: EditStudentPayment },
+    { path: '/bookedusers-view/:id', component: ViewStudentPayment },
 ]

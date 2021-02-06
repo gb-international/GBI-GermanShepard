@@ -19,9 +19,10 @@ export function createStore() {
         state:{
             singlepost:[],
             alldata:[], // All data from the api
-            editdata:[],// Get Edit data 
+            editdata:{},// Get Edit data 
             SearchAll:[],
             isBusy:false,
+            post_get_items:[],
             items:[],
             response:'',
         },
@@ -40,6 +41,9 @@ export function createStore() {
             getItems(state){
                 return state.items
             },
+            postgetItems(state){
+                return state.post_get_items
+            },
             isBusy(state){
                 return state.isBusy
             },
@@ -56,11 +60,11 @@ export function createStore() {
                         context.commit('alldata',response.data.data)
                     })
                 },
-            getEditData(context,api){
-                axios.get(api)
-                .then((response)=>{
-                    context.commit('editdata',response.data)
-                })
+            getEditData({ commit, state }, payload){
+                state.isBusy = true;
+                Api.get(payload)
+                    .then(res => commit('EDITITEM', res))
+                    .catch(error => console.error(error));
             },
             getPostById(context,payload){
                 axios.get('/singlepost/'+payload)
@@ -83,6 +87,12 @@ export function createStore() {
                         context.commit('getSearchPostAll',response.data.data)
 
                     })
+            },
+            postgetItems({ commit, state }, payload) {
+                state.isBusy = true;
+                Api.get(payload.api,payload.data)
+                    .then(res => commit('POSTGETITEMS', res))
+                    .catch(error => console.error(error));
             },
             getItems({commit,state},payload){
                 state.isBusy = true;
@@ -140,7 +150,16 @@ export function createStore() {
             ITEMS(state,payload){
                 state.items = payload;
                 state.isBusy = !state.isBusy
-            },
+            },            
+            POSTGETITEMS(state,payload){
+                state.post_get_items = payload;
+                state.isBusy = !state.isBusy
+            },            
+            EDITITEM(state,payload){
+                state.editdata = payload;
+                state.isBusy = !state.isBusy
+            },            
+
             RESPONSE(state,payload){
                 state.response = payload
             },

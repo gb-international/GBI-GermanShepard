@@ -197,6 +197,7 @@ export default {
         .then(response => {
           const data = this.$cookies.get('user');
           data.status = 1;
+          data.user_profession = this.profession;
           this.$cookies.remove('user');
           this.$cookies.set('user',data);
           this.$router.push("/dashboard");

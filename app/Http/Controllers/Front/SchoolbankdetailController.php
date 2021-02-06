@@ -27,10 +27,14 @@ class SchoolbankdetailController extends Controller
             'school_id'=>$school_id,
             'tour_code'=>$request->tour_code,
             'added_by' => 'teacher'
-            ])
-            ->with('schoolbankdetail')
-            ->first();
-        return $bank->schoolbankdetail;
+        ])
+        ->with('schoolbankdetail')
+        ->first();
+        if($bank){
+            return $bank->schoolbankdetail;
+        }
+        return $bank;
+        
     }
 
     public function store(Request $request){

@@ -891,7 +891,10 @@ var render = function() {
                           class: {
                             "is-invalid": _vm.form.errors.has("pincode")
                           },
-                          attrs: { type: "text", placeholder: "Enter pincode" },
+                          attrs: {
+                            type: "number",
+                            placeholder: "Enter pincode"
+                          },
                           domProps: { value: _vm.form.pincode },
                           on: {
                             input: function($event) {

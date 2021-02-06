@@ -497,7 +497,7 @@ var render = function() {
                 { staticClass: "form-group" },
                 [
                   _c("label", { attrs: { for: "number_of_person" } }, [
-                    _vm._v("Number of Persion")
+                    _vm._v("Number of Person")
                   ]),
                   _vm._v(" "),
                   _c("input", {

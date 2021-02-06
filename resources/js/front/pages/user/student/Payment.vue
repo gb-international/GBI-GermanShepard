@@ -657,6 +657,11 @@ export default {
     validateCheque(){
       if(this.teacherform.cheque_bank_name != '' && this.teacherform.date_of_issue != '' && this.teacherform.ifsc_code != '' && this.teacherform.cheque_number != ''){
         this.submitForm();
+        this.router.push('/tour-list');
+        this.$swal.fire({
+          icon: "success",
+          title: "Successfully submited !!",
+        });
       }else{
         this.$swal.fire({
           icon: "error",

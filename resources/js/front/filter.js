@@ -17,3 +17,9 @@ Vue.filter('firstUppercase', (value) => {
     if (!value) return ''
     return value.charAt(0).toUpperCase() + value.slice(1)
 })
+
+/* Add , in Amount */
+Vue.filter('numberWithCommas',(value)=>{
+    if(!value) return ''
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+})

@@ -9,8 +9,6 @@ class TourUser extends Model
     protected $table = 'tour_user';
     protected $fillable = ['user_id','travel_code'];
 
-    
-
     public function tour(){
         return $this->belongsTo('App\Model\Tour\Tour','travel_code','travel_code');
     }

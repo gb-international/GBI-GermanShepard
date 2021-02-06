@@ -8,7 +8,7 @@ use App\Model\School\Groupmember;
 use App\Model\User\Subscriber;
 use App\Model\User\Information;
 use App\Model\Tour\Tour;
-use App\Model\Tour\TourUser;
+use App\Model\Reservation\Bookeduser;
 use App\User;
 use App\Helpers\SendSms;
 
@@ -43,7 +43,7 @@ class GroupmemberController extends Controller
 
     public function addlogindetail(Request $request){
         $tour_id = $request->all()[0]['tour_id'];
-        $travel_code = Tour::select('travel_code')->where('tour_id',$tour_id)->first();
+        $travel_code = Tour::select('travel_code','id')->where('tour_id',$tour_id)->first();
         foreach ($request->all() as $groupmember) {
             // validate if user email is already registered
             $user = User::where('email',$groupmember['email'])->first();
@@ -60,10 +60,15 @@ class GroupmemberController extends Controller
                 $message = 'Welcome in GBI-International Please login to GBI panel with your existing Account Thank you.';
             }
             // validate if user id is already registered for the tour
-            $tour = ['travel_code'=>$travel_code->travel_code,'user_id'=>$user->id];
-            $tour_user = TourUser::where($tour)->first();
+            $tour = [
+                'travel_code'=>$travel_code->travel_code,
+                'user_id'=>$user->id,
+                'tour_code' => $tour_id,
+                'tour_id'=>$travel_code->id,
+            ];
+            $tour_user = Bookeduser::where($tour)->first();
             if(!$tour_user){
-                $tour_user = TourUser::create($tour);
+                $tour_user = Bookeduser::create($tour);
             }
             // notify user with tour details and login detials 
             $tour['name'] =$groupmember['first_name'].' '.$groupmember['last_name'];

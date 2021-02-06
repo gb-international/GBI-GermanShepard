@@ -64,11 +64,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     amount: {
@@ -83,45 +78,14 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       internet_charge: false,
-      internet: {
-        total: 0,
-        fee: 0,
-        gst: 0
-      },
-      gst: 18,
-      internet_fee: 3,
+      internet_fee: 0,
       grand_total: 0
     };
   },
-
-  /*
-  
-    amount 25000 * 20 = 5,00,000
-  fee = (500000 * 3)/100 = 15000
-  gst = (fee*18)/100 = 2700
-  internet fee = gst + fee  =  15000 + 2700 = 17,700
-    total = 5,00,000 + 17700 = 5,17,700
-    sir calculated -> 
-    amount 25000 * 20 = 5,00,000
-    fee = (500000 * 3)/100 = 15000    
-    gst = (fee*100)/118 = 12711
-    internet handeling fee = 12,711
-    total = 5,00,000 + 12,711 = 5,12,711
-    hide  both booking fee 
-  
-    */
-  computed: {
-    internet_amount: function internet_amount() {
-      this.grand_total = this.amount * this.pax;
-      this.internet.fee = this.grand_total * this.internet_fee / 100;
-      this.internet.gst = this.internet.fee * this.gst / 100;
-      return this.internet.total = this.internet.fee + this.internet.gst;
-    }
-  },
-  methods: {
-    InernetCharge: function InernetCharge() {
-      this.internet_charge = !this.internet_charge;
-    }
+  created: function created() {
+    this.grand_total = this.amount * this.pax;
+    this.internet_fee = Math.ceil(this.grand_total / 0.9646 * 3.54 / 100);
+    this.grand_total = this.grand_total + this.internet_fee;
   }
 });
 
@@ -136,9 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _front_components_form_payment_BillingForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/front/components/form/payment/BillingForm.vue */ "./resources/js/front/components/form/payment/BillingForm.vue");
-/* harmony import */ var _front_components_form_payment_ShippingForm_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/front/components/form/payment/ShippingForm.vue */ "./resources/js/front/components/form/payment/ShippingForm.vue");
-/* harmony import */ var _front_components_form_payment_TeacherPaymentCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/front/components/form/payment/TeacherPaymentCard.vue */ "./resources/js/front/components/form/payment/TeacherPaymentCard.vue");
+/* harmony import */ var _front_components_form_payment_TeacherPaymentCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/front/components/form/payment/TeacherPaymentCard.vue */ "./resources/js/front/components/form/payment/TeacherPaymentCard.vue");
 //
 //
 //
@@ -470,29 +432,306 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    BillingForm: _front_components_form_payment_BillingForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    PaymentCard: _front_components_form_payment_TeacherPaymentCard_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    ShippingForm: _front_components_form_payment_ShippingForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    PaymentCard: _front_components_form_payment_TeacherPaymentCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
       shipping_toggle: false,
-      form: {
-        billing: {},
-        shipping: {}
-      },
       mobile: {
         active_el: 0
       },
       validated: false,
       submit_button: false,
-      formdata: {
-        billing_customer_name: "",
+      errors: {
+        billing_email: "",
+        billing_tel: ""
+      },
+      form: {
+        // billing_customer_name: "",
         billing_name: "",
         billing_address: "",
         billing_city: "",
@@ -517,9 +756,36 @@ __webpack_require__.r(__webpack_exports__);
         tour_price: "",
         no_of_person: ""
       },
-      amount: 0,
-      pax: 1
+      amount: 0
     };
+  },
+  watch: {
+    "form.billing_name": function formBilling_name() {
+      this.billingFormat();
+    },
+    "form.billing_address": function formBilling_address() {
+      this.billingFormat();
+    },
+    "form.billing_city": function formBilling_city() {
+      this.billingFormat();
+    },
+    "form.billing_state": function formBilling_state() {
+      this.billingFormat();
+    },
+    "form.billing_zip": function formBilling_zip() {
+      this.billingFormat();
+    },
+    "form.billing_country": function formBilling_country() {
+      this.billingFormat();
+    },
+    "form.billing_email": function formBilling_email() {
+      this.validateEmail(this.form.billing_email);
+      this.billingFormat();
+    },
+    "form.billing_tel": function formBilling_tel() {
+      this.validateTel(this.form.billing_tel);
+      this.billingFormat();
+    }
   },
   created: function created() {
     if (this.$cookies.get("payment-data") == null) {
@@ -528,34 +794,23 @@ __webpack_require__.r(__webpack_exports__);
 
     var data = this.$cookies.get("payment-data");
     this.amount = parseInt(data.tour_price);
-    this.pax = parseInt(data.no_of_person);
-    this.formdata.user_id = data.user_id;
-    this.formdata.travel_code = data.travel_code;
-    this.formdata.tour_id = data.tour_id;
-    this.formdata.school_id = data.school_id;
-    this.formdata.added_by = data.added_by;
-    this.formdata.tour_price = data.tour_price;
-    this.formdata.no_of_person = data.no_of_person;
+    this.form.user_id = data.user_id;
+    this.form.travel_code = data.travel_code;
+    this.form.tour_id = data.tour_id;
+    this.form.school_id = data.school_id;
+    this.form.added_by = data.added_by;
+    this.form.tour_price = data.tour_price;
+    this.form.no_of_person = parseInt(data.no_of_person);
   },
   methods: {
     activate: function activate(nav_number) {
       this.mobile.active_el = nav_number;
     },
-    billingUpdate: function billingUpdate(value) {
-      this.form.billing = value;
-      this.billingFormat();
-    },
-    shippingUpdate: function shippingUpdate(value) {
-      this.form.shipping = value;
-      this.shippingFormat();
-    },
     toggleShipping: function toggleShipping() {
       this.shipping_toggle = !this.shipping_toggle;
     },
     submitForm: function submitForm() {
-      var billing = this.form.billing;
-
-      if (billing.billing_name == undefined) {
+      if (this.form.billing_name.length < 1 || this.form.billing_address.length < 1 || this.form.billing_country.length < 1 || this.form.billing_state.length < 1 || this.form.billing_city.length < 1 || this.form.billing_zip.length < 1 || this.form.billing_tel.length < 1 || this.form.billing_email.length < 1) {
         this.$swal.fire({
           icon: "error",
           title: "Oops...",
@@ -563,46 +818,54 @@ __webpack_require__.r(__webpack_exports__);
         });
         return false;
       }
-
-      for (var field in billing) {
-        if (billing[field] == "") {
-          this.$swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Please fill Billing  fields"
-          });
-          return false;
-        }
-      }
     },
     billingFormat: function billingFormat() {
-      for (var field in this.form.billing) {
-        if (this.form.billing[field] == "") {
+      if (this.form.billing_name.length < 1 || this.form.billing_address.length < 1 || this.form.billing_country.length < 1 || this.form.billing_state.length < 1 || this.form.billing_city.length < 1 || this.form.billing_zip.length < 1 || this.form.billing_tel.length < 1 || this.form.billing_email.length < 1 || this.errors.billing_email != "" || this.errors.billing_tel != "") {
+        this.submit_button = false;
+        return false;
+      } else {
+        this.submit_button = true;
+      }
+    },
+    shippingFormat: function shippingFormat() {
+      if (this.shipping_toggle == true) {
+        if (this.form.shipping_name.length < 1 || this.form.shipping_address.length < 1 || this.form.shipping_country.length < 1 || this.form.shipping_state.length < 1 || this.form.shipping_city.length < 1 || this.form.shipping_zip.length < 1 || this.form.shipping_tel.length < 1 || this.form.shipping_email.length < 1 || this.errors.billing_email != "" || this.errors.billing_tel != "") {
+          this.submit_button = false;
           return false;
+        } else {
+          this.submit_button = true;
+        }
+      }
+    },
+    validateEmail: function validateEmail(email) {
+      if (email != "") {
+        var re = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,3}$/;
+        var result = re.test(email);
+
+        if (result == false) {
+          this.errors.billing_email = "Please Enter Valid Email";
+          return false;
+        } else {
+          this.errors.billing_email = "";
         }
       }
 
-      this.formdata.billing_customer_name = this.form.billing.billing_customer_name;
-      this.formdata.billing_name = this.form.billing.billing_name;
-      this.formdata.billing_address = this.form.billing.billing_address;
-      this.formdata.billing_city = this.form.billing.billing_city;
-      this.formdata.billing_state = this.form.billing.billing_state;
-      this.formdata.billing_zip = this.form.billing.billing_zip;
-      this.formdata.billing_country = this.form.billing.billing_country;
-      this.formdata.billing_tel = this.form.billing.billing_tel;
-      this.formdata.billing_email = this.form.billing.billing_email;
-      this.submit_button = true;
+      this.billingFormat();
     },
-    shippingFormat: function shippingFormat() {
-      this.formdata.delivery_name = this.form.shipping.delivery_name;
-      this.formdata.delivery_name = this.form.shipping.delivery_name;
-      this.formdata.delivery_address = this.form.shipping.delivery_address;
-      this.formdata.delivery_city = this.form.shipping.delivery_address;
-      this.formdata.delivery_state = this.form.shipping.delivery_state;
-      this.formdata.delivery_zipcode = this.form.shipping.delivery_zipcode;
-      this.formdata.delivery_country = this.form.shipping.delivery_country;
-      this.formdata.delivery_tel = this.form.shipping.delivery_tel;
-      this.formdata.delivery_email = this.form.shipping.delivery_email;
+    validateTel: function validateTel(tel) {
+      if (tel != "") {
+        var re = /^[789]\d{9}$/;
+        var result = re.test(tel);
+
+        if (result == false) {
+          this.errors.billing_tel = "Please Enter Valid Phone number";
+          return false;
+        } else {
+          this.errors.billing_tel = "";
+        }
+      }
+
+      this.billingFormat();
     }
   }
 });
@@ -630,7 +893,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-4 text-right" }, [
         _c("img", { attrs: { src: "/images/icons/rupee.png" } }),
-        _vm._v(_vm._s(_vm.amount))
+        _vm._v(_vm._s(_vm._f("numberWithCommas")(_vm.amount)) + "\n    ")
       ])
     ]),
     _vm._v(" "),
@@ -648,9 +911,9 @@ var render = function() {
       _c("div", { staticClass: "col-6" }, [_vm._v("Total package cost")]),
       _vm._v(" "),
       _c("div", { staticClass: "col-6 text-right" }, [
-        _vm._v(_vm._s(_vm.pax) + " * "),
+        _vm._v("\n      " + _vm._s(_vm.pax) + " * "),
         _c("img", { attrs: { src: "/images/icons/rupee.png" } }),
-        _vm._v(_vm._s(_vm.amount))
+        _vm._v(_vm._s(_vm._f("numberWithCommas")(_vm.amount)) + "\n    ")
       ])
     ]),
     _vm._v(" "),
@@ -663,42 +926,12 @@ var render = function() {
     _c("hr"),
     _vm._v(" "),
     _c("div", { staticClass: "row pt-2 pb-2" }, [
-      _c("div", { staticClass: "col-8" }, [
-        _c(
-          "p",
-          {
-            staticClass: "m-0 link",
-            attrs: { title: "Internet charges and tax" },
-            on: { click: _vm.InernetCharge }
-          },
-          [_vm._m(2), _vm._v("\n        Internet handeling fee\n      ")]
-        )
-      ]),
+      _vm._m(2),
       _vm._v(" "),
       _c("div", { staticClass: "col-4 text-right" }, [
-        _vm._v(_vm._s(_vm.internet_amount))
+        _vm._v(_vm._s(_vm._f("numberWithCommas")(_vm.internet_fee)))
       ])
     ]),
-    _vm._v(" "),
-    _vm.internet_charge
-      ? _c("div", { staticClass: "internet-charge pl-4 pt-2 pb-2" }, [
-          _c("p", { staticClass: "m-0" }, [
-            _vm._v("Booking Fees "),
-            _c("span", { staticClass: "float-right" }, [
-              _c("img", { attrs: { src: "/images/icons/rupee.png" } }),
-              _vm._v(_vm._s(_vm.internet.fee))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "m-0" }, [
-            _vm._v("\n      Central GST(CGST) @ 18% "),
-            _c("span", { staticClass: "float-right" }, [
-              _c("img", { attrs: { src: "/images/icons/rupee.png" } }),
-              _vm._v(_vm._s(_vm.internet.gst) + " ")
-            ])
-          ])
-        ])
-      : _vm._e(),
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
@@ -707,7 +940,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-4 text-right" }, [
         _c("img", { attrs: { src: "/images/icons/rupee.png" } }),
-        _vm._v(_vm._s(_vm.grand_total + _vm.internet.total))
+        _vm._v(_vm._s(_vm._f("numberWithCommas")(_vm.grand_total)) + "\n    ")
       ])
     ])
   ])
@@ -749,8 +982,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "internet-icon" }, [
-      _c("i", { staticClass: "fas fa-angle-up" })
+    return _c("div", { staticClass: "col-8" }, [
+      _c(
+        "p",
+        { staticClass: "m-0", attrs: { title: "Internet charges and tax" } },
+        [_vm._v("\n        Internet handeling fee\n      ")]
+      )
     ])
   },
   function() {
@@ -791,186 +1028,824 @@ var render = function() {
     "div",
     { staticClass: "container", attrs: { id: "payment_information" } },
     [
-      _c("div", { staticClass: "desktop" }, [
-        _c("div", { staticClass: "row pt-4 pb-4" }, [
-          _c(
-            "div",
-            { staticClass: "col-sm-8" },
-            [
-              _c("h6", [_vm._v("Billing Information")]),
-              _vm._v(" "),
-              _c("billing-form", { on: { update: _vm.billingUpdate } }),
-              _vm._v(" "),
-              _c("p", { staticClass: "mt-3 pl-1" }, [
-                _c("label", { attrs: { for: "checkbox" } }, [
-                  _c("input", {
-                    attrs: { type: "checkbox", id: "checkbox" },
-                    on: { click: _vm.toggleShipping }
-                  }),
+      _c(
+        "form",
+        { staticClass: "form", attrs: { method: "POST", action: "/payment" } },
+        [
+          _c("div", { staticClass: "desktop" }, [
+            _c("div", { staticClass: "row pt-4 pb-4" }, [
+              _c("div", { staticClass: "col-sm-8" }, [
+                _c("h6", [_vm._v("Billing Information")]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c("div", { staticClass: "form-group m-1" }, [
+                        _c("label", { attrs: { for: "name" } }, [
+                          _vm._v("Billing Name")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.billing_name,
+                              expression: "form.billing_name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "billing_name",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.billing_name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "billing_name",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c("div", { staticClass: "form-group m-1" }, [
+                        _c("label", { attrs: { for: "address" } }, [
+                          _vm._v("Billing Address")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.billing_address,
+                              expression: "form.billing_address"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "billing_address",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.billing_address },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "billing_address",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  ]),
                   _vm._v(" "),
-                  _c("small", [
-                    _vm._v("My billing and shipping address are different")
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c("div", { staticClass: "form-group m-1" }, [
+                        _c("label", { attrs: { for: "city" } }, [
+                          _vm._v("Billing City")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.billing_city,
+                              expression: "form.billing_city"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "billing_city",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.billing_city },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "billing_city",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c("div", { staticClass: "form-group m-1" }, [
+                        _c("label", { attrs: { for: "state" } }, [
+                          _vm._v("Billing State")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.billing_state,
+                              expression: "form.billing_state"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "billing_state",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.billing_state },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "billing_state",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c("div", { staticClass: "form-group m-1" }, [
+                        _c("label", { attrs: { for: "billing_zip" } }, [
+                          _vm._v("Billing Zip Code")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.billing_zip,
+                              expression: "form.billing_zip"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "number",
+                            name: "billing_zip",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.billing_zip },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "billing_zip",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c("div", { staticClass: "form-group m-1" }, [
+                        _c("label", { attrs: { for: "country" } }, [
+                          _vm._v("Billing Country")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.billing_country,
+                              expression: "form.billing_country"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "billing_country",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.billing_country },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "billing_country",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c("div", { staticClass: "form-group m-1" }, [
+                        _c("label", { attrs: { for: "phone_no" } }, [
+                          _vm._v("Phone Number")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.billing_tel,
+                              expression: "form.billing_tel"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "number",
+                            name: "billing_tel",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.billing_tel },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "billing_tel",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("small", { staticClass: "text-danger" }, [
+                          _vm._v(_vm._s(_vm.errors.billing_tel))
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c("div", { staticClass: "form-group m-1" }, [
+                        _c("label", { attrs: { for: "email" } }, [
+                          _vm._v("Billing Email")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.billing_email,
+                              expression: "form.billing_email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "email",
+                            name: "billing_email",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.billing_email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "billing_email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("small", { staticClass: "text-danger" }, [
+                          _vm._v(_vm._s(_vm.errors.billing_email))
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "d-none" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.user_id,
+                            expression: "form.user_id"
+                          }
+                        ],
+                        attrs: { type: "text", name: "user_id" },
+                        domProps: { value: _vm.form.user_id },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "user_id", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.travel_code,
+                            expression: "form.travel_code"
+                          }
+                        ],
+                        attrs: { type: "text", name: "travel_code" },
+                        domProps: { value: _vm.form.travel_code },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "travel_code",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.tour_id,
+                            expression: "form.tour_id"
+                          }
+                        ],
+                        attrs: { type: "text", name: "tour_id" },
+                        domProps: { value: _vm.form.tour_id },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "tour_id", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.school_id,
+                            expression: "form.school_id"
+                          }
+                        ],
+                        attrs: { type: "text", name: "school_id" },
+                        domProps: { value: _vm.form.school_id },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "school_id", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.added_by,
+                            expression: "form.added_by"
+                          }
+                        ],
+                        attrs: { type: "text", name: "added_by" },
+                        domProps: { value: _vm.form.added_by },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "added_by", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.tour_price,
+                            expression: "form.tour_price"
+                          }
+                        ],
+                        attrs: { type: "text", name: "tour_price" },
+                        domProps: { value: _vm.form.tour_price },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "tour_price",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.no_of_person,
+                            expression: "form.no_of_person"
+                          }
+                        ],
+                        attrs: { type: "text", name: "no_of_person" },
+                        domProps: { value: _vm.form.no_of_person },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "no_of_person",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
                   ])
-                ])
-              ]),
-              _vm._v(" "),
-              _vm.shipping_toggle
-                ? _c(
-                    "div",
-                    [
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "mt-3 pl-1" }, [
+                  _c("label", { attrs: { for: "checkbox" } }, [
+                    _c("input", {
+                      attrs: { type: "checkbox", id: "checkbox" },
+                      on: { click: _vm.toggleShipping }
+                    }),
+                    _vm._v(" "),
+                    _c("small", [
+                      _vm._v("My billing and shipping address are different")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm.shipping_toggle
+                  ? _c("div", [
                       _c("h6", [_vm._v("Shipping Information")]),
                       _vm._v(" "),
-                      _c("shipping-form", {
-                        on: { update: _vm.shippingUpdate }
-                      })
-                    ],
-                    1
-                  )
-                : _vm._e()
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-4 pl-4 pr-4" }, [
-            _c(
-              "div",
-              { staticClass: "payment-card" },
-              [
-                _c("payment-card", {
-                  attrs: { pax: _vm.pax, amount: _vm.amount }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "form",
-              {
-                staticClass: "form",
-                attrs: { method: "POST", action: "/payment" }
-              },
-              [
-                _c("div", { staticClass: "d-none" }, [
-                  _c("input", {
-                    attrs: { type: "text", name: "billing_customer_name" },
-                    domProps: { value: _vm.formdata.billing_customer_name }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "billing_name" },
-                    domProps: { value: _vm.formdata.billing_name }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "billing_address" },
-                    domProps: { value: _vm.formdata.billing_address }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "billing_city" },
-                    domProps: { value: _vm.formdata.billing_city }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "billing_state" },
-                    domProps: { value: _vm.formdata.billing_state }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "billing_country" },
-                    domProps: { value: _vm.formdata.billing_country }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "billing_zip" },
-                    domProps: { value: _vm.formdata.billing_zip }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "billing_tel" },
-                    domProps: { value: _vm.formdata.billing_tel }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "billing_email" },
-                    domProps: { value: _vm.formdata.billing_email }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "shipping_name" },
-                    domProps: { value: _vm.formdata.delivery_name }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "shipping_address" },
-                    domProps: { value: _vm.formdata.delivery_address }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "shipping_city" },
-                    domProps: { value: _vm.formdata.shipping_city }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "shipping_state" },
-                    domProps: { value: _vm.formdata.shipping_state }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "shipping_country" },
-                    domProps: { value: _vm.formdata.shipping_country }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "shipping_zipcode" },
-                    domProps: { value: _vm.formdata.shipping_zipcode }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "shipping_tel" },
-                    domProps: { value: _vm.formdata.shipping_tel }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "shipping_email" },
-                    domProps: { value: _vm.formdata.shipping_email }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "user_id" },
-                    domProps: { value: _vm.formdata.user_id }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "travel_code" },
-                    domProps: { value: _vm.formdata.travel_code }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "tour_id" },
-                    domProps: { value: _vm.formdata.tour_id }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "tour_price" },
-                    domProps: { value: _vm.formdata.tour_price }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "added_by" },
-                    domProps: { value: _vm.formdata.added_by }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "no_of_person" },
-                    domProps: { value: _vm.formdata.no_of_person }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "text", name: "school_id" },
-                    domProps: { value: _vm.formdata.school_id }
-                  })
-                ]),
+                      _c("div", [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-sm-6" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "name" } }, [
+                                _vm._v("Shipping Name")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.delivery_name,
+                                    expression: "form.delivery_name"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "text", name: "delivery_name" },
+                                domProps: { value: _vm.form.delivery_name },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "delivery_name",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-6" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "address" } }, [
+                                _vm._v("Shipping Address")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.delivery_address,
+                                    expression: "form.delivery_address"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  name: "delivery_address"
+                                },
+                                domProps: { value: _vm.form.delivery_address },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "delivery_address",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-sm-4" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "city" } }, [
+                                _vm._v("Shipping City")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.delivery_city,
+                                    expression: "form.delivery_city"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "text", name: "delivery_city" },
+                                domProps: { value: _vm.form.delivery_city },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "delivery_city",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-4" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "state" } }, [
+                                _vm._v("Shipping State")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.delivery_state,
+                                    expression: "form.delivery_state"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "text", name: "delivery_state" },
+                                domProps: { value: _vm.form.delivery_state },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "delivery_state",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-4" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "zipcode" } }, [
+                                _vm._v("Shipping Zip Code")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.delivery_zip,
+                                    expression: "form.delivery_zip"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "number", name: "delivery_zip" },
+                                domProps: { value: _vm.form.delivery_zip },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "delivery_zip",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-sm-4" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "country" } }, [
+                                _vm._v("Shipping Country")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.delivery_country,
+                                    expression: "form.delivery_country"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  name: "delivery_country"
+                                },
+                                domProps: { value: _vm.form.delivery_country },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "delivery_country",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-sm-6" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "phone_no" } }, [
+                                _vm._v("Phone Number")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.delivery_tel,
+                                    expression: "form.delivery_tel"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "number", name: "delivery_tel" },
+                                domProps: { value: _vm.form.delivery_tel },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "delivery_tel",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-6" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "email" } }, [
+                                _vm._v("Shipping Email")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.delivery_email,
+                                    expression: "form.delivery_email"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "email",
+                                  name: "delivery_email"
+                                },
+                                domProps: { value: _vm.form.delivery_email },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "delivery_email",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-4 pl-4 pr-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "payment-card" },
+                  [
+                    _c("payment-card", {
+                      attrs: { amount: _vm.amount, pax: _vm.form.no_of_person }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _vm.submit_button == false
                   ? _c(
@@ -981,7 +1856,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: { click: _vm.submitForm }
                       },
-                      [_vm._v("Confirm & Pay")]
+                      [_vm._v("\n            Confirm & Pay\n          ")]
                     )
                   : _c(
                       "button",
@@ -992,245 +1867,929 @@ var render = function() {
                       },
                       [_vm._v("\n            Confirm & Pay\n          ")]
                     )
-              ]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mobile m-0 p-0" }, [
-        _c("div", { staticClass: "row bg-white text-center" }, [
-          _c(
-            "div",
-            {
-              staticClass: "col pt-4 pb-2 link font-weight-bold",
-              class: { active: _vm.mobile.active_el == 0 },
-              on: {
-                click: function($event) {
-                  return _vm.activate(0)
-                }
-              }
-            },
-            [_vm._v("\n        Payment info\n      ")]
-          ),
+              ])
+            ])
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "col pt-4 pb-2 link font-weight-bold",
-              class: { active: _vm.mobile.active_el == 1 },
-              on: {
-                click: function($event) {
-                  return _vm.activate(1)
-                }
-              }
-            },
-            [_vm._v("\n        Billing info\n      ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "col pt-4 pb-2 link font-weight-bold",
-              class: { active: _vm.mobile.active_el == 2 },
-              on: {
-                click: function($event) {
-                  return _vm.activate(2)
-                }
-              }
-            },
-            [_vm._v("\n        Shipping info\n      ")]
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "p-1 pt-3" },
-          [
-            _vm.mobile.active_el == 0
-              ? _c("payment-card", {
-                  attrs: { amount: _vm.amount, pax: _vm.pax }
-                })
-              : _vm._e(),
+          _c("div", { staticClass: "mobile m-0 p-0" }, [
+            _c("div", { staticClass: "row bg-white text-center" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "col pt-4 pb-2 link font-weight-bold",
+                  class: { active: _vm.mobile.active_el == 0 },
+                  on: {
+                    click: function($event) {
+                      return _vm.activate(0)
+                    }
+                  }
+                },
+                [_vm._v("\n          Payment info\n        ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "col pt-4 pb-2 link font-weight-bold",
+                  class: { active: _vm.mobile.active_el == 1 },
+                  on: {
+                    click: function($event) {
+                      return _vm.activate(1)
+                    }
+                  }
+                },
+                [_vm._v("\n          Billing info\n        ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "col pt-4 pb-2 link font-weight-bold",
+                  class: { active: _vm.mobile.active_el == 2 },
+                  on: {
+                    click: function($event) {
+                      return _vm.activate(2)
+                    }
+                  }
+                },
+                [_vm._v("\n          Shipping info\n        ")]
+              )
+            ]),
             _vm._v(" "),
-            _vm.mobile.active_el == 1
-              ? _c(
-                  "div",
-                  [
-                    _c("h5", { staticClass: "pl-1" }, [
-                      _vm._v("Billing Information")
-                    ]),
-                    _vm._v(" "),
-                    _c("billing-form", { on: { update: _vm.billingUpdate } })
-                  ],
-                  1
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.mobile.active_el == 2
-              ? _c("div", { staticClass: "min-height-90" }, [
-                  _c("p", { staticClass: "mt-3 pl-1" }, [
-                    _c("label", { attrs: { for: "mobile-checkbox" } }, [
-                      _c("input", {
-                        attrs: { type: "checkbox", id: "mobile-checkbox" },
-                        on: { click: _vm.toggleShipping }
-                      }),
+            _c(
+              "div",
+              { staticClass: "p-1 pt-3" },
+              [
+                _vm.mobile.active_el == 0
+                  ? _c("payment-card", {
+                      attrs: { amount: _vm.amount, pax: _vm.form.no_of_person }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.mobile.active_el == 1
+                  ? _c("div", [
+                      _c("h5", { staticClass: "pl-1" }, [
+                        _vm._v("Billing Information")
+                      ]),
                       _vm._v(" "),
-                      _c("small", [
-                        _vm._v("My billing and shipping address are different")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _vm.shipping_toggle
-                    ? _c(
-                        "div",
-                        [
-                          _c("h5", { staticClass: "pl-1" }, [
-                            _vm._v("Shipping Information")
+                      _c("div", [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-sm-6" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "name" } }, [
+                                _vm._v("Billing Name")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.billing_name,
+                                    expression: "form.billing_name"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  name: "billing_name",
+                                  required: ""
+                                },
+                                domProps: { value: _vm.form.billing_name },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "billing_name",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
                           ]),
                           _vm._v(" "),
-                          _c("shipping-form", {
-                            on: { update: _vm.shippingUpdate }
-                          })
-                        ],
-                        1
-                      )
-                    : _vm._e()
-                ])
-              : _vm._e()
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "form",
-          {
-            staticClass: "form",
-            attrs: { method: "POST", action: "/payment" }
-          },
-          [
-            _c("div", { staticClass: "d-none" }, [
-              _c("input", {
-                attrs: { type: "text", name: "billing_customer_name" },
-                domProps: { value: _vm.formdata.billing_customer_name }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "billing_name" },
-                domProps: { value: _vm.formdata.billing_name }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "billing_address" },
-                domProps: { value: _vm.formdata.billing_address }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "billing_city" },
-                domProps: { value: _vm.formdata.billing_city }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "billing_state" },
-                domProps: { value: _vm.formdata.billing_state }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "billing_country" },
-                domProps: { value: _vm.formdata.billing_country }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "billing_zip" },
-                domProps: { value: _vm.formdata.billing_zip }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "billing_tel" },
-                domProps: { value: _vm.formdata.billing_tel }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "billing_email" },
-                domProps: { value: _vm.formdata.billing_email }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "shipping_name" },
-                domProps: { value: _vm.formdata.delivery_name }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "shipping_address" },
-                domProps: { value: _vm.formdata.delivery_address }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "shipping_city" },
-                domProps: { value: _vm.formdata.shipping_city }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "shipping_state" },
-                domProps: { value: _vm.formdata.shipping_state }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "shipping_country" },
-                domProps: { value: _vm.formdata.shipping_country }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "shipping_zipcode" },
-                domProps: { value: _vm.formdata.shipping_zipcode }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "shipping_tel" },
-                domProps: { value: _vm.formdata.shipping_tel }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "shipping_email" },
-                domProps: { value: _vm.formdata.shipping_email }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "user_id" },
-                domProps: { value: _vm.formdata.user_id }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "travel_code" },
-                domProps: { value: _vm.formdata.travel_code }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "tour_id" },
-                domProps: { value: _vm.formdata.tour_id }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "tour_price" },
-                domProps: { value: _vm.formdata.tour_price }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "added_by" },
-                domProps: { value: _vm.formdata.added_by }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "no_of_person" },
-                domProps: { value: _vm.formdata.no_of_person }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", name: "school_id" },
-                domProps: { value: _vm.formdata.school_id }
-              })
-            ]),
+                          _c("div", { staticClass: "col-sm-6" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "address" } }, [
+                                _vm._v("Billing Address")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.billing_address,
+                                    expression: "form.billing_address"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  name: "billing_address",
+                                  required: ""
+                                },
+                                domProps: { value: _vm.form.billing_address },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "billing_address",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-sm-4" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "city" } }, [
+                                _vm._v("Billing City")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.billing_city,
+                                    expression: "form.billing_city"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  name: "billing_city",
+                                  required: ""
+                                },
+                                domProps: { value: _vm.form.billing_city },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "billing_city",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-4" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "state" } }, [
+                                _vm._v("Billing State")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.billing_state,
+                                    expression: "form.billing_state"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  name: "billing_state",
+                                  required: ""
+                                },
+                                domProps: { value: _vm.form.billing_state },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "billing_state",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-4" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "billing_zip" } }, [
+                                _vm._v("Billing Zip Code")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.billing_zip,
+                                    expression: "form.billing_zip"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "number",
+                                  name: "billing_zip",
+                                  required: ""
+                                },
+                                domProps: { value: _vm.form.billing_zip },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "billing_zip",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-sm-4" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "country" } }, [
+                                _vm._v("Billing Country")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.billing_country,
+                                    expression: "form.billing_country"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  name: "billing_country",
+                                  required: ""
+                                },
+                                domProps: { value: _vm.form.billing_country },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "billing_country",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-sm-6" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "phone_no" } }, [
+                                _vm._v("Phone Number")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.billing_tel,
+                                    expression: "form.billing_tel"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "number",
+                                  name: "billing_tel",
+                                  required: ""
+                                },
+                                domProps: { value: _vm.form.billing_tel },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "billing_tel",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("small", { staticClass: "text-danger" }, [
+                                _vm._v(_vm._s(_vm.errors.billing_tel))
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-6" }, [
+                            _c("div", { staticClass: "form-group m-1" }, [
+                              _c("label", { attrs: { for: "email" } }, [
+                                _vm._v("Billing Email")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.billing_email,
+                                    expression: "form.billing_email"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "email",
+                                  name: "billing_email",
+                                  required: ""
+                                },
+                                domProps: { value: _vm.form.billing_email },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "billing_email",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("small", { staticClass: "text-danger" }, [
+                                _vm._v(_vm._s(_vm.errors.billing_email))
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "d-none" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.user_id,
+                                  expression: "form.user_id"
+                                }
+                              ],
+                              attrs: { type: "text", name: "user_id" },
+                              domProps: { value: _vm.form.user_id },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "user_id",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.travel_code,
+                                  expression: "form.travel_code"
+                                }
+                              ],
+                              attrs: { type: "text", name: "travel_code" },
+                              domProps: { value: _vm.form.travel_code },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "travel_code",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.tour_id,
+                                  expression: "form.tour_id"
+                                }
+                              ],
+                              attrs: { type: "text", name: "tour_id" },
+                              domProps: { value: _vm.form.tour_id },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "tour_id",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.school_id,
+                                  expression: "form.school_id"
+                                }
+                              ],
+                              attrs: { type: "text", name: "school_id" },
+                              domProps: { value: _vm.form.school_id },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "school_id",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.added_by,
+                                  expression: "form.added_by"
+                                }
+                              ],
+                              attrs: { type: "text", name: "added_by" },
+                              domProps: { value: _vm.form.added_by },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "added_by",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.tour_price,
+                                  expression: "form.tour_price"
+                                }
+                              ],
+                              attrs: { type: "text", name: "tour_price" },
+                              domProps: { value: _vm.form.tour_price },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "tour_price",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.no_of_person,
+                                  expression: "form.no_of_person"
+                                }
+                              ],
+                              attrs: { type: "text", name: "no_of_person" },
+                              domProps: { value: _vm.form.no_of_person },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "no_of_person",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.mobile.active_el == 2
+                  ? _c("div", { staticClass: "min-height-90" }, [
+                      _c("p", { staticClass: "mt-3 pl-1" }, [
+                        _c("label", { attrs: { for: "mobile-checkbox" } }, [
+                          _c("input", {
+                            attrs: { type: "checkbox", id: "mobile-checkbox" },
+                            on: { click: _vm.toggleShipping }
+                          }),
+                          _vm._v(" "),
+                          _c("small", [
+                            _vm._v(
+                              "My billing and shipping address are different"
+                            )
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm.shipping_toggle
+                        ? _c("div", [
+                            _c("h5", { staticClass: "pl-1" }, [
+                              _vm._v("Shipping Information")
+                            ]),
+                            _vm._v(" "),
+                            _c("div", [
+                              _c("div", { staticClass: "row" }, [
+                                _c("div", { staticClass: "col-sm-6" }, [
+                                  _c("div", { staticClass: "form-group m-1" }, [
+                                    _c("label", { attrs: { for: "name" } }, [
+                                      _vm._v("Shipping Name")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.delivery_name,
+                                          expression: "form.delivery_name"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        type: "text",
+                                        name: "delivery_name"
+                                      },
+                                      domProps: {
+                                        value: _vm.form.delivery_name
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "delivery_name",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-sm-6" }, [
+                                  _c("div", { staticClass: "form-group m-1" }, [
+                                    _c("label", { attrs: { for: "address" } }, [
+                                      _vm._v("Shipping Address")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.delivery_address,
+                                          expression: "form.delivery_address"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        type: "text",
+                                        name: "delivery_address"
+                                      },
+                                      domProps: {
+                                        value: _vm.form.delivery_address
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "delivery_address",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "row" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c("div", { staticClass: "form-group m-1" }, [
+                                    _c("label", { attrs: { for: "city" } }, [
+                                      _vm._v("Shipping City")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.delivery_city,
+                                          expression: "form.delivery_city"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        type: "text",
+                                        name: "delivery_city"
+                                      },
+                                      domProps: {
+                                        value: _vm.form.delivery_city
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "delivery_city",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c("div", { staticClass: "form-group m-1" }, [
+                                    _c("label", { attrs: { for: "state" } }, [
+                                      _vm._v("Shipping State")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.delivery_state,
+                                          expression: "form.delivery_state"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        type: "text",
+                                        name: "delivery_state"
+                                      },
+                                      domProps: {
+                                        value: _vm.form.delivery_state
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "delivery_state",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c("div", { staticClass: "form-group m-1" }, [
+                                    _c("label", { attrs: { for: "zipcode" } }, [
+                                      _vm._v("Shipping Zip Code")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.delivery_zip,
+                                          expression: "form.delivery_zip"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        type: "number",
+                                        name: "delivery_zip"
+                                      },
+                                      domProps: {
+                                        value: _vm.form.delivery_zip
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "delivery_zip",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "row" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c("div", { staticClass: "form-group m-1" }, [
+                                    _c("label", { attrs: { for: "country" } }, [
+                                      _vm._v("Shipping Country")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.delivery_country,
+                                          expression: "form.delivery_country"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        type: "text",
+                                        name: "delivery_country"
+                                      },
+                                      domProps: {
+                                        value: _vm.form.delivery_country
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "delivery_country",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "row" }, [
+                                _c("div", { staticClass: "col-sm-6" }, [
+                                  _c("div", { staticClass: "form-group m-1" }, [
+                                    _c(
+                                      "label",
+                                      { attrs: { for: "phone_no" } },
+                                      [_vm._v("Phone Number")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.delivery_tel,
+                                          expression: "form.delivery_tel"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        type: "number",
+                                        name: "delivery_tel"
+                                      },
+                                      domProps: {
+                                        value: _vm.form.delivery_tel
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "delivery_tel",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-sm-6" }, [
+                                  _c("div", { staticClass: "form-group m-1" }, [
+                                    _c("label", { attrs: { for: "email" } }, [
+                                      _vm._v("Shipping Email")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.delivery_email,
+                                          expression: "form.delivery_email"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        type: "email",
+                                        name: "delivery_email"
+                                      },
+                                      domProps: {
+                                        value: _vm.form.delivery_email
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "delivery_email",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ])
+                              ])
+                            ])
+                          ])
+                        : _vm._e()
+                    ])
+                  : _vm._e()
+              ],
+              1
+            ),
             _vm._v(" "),
             _vm.submit_button == false
               ? _c(
@@ -1252,9 +2811,9 @@ var render = function() {
                   },
                   [_vm._v("\n        Confirm & Pay\n      ")]
                 )
-          ]
-        )
-      ])
+          ])
+        ]
+      )
     ]
   )
 }

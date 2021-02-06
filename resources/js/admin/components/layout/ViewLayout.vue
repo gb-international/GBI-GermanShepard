@@ -8,9 +8,9 @@ to submit the data we are using a function.
     <div class="row pt-3 pb-4">
         <div class="col-sm-12 card_view">
             <slot name="viewdata"></slot>
-            <div class="text-center" v-if="backurl">
+            <div class="text-center">
                 <back-button :url="backurl"></back-button>
-            </div>
+            </div>            
         </div>
     </div>
   </section>

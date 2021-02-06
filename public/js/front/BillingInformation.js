@@ -25,10 +25,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     BillingStudent: function BillingStudent() {
-      return Promise.all(/*! import() | js/front/BillingStudent */[__webpack_require__.e("js/front/BillingStudent~js/front/BillingTeacher"), __webpack_require__.e("js/front/BillingStudent")]).then(__webpack_require__.bind(null, /*! @/front/pages/user/student/BillingInformation.vue */ "./resources/js/front/pages/user/student/BillingInformation.vue"));
+      return __webpack_require__.e(/*! import() | js/front/BillingStudent */ "js/front/BillingStudent").then(__webpack_require__.bind(null, /*! @/front/pages/user/student/BillingInformation.vue */ "./resources/js/front/pages/user/student/BillingInformation.vue"));
     },
     BillingTeacher: function BillingTeacher() {
-      return Promise.all(/*! import() | js/front/BillingTeacher */[__webpack_require__.e("js/front/BillingStudent~js/front/BillingTeacher"), __webpack_require__.e("js/front/BillingTeacher")]).then(__webpack_require__.bind(null, /*! @/front/pages/user/teacher/BillingInformation.vue */ "./resources/js/front/pages/user/teacher/BillingInformation.vue"));
+      return __webpack_require__.e(/*! import() | js/front/BillingTeacher */ "js/front/BillingTeacher").then(__webpack_require__.bind(null, /*! @/front/pages/user/teacher/BillingInformation.vue */ "./resources/js/front/pages/user/teacher/BillingInformation.vue"));
     }
   },
   created: function created() {

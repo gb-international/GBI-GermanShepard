@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Model\User\Information;
 use App\Model\Tour\TourUser;
+use App\Model\Reservation\Bookeduser;
 use App\Model\Tour\Tour;
 use App\Model\School\School;
 use App\Model\Tour\Userpayment;
@@ -23,24 +24,49 @@ class TourController extends Controller{
 
         
         $user = Auth::user();
-        $travels =  TourUser::with([
+        $travels =  Bookeduser::with([
             'tour' => function($tour){
                 $tour->with(['itinerary'=>function($detail){
                     $detail->select('itineraries.id','itineraries.title','itineraries.detail_photo'); 
                 }]);
-                $tour->select('tours.tour_start_date','tours.travel_code','tours.no_of_person','tours.tour_end_date','tours.itinerary_id','tours.tour_id');
+                $tour->select('tours.tour_start_date','tours.travel_code','tours.no_of_person','tours.tour_end_date','tours.itinerary_id','tours.tour_id','tours.id');
             }
         ])
         ->where('user_id',$user->id)
-        ->select('id','user_id','travel_code')
+        ->select('id','user_id','travel_code','tour_code','tour_id')
         ->get();
 
-        foreach ($travels as $travel) {
-            $data = Userpayment::where(
-                ["tour_code"=>$travel->tour->tour_id,
-                'user_id'=> $travel->user_id
-            ])->select('status')->first();
-            $travel['payment'] = $data;
+        foreach ($travels as $travel) 
+        {
+            // check if teacher has made payment
+            $teacher_paid = Bookeduser::where([
+                'tour_code'=>$travel->tour_id,
+                'added_by'=> 'teacher'
+            ])->first();
+            if($teacher_paid){
+                // check if teacher paid successfully by self for tour
+                if($teacher_paid->payment_mode == 'self' && $teacher_paid->status == 'success')
+                {
+                    $travel['payment'] = 'success';                    
+                }
+                else if($teacher_paid->payment_mode == 'student'){
+                    //else now check if student has paid
+                    $data = Userpayment::where([
+                        "tour_code"=>$travel->tour->tour_id,
+                        'user_id'=> $travel->user_id
+                    ])
+                    ->select('status')->first();
+                    if($data){
+                        $travel['payment'] = $data->status;
+                    }else{
+                        $travel['payment'] = 'not-paid';
+                    }
+                }else{
+                    $travel['payment'] = 'not-paid';
+                }
+            }else{
+                $travel['payment'] = null;
+            }
         }
         return response()->json($travels);
     }

@@ -453,7 +453,7 @@ export default {
     };
   },
   mounted() {
-    if (localStorage.token == undefined) {
+    if (this.$cookies.get('access_token') == undefined) {
       this.$router.push("/");
     }
 
@@ -474,7 +474,7 @@ export default {
       var data = [];
       this.$axios
         .post("/api/tour-bankdetail", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
+          headers: { Authorization: `Bearer ${this.$cookies.get('access_token')}` },
         })
         .then((response) => {
           this.bankdetail = response.data;
@@ -488,7 +488,7 @@ export default {
       var data = { travel_code: this.$route.params.id };
       this.$axios
         .post("/api/payment-tour", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
+          headers: { Authorization: `Bearer ${this.$cookies.get('access_token')}` },
         })
         .then((response) => {
           this.userinfo = response.data;
@@ -511,7 +511,7 @@ export default {
     ModalForm() {
       this.$axios
         .post("/api/tour-bankdetail-store", this.form, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
+          headers: { Authorization: `Bearer ${this.$cookies.get('access_token')}` },
         })
         .then((response) => {
           this.form.reset();
@@ -583,7 +583,7 @@ export default {
       var data = { tour_code: this.$route.params.id };
       this.$axios
         .post("/api/tour-bankdetail-student", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
+          headers: { Authorization: `Bearer ${this.$cookies.get('access_token')}` },
         })
         .then((response) => {
           this.student_bank = response.data;
@@ -599,7 +599,7 @@ export default {
     submitForm() {
       this.$axios
         .post("/api/tour-submit-payment", this.teacherform, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
+          headers: { Authorization: `Bearer ${this.$cookies.get('access_token')}` },
         })
         .then((response) => {
           if(response.data['error']){

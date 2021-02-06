@@ -204,6 +204,7 @@ __webpack_require__.r(__webpack_exports__);
         var data = _this2.$cookies.get('user');
 
         data.status = 1;
+        data.user_profession = _this2.profession;
 
         _this2.$cookies.remove('user');
 

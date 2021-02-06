@@ -313,11 +313,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "delete_link" }, [
-      _c("span", { staticClass: "badge badge-danger pointer" }, [
-        _c("i", { staticClass: "far fa-trash-alt" })
-      ])
-    ])
+    return _c(
+      "span",
+      { staticClass: "delete_link", attrs: { title: "Delete Item" } },
+      [
+        _c("span", { staticClass: "badge badge-danger pointer" }, [
+          _c("i", { staticClass: "far fa-trash-alt" })
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true

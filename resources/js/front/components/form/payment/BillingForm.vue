@@ -1,13 +1,13 @@
 <template>
     <div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-sm-6">
                 <div class="form-group m-1">
                     <label for="name">Customer Name</label>
                     <input type="text" class="form-control" v-model="form.billing_customer_name">
                 </div>
             </div>
-        </div>
+        </div> -->
         
         <div class="row">
             <div class="col-sm-6">
@@ -78,7 +78,7 @@ export default {
     data(){
         return{
             form:{
-                billing_customer_name:'',
+                // billing_customer_name:'',
                 billing_name:'',
                 billing_address:'',
                 billing_city:'',
@@ -91,7 +91,7 @@ export default {
         }
     },
     watch:{
-        'form.billing_customer_name':function(){ this.BillingFormChanged(); },
+        // 'form.billing_customer_name':function(){ this.BillingFormChanged(); },
         'form.billing_name':function(){ this.BillingFormChanged(); },
         'form.billing_address':function(){ this.BillingFormChanged(); },
         'form.billing_city':function(){ this.BillingFormChanged(); },
@@ -99,12 +99,10 @@ export default {
         'form.billing_zip':function(){ this.BillingFormChanged(); },
         'form.billing_country':function(){ this.BillingFormChanged(); },
         'form.billing_tel':function(){ this.BillingFormChanged(); },
-        'form.billing_email':function(){ this.BillingFormChanged(); }
+        'form.billing_email':function(){this.BillingFormChanged();}
     },
     methods:{
-        BillingFormChanged(){
-            this.$emit("update",this.form);
-        }
+        BillingFormChanged(){ this.$emit("update",this.form); }
     }
 }
 </script>

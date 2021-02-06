@@ -108,6 +108,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "View",
   data: function data() {
@@ -248,7 +265,7 @@ var render = function() {
                                     _vm._s(
                                       _vm.user.information.school.school_name
                                     ) +
-                                      " (ID : " +
+                                      " (ID :\n                    " +
                                       _vm._s(_vm.user.information.school.id) +
                                       ")"
                                   )
@@ -271,7 +288,8 @@ var render = function() {
                           _c("p", [
                             _c("b", [_vm._v("Address: ")]),
                             _vm._v(
-                              _vm._s(_vm.user.information.profession_address)
+                              _vm._s(_vm.user.information.profession_address) +
+                                "\n                "
                             )
                           ])
                         ])
@@ -290,15 +308,17 @@ var render = function() {
                       _vm._v(" "),
                       _c("p", [
                         _vm._v(
-                          _vm._s(_vm.user.information.address) +
-                            " " +
+                          "\n                  " +
+                            _vm._s(_vm.user.information.address) +
+                            "\n                  " +
                             _vm._s(_vm.user.information.city) +
                             "," +
                             _vm._s(_vm.user.information.zip_code) +
-                            ", " +
+                            ",\n                  " +
                             _vm._s(_vm.user.information.state) +
                             "," +
-                            _vm._s(_vm.user.information.country)
+                            _vm._s(_vm.user.information.country) +
+                            "\n                "
                         )
                       ])
                     ])
@@ -317,7 +337,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Back")]
+            [_vm._v("\n          Back\n        ")]
           )
         ])
       ])

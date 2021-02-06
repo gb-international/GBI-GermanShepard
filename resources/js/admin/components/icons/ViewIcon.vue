@@ -3,7 +3,7 @@
         :to="url"
         class="edit_link"
         >
-        <span class="badge badge-primary" title="View Itinerary"
+        <span class="badge badge-primary" title="View Item"
             ><i class="fas fa-eye"></i
         ></span>
         </router-link>

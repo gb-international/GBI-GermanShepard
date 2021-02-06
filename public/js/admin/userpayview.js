@@ -320,14 +320,12 @@ var render = function() {
         [
           _vm._t("viewdata"),
           _vm._v(" "),
-          _vm.backurl
-            ? _c(
-                "div",
-                { staticClass: "text-center" },
-                [_c("back-button", { attrs: { url: _vm.backurl } })],
-                1
-              )
-            : _vm._e()
+          _c(
+            "div",
+            { staticClass: "text-center" },
+            [_c("back-button", { attrs: { url: _vm.backurl } })],
+            1
+          )
         ],
         2
       )
@@ -357,7 +355,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("view-layout", {
-    attrs: { backurl: "/userpayments" },
     scopedSlots: _vm._u([
       {
         key: "viewdata",
@@ -416,11 +413,7 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          {
-                            attrs: {
-                              to: "/view-school/" + _vm.tour_view.user_id
-                            }
-                          },
+                          { attrs: { to: "/user/" + _vm.tour_view.user_id } },
                           [
                             _vm._v(
                               "\n            " + _vm._s(_vm.tour_view.user_name)

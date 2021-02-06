@@ -145,11 +145,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "View",
@@ -183,9 +178,6 @@ __webpack_require__.r(__webpack_exports__);
           title: "Itinerary Deleted successfully"
         });
       })["catch"](function () {});
-    },
-    goBack: function goBack() {
-      this.$router.go(-1);
     }
   }
 });
@@ -275,14 +267,12 @@ var render = function() {
         [
           _vm._t("viewdata"),
           _vm._v(" "),
-          _vm.backurl
-            ? _c(
-                "div",
-                { staticClass: "text-center" },
-                [_c("back-button", { attrs: { url: _vm.backurl } })],
-                1
-              )
-            : _vm._e()
+          _c(
+            "div",
+            { staticClass: "text-center" },
+            [_c("back-button", { attrs: { url: _vm.backurl } })],
+            1
+          )
         ],
         2
       )
@@ -393,20 +383,7 @@ var render = function() {
                       ])
                     ])
                   ])
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary itrn_add_btn back_btn",
-                    on: {
-                      click: function($event) {
-                        return _vm.goBack()
-                      }
-                    }
-                  },
-                  [_vm._v("\n        Back\n      ")]
-                )
+                })
               ],
               2
             )

@@ -53,4 +53,3 @@ mix.js('resources/js/front/app.js', 'public/js')
 
 
 
-

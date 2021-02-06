@@ -10,23 +10,7 @@
             <h4>TOUR PATH</h4>
             <ul class="timeline">
               <li v-for="data in itineraryData.itinerarydays" :key="data.id">
-                <span class="underline">
-                  <b>Day {{ data.day }}</b>
-                </span>
-                <span v-if="data.day_source != data.day_destination">
-                  <b
-                    >{{ data.day_source.toUpperCase() }} -
-                    {{ data.day_destination.toUpperCase() }}</b
-                  >
-                </span>
-                <a
-                  target="_blank"
-                  href="https://www.totoprayogo.com/#"
-                  v-else
-                  >{{ data.day_source.toUpperCase() }}</a
-                >
-                <span class="float-right"></span>
-                <p v-html="data.day_description"></p>
+                <itinerary-day :itinerary="data" />
               </li>
             </ul>
           </div>
@@ -87,51 +71,7 @@
           <h3 class="text-center mb-35">YOU WILL STAY HERE</h3>
           <div class="row justify-content-center">
             <div class="col-sm-4" v-for="hotel in hotelData" :key="hotel.id">
-              <div class="hotel-card">
-                <img src="/images/hotel/1590495923.png" />
-                <div class="row">
-                  <div class="col hotel_info">
-                    <div class="rating-hotel">
-                      <p>
-                        <b>Hotel Name</b>
-                        <label>
-                          <div class="star-rating">
-                            <span v-for="n in max" :key="n.id">&star;</span>
-                            <div
-                              class="star-rating__current"
-                              :style="{
-                                width: getRating(hotel.hotel.type) + '%',
-                              }"
-                            >
-                              <span
-                                v-for="n in integer(hotel.hotel.type)"
-                                :key="n.id"
-                                >&starf;</span
-                              >
-                            </div>
-                          </div>
-                        </label>
-                      </p>
-                    </div>
-
-                    <p>
-                      {{ hotel.hotel.name }}
-                      <label>
-                        <b>Check in date</b>
-                        : {{ dateFormat(hotel.check_in) }}
-                      </label>
-                    </p>
-                    <p>
-                      <b>Days stay</b>
-                      : {{ days(hotel.check_in, hotel.check_out) }}
-                      <label>
-                        <b>Check out date</b>
-                        : {{ dateFormat(hotel.check_out) }}
-                      </label>
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <hotel-card :hotel="hotel"></hotel-card>
             </div>
           </div>
         </div>
@@ -173,8 +113,10 @@
 </template>
 
 <script>
-import WeatherApp from "./WeatherApp";
-import FlightApp from "./FlightApp";
+import ItineraryDay from "@/front/components/tour/ItineraryDay";
+import WeatherApp from "@/front/components/tour/WeatherApp";
+import FlightApp from "@/front/components/tour/FlightApp";
+import HotelCard from "@/front/components/tour/HotelCard";
 import { Form, HasError, AlertError } from "vform";
 export default {
   name: "Tour-detail",
@@ -182,11 +124,12 @@ export default {
     "has-error": HasError,
     "weather-app": WeatherApp,
     "flight-app": FlightApp,
+    "hotel-card": HotelCard,
+    "itinerary-day": ItineraryDay,
   },
   data() {
     return {
       upcoming_list: [],
-      max: 5,
       current: 3,
       oddclass: false,
       evenclass: true,
@@ -203,10 +146,6 @@ export default {
   },
 
   methods: {
-    dateFormat(date) {
-      return new Date(date).toDateString();
-    },
-
     paymentStatus: function () {
       var data = {
         user_id: this.alldata.user_id,
@@ -223,36 +162,22 @@ export default {
           this.handleError(error);
         });
     },
-    timeFormat(date) {
-      var str = new Date(date).toDateString();
-      date = new Date(date);
-      var hours = date.getHours();
-      var minutes = date.getMinutes();
-      var ampm = hours >= 12 ? "pm" : "am";
-      hours = hours % 12;
-      hours = hours ? hours : 12; // the hour '0' should be '12'
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      var strTime = hours + ":" + minutes + " " + ampm;
-      return str + " " + strTime;
-    },
+    // timeFormat(date) {
+    //   var str = new Date(date).toDateString();
+    //   date = new Date(date);
+    //   var hours = date.getHours();
+    //   var minutes = date.getMinutes();
+    //   var ampm = hours >= 12 ? "pm" : "am";
+    //   hours = hours % 12;
+    //   hours = hours ? hours : 12; // the hour '0' should be '12'
+    //   minutes = minutes < 10 ? "0" + minutes : minutes;
+    //   var strTime = hours + ":" + minutes + " " + ampm;
+    //   return str + " " + strTime;
+    // },
 
-    getRating: function (current) {
-      return (current / this.max) * 100;
-    },
-    integer(num) {
-      return parseInt(num);
-    },
     simpleDate(data) {
       // 2020-06-23
       return data.split("T")[0];
-    },
-
-    days(date1, date2) {
-      var date1 = new Date(date1);
-      var date2 = new Date(date2);
-      var diffTime = Math.abs(date2 - date1);
-      var diff = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      return diff - 1;
     },
 
     tourListData(id) {

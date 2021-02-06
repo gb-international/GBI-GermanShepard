@@ -14,7 +14,7 @@ use App\Jobs\PaymentSuccessJob;
 
 class PaymentController extends Controller
 {
-
+  public $form;
   public function test(Request $request){
     $requests = $request->all();
     unset($requests['_token']);
@@ -24,7 +24,8 @@ class PaymentController extends Controller
     return $result;
   }
 
-  public function payment(Request $request){    
+  public function payment(Request $request){ 
+
     $check = Userpayment::where(['user_id'=>$request->user_id,'tour_code'=>$request->tour_id])->first();
     if($check){
       header("Location: /payment-cancel");
@@ -37,23 +38,22 @@ class PaymentController extends Controller
     if($user->information->user_profession =='teacher'){
       $amount = $amount * $data->no_of_person;
     }
-    $fee = ($amount * 3) /100; // internet charge
-    $internet_charge = $fee + ($fee * 18 )/ 100; // gst on internet fee
-    $amount = $amount + $internet_charge;       
 
+    $internet_charge = ceil((($amount/0.9646)*3.54)/100);// internet charge
+    $amount = $amount + $internet_charge;
+    
     $track = Trackpayment::create([
       'user_id'=>$request->user_id,
       'travel_code'=>$request->travel_code,
       'tour_id'=>$request->tour_id,
       'school_id'=>$request->school_id,
-      'amount'=>$amount,
+      'amount'=>(int)$amount,
       'added_by'=>$request->added_by
     ]);
-    $form_data =  $request->all();
-    $form_data['merchant_id'] = 206523;
     $form_data['order_id'] = $track->id;
     $form_data['amount'] = (int)$amount;
-    $order = Indipay::prepare($form_data);
+    $this->paymentData($request,$form_data);
+    $order = Indipay::prepare($this->form);
     $result = Indipay::process($order);
     return $result;
   }
@@ -67,32 +67,54 @@ class PaymentController extends Controller
 
   public function response(Request $request){
     $response = Indipay::response($request);
-    $track = Trackpayment::where('id',$response['order_id'])->first();
-      
-    Userpayment::create([
-      'user_id' => $track->user_id,
-      'school_id'=>$track->school_id,
-      'tour_code' => $track->tour_id,
-      'payment_mode' => 'self',
-      'payment_type'=>'net',
-      'amount' => $track->amount,
-      'status' => strtolower($response['order_status']),
-      'payment_data' => json_encode($response),
-      'added_by'=>$track->added_by
-    ]);
-    
-    $user = [
-      'name'=>$response['billing_name'],
-      'phone_no'=>$response['billing_tel']
+    if($response['order_status'] == 'Success'){
+      $track = Trackpayment::where('id',$response['order_id'])->first();
+      Userpayment::create([
+        'user_id' => $track->user_id,
+        'school_id'=>$track->school_id,
+        'tour_code' => $track->tour_id,
+        'payment_mode' => 'self',
+        'payment_type'=>'net',
+        'amount' => $track->amount,
+        'status' => strtolower($response['order_status']),
+        'payment_data' => json_encode($response),
+        'added_by'=>$track->added_by
+      ]);    
+      $user=['name'=>$response['billing_name'],'phone_no'=>$response['billing_tel']];
+      $sendsms = new SendSms;
+      $sendsms->successPaymentSMS($user);
+      $email_data['emailto'] = $response['billing_email'];
+      // pass data to send the email here ($user is just dummy)
+      PaymentSuccessJob::dispatch($email_data);
+      $track->delete();
+      header("Location:/tour-list");
+      dd($response);
+    }else{
+      header("Location: /payment-cancel");
+      dd();
+    }
+  }
+  public function paymentData($request,$data){
+    $this->form = [
+      'order_id'=>$data['order_id'],
+      'merchant_id' => 206523,
+      'amount' => $data['amount'],
+      "billing_name" => $request->billing_name,
+      "billing_address" => $request->billing_address,
+      "billing_city" =>  $request->billing_city,
+      "billing_state" => $request->billing_state,
+      "billing_country" => $request->billing_country,
+      "billing_zip" =>  $request->billing_zip,
+      "billing_tel" =>  $request->billing_tel,
+      "billing_email" => $request->billing_email,
+      "delivery_name" => $request->delivery_name,
+      "delivery_address" => $request->delivery_address,
+      "delivery_city" => $request->delivery_city,
+      "delivery_state" => $request->delivery_state,
+      "delivery_country" => $request->delivery_country,
+      "delivery_zip" => $request->delivery_zip,
+      "delivery_tel" => $request->delivery_tel,
+      "delivery_email" => $request->delivery_email
     ];
-    $sendsms = new SendSms;
-    $sendsms->successPaymentSMS($user);
-    $email_data['emailto'] = $response['billing_email'];
-    // pass data to send the email here ($user is just dummy)
-    PaymentSuccessJob::dispatch($email_data);
-    $track->delete();
-    
-    header("Location:/payment-success");
-    dd($response);
-  }    
+  }
 }

@@ -14,7 +14,7 @@ const BookedStudent = () => import(/* webpackChunkName: "js/admin/BookedStudent"
 const PnrUser = () => import(/* webpackChunkName: "js/admin/PnrUser" */ '@/admin/pages/bookedtour/PnrUser.vue');
 const EscortUpdate = () => import(/* webpackChunkName: "js/admin/EscortList" */ '@/admin/pages/bookedtour/New-EscortUpdate.vue');
 const PaymentList = () => import(/* webpackChunkName: "js/admin/paymentlist" */ '@/admin/pages/bookedtour/payment/List.vue');
-const StudentPayment = () => import(/* webpackChunkName: "js/admin/StudentPay" */ '@/admin/pages/bookedtour/payment/Student-payment.vue');
+
 const addPaymentMethod = () => import(/* webpackChunkName: "js/admin/AddPaymethod" */ '@/admin/pages/bookedtour/payment/Add-payment.vue');
 const UpdatePaymentMethod = () => import(/* webpackChunkName: "js/admin/UpdatePaymethod" */ '@/admin/pages/bookedtour/payment/Update-payment.vue');
 
@@ -32,7 +32,6 @@ export default[
     { path: '/booked-tour-student/:school_id/:id', component: BookedStudent },
     { path: '/pnr-users/:transport/:id/:tour_id', component: PnrUser },
     { path: '/payments/:school_id/:tour_code', component: PaymentList },
-    { path: '/student-payment/:school_id/:tour_code', component: StudentPayment },
     { path: '/add-paymentmethod/:school_id/:tour_code', component: addPaymentMethod },
     { path: '/update-paymentmethod/:school_id/:tour_code', component: UpdatePaymentMethod },
     { path: '/escort-update/:id/:tour_code', component: EscortUpdate },

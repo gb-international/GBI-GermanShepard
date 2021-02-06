@@ -88,7 +88,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: {
-        billing_customer_name: '',
+        // billing_customer_name:'',
         billing_name: '',
         billing_address: '',
         billing_city: '',
@@ -101,9 +101,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   watch: {
-    'form.billing_customer_name': function formBilling_customer_name() {
-      this.BillingFormChanged();
-    },
+    // 'form.billing_customer_name':function(){ this.BillingFormChanged(); },
     'form.billing_name': function formBilling_name() {
       this.BillingFormChanged();
     },
@@ -279,36 +277,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("div", { staticClass: "form-group m-1" }, [
-          _c("label", { attrs: { for: "name" } }, [_vm._v("Customer Name")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.billing_customer_name,
-                expression: "form.billing_customer_name"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text" },
-            domProps: { value: _vm.form.billing_customer_name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "billing_customer_name", $event.target.value)
-              }
-            }
-          })
-        ])
-      ])
-    ]),
-    _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-sm-6" }, [
         _c("div", { staticClass: "form-group m-1" }, [

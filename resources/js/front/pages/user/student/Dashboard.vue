@@ -260,6 +260,7 @@ export default {
         this.$router.push("/");
       }
       this.userinfo = this.$cookies.get('user');
+      
       this.valid = true;
     },
     userData() {

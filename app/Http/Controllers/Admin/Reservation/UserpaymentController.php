@@ -10,8 +10,11 @@ class UserpaymentController extends Controller
 {
     public function paymentList(Request $request){
         // get school payment mode
-                    
+        $userpayment = '';
         if($request->added_by == 'student'){
+            // User::where([
+            //     'school_id' => $request->school_id
+            // ])
             $userpayment = Userpayment::where([
                 'school_id'=>$request->school_id,
                 'tour_code'=>$request->tour_code,
@@ -108,7 +111,6 @@ class UserpaymentController extends Controller
                 ->select('informations.user_id','informations.user_profession')
                 ->get();
         return response()->json($info);
-
     }
 
 }

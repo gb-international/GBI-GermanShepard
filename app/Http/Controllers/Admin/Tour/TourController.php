@@ -52,7 +52,8 @@ class TourController extends Controller
      */
     public function store(Request $request)
     {
-        Tour::create($this->validateTour($request));
+        return $request->all();
+        $tour = Tour::create($this->validateTour($request));
         return response()->json(['Message'=> 'Successfully Added...']);
     }
 

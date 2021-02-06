@@ -5,7 +5,7 @@ It takes id from the url and get the data from the api .
 
 -->
 <template>
-  <view-layout backurl="/userpayments">
+  <view-layout>
     <template #viewdata>
       <div class="row pl-3" v-if="tour_view.tour_code">
         <div class="col-sm-4">
@@ -31,7 +31,7 @@ It takes id from the url and get the data from the api .
         <div class="col-sm-4">
           <h5>User Name</h5>
           <p>
-            <router-link :to="`/view-school/${tour_view.user_id}`">
+            <router-link :to="`/user/${tour_view.user_id}`">
               {{ tour_view.user_name }}</router-link
             >
           </p>

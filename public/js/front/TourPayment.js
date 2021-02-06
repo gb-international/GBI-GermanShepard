@@ -460,7 +460,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }, "banknames", []);
   },
   mounted: function mounted() {
-    if (localStorage.token == undefined) {
+    if (this.$cookies.get('access_token') == undefined) {
       this.$router.push("/");
     }
 
@@ -480,7 +480,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var data = [];
       this.$axios.post("/api/tour-bankdetail", data, {
         headers: {
-          Authorization: "Bearer ".concat(localStorage.token)
+          Authorization: "Bearer ".concat(this.$cookies.get('access_token'))
         }
       }).then(function (response) {
         _this.bankdetail = response.data;
@@ -498,7 +498,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
       this.$axios.post("/api/payment-tour", data, {
         headers: {
-          Authorization: "Bearer ".concat(localStorage.token)
+          Authorization: "Bearer ".concat(this.$cookies.get('access_token'))
         }
       }).then(function (response) {
         _this2.userinfo = response.data;
@@ -525,7 +525,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       this.$axios.post("/api/tour-bankdetail-store", this.form, {
         headers: {
-          Authorization: "Bearer ".concat(localStorage.token)
+          Authorization: "Bearer ".concat(this.$cookies.get('access_token'))
         }
       }).then(function (response) {
         _this3.form.reset();
@@ -592,7 +592,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
       this.$axios.post("/api/tour-bankdetail-student", data, {
         headers: {
-          Authorization: "Bearer ".concat(localStorage.token)
+          Authorization: "Bearer ".concat(this.$cookies.get('access_token'))
         }
       }).then(function (response) {
         _this5.student_bank = response.data;
@@ -606,7 +606,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       this.$axios.post("/api/tour-submit-payment", this.teacherform, {
         headers: {
-          Authorization: "Bearer ".concat(localStorage.token)
+          Authorization: "Bearer ".concat(this.$cookies.get('access_token'))
         }
       }).then(function (response) {
         if (response.data['error']) {

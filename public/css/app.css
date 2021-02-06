@@ -8077,6 +8077,10 @@ a:hover {
   font-size: 12px;
 }
 
+.circle {
+  border-radius: 20px;
+}
+
 #footer .footer-content {
   background-image: url("/images/icons/footer-image.jpg");
   background-size: cover;

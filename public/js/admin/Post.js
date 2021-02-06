@@ -159,6 +159,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         label: 'ACTION',
         thClass: 'table-head'
       }],
+      limit: 2,
       filter: '',
       perPage: 7,
       options: [7, 25, 50, 100]
@@ -215,10 +216,7 @@ var render = function() {
     [
       _c(
         "span",
-        {
-          staticClass: "badge badge-primary",
-          attrs: { title: "View Itinerary" }
-        },
+        { staticClass: "badge badge-primary", attrs: { title: "View Item" } },
         [_c("i", { staticClass: "fas fa-eye" })]
       )
     ]
@@ -382,7 +380,11 @@ var render = function() {
                   _c(
                     "pagination",
                     {
-                      attrs: { data: _vm.items, align: "right" },
+                      attrs: {
+                        data: _vm.items,
+                        align: "right",
+                        limit: _vm.limit
+                      },
                       on: { "pagination-change-page": _vm.getitems }
                     },
                     [
