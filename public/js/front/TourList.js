@@ -93,6 +93,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["tour", "userinfo"],
   data: function data() {
@@ -292,7 +293,7 @@ var render = function() {
                     "div",
                     { staticClass: "col-sm-4 text-center mb-10 mt-5" },
                     [
-                      _vm.tour.payment == null
+                      _vm.tour.payment == null || _vm.tour.payment == "not-paid"
                         ? _c(
                             "router-link",
                             {
@@ -321,7 +322,7 @@ var render = function() {
                     "div",
                     { staticClass: "col p-0" },
                     [
-                      _vm.tour.payment == null
+                      _vm.tour.payment == null || _vm.tour.payment == "not-paid"
                         ? _c(
                             "div",
                             {

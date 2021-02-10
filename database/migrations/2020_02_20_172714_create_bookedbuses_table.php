@@ -24,6 +24,8 @@ class CreateBookedbusesTable extends Migration
             $table->string('arrival')->nullable();
             $table->string('price')->nullable();
             $table->timestamps();
+
+            $table->foreign('tour_code')->references('tour_id')->on('tours')->onDelete('cascade');
         });
     }
 

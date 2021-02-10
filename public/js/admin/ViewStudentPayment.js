@@ -188,15 +188,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ViewTour",
@@ -395,58 +386,62 @@ var render = function() {
                   _c("div", { staticClass: "col-sm-4" }, [
                     _c("h5", [_vm._v("Added By")]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.tour.added_by))])
+                    _c("p", [_vm._v(_vm._s(_vm.tour.payment.added_by))])
                   ]),
                   _vm._v(" "),
-                  _vm.tour.schoolbankdetail_id != null
+                  _vm.tour.payment.schoolbankdetail_id != null
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("School Bank Detail ID")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.schoolbankdetail_id))])
+                        _c("p", [
+                          _vm._v(_vm._s(_vm.tour.payment.schoolbankdetail_id))
+                        ])
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.tour.payment_mode != null
+                  _vm.tour.payment.payment_mode != null
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Payment By")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.payment_mode))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour.payment.payment_mode))])
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.tour.payment_type != null
+                  _vm.tour.payment.payment_type != null
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Payment Type")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.payment_type))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour.payment.payment_type))])
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.tour.ifsc_code != null
+                  _vm.tour.payment.ifsc_code != null
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("IFSC Code")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.ifsc_code))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour.payment.ifsc_code))])
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.tour.amount != null
+                  _vm.tour.payment.amount != null
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Amount")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.amount))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour.payment.amount))])
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.tour.cheque_bank_name != null
+                  _vm.tour.payment.cheque_bank_name != null
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Cheque Bank Name")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.cheque_bank_name))])
+                        _c("p", [
+                          _vm._v(_vm._s(_vm.tour.payment.cheque_bank_name))
+                        ])
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.tour.date_of_issue != null
+                  _vm.tour.payment.date_of_issue != null
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Date of Issue")]),
                         _vm._v(" "),
@@ -454,7 +449,7 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.tour.status != null
+                  _vm.tour.payment.status != null
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Status")]),
                         _vm._v(" "),
@@ -468,23 +463,7 @@ var render = function() {
                     _c("p", [_vm._v(_vm._s(_vm.tour.created_at))])
                   ]),
                   _vm._v(" "),
-                  _vm.tour.total_tour_price != null
-                    ? _c("div", { staticClass: "col-sm-4" }, [
-                        _c("h5", [_vm._v("Amount Need to pay")]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.total_tour_price))])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.tour.collect_amount != null
-                    ? _c("div", { staticClass: "col-sm-4" }, [
-                        _c("h5", [_vm._v("Amount Collected")]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.collect_amount))])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.tour.payment_type == "net"
+                  _vm.tour.payment.payment_type == "net"
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [
                           _c(

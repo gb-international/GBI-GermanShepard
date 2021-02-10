@@ -19,6 +19,8 @@ class CreatePnrsTable extends Migration
             $table->string('transport_type')->nullable();
             $table->string('tour_code')->nullable();
             $table->string('pnr_number')->nullable();
+
+            $table->foreign('tour_code')->references('tour_id')->on('tours')->onDelete('cascade');
         });
     }
 

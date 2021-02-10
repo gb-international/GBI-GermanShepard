@@ -21,6 +21,8 @@ class CreateBookedsightseeingsTable extends Migration
             $table->bigInteger('sightseeing_id')->unsigned();
             $table->boolean('mark_arrive')->default(0);
             $table->timestamps();
+
+            $table->foreign('tour_code')->references('tour_id')->on('tours')->onDelete('cascade');
         });
     }
 

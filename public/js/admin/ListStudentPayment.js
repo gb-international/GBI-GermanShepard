@@ -99,6 +99,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -122,12 +125,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         sortable: true,
         thClass: "table-head"
       }, {
-        key: "collect_amount",
-        label: "AMOUNT",
-        sortable: true,
-        thClass: "table-head"
-      }, {
-        key: "status",
+        key: "payment",
         label: "STATUS",
         sortable: true,
         thClass: "table-head"
@@ -268,7 +266,7 @@ var render = function() {
                     outlined: "",
                     "sticky-header": "460px",
                     fields: _vm.fields,
-                    items: _vm.items,
+                    items: _vm.items.data,
                     busy: _vm.$store.getters.isBusy,
                     filter: _vm.filter,
                     "primary-key": "updated_at"
@@ -282,15 +280,23 @@ var render = function() {
                       proxy: true
                     },
                     {
-                      key: "cell(status)",
+                      key: "cell(payment)",
                       fn: function(data) {
                         return [
-                          data.item.status == "success"
-                            ? _c(
-                                "span",
-                                { staticClass: "badge badge-success" },
-                                [_vm._v("Success")]
-                              )
+                          data.item.payment != null
+                            ? _c("p", [
+                                data.item.payment.status == "success"
+                                  ? _c(
+                                      "span",
+                                      { staticClass: "badge badge-success" },
+                                      [_vm._v("Success")]
+                                    )
+                                  : _c(
+                                      "span",
+                                      { staticClass: "badge badge-default" },
+                                      [_vm._v("Pending")]
+                                    )
+                              ])
                             : _c(
                                 "span",
                                 { staticClass: "badge badge-default" },

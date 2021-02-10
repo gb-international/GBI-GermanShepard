@@ -323,6 +323,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -364,7 +367,6 @@ __webpack_require__.r(__webpack_exports__);
       };
       axios.post("/api/payments/list", data).then(function (response) {
         _this.tour_view = response.data;
-        console.log(_this.tour_view);
       });
     },
     tourPaymentSave: function tourPaymentSave() {
@@ -570,9 +572,9 @@ var render = function() {
                       attrs: {
                         url:
                           "/bookedusers/" +
-                          _vm.tour_view.school_id +
+                          _vm.$route.params.school_id +
                           "/" +
-                          _vm.tour_view.tour_code
+                          _vm.$route.params.tour_code
                       }
                     },
                     [_vm._v("Payment History")]
@@ -816,7 +818,9 @@ var render = function() {
                         ])
                       : _vm._e()
                   ])
-                : _vm._e(),
+                : _c("div", { staticClass: "text-center text-muted" }, [
+                    _vm._v("No Data Available")
+                  ]),
               _vm._v(" "),
               _vm.show_json
                 ? _c("div", { staticClass: "row pl-4" }, [

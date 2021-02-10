@@ -148,6 +148,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -309,6 +310,7 @@ var render = function() {
                           },
                           attrs: {
                             type: "text",
+                            readonly: "",
                             placeholder: "Enter School name"
                           },
                           domProps: { value: _vm.form.tour_id },

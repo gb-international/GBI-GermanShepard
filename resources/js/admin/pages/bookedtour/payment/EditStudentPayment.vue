@@ -48,7 +48,7 @@ to submit the data we are using a function. -->
                     v-model.lazy="form.payment_type"
                 >
                 <option value="" disabled>Select Payment type </option>
-                  <option value="self">Cash</option>
+                  <option value="cash">Cash</option>
                   <option value="cheque">Cheque</option>
                   <option value="net">Net</option>
                 </select>
@@ -124,7 +124,6 @@ to submit the data we are using a function. -->
                 <option value="" disabled>Added By </option>
                   <option value="teacher">Teacher</option>
                   <option value="student">Student</option>
-                  <option value="gbi">GBI</option>
                 </select>
                 <has-error :form="form" field="form.added_by"></has-error>
             </div>
@@ -132,29 +131,15 @@ to submit the data we are using a function. -->
 
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="total_tour_price">Total Tour Price</label>
+              <label for="amount">Amount</label>
               <input
                 type="number"
                 class="form-control"
-                v-model="form.total_tour_price"
-                :class="{ 'is-invalid': form.errors.has('total_tour_price') }"
-                placeholder="Enter total_tour_price"
+                v-model="form.amount"
+                :class="{ 'is-invalid': form.errors.has('amount') }"
+                placeholder="Enter amount"
               />
-              <has-error :form="form" field="total_tour_price"></has-error>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="collect_amount">Collected Amount</label>
-              <input
-                type="number"
-                class="form-control"
-                v-model="form.collect_amount"
-                :class="{ 'is-invalid': form.errors.has('collect_amount') }"
-                placeholder="Enter collect_amount"
-              />
-              <has-error :form="form" field="collect_amount"></has-error>
+              <has-error :form="form" field="amount"></has-error>
             </div>
           </div>
           <div class="col-sm-4">
@@ -218,8 +203,7 @@ export default {
         cheque_bank_name: "",
         date_of_issue: "",
         added_by: "",
-        total_tour_price: "",
-        collect_amount: "",
+        amount: "",
         payment_data: "",
         status: "",
         visible_to_user: "",

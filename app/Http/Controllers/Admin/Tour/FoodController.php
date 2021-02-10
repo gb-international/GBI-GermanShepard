@@ -17,7 +17,8 @@ class FoodController extends Controller
      */
     public function index($id)
     {
-        return response()->json(Food::where('tour_id',$id)->get());
+        $data['data'] = Food::where('tour_code',$id)->get();
+        return response()->json($data);
     }
 
     /**
@@ -76,6 +77,8 @@ class FoodController extends Controller
         return $this->validate($request, [
             'name' => ['required',new AlphaSpace],
             'quantity' => 'required',
+            'tour_id'=>'',
+            'tour_code'=>''
         ]);
     }
 }

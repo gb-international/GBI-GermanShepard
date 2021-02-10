@@ -150,6 +150,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -277,7 +278,7 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "col-sm-4 d-hidden" }, [
                     _c(
                       "div",
                       { staticClass: "form-group" },
@@ -301,6 +302,7 @@ var render = function() {
                           },
                           attrs: {
                             type: "text",
+                            readonly: "",
                             placeholder: "Enter School name"
                           },
                           domProps: { value: _vm.form.tour_id },

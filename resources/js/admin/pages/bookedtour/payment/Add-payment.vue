@@ -5,7 +5,7 @@
         <form>
             <div class="row" v-if="userinfo">
                 <div class="col-sm-4">
-                    <label>User</label>
+                    <label>Teacher</label>
                     <select class="form-control" v-model="teacherform.user_id">
                         <option v-for="user in userinfo" :key="user.user_id" :value=user.user.id>{{ user.user.name }}</option>
                     </select>

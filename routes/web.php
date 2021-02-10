@@ -9,6 +9,8 @@ use App\Mail\PasswordResetMail;
 use App\Mail\WelcomeMail;
 
 
+
+
 Route::post('/payment','Front\PaymentController@payment');
 Route::post('/response','Front\PaymentController@response');
 Route::post('/cancel','Front\PaymentController@cancel');
@@ -17,9 +19,7 @@ Route::get('/marketings/{slug}','Front\MarketingController@index');
 Route::post('/marketings','Front\MarketingController@store');
 
 // ---------------------------------------------
-Route::get('/test',function(){ 
-    return view('test.payment'); 
-});
+
 Route::post('/test-data', 'Front\PaymentController@test');
 // ---------------------------------------------
 

@@ -13,12 +13,13 @@ to submit the data we are using a function.
         @submit.prevent="UpdateTour()"
       >
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-4 d-hidden">
             <div class="form-group">
               <label for="tour_id">Tour Code</label>
               <input
                 type="text"
                 class="form-control"
+                readonly
                 v-model="form.tour_id"
                 :class="{ 'is-invalid': form.errors.has('tour_id') }"
                 placeholder="Enter School name"

@@ -20,6 +20,8 @@ class CreateFoodsTable extends Migration
             $table->string('name')->nullable();
             $table->string('quantity')->nullable();
             $table->timestamps();
+
+            $table->foreign('tour_code')->references('tour_id')->on('tours')->onDelete('cascade');
         });
     }
 

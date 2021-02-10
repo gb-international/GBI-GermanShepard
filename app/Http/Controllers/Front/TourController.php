@@ -24,7 +24,7 @@ class TourController extends Controller{
 
         
         $user = Auth::user();
-        $travels =  Bookeduser::with([
+        $travels =  TourUser::with([
             'tour' => function($tour){
                 $tour->with(['itinerary'=>function($detail){
                     $detail->select('itineraries.id','itineraries.title','itineraries.detail_photo'); 
@@ -33,14 +33,13 @@ class TourController extends Controller{
             }
         ])
         ->where('user_id',$user->id)
-        ->select('id','user_id','travel_code','tour_code','tour_id')
+        ->select('id','user_id','travel_code')
         ->get();
-
         foreach ($travels as $travel) 
         {
             // check if teacher has made payment
-            $teacher_paid = Bookeduser::where([
-                'tour_code'=>$travel->tour_id,
+            $teacher_paid = Userpayment::where([
+                'tour_code'=>$travel->tour->tour_id,
                 'added_by'=> 'teacher'
             ])->first();
             if($teacher_paid){
@@ -68,6 +67,7 @@ class TourController extends Controller{
                 $travel['payment'] = null;
             }
         }
+
         return response()->json($travels);
     }
 

@@ -25,6 +25,11 @@ iframe{ width: 100%;}
 .delete_icon:hover {
   color: red;
 }
+.close{
+	&:focus{
+		outline: none;
+	}
+}
 
 
 .card-layout{

@@ -23,6 +23,8 @@ class Tourbooking extends Migration
             $table->string('tour_end_date');
             $table->enum('tour_status', ['0', '1'])->default('0');
             $table->timestamps();
+
+            $table->foreign('tour_code')->references('tour_id')->on('tours')->onDelete('cascade');
         });
     }
 

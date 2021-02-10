@@ -22,6 +22,8 @@ class CreateBookedhotelsTable extends Migration
             $table->string('check_out')->nullable();
             $table->string('price')->nullable();
             $table->timestamps();
+
+            $table->foreign('tour_code')->references('tour_id')->on('tours')->onDelete('cascade');
         });
     }
 

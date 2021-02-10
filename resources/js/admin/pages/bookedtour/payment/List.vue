@@ -11,7 +11,7 @@ It takes id from the url and get the data from the api .
         <div class="col-sm-12 text-right top_btn">
           <add-button 
             class="mr-3"
-            :url="`/bookedusers/${tour_view.school_id}/${tour_view.tour_code}`"
+            :url="`/bookedusers/${$route.params.school_id}/${$route.params.tour_code}`"
             >Payment History</add-button>
 
           <add-button 
@@ -135,6 +135,8 @@ It takes id from the url and get the data from the api .
           </div>
         </div>
 
+        <div v-else class="text-center text-muted">No Data Available</div>
+
         <div class="row pl-4" v-if="show_json">
           <table class="">
             <tbody>
@@ -160,6 +162,7 @@ It takes id from the url and get the data from the api .
             <p>{{ tour_view.collect_amount }}</p>
           </div>
         </div>
+        
       </div>
       <!-- The Modal -->
       <div class="modal" id="paymentModal">
@@ -260,7 +263,6 @@ export default {
       };
       axios.post("/api/payments/list", data).then((response) => {
         this.tour_view = response.data;
-        console.log(this.tour_view);
       });
     },
 

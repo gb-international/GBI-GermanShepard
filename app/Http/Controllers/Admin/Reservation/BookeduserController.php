@@ -4,40 +4,60 @@ namespace App\Http\Controllers\Admin\Reservation;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\Reservation\Bookeduser;
 use App\Model\Tour\Schoolbankdetail;
+use App\Model\Tour\Tour;
+use App\Model\Tour\Userpayment;
+use App\Model\Tour\TourUser;
 
 class BookeduserController extends Controller
 {
-    public function all($tour_code)
+    public function all($tour_id)
     {
-        $data = Bookeduser::where('tour_code',$tour_code)
-            ->with('user')
+        $code=Tour::where('tour_id',$tour_id)->select('travel_code')->first();
+        $data = TourUser::where('travel_code',$code->travel_code)
+            ->with('user:id,name')
             ->get();
-        return response()->json($data);
-    }    
+        foreach ($data as $d ) {
+            $payment = Userpayment::where(['user_id'=>$d->user_id,'tour_code'=>$tour_id])->first();
+            $d['payment'] = $payment;
+        }
+        $alldata['data'] = $data;
+        return response()->json($alldata);
+    }  
+
     public function edit($id)
     {
-        $data = Bookeduser::find($id);
-        return response()->json($data);
+        $data = TourUser::where('id',$id)->with('tour:travel_code,tour_id')->first();
+        $payment = Userpayment::where(['user_id'=>$data->user_id,'tour_code'=>$data->tour->tour_id])->first();
+        return response()->json($payment);
     }
     public function show($id)
     {
-        $data = Bookeduser::with([
-            'user'=>function($user){
-                $user->select(['users.name','users.id']);
-        }])
-        ->find($id);
-        return response()->json($data);
+
+        $tour = TourUser::where('id',$id)
+            ->with('tour:travel_code,tour_id,school_id','user:id,name')->first();
+
+        $data = Userpayment::where(['user_id'=>$tour->user_id,'tour_code'=>$tour->tour->tour_id])->first();
+        $tour['payment'] = $data;
+        return response()->json($tour);
     }
     public function update(Request $request,$id){
-        $data = Bookeduser::where('id',$id)->first();
-        $data->update($request->all());
+        $tour = TourUser::where('id',$id)->with('tour:travel_code,tour_id,school_id')->first();
+        $data = Userpayment::where(['user_id'=>$tour->user_id,'tour_code'=>$tour->tour->tour_id])->first();
+        if(!$data){
+            $base = $request->all();
+            $base['user_id'] = $tour->user_id;
+            $base['school_id'] = $tour->tour->school_id;
+            $base['tour_code'] = $tour->tour->tour_id;
+            Userpayment::create($base);
+        }else{
+            $data->update($request->all());
+        }
         return response()->json('updated successfully');
     }
-    public function destroy(Bookeduser $Bookeduser)
+    public function destroy(TourUser $touruser)
     {
-        $Bookeduser->delete();
+        $touruser->delete();
         return response()->json('successfully deleted');
     }
     public function bankdetails($tour_code){

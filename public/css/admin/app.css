@@ -55171,6 +55171,10 @@ iframe {
   color: red;
 }
 
+.close:focus {
+  outline: none;
+}
+
 .card-layout {
   background-color: #fff;
   background-clip: border-box;

@@ -14,7 +14,6 @@ class TouruserController extends Controller
 
         $data = TourUser::where('travel_code',$code->travel_code)->with('user')->get();
         return response()->json($data);
-
     }
 
     public function addPnrUser(Request $request){

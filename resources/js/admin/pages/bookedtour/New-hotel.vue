@@ -111,9 +111,9 @@ export default {
   // End the process of the the fetching data
   methods: {
     hotelData() {
-      axios.get(`/api/hotel`).then((response) => {
-        if (response.data) {
-          this.hotel_list = response.data.data;
+      axios.get(`/api/hotel`).then((res) => {
+        if (res) {
+          this.hotel_list = res.data;
         }
       });
     },

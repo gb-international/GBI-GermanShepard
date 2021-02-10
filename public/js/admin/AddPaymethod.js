@@ -423,7 +423,7 @@ var render = function() {
               _vm.userinfo
                 ? _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-sm-4" }, [
-                      _c("label", [_vm._v("User")]),
+                      _c("label", [_vm._v("Teacher")]),
                       _vm._v(" "),
                       _c(
                         "select",

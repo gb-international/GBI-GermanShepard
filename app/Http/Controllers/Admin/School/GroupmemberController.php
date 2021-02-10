@@ -8,6 +8,7 @@ use App\Model\School\Groupmember;
 use App\Model\User\Subscriber;
 use App\Model\User\Information;
 use App\Model\Tour\Tour;
+use App\Model\Tour\TourUser;
 use App\Model\Reservation\Bookeduser;
 use App\User;
 use App\Helpers\SendSms;
@@ -66,10 +67,16 @@ class GroupmemberController extends Controller
                 'tour_code' => $tour_id,
                 'tour_id'=>$travel_code->id,
             ];
-            $tour_user = Bookeduser::where($tour)->first();
+            $tour = ['travel_code'=>$travel_code->travel_code,'user_id'=>$user->id];
+            $tour_user = TourUser::where($tour)->first();
             if(!$tour_user){
-                $tour_user = Bookeduser::create($tour);
+                $tour_user = TourUser::create($tour);
             }
+
+            // $tour_user = Bookeduser::where($tour)->first();
+            // if(!$tour_user){
+            //     $tour_user = Bookeduser::create($tour);
+            // }
             // notify user with tour details and login detials 
             $tour['name'] =$groupmember['first_name'].' '.$groupmember['last_name'];
             $tour['email'] = $groupmember['email'];

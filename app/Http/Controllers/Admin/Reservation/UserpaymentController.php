@@ -10,22 +10,20 @@ class UserpaymentController extends Controller
 {
     public function paymentList(Request $request){
         // get school payment mode
-        $userpayment = '';
         if($request->added_by == 'student'){
-            // User::where([
-            //     'school_id' => $request->school_id
-            // ])
             $userpayment = Userpayment::where([
                 'school_id'=>$request->school_id,
                 'tour_code'=>$request->tour_code,
                 'added_by'=> $request->added_by
             ])->with('user')->get();
-        }else{
+        }else if($request->added_by == 'teacher'){
             $userpayment = Userpayment::where([
                 'school_id'=>$request->school_id,
                 'tour_code'=>$request->tour_code,
                 'added_by'=> $request->added_by
-            ])->firstOrFail()->adminFormat();
+            ])->first()->adminFormat();
+        }else{
+            $userpayment = [];
         }
         return response()->json($userpayment);
     }

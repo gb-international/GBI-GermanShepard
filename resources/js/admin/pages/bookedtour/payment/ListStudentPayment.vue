@@ -23,7 +23,7 @@ data from the api to display the data about the Category from the backend .
           sticky-header="460px"
           class="w-100 table-layout"
           :fields="fields"
-          :items="items"
+          :items="items.data"
           :busy="$store.getters.isBusy"
           :filter="filter"
           primary-key="updated_at"
@@ -31,12 +31,15 @@ data from the api to display the data about the Category from the backend .
           <template #table-busy>
             <table-loader />
           </template>
-          <template #cell(status)="data">
-            <span
-              v-if="data.item.status == 'success'"
-              class="badge badge-success"
-              >Success</span
-            >
+          <template #cell(payment)="data">
+            <p v-if="data.item.payment != null">
+              <span
+                v-if="data.item.payment.status == 'success'"
+                class="badge badge-success"
+                >Success</span
+              >
+              <span class="badge badge-default" v-else>Pending</span>
+            </p>
             <span class="badge badge-default" v-else>Pending</span>
           </template>
           <template #cell(action)="data">
@@ -78,14 +81,9 @@ export default {
           sortable: true,
           thClass: "table-head",
         },
+
         {
-          key: "collect_amount",
-          label: "AMOUNT",
-          sortable: true,
-          thClass: "table-head",
-        },
-        {
-          key: "status",
+          key: "payment",
           label: "STATUS",
           sortable: true,
           thClass: "table-head",

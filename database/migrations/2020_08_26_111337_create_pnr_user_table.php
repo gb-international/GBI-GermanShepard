@@ -20,9 +20,7 @@ class CreatePnrUserTable extends Migration
             $table->string('tour_id');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('pnr_id')->references('id')->on('pnrs')->onDelete('cascade');
-
-        
+            $table->foreign('pnr_id')->references('id')->on('pnrs')->onDelete('cascade');        
         });
     }
 

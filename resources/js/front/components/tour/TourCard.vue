@@ -19,16 +19,16 @@
             </div>
 
             <div class="col-sm-4 text-center mb-10 mt-5">
-              <router-link v-if="tour.payment == null" :to="`/tour-payment/${tour.tour.tour_id}`" class="btn btn-light">PAY NOW</router-link>
+              <router-link v-if="tour.payment == null || tour.payment == 'not-paid'" :to="`/tour-payment/${tour.tour.tour_id}`" class="btn btn-light">PAY NOW</router-link>
 
               <img v-if="tour.payment == 'success'" class="w-45" src="/images/icons/paid.png" />
             </div>
-
           </div>
 
           <div class="row text-center">
             <div class="col p-0">
-              <div class="text-center bg-transparent-card p-t-15 pb-15 text-white" v-if="tour.payment == null">
+              <div class="text-center bg-transparent-card p-t-15 pb-15 text-white" 
+              v-if="tour.payment == null || tour.payment == 'not-paid'">
                   <img src="/images/icons/viewitinerary.png" class="w-20 mr-1">View Itinerary
               </div>
               <router-link v-if="tour.payment == 'success'" :to="`/tour-detail/${tour.tour.tour_id}`">
@@ -36,6 +36,7 @@
                   <img src="/images/icons/viewitinerary.png" class="w-20 mr-1">View Itinerary
                 </div>
               </router-link>
+
             </div>
             <div class="col p-0">
               <router-link :to="`/group-member/${tour.tour.tour_id}`">

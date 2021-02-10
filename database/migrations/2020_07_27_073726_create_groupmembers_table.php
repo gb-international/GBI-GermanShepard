@@ -25,6 +25,8 @@ class CreateGroupmembersTable extends Migration
             $table->string('mobile')->nullable();
             $table->string('age')->nullable();
             $table->timestamps();
+
+            $table->foreign('tour_id')->references('tour_id')->on('tours')->onDelete('cascade');
         });
     }
 

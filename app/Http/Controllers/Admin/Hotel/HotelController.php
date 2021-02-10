@@ -34,6 +34,8 @@ class HotelController extends Controller
     }
     public function index()
     {
+        $hotel = Hotel::select('name','id')->get();
+        return response()->json($hotel);
         return HotelCollection::collection(Hotel::all());
     }
 

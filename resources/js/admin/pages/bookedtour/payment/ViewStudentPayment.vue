@@ -30,42 +30,42 @@ It takes id from the url and get the data from the api .
 
         <div class="col-sm-4">
           <h5>Added By</h5>
-          <p>{{ tour.added_by }}</p>
+          <p>{{ tour.payment.added_by }}</p>
         </div>
 
-        <div class="col-sm-4" v-if="tour.schoolbankdetail_id != null">
+        <div class="col-sm-4" v-if="tour.payment.schoolbankdetail_id != null">
           <h5>School Bank Detail ID</h5>
-          <p>{{ tour.schoolbankdetail_id }}</p>
+          <p>{{ tour.payment.schoolbankdetail_id }}</p>
         </div>
 
-        <div class="col-sm-4" v-if="tour.payment_mode != null">
+        <div class="col-sm-4" v-if="tour.payment.payment_mode != null">
           <h5>Payment By</h5>
-          <p>{{ tour.payment_mode }}</p>
+          <p>{{ tour.payment.payment_mode }}</p>
         </div>
 
-        <div class="col-sm-4" v-if="tour.payment_type != null">
+        <div class="col-sm-4" v-if="tour.payment.payment_type != null">
           <h5>Payment Type</h5>
-          <p>{{ tour.payment_type }}</p>
+          <p>{{ tour.payment.payment_type }}</p>
         </div>
-        <div class="col-sm-4" v-if="tour.ifsc_code != null">
+        <div class="col-sm-4" v-if="tour.payment.ifsc_code != null">
           <h5>IFSC Code</h5>
-          <p>{{ tour.ifsc_code }}</p>
+          <p>{{ tour.payment.ifsc_code }}</p>
         </div>
-        <div class="col-sm-4" v-if="tour.amount != null">
+        <div class="col-sm-4" v-if="tour.payment.amount != null">
           <h5>Amount</h5>
-          <p>{{ tour.amount }}</p>
+          <p>{{ tour.payment.amount }}</p>
         </div>
 
-        <div class="col-sm-4" v-if="tour.cheque_bank_name != null">
+        <div class="col-sm-4" v-if="tour.payment.cheque_bank_name != null">
           <h5>Cheque Bank Name</h5>
-          <p>{{ tour.cheque_bank_name }}</p>
+          <p>{{ tour.payment.cheque_bank_name }}</p>
         </div>
-        <div class="col-sm-4" v-if="tour.date_of_issue != null">
+        <div class="col-sm-4" v-if="tour.payment.date_of_issue != null">
           <h5>Date of Issue</h5>
           <p>{{ tour.date_of_issue }}</p>
         </div>
 
-        <div class="col-sm-4" v-if="tour.status != null">
+        <div class="col-sm-4" v-if="tour.payment.status != null">
           <h5>Status</h5>
           <p>{{ tour.status }}</p>
         </div>
@@ -74,17 +74,8 @@ It takes id from the url and get the data from the api .
           <p>{{ tour.created_at }}</p>
         </div>
 
-        <div class="col-sm-4" v-if="tour.total_tour_price != null">
-          <h5>Amount Need to pay</h5>
-          <p>{{ tour.total_tour_price }}</p>
-        </div>
 
-        <div class="col-sm-4" v-if="tour.collect_amount != null">
-          <h5>Amount Collected</h5>
-          <p>{{ tour.collect_amount }}</p>
-        </div>
-
-        <div class="col-sm-4" v-if="tour.payment_type == 'net'">
+        <div class="col-sm-4" v-if="tour.payment.payment_type == 'net'">
           <h5>
             <button
               class="btn btn-info text-white"

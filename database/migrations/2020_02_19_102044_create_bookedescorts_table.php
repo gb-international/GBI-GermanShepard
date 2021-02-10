@@ -19,6 +19,8 @@ class CreateBookedescortsTable extends Migration
             $table->string('tour_code')->nullable();
             $table->bigInteger('escort_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('tour_code')->references('tour_id')->on('tours')->onDelete('cascade');
         });
     }
 

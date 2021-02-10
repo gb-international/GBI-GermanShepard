@@ -13,13 +13,15 @@ class CreateBookedrestaurantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bookedretsaurants', function (Blueprint $table) {
+        Schema::create('bookedrestaurants', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('tour_id')->unsigned();
             $table->string('tour_code');
-            $table->bigInteger('resaurant_id')->unsigned();
+            $table->bigInteger('restaurant_id')->unsigned();
             $table->string('date_of_arrival')->nullable();
             $table->timestamps();
+
+            $table->foreign('tour_code')->references('tour_id')->on('tours')->onDelete('cascade');
         });
     }
 

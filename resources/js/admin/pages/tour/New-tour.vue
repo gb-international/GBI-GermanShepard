@@ -19,6 +19,7 @@ to submit the data we are using a function.
               <input
                 type="text"
                 class="form-control"
+                readonly
                 v-model="form.tour_id"
                 :class="{ 'is-invalid': form.errors.has('tour_id') }"
                 placeholder="Enter School name"

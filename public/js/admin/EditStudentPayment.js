@@ -264,21 +264,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -304,8 +289,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         cheque_bank_name: "",
         date_of_issue: "",
         added_by: "",
-        total_tour_price: "",
-        collect_amount: "",
+        amount: "",
         payment_data: "",
         status: "",
         visible_to_user: ""
@@ -738,7 +722,7 @@ var render = function() {
                               [_vm._v("Select Payment type ")]
                             ),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "self" } }, [
+                            _c("option", { attrs: { value: "cash" } }, [
                               _vm._v("Cash")
                             ]),
                             _vm._v(" "),
@@ -1013,10 +997,6 @@ var render = function() {
                             _vm._v(" "),
                             _c("option", { attrs: { value: "student" } }, [
                               _vm._v("Student")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "gbi" } }, [
-                              _vm._v("GBI")
                             ])
                           ]
                         ),
@@ -1034,8 +1014,8 @@ var render = function() {
                       "div",
                       { staticClass: "form-group" },
                       [
-                        _c("label", { attrs: { for: "total_tour_price" } }, [
-                          _vm._v("Total Tour Price")
+                        _c("label", { attrs: { for: "amount" } }, [
+                          _vm._v("Amount")
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -1043,86 +1023,31 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.total_tour_price,
-                              expression: "form.total_tour_price"
+                              value: _vm.form.amount,
+                              expression: "form.amount"
                             }
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has(
-                              "total_tour_price"
-                            )
+                            "is-invalid": _vm.form.errors.has("amount")
                           },
                           attrs: {
                             type: "number",
-                            placeholder: "Enter total_tour_price"
+                            placeholder: "Enter amount"
                           },
-                          domProps: { value: _vm.form.total_tour_price },
+                          domProps: { value: _vm.form.amount },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.$set(
-                                _vm.form,
-                                "total_tour_price",
-                                $event.target.value
-                              )
+                              _vm.$set(_vm.form, "amount", $event.target.value)
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "total_tour_price" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "collect_amount" } }, [
-                          _vm._v("Collected Amount")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.collect_amount,
-                              expression: "form.collect_amount"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("collect_amount")
-                          },
-                          attrs: {
-                            type: "number",
-                            placeholder: "Enter collect_amount"
-                          },
-                          domProps: { value: _vm.form.collect_amount },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "collect_amount",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "collect_amount" }
+                          attrs: { form: _vm.form, field: "amount" }
                         })
                       ],
                       1

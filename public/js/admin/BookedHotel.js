@@ -192,9 +192,9 @@ __webpack_require__.r(__webpack_exports__);
     hotelData: function hotelData() {
       var _this = this;
 
-      axios.get("/api/hotel").then(function (response) {
-        if (response.data) {
-          _this.hotel_list = response.data.data;
+      axios.get("/api/hotel").then(function (res) {
+        if (res) {
+          _this.hotel_list = res.data;
         }
       });
     },

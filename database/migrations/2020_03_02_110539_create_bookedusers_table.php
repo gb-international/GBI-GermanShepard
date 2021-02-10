@@ -15,7 +15,7 @@ class CreateBookedusersTable extends Migration
     {
         Schema::create('bookedusers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('tour_id')->unsigned();
+            $table->integer('tour_id')->unsigned();
             $table->string('tour_code');
             $table->string('travel_code');
             $table->bigInteger('user_id')->unsigned();
@@ -33,6 +33,8 @@ class CreateBookedusersTable extends Migration
             $table->string('status')->nullable();
             $table->integer('visible_to_user')->default(0);
             $table->timestamps();
+
+            $table->foreign('tour_id')->references('id')->on('tours')->onDelete('cascade');
         });
     }
 

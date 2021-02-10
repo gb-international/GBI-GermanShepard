@@ -63,11 +63,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "List",
   data: function data() {
     return {
-      escort: ''
+      escort: ""
     };
   },
   created: function created() {
@@ -77,8 +97,8 @@ __webpack_require__.r(__webpack_exports__);
     escortUpdate: function escortUpdate() {
       var _this = this;
 
-      axios.get("/api/escortUpdates/".concat(this.$route.params.tour_code)).then(function (response) {
-        _this.escort = response.data;
+      axios.get("/api/escortUpdates/".concat(this.$route.params.tour_code)).then(function (res) {
+        _this.escort = res.data;
       });
     },
     goBack: function goBack() {
@@ -119,56 +139,98 @@ var render = function() {
                   }
                 }
               }),
-              _vm._v(" Escort Update")
+              _vm._v("\n            Escort Update\n          ")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "ml-4" }, [
               _c("div", { staticClass: "ml-1" }, [
                 _vm._m(0),
                 _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("table", { staticClass: "table" }, [
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c("tbody", [
-                      _c("tr", [
-                        _c("td", { staticClass: "border-0" }, [_vm._v("Male")]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center border-0" }, [
-                          _vm._v(_vm._s(_vm.escort.total_male))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center border-0" }, [
-                          _vm._v(_vm._s(_vm.escort.absent_male))
+                _vm.escort.escort
+                  ? _c("div", { staticClass: "w-100" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("table", { staticClass: "table" }, [
+                          _vm._m(1),
+                          _vm._v(" "),
+                          _c("tbody", [
+                            _c("tr", [
+                              _c("td", { staticClass: "border-0" }, [
+                                _vm._v("Male")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                { staticClass: "text-center border-0" },
+                                [
+                                  _vm._v(
+                                    "\n                          " +
+                                      _vm._s(_vm.escort.total_male) +
+                                      "\n                        "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                { staticClass: "text-center border-0" },
+                                [
+                                  _vm._v(
+                                    "\n                          " +
+                                      _vm._s(_vm.escort.absent_male) +
+                                      "\n                        "
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("tr", [
+                              _c("td", { staticClass: "border-0" }, [
+                                _vm._v("Female")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                { staticClass: "text-center border-0" },
+                                [
+                                  _vm._v(
+                                    "\n                          " +
+                                      _vm._s(_vm.escort.total_male) +
+                                      "\n                        "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                { staticClass: "text-center border-0" },
+                                [
+                                  _vm._v(
+                                    "\n                          " +
+                                      _vm._s(_vm.escort.absent_male) +
+                                      "\n                        "
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
                         ])
                       ]),
                       _vm._v(" "),
-                      _c("tr", [
-                        _c("td", { staticClass: "border-0" }, [
-                          _vm._v("Female")
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center border-0" }, [
-                          _vm._v(_vm._s(_vm.escort.total_male))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center border-0" }, [
-                          _vm._v(_vm._s(_vm.escort.absent_male))
-                        ])
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "m-0" }, [
+                        _vm._v(_vm._s(_vm.escort.message))
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _c("p", {}, [_vm._v(_vm._s(_vm.escort.escort.name))])
+                    ])
+                  : _c("div", { staticClass: "mt-5 text-center" }, [
+                      _c("p", { staticClass: "text-muted" }, [
+                        _vm._v("No Updates from escort")
                       ])
                     ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(2),
-                _vm._v(" "),
-                _c("p", { staticClass: "m-0" }, [
-                  _vm._v(_vm._s(_vm.escort.message))
-                ]),
-                _vm._v(" "),
-                _vm._m(3),
-                _vm._v(" "),
-                _c("p", {}, [_vm._v(_vm._s(_vm.escort.escort.name))])
               ])
             ])
           ])

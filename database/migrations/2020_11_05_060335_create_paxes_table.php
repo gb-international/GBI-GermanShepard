@@ -15,7 +15,7 @@ class CreatePaxesTable extends Migration
     {
         Schema::create('paxes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('tour_code')->nullable();
+            $table->string('tour_code');
             $table->integer('total_male')->nullable();
             $table->integer('total_female')->nullable();
             $table->integer('absent_male')->nullable();
@@ -23,6 +23,8 @@ class CreatePaxesTable extends Migration
             $table->text('message')->nullable();
             $table->string('escort_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('tour_code')->references('tour_id')->on('tours')->onDelete('cascade');
         });
     }
 

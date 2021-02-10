@@ -15,10 +15,11 @@ class CreateToursTable extends Migration
     {
         Schema::create('tours', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tour_id');
+            $table->string('tour_id')->unique();
             $table->string('travel_code')->nullable();
             $table->bigInteger('itinerary_id')->unsigned();
             $table->string('school_id');
+            $table->string('no_of_person')->nullable();
             $table->string('tour_start_date');
             $table->string('tour_end_date');
             $table->string('tour_price')->nullable();
