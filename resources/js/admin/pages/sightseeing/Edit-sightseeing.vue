@@ -14,20 +14,12 @@ to submit the data we are using a function.
           <div class="col-sm-4">
             <div class="form-group">
               <label for="state">State</label>
-              <select
-                class="form-control select-field"
-                v-model="form.state_id"
-                :class="{ 'is-invalid': form.errors.has('state_id') }"
-              >
-              <option value="" disabled hidden>Select State</option>
-                <option
-                  v-for="state in state_list"
-                  :value="state.id"
-                  :key="state.id"
-                >
-                  {{ state.name }}
-                </option>
-              </select>
+              <dropdown-filter
+                class="mb-2"
+                :itemList="options"
+                @update:option="StateUpdate"
+                :selectedId="form.state_id"
+              />
               <has-error :form="form" field="state_id"></has-error>
             </div>
           </div>
@@ -35,20 +27,12 @@ to submit the data we are using a function.
           <div class="col-sm-4">
             <div class="form-group">
               <label for="city">City</label>
-              <select
-                class="form-control select-field"
-                v-model="form.city_id"
-                :class="{ 'is-invalid': form.errors.has('city_id') }"
-              >
-              <option value="" disabled hidden>Select City</option>
-                <option
-                  v-for="city in city_list"
-                  :value="city.id"
-                  :key="city.id"
-                >
-                  {{ city.name }}
-                </option>
-              </select>
+              <dropdown-filter
+                class="mb-2"
+                :itemList="city_list"
+                @update:option="CityUpdate"
+                :selectedId="form.city_id"
+              />
               <has-error :form="form" field="city_id"></has-error>
             </div>
           </div>
@@ -145,7 +129,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="image"></label>
               <br />
-              <img :src="img_image" alt class="image" />
+              <img :src="img_image" alt class="image w-100" />
               <has-error :form="form" field="image"></has-error>
             </div>
           </div>
@@ -160,6 +144,7 @@ to submit the data we are using a function.
 import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
+import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 export default {
   name: "New",
   components: {
@@ -167,12 +152,13 @@ export default {
     "has-error": HasError,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
+    "dropdown-filter":DropdownFilter
   },
   data() {
     return {
       img_image: "",
-      state_list: "",
-      city_list: "",
+      options:[],
+      city_list: [],
       form: new Form({
         name: "",
         state_id: "",
@@ -197,14 +183,30 @@ export default {
   },
   methods: {
     stateData() {
-      axios.get("/api/state").then((response) => {
-        this.state_list = response.data;
+      axios.get("/api/state").then((res) => {
+        if (res.data) {
+          this.options = [];
+          for(let i = 0;i<res.data.length;i++){
+            this.options.push({
+              name:res.data[i].name,
+              id:res.data[i].id
+            });
+          }
+        }
       });
     },
 
     cityData(id) {
-      axios.get("/api/state-city/" + id).then((response) => {
-        this.city_list = response.data;
+      axios.get("/api/state-city/" + id).then((res) => {
+        if (res.data) {
+          this.city_list = [];
+          for(let i = 0;i<res.data.length;i++){
+            this.city_list.push({
+              name:res.data[i].name,
+              id:res.data[i].id
+            });
+          }
+        }
       });
     },
     sightSeeing() {
@@ -236,6 +238,12 @@ export default {
         this.img_image = event.target.result;
       };
       reader.readAsDataURL(file);
+    },
+    StateUpdate(value) {
+      this.form.state_id = value.id;
+    },
+    CityUpdate(value) {
+      this.form.city_id = value.id;
     },
   },
 };

@@ -106,3 +106,92 @@ input[type='datetime-local']{
 .detail_photo { height: 80px; width: 250px; }
 input[type="file"] { width: 200px; }
 .images_row img{ margin-bottom: 10px;}
+
+.btn-outline-blue{
+	background-color: transparent;
+	color: $admin-bg;
+	border-radius: 0px !important;
+	border:2px solid $admin-bg !important;
+}
+
+.filter-search{
+	input{
+		border-radius: 20px 0px 0px 20px;
+	}
+	.form-control{
+		background-color: $input-box-grey !important;
+		&:focus{
+			 border-color: none;
+        	box-shadow: none;
+		}
+	}
+	button{ 
+		border-radius: 0px 20px 20px 0px;
+		background-color: $input-box-grey !important;
+	}
+}
+.file-upload{
+	.file-input-group {
+		input[type="text"]{
+			background: #e5e5e5 !important;
+			height: 38px;
+			border-color: none;
+        	box-shadow: none;
+			border-radius: 20px 0px 0px 20px;
+		}
+		input[type="file"] {
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+		}
+		.input-group-append{
+			label{
+				border-radius: 20px;
+				margin-left: -14px;
+			}
+		}
+	}
+}
+
+.add-row-input-button{
+	input{
+		border: 3px solid #332f58;
+		height: 35px;
+    	width: 112px;
+	}
+	button{
+		background-color: #403b3b;
+		border-radius: 20px;
+		border: 3px solid #403b3b;
+		&:hover{
+			background-color: #403b3b;
+			border-radius: 20px;
+			border: 3px solid #403b3b;
+		}
+	}
+	.pt-24{
+		padding-top: 24px;
+	}
+}
+
+.list-form{
+	input{ 
+		height: 38px !important;
+		background-color: white !important;
+		border-color: none !important;
+        box-shadow: none !important;
+		font-size: 12px;
+	}
+	table{ border-collapse: collapse;}
+	tr,td{ padding: 0px;}
+	.w-16{ width: 16px;}
+}
+.active_tab{ background: #888888; height: 1.5px;}
+
+.checkbox-select-all{
+	padding-left: 0px;
+	top: -15px;
+}

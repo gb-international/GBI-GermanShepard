@@ -242,6 +242,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -255,7 +280,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      // Create a new form instance
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         school_name: "",
         street: "",
@@ -264,6 +288,8 @@ __webpack_require__.r(__webpack_exports__);
         country_name: "",
         finance_email_id: "",
         principle_email_id: "",
+        principle_name: "",
+        principle_mobile_number: "",
         pincode: "",
         mobile: "",
         address: ""
@@ -274,9 +300,8 @@ __webpack_require__.r(__webpack_exports__);
     AddSchool: function AddSchool() {
       var _this = this;
 
-      // Submit the form via a itinerary request
-      this.form.post("/api/school").then(function (response) {
-        _this.$router.push("/schools/");
+      this.form.post("/api/school").then(function (res) {
+        _this.$router.push("/schools/".concat(res.data.id));
 
         _this.$toast.fire({
           icon: "success",
@@ -632,6 +657,56 @@ var render = function() {
                       "div",
                       { staticClass: "form-group" },
                       [
+                        _c("label", { attrs: { for: "name" } }, [
+                          _vm._v("Principle Name")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.principle_name,
+                              expression: "form.principle_name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("principle_name")
+                          },
+                          attrs: {
+                            type: "text",
+                            placeholder: "Enter Principle Name",
+                            rows: "5"
+                          },
+                          domProps: { value: _vm.form.principle_name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "principle_name",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "principle_name" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
                         _c("label", { attrs: { for: "email" } }, [
                           _vm._v("Principle Email")
                         ]),
@@ -673,6 +748,62 @@ var render = function() {
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "principle_email_id" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c(
+                          "label",
+                          { attrs: { for: "principle_mobile_number" } },
+                          [_vm._v("Principle Mobile Number")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.principle_mobile_number,
+                              expression: "form.principle_mobile_number"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has(
+                              "principle_mobile_number"
+                            )
+                          },
+                          attrs: {
+                            type: "text",
+                            placeholder: "Enter Principle Mobile Number"
+                          },
+                          domProps: { value: _vm.form.principle_mobile_number },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "principle_mobile_number",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: {
+                            form: _vm.form,
+                            field: "principle_mobile_number"
+                          }
                         })
                       ],
                       1
@@ -904,7 +1035,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "col-sm-12" }, [
                     _c(
                       "div",
                       { staticClass: "form-group" },
@@ -913,7 +1044,7 @@ var render = function() {
                           _vm._v("School Address")
                         ]),
                         _vm._v(" "),
-                        _c("input", {
+                        _c("textarea", {
                           directives: [
                             {
                               name: "model",
@@ -926,7 +1057,7 @@ var render = function() {
                           class: {
                             "is-invalid": _vm.form.errors.has("address")
                           },
-                          attrs: { type: "text", placeholder: "Enter Address" },
+                          attrs: { placeholder: "School Address", rows: "3" },
                           domProps: { value: _vm.form.address },
                           on: {
                             input: function($event) {

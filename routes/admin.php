@@ -86,9 +86,10 @@ Route::namespace('Admin')->group(function (){
 	});
 	Route::namespace('School')->group(function(){
 		Route::get('school/all/{size}','SchoolController@all');
+		Route::get('schools-login-details/{id}','SchoolController@login');
 		Route::resource('school','SchoolController');
 		Route::resource('student','StudentController');
-		Route::get('groupmembers/{tour_code}','GroupmemberController@getMember');
+		Route::get('groupmembers/{tour_code}/{type}','GroupmemberController@getMember');
 		Route::post('groupmembers/update','GroupmemberController@updateMember');
 		Route::post('groupmember/destroy','GroupmemberController@destroyMember');
 		Route::post('groupmember/add','GroupmemberController@addMember');

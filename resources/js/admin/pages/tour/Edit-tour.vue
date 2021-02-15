@@ -83,9 +83,6 @@ to submit the data we are using a function.
               </div>
             </div>
           </div>
-
-          
-
           <div class="col-sm-4">
             <div class="form-group">
               <label for="tour_start_date">Tour Start Date</label>
@@ -99,7 +96,6 @@ to submit the data we are using a function.
               <has-error :form="form" field="tour_start_date"></has-error>
             </div>
           </div>
-
           <div class="col-sm-4">
             <div class="form-group">
               <label for="tour_end_date">Tour End Date</label>

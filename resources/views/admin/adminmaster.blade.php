@@ -6,7 +6,8 @@
     <title>GBI-Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <meta name="csrf-token" content="{{ csrf_token() }}">    
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
     <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
     {{-- <link href="{{ secure_asset('css/admin/app.css') }}" rel="stylesheet"> --}}
      

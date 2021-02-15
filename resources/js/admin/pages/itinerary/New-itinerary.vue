@@ -16,16 +16,13 @@ to submit the data we are using a function.
             <!-- Source for the ititnerary  -->
             <div class="form-group">
               <label for="sourceId">Source</label>
-              <select class="form-control select-field" v-model="form.source">
+              <!-- <select class="form-control select-field" v-model="form.source">
                 <option value="" disabled hidden>Select Source</option>
                 <option v-for="data in cities" :value="data.name" :key="data.id">{{data.name }}</option>
-              </select>
+              </select> -->
 
-              <!-- <model-select
-                :options="options"
-                v-model="form.source"
-                placeholder="From"
-              ></model-select> -->
+              <dropdown-filter class="mb-2" :itemList="options" @update:option="SourceUpdate"/>
+
               <has-error :form="form" field="source"></has-error>
             </div>
           </div>
@@ -33,15 +30,12 @@ to submit the data we are using a function.
             <!-- Desctiantion for the itinerary -->
             <div class="form-group">
               <label for="destinationId">Destination</label>
-              <select class="form-control select-field" v-model="form.destination">
+              <!-- <select class="form-control select-field" v-model="form.destination">
                 <option value="" disabled hidden>Select Source</option>
                 <option v-for="data in cities" :value="data.name" :key="data.id">{{data.name }}</option>
-              </select>
-              <!-- <model-select
-                :options="options"
-                v-model="form.destination"
-                placeholder="To"
-              ></model-select> -->
+              </select> -->
+              <dropdown-filter class="mb-2" :itemList="options" @update:option="DestinationUpdate"/>
+
               <has-error :form="form" field="destination"></has-error>
             </div>
           </div>
@@ -439,6 +433,7 @@ import { VueEditor, Quill } from "vue2-editor";
 
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
+import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 export default {
   name: "NewItinerary",
   components: {
@@ -449,6 +444,7 @@ export default {
     "has-error": HasError,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
+    "dropdown-filter":DropdownFilter
   },
   data() {
     return {
@@ -491,14 +487,16 @@ export default {
 
   methods: {
     cityList() {
-      axios.get("/api/city").then((response) => {
-        this.cities = response.data.data;
-        // for (var i = 0; i < response.data.data.length; i++) {
-        //   this.options.push({
-        //     value: response.data.data[i].name,
-        //     text: response.data.data[i].name,
-        //   });
-        // }
+      axios.get("/api/city").then((res) => {
+        this.cities = res.data.data;
+        if (res.data) {
+          for(let i = 0;i<res.data.data.length;i++){
+            this.options.push({
+              name:res.data.data[i].name,
+              id:res.data.data[i].id
+            });
+          }
+        }
       });
     },
     tourTypeData() {
@@ -598,6 +596,14 @@ export default {
       this.form.noofdays -= 1;
       var index = this.form.itinerarydays.length - 1;
       this.form.itinerarydays.splice(index, 1);
+    },
+
+    SourceUpdate(value){
+      this.form.source = value.name;
+    },
+    
+    DestinationUpdate(value){
+      this.form.destination = value.name;
     },
   },
 };

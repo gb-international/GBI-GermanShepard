@@ -15,8 +15,9 @@ use App\Helpers\SendSms;
 
 class GroupmemberController extends Controller
 {
-    public function getMember($tour_code){
-        return Groupmember::where('tour_id',$tour_code)->get();
+    public function getMember($tour_code,$type){
+        $where = ['tour_id'=>$tour_code,'user_type'=>$type];
+        return Groupmember::where($where)->get();
     }
     public function updateMember(Request $request){
         $groupmember = Groupmember::where('id',$request->id)->firstOrFail();
@@ -44,7 +45,8 @@ class GroupmemberController extends Controller
 
     public function addlogindetail(Request $request){
         $tour_id = $request->all()[0]['tour_id'];
-        $travel_code = Tour::select('travel_code','id')->where('tour_id',$tour_id)->first();
+        $travel_code = Tour::select('travel_code','id','tour_id')->where('tour_id',$tour_id)->first();
+
         foreach ($request->all() as $groupmember) {
             // validate if user email is already registered
             $user = User::where('email',$groupmember['email'])->first();
@@ -64,20 +66,14 @@ class GroupmemberController extends Controller
             $tour = [
                 'travel_code'=>$travel_code->travel_code,
                 'user_id'=>$user->id,
-                'tour_code' => $tour_id,
-                'tour_id'=>$travel_code->id,
+                'tour_code'=>$tour_id,
+                'user_type' => $groupmember['user_type'],
+                'is_paid' => $groupmember['is_paid']
             ];
-            $tour = ['travel_code'=>$travel_code->travel_code,'user_id'=>$user->id];
             $tour_user = TourUser::where($tour)->first();
             if(!$tour_user){
                 $tour_user = TourUser::create($tour);
             }
-
-            // $tour_user = Bookeduser::where($tour)->first();
-            // if(!$tour_user){
-            //     $tour_user = Bookeduser::create($tour);
-            // }
-            // notify user with tour details and login detials 
             $tour['name'] =$groupmember['first_name'].' '.$groupmember['last_name'];
             $tour['email'] = $groupmember['email'];
             $tour['password'] = $groupmember['email'];

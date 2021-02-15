@@ -40,6 +40,7 @@ iframe{ width: 100%;}
 	margin-bottom: 10px;
 }
 
+.margin-top-11{ margin-top: 11px;}
 .mt-35{	margin-top:35px;}
 .mb-30{	margin-bottom: 30px;}
 .mb-20{	margin-bottom: 20px;}
@@ -50,9 +51,9 @@ iframe{ width: 100%;}
 
 .back_btn{	margin-right:20px;}
 
-.btn{background-color:$admin-bg;border-radius:0px;
-	&:hover{border-radius: 4px;}
-}
+// .btn{background-color:$admin-bg;border-radius:0px;
+// 	&:hover{border-radius: 4px;}
+// }
 
 .card{	padding: 10px;}
 
@@ -60,6 +61,7 @@ iframe{ width: 100%;}
 
 .font-18{ font-size: 18px !important; }
 .font-14{ font-size: 14px !important; }
+.font-12{ font-size: 12px !important; }
 
 .p-0{padding: 0px;}
 .pl-10{ padding-left: 10px;}
@@ -74,6 +76,7 @@ iframe{ width: 100%;}
 
 .display-hidden{ display: none;}
 .whitesomke{ background-color: whitesmoke;}
+.bg-darkgrey{ background-color: #6c757d;}
 .cursor-pointer{ cursor: pointer;}
 
 

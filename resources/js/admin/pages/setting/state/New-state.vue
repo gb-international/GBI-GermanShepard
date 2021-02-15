@@ -16,20 +16,11 @@ to submit the data we are using a function.
           <div class="col-sm-4">
             <div class="form-group">
               <label for="country_id">Country name</label>
-
-              <select
-                class="form-control select-field"
-                v-model.lazy="country_id"
-              >
-              <option value="" disabled hidden>Select Country</option>
-                <option
-                  v-for="data in country_list"
-                  :value="data.id"
-                  :key="data.id"
-                >
-                  {{ data.name }}
-                </option>
-              </select>
+              <dropdown-filter
+                class="mb-2"
+                :itemList="options"
+                @update:option="CountryUpdate"
+              />
               <has-error :form="form" field="country_id"></has-error>
             </div>
           </div>
@@ -48,7 +39,6 @@ to submit the data we are using a function.
             </div>
           </div>
         </div>
-
         <form-buttons />
       </form>
     </template>
@@ -59,6 +49,7 @@ to submit the data we are using a function.
 import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
+import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 export default {
   name: "New",
   components: {
@@ -66,16 +57,16 @@ export default {
     "has-error": HasError,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
+    "dropdown-filter": DropdownFilter,
   },
   data() {
     return {
       // Create a new form instance
-      country_list: [],
-      country_id: '',
+      options: [],
       form: new Form({
         country_id: "",
-        name: ""
-      })
+        name: "",
+      }),
     };
   },
   created() {
@@ -83,8 +74,15 @@ export default {
   },
   methods: {
     countryList() {
-      axios.get("/api/country").then(response => {
-        this.country_list = response.data;
+      axios.get("/api/country").then((res) => {
+        if (res.data) {
+          for (let i = 0; i < res.data.length; i++) {
+            this.options.push({
+              name: res.data[i].name,
+              id: res.data[i].id,
+            });
+          }
+        }
       });
     },
 
@@ -93,28 +91,29 @@ export default {
       if (this.school_name == 0) {
         toast({
           type: "error",
-          title: "Please Select Country !!!"
+          title: "Please Select Country !!!",
         });
         return false;
       }
-
-      this.form["country_id"] = this.country_id;
       var path = `/api/state`;
       this.form
         .post(path)
-        .then(response => {
+        .then((res) => {
           this.form.name = "";
           this.$toast.fire({
             icon: "success",
-            title: "Successfully Updated !!!"
+            title: "Successfully Updated !!!",
           });
         })
-        .catch(error => {
-          if (error.response.status === 422) {
-            this.errors = error.response.data.errors || {};
+        .catch((error) => {
+          if (error.res.status === 422) {
+            this.errors = error.res.data.errors || {};
           }
         });
     },
-  }
+    CountryUpdate(value) {
+      this.form.country_id = value.id;
+    },
+  },
 };
 </script>

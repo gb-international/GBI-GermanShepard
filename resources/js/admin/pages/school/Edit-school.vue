@@ -1,9 +1,5 @@
-<!-- 
-
-This template helps us to create a new hotel it takes the data from the form and sumbit with the help of the api
-to submit the data we are using a function.
-
- -->
+<!-- This template helps us to create a new hotel it takes the data from the form and sumbit with the help of the api
+to submit the data we are using a function. -->
 <template>
   <form-layout>
     <template #formdata>
@@ -56,6 +52,22 @@ to submit the data we are using a function.
             </div>
           </div>
 
+          
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Principle Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Principle Name"
+                rows="5"
+                v-model="form.principle_name"
+                :class="{ 'is-invalid': form.errors.has('principle_name') }"
+              />
+              <has-error :form="form" field="principle_name"></has-error>
+            </div>
+          </div>
+
           <div class="col-sm-4">
             <div class="form-group">
               <label for="email">Principle Email</label>
@@ -68,6 +80,20 @@ to submit the data we are using a function.
                 :class="{ 'is-invalid': form.errors.has('principle_email_id') }"
               />
               <has-error :form="form" field="principle_email_id"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="principle_mobile_number">Principle Mobile Number</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Principle Mobile Number"
+                v-model="form.principle_mobile_number"
+                :class="{ 'is-invalid': form.errors.has('principle_mobile_number') }"
+              />
+              <has-error :form="form" field="principle_mobile_number"></has-error>
             </div>
           </div>
 
@@ -141,17 +167,18 @@ to submit the data we are using a function.
             </div>
           </div>
 
-          <div class="col-sm-4">
+          <div class="col-sm-12">
             <div class="form-group">
               <label for="address">School Address</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter Address"
-                v-model="form.address"
-                :class="{ 'is-invalid': form.errors.has('address') }"
-              />
+              <textarea v-model="form.address"
+                :class="{ 'is-invalid': form.errors.has('address') }" placeholder="School Address" class="form-control" rows="3">
+              </textarea>
               <has-error :form="form" field="address"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <send-login-detail :url="`/api/schools-login-details/${$route.params.id}`" :text="`Send Email & Password`" />
             </div>
           </div>
         </div>
@@ -166,6 +193,7 @@ to submit the data we are using a function.
 import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
+import SendLoginDetail from "@/admin/components/SendLoginDetail.vue";
 export default {
   name: "NewSchool",
   components: {
@@ -173,10 +201,10 @@ export default {
     "has-error": HasError,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
+    "send-login-detail":SendLoginDetail
   },
   data() {
     return {
-      // Create a new form instance
       form: new Form({
         school_name: "",
         street: "",
@@ -185,6 +213,8 @@ export default {
         country_name: "",
         finance_email_id: "",
         principle_email_id: "",
+        principle_name:"",
+        principle_mobile_number:"",
         pincode: "",
         mobile: "",
         address: "",
@@ -198,16 +228,14 @@ export default {
     schoolData() {
       axios
         .get(`/api/school/${this.$route.params.id}/edit`)
-        .then((response) => {
-          this.form.fill(response.data);
+        .then((res) => {
+          this.form.fill(res.data);
         });
     },
     UpdateHotel() {
-      // Submit the form via a itinerary request
       this.form
         .put(`/api/school/${this.$route.params.id}`)
-        .then((response) => {
-          this.$router.push(`/schools/`);
+        .then((res) => {
           this.$toast.fire({
             icon: "success",
             title: "Successfully Updated",

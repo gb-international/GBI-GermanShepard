@@ -55,6 +55,21 @@ to submit the data we are using a function.
               <has-error :form="form" field="finance_email_id"></has-error>
             </div>
           </div>
+          
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Principle Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Principle Name"
+                rows="5"
+                v-model="form.principle_name"
+                :class="{ 'is-invalid': form.errors.has('principle_name') }"
+              />
+              <has-error :form="form" field="principle_name"></has-error>
+            </div>
+          </div>
 
           <div class="col-sm-4">
             <div class="form-group">
@@ -68,6 +83,20 @@ to submit the data we are using a function.
                 :class="{ 'is-invalid': form.errors.has('principle_email_id') }"
               />
               <has-error :form="form" field="principle_email_id"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="principle_mobile_number">Principle Mobile Number</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Principle Mobile Number"
+                v-model="form.principle_mobile_number"
+                :class="{ 'is-invalid': form.errors.has('principle_mobile_number') }"
+              />
+              <has-error :form="form" field="principle_mobile_number"></has-error>
             </div>
           </div>
 
@@ -141,16 +170,12 @@ to submit the data we are using a function.
             </div>
           </div>
 
-          <div class="col-sm-4">
+          <div class="col-sm-12">
             <div class="form-group">
               <label for="address">School Address</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter Address"
-                v-model="form.address"
-                :class="{ 'is-invalid': form.errors.has('address') }"
-              />
+              <textarea v-model="form.address"
+                :class="{ 'is-invalid': form.errors.has('address') }" placeholder="School Address" class="form-control" rows="3">
+              </textarea>
               <has-error :form="form" field="address"></has-error>
             </div>
           </div>
@@ -175,7 +200,6 @@ export default {
   },
   data() {
     return {
-      // Create a new form instance
       form: new Form({
         school_name: "",
         street: "",
@@ -184,6 +208,8 @@ export default {
         country_name: "",
         finance_email_id: "",
         principle_email_id: "",
+        principle_name:"",
+        principle_mobile_number:"",
         pincode: "",
         mobile: "",
         address: "",
@@ -192,11 +218,10 @@ export default {
   },
   methods: {
     AddSchool() {
-      // Submit the form via a itinerary request
       this.form
         .post("/api/school")
-        .then((response) => {
-          this.$router.push(`/schools/`);
+        .then((res) => {
+          this.$router.push(`/schools/${res.data.id}`);
           this.$toast.fire({
             icon: "success",
             title: "School Added successfully",

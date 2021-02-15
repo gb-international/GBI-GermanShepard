@@ -165,7 +165,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       itinerary_list: [],
-      school_list: [],
+      options: [],
       tours: [],
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         tour_id: "",
@@ -191,7 +191,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/school").then(function (response) {
         if (response.data) {
           for (var i = 0; i < response.data.length; i++) {
-            _this.school_list.push({
+            _this.options.push({
               name: response.data[i].school_name,
               id: response.data[i].id
             });
@@ -475,7 +475,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("dropdown-filter", {
                           staticClass: "mb-2",
-                          attrs: { itemList: _vm.school_list },
+                          attrs: { itemList: _vm.options },
                           on: { "update:option": _vm.schoolUpdate }
                         }),
                         _vm._v(" "),

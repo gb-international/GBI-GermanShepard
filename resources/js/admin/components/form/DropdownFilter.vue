@@ -8,6 +8,7 @@
       type="text"
       :placeholder="placeholder"
       @focus="showlist = true"
+      @click="remodeReadOnlyError()"
       autocomplete="off"
       
     />
@@ -90,11 +91,9 @@ export default {
     },
     fixScrolling(){
         if(this.$refs.options[this.arrowCounter]){
-          console.log(this.$refs.options[this.arrowCounter]);
           var liH = this.$refs.options[this.arrowCounter].clientHeight;
         }
         if(this.$refs.scrollContainer){
-          console.log('hi');
           this.$refs.scrollContainer.scrollTop = liH * this.arrowCounter;
         }
     },
@@ -126,6 +125,9 @@ export default {
       this.showlist = true;
       this.$nextTick(() => this.$refs.dropdowninput.focus());
       this.$emit("on-item-reset");
+    },
+    remodeReadOnlyError(){
+      $(".dropdown-input").attr('readonly',false);
     },
     selectItem(theItem) {
       this.selectedItem = theItem;

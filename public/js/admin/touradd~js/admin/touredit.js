@@ -169,12 +169,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     fixScrolling: function fixScrolling() {
       if (this.$refs.options[this.arrowCounter]) {
-        console.log(this.$refs.options[this.arrowCounter]);
         var liH = this.$refs.options[this.arrowCounter].clientHeight;
       }
 
       if (this.$refs.scrollContainer) {
-        console.log('hi');
         this.$refs.scrollContainer.scrollTop = liH * this.arrowCounter;
       }
     },

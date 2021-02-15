@@ -17,9 +17,13 @@ class CreateTourUserTable extends Migration
             $table->bigIncrements('id');
             $table->string('travel_code')->nullable();
             $table->integer('user_id')->unsigned()->nullable();
+            $table->string('tour_code');
+            $table->string('user_type')->default("student")->nullable();
+            $table->string('is_paid')->defult("1")->nullable();
 
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('tour_code')->references('tour_id')->on('tours')->onDelete('cascade');
         });
     }
 

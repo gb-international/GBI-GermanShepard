@@ -12,6 +12,10 @@ use App\Http\Controllers\Controller;
 use App\Rules\EmailValidate;
 use App\Rules\PhoneNubmerValidate;
 use App\Rules\AlphaSpace;
+use App\User;
+use App\Model\User\Information;
+use App\Helpers\SendSms;
+use App\Jobs\SendLoginDetialJob;
 
 class SchoolController extends Controller
 {
@@ -28,6 +32,29 @@ class SchoolController extends Controller
             ->latest('updated_at')
             ->paginate($size));
     }
+
+    public function login($id){
+        $school = School::where('id',$id)->first();
+        $user = User::where('email',$school->principle_email_id)->first();
+        if(!$user){
+            $user = $this->createUser($school);
+        }else{
+            $user = $this->updateUser($user,$school);
+        }
+        $sendsms = new SendSms;
+
+        $message = 'Please check your email to get the GBI Login Credentials';
+
+        $sendsms->sendLoginDetails($school->principle_mobile_number,$message);
+        $emaildata = [
+            'email'=>$user->email,
+            'password'=>$user->email
+        ];
+        SendLoginDetialJob::dispatch($emaildata);
+
+        return response()->json('Successfully created');
+    }
+
     public function index()
     {
         return response()->json(School::all());
@@ -51,8 +78,8 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        school::create($this->validateSchool($request));
-        return response()->json(['Message'=> 'Successfully Added...']);
+        $school = school::create($this->validateSchool($request));
+        return response()->json($school);
     }
 
     /**
@@ -113,11 +140,41 @@ class SchoolController extends Controller
     		'mobile' => 'required|numeric|regex:/^[0-9\-\+]{9,11}$/ix',
 
             'street' => 'required',
+            'principle_name'=>['required',new AlphaSpace],
+            'principle_mobile_number'=>'',
             'city_name' => 'required',
             'state_name' => 'required',
             'country_name' => 'required',
             'pincode' => 'required|numeric|min:1',
             'address' => 'required',
       ]);
+    }
+
+    protected function createUser($data){
+        $user = new User();
+        $user->name = $data->principle_name;
+        $user->email = $data->principle_email_id;
+        $user->password = bcrypt($data->principle_email_id);
+        $user->status = 1;
+        $user->is_incharge = '1';
+        $user->save();
+        $more  = new Information();
+        $more->school_id = $data->school_id;
+        $more->user_profession = 'teacher';
+        $more->user_id = $user->id;
+        $more->phone_no = $data->principle_mobile_number;
+        $more->varified = '1';
+        $more->photo = 'user.png';
+        $more->change_password = 0;
+        $more->save();
+        return $user;
+    }
+    protected function updateUser($user,$data){
+        $user->name = $data->principle_name;
+        $user->password = bcrypt($data->principle_email_id);
+        $user->status = 1;
+        $user->is_incharge = '1';
+        $user->save();
+        return $user;
     }
 }

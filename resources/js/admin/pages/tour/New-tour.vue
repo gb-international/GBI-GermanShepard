@@ -74,7 +74,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="itinerary_id">School</label>
 
-              <dropdown-filter class="mb-2" :itemList="school_list" @update:option="schoolUpdate"/>
+              <dropdown-filter class="mb-2" :itemList="options" @update:option="schoolUpdate"/>
 
               <div class="error" v-if="form.errors.has('school_id')">
                 <label class="danger text-danger">{{
@@ -150,7 +150,7 @@ export default {
   data() {
     return {
       itinerary_list: [],
-      school_list: [],
+      options: [],
       tours: [],
       form: new Form({
         tour_id: "",
@@ -174,7 +174,7 @@ export default {
       axios.get(`/api/school`).then((response) => {
         if (response.data) {
           for(let i = 0;i<response.data.length;i++){
-            this.school_list.push({
+            this.options.push({
               name:response.data[i].school_name,
               id:response.data[i].id
             });

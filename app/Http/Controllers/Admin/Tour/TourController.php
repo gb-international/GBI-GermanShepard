@@ -2,10 +2,10 @@
 /* created by : Ajay yadav 
 Purpose : Manage tour of gbi  */
 namespace App\Http\Controllers\Admin\Tour;
-use App\Model\Tour\Tour;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Model\Tour\Tour;
 use App\Http\Resources\TourCollection;
 use App\Model\Reservation\Bookedbus;
 use App\Model\Reservation\Bookedescort;

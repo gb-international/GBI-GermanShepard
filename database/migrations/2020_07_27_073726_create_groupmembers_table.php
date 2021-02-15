@@ -24,6 +24,8 @@ class CreateGroupmembersTable extends Migration
             $table->string('gender')->nullable();
             $table->string('mobile')->nullable();
             $table->string('age')->nullable();
+            $table->string('is_paid')->default('1')->nullable();
+            $table->string('user_type')->default('student')->nullable();
             $table->timestamps();
 
             $table->foreign('tour_id')->references('tour_id')->on('tours')->onDelete('cascade');
