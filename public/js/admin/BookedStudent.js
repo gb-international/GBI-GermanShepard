@@ -233,6 +233,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -587,6 +595,115 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -606,6 +723,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.groupMember();
+    console.log(this.selectAll);
   },
   methods: {
     add_row: function add_row() {
@@ -619,8 +737,8 @@ __webpack_require__.r(__webpack_exports__);
           mobile: "",
           tour_id: this.$route.params.id,
           school_id: this.$route.params.school_id,
-          user_type: "student",
-          is_paid: "1"
+          user_type: "teacher",
+          is_paid: false
         });
       }
 
@@ -690,7 +808,9 @@ __webpack_require__.r(__webpack_exports__);
                 age: store[4],
                 mobile: store[5],
                 tour_id: vm.$route.params.id,
-                school_id: vm.$route.params.school_id
+                school_id: vm.$route.params.school_id,
+                is_paid: false,
+                user_type: "teacher"
               };
               vm.new_row.push(row);
             }
@@ -903,47 +1023,49 @@ var render = function() {
           _c("table", { staticClass: "table text-dark table-bordered" }, [
             _c("thead", [
               _c("th", [
-                _c("div", { staticClass: "form-check" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectAll,
-                        expression: "selectAll"
-                      }
-                    ],
-                    staticClass: "form-check-input checkbox-select-all",
-                    attrs: { type: "checkbox", title: "Select All" },
-                    domProps: {
-                      checked: Array.isArray(_vm.selectAll)
-                        ? _vm._i(_vm.selectAll, null) > -1
-                        : _vm.selectAll
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.selectAll,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.selectAll = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
+                _vm.total_row.length > 0
+                  ? _c("div", { staticClass: "form-check" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selectAll,
+                            expression: "selectAll"
                           }
-                        } else {
-                          _vm.selectAll = $$c
+                        ],
+                        staticClass: "form-check-input checkbox-select-all",
+                        attrs: { type: "checkbox", title: "Select All" },
+                        domProps: {
+                          checked: Array.isArray(_vm.selectAll)
+                            ? _vm._i(_vm.selectAll, null) > -1
+                            : _vm.selectAll
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.selectAll,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.selectAll = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.selectAll = $$c
+                            }
+                          }
                         }
-                      }
-                    }
-                  }),
-                  _vm._v("Sr.No\n            ")
-                ])
+                      }),
+                      _vm._v("Sr.No\n            ")
+                    ])
+                  : _c("div", [_vm._v("Sr.No")])
               ]),
               _vm._v(" "),
               _c("th", [_vm._v("First Name")]),
@@ -1583,7 +1705,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Send Login Credentails")]
+            [_vm._v("\n          Send Login Credentails\n        ")]
           )
         ]),
         _vm._v(" "),
@@ -1682,47 +1804,49 @@ var render = function() {
           _c("table", { staticClass: "table text-dark table-bordered" }, [
             _c("thead", [
               _c("th", [
-                _c("div", { staticClass: "form-check" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectAll,
-                        expression: "selectAll"
-                      }
-                    ],
-                    staticClass: "form-check-input checkbox-select-all",
-                    attrs: { type: "checkbox", title: "Select All" },
-                    domProps: {
-                      checked: Array.isArray(_vm.selectAll)
-                        ? _vm._i(_vm.selectAll, null) > -1
-                        : _vm.selectAll
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.selectAll,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.selectAll = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
+                _vm.total_row.length > 0
+                  ? _c("div", { staticClass: "form-check" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selectAll,
+                            expression: "selectAll"
                           }
-                        } else {
-                          _vm.selectAll = $$c
+                        ],
+                        staticClass: "form-check-input checkbox-select-all",
+                        attrs: { type: "checkbox", title: "Select All" },
+                        domProps: {
+                          checked: Array.isArray(_vm.selectAll)
+                            ? _vm._i(_vm.selectAll, null) > -1
+                            : _vm.selectAll
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.selectAll,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.selectAll = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.selectAll = $$c
+                            }
+                          }
                         }
-                      }
-                    }
-                  }),
-                  _vm._v("Sr.No\n            ")
-                ])
+                      }),
+                      _vm._v("Sr.No\n            ")
+                    ])
+                  : _c("div", [_vm._v("Sr.No")])
               ]),
               _vm._v(" "),
               _c("th", [_vm._v("First Name")]),
@@ -1734,6 +1858,8 @@ var render = function() {
               _c("th", [_vm._v("Gender")]),
               _vm._v(" "),
               _c("th", [_vm._v("Age")]),
+              _vm._v(" "),
+              _c("th", [_vm._v("Paid?")]),
               _vm._v(" "),
               _c("th", [_vm._v("Contact No.")])
             ]),
@@ -1941,6 +2067,68 @@ var render = function() {
                           }
                         }
                       })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pl-1 pr-1" }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.is_paid,
+                              expression: "data.is_paid"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            disabled: index != _vm.edit_index,
+                            type: "checkbox",
+                            id: data.email
+                          },
+                          domProps: {
+                            value: data.is_paid,
+                            checked: Array.isArray(data.is_paid)
+                              ? _vm._i(data.is_paid, data.is_paid) > -1
+                              : data.is_paid
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = data.is_paid,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = data.is_paid,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(data, "is_paid", $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      data,
+                                      "is_paid",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(data, "is_paid", $$c)
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label margin-top-11",
+                            attrs: { for: "" + data.email }
+                          },
+                          [_vm._v("\n                  Paid\n                ")]
+                        )
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2153,6 +2341,64 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
+                    _c("td", { staticClass: "pl-1 pr-1" }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.is_paid,
+                              expression: "data.is_paid"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: { type: "checkbox", id: data.email },
+                          domProps: {
+                            value: data.is_paid,
+                            checked: Array.isArray(data.is_paid)
+                              ? _vm._i(data.is_paid, data.is_paid) > -1
+                              : data.is_paid
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = data.is_paid,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = data.is_paid,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(data, "is_paid", $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      data,
+                                      "is_paid",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(data, "is_paid", $$c)
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label margin-top-11",
+                            attrs: { for: "" + data.email }
+                          },
+                          [_vm._v("\n                  Paid\n                ")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
                     _c("td", [
                       _c("input", {
                         directives: [
@@ -2214,7 +2460,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("DOWNLOAD PDF")]
+                  [_vm._v("\n            DOWNLOAD PDF\n          ")]
                 )
               ]),
               _vm._v(" "),
@@ -2233,7 +2479,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("UPDATE")]
+                  [_vm._v("\n            UPDATE\n          ")]
                 )
               ]),
               _vm._v(" "),
@@ -2243,8 +2489,8 @@ var render = function() {
                   staticClass: "col-sm-3 add-row-input-button p-0 m-0 text-left"
                 },
                 [
-                  _c("div", { staticClass: "row  p-0 m-0" }, [
-                    _c("div", { staticClass: "col-sm-5  p-0 m-0" }, [
+                  _c("div", { staticClass: "row p-0 m-0" }, [
+                    _c("div", { staticClass: "col-sm-5 p-0 m-0" }, [
                       _c("small", [_vm._v("Add Row")]),
                       _vm._v(" "),
                       _c("input", {
@@ -2282,7 +2528,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("Go")]
+                        [_vm._v("\n                Go\n              ")]
                       )
                     ]),
                     _vm._v(" "),
@@ -2579,13 +2825,6 @@ var GroupExcelUpload = {
     }
   },
   methods: {
-    checkedBox: function checkedBox() {
-      if (this.selected.length > 0) {
-        this.checkbox_state = 1;
-      } else {
-        this.checkbox_state = 0;
-      }
-    },
     sendLoginDetails: function sendLoginDetails() {
       var _this = this;
 
@@ -2698,6 +2937,13 @@ var GroupExcelUpload = {
       })["catch"](function (error) {
         _this4.handleError(error);
       });
+    },
+    checkedBox: function checkedBox() {
+      if (this.selected.length > 0) {
+        this.checkbox_state = 1;
+      } else {
+        this.checkbox_state = 0;
+      }
     }
   },
   computed: {

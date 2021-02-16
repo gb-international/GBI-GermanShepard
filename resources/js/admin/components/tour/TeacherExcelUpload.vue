@@ -6,36 +6,69 @@
     <div class="AddGroup p-t-15">
       <div class="row mb-10 pt-3">
         <div class="col-sm-3">
-          <button type="button" class="btn btn-dark border-0" :disabled="checkbox_state == 0" @click="sendLoginDetails()">Send Login Credentails</button>
+          <button
+            type="button"
+            class="btn btn-dark border-0"
+            :disabled="checkbox_state == 0"
+            @click="sendLoginDetails()"
+          >
+            Send Login Credentails
+          </button>
         </div>
         <div class="col-sm-4">
           <div class="input-group filter-search">
-            <input class="form-control py-2 border-right-0 border" type="search"
-              value="search" id="example-search-input" v-model="searchQuery"
-              placeholder="Search .." />
+            <input
+              class="form-control py-2 border-right-0 border"
+              type="search"
+              value="search"
+              id="example-search-input"
+              v-model="searchQuery"
+              placeholder="Search .."
+            />
             <span class="input-group-append">
-              <button class="btn btn-outline-secondary border-left-0 border" type="button">
+              <button
+                class="btn btn-outline-secondary border-left-0 border"
+                type="button"
+              >
                 <i class="fa fa-search"></i>
               </button>
             </span>
           </div>
         </div>
         <div class="col-sm-2 p-0 text-center">
-          <a class="text-dark" :href="`/assets/sample-group-list.xlsx`" download>
+          <a
+            class="text-dark"
+            :href="`/assets/sample-group-list.xlsx`"
+            download
+          >
             <i class="fas fa-download"></i> Name list formate
           </a>
         </div>
         <div class="col-sm-3">
           <div class="form-group file-upload">
-            <div class="input-group file-input-group" data-controller="file-input">
-              <input class="form-control" type="text" placeholder=".xlsx file upload" readonly data-target="file-input.value">
-              <input type="file" class="form-control" 
+            <div
+              class="input-group file-input-group"
+              data-controller="file-input"
+            >
+              <input
+                class="form-control"
+                type="text"
+                placeholder=".xlsx file upload"
+                readonly
+                data-target="file-input.value"
+              />
+              <input
+                type="file"
+                class="form-control"
                 id="customFile"
                 name="file"
                 accept=".xlsx"
-                @change="changeExcelFile($event)">
+                @change="changeExcelFile($event)"
+              />
               <div class="input-group-append">
-                <label class="btn btn-secondary mb-0" for="customFile">Browse</label>
+                <label class="btn btn-secondary mb-0" for="customFile"
+                  >Browse</label
+                >
               </div>
             </div>
           </div>
@@ -46,22 +79,44 @@
         <table class="table text-dark table-bordered">
           <thead>
             <th>
-              <div class="form-check">
-                <input class="form-check-input checkbox-select-all" type="checkbox" v-model="selectAll" title="Select All">Sr.No
-              </div></th>
+              <div class="form-check" v-if="total_row.length > 0">
+                <input
+                  class="form-check-input checkbox-select-all"
+                  type="checkbox"
+                  v-model="selectAll"
+                  title="Select All"
+                />Sr.No
+              </div>
+              <div v-else>Sr.No</div>
+            </th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
             <th>Gender</th>
             <th>Age</th>
+            <th>Paid?</th>
             <th>Contact No.</th>
           </thead>
           <tbody>
-            <tr v-for="(data,index) in resultQuery" :key="data.id" class="hidden">
+            <tr
+              v-for="(data, index) in resultQuery"
+              :key="data.id"
+              class="hidden"
+            >
               <td class="text-center">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" :value="data" :id="data.id" @change="checkedBox()" v-model="selected">
-                  <label class="form-check-label margin-top-11" :for="`${data.id}`">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    :value="data"
+                    :id="data.id"
+                    @change="checkedBox()"
+                    v-model="selected"
+                  />
+                  <label
+                    class="form-check-label margin-top-11"
+                    :for="`${data.id}`"
+                  >
                     {{ index + 1 }}
                   </label>
                 </div>
@@ -106,6 +161,24 @@
                   :readonly="index != edit_index"
                 />
               </td>
+              <td class="pl-1 pr-1">
+                <div class="form-check">
+                  <input
+                    :disabled="index != edit_index"
+                    class="form-check-input"
+                    type="checkbox"
+                    :value="data.is_paid"
+                    :id="data.email"
+                    v-model="data.is_paid"
+                  />
+                  <label
+                    class="form-check-label margin-top-11"
+                    :for="`${data.email}`"
+                  >
+                    Paid
+                  </label>
+                </div>
+              </td>
               <td>
                 <div class="row">
                   <div class="col-8">
@@ -133,7 +206,7 @@
                       <img
                         class="delete"
                         :src="`/assets/front/icons/delete.png`"
-                        @click="delete_row(index,data.id)"
+                        @click="delete_row(index, data.id)"
                       />
                     </div>
                   </div>
@@ -141,22 +214,47 @@
               </td>
             </tr>
 
-            <tr v-for="(data,index) in new_row" :key="index">
-              <td class="text-center">{{ index+1 }}</td>
+            <tr v-for="(data, index) in new_row" :key="index">
+              <td class="text-center">{{ index + 1 }}</td>
               <td>
-                <input type="text" class="form-control" v-model="data.first_name" />
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="data.first_name"
+                />
               </td>
               <td>
-                <input type="text" class="form-control" v-model="data.last_name" />
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="data.last_name"
+                />
               </td>
               <td>
                 <input type="text" class="form-control" v-model="data.email" />
               </td>
               <td>
                 <input type="text" class="form-control" v-model="data.gender" />
-              </td>              
+              </td>
               <td>
                 <input type="text" class="form-control" v-model="data.age" />
+              </td>
+              <td class="pl-1 pr-1">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    :value="data.is_paid"
+                    :id="data.email"
+                    v-model="data.is_paid"
+                  />
+                  <label
+                    class="form-check-label margin-top-11"
+                    :for="`${data.email}`"
+                  >
+                    Paid
+                  </label>
+                </div>
               </td>
               <td>
                 <input type="text" class="form-control" v-model="data.mobile" />
@@ -169,17 +267,22 @@
                 />
               </td>
             </tr>
+
           </tbody>
         </table>
 
         <!-- Buttons -->
-        <div class="row reservation_bottom w-100 mt-5 mb-5 justify-content-center text-center">
+        <div
+          class="row reservation_bottom w-100 mt-5 mb-5 justify-content-center text-center"
+        >
           <div class="col-sm-4 pt-1">
             <button
               type="button"
               class="btn btn-default itrn_add_btn"
               @click="demoFromHTML()"
-            >DOWNLOAD PDF</button>
+            >
+              DOWNLOAD PDF
+            </button>
           </div>
 
           <div class="col-sm-5 pt-1">
@@ -188,11 +291,13 @@
               class="btn btn-default itrn_add_btn"
               @click="UserGroupSave()"
               :disabled="new_row_add == false"
-            >UPDATE</button>
+            >
+              UPDATE
+            </button>
           </div>
           <div class="col-sm-3 add-row-input-button p-0 m-0 text-left">
-            <div class="row  p-0 m-0">
-              <div class="col-sm-5  p-0 m-0">
+            <div class="row p-0 m-0">
+              <div class="col-sm-5 p-0 m-0">
                 <small>Add Row</small>
                 <input
                   type="number"
@@ -202,15 +307,19 @@
                 />
               </div>
               <div class="col-sm-5 pt-24">
-                <button class="btn btn-info text-white" type="button" @click="add_row()">Go</button>
+                <button
+                  class="btn btn-info text-white"
+                  type="button"
+                  @click="add_row()"
+                >
+                  Go
+                </button>
               </div>
               <div class="col-sm-2"></div>
             </div>
-        
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -219,10 +328,10 @@
 import { Form, HasError, AlertError } from "vform";
 import jsPDF from "jspdf";
 import XLSX from "xlsx";
-import GroupExcelUpload from '@/admin/mixins/GroupExcelUpload';
+import GroupExcelUpload from "@/admin/mixins/GroupExcelUpload";
 export default {
   name: "AddGroup",
-  mixins:[GroupExcelUpload],
+  mixins: [GroupExcelUpload],
   components: {
     "has-error": HasError,
   },
@@ -233,11 +342,10 @@ export default {
       }),
     };
   },
-
   mounted() {
     this.groupMember();
+    console.log(this.selectAll);
   },
-
   methods: {
     add_row() {
       for (var i = 0; i < this.row_input; i++) {
@@ -250,19 +358,20 @@ export default {
           mobile: "",
           tour_id: this.$route.params.id,
           school_id: this.$route.params.school_id,
-          user_type:"student",
-          is_paid:"1"
+          user_type: "teacher",
+          is_paid: false,
         });
       }
       this.row_input = "";
     },
-    
     groupMember() {
-      axios.get(`/api/groupmembers/${this.$route.params.id}/teacher`).then((res) => {
-        if (res.data) {
-          this.total_row = res.data;
-        }
-      });
+      axios
+        .get(`/api/groupmembers/${this.$route.params.id}/teacher`)
+        .then((res) => {
+          if (res.data) {
+            this.total_row = res.data;
+          }
+        });
     },
     demoFromHTML() {
       var doc = new jsPDF();
@@ -279,7 +388,7 @@ export default {
           current.last_name +
           " , Gender :" +
           current.gender +
-          " , Age : " + 
+          " , Age : " +
           current.age +
           " , Contact : " +
           current.mobile +
@@ -288,7 +397,7 @@ export default {
       doc.text(string, 10, 10);
       doc.save("sample.pdf");
     },
-    
+
     changeExcelFile(event) {
       var vm = this;
       let file = event.target.files[0];
@@ -322,6 +431,8 @@ export default {
                 mobile: store[5],
                 tour_id: vm.$route.params.id,
                 school_id: vm.$route.params.school_id,
+                is_paid: false,
+                user_type: "teacher",
               };
               vm.new_row.push(row);
             }
@@ -334,6 +445,5 @@ export default {
       }
     },
   },
-
 };
 </script>

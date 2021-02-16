@@ -187,6 +187,8 @@ check the full flow from booking to payment details
 check if teacher has paid then all the students should should be able to access the  itinerary...
 
 
+-----------------------------------------------------------------
+
 
 
 

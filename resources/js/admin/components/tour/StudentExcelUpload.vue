@@ -46,9 +46,16 @@
         <table class="table text-dark table-bordered">
           <thead>
             <th>
-              <div class="form-check">
-                <input class="form-check-input checkbox-select-all" type="checkbox" v-model="selectAll" title="Select All">Sr.No
-              </div></th>
+              <div class="form-check" v-if="total_row.length > 0">
+                <input
+                  class="form-check-input checkbox-select-all"
+                  type="checkbox"
+                  v-model="selectAll"
+                  title="Select All"
+                />Sr.No
+              </div>
+              <div v-else>Sr.No</div>
+            </th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
@@ -139,6 +146,7 @@
                   </div>
                 </div>
               </td>
+              
             </tr>
 
             <tr v-for="(data,index) in new_row" :key="index">

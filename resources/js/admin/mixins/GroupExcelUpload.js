@@ -34,13 +34,6 @@ const GroupExcelUpload = {
         },
     },
     methods:{
-        checkedBox() {
-            if (this.selected.length > 0) {
-                this.checkbox_state = 1;
-            } else {
-                this.checkbox_state = 0;
-            }
-        },
         sendLoginDetails() {
             axios.post("/api/groupmembers/addlogindetail", this.selected)
                 .then((response) => {
@@ -153,7 +146,13 @@ const GroupExcelUpload = {
                     this.handleError(error);
                 });
         },
-
+        checkedBox() {
+            if (this.selected.length > 0) {
+                this.checkbox_state = 1;
+            } else {
+                this.checkbox_state = 0;
+            }
+        },
     },
     computed: {
         resultQuery() {

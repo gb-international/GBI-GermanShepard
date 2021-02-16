@@ -28,6 +28,7 @@ class GroupmemberController extends Controller
             'gender'=>'required'
         ]);
         $groupmember->update($request->all());
+
         return response()->json('successfull updated');
     }
     public function destroyMember(Request $request){
