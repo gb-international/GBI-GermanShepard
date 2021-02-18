@@ -5,26 +5,37 @@ namespace App\Http\Controllers\Admin\Reservation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Tour\Userpayment;
+use App\Model\School\School;
 use App\Model\User\Information;
 class UserpaymentController extends Controller
 {
     public function paymentList(Request $request){
         // get school payment mode
-        if($request->added_by == 'student'){
-            $userpayment = Userpayment::where([
-                'school_id'=>$request->school_id,
-                'tour_code'=>$request->tour_code,
-                'added_by'=> $request->added_by
-            ])->with('user')->get();
-        }else if($request->added_by == 'teacher'){
-            $userpayment = Userpayment::where([
-                'school_id'=>$request->school_id,
-                'tour_code'=>$request->tour_code,
-                'added_by'=> $request->added_by
-            ])->first()->adminFormat();
-        }else{
-            $userpayment = [];
-        }
+
+        $school = School::where('id',$request->school_id)
+            ->select('user_id')
+            ->first();
+        $userpayment = Userpayment::where([
+            'school_id'=>$request->school_id,
+            'tour_code'=>$request->tour_code,
+            'user_id' => $school->user_id
+        ])->with('user:id,name')->first();
+
+        // if($request->added_by == 'student'){
+        //     $userpayment = Userpayment::where([
+        //         'school_id'=>$request->school_id,
+        //         'tour_code'=>$request->tour_code,
+        //         'added_by'=> $request->added_by
+        //     ])->with('user')->get();
+        // }else if($request->added_by == 'teacher'){
+        //     $userpayment = Userpayment::where([
+        //         'school_id'=>$request->school_id,
+        //         'tour_code'=>$request->tour_code,
+        //         'added_by'=> $request->added_by
+        //     ])->first()->adminFormat();
+        // }else{
+        //     $userpayment = [];
+        // }
         return response()->json($userpayment);
     }
 
@@ -55,23 +66,20 @@ class UserpaymentController extends Controller
             'payment_mode' => 'required',
             'amount' => 'required'
         ]);
-        $checkDuplicate = Userpayment::where(['user_id'=>$request->user_id,'tour_code'=>$request->tour_code])->get();
-
-        if($checkDuplicate->count()){
+        $checkDuplicate = Userpayment::where([
+                'user_id'=>$request->user_id,
+                'tour_code'=>$request->tour_code
+            ])->first();
+        if($checkDuplicate){
             return response()->json(['error'=>'You have already made payment']);
         }
-
         Userpayment::create($request->all());
         return response()->json('successfully paid');
     }
     
-    public function getUserpayments(Request $request){
+    public function getUserpayments($id){
         
-        $data = Userpayment::where([
-                'school_id'=>$request->school_id,
-                'tour_code'=>$request->tour_code,
-                'added_by'=>$request->added_by
-            ])->first();
+        $data = Userpayment::where('id',$id)->first();
         return response()->json($data);
     }
 
@@ -102,13 +110,8 @@ class UserpaymentController extends Controller
 
 
     public function getSchoolUser(Request $request){
-        $info = Information::with(['user' => function($q){
-                 $q->select('id','name');
-                }])
-                ->where('school_id',$request->school_id)
-                ->select('informations.user_id','informations.user_profession')
-                ->get();
-        return response()->json($info);
+        $school=School::select('user_id')->where('id',$request->school_id)->first();
+        return response()->json($school);
     }
 
 }

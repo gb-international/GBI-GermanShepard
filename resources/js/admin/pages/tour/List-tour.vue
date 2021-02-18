@@ -49,7 +49,7 @@ data from the api to display the data about the Hotel from the backend .
             @click.native="deleteItem(data.item.id,data.index)"
             >
           </delete-icon>
-          <view-icon :url="`/tour-view/${data.item.id}`"></view-icon>
+          <view-icon :url="`/view-tour/${data.item.id}`"></view-icon>
           <add-client-icon :url="`/booked-tour/${data.item.id}`"></add-client-icon>
         </template>
       </b-table> 

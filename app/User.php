@@ -88,4 +88,9 @@ class User extends Authenticatable
         return $permissions;
     }
 
+    public function scopeIncharge($query)
+    {
+        return $query->where('is_incharge', 1);
+    }
+
 }

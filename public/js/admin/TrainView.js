@@ -68,11 +68,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ViewTrain",
   data: function data() {
@@ -170,7 +165,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Back")]
+              [_vm._v("\n            Back\n          ")]
             )
           ])
         ])

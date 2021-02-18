@@ -2,7 +2,7 @@
   <!--************************************************
       Author:@Ajay
   ****************************************************-->
-  <div class="container">
+  <div class="container bg-white">
     <div class="AddGroup p-t-15">
       <div class="row text-center text-muted pt-2">
         <div class="col p-0 m-0">

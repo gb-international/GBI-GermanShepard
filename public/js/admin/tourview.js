@@ -141,6 +141,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.tourData();
+    console.log('hi');
   },
   methods: {
     tourData: function tourData() {

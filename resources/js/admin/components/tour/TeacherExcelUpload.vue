@@ -85,136 +85,124 @@
                   type="checkbox"
                   v-model="selectAll"
                   title="Select All"
-                />Sr.No
+                />All
               </div>
-              <div v-else>Sr.No</div>
+              <div v-else>#</div>
             </th>
+            <th>Sr.No</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>Age</th>
-            <th>Paid?</th>
-            <th>Contact No.</th>
+            <th class="width-260">Email</th>
+            <th class="w-80">Gender</th>
+            <th class="width-70">Age</th>
+            <th class="width-70">Paid?</th>
+            <th class="w-192">Contact No.</th>
           </thead>
           <tbody>
-            <tr
-              v-for="(data, index) in resultQuery"
-              :key="data.id"
-              class="hidden"
-            >
-              <td class="text-center">
-                <div class="form-check">
+            <tr v-for="(data,index) in resultQuery" :key="data.email" class="hidden">
+            <td class="text-center">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" :value="data" :id="data.id" @change="checkedBox()" v-model="selected">
+              </div>
+            </td>
+            <td class="text-center">
+              {{ index + 1}}
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                v-model="data.first_name"
+                :readonly="index != edit_index"
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                v-model="data.last_name"
+                :readonly="index != edit_index"
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                v-model="data.email"
+                :readonly="index != edit_index"
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                v-model="data.gender"
+                :readonly="index != edit_index"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                class="form-control"
+                v-model="data.age"
+                :readonly="index != edit_index"
+              />
+            </td>
+            <td class="pl-1 pr-1">
+              <div class="form-check">
+                <input
+                  :disabled="index != edit_index"
+                  class="form-check-input"
+                  type="checkbox"
+                  :value="data.is_paid"
+                  :id="data.email"
+                  v-model="data.is_paid"
+                />
+                <label
+                  class="form-check-label margin-top-11"
+                  :for="`${data.email}`"
+                >
+                  Paid
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="row">
+                <div class="col-8">
                   <input
-                    class="form-check-input"
-                    type="checkbox"
-                    :value="data"
-                    :id="data.id"
-                    @change="checkedBox()"
-                    v-model="selected"
+                    type="text"
+                    class="form-control"
+                    v-model="data.mobile"
+                    :readonly="index != edit_index"
                   />
-                  <label
-                    class="form-check-label margin-top-11"
-                    :for="`${data.id}`"
-                  >
-                    {{ index + 1 }}
-                  </label>
                 </div>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="data.first_name"
-                  :readonly="index != edit_index"
-                />
-              </td>
-              <td>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="data.last_name"
-                  :readonly="index != edit_index"
-                />
-              </td>
-              <td>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="data.email"
-                  :readonly="index != edit_index"
-                />
-              </td>
-              <td>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="data.gender"
-                  :readonly="index != edit_index"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="form-control"
-                  v-model="data.age"
-                  :readonly="index != edit_index"
-                />
-              </td>
-              <td class="pl-1 pr-1">
-                <div class="form-check">
-                  <input
-                    :disabled="index != edit_index"
-                    class="form-check-input"
-                    type="checkbox"
-                    :value="data.is_paid"
-                    :id="data.email"
-                    v-model="data.is_paid"
-                  />
-                  <label
-                    class="form-check-label margin-top-11"
-                    :for="`${data.email}`"
-                  >
-                    Paid
-                  </label>
-                </div>
-              </td>
-              <td>
-                <div class="row">
-                  <div class="col-8">
-                    <input
-                      type="text"
-                      class="form-control"
-                      v-model="data.mobile"
-                      :readonly="index != edit_index"
+                <div class="col-4 justify-content-end">
+                  <div class="form-group action_item margin-top-11">
+                    <img
+                      v-if="index != edit_index"
+                      class="edit mr-1"
+                      :src="`/assets/front/icons/edit.png`"
+                      @click="edit_row(index)"
+                    />
+                    <img
+                      v-else
+                      class="edit mr-1"
+                      :src="`/assets/front/icons/update.png`"
+                      @click="update_row(index)"
+                    />
+                    <img
+                      class="delete"
+                      :src="`/assets/front/icons/delete.png`"
+                      @click="delete_row(index, data.id)"
                     />
                   </div>
-                  <div class="col-4 justify-content-end">
-                    <div class="form-group action_item margin-top-11">
-                      <img
-                        v-if="index != edit_index"
-                        class="edit mr-1"
-                        :src="`/assets/front/icons/edit.png`"
-                        @click="edit_row(index)"
-                      />
-                      <img
-                        v-else
-                        class="edit mr-1"
-                        :src="`/assets/front/icons/update.png`"
-                        @click="update_row(index)"
-                      />
-                      <img
-                        class="delete"
-                        :src="`/assets/front/icons/delete.png`"
-                        @click="delete_row(index, data.id)"
-                      />
-                    </div>
-                  </div>
                 </div>
-              </td>
+              </div>
+            </td>
             </tr>
 
             <tr v-for="(data, index) in new_row" :key="index">
+              <td></td>
               <td class="text-center">{{ index + 1 }}</td>
               <td>
                 <input
@@ -257,19 +245,25 @@
                 </div>
               </td>
               <td>
-                <input type="text" class="form-control" v-model="data.mobile" />
-              </td>
-              <td>
-                <img
-                  class="delete w-16"
-                  :src="`/assets/front/icons/delete.png`"
-                  @click="delete_new_row(index)"
-                />
+                <div class="row">
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" v-model="data.mobile" />
+                  </div>
+                  <div class="col-sm-4 text-right pt-2">
+                    <img
+                      class="delete w-16"
+                      :src="`/assets/front/icons/delete.png`"
+                      @click="delete_new_row(index)"
+                    />
+                  </div>
+                </div>
               </td>
             </tr>
 
           </tbody>
         </table>
+
+        <p class="text-danger font-weight-bold" v-if="this.error==true">{{ message }}</p>
 
         <!-- Buttons -->
         <div

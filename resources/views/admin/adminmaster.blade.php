@@ -68,7 +68,7 @@
     </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper pr-3 pl-3">
             <!-- Content Header (Page header) -->
             <admin-main></admin-main>
         </div>

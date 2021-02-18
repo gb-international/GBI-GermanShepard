@@ -33,7 +33,7 @@ export default[
     { path: '/pnr-users/:transport/:id/:tour_id', component: PnrUser },
     { path: '/payments/:school_id/:tour_code', component: PaymentList },
     { path: '/add-paymentmethod/:school_id/:tour_code', component: addPaymentMethod },
-    { path: '/update-paymentmethod/:school_id/:tour_code', component: UpdatePaymentMethod },
+    { path: '/update-paymentmethod/:id', component: UpdatePaymentMethod },
     { path: '/escort-update/:id/:tour_code', component: EscortUpdate },
 
     { path: '/foods/:tour_id/:tour_code', component: BookedFood },

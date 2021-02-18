@@ -299,33 +299,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -339,8 +312,7 @@ __webpack_require__.r(__webpack_exports__);
       tour_view: [],
       form: {
         id: 0,
-        total_tour_price: "",
-        collect_amount: "",
+        amount: "",
         status: "pending"
       },
       student_list: false,
@@ -353,8 +325,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     tourModal: function tourModal(tour) {
       this.form.id = tour.id;
-      this.form.total_tour_price = tour.total_tour_price;
-      this.form.collect_amount = tour.collect_amount;
+      this.form.amount = tour.amount;
       this.form.status = tour.status;
     },
     tourPayment: function tourPayment() {
@@ -362,26 +333,16 @@ __webpack_require__.r(__webpack_exports__);
 
       var data = {
         school_id: this.$route.params.school_id,
-        tour_code: this.$route.params.tour_code,
-        added_by: "teacher"
+        tour_code: this.$route.params.tour_code
       };
-      axios.post("/api/payments/list", data).then(function (response) {
-        _this.tour_view = response.data;
+      axios.post("/api/payments/list", data).then(function (res) {
+        _this.tour_view = res.data;
       });
     },
     tourPaymentSave: function tourPaymentSave() {
       var _this2 = this;
 
-      if (parseInt(this.form.total_tour_price) < parseInt(this.form.collect_amount)) {
-        this.$swal.fire({
-          icon: "error",
-          title: "Valid Data",
-          text: "Please enter valid amount!"
-        });
-        return false;
-      }
-
-      if (this.form.total_tour_price.length == 0 || this.form.collect_amount.length == 0) {
+      if (this.form.amount.length == 0) {
         this.$swal.fire({
           icon: "error",
           title: "Valid Data",
@@ -391,7 +352,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       axios.post("/api/createpayment", this.form).then(function (response) {
-        _this2.tour_view = response.data;
+        _this2.tourPayment();
 
         _this2.$swal.fire({
           icon: "success",
@@ -585,11 +546,7 @@ var render = function() {
                         "add-button",
                         {
                           attrs: {
-                            url:
-                              "/update-paymentmethod/" +
-                              _vm.$route.params.school_id +
-                              "/" +
-                              _vm.$route.params.tour_code
+                            url: "/update-paymentmethod/" + _vm.tour_view.id
                           }
                         },
                         [_vm._v("Update Payment Method")]
@@ -617,26 +574,6 @@ var render = function() {
               _vm._v(" "),
               _vm.tour_view.tour_code
                 ? _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-sm-4" }, [
-                      _c("h5", [_vm._v("School Name")]),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              attrs: {
-                                to: "/view-school/" + _vm.tour_view.school_id
-                              }
-                            },
-                            [_vm._v(_vm._s(_vm.tour_view.school_name))]
-                          )
-                        ],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
                     _vm.tour_view.tour_code != null
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Tour Code")]),
@@ -647,14 +584,6 @@ var render = function() {
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
-                    _vm.tour_view.amount != null
-                      ? _c("div", { staticClass: "col-sm-4" }, [
-                          _c("h5", [_vm._v("Tour Price")]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.amount) + "/-")])
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("User Name")]),
                       _vm._v(" "),
@@ -663,15 +592,11 @@ var render = function() {
                         [
                           _c(
                             "router-link",
-                            {
-                              attrs: {
-                                to: "/view-school/" + _vm.tour_view.user_id
-                              }
-                            },
+                            { attrs: { to: "/user/" + _vm.tour_view.user_id } },
                             [
                               _vm._v(
                                 "\n              " +
-                                  _vm._s(_vm.tour_view.user_name)
+                                  _vm._s(_vm.tour_view.user.name)
                               )
                             ]
                           )
@@ -851,15 +776,9 @@ var render = function() {
               _vm.tour_view.payment_type == "self"
                 ? _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-sm-4" }, [
-                      _c("h5", [_vm._v("Total Tour Price")]),
+                      _c("h5", [_vm._v("Amount")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.tour_view.total_tour_price))])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-4" }, [
-                      _c("h5", [_vm._v("Amount Collected")]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.tour_view.collect_amount))])
+                      _c("p", [_vm._v(_vm._s(_vm.tour_view.amount))])
                     ])
                   ])
                 : _vm._e()
@@ -886,36 +805,6 @@ var render = function() {
                   _c("div", { staticClass: "modal-body" }, [
                     _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-6" }, [
-                        _c("label", [_vm._v(" Total Tour Price")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.total_tour_price,
-                              expression: "form.total_tour_price"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "number" },
-                          domProps: { value: _vm.form.total_tour_price },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "total_tour_price",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-6" }, [
                         _c("label", [_vm._v(" Collect Amount ")]),
                         _vm._v(" "),
                         _c("input", {
@@ -923,23 +812,19 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.collect_amount,
-                              expression: "form.collect_amount"
+                              value: _vm.form.amount,
+                              expression: "form.amount"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: { type: "number" },
-                          domProps: { value: _vm.form.collect_amount },
+                          domProps: { value: _vm.form.amount },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.$set(
-                                _vm.form,
-                                "collect_amount",
-                                $event.target.value
-                              )
+                              _vm.$set(_vm.form, "amount", $event.target.value)
                             }
                           }
                         })

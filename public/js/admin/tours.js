@@ -414,7 +414,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("view-icon", {
-                          attrs: { url: "/tour-view/" + data.item.id }
+                          attrs: { url: "/view-tour/" + data.item.id }
                         }),
                         _vm._v(" "),
                         _c("add-client-icon", {

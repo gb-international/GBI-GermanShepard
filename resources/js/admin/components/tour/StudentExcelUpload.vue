@@ -50,29 +50,29 @@
                 <input
                   class="form-check-input checkbox-select-all"
                   type="checkbox"
+                  id="studentCheckbox"
                   v-model="selectAll"
                   title="Select All"
-                />Sr.No
+                /><label class="form-check-label font-12" for="studentCheckbox">All</label>
               </div>
-              <div v-else>Sr.No</div>
+              <div v-else>#</div>
             </th>
+            <th >Sr.No</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>Age</th>
-            <th>Contact No.</th>
+            <th class="width-260">Email</th>
+            <th class="w-80">Gender</th>
+            <th class="width-70">Age</th>
+            <th class="w-192">Contact No.</th>
           </thead>
           <tbody>
-            <tr v-for="(data,index) in resultQuery" :key="data.id" class="hidden">
+            <tr v-for="(data,index) in resultQuery" :key="data.email" class="hidden">
               <td class="text-center">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" :value="data" :id="data.id" @change="checkedBox()" v-model="selected">
-                  <label class="form-check-label margin-top-11" :for="`${data.id}`">
-                    {{ index + 1 }}
-                  </label>
                 </div>
               </td>
+              <td class="text-center pt-2">{{ index + 1}}</td>
               <td>
                 <input
                   type="text"
@@ -115,7 +115,7 @@
               </td>
               <td>
                 <div class="row">
-                  <div class="col-8">
+                  <div class="col-7">
                     <input
                       type="text"
                       class="form-control"
@@ -123,7 +123,7 @@
                       :readonly="index != edit_index"
                     />
                   </div>
-                  <div class="col-4 justify-content-end">
+                  <div class="col-5 justify-content-end">
                     <div class="form-group action_item margin-top-11">
                       <img
                         v-if="index != edit_index"
@@ -146,10 +146,10 @@
                   </div>
                 </div>
               </td>
-              
             </tr>
 
             <tr v-for="(data,index) in new_row" :key="index">
+              <td></td>
               <td class="text-center">{{ index+1 }}</td>
               <td>
                 <input type="text" class="form-control" v-model="data.first_name" />
@@ -167,18 +167,27 @@
                 <input type="text" class="form-control" v-model="data.age" />
               </td>
               <td>
-                <input type="text" class="form-control" v-model="data.mobile" />
+                <div class="row">
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" v-model="data.mobile" />
+                  </div>
+                  <div class="col-sm-4 text-left pt-2">
+                    <img
+                      class="delete w-16"
+                      :src="`/assets/front/icons/delete.png`"
+                      @click="delete_new_row(index)"
+                    />
+                  </div>
+                </div>
               </td>
               <td>
-                <img
-                  class="delete w-16"
-                  :src="`/assets/front/icons/delete.png`"
-                  @click="delete_new_row(index)"
-                />
+                
               </td>
             </tr>
           </tbody>
         </table>
+
+        <p class="text-danger font-weight-bold" v-if="this.error==true">{{ message }}</p>
 
         <!-- Buttons -->
         <div class="row reservation_bottom w-100 mt-5 mb-5 justify-content-center text-center">
@@ -218,7 +227,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </template>

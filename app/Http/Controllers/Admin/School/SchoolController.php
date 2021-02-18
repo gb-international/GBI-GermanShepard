@@ -41,10 +41,14 @@ class SchoolController extends Controller
         }else{
             $user = $this->updateUser($user,$school);
         }
+        // add user_id in school table
+        if($school->user_id != $user->id){
+            $school->user_id = $user->id;
+            $school->save();
+        }
+
         $sendsms = new SendSms;
-
         $message = 'Please check your email to get the GBI Login Credentials';
-
         $sendsms->sendLoginDetails($school->principle_mobile_number,$message);
         $emaildata = [
             'email'=>$user->email,

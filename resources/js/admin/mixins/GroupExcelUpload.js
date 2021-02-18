@@ -19,6 +19,8 @@ const GroupExcelUpload = {
                 },
             ],
             new_row: [],
+            error:false,
+            message:'',
             edit_index: -1,
             row_input: "",
             new_row_add: false,
@@ -121,6 +123,10 @@ const GroupExcelUpload = {
                 });
         },
         UserGroupSave() {
+            this.checkDuplicateEmail();
+            if(this.error == true){
+                return false;
+            }
             for (var i = this.new_row.length - 1; i >= 0; i--) {
                 if (this.new_row[i]["first_name"] == "") {
                     this.new_row.splice(i, 1);
@@ -153,6 +159,22 @@ const GroupExcelUpload = {
                 this.checkbox_state = 0;
             }
         },
+        checkDuplicateEmail(){
+            var merged = [];
+            var merged = [...this.total_row, ...this.new_row];
+            var valueArr = merged.map(function (item) { return item.email });
+            var isDuplicate = valueArr.some(function (item, idx) {
+                return valueArr.indexOf(item) != idx
+            });
+            console.log(merged);
+            if(isDuplicate == true){
+                this.message = 'Duplicate Email Found';
+                this.error = true;
+            }else{
+                this.message = '';
+                this.error = false;
+            }
+        }
     },
     computed: {
         resultQuery() {

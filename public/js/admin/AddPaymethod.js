@@ -192,35 +192,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Tour-list",
@@ -241,20 +212,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       banknames: [],
       userinfo: "",
       robot: false,
-      teacherform: {
+      teacherform: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         payment_mode: "self",
         payment_type: "",
         tour_code: this.$route.params.tour_code,
         schoolbankdetail_id: "",
         amount: "",
         user_id: "",
-        school_id: "",
+        school_id: this.$route.params.school_id,
         cheque_bank_name: "",
         date_of_issue: "",
         ifsc_code: "",
         cheque_number: "",
-        added_by: "teacher"
-      },
+        added_by: "gbi"
+      }),
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         name: "",
         bank_name: "",
@@ -267,7 +238,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }, "banknames", []);
   },
   mounted: function mounted() {
-    // this.tourBank();
     this.userData();
   },
   methods: {
@@ -277,16 +247,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     onCaptchaExpired: function onCaptchaExpired() {
       this.$refs.recaptcha.reset();
     },
-    // tourBank() {
-    //   var data = [];
-    //   axios.get("/api/schoolbankdetails").then((response) => {
-    //       this.bankdetail = response.data;
-    //     })
-    //     .catch((error) => {
-    //       this.formShow = true;
-    //       this.handleError(error);
-    //     });
-    // },
     userData: function userData() {
       var _this = this;
 
@@ -295,24 +255,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
       axios.post("/api/getshooluser", data).then(function (response) {
         _this.userinfo = response.data;
-        console.log(response);
+        _this.teacherform.user_id = _this.userinfo.user_id;
       })["catch"](function (error) {
         _this.handleError(error);
       });
     },
-    // ModalForm() {
-    //   axios.post("/api/tour-bankdetail-store").then((response) => {
-    //       this.form.reset();
-    //       this.tourBank();
-    //       this.$swal.fire({
-    //         icon: "success",
-    //         title: "Beneficary Added !!",
-    //       });
-    //     })
-    //     .catch((error) => {
-    //       this.handleError(error);
-    //     });
-    // },
     submitPayment: function submitPayment() {
       this.teacherform.school_id = this.$route.params.school_id;
 
@@ -353,11 +300,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitForm: function submitForm() {
       var _this4 = this;
 
-      axios.post("/api/addtourpayment", this.teacherform).then(function (response) {
-        if (response.data['error']) {
+      this.teacherform.post("/api/addtourpayment").then(function (res) {
+        if (res.data["error"]) {
           _this4.$swal.fire({
             icon: "error",
-            title: response.data.error
+            title: res.data.error
           });
 
           return false;
@@ -386,7 +333,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.teacherform.cheque_number = "";
     },
     validateCheque: function validateCheque() {
-      if (this.teacherform.cheque_bank_name != '' && this.teacherform.date_of_issue != '' && this.teacherform.ifsc_code != '' && this.teacherform.cheque_number != '') {
+      if (this.teacherform.cheque_bank_name != "" && this.teacherform.date_of_issue != "" && this.teacherform.ifsc_code != "" && this.teacherform.cheque_number != "") {
         this.submitForm();
       } else {
         this.$swal.fire({
@@ -422,84 +369,44 @@ var render = function() {
             _c("form", [
               _vm.userinfo
                 ? _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-sm-4" }, [
-                      _c("label", [_vm._v("Teacher")]),
-                      _vm._v(" "),
-                      _c(
-                        "select",
-                        {
+                    _c(
+                      "div",
+                      { staticClass: "col-sm-4" },
+                      [
+                        _c("label", [_vm._v("Amount")]),
+                        _vm._v(" "),
+                        _c("input", {
                           directives: [
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.teacherform.user_id,
-                              expression: "teacherform.user_id"
+                              value: _vm.teacherform.amount,
+                              expression: "teacherform.amount"
                             }
                           ],
                           staticClass: "form-control",
+                          attrs: { type: "number" },
+                          domProps: { value: _vm.teacherform.amount },
                           on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
                               _vm.$set(
                                 _vm.teacherform,
-                                "user_id",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
+                                "amount",
+                                $event.target.value
                               )
                             }
                           }
-                        },
-                        _vm._l(_vm.userinfo, function(user) {
-                          return _c(
-                            "option",
-                            {
-                              key: user.user_id,
-                              domProps: { value: user.user.id }
-                            },
-                            [_vm._v(_vm._s(user.user.name))]
-                          )
                         }),
-                        0
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-4" }, [
-                      _c("label", [_vm._v("Amount")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.teacherform.amount,
-                            expression: "teacherform.amount"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "number" },
-                        domProps: { value: _vm.teacherform.amount },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.teacherform,
-                              "amount",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ])
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.teacherform, field: "amount" }
+                        })
+                      ],
+                      1
+                    )
                   ])
                 : _vm._e(),
               _vm._v(" "),
@@ -580,7 +487,7 @@ var render = function() {
                             }
                           }
                         }),
-                        _vm._v("By Self\n                ")
+                        _vm._v("By Self (School Incharge)\n                ")
                       ])
                     ])
                   ])
@@ -623,7 +530,7 @@ var render = function() {
                               }
                             }
                           }),
-                          _vm._v(" Cheque/DD\n              ")
+                          _vm._v("\n                Cheque/DD\n              ")
                         ])
                       ])
                     ]),
@@ -662,7 +569,7 @@ var render = function() {
                               }
                             }
                           }),
-                          _vm._v(" Cash\n              ")
+                          _vm._v("\n                Cash\n              ")
                         ])
                       ])
                     ]),
@@ -701,35 +608,21 @@ var render = function() {
                               }
                             }
                           }),
-                          _vm._v(" Net Banking\n              ")
+                          _vm._v(
+                            "\n                Net Banking\n              "
+                          )
                         ])
                       ])
                     ])
                   ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("div", { staticClass: "row justify-content-center mt-5" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "btn btn-outline-primary btn-square itrn_add_btn",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        return _vm.submitPayment()
-                      }
-                    }
-                  },
-                  [_vm._v("SUBMIT")]
-                )
-              ])
+                : _vm._e()
             ])
           ])
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.chequePage == true
+    _vm.teacherform.payment_mode == "self" &&
+    _vm.teacherform.payment_type == "cheque"
       ? _c("div", [
           _c("div", { staticClass: "container pt-20" }, [
             _c("p", [_vm._v("Please Fill Cheque/DD Details..")]),
@@ -885,7 +778,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("BACK")]
+                [_vm._v("\n          BACK\n        ")]
               ),
               _vm._v(" "),
               _c(
@@ -900,12 +793,26 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("SUBMIT")]
+                [_vm._v("\n          SUBMIT\n        ")]
               )
             ])
           ])
         ])
-      : _vm._e()
+      : _c("div", { staticClass: "row justify-content-center mt-5" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-primary btn-square itrn_add_btn",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.submitPayment()
+                }
+              }
+            },
+            [_vm._v("\n      SUBMIT\n    ")]
+          )
+        ])
   ])
 }
 var staticRenderFns = []

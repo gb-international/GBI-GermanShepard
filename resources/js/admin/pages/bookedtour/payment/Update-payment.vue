@@ -1,22 +1,31 @@
 <template>
   <div id="tour_payment" class="pb-4">
-    <div v-if="chequePage==false">
+    <div v-if="chequePage == false">
       <div class="container p-t-15 mb-20">
         <form>
-            <div class="row" v-if="userinfo">
-                <div class="col-sm-4">
-                    <label>User</label>
-                    <select class="form-control" v-model="teacherform.user_id">
-                        <option v-for="user in userinfo" :key="user.user_id" :value=user.user.id>{{ user.user.name }}</option>
-                    </select>
-                </div>
-                <div class="col-sm-4">
-                  <label>Amount</label>
-                  <input type="number" class="form-control" v-model="teacherform.amount">
-              </div>
+          <div class="row" v-if="userinfo">
+            <div class="col-sm-4">
+              <label>User</label>
+              <select class="form-control" v-model="teacherform.user_id">
+                <option
+                  v-for="user in userinfo"
+                  :key="user.user_id"
+                  :value="user.user.id"
+                >
+                  {{ user.user.name }}
+                </option>
+              </select>
             </div>
+            <div class="col-sm-4">
+              <label>Amount</label>
+              <input
+                type="number"
+                class="form-control"
+                v-model="teacherform.amount"
+              />
+            </div>
+          </div>
           <div class="row">
-              
             <div class="col-sm-4">
               <label for="payment_mode mt-20">Payment By</label>
               <div class="teacher-section">
@@ -56,7 +65,8 @@
                     name="option"
                     v-model="teacherform.payment_type"
                     value="cheque"
-                  /> Cheque/DD
+                  />
+                  Cheque/DD
                 </label>
               </div>
             </div>
@@ -70,7 +80,8 @@
                     name="option"
                     v-model="teacherform.payment_type"
                     value="cash"
-                  /> Cash
+                  />
+                  Cash
                 </label>
               </div>
             </div>
@@ -84,130 +95,93 @@
                     name="option"
                     v-model="teacherform.payment_type"
                     value="net"
-                  /> Net Banking
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <!-- <div class="row" v-if="teacherform.payment_mode == 'student'">
-            <div class="col-sm-6" v-for="bank in bankdetail" :key="bank.id">
-              <hr />
-              <div class="form-check-inline">
-                <label class="form-check-label">
-                  <input
-                    type="radio"
-                    :value="bank.id"
-                    class="form-check-input"
-                    v-model="teacherform.schoolbankdetail_id"
                   />
-                  {{ bank.name }}
+                  Net Banking
                 </label>
               </div>
-              <div class="ml-5">
-                <div class="row">
-                  <div class="col">
-                    Beneficary
-                    <span>:</span>
-                  </div>
-                  <div class="col">{{ bank.name }}</div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    Bank
-                    <span>:</span>
-                  </div>
-                  <div class="col">{{ bank.bank_name }}</div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    Account Number
-                    <span>:</span>
-                  </div>
-                  <div class="col">{{ bank.account_number }}</div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    Account Type
-                    <span>:</span>
-                  </div>
-                  <div class="col">{{ bank.account_type }}</div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    IFSC Code
-                    <span>:</span>
-                  </div>
-                  <div class="col">{{ bank.ifsc_code }}</div>
-                </div>
-              </div>
-            </div>
-
-          </div> -->
-          
-          <div class="row justify-content-center mt-5">
-            <div class="col-sm-4">
-              <button type="button" class="btn btn-outline-primary btn-square itrn_add_btn" @click="goBack()">BACK</button>
-            </div>
-            <div class="col-sm-4">
-              <button
-                type="button"
-                class="btn btn-outline-primary btn-square itrn_add_btn"
-                @click="submitPayment()"
-              >SUBMIT</button>
-
             </div>
           </div>
         </form>
-
       </div>
     </div>
-    <div v-if="chequePage == true">
+    <div v-if="
+        teacherform.payment_mode == 'self' &&
+        teacherform.payment_type == 'cheque'
+      ">
       <div class="container pt-20">
         <p>Please Fill Cheque/DD Details..</p>
         <div class="row">
           <div class="col-sm-4">
             <div class="form-group">
               <label for="father_name">Bank Name</label>
-              <input type="text" class="form-control" v-model="teacherform.cheque_bank_name" />
+              <input
+                type="text"
+                class="form-control"
+                v-model="teacherform.cheque_bank_name"
+              />
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="form-group">
               <label for="father_name">Date of Issue</label>
-              <input type="date" class="form-control" v-model="teacherform.date_of_issue" />
+              <input
+                type="date"
+                class="form-control"
+                v-model="teacherform.date_of_issue"
+              />
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="form-group">
               <label for="father_name">IFSC Code</label>
-              <input type="text" class="form-control" v-model="teacherform.ifsc_code" />
+              <input
+                type="text"
+                class="form-control"
+                v-model="teacherform.ifsc_code"
+              />
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="form-group">
               <label for="father_name">Cheque Number</label>
-              <input type="number" class="form-control" v-model="teacherform.cheque_number" />
+              <input
+                type="number"
+                class="form-control"
+                v-model="teacherform.cheque_number"
+              />
             </div>
           </div>
         </div>
         <div class="text-center">
-          <button type="button" class="btn btn-outline-primary btn-square itrn_add_btn" @click="backReset()">BACK</button>
+          <button
+            type="button"
+            class="btn btn-outline-primary btn-square itrn_add_btn"
+            @click="backReset()"
+          >
+            BACK
+          </button>
 
           <button
             type="button"
             class="btn btn-outline-primary btn-square itrn_add_btn"
             @click="validateCheque()"
-          >SUBMIT</button>
+          >
+            SUBMIT
+          </button>
         </div>
       </div>
+    </div>
+    <div class="row justify-content-center mt-5" v-else>
+      <button
+        type="button"
+        class="btn btn-outline-primary btn-square itrn_add_btn"
+        @click="submitPayment()"
+      >
+        SUBMIT
+      </button>
     </div>
   </div>
 </template>
@@ -236,16 +210,16 @@ export default {
       teacherform: new Form({
         payment_mode: "self",
         payment_type: "",
-        tour_code: this.$route.params.tour_code,
+        tour_code: '',
         schoolbankdetail_id: "",
         amount: "",
         user_id: "",
-        school_id: "",
+        school_id: '',
         cheque_bank_name: "",
         date_of_issue: "",
         ifsc_code: "",
         cheque_number: "",
-        added_by: "teacher",
+        added_by: "gbi",
       }),
       form: new Form({
         name: "",
@@ -253,7 +227,7 @@ export default {
         account_number: "",
         account_type: "",
         ifsc_code: "",
-        tour_code: this.$route.params.tour_code,
+        tour_code: '',
       }),
       account_type: [
         "Current Account",
@@ -266,25 +240,24 @@ export default {
   },
   mounted() {
     this.editPayment();
-    this.userData();
+    // this.userData();
   },
 
   methods: {
-    onVerify: function (response) {
-      if (response) this.robot = true;
+    onVerify: function (res) {
+      if (res) this.robot = true;
     },
     onCaptchaExpired: function () {
       this.$refs.recaptcha.reset();
     },
 
     editPayment() {
-      var data = { 
-          school_id: this.$route.params.school_id,
-          tour_code:this.$route.params.tour_code,
-          added_by:'teacher'
-        };
-        axios.post("/api/getUserpayments",data).then((response) => {
-          this.teacherform = response.data;
+      let api = "/api/getUserpayments/"+this.$route.params.id;
+      console.log(api);
+      axios.get(api)
+        .then((res) => {
+          this.teacherform = res.data;
+          console.log(res);
         })
         .catch((error) => {
           console.log(error);
@@ -292,10 +265,12 @@ export default {
         });
     },
     userData() {
-
       var data = { school_id: this.$route.params.school_id };
-        axios.post("/api/getshooluser",data).then((response) => {
-          this.userinfo = response.data;
+      axios
+        .post("/api/getshooluser", data)
+        .then((res) => {
+          this.userinfo = res.data;
+          this.teacherform.user_id = this.userinfo.user_id;
         })
         .catch((error) => {
           this.handleError(error);
@@ -325,47 +300,30 @@ export default {
 
       return false;
     },
-
-    // bankNameList() {
-    //   axios.get("/api/banknames").then((response) => {
-    //     this.banknames = response.data;
-    //   });
-    // },
-
-    // StudentBank() {
-    //   var data = { tour_code: this.$route.params.id };
-    //   this.$axios.post("/api/tour-bankdetail-student")
-    //     .then((response) => {
-    //       this.student_bank = response.data;
-    //     })
-    //     .catch((error) => {
-    //       this.handleError(error);
-    //     });
-    // },
-
-
-
     submitForm() {
-      console.log(this.teacherform);
-        axios.post("/api/updatetourpayment",this.teacherform).then((response) => {
-          if(response.data['error']){
+      this.teacherform
+        .post("/api/updatetourpayment", this.teacherform)
+        .then((res) => {
+          if (res.data["error"]) {
             this.$swal.fire({
               icon: "error",
-              title: response.data.error,
-            }); 
-            return false; 
+              title: res.data.error,
+            });
+            return false;
           }
           this.$swal.fire({
             icon: "success",
             title: "Successfully Updated !!",
           });
-          this.$router.push(`/payments/${this.$route.params.school_id}/${this.$route.params.tour_code}`)
+          this.$router.push(
+            `/payments/${this.$route.params.school_id}/${this.$route.params.tour_code}`
+          );
         })
         .catch((error) => {
-            this.$swal.fire({
-              icon: "error",
-              title: "Try again !!",
-            });
+          this.$swal.fire({
+            icon: "error",
+            title: "Try again !!",
+          });
           this.handleError(error);
         });
     },
@@ -376,20 +334,25 @@ export default {
       this.teacherform.ifsc_code = "";
       this.teacherform.cheque_number = "";
     },
-    goBack(){
+    goBack() {
       this.$router.go(-1);
     },
 
-    validateCheque(){
-      if(this.teacherform.cheque_bank_name != '' && this.teacherform.date_of_issue != '' && this.teacherform.ifsc_code != '' && this.teacherform.cheque_number != ''){
+    validateCheque() {
+      if (
+        this.teacherform.cheque_bank_name != "" &&
+        this.teacherform.date_of_issue != "" &&
+        this.teacherform.ifsc_code != "" &&
+        this.teacherform.cheque_number != ""
+      ) {
         this.submitForm();
-      }else{
+      } else {
         this.$swal.fire({
           icon: "error",
           title: "Please fill all the fields !!",
         });
       }
-    }
+    },
   },
 };
 </script>

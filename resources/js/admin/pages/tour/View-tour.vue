@@ -58,6 +58,7 @@ export default {
   },
   created() {
     this.tourData();
+    console.log('hi');
   },
   methods: {
     tourData() {

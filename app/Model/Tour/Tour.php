@@ -48,9 +48,4 @@ class Tour extends Model
     public function travel(){
         return $this->belongsTo('App\User','travel_code');
     }
-
-
-    
-
-
 }

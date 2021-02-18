@@ -8,7 +8,7 @@ class School extends Model
 {
 	// use SoftDeletes;
     protected $fillable = [
-        'school_name', 'street', 'city_name','state_name','country_name','pincode','finance_email_id','principle_email_id','mobile','address','principle_name','principle_mobile_number'
+        'school_name', 'street', 'city_name','state_name','country_name','pincode','finance_email_id','principle_email_id','mobile','address','principle_name','principle_mobile_number','user_id'
     ];
 
     public function students()
@@ -21,6 +21,10 @@ class School extends Model
     }
     public function informations(){
         return $this->hasMany('App\Model\User\Information');
+    }
+
+    public function incharge(){
+        return $this->belongsTo('App\User');
     }
     
 }

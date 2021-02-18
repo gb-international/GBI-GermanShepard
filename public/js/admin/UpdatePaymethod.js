@@ -201,32 +201,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Tour-list",
@@ -250,16 +224,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       teacherform: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         payment_mode: "self",
         payment_type: "",
-        tour_code: this.$route.params.tour_code,
+        tour_code: '',
         schoolbankdetail_id: "",
         amount: "",
         user_id: "",
-        school_id: "",
+        school_id: '',
         cheque_bank_name: "",
         date_of_issue: "",
         ifsc_code: "",
         cheque_number: "",
-        added_by: "teacher"
+        added_by: "gbi"
       }),
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         name: "",
@@ -267,18 +241,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         account_number: "",
         account_type: "",
         ifsc_code: "",
-        tour_code: this.$route.params.tour_code
+        tour_code: ''
       }),
       account_type: ["Current Account", "Saving Account", "Recurring Deposit Account", "Fixed Deposit Account"]
     }, "banknames", []);
   },
   mounted: function mounted() {
-    this.editPayment();
-    this.userData();
+    this.editPayment(); // this.userData();
   },
   methods: {
-    onVerify: function onVerify(response) {
-      if (response) this.robot = true;
+    onVerify: function onVerify(res) {
+      if (res) this.robot = true;
     },
     onCaptchaExpired: function onCaptchaExpired() {
       this.$refs.recaptcha.reset();
@@ -286,13 +259,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     editPayment: function editPayment() {
       var _this = this;
 
-      var data = {
-        school_id: this.$route.params.school_id,
-        tour_code: this.$route.params.tour_code,
-        added_by: 'teacher'
-      };
-      axios.post("/api/getUserpayments", data).then(function (response) {
-        _this.teacherform = response.data;
+      var api = "/api/getUserpayments/" + this.$route.params.id;
+      console.log(api);
+      axios.get(api).then(function (res) {
+        _this.teacherform = res.data;
+        console.log(res);
       })["catch"](function (error) {
         console.log(error);
 
@@ -305,8 +276,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var data = {
         school_id: this.$route.params.school_id
       };
-      axios.post("/api/getshooluser", data).then(function (response) {
-        _this2.userinfo = response.data;
+      axios.post("/api/getshooluser", data).then(function (res) {
+        _this2.userinfo = res.data;
+        _this2.teacherform.user_id = _this2.userinfo.user_id;
       })["catch"](function (error) {
         _this2.handleError(error);
       });
@@ -329,30 +301,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return false;
     },
-    // bankNameList() {
-    //   axios.get("/api/banknames").then((response) => {
-    //     this.banknames = response.data;
-    //   });
-    // },
-    // StudentBank() {
-    //   var data = { tour_code: this.$route.params.id };
-    //   this.$axios.post("/api/tour-bankdetail-student")
-    //     .then((response) => {
-    //       this.student_bank = response.data;
-    //     })
-    //     .catch((error) => {
-    //       this.handleError(error);
-    //     });
-    // },
     submitForm: function submitForm() {
       var _this3 = this;
 
-      console.log(this.teacherform);
-      axios.post("/api/updatetourpayment", this.teacherform).then(function (response) {
-        if (response.data['error']) {
+      this.teacherform.post("/api/updatetourpayment", this.teacherform).then(function (res) {
+        if (res.data["error"]) {
           _this3.$swal.fire({
             icon: "error",
-            title: response.data.error
+            title: res.data.error
           });
 
           return false;
@@ -384,7 +340,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$router.go(-1);
     },
     validateCheque: function validateCheque() {
-      if (this.teacherform.cheque_bank_name != '' && this.teacherform.date_of_issue != '' && this.teacherform.ifsc_code != '' && this.teacherform.cheque_number != '') {
+      if (this.teacherform.cheque_bank_name != "" && this.teacherform.date_of_issue != "" && this.teacherform.ifsc_code != "" && this.teacherform.cheque_number != "") {
         this.submitForm();
       } else {
         this.$swal.fire({
@@ -462,7 +418,13 @@ var render = function() {
                               key: user.user_id,
                               domProps: { value: user.user.id }
                             },
-                            [_vm._v(_vm._s(user.user.name))]
+                            [
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(user.user.name) +
+                                  "\n              "
+                              )
+                            ]
                           )
                         }),
                         0
@@ -621,7 +583,7 @@ var render = function() {
                               }
                             }
                           }),
-                          _vm._v(" Cheque/DD\n              ")
+                          _vm._v("\n                Cheque/DD\n              ")
                         ])
                       ])
                     ]),
@@ -660,7 +622,7 @@ var render = function() {
                               }
                             }
                           }),
-                          _vm._v(" Cash\n              ")
+                          _vm._v("\n                Cash\n              ")
                         ])
                       ])
                     ]),
@@ -699,54 +661,21 @@ var render = function() {
                               }
                             }
                           }),
-                          _vm._v(" Net Banking\n              ")
+                          _vm._v(
+                            "\n                Net Banking\n              "
+                          )
                         ])
                       ])
                     ])
                   ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("div", { staticClass: "row justify-content-center mt-5" }, [
-                _c("div", { staticClass: "col-sm-4" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "btn btn-outline-primary btn-square itrn_add_btn",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          return _vm.goBack()
-                        }
-                      }
-                    },
-                    [_vm._v("BACK")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-4" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "btn btn-outline-primary btn-square itrn_add_btn",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          return _vm.submitPayment()
-                        }
-                      }
-                    },
-                    [_vm._v("SUBMIT")]
-                  )
-                ])
-              ])
+                : _vm._e()
             ])
           ])
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.chequePage == true
+    _vm.teacherform.payment_mode == "self" &&
+    _vm.teacherform.payment_type == "cheque"
       ? _c("div", [
           _c("div", { staticClass: "container pt-20" }, [
             _c("p", [_vm._v("Please Fill Cheque/DD Details..")]),
@@ -902,7 +831,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("BACK")]
+                [_vm._v("\n          BACK\n        ")]
               ),
               _vm._v(" "),
               _c(
@@ -917,12 +846,26 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("SUBMIT")]
+                [_vm._v("\n          SUBMIT\n        ")]
               )
             ])
           ])
         ])
-      : _vm._e()
+      : _c("div", { staticClass: "row justify-content-center mt-5" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-primary btn-square itrn_add_btn",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.submitPayment()
+                }
+              }
+            },
+            [_vm._v("\n      SUBMIT\n    ")]
+          )
+        ])
   ])
 }
 var staticRenderFns = []

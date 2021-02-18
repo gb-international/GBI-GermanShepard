@@ -241,6 +241,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -378,12 +386,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var xlsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! xlsx */ "./node_modules/xlsx/xlsx.js");
 /* harmony import */ var xlsx__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(xlsx__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _admin_mixins_GroupExcelUpload__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/mixins/GroupExcelUpload */ "./resources/js/admin/mixins/GroupExcelUpload.js");
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -1035,7 +1037,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-check-input checkbox-select-all",
-                        attrs: { type: "checkbox", title: "Select All" },
+                        attrs: {
+                          type: "checkbox",
+                          id: "studentCheckbox",
+                          title: "Select All"
+                        },
                         domProps: {
                           checked: Array.isArray(_vm.selectAll)
                             ? _vm._i(_vm.selectAll, null) > -1
@@ -1063,29 +1069,38 @@ var render = function() {
                           }
                         }
                       }),
-                      _vm._v("Sr.No\n            ")
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-check-label font-12",
+                          attrs: { for: "studentCheckbox" }
+                        },
+                        [_vm._v("All")]
+                      )
                     ])
-                  : _c("div", [_vm._v("Sr.No")])
+                  : _c("div", [_vm._v("#")])
               ]),
+              _vm._v(" "),
+              _c("th", [_vm._v("Sr.No")]),
               _vm._v(" "),
               _c("th", [_vm._v("First Name")]),
               _vm._v(" "),
               _c("th", [_vm._v("Last Name")]),
               _vm._v(" "),
-              _c("th", [_vm._v("Email")]),
+              _c("th", { staticClass: "width-260" }, [_vm._v("Email")]),
               _vm._v(" "),
-              _c("th", [_vm._v("Gender")]),
+              _c("th", { staticClass: "w-80" }, [_vm._v("Gender")]),
               _vm._v(" "),
-              _c("th", [_vm._v("Age")]),
+              _c("th", { staticClass: "width-70" }, [_vm._v("Age")]),
               _vm._v(" "),
-              _c("th", [_vm._v("Contact No.")])
+              _c("th", { staticClass: "w-192" }, [_vm._v("Contact No.")])
             ]),
             _vm._v(" "),
             _c(
               "tbody",
               [
                 _vm._l(_vm.resultQuery, function(data, index) {
-                  return _c("tr", { key: data.id, staticClass: "hidden" }, [
+                  return _c("tr", { key: data.email, staticClass: "hidden" }, [
                     _c("td", { staticClass: "text-center" }, [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
@@ -1132,23 +1147,12 @@ var render = function() {
                               }
                             ]
                           }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label margin-top-11",
-                            attrs: { for: "" + data.id }
-                          },
-                          [
-                            _vm._v(
-                              "\n                  " +
-                                _vm._s(index + 1) +
-                                "\n                "
-                            )
-                          ]
-                        )
+                        })
                       ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "text-center pt-2" }, [
+                      _vm._v(_vm._s(index + 1))
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -1288,7 +1292,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [
                       _c("div", { staticClass: "row" }, [
-                        _c("div", { staticClass: "col-8" }, [
+                        _c("div", { staticClass: "col-7" }, [
                           _c("input", {
                             directives: [
                               {
@@ -1317,7 +1321,7 @@ var render = function() {
                         _vm._v(" "),
                         _c(
                           "div",
-                          { staticClass: "col-4 justify-content-end" },
+                          { staticClass: "col-5 justify-content-end" },
                           [
                             _c(
                               "div",
@@ -1372,6 +1376,8 @@ var render = function() {
                 _vm._v(" "),
                 _vm._l(_vm.new_row, function(data, index) {
                   return _c("tr", { key: index }, [
+                    _c("td"),
+                    _vm._v(" "),
                     _c("td", { staticClass: "text-center" }, [
                       _vm._v(_vm._s(index + 1))
                     ]),
@@ -1497,46 +1503,58 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: data.mobile,
-                            expression: "data.mobile"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: data.mobile },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-8" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: data.mobile,
+                                expression: "data.mobile"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "text" },
+                            domProps: { value: data.mobile },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(data, "mobile", $event.target.value)
+                              }
                             }
-                            _vm.$set(data, "mobile", $event.target.value)
-                          }
-                        }
-                      })
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-4 text-left pt-2" }, [
+                          _c("img", {
+                            staticClass: "delete w-16",
+                            attrs: { src: "/assets/front/icons/delete.png" },
+                            on: {
+                              click: function($event) {
+                                return _vm.delete_new_row(index)
+                              }
+                            }
+                          })
+                        ])
+                      ])
                     ]),
                     _vm._v(" "),
-                    _c("td", [
-                      _c("img", {
-                        staticClass: "delete w-16",
-                        attrs: { src: "/assets/front/icons/delete.png" },
-                        on: {
-                          click: function($event) {
-                            return _vm.delete_new_row(index)
-                          }
-                        }
-                      })
-                    ])
+                    _c("td")
                   ])
                 })
               ],
               2
             )
           ]),
+          _vm._v(" "),
+          this.error == true
+            ? _c("p", { staticClass: "text-danger font-weight-bold" }, [
+                _vm._v(_vm._s(_vm.message))
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _c(
             "div",
@@ -1844,31 +1862,33 @@ var render = function() {
                           }
                         }
                       }),
-                      _vm._v("Sr.No\n            ")
+                      _vm._v("All\n            ")
                     ])
-                  : _c("div", [_vm._v("Sr.No")])
+                  : _c("div", [_vm._v("#")])
               ]),
+              _vm._v(" "),
+              _c("th", [_vm._v("Sr.No")]),
               _vm._v(" "),
               _c("th", [_vm._v("First Name")]),
               _vm._v(" "),
               _c("th", [_vm._v("Last Name")]),
               _vm._v(" "),
-              _c("th", [_vm._v("Email")]),
+              _c("th", { staticClass: "width-260" }, [_vm._v("Email")]),
               _vm._v(" "),
-              _c("th", [_vm._v("Gender")]),
+              _c("th", { staticClass: "w-80" }, [_vm._v("Gender")]),
               _vm._v(" "),
-              _c("th", [_vm._v("Age")]),
+              _c("th", { staticClass: "width-70" }, [_vm._v("Age")]),
               _vm._v(" "),
-              _c("th", [_vm._v("Paid?")]),
+              _c("th", { staticClass: "width-70" }, [_vm._v("Paid?")]),
               _vm._v(" "),
-              _c("th", [_vm._v("Contact No.")])
+              _c("th", { staticClass: "w-192" }, [_vm._v("Contact No.")])
             ]),
             _vm._v(" "),
             _c(
               "tbody",
               [
                 _vm._l(_vm.resultQuery, function(data, index) {
-                  return _c("tr", { key: data.id, staticClass: "hidden" }, [
+                  return _c("tr", { key: data.email, staticClass: "hidden" }, [
                     _c("td", { staticClass: "text-center" }, [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
@@ -1915,23 +1935,14 @@ var render = function() {
                               }
                             ]
                           }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label margin-top-11",
-                            attrs: { for: "" + data.id }
-                          },
-                          [
-                            _vm._v(
-                              "\n                  " +
-                                _vm._s(index + 1) +
-                                "\n                "
-                            )
-                          ]
-                        )
+                        })
                       ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "text-center" }, [
+                      _vm._v(
+                        "\n            " + _vm._s(index + 1) + "\n          "
+                      )
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2126,7 +2137,7 @@ var render = function() {
                             staticClass: "form-check-label margin-top-11",
                             attrs: { for: "" + data.email }
                           },
-                          [_vm._v("\n                  Paid\n                ")]
+                          [_vm._v("\n                Paid\n              ")]
                         )
                       ])
                     ]),
@@ -2217,6 +2228,8 @@ var render = function() {
                 _vm._v(" "),
                 _vm._l(_vm.new_row, function(data, index) {
                   return _c("tr", { key: index }, [
+                    _c("td"),
+                    _vm._v(" "),
                     _c("td", { staticClass: "text-center" }, [
                       _vm._v(_vm._s(index + 1))
                     ]),
@@ -2400,39 +2413,43 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: data.mobile,
-                            expression: "data.mobile"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: data.mobile },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-8" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: data.mobile,
+                                expression: "data.mobile"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "text" },
+                            domProps: { value: data.mobile },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(data, "mobile", $event.target.value)
+                              }
                             }
-                            _vm.$set(data, "mobile", $event.target.value)
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("img", {
-                        staticClass: "delete w-16",
-                        attrs: { src: "/assets/front/icons/delete.png" },
-                        on: {
-                          click: function($event) {
-                            return _vm.delete_new_row(index)
-                          }
-                        }
-                      })
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-4 text-right pt-2" }, [
+                          _c("img", {
+                            staticClass: "delete w-16",
+                            attrs: { src: "/assets/front/icons/delete.png" },
+                            on: {
+                              click: function($event) {
+                                return _vm.delete_new_row(index)
+                              }
+                            }
+                          })
+                        ])
+                      ])
                     ])
                   ])
                 })
@@ -2440,6 +2457,12 @@ var render = function() {
               2
             )
           ]),
+          _vm._v(" "),
+          this.error == true
+            ? _c("p", { staticClass: "text-danger font-weight-bold" }, [
+                _vm._v(_vm._s(_vm.message))
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _c(
             "div",
@@ -2593,7 +2616,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container bg-white" }, [
     _c("div", { staticClass: "AddGroup p-t-15" }, [
       _c("div", { staticClass: "row text-center text-muted pt-2" }, [
         _c("div", { staticClass: "col p-0 m-0" }, [
@@ -2791,6 +2814,18 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 var GroupExcelUpload = {
   data: function data() {
     return {
@@ -2810,6 +2845,8 @@ var GroupExcelUpload = {
         is_paid: "1"
       }],
       new_row: [],
+      error: false,
+      message: '',
       edit_index: -1,
       row_input: "",
       new_row_add: false
@@ -2913,6 +2950,12 @@ var GroupExcelUpload = {
     UserGroupSave: function UserGroupSave() {
       var _this4 = this;
 
+      this.checkDuplicateEmail();
+
+      if (this.error == true) {
+        return false;
+      }
+
       for (var i = this.new_row.length - 1; i >= 0; i--) {
         if (this.new_row[i]["first_name"] == "") {
           this.new_row.splice(i, 1);
@@ -2943,6 +2986,25 @@ var GroupExcelUpload = {
         this.checkbox_state = 1;
       } else {
         this.checkbox_state = 0;
+      }
+    },
+    checkDuplicateEmail: function checkDuplicateEmail() {
+      var merged = [];
+      var merged = [].concat(_toConsumableArray(this.total_row), _toConsumableArray(this.new_row));
+      var valueArr = merged.map(function (item) {
+        return item.email;
+      });
+      var isDuplicate = valueArr.some(function (item, idx) {
+        return valueArr.indexOf(item) != idx;
+      });
+      console.log(merged);
+
+      if (isDuplicate == true) {
+        this.message = 'Duplicate Email Found';
+        this.error = true;
+      } else {
+        this.message = '';
+        this.error = false;
       }
     }
   },

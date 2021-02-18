@@ -16,7 +16,7 @@ It takes id from the url and get the data from the api .
 
           <add-button 
             v-if="tour_view.tour_code"
-            :url="`/update-paymentmethod/${$route.params.school_id}/${$route.params.tour_code}`"
+            :url="`/update-paymentmethod/${tour_view.id}`"
             >Update Payment Method</add-button>
 
           <add-button 
@@ -30,14 +30,6 @@ It takes id from the url and get the data from the api .
       <div class="card_view pl-4">
         <br />
         <div class="row" v-if="tour_view.tour_code">
-          <div class="col-sm-4">
-            <h5>School Name</h5>
-            <p>
-              <router-link :to="`/view-school/${tour_view.school_id}`">{{
-                tour_view.school_name
-              }}</router-link>
-            </p>
-          </div>
 
           <div class="col-sm-4" v-if="tour_view.tour_code != null">
             <h5>Tour Code</h5>
@@ -45,16 +37,11 @@ It takes id from the url and get the data from the api .
           </div>
           <br />
 
-          <div class="col-sm-4" v-if="tour_view.amount != null">
-            <h5>Tour Price</h5>
-            <p>{{ tour_view.amount }}/-</p>
-          </div>
-
           <div class="col-sm-4">
             <h5>User Name</h5>
             <p>
-              <router-link :to="`/view-school/${tour_view.user_id}`">
-                {{ tour_view.user_name }}</router-link
+              <router-link :to="`/user/${tour_view.user_id}`">
+                {{ tour_view.user.name }}</router-link
               >
             </p>
           </div>
@@ -153,13 +140,8 @@ It takes id from the url and get the data from the api .
 
         <div class="row" v-if="tour_view.payment_type == 'self'">
           <div class="col-sm-4">
-            <h5>Total Tour Price</h5>
-            <p>{{ tour_view.total_tour_price }}</p>
-          </div>
-
-          <div class="col-sm-4">
-            <h5>Amount Collected</h5>
-            <p>{{ tour_view.collect_amount }}</p>
+            <h5>Amount</h5>
+            <p>{{ tour_view.amount }}</p>
           </div>
         </div>
         
@@ -180,20 +162,11 @@ It takes id from the url and get the data from the api .
             <div class="modal-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <label> Total Tour Price</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    v-model="form.total_tour_price"
-                  />
-                </div>
-
-                <div class="col-sm-6">
                   <label> Collect Amount </label>
                   <input
                     type="number"
                     class="form-control"
-                    v-model="form.collect_amount"
+                    v-model="form.amount"
                   />
                 </div>
 
@@ -236,8 +209,7 @@ export default {
       tour_view: [],
       form: {
         id: 0,
-        total_tour_price: "",
-        collect_amount: "",
+        amount: "",
         status: "pending",
       },
       student_list: false,
@@ -250,27 +222,22 @@ export default {
   methods: {
     tourModal(tour) {
       this.form.id = tour.id;
-      this.form.total_tour_price = tour.total_tour_price;
-      this.form.collect_amount = tour.collect_amount;
+      this.form.amount = tour.amount;
       this.form.status = tour.status;
     },
 
     tourPayment() {
       var data = {
         school_id: this.$route.params.school_id,
-        tour_code: this.$route.params.tour_code,
-        added_by: "teacher",
+        tour_code: this.$route.params.tour_code
       };
-      axios.post("/api/payments/list", data).then((response) => {
-        this.tour_view = response.data;
+      axios.post("/api/payments/list", data).then((res) => {
+        this.tour_view = res.data;
       });
     },
 
     tourPaymentSave() {
-      if (
-        parseInt(this.form.total_tour_price) <
-        parseInt(this.form.collect_amount)
-      ) {
+      if (this.form.amount.length == 0) {
         this.$swal.fire({
           icon: "error",
           title: "Valid Data",
@@ -278,21 +245,8 @@ export default {
         });
         return false;
       }
-
-      if (
-        this.form.total_tour_price.length == 0 ||
-        this.form.collect_amount.length == 0
-      ) {
-        this.$swal.fire({
-          icon: "error",
-          title: "Valid Data",
-          text: "Please enter valid amount!",
-        });
-        return false;
-      }
-
       axios.post("/api/createpayment", this.form).then((response) => {
-        this.tour_view = response.data;
+        this.tourPayment();
         this.$swal.fire({
           icon: "success",
           title: "Successfull",
