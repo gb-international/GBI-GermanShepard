@@ -188,6 +188,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ViewTour",
@@ -383,77 +386,95 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c("h5", [_vm._v("Added By")]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.tour.payment.added_by))])
-                  ]),
-                  _vm._v(" "),
-                  _vm.tour.payment.schoolbankdetail_id != null
-                    ? _c("div", { staticClass: "col-sm-4" }, [
-                        _c("h5", [_vm._v("School Bank Detail ID")]),
+                  _vm.tour.payment
+                    ? _c("div", { staticClass: "row" }, [
+                        _vm.tour.payment.added_by
+                          ? _c("div", { staticClass: "col-sm-4" }, [
+                              _c("h5", [_vm._v("Added By")]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(_vm._s(_vm.tour.payment.added_by))
+                              ])
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("p", [
-                          _vm._v(_vm._s(_vm.tour.payment.schoolbankdetail_id))
-                        ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.tour.payment.payment_mode != null
-                    ? _c("div", { staticClass: "col-sm-4" }, [
-                        _c("h5", [_vm._v("Payment By")]),
+                        _vm.tour.payment.schoolbankdetail_id != null
+                          ? _c("div", { staticClass: "col-sm-4" }, [
+                              _c("h5", [_vm._v("School Bank Detail ID")]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(
+                                  _vm._s(_vm.tour.payment.schoolbankdetail_id)
+                                )
+                              ])
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.payment.payment_mode))])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.tour.payment.payment_type != null
-                    ? _c("div", { staticClass: "col-sm-4" }, [
-                        _c("h5", [_vm._v("Payment Type")]),
+                        _vm.tour.payment.payment_mode != null
+                          ? _c("div", { staticClass: "col-sm-4" }, [
+                              _c("h5", [_vm._v("Payment By")]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(_vm._s(_vm.tour.payment.payment_mode))
+                              ])
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.payment.payment_type))])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.tour.payment.ifsc_code != null
-                    ? _c("div", { staticClass: "col-sm-4" }, [
-                        _c("h5", [_vm._v("IFSC Code")]),
+                        _vm.tour.payment.payment_type != null
+                          ? _c("div", { staticClass: "col-sm-4" }, [
+                              _c("h5", [_vm._v("Payment Type")]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(_vm._s(_vm.tour.payment.payment_type))
+                              ])
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.payment.ifsc_code))])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.tour.payment.amount != null
-                    ? _c("div", { staticClass: "col-sm-4" }, [
-                        _c("h5", [_vm._v("Amount")]),
+                        _vm.tour.payment.ifsc_code != null
+                          ? _c("div", { staticClass: "col-sm-4" }, [
+                              _c("h5", [_vm._v("IFSC Code")]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(_vm._s(_vm.tour.payment.ifsc_code))
+                              ])
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.payment.amount))])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.tour.payment.cheque_bank_name != null
-                    ? _c("div", { staticClass: "col-sm-4" }, [
-                        _c("h5", [_vm._v("Cheque Bank Name")]),
+                        _vm.tour.payment.amount != null
+                          ? _c("div", { staticClass: "col-sm-4" }, [
+                              _c("h5", [_vm._v("Amount")]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v(_vm._s(_vm.tour.payment.amount))])
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("p", [
-                          _vm._v(_vm._s(_vm.tour.payment.cheque_bank_name))
-                        ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.tour.payment.date_of_issue != null
-                    ? _c("div", { staticClass: "col-sm-4" }, [
-                        _c("h5", [_vm._v("Date of Issue")]),
+                        _vm.tour.payment.cheque_bank_name != null
+                          ? _c("div", { staticClass: "col-sm-4" }, [
+                              _c("h5", [_vm._v("Cheque Bank Name")]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(
+                                  _vm._s(_vm.tour.payment.cheque_bank_name)
+                                )
+                              ])
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.date_of_issue))])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.tour.payment.status != null
-                    ? _c("div", { staticClass: "col-sm-4" }, [
-                        _c("h5", [_vm._v("Status")]),
+                        _vm.tour.payment.date_of_issue != null
+                          ? _c("div", { staticClass: "col-sm-4" }, [
+                              _c("h5", [_vm._v("Date of Issue")]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v(_vm._s(_vm.tour.date_of_issue))])
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.status))])
+                        _vm.tour.payment.status != null
+                          ? _c("div", { staticClass: "col-sm-4" }, [
+                              _c("h5", [_vm._v("Status")]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v(_vm._s(_vm.tour.status))])
+                            ])
+                          : _vm._e()
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -463,26 +484,28 @@ var render = function() {
                     _c("p", [_vm._v(_vm._s(_vm.tour.created_at))])
                   ]),
                   _vm._v(" "),
-                  _vm.tour.payment.payment_type == "net"
+                  _vm.tour.payment
                     ? _c("div", { staticClass: "col-sm-4" }, [
-                        _c("h5", [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-info text-white",
-                              on: {
-                                click: function($event) {
-                                  _vm.show_json = !_vm.show_json
-                                }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n            Payment Details\n          "
+                        _vm.tour.payment.payment_type == "net"
+                          ? _c("h5", [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-info text-white",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.show_json = !_vm.show_json
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n            Payment Details\n          "
+                                  )
+                                ]
                               )
-                            ]
-                          )
-                        ])
+                            ])
+                          : _vm._e()
                       ])
                     : _vm._e()
                 ])

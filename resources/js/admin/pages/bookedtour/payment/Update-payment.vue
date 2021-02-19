@@ -159,7 +159,7 @@
           <button
             type="button"
             class="btn btn-outline-primary btn-square itrn_add_btn"
-            @click="backReset()"
+            @click="goBack()"
           >
             BACK
           </button>

@@ -228,10 +228,6 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("h4", { staticClass: "text-muted pl-3" }, [
-        _vm._v("Student payment details")
-      ]),
-      _vm._v(" "),
       _c("list-layout", {
         scopedSlots: _vm._u([
           {
@@ -285,7 +281,7 @@ var render = function() {
                         return [
                           data.item.payment != null
                             ? _c("p", [
-                                data.item.payment.status == "success"
+                                data.item.payment == "success"
                                   ? _c(
                                       "span",
                                       { staticClass: "badge badge-success" },
@@ -309,9 +305,11 @@ var render = function() {
                       key: "cell(action)",
                       fn: function(data) {
                         return [
-                          _c("edit-icon", {
-                            attrs: { url: "/bookedusers/" + data.item.id }
-                          }),
+                          data.item.paid_by == "student"
+                            ? _c("edit-icon", {
+                                attrs: { url: "/bookedusers/" + data.item.id }
+                              })
+                            : _vm._e(),
                           _vm._v(" "),
                           _c("delete-icon", {
                             nativeOn: {

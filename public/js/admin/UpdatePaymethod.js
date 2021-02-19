@@ -825,7 +825,7 @@ var render = function() {
                   attrs: { type: "button" },
                   on: {
                     click: function($event) {
-                      return _vm.backReset()
+                      return _vm.goBack()
                     }
                   }
                 },

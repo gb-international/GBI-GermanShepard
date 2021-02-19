@@ -11,15 +11,57 @@ use App\Model\Tour\TourUser;
 
 class BookeduserController extends Controller
 {
-    public function all($tour_id)
+     public function all($tour_id)
     {
-        $code=Tour::where('tour_id',$tour_id)->select('travel_code')->first();
-        $data = TourUser::where('travel_code',$code->travel_code)
-            ->with('user:id,name')
-            ->get();
-        foreach ($data as $d ) {
-            $payment = Userpayment::where(['user_id'=>$d->user_id,'tour_code'=>$tour_id])->first();
-            $d['payment'] = $payment;
+        $data = '';
+        $tour = Tour::where('tour_id',$tour_id)
+            ->select('school_id')
+            ->with('school:id,user_id')
+            ->first();
+        if($tour){
+            $user_id = $tour->school->user_id;
+            $userpayment = Userpayment::where([
+                'user_id'=>$user_id,
+                'tour_code'=>$tour_id
+            ])->first();
+            $where = [['tour_code','=',$tour_id],['user_id','!=', $user_id]];
+            if($userpayment){
+                if($userpayment->payment_mode == 'self'){
+                    $data = TourUser::where($where)->with('user:id,name')->get();
+                    if($userpayment->status=='success'){
+                        foreach ($data as $d) {
+                            $d['payment'] = 'success';
+                            $d['paid_by'] = 'teacher';
+                        }
+                    }else{
+                        foreach ($data as $d) {
+                            $d['payment'] = 'pending';
+                            $d['paid_by'] = 'teacher';
+                        }
+                    }
+                }
+                if($userpayment->payment_mode == 'student'){
+                    $data = TourUser::where($where)
+                        ->with('user:id,name')
+                        ->get();
+                    foreach ($data as $d ) {
+                        $payment = Userpayment::where(['user_id'=>$d->user_id,'tour_code'=>$tour_id])->first();
+                        if($payment){
+                            $d['payment'] = $payment->status;
+                            $d['paid_by'] = 'stuent';
+                        }else{
+                            $d['payment'] = 'pending';
+                            $d['paid_by'] = 'stuent';
+                        }
+                    }
+                }
+            }else{
+                $data = TourUser::where($where)->with('user:id,name')->get();
+                foreach ($data as $d) {
+                    $d['payment'] = 'pending';
+                    $d['paid_by'] = 'none';
+                }
+            }
         }
         $alldata['data'] = $data;
         return response()->json($alldata);
@@ -36,7 +78,6 @@ class BookeduserController extends Controller
 
         $tour = TourUser::where('id',$id)
             ->with('tour:travel_code,tour_id,school_id','user:id,name')->first();
-
         $data = Userpayment::where(['user_id'=>$tour->user_id,'tour_code'=>$tour->tour->tour_id])->first();
         $tour['payment'] = $data;
         return response()->json($tour);

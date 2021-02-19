@@ -4,7 +4,6 @@ data from the api to display the data about the Category from the backend .
 -->
 <template>
   <div>
-    <h4 class="text-muted pl-3">Student payment details</h4>
     <list-layout>
       <template #searchbar>
         <b-form-input
@@ -34,7 +33,7 @@ data from the api to display the data about the Category from the backend .
           <template #cell(payment)="data">
             <p v-if="data.item.payment != null">
               <span
-                v-if="data.item.payment.status == 'success'"
+                v-if="data.item.payment == 'success'"
                 class="badge badge-success"
                 >Success</span
               >
@@ -43,7 +42,8 @@ data from the api to display the data about the Category from the backend .
             <span class="badge badge-default" v-else>Pending</span>
           </template>
           <template #cell(action)="data">
-            <edit-icon :url="`/bookedusers/${data.item.id}`"></edit-icon>
+
+            <edit-icon v-if="data.item.paid_by=='student'" :url="`/bookedusers/${data.item.id}`"></edit-icon>
             <delete-icon @click.native="deleteItem(data.item.id, data.index)">
             </delete-icon>
             <view-icon :url="`/bookedusers-view/${data.item.id}`"></view-icon>
