@@ -43,8 +43,13 @@ data from the api to display the data about the Category from the backend .
         <template #table-busy>
           <table-loader />
         </template>
-        <template #cell(address)="data">
-          {{ data.item.address | readMore(50) }}
+        <template #cell(principle_name)="data">
+          <div v-if="data.item.incharge != null">
+            <router-link :to="`/user/${data.item.incharge.id}`" class="font-weight-bold">
+                {{ data.item.incharge.name }}
+            </router-link>
+          </div>
+          <div v-else title="Send Login Details by clicking edit button">{{ data.item.principle_name }}</div>
         </template>
         <template #cell(action)="data">
           <view-icon :url="`/view-school/${data.item.id}`"></view-icon>
@@ -90,8 +95,8 @@ export default {
     return {
       fields: [
         {key:'school_name',label:'NAME',sortable:true,thClass: 'table-head'},
-        {key:'address',label:'ADDRESS',sortable:true,thClass: 'table-head'},
-        {key:'mobile',label:'CONTACT NO.',sortable:true,thClass: 'table-head'},
+        {key:'principle_email_id',label:'PRINCIPLE EMAIL',sortable:true,thClass: 'table-head'},
+        {key:'principle_name',label:'INCHARGE NAME',sortable:true,thClass: 'table-head'},
         {key:'action',label:'ACTION',thClass: 'table-head'}
       ],
       limit:2,

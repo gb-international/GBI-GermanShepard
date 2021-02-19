@@ -253,11 +253,9 @@ export default {
 
     editPayment() {
       let api = "/api/getUserpayments/"+this.$route.params.id;
-      console.log(api);
       axios.get(api)
         .then((res) => {
           this.teacherform = res.data;
-          console.log(res);
         })
         .catch((error) => {
           console.log(error);

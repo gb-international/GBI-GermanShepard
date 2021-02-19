@@ -24,7 +24,7 @@ class School extends Model
     }
 
     public function incharge(){
-        return $this->belongsTo('App\User');
+        return $this->hasOne('App\User','id','user_id');
     }
     
 }

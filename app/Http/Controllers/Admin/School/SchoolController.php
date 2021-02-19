@@ -27,8 +27,9 @@ class SchoolController extends Controller
     public function all($size)
     {
         return response()->json(School::select([
-            'id','school_name','address','mobile','updated_at'
+            'id','school_name','principle_email_id','principle_name','user_id','updated_at'
             ])
+            ->with('incharge:id,name')
             ->latest('updated_at')
             ->paginate($size));
     }

@@ -260,10 +260,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       var api = "/api/getUserpayments/" + this.$route.params.id;
-      console.log(api);
       axios.get(api).then(function (res) {
         _this.teacherform = res.data;
-        console.log(res);
       })["catch"](function (error) {
         console.log(error);
 

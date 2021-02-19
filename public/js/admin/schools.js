@@ -117,6 +117,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -142,13 +147,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         sortable: true,
         thClass: 'table-head'
       }, {
-        key: 'address',
-        label: 'ADDRESS',
+        key: 'principle_email_id',
+        label: 'PRINCIPLE EMAIL',
         sortable: true,
         thClass: 'table-head'
       }, {
-        key: 'mobile',
-        label: 'CONTACT NO.',
+        key: 'principle_name',
+        label: 'INCHARGE NAME',
         sortable: true,
         thClass: 'table-head'
       }, {
@@ -328,14 +333,42 @@ var render = function() {
                     proxy: true
                   },
                   {
-                    key: "cell(address)",
+                    key: "cell(principle_name)",
                     fn: function(data) {
                       return [
-                        _vm._v(
-                          "\n        " +
-                            _vm._s(_vm._f("readMore")(data.item.address, 50)) +
-                            "\n      "
-                        )
+                        data.item.incharge != null
+                          ? _c(
+                              "div",
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "font-weight-bold",
+                                    attrs: {
+                                      to: "/user/" + data.item.incharge.id
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n              " +
+                                        _vm._s(data.item.incharge.name) +
+                                        "\n          "
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          : _c(
+                              "div",
+                              {
+                                attrs: {
+                                  title:
+                                    "Send Login Details by clicking edit button"
+                                }
+                              },
+                              [_vm._v(_vm._s(data.item.principle_name))]
+                            )
                       ]
                     }
                   },
