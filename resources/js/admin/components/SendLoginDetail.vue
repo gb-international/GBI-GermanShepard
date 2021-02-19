@@ -28,7 +28,6 @@ export default {
     methods:{
         sendDetail(){
             axios.get(this.url).then((res)=>{
-                console.log(res);
                 this.$toast.fire({
                     icon: "success",
                     title: "Login Details Sent Successfully !!!"

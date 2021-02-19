@@ -38,8 +38,8 @@ It takes id from the url and get the data from the api .
         </div>
 
         <div class="col-sm-3">
-          <h5>Principle Email</h5>
-          <p>{{ client_view.principle_email_id }}</p>
+          <h5>Principal Email</h5>
+          <p>{{ client_view.principal_email_id }}</p>
         </div>
 
         <div class="col-sm-3">

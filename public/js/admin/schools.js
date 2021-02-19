@@ -147,12 +147,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         sortable: true,
         thClass: 'table-head'
       }, {
-        key: 'principle_email_id',
-        label: 'PRINCIPLE EMAIL',
+        key: 'principal_email_id',
+        label: 'PRINCIPal EMAIL',
         sortable: true,
         thClass: 'table-head'
       }, {
-        key: 'principle_name',
+        key: 'principal_name',
         label: 'INCHARGE NAME',
         sortable: true,
         thClass: 'table-head'
@@ -333,7 +333,7 @@ var render = function() {
                     proxy: true
                   },
                   {
-                    key: "cell(principle_name)",
+                    key: "cell(principal_name)",
                     fn: function(data) {
                       return [
                         data.item.incharge != null
@@ -367,7 +367,7 @@ var render = function() {
                                     "Send Login Details by clicking edit button"
                                 }
                               },
-                              [_vm._v(_vm._s(data.item.principle_name))]
+                              [_vm._v(_vm._s(data.item.principal_name))]
                             )
                       ]
                     }

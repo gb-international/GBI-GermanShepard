@@ -357,9 +357,9 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
-                _c("h5", [_vm._v("Principle Email")]),
+                _c("h5", [_vm._v("Principal Email")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.client_view.principle_email_id))])
+                _c("p", [_vm._v(_vm._s(_vm.client_view.principal_email_id))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [

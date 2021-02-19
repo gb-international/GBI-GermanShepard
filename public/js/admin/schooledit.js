@@ -40,8 +40,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get(this.url).then(function (res) {
-        console.log(res);
-
         _this.$toast.fire({
           icon: "success",
           title: "Login Details Sent Successfully !!!"
@@ -351,9 +349,9 @@ __webpack_require__.r(__webpack_exports__);
         state_name: "",
         country_name: "",
         finance_email_id: "",
-        principle_email_id: "",
-        principle_name: "",
-        principle_mobile_number: "",
+        principal_email_id: "",
+        principal_name: "",
+        principal_mobile_number: "",
         pincode: "",
         mobile: "",
         address: ""
@@ -785,7 +783,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "name" } }, [
-                          _vm._v("Principle Name")
+                          _vm._v("Principal Name")
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -793,20 +791,20 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.principle_name,
-                              expression: "form.principle_name"
+                              value: _vm.form.principal_name,
+                              expression: "form.principal_name"
                             }
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("principle_name")
+                            "is-invalid": _vm.form.errors.has("principal_name")
                           },
                           attrs: {
                             type: "text",
-                            placeholder: "Enter Principle Name",
+                            placeholder: "Enter Principal Name",
                             rows: "5"
                           },
-                          domProps: { value: _vm.form.principle_name },
+                          domProps: { value: _vm.form.principal_name },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
@@ -814,7 +812,7 @@ var render = function() {
                               }
                               _vm.$set(
                                 _vm.form,
-                                "principle_name",
+                                "principal_name",
                                 $event.target.value
                               )
                             }
@@ -822,7 +820,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "principle_name" }
+                          attrs: { form: _vm.form, field: "principal_name" }
                         })
                       ],
                       1
@@ -835,7 +833,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "email" } }, [
-                          _vm._v("Principle Email")
+                          _vm._v("Principal Email")
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -843,14 +841,14 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.principle_email_id,
-                              expression: "form.principle_email_id"
+                              value: _vm.form.principal_email_id,
+                              expression: "form.principal_email_id"
                             }
                           ],
                           staticClass: "form-control",
                           class: {
                             "is-invalid": _vm.form.errors.has(
-                              "principle_email_id"
+                              "principal_email_id"
                             )
                           },
                           attrs: {
@@ -858,7 +856,7 @@ var render = function() {
                             placeholder: "Enter Email",
                             rows: "5"
                           },
-                          domProps: { value: _vm.form.principle_email_id },
+                          domProps: { value: _vm.form.principal_email_id },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
@@ -866,7 +864,7 @@ var render = function() {
                               }
                               _vm.$set(
                                 _vm.form,
-                                "principle_email_id",
+                                "principal_email_id",
                                 $event.target.value
                               )
                             }
@@ -874,7 +872,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "principle_email_id" }
+                          attrs: { form: _vm.form, field: "principal_email_id" }
                         })
                       ],
                       1
@@ -888,8 +886,8 @@ var render = function() {
                       [
                         _c(
                           "label",
-                          { attrs: { for: "principle_mobile_number" } },
-                          [_vm._v("Principle Mobile Number")]
+                          { attrs: { for: "principal_mobile_number" } },
+                          [_vm._v("Principal Mobile Number")]
                         ),
                         _vm._v(" "),
                         _c("input", {
@@ -897,21 +895,21 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.principle_mobile_number,
-                              expression: "form.principle_mobile_number"
+                              value: _vm.form.principal_mobile_number,
+                              expression: "form.principal_mobile_number"
                             }
                           ],
                           staticClass: "form-control",
                           class: {
                             "is-invalid": _vm.form.errors.has(
-                              "principle_mobile_number"
+                              "principal_mobile_number"
                             )
                           },
                           attrs: {
                             type: "text",
-                            placeholder: "Enter Principle Mobile Number"
+                            placeholder: "Enter Principal Mobile Number"
                           },
-                          domProps: { value: _vm.form.principle_mobile_number },
+                          domProps: { value: _vm.form.principal_mobile_number },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
@@ -919,7 +917,7 @@ var render = function() {
                               }
                               _vm.$set(
                                 _vm.form,
-                                "principle_mobile_number",
+                                "principal_mobile_number",
                                 $event.target.value
                               )
                             }
@@ -929,7 +927,7 @@ var render = function() {
                         _c("has-error", {
                           attrs: {
                             form: _vm.form,
-                            field: "principle_mobile_number"
+                            field: "principal_mobile_number"
                           }
                         })
                       ],

@@ -14,8 +14,8 @@ class AddPrincipleNameSchoolsTable extends Migration
     public function up()
     {
         Schema::table('schools', function (Blueprint $table) {
-            $table->string('principle_name')->nullable();
-            $table->string('principle_mobile_number')->nullable();
+            $table->string('principal_name')->nullable();
+            $table->string('principal_mobile_number')->nullable();
         });
     }
 

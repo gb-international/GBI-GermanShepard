@@ -55,45 +55,45 @@ to submit the data we are using a function. -->
           
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="name">Principle Name</label>
+              <label for="name">Principal Name</label>
               <input
                 type="text"
                 class="form-control"
-                placeholder="Enter Principle Name"
+                placeholder="Enter Principal Name"
                 rows="5"
-                v-model="form.principle_name"
-                :class="{ 'is-invalid': form.errors.has('principle_name') }"
+                v-model="form.principal_name"
+                :class="{ 'is-invalid': form.errors.has('principal_name') }"
               />
-              <has-error :form="form" field="principle_name"></has-error>
+              <has-error :form="form" field="principal_name"></has-error>
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="email">Principle Email</label>
+              <label for="email">Principal Email</label>
               <input
                 type="email"
                 class="form-control"
                 placeholder="Enter Email"
                 rows="5"
-                v-model="form.principle_email_id"
-                :class="{ 'is-invalid': form.errors.has('principle_email_id') }"
+                v-model="form.principal_email_id"
+                :class="{ 'is-invalid': form.errors.has('principal_email_id') }"
               />
-              <has-error :form="form" field="principle_email_id"></has-error>
+              <has-error :form="form" field="principal_email_id"></has-error>
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="principle_mobile_number">Principle Mobile Number</label>
+              <label for="principal_mobile_number">Principal Mobile Number</label>
               <input
                 type="text"
                 class="form-control"
-                placeholder="Enter Principle Mobile Number"
-                v-model="form.principle_mobile_number"
-                :class="{ 'is-invalid': form.errors.has('principle_mobile_number') }"
+                placeholder="Enter Principal Mobile Number"
+                v-model="form.principal_mobile_number"
+                :class="{ 'is-invalid': form.errors.has('principal_mobile_number') }"
               />
-              <has-error :form="form" field="principle_mobile_number"></has-error>
+              <has-error :form="form" field="principal_mobile_number"></has-error>
             </div>
           </div>
 
@@ -212,9 +212,9 @@ export default {
         state_name: "",
         country_name: "",
         finance_email_id: "",
-        principle_email_id: "",
-        principle_name:"",
-        principle_mobile_number:"",
+        principal_email_id: "",
+        principal_name:"",
+        principal_mobile_number:"",
         pincode: "",
         mobile: "",
         address: "",

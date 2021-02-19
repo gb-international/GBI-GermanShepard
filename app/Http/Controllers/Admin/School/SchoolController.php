@@ -27,7 +27,7 @@ class SchoolController extends Controller
     public function all($size)
     {
         return response()->json(School::select([
-            'id','school_name','principle_email_id','principle_name','user_id','updated_at'
+            'id','school_name','principal_email_id','principal_name','user_id','updated_at'
             ])
             ->with('incharge:id,name')
             ->latest('updated_at')
@@ -36,7 +36,7 @@ class SchoolController extends Controller
 
     public function login($id){
         $school = School::where('id',$id)->first();
-        $user = User::where('email',$school->principle_email_id)->first();
+        $user = User::where('email',$school->principal_email_id)->first();
         if(!$user){
             $user = $this->createUser($school);
         }else{
@@ -50,7 +50,7 @@ class SchoolController extends Controller
 
         $sendsms = new SendSms;
         $message = 'Please check your email to get the GBI Login Credentials';
-        $sendsms->sendLoginDetails($school->principle_mobile_number,$message);
+        $sendsms->sendLoginDetails($school->principal_mobile_number,$message);
         $emaildata = [
             'email'=>$user->email,
             'password'=>$user->email
@@ -141,12 +141,12 @@ class SchoolController extends Controller
       return $this->validate($request, [
             'school_name' => ['required',new AlphaSpace],
             'finance_email_id' => ['required','email',new EmailValidate],
-            'principle_email_id' => ['required','email',new EmailValidate],
+            'principal_email_id' => ['required','email',new EmailValidate],
     		'mobile' => 'required|numeric|regex:/^[0-9\-\+]{9,11}$/ix',
 
             'street' => 'required',
-            'principle_name'=>['required',new AlphaSpace],
-            'principle_mobile_number'=>'',
+            'principal_name'=>['required',new AlphaSpace],
+            'principal_mobile_number'=>'',
             'city_name' => 'required',
             'state_name' => 'required',
             'country_name' => 'required',
@@ -157,9 +157,9 @@ class SchoolController extends Controller
 
     protected function createUser($data){
         $user = new User();
-        $user->name = $data->principle_name;
-        $user->email = $data->principle_email_id;
-        $user->password = bcrypt($data->principle_email_id);
+        $user->name = $data->principal_name;
+        $user->email = $data->principal_email_id;
+        $user->password = bcrypt($data->principal_email_id);
         $user->status = 1;
         $user->is_incharge = '1';
         $user->save();
@@ -167,7 +167,7 @@ class SchoolController extends Controller
         $more->school_id = $data->school_id;
         $more->user_profession = 'teacher';
         $more->user_id = $user->id;
-        $more->phone_no = $data->principle_mobile_number;
+        $more->phone_no = $data->principal_mobile_number;
         $more->varified = '1';
         $more->photo = 'user.png';
         $more->change_password = 0;
@@ -175,8 +175,8 @@ class SchoolController extends Controller
         return $user;
     }
     protected function updateUser($user,$data){
-        $user->name = $data->principle_name;
-        $user->password = bcrypt($data->principle_email_id);
+        $user->name = $data->principal_name;
+        $user->password = bcrypt($data->principal_email_id);
         $user->status = 1;
         $user->is_incharge = '1';
         $user->save();
