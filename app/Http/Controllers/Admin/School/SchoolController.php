@@ -42,7 +42,6 @@ class SchoolController extends Controller
         }else{
             $user = $this->updateUser($user,$school);
         }
-        // add user_id in school table
         if($school->user_id != $user->id){
             $school->user_id = $user->id;
             $school->save();
@@ -179,6 +178,10 @@ class SchoolController extends Controller
         $user->password = bcrypt($data->principal_email_id);
         $user->status = 1;
         $user->is_incharge = '1';
+        $more = Information::where('user_id',$user->id)->first();
+        $more->school_id= $data->id;
+
+        $more->save();
         $user->save();
         return $user;
     }

@@ -36,7 +36,7 @@
     
     <div v-if="tours">
       <div class="row" v-for="tour in tours" :key="tour.id">
-
+        
         <tourcard :tour="tour" :userinfo="userinfo"/>
         
       </div>
@@ -46,6 +46,7 @@
 
 <script>
 import TourCard from './tour-card';
+
 export default {
   name: "Tour-list",
   components:{ tourcard:TourCard},

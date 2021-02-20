@@ -21,54 +21,69 @@ use Illuminate\Support\Facades\Hash;
 class TourController extends Controller{
 
      public function tourList(Request $request){
-
-        
-        $user = Auth::user();
-        $travels =  TourUser::with([
-            'tour' => function($tour){
-                $tour->with(['itinerary'=>function($detail){
-                    $detail->select('itineraries.id','itineraries.title','itineraries.detail_photo'); 
-                }]);
-                $tour->select('tours.tour_start_date','tours.travel_code','tours.no_of_person','tours.tour_end_date','tours.itinerary_id','tours.tour_id','tours.id');
-            }
-        ])
-        ->where('user_id',$user->id)
-        ->select('id','user_id','travel_code')
-        ->get();
-        foreach ($travels as $travel) 
-        {
-            // check if teacher has made payment
-            $teacher_paid = Userpayment::where([
-                'tour_code'=>$travel->tour->tour_id,
-                'added_by'=> 'teacher'
-            ])->first();
-            if($teacher_paid){
-                // check if teacher paid successfully by self for tour
-                if($teacher_paid->payment_mode == 'self' && $teacher_paid->status == 'success')
-                {
-                    $travel['payment'] = 'success';                    
+         $user = Auth::user();
+         // if user is student or teacher
+         if($user->is_incharge == 0){
+            $travels =  TourUser::with([
+                'tour' => function($tour){
+                    $tour->with(['itinerary'=>function($detail){
+                        $detail->select('itineraries.id','itineraries.title','itineraries.detail_photo'); 
+                    }]);
+                    $tour->select('tours.tour_start_date','tours.travel_code','tours.no_of_person','tours.tour_end_date','tours.itinerary_id','tours.tour_id','tours.id');
                 }
-                else if($teacher_paid->payment_mode == 'student'){
-                    //else now check if student has paid
-                    $data = Userpayment::where([
-                        "tour_code"=>$travel->tour->tour_id,
-                        'user_id'=> $travel->user_id
-                    ])
-                    ->select('status')->first();
-                    if($data){
-                        $travel['payment'] = $data->status;
-                    }else{
-                        $travel['payment'] = 'not-paid';
+            ])
+            ->where('user_id',$user->id)
+            ->select('id','user_id','tour_code','travel_code')
+            ->get();
+            if(count($travels) >0){
+                $school = School::where('id',$request->school_id)
+                    ->select('id','user_id')
+                    ->first();
+                foreach ($travels as $travel) {
+    
+                    $incharge_paid = Userpayment::where([
+                        'tour_code'=>$travel->tour->tour_id,
+                        'user_id'=> $school->user_id
+                    ])->first();
+                    $travel['payment'] = 'pending';//default pending
+                    if($incharge_paid){
+                        // teacher payment mode by self
+                        if($incharge_paid->payment_mode === 'self'){
+                            if($incharge_paid->status === 'success'){
+                                $travel['payment'] = 'success';
+                            }
+                        }
+                        // if payment mode is student
+                        else if($incharge_paid->payment_mode === 'student'){
+                            $data = Userpayment::where([
+                                "tour_code"=>$travel->tour->tour_id,
+                                'user_id'=> $travel->user_id
+                            ])
+                            ->select('status')->first();
+                            if($data->status === 'success'){
+                                $travel['payment'] = 'success';
+                            }
+                        }
                     }
-                }else{
-                    $travel['payment'] = 'not-paid';
                 }
-            }else{
-                $travel['payment'] = null;
             }
         }
-
-        return response()->json($travels);
+        // if user is incharge
+        if($user->is_incharge == 1){
+            return School::with('tours:id,school_id,itinerary_id')->where('user_id',$user->id)->first();
+            return $tour = School::with([
+                    'tours' => function($tour){
+                        $tour->with(['itinerary'=>function($detail){
+                            $detail->select('itineraries.id','itineraries.title','itineraries.detail_photo'); 
+                        }]);
+                        $tour->select('tours.tour_start_date','tours.travel_code','tours.no_of_person','tours.tour_end_date','tours.itinerary_id','tours.tour_id','tours.id');
+                    }
+                ])
+                ->where('user_id',$user->id)  
+                ->select('id','user_id')          
+                ->get();
+        }
+         return response()->json($travels);
     }
 
 

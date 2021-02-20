@@ -138,30 +138,16 @@ export default {
       flightData: [],
       alldata: [],
       cityList: [],
+      tour_code:'',
     };
   },
 
   beforeMount() {
-    this.tourListData(this.$route.params.id);
+    this.tour_code = this.$cookies.get('tour_code');
+    this.tourListData(this.tour_code);
   },
 
   methods: {
-    paymentStatus: function () {
-      var data = {
-        user_id: this.alldata.user_id,
-        tour_code: this.$route.params.id,
-      };
-      this.$api
-        .POST("/api/tour-payment-status", data)
-        .then((response) => {
-          if (response.status != "success") {
-            this.$router.push("/tour-list");
-          }
-        })
-        .catch((error) => {
-          this.handleError(error);
-        });
-    },
     // timeFormat(date) {
     //   var str = new Date(date).toDateString();
     //   date = new Date(date);
@@ -189,7 +175,6 @@ export default {
           this.itineraryData = response.itinerary;
           this.flightData = response.bookedflights;
           this.hotelData = response.bookedhotels;
-          this.paymentStatus();
           this.DestinationCity(this.itineraryData.itinerarydays);
         })
         .catch((error) => {

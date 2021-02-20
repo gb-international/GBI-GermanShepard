@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["js/front/TourList"],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/tour/TourCard.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/components/tour/TourCard.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/tour/InchargeTourCard.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/components/tour/InchargeTourCard.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -103,6 +103,114 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/tour/TourCard.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/components/tour/TourCard.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["tour", "userinfo"],
+  data: function data() {
+    return {};
+  },
+  methods: {
+    showTourDetail: function showTourDetail(tour_code) {
+      this.$cookies.set('tour_code', tour_code);
+      this.$router.push('/tour-detail');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/user/tour/TourList.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/pages/user/tour/TourList.vue?vue&type=script&lang=js& ***!
@@ -113,6 +221,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _front_components_tour_TourCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/front/components/tour/TourCard */ "./resources/js/front/components/tour/TourCard.vue");
+/* harmony import */ var _front_components_tour_InchargeTourCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/front/components/tour/InchargeTourCard */ "./resources/js/front/components/tour/InchargeTourCard.vue");
+//
 //
 //
 //
@@ -161,10 +271,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Tour-list",
   components: {
-    tourcard: _front_components_tour_TourCard__WEBPACK_IMPORTED_MODULE_0__["default"]
+    tourcard: _front_components_tour_TourCard__WEBPACK_IMPORTED_MODULE_0__["default"],
+    InchargeTourCard: _front_components_tour_InchargeTourCard__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
@@ -182,8 +294,10 @@ __webpack_require__.r(__webpack_exports__);
     tourListData: function tourListData() {
       var _this = this;
 
-      var data = [];
-      this.$api.POST("/api/tour-list", []).then(function (res) {
+      var data = {
+        'school_id': this.userinfo.school_id
+      };
+      this.$api.POST("/api/tour-list", data).then(function (res) {
         if (res.length == 0) {
           _this.formShow = true;
         } else {
@@ -235,10 +349,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/tour/TourCard.vue?vue&type=template&id=ae11852c&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/components/tour/TourCard.vue?vue&type=template&id=ae11852c& ***!
-  \**********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/tour/InchargeTourCard.vue?vue&type=template&id=10756bba&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/components/tour/InchargeTourCard.vue?vue&type=template&id=10756bba& ***!
+  \******************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -531,6 +645,288 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/tour/TourCard.vue?vue&type=template&id=ae11852c&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/components/tour/TourCard.vue?vue&type=template&id=ae11852c& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "w-100" }, [
+    _c(
+      "div",
+      {
+        staticClass: "bg-cover text-white tour_list_card mt-3",
+        style: {
+          backgroundImage:
+            "url('/uploadimage/" + _vm.tour.tour.itinerary.detail_photo + "')"
+        }
+      },
+      [
+        _c("div", { staticClass: "container pt-4 font-weight-bold" }, [
+          _vm.userinfo.user_profession == "teacher"
+            ? _c("div", [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-8" }, [
+                    _c("p", { staticClass: "font-italic" }, [
+                      _c(
+                        "span",
+                        { staticClass: "display-4 font-weight-normal" },
+                        [_vm._v("Tour to")]
+                      ),
+                      _vm._v(" "),
+                      _c("small", [
+                        _vm._v(
+                          "(" +
+                            _vm._s(_vm.tour.tour.tour_start_date) +
+                            " - " +
+                            _vm._s(_vm.tour.tour.tour_end_date) +
+                            ")"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "lead font-weight-normal" }, [
+                      _vm._v(_vm._s(_vm.tour.tour.itinerary.title))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-4 text-center mb-10 mt-5" },
+                    [
+                      _vm.tour.payment == null || _vm.tour.payment == "not-paid"
+                        ? _c(
+                            "router-link",
+                            {
+                              staticClass: "btn btn-light",
+                              attrs: {
+                                to: "/tour-payment/" + _vm.tour.tour.tour_id
+                              }
+                            },
+                            [_vm._v("PAY NOW")]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.tour.payment == "success"
+                        ? _c("img", {
+                            staticClass: "w-45",
+                            attrs: { src: "/images/icons/paid.png" }
+                          })
+                        : _vm._e()
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row text-center" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col p-0" },
+                    [
+                      _vm.tour.payment == null || _vm.tour.payment == "not-paid"
+                        ? _c(
+                            "div",
+                            {
+                              staticClass:
+                                "text-center bg-transparent-card p-t-15 pb-15 text-white"
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "w-20 mr-1",
+                                attrs: {
+                                  src: "/images/icons/viewitinerary.png"
+                                }
+                              }),
+                              _vm._v("View Itinerary\n            ")
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.tour.payment == "success"
+                        ? _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: "/tour-detail/" + _vm.tour.tour.tour_id
+                              }
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "text-center bg-transparent-card p-t-15 pb-15 text-white"
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "w-20 mr-1",
+                                    attrs: {
+                                      src: "/images/icons/viewitinerary.png"
+                                    }
+                                  }),
+                                  _vm._v("View Itinerary\n              ")
+                                ]
+                              )
+                            ]
+                          )
+                        : _vm._e()
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col p-0" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: "/group-member/" + _vm.tour.tour.tour_id
+                          }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "text-cente bg-transparent-card p-t-15 pb-15 ml-1 text-white"
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "w-20 mr-1",
+                                attrs: {
+                                  src: "/images/icons/viewmemberlist.png"
+                                }
+                              }),
+                              _vm._v(" Group Members\n              ")
+                            ]
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.userinfo.user_profession == "student"
+            ? _c("div", [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-8" }, [
+                    _c("p", { staticClass: "font-italic" }, [
+                      _c(
+                        "span",
+                        { staticClass: "display-4 font-weight-normal" },
+                        [_vm._v("Tour to")]
+                      ),
+                      _vm._v(" "),
+                      _c("small", [
+                        _vm._v(
+                          "(" +
+                            _vm._s(_vm.tour.tour.tour_start_date) +
+                            " - " +
+                            _vm._s(_vm.tour.tour.tour_end_date) +
+                            ")"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "lead font-weight-normal" }, [
+                      _vm._v(_vm._s(_vm.tour.tour.itinerary.title))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-4 text-center mb-10 mt-5" },
+                    [
+                      _vm.tour.payment == "not-paid"
+                        ? _c(
+                            "router-link",
+                            {
+                              staticClass: "btn btn-light",
+                              attrs: {
+                                to: "/tour-payment/" + _vm.tour.tour.tour_id
+                              }
+                            },
+                            [_vm._v("PAY NOW")]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.tour.payment == "success"
+                        ? _c("img", {
+                            staticClass: "w-45",
+                            attrs: { src: "/images/icons/paid.png" }
+                          })
+                        : _vm._e()
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row p-0" }, [
+                  _c("div", { staticClass: "col-sm-12 p-0" }, [
+                    _vm.tour.payment == "success"
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "text-center link bg-transparent-card p-t-15 pb-15 text-white link",
+                            on: {
+                              click: function($event) {
+                                return _vm.showTourDetail(_vm.tour.tour.tour_id)
+                              }
+                            }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "w-20 mr-1",
+                              attrs: { src: "/images/icons/viewitinerary.png" }
+                            }),
+                            _vm._v(" View Itinerary\n            ")
+                          ]
+                        )
+                      : _c(
+                          "div",
+                          {
+                            staticClass:
+                              "text-center bg-transparent-card p-t-15 pb-15 text-white"
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "w-20 mr-1",
+                              attrs: { src: "/images/icons/viewitinerary.png" }
+                            }),
+                            _vm._v("View Itinerary\n            ")
+                          ]
+                        )
+                  ])
+                ])
+              ])
+            : _vm._e()
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/user/tour/TourList.vue?vue&type=template&id=4db13818&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/pages/user/tour/TourList.vue?vue&type=template&id=4db13818& ***!
@@ -632,9 +1028,13 @@ var render = function() {
               "div",
               { key: tour.id, staticClass: "row" },
               [
-                _c("tourcard", {
-                  attrs: { tour: tour, userinfo: _vm.userinfo }
-                })
+                _vm.userinfo.is_incharge == 1
+                  ? _c("InchargeTourCard", {
+                      attrs: { tour: tour, userinfo: _vm.userinfo }
+                    })
+                  : _c("tourcard", {
+                      attrs: { tour: tour, userinfo: _vm.userinfo }
+                    })
               ],
               1
             )
@@ -659,6 +1059,75 @@ var staticRenderFns = [
   }
 ]
 render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/front/components/tour/InchargeTourCard.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/front/components/tour/InchargeTourCard.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _InchargeTourCard_vue_vue_type_template_id_10756bba___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InchargeTourCard.vue?vue&type=template&id=10756bba& */ "./resources/js/front/components/tour/InchargeTourCard.vue?vue&type=template&id=10756bba&");
+/* harmony import */ var _InchargeTourCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InchargeTourCard.vue?vue&type=script&lang=js& */ "./resources/js/front/components/tour/InchargeTourCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _InchargeTourCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _InchargeTourCard_vue_vue_type_template_id_10756bba___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _InchargeTourCard_vue_vue_type_template_id_10756bba___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/front/components/tour/InchargeTourCard.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/front/components/tour/InchargeTourCard.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/front/components/tour/InchargeTourCard.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InchargeTourCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./InchargeTourCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/tour/InchargeTourCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InchargeTourCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/front/components/tour/InchargeTourCard.vue?vue&type=template&id=10756bba&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/front/components/tour/InchargeTourCard.vue?vue&type=template&id=10756bba& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InchargeTourCard_vue_vue_type_template_id_10756bba___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./InchargeTourCard.vue?vue&type=template&id=10756bba& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/tour/InchargeTourCard.vue?vue&type=template&id=10756bba&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InchargeTourCard_vue_vue_type_template_id_10756bba___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InchargeTourCard_vue_vue_type_template_id_10756bba___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

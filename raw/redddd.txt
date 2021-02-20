@@ -191,6 +191,16 @@ check if teacher has paid then all the students should should be able to access 
 
 
 
+Login types :
+   student,teacher,incharge
+   
+   routes/
+       Dashboard :      incharge,teacher,student
+       tourList :       incharge,teacher,student
+       Groupmembers :   incharge
+       Edit profile :   incharge,teacher,student
+       ChangePassword : incharge,teacher,student
+
 
 
 

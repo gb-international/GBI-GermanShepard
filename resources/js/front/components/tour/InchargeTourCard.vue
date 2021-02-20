@@ -68,10 +68,11 @@
 
           <div class="row p-0">
             <div class="col-sm-12 p-0">
-              <div class="text-center link bg-transparent-card p-t-15 pb-15 text-white link" v-if="tour.payment == 'success'" @click="showTourDetail(tour.tour.tour_id)">
-                <img src="/images/icons/viewitinerary.png" class="w-20 mr-1"> View Itinerary
-              </div>
-
+              <router-link v-if="tour.payment == 'success'" :to="`/tour-detail/${tour.tour.tour_id}`">
+                <div class="text-center bg-transparent-card p-t-15 pb-15 text-white">
+                  <img src="/images/icons/viewitinerary.png" class="w-20 mr-1"> View Itinerary
+                </div>
+              </router-link>
               <div v-else class="text-center bg-transparent-card p-t-15 pb-15 text-white">
                   <img src="/images/icons/viewitinerary.png" class="w-20 mr-1">View Itinerary
               </div>
@@ -88,11 +89,5 @@ export default {
   data() {
     return {};
   },
-  methods:{
-    showTourDetail(tour_code){
-      this.$cookies.set('tour_code',tour_code);
-      this.$router.push('/tour-detail');
-    }
-  }
 };
 </script>

@@ -9,8 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _front_mixins_user_ProfileEditMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/front/mixins/user/ProfileEditMixin */ "./resources/js/front/mixins/user/ProfileEditMixin.js");
 //
 //
 //
@@ -339,212 +338,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ProfileEdit",
-  components: {
-    "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"]
-  },
+  mixins: [_front_mixins_user_ProfileEditMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
-    return {
-      client_input_box: "",
-      oddclass: false,
-      evenclass: true,
-      itineraryData: {},
-      width: 0,
-      image: "",
-      prncilIcon: true,
-      userinfo: [],
-      total: [],
-      school_list: "",
-      school_field: false,
-      namefield: false,
-      addressfield: false,
-      institutionfield: false,
-      label_name: "",
-      form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
-        name: "",
-        gender: "",
-        email: "",
-        phone_no: "",
-        father_name: "",
-        mother_name: "",
-        city: "",
-        state: "",
-        country: "",
-        zip_code: "",
-        user_class: "",
-        admission_year: "",
-        address: "",
-        dob: "",
-        schoolName: "",
-        client_type: "",
-        client_input: "",
-        profession_name: "",
-        school_id: "",
-        profession_address: "",
-        user_profession: "",
-        institution_code: "",
-        subscribe: false
-      })
-    };
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    if (localStorage.token == "") {
-      this.$router.push("/");
-    }
-
-    this.$axios.get("/api/school-list").then(function (response) {
-      _this.school_list = response.data;
-    });
-    var data = [];
-    this.$axios.post("/api/user-show", data, {
-      headers: {
-        Authorization: "Bearer ".concat(localStorage.token)
-      }
-    }).then(function (response) {
-      var list = response.data.success;
-      _this.form.name = list.name;
-      _this.form.gender = list.information["gender"];
-      _this.form.email = list.email;
-      _this.form.phone_no = list.information["phone_no"];
-      _this.form.father_name = list.information["father_name"];
-      _this.form.mother_name = list.information["mother"];
-      _this.form.city = list.information["city"];
-      _this.form.state = list.information["state"];
-      _this.form.country = list.information["country"];
-      _this.form.zip_code = list.information["zip_code"];
-      _this.form.user_class = list.information["user_class"];
-      _this.form.admission_year = list.information["admission_year"];
-      _this.form.address = list.information["address"];
-      _this.form.dob = list.information["dob"];
-      _this.form.schoolName = list.information["schoolName"];
-      _this.form.user_profession = list.information["user_profession"];
-      _this.form.profession_name = list.information["profession_name"];
-      _this.form.profession_address = list.information["profession_address"];
-      _this.form.institution_code = list.information["institution_code"];
-      _this.form.image = list.information["photo"];
-      _this.image = _this.form.image;
-
-      if (list.subscribe) {
-        if (list.subscribe["status"] == 1) {
-          _this.form.subscribe = true;
-        } else {
-          _this.form.subscribe = false;
-        }
-      }
-
-      var type = _this.form.user_profession;
-
-      if (type == "student" || type == "teacher") {
-        _this.client_input_box = "1";
-        _this.form.school_id = list.information.school_id;
-      } else if (type == "corporate") {
-        _this.client_input_box = "2";
-      } else {
-        _this.client_input_box = "3";
-      }
-    })["catch"](function (error) {
-      _this.handleError(error);
-    });
-  },
-  watch: {
-    institution: function institution() {
-      if (this.form.user_profession == "other") {
-        this.namefield = true;
-        this.addressfield = true;
-        this.label_name = "Educational Institution";
-      } else {
-        this.namefield = false;
-        this.addressfield = false;
-      }
-    },
-    "form.user_profession": function formUser_profession() {
-      this.namefield = false;
-      this.addressfield = false;
-      this.school_field = false;
-
-      if (this.form.user_profession == "corporate") {
-        this.namefield = true;
-        this.addressfield = true;
-        this.label_name = "Corporate";
-      } else if (this.form.user_profession == "other") {
-        this.namefield = true;
-        this.label_name = "Occupation";
-      } else {
-        this.school_field = true;
-      }
-    }
-  },
-  methods: {
-    onDrop: function onDrop(e) {
-      e.stopPropagation();
-      e.preventDefault();
-      var files = e.dataTransfer.files;
-      this.createFile(files[0]);
-    },
-    onChange: function onChange(e) {
-      var files = e.target.files;
-      this.createFile(files[0]);
-    },
-    createFile: function createFile(file) {
-      if (!file.type.match("image.*")) {
-        alert("Select an image");
-        return;
-      }
-
-      var img = new Image();
-      var reader = new FileReader();
-      var vm = this;
-
-      reader.onload = function (e) {
-        vm.image = e.target.result;
-        var data = new FormData();
-        data.append("photo", vm.image);
-        data.append("_method", "post"); // add this
-
-        vm.$axios.post("/api/update-user-image", data, {
-          headers: {
-            Authorization: "Bearer ".concat(localStorage.token)
-          }
-        }).then(function (response) {
-          vm.image = response.data.photo;
-          vm.$swal.fire({
-            icon: "success",
-            title: "Profile image updated !!"
-          });
-        })["catch"](function (error) {
-          return console.log();
-        }); //
-      };
-
-      reader.readAsDataURL(file);
-    },
-    removeFile: function removeFile() {
-      this.image = "";
-    },
-    /// Update the user information
-    updateUserData: function updateUserData() {
-      var _this2 = this;
-
-      if (this.form.subscribe == true) {
-        this.form.subscribe = 1;
-      } else {
-        this.form.subscribe = 0;
-      }
-
-      this.form.post("/api/user-update", {
-        headers: {
-          Authorization: "Bearer ".concat(localStorage.token)
-        }
-      }).then(function (response) {
-        _this2.$swal.fire({
-          icon: "success",
-          title: "Profile updated!!"
-        });
-      })["catch"](function (error) {
-        _this2.handleError(error);
-      });
-    }
+    return {};
   }
 });
 
@@ -1538,6 +1334,231 @@ var staticRenderFns = [
 render._withStripped = true
 
 
+
+/***/ }),
+
+/***/ "./resources/js/front/mixins/user/ProfileEditMixin.js":
+/*!************************************************************!*\
+  !*** ./resources/js/front/mixins/user/ProfileEditMixin.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ProfileEdit",
+  components: {
+    "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"]
+  },
+  data: function data() {
+    return {
+      client_input_box: "",
+      oddclass: false,
+      evenclass: true,
+      itineraryData: {},
+      width: 0,
+      image: "",
+      prncilIcon: true,
+      userinfo: [],
+      total: [],
+      school_list: "",
+      school_field: false,
+      namefield: false,
+      addressfield: false,
+      institutionfield: false,
+      label_name: "",
+      form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
+        name: "",
+        gender: "",
+        email: "",
+        phone_no: "",
+        father_name: "",
+        mother_name: "",
+        city: "",
+        state: "",
+        country: "",
+        zip_code: "",
+        user_class: "",
+        admission_year: "",
+        address: "",
+        dob: "",
+        schoolName: "",
+        client_type: "",
+        client_input: "",
+        profession_name: "",
+        school_id: "",
+        profession_address: "",
+        user_profession: "",
+        institution_code: "",
+        subscribe: false
+      })
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    if (localStorage.token == "") {
+      this.$router.push("/");
+    }
+
+    this.$axios.get("/api/school-list").then(function (response) {
+      _this.school_list = response.data;
+    });
+    var data = [];
+    this.$axios.post("/api/user-show", data, {
+      headers: {
+        Authorization: "Bearer ".concat(localStorage.token)
+      }
+    }).then(function (response) {
+      var list = response.data.success;
+      _this.form.name = list.name;
+      _this.form.gender = list.information["gender"];
+      _this.form.email = list.email;
+      _this.form.phone_no = list.information["phone_no"];
+      _this.form.father_name = list.information["father_name"];
+      _this.form.mother_name = list.information["mother"];
+      _this.form.city = list.information["city"];
+      _this.form.state = list.information["state"];
+      _this.form.country = list.information["country"];
+      _this.form.zip_code = list.information["zip_code"];
+      _this.form.user_class = list.information["user_class"];
+      _this.form.admission_year = list.information["admission_year"];
+      _this.form.address = list.information["address"];
+      _this.form.dob = list.information["dob"];
+      _this.form.schoolName = list.information["schoolName"];
+      _this.form.user_profession = list.information["user_profession"];
+      _this.form.profession_name = list.information["profession_name"];
+      _this.form.profession_address = list.information["profession_address"];
+      _this.form.institution_code = list.information["institution_code"];
+      _this.form.image = list.information["photo"];
+      _this.image = _this.form.image;
+
+      if (list.subscribe) {
+        if (list.subscribe["status"] == 1) {
+          _this.form.subscribe = true;
+        } else {
+          _this.form.subscribe = false;
+        }
+      }
+
+      var type = _this.form.user_profession;
+
+      if (type == "student" || type == "teacher") {
+        _this.client_input_box = "1";
+        _this.form.school_id = list.information.school_id;
+      } else if (type == "corporate") {
+        _this.client_input_box = "2";
+      } else {
+        _this.client_input_box = "3";
+      }
+    })["catch"](function (error) {
+      _this.handleError(error);
+    });
+  },
+  watch: {
+    institution: function institution() {
+      if (this.form.user_profession == "other") {
+        this.namefield = true;
+        this.addressfield = true;
+        this.label_name = "Educational Institution";
+      } else {
+        this.namefield = false;
+        this.addressfield = false;
+      }
+    },
+    "form.user_profession": function formUser_profession() {
+      this.namefield = false;
+      this.addressfield = false;
+      this.school_field = false;
+
+      if (this.form.user_profession == "corporate") {
+        this.namefield = true;
+        this.addressfield = true;
+        this.label_name = "Corporate";
+      } else if (this.form.user_profession == "other") {
+        this.namefield = true;
+        this.label_name = "Occupation";
+      } else {
+        this.school_field = true;
+      }
+    }
+  },
+  methods: {
+    onDrop: function onDrop(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      var files = e.dataTransfer.files;
+      this.createFile(files[0]);
+    },
+    onChange: function onChange(e) {
+      var files = e.target.files;
+      this.createFile(files[0]);
+    },
+    createFile: function createFile(file) {
+      if (!file.type.match("image.*")) {
+        alert("Select an image");
+        return;
+      }
+
+      var img = new Image();
+      var reader = new FileReader();
+      var vm = this;
+
+      reader.onload = function (e) {
+        vm.image = e.target.result;
+        var data = new FormData();
+        data.append("photo", vm.image);
+        data.append("_method", "post"); // add this
+
+        vm.$axios.post("/api/update-user-image", data, {
+          headers: {
+            Authorization: "Bearer ".concat(localStorage.token)
+          }
+        }).then(function (response) {
+          vm.image = response.data.photo;
+          vm.$swal.fire({
+            icon: "success",
+            title: "Profile image updated !!"
+          });
+        })["catch"](function (error) {
+          return console.log();
+        }); //
+      };
+
+      reader.readAsDataURL(file);
+    },
+    removeFile: function removeFile() {
+      this.image = "";
+    },
+    /// Update the user information
+    updateUserData: function updateUserData() {
+      var _this2 = this;
+
+      if (this.form.subscribe == true) {
+        this.form.subscribe = 1;
+      } else {
+        this.form.subscribe = 0;
+      }
+
+      this.form.post("/api/user-update", {
+        headers: {
+          Authorization: "Bearer ".concat(localStorage.token)
+        }
+      }).then(function (response) {
+        _this2.$swal.fire({
+          icon: "success",
+          title: "Profile updated!!"
+        });
+      })["catch"](function (error) {
+        _this2.handleError(error);
+      });
+    }
+  }
+});
 
 /***/ }),
 

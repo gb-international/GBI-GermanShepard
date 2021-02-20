@@ -39,7 +39,8 @@
 
     <div v-if="tours">
       <div class="row" v-for="tour in tours" :key="tour.id">
-        <tourcard :tour="tour" :userinfo="userinfo" />
+        <InchargeTourCard v-if="userinfo.is_incharge==1" :tour="tour" :userinfo="userinfo" />
+        <tourcard v-else :tour="tour" :userinfo="userinfo" />
       </div>
     </div>
   </div>
@@ -47,9 +48,10 @@
 
 <script>
 import TourCard from "@/front/components/tour/TourCard";
+import InchargeTourCard from '@/front/components/tour/InchargeTourCard';
 export default {
   name: "Tour-list",
-  components: { tourcard: TourCard },
+  components: { tourcard: TourCard,InchargeTourCard },
   data() {
     return {
       tours: [],
@@ -65,8 +67,8 @@ export default {
 
   methods: {
     tourListData() {
-      var data = [];
-      this.$api.POST("/api/tour-list", []).then((res) => {
+      var data = {'school_id':this.userinfo.school_id};
+      this.$api.POST("/api/tour-list", data).then((res) => {
         if (res.length == 0) {
           this.formShow = true;
         } else {

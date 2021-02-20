@@ -96,6 +96,8 @@ class AuthController extends Controller{
             'state'=>$user->information->state,
             'country'=>$user->information->country,
             'status'=>$user->status,
+            'is_incharge'=>$user->is_incharge,
+            'school_id'=>$user->information->school_id,
             'change_password' => $user->information->change_password
         ];
         // Format the final response in a desirable format

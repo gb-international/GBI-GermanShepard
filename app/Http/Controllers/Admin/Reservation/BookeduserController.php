@@ -75,7 +75,6 @@ class BookeduserController extends Controller
     }
     public function show($id)
     {
-
         $tour = TourUser::where('id',$id)
             ->with('tour:travel_code,tour_id,school_id','user:id,name')->first();
         $data = Userpayment::where(['user_id'=>$tour->user_id,'tour_code'=>$tour->tour->tour_id])->first();

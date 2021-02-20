@@ -9,8 +9,10 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_slick_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-slick-carousel */ "./node_modules/vue-slick-carousel/dist/vue-slick-carousel.umd.js");
-/* harmony import */ var vue_slick_carousel__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_slick_carousel__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _front_mixins_user_Dashboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/front/mixins/user/Dashboard */ "./resources/js/front/mixins/user/Dashboard.js");
+/* harmony import */ var _front_components_user_UserinfoCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/front/components/user/UserinfoCard */ "./resources/js/front/components/user/UserinfoCard.vue");
+/* harmony import */ var _front_components_user_BookedTourButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/front/components/user/BookedTourButton */ "./resources/js/front/components/user/BookedTourButton.vue");
+/* harmony import */ var _front_components_user_UpcomingCrasousel_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/front/components/user/UpcomingCrasousel.vue */ "./resources/js/front/components/user/UpcomingCrasousel.vue");
 //
 //
 //
@@ -74,244 +76,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Dashboard",
+  name: "DashboardTeacher",
   components: {
-    VueSlickCarousel: vue_slick_carousel__WEBPACK_IMPORTED_MODULE_0___default.a
+    'user-info-card': _front_components_user_UserinfoCard__WEBPACK_IMPORTED_MODULE_1__["default"],
+    'booked-tour-button': _front_components_user_BookedTourButton__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'upcoming-tour-crasousel': _front_components_user_UpcomingCrasousel_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  data: function data() {
-    return {
-      settings: {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        initialSlide: 0,
-        responsive: [{
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            infinite: true,
-            dots: true
-          }
-        }, {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
-          }
-        }, {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }]
-      },
-      itineraryData: {},
-      upcoming_list: [],
-      userinfo: {},
-      valid: false
-    };
-  },
-  beforeMount: function beforeMount() {
-    var userdata = this.$cookies.get('user');
-
-    if (userdata.status == 0) {
-      this.$router.push("/user-information");
-    }
-  },
-  mounted: function mounted() {
-    this.checkLogin();
-    this.upComingData();
-  },
-  methods: {
-    checkLogin: function checkLogin() {
-      this.$cookies.remove('login');
-
-      if (this.$cookies.get('access_token') == null) {
-        this.$router.push("/");
-      }
-
-      this.userinfo = this.$cookies.get('user');
-      this.valid = true;
-    },
-    userData: function userData() {
-      if (this.userinfo.status == 0) {
-        this.$router.push("/user-information");
-        return false;
-      }
-
-      if (this.userinfo.change_password == 0) {
-        this.$swal.fire("warning", "Please change your password for security purpose !!! <br>", "warning");
-      }
-    },
-    // Upcoming data
-    upComingData: function upComingData() {
-      var _this = this;
-
-      this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
-        _this.upcoming_list = response.data;
-      });
-    },
-    getImgUrl: function getImgUrl(img) {
-      return "/uploadimage/" + img;
-    },
-    logout: function logout() {
-      var _this2 = this;
-
-      this.$api.POST('/api/logout-user', []).then(function (response) {
-        _this2.$cookies.remove('access_token');
-
-        _this2.$store.dispatch("logout").then(function () {
-          _this2.$bus.$emit("logged", "User loogedout");
-
-          _this2.$router.push("/");
-        });
-      })["catch"](function (error) {
-        _this2.$store.dispatch("logout").then(function () {
-          _this2.$bus.$emit("logged", "User loogedout");
-
-          _this2.$router.push("/");
-        });
-      });
-    }
-  }
+  mixins: [_front_mixins_user_Dashboard__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -332,305 +108,60 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.valid
-    ? _c("div", [
-        _c("div", { staticClass: "user_dashboard_profile" }, [
-          _c("div", { staticClass: "container" }, [
-            _c(
-              "div",
-              { staticClass: "text-right" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "user_edit",
-                    attrs: { to: "/profile-edit", title: "edit profile" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "icon-width",
-                      attrs: { src: "/images/icons/user.png" }
-                    })
-                  ]
-                ),
-                _c("br"),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "user_edit",
-                    attrs: { to: "/update-password", title: "setting" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "icon-width",
-                      attrs: { src: "/images/icons/setting.png" }
-                    })
-                  ]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm.userinfo
-              ? _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-lg-2 text-center image" }, [
-                    _c(
-                      "figure",
-                      {
-                        directives: [
-                          { name: "lazyload", rawName: "v-lazyload" }
-                        ],
-                        staticClass: "image__wrapper"
-                      },
-                      [
-                        _c("ImageSpinner", { staticClass: "image__spinner" }),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "image__item img img-circle profile-img",
-                          attrs: {
-                            "data-url": "/uploadimage/" + _vm.userinfo.photo,
-                            alt: "user profile"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-10" }, [
-                    _c("div", { staticClass: "username text-left" }, [
-                      _c("h3", [_vm._v(_vm._s(_vm.userinfo.name))]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          _vm._s(_vm.userinfo.city) +
-                            " " +
-                            _vm._s(_vm.userinfo.country)
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row text-left" }, [
-                      _c("div", { staticClass: "col-lg-5" }, [
-                        _c("div", { staticClass: "userinfo" }, [
-                          _c("div", { staticClass: "userinfoFirst" }, [
-                            _vm.userinfo.father_name
-                              ? _c("p", [_vm._v("Father Name")])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "bottom_text" }, [
-                              _vm._v(_vm._s(_vm.userinfo.father_name))
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "userinfoSecond" }, [
-                            _c("p", [_vm._v("User Type")]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "bottom_text" }, [
-                              _vm._v(_vm._s(_vm.userinfo.user_profession))
-                            ])
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-lg-7" }, [
-                        _c("div", { staticClass: "userinfo" }, [
-                          _c("div", { staticClass: "userinfoFirst" }, [
-                            _c("p", [_vm._v("User Id")]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "bottom_text" }, [
-                              _vm._v(_vm._s(_vm.userinfo.email))
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "userinfoSecond" }, [
-                            _c("p", [_vm._v("Mobile Number")]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "bottom_text" }, [
-                              _vm._v(_vm._s(_vm.userinfo.phone_no))
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "logout",
-                attrs: { href: "#" },
-                on: { click: _vm.logout }
-              },
-              [_vm._v("Logout")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "dashboard-body-part-one" }, [
-            _c("div", { attrs: { id: "rowbody" } }, [
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  { staticClass: "col colbutton mb-10" },
-                  [
-                    _c("router-link", { attrs: { to: "/tour-list" } }, [
-                      _c("div", { staticClass: "rowdata1" }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/front/images/booked_320.png",
-                            loading: "lazy"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "icon_text" }, [
-                          _vm._v("Booked Itinerary")
-                        ])
-                      ])
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(0)
-              ])
-            ])
-          ]),
+    ? _c(
+        "div",
+        [
+          _c("user-info-card", { attrs: { userinfo: _vm.userinfo } }),
           _vm._v(" "),
-          _c("h5", { staticClass: "title_section" }, [
-            _vm._v("Upcoming Event")
-          ]),
-          _vm._v(" "),
-          _vm.upcoming_list.length > 0
-            ? _c(
-                "div",
-                { staticClass: "dashboard-body-part-two-2" },
+          _c(
+            "div",
+            { staticClass: "container" },
+            [
+              _c("booked-tour-button"),
+              _vm._v(" "),
+              _c("h5", { staticClass: "title_section" }, [
+                _vm._v("Upcoming Event")
+              ]),
+              _vm._v(" "),
+              _c("upcoming-tour-crasousel", {
+                attrs: { upcoming_list: _vm.upcoming_list }
+              }),
+              _vm._v(" "),
+              _c(
+                "h5",
+                { staticClass: "title_section" },
                 [
+                  _vm._v("\n      Popular Destination\n      "),
                   _c(
-                    "VueSlickCarousel",
-                    _vm._b(
-                      { attrs: { arrows: true, dots: true } },
-                      "VueSlickCarousel",
-                      _vm.settings,
-                      false
-                    ),
-                    _vm._l(_vm.upcoming_list, function(state) {
-                      return _c(
-                        "div",
-                        {
-                          key: state.id,
-                          staticClass: "states_card card_scroll"
-                        },
-                        [
-                          _c("div", { staticClass: "card" }, [
-                            _c(
-                              "figure",
-                              {
-                                directives: [
-                                  { name: "lazyload", rawName: "v-lazyload" }
-                                ],
-                                staticClass: "image__wrapper card_image_ency"
-                              },
-                              [
-                                _c("ImageSpinner", {
-                                  staticClass: "image__spinner"
-                                }),
-                                _vm._v(" "),
-                                _c("img", {
-                                  staticClass: "image__item card-img-top",
-                                  attrs: {
-                                    "data-url": "/uploadimage/" + state.photo,
-                                    alt: "image"
-                                  }
-                                })
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "card-img-overlay text-center" },
-                              [
-                                _c(
-                                  "p",
-                                  { staticClass: "card-text" },
-                                  [
-                                    _c(
-                                      "router-link",
-                                      {
-                                        staticClass: "text-white",
-                                        attrs: {
-                                          to: "/explore-detail/" + state.id
-                                        }
-                                      },
-                                      [_vm._v(_vm._s(state.title))]
-                                    )
-                                  ],
-                                  1
-                                )
-                              ]
-                            )
-                          ])
-                        ]
-                      )
-                    }),
-                    0
+                    "router-link",
+                    {
+                      staticClass: "view_link",
+                      attrs: { to: "/explore-list" }
+                    },
+                    [_vm._v("View more")]
                   )
                 ],
                 1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "h5",
-            { staticClass: "title_section" },
-            [
-              _vm._v("\n      Popular Destination\n      "),
-              _c(
-                "router-link",
-                { staticClass: "view_link", attrs: { to: "/explore-list" } },
-                [_vm._v("View more")]
-              )
+              ),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _vm._m(3),
+              _vm._v(" "),
+              _vm._m(4)
             ],
             1
-          ),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _vm._m(3),
-          _vm._v(" "),
-          _vm._m(4),
-          _vm._v(" "),
-          _vm._m(5)
-        ])
-      ])
+          )
+        ],
+        1
+      )
     : _vm._e()
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col colbutton mb-10" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("div", { staticClass: "rowdata2" }, [
-          _c("img", {
-            attrs: {
-              src: "assets/front/images/payment_320.png",
-              loading: "lazy"
-            }
-          }),
-          _vm._v(" "),
-          _c("p", { staticClass: "icon_text" }, [_vm._v("Payments")])
-        ])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

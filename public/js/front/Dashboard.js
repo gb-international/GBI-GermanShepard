@@ -25,10 +25,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     DashboardStudent: function DashboardStudent() {
-      return Promise.all(/*! import() | js/front/DashboardStudent */[__webpack_require__.e("vendors~js/front/BlogDetail~js/front/DashboardStudent~js/front/DashboardTeacher~js/front/Encyclopedi~3eee97ee"), __webpack_require__.e("js/front/DashboardStudent")]).then(__webpack_require__.bind(null, /*! @/front/pages/user/student/Dashboard.vue */ "./resources/js/front/pages/user/student/Dashboard.vue"));
+      return Promise.all(/*! import() | js/front/DashboardStudent */[__webpack_require__.e("vendors~js/front/BlogDetail~js/front/DashboardStudent~js/front/DashboardTeacher~js/front/Encyclopedi~3eee97ee"), __webpack_require__.e("js/front/DashboardStudent~js/front/DashboardTeacher"), __webpack_require__.e("js/front/DashboardStudent")]).then(__webpack_require__.bind(null, /*! @/front/pages/user/student/Dashboard.vue */ "./resources/js/front/pages/user/student/Dashboard.vue"));
     },
     DashboardTeacher: function DashboardTeacher() {
-      return Promise.all(/*! import() | js/front/DashboardTeacher */[__webpack_require__.e("vendors~js/front/BlogDetail~js/front/DashboardStudent~js/front/DashboardTeacher~js/front/Encyclopedi~3eee97ee"), __webpack_require__.e("js/front/DashboardTeacher")]).then(__webpack_require__.bind(null, /*! @/front/pages/user/teacher/Dashboard.vue */ "./resources/js/front/pages/user/teacher/Dashboard.vue"));
+      return Promise.all(/*! import() | js/front/DashboardTeacher */[__webpack_require__.e("vendors~js/front/BlogDetail~js/front/DashboardStudent~js/front/DashboardTeacher~js/front/Encyclopedi~3eee97ee"), __webpack_require__.e("js/front/DashboardStudent~js/front/DashboardTeacher"), __webpack_require__.e("js/front/DashboardTeacher")]).then(__webpack_require__.bind(null, /*! @/front/pages/user/teacher/Dashboard.vue */ "./resources/js/front/pages/user/teacher/Dashboard.vue"));
     }
   },
   created: function created() {

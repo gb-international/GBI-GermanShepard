@@ -652,28 +652,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       hotelData: "",
       flightData: [],
       alldata: [],
-      cityList: []
+      cityList: [],
+      tour_code: ''
     };
   },
   beforeMount: function beforeMount() {
-    this.tourListData(this.$route.params.id);
+    this.tour_code = this.$cookies.get('tour_code');
+    this.tourListData(this.tour_code);
   },
   methods: {
-    paymentStatus: function paymentStatus() {
-      var _this = this;
-
-      var data = {
-        user_id: this.alldata.user_id,
-        tour_code: this.$route.params.id
-      };
-      this.$api.POST("/api/tour-payment-status", data).then(function (response) {
-        if (response.status != "success") {
-          _this.$router.push("/tour-list");
-        }
-      })["catch"](function (error) {
-        _this.handleError(error);
-      });
-    },
     // timeFormat(date) {
     //   var str = new Date(date).toDateString();
     //   date = new Date(date);
@@ -691,22 +678,20 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       return data.split("T")[0];
     },
     tourListData: function tourListData(id) {
-      var _this2 = this;
+      var _this = this;
 
       var data = {
         travel_id: id
       };
       this.$api.POST("/api/tour-detail", data).then(function (response) {
-        _this2.alldata = response;
-        _this2.itineraryData = response.itinerary;
-        _this2.flightData = response.bookedflights;
-        _this2.hotelData = response.bookedhotels;
+        _this.alldata = response;
+        _this.itineraryData = response.itinerary;
+        _this.flightData = response.bookedflights;
+        _this.hotelData = response.bookedhotels;
 
-        _this2.paymentStatus();
-
-        _this2.DestinationCity(_this2.itineraryData.itinerarydays);
+        _this.DestinationCity(_this.itineraryData.itinerarydays);
       })["catch"](function (error) {
-        _this2.handleError(error);
+        _this.handleError(error);
       });
     },
     DestinationCity: function DestinationCity(itineraryData) {
