@@ -135,7 +135,6 @@
                     v-model="form.school_id"
                     name="school_id"
                   />
-                  <input type="text" v-model="form.added_by" name="added_by" />
                   <input
                     type="text"
                     v-model="form.tour_price"
@@ -454,7 +453,7 @@
                     v-model="form.school_id"
                     name="school_id"
                   />
-                  <input type="text" v-model="form.added_by" name="added_by" />
+
                   <input
                     type="text"
                     v-model="form.tour_price"
@@ -650,7 +649,6 @@ export default {
         travel_code: "",
         tour_id: "",
         school_id: "",
-        added_by: "",
         tour_price: "",
         no_of_person: "",
       },
@@ -695,7 +693,6 @@ export default {
     this.form.travel_code = data.travel_code;
     this.form.tour_id = data.tour_id;
     this.form.school_id = data.school_id;
-    this.form.added_by = data.added_by;
     this.form.tour_price = parseInt(data.price);
     this.form.no_of_person = parseInt(data.paid_person);
   },

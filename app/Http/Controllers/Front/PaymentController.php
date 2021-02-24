@@ -58,7 +58,6 @@ class PaymentController extends Controller
       'tour_id'=>$request->tour_id,
       'school_id'=>$request->school_id,
       'amount'=>(int)$amount,
-      'added_by'=>$request->added_by
     ]);
 
     $form_data['order_id'] = $track->id;
@@ -90,7 +89,6 @@ class PaymentController extends Controller
         'amount' => $track->amount,
         'status' => strtolower($response['order_status']),
         'payment_data' => json_encode($response),
-        'added_by'=>$track->added_by
       ];
       if($user->is_incharge == '1'){
         Userpayment::create($data);

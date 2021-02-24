@@ -26,7 +26,6 @@ class SchoolbankdetailController extends Controller
         $bank = Userpayment::where([
             'school_id'=>$school_id,
             'tour_code'=>$request->tour_code,
-            'added_by' => 'teacher'
         ])
         ->with('schoolbankdetail')
         ->first();

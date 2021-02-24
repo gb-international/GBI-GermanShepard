@@ -17,7 +17,7 @@ class UserpaymentController extends Controller
     public function all($size)
     {
         return response()->json(Userpayment::select([
-            'id','tour_code','amount','added_by','updated_at'
+            'id','tour_code','amount','updated_at'
             ])
             ->latest('updated_at')
             ->paginate($size));

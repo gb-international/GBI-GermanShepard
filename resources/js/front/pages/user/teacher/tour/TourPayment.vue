@@ -435,7 +435,6 @@ export default {
         date_of_issue: "",
         ifsc_code: "",
         cheque_number: "",
-        added_by: "teacher",
       },
       form: new Form({
         name: "",
@@ -623,7 +622,6 @@ export default {
         travel_code: "",
         tour_id: "",
         school_id: "",
-        added_by: "",
         price: "",
         no_of_person: "",
         base_price: 0,
@@ -641,7 +639,6 @@ export default {
       data.travel_code = this.tour_info.travel_code;
       data.tour_id = this.tour_id;
       data.school_id = this.userinfo.school_id;
-      data.added_by = 'teacher';
       this.$cookies.set("payment-data", data, 60 * 60 * 1); // expire in 1 hour
       this.$router.push("/payment-billing");
     },

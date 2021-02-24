@@ -26,7 +26,7 @@
             <button
               class="btn btn-light"
               v-if="tour.paid_button == 'show'"
-              @click="payTour(tour.tour_id)"
+              @click="payTour(tour.tour_code)"
             >
               Pay Now
             </button>
@@ -43,7 +43,7 @@
             <div
               class="text-center link bg-transparent-card p-t-15 pb-15 text-white link"
               v-if="tour.payment == 'success'"
-              @click="showTourDetail(tour.tour.tour_id)"
+              @click="showTourDetail(tour.tour_code)"
             >
               <img src="/images/icons/viewitinerary.png" class="w-20 mr-1" />
               View Itinerary
@@ -76,8 +76,8 @@ export default {
       this.$router.push("/tour-detail");
     },
     payTour(tour_id) {
-      this.$store.commit("PAYMENT_TOUR_DATA", { tour_id: tour_id });
-      this.$router.push("/tour-payment");
+      this.$store.commit('PAYMENT_TOUR_DATA',{'tour_id':tour_id});
+      this.$router.push('/tour-payment');
     },
   },
 };

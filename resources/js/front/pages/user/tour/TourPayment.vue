@@ -14,17 +14,17 @@ export default {
     }
   },
   components: {
-    TourPaymentStudent: () => import(/* webpackChunkName: "js/front/TourPaymentStudent" */ '@/front/pages/user/student/tour/TourPayment.vue'),
+    TourPaymentStudent: () => import(/* webpackChunkName: "js/front/TourPaymentStudent1" */ '@/front/pages/user/student/tour/TourPayment.vue'),
     TourPaymentTeacher: () => import(/* webpackChunkName: "js/front/TourPaymentTeacher" */ '@/front/pages/user/teacher/tour/TourPayment.vue')
   },
   created(){
     var user = this.$cookies.get('user');
     if(user.is_incharge == '1'){
-      this.isStudent = true;
+      this.isTeacher = true;
     }
     
     if(user.is_incharge == '0'){
-      this.isTeacher = true;
+      this.isStudent = true;
     }
 
   }

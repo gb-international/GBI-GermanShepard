@@ -166,10 +166,10 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push("/tour-detail");
     },
     payTour: function payTour(tour_id) {
-      this.$store.commit("PAYMENT_TOUR_DATA", {
-        tour_id: tour_id
+      this.$store.commit('PAYMENT_TOUR_DATA', {
+        'tour_id': tour_id
       });
-      this.$router.push("/tour-payment");
+      this.$router.push('/tour-payment');
     }
   }
 });
@@ -518,7 +518,7 @@ var render = function() {
                       staticClass: "btn btn-light",
                       on: {
                         click: function($event) {
-                          return _vm.payTour(_vm.tour.tour_id)
+                          return _vm.payTour(_vm.tour.tour_code)
                         }
                       }
                     },
@@ -545,7 +545,7 @@ var render = function() {
                         "text-center link bg-transparent-card p-t-15 pb-15 text-white link",
                       on: {
                         click: function($event) {
-                          return _vm.showTourDetail(_vm.tour.tour.tour_id)
+                          return _vm.showTourDetail(_vm.tour.tour_code)
                         }
                       }
                     },

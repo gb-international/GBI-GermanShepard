@@ -433,7 +433,6 @@ export default {
         date_of_issue: "",
         ifsc_code: "",
         cheque_number: "",
-        added_by: "student",
       },
       form: new Form({
         name: "",
@@ -495,7 +494,6 @@ export default {
           
           this.teacherform.amount = this.userinfo.tour_price;
           if (this.userinfo.profession == "teacher") {
-            this.teacherform.added_by = 'teacher';
             this.teacherform.amount = this.userinfo.tour_price * this.userinfo.no_of_person;
             this.bankNameList();
           }
@@ -631,7 +629,6 @@ export default {
         travel_code:'',
         tour_id:'',
         school_id:'',
-        added_by:'',
         tour_price:'',
         no_of_person:'',
       };
@@ -639,7 +636,6 @@ export default {
       data.travel_code = this.userinfo.travel_code;
       data.tour_id = this.$route.params.id;
       data.school_id = this.userinfo.school_id;
-      data.added_by = this.userinfo.profession;
       data.tour_price = this.userinfo.tour_price;
       data.no_of_person = this.userinfo.no_of_person;
       this.$cookies.set('payment-data',data,60 * 60 * 1);// expire in 1 hour

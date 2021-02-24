@@ -38,7 +38,10 @@ class UserpaymentController extends Controller
 
     public function tourPayStatus(Request $request){
         // check if teacher has paid 
-        $data = Userpayment::select('status')->where(['tour_code'=>$request->tour_code,'added_by'=>'teacher','payment_mode'=>'self'])->first();
+        $data = Userpayment::select('status')->where([
+            'tour_code'=>$request->tour_code,
+            'payment_mode'=>'self'
+        ])->first();
         // if teacher has not paid then check if student has paid
         if(!$data){
             // if teacher not paid then check if student has paid

@@ -687,13 +687,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -733,8 +726,7 @@ __webpack_require__.r(__webpack_exports__);
         travel_code: "",
         tour_id: "",
         school_id: "",
-        added_by: "",
-        tour_price: "",
+        base_price: "",
         no_of_person: ""
       },
       amount: 0
@@ -774,14 +766,13 @@ __webpack_require__.r(__webpack_exports__);
     }
 
     var data = this.$cookies.get("payment-data");
-    this.amount = parseInt(data.tour_price);
+    console.log(data);
+    this.amount = parseInt(data.base_price);
     this.form.user_id = data.user_id;
     this.form.travel_code = data.travel_code;
     this.form.tour_id = data.tour_id;
     this.form.school_id = data.school_id;
-    this.form.added_by = data.added_by;
-    this.form.tour_price = data.tour_price;
-    this.form.no_of_person = parseInt(data.no_of_person);
+    this.form.base_price = parseInt(data.base_price);
   },
   methods: {
     activate: function activate(nav_number) {
@@ -1416,33 +1407,12 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.form.added_by,
-                            expression: "form.added_by"
+                            value: _vm.form.base_price,
+                            expression: "form.base_price"
                           }
                         ],
-                        attrs: { type: "text", name: "added_by" },
-                        domProps: { value: _vm.form.added_by },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "added_by", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.tour_price,
-                            expression: "form.tour_price"
-                          }
-                        ],
-                        attrs: { type: "text", name: "tour_price" },
-                        domProps: { value: _vm.form.tour_price },
+                        attrs: { type: "text", name: "base_price" },
+                        domProps: { value: _vm.form.base_price },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
@@ -1450,32 +1420,7 @@ var render = function() {
                             }
                             _vm.$set(
                               _vm.form,
-                              "tour_price",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.no_of_person,
-                            expression: "form.no_of_person"
-                          }
-                        ],
-                        attrs: { type: "text", name: "no_of_person" },
-                        domProps: { value: _vm.form.no_of_person },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.form,
-                              "no_of_person",
+                              "base_price",
                               $event.target.value
                             )
                           }
@@ -1802,7 +1747,7 @@ var render = function() {
                   { staticClass: "payment-card" },
                   [
                     _c("payment-card", {
-                      attrs: { amount: _vm.amount, pax: _vm.form.no_of_person }
+                      attrs: { amount: _vm.amount, pax: 1 }
                     })
                   ],
                   1
@@ -2323,12 +2268,12 @@ var render = function() {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.form.added_by,
-                                  expression: "form.added_by"
+                                  value: _vm.form.base_price,
+                                  expression: "form.base_price"
                                 }
                               ],
-                              attrs: { type: "text", name: "added_by" },
-                              domProps: { value: _vm.form.added_by },
+                              attrs: { type: "text", name: "base_price" },
+                              domProps: { value: _vm.form.base_price },
                               on: {
                                 input: function($event) {
                                   if ($event.target.composing) {
@@ -2336,32 +2281,7 @@ var render = function() {
                                   }
                                   _vm.$set(
                                     _vm.form,
-                                    "added_by",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.tour_price,
-                                  expression: "form.tour_price"
-                                }
-                              ],
-                              attrs: { type: "text", name: "tour_price" },
-                              domProps: { value: _vm.form.tour_price },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "tour_price",
+                                    "base_price",
                                     $event.target.value
                                   )
                                 }

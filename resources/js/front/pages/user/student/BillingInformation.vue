@@ -135,16 +135,10 @@
                     v-model="form.school_id"
                     name="school_id"
                   />
-                  <input type="text" v-model="form.added_by" name="added_by" />
                   <input
                     type="text"
-                    v-model="form.tour_price"
-                    name="tour_price"
-                  />
-                  <input
-                    type="text"
-                    v-model="form.no_of_person"
-                    name="no_of_person"
+                    v-model="form.base_price"
+                    name="base_price"
                   />
                 </div>
               </div>
@@ -269,7 +263,7 @@
             <div class="payment-card">
               <payment-card
                 :amount="amount"
-                :pax="form.no_of_person"
+                :pax="1"
               ></payment-card>
             </div>
             <button
@@ -454,11 +448,10 @@
                     v-model="form.school_id"
                     name="school_id"
                   />
-                  <input type="text" v-model="form.added_by" name="added_by" />
                   <input
                     type="text"
-                    v-model="form.tour_price"
-                    name="tour_price"
+                    v-model="form.base_price"
+                    name="base_price"
                   />
                   <input
                     type="text"
@@ -650,8 +643,7 @@ export default {
         travel_code: "",
         tour_id: "",
         school_id: "",
-        added_by: "",
-        tour_price: "",
+        base_price: "",
         no_of_person: "",
       },
       amount: 0,
@@ -690,14 +682,13 @@ export default {
       this.$router.push("/");
     }
     var data = this.$cookies.get("payment-data");
-    this.amount = parseInt(data.tour_price);
+    console.log(data);
+    this.amount = parseInt(data.base_price);
     this.form.user_id = data.user_id;
     this.form.travel_code = data.travel_code;
     this.form.tour_id = data.tour_id;
     this.form.school_id = data.school_id;
-    this.form.added_by = data.added_by;
-    this.form.tour_price = data.tour_price;
-    this.form.no_of_person = parseInt(data.no_of_person);
+    this.form.base_price = parseInt(data.base_price);
   },
 
   methods: {

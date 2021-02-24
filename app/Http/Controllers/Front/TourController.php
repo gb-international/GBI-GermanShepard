@@ -33,7 +33,7 @@ class TourController extends Controller{
                 }
             ])
             ->where('user_id',$user->id)
-            ->select('id','user_id','tour_code','travel_code','status')
+            ->select('id','user_id','tour_code','travel_code','status','is_paid','user_type')
             ->get();
             if(count($travels) >0){
                 $school = School::where('id',$request->school_id)
@@ -55,12 +55,20 @@ class TourController extends Controller{
                         if($incharge_paid->payment_mode === 'student'){
                             if($travel->status === 'success'){
                                 $travel['payment'] = 'success';
-                            }else{
+                            }
+                            else if($travel->user_type =='teacher'){
+                                if($travel->is_paid == '1'){
+                                    $travel['paid_button'] = 'show';
+                                }else{
+                                    $travel['paid_button'] = '';
+                                }
+                                $travel['payment'] = 'pending';
+                            }
+                            else{
                                 $travel['payment'] = 'pending';
                                 $travel['paid_button'] = 'show';
                             }
                         }
-
                     }else{
                         $travel['paid_button'] = '';
                     }
@@ -126,8 +134,6 @@ class TourController extends Controller{
 
     public function paymentTour(Request $request){
         $user = Auth::user();
-        $profession = $user->information->user_profession;
-
         $tour = Tour::select(['tour_price','travel_code'])
             ->where('tour_id',$request->travel_code)
             ->firstOrFail();

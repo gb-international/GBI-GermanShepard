@@ -25,7 +25,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     TourPaymentStudent: function TourPaymentStudent() {
-      return __webpack_require__.e(/*! import() | js/front/TourPaymentStudent */ "js/front/TourPaymentStudent").then(__webpack_require__.bind(null, /*! @/front/pages/user/student/tour/TourPayment.vue */ "./resources/js/front/pages/user/student/tour/TourPayment.vue"));
+      return __webpack_require__.e(/*! import() | js/front/TourPaymentStudent1 */ "js/front/TourPaymentStudent1").then(__webpack_require__.bind(null, /*! @/front/pages/user/student/tour/TourPayment.vue */ "./resources/js/front/pages/user/student/tour/TourPayment.vue"));
     },
     TourPaymentTeacher: function TourPaymentTeacher() {
       return __webpack_require__.e(/*! import() | js/front/TourPaymentTeacher */ "js/front/TourPaymentTeacher").then(__webpack_require__.bind(null, /*! @/front/pages/user/teacher/tour/TourPayment.vue */ "./resources/js/front/pages/user/teacher/tour/TourPayment.vue"));
@@ -35,11 +35,11 @@ __webpack_require__.r(__webpack_exports__);
     var user = this.$cookies.get('user');
 
     if (user.is_incharge == '1') {
-      this.isStudent = true;
+      this.isTeacher = true;
     }
 
     if (user.is_incharge == '0') {
-      this.isTeacher = true;
+      this.isStudent = true;
     }
   }
 });

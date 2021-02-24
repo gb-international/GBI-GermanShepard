@@ -19,7 +19,6 @@ class CreateToursTable extends Migration
             $table->string('travel_code')->nullable();
             $table->bigInteger('itinerary_id')->unsigned();
             $table->string('school_id');
-            $table->string('no_of_person')->nullable();
             $table->string('tour_start_date');
             $table->string('tour_end_date');
             $table->string('tour_price')->nullable();

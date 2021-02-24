@@ -31,7 +31,6 @@ class UserpaymentController extends Controller
         $userpayment = Userpayment::where([
             'school_id'=>$request->school_id,
             'tour_code'=>$request->tour_code,
-            'added_by'=>'teacher'
         ])->firstOrFail()->adminFormat();
 
         return response()->json($userpayment);
@@ -88,7 +87,6 @@ class UserpaymentController extends Controller
             'date_of_issue'=> $request->date_of_issue,
             'ifsc_code'=> $request->ifsc_code,
             'cheque_number'=> $request->cheque_number,
-            'added_by' => $request->added_by,
         ];
         $userpayment->update($data);
         return response()->json('successfully paid');

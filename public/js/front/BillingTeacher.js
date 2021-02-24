@@ -712,7 +712,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -752,7 +751,6 @@ __webpack_require__.r(__webpack_exports__);
         travel_code: "",
         tour_id: "",
         school_id: "",
-        added_by: "",
         tour_price: "",
         no_of_person: ""
       },
@@ -798,7 +796,6 @@ __webpack_require__.r(__webpack_exports__);
     this.form.travel_code = data.travel_code;
     this.form.tour_id = data.tour_id;
     this.form.school_id = data.school_id;
-    this.form.added_by = data.added_by;
     this.form.tour_price = parseInt(data.price);
     this.form.no_of_person = parseInt(data.paid_person);
   },
@@ -1446,27 +1443,6 @@ var render = function() {
                               return
                             }
                             _vm.$set(_vm.form, "school_id", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.added_by,
-                            expression: "form.added_by"
-                          }
-                        ],
-                        attrs: { type: "text", name: "added_by" },
-                        domProps: { value: _vm.form.added_by },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "added_by", $event.target.value)
                           }
                         }
                       }),
@@ -2351,31 +2327,6 @@ var render = function() {
                                   _vm.$set(
                                     _vm.form,
                                     "school_id",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.added_by,
-                                  expression: "form.added_by"
-                                }
-                              ],
-                              attrs: { type: "text", name: "added_by" },
-                              domProps: { value: _vm.form.added_by },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "added_by",
                                     $event.target.value
                                   )
                                 }

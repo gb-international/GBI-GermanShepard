@@ -20,7 +20,6 @@ class CreateTrackpaymentsTable extends Migration
             $table->integer('amount')->nullable();
             $table->string('tour_id')->nullable();
             $table->string('school_id')->nullable();
-            $table->string('added_by')->nullable();
             $table->timestamps();
         });
     }
