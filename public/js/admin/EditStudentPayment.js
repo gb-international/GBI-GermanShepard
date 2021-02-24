@@ -250,20 +250,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -291,8 +277,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         added_by: "",
         amount: "",
         payment_data: "",
-        status: "",
-        visible_to_user: ""
+        status: ""
       }),
       banks: []
     };
@@ -323,10 +308,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     UpdateBookedusers: function UpdateBookedusers() {
       var _this2 = this;
 
-      console.log(this.form);
       this.form.put("/api/bookedusers/".concat(this.$route.params.id)).then(function (res) {
-        console.log(res);
-
         _this2.$toast.fire({
           icon: "success",
           title: "Successfully Updated"
@@ -1115,76 +1097,6 @@ var render = function() {
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "form.status" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "visible_to_user" } }, [
-                          _vm._v("Visible To User?")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model.lazy",
-                                value: _vm.form.visible_to_user,
-                                expression: "form.visible_to_user",
-                                modifiers: { lazy: true }
-                              }
-                            ],
-                            staticClass: "form-control select-field",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "visible_to_user",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", disabled: "" } },
-                              [_vm._v("Does user can see the Tour??")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "0" } }, [
-                              _vm._v("No")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "1" } }, [
-                              _vm._v("Yes")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: {
-                            form: _vm.form,
-                            field: "form.visible_to_user"
-                          }
                         })
                       ],
                       1

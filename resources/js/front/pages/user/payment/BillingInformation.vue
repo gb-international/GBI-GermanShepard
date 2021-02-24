@@ -19,14 +19,12 @@ export default {
   },
   created(){
     var user = this.$cookies.get('user');
-    if(user.user_profession == 'student'){
+    if(user.is_incharge == '0'){
       this.isStudent = true;
-    }
-    
-    if(user.user_profession == 'teacher'){
+    }    
+    if(user.is_incharge == '1'){
       this.isTeacher = true;
     }
-
   }
 
 }

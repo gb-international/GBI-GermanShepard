@@ -29,7 +29,7 @@ export default [
     { path: '/profile-edit',component: ProfileEdit, meta: { requiresAuth: true } },
     { path: '/update-password',component:UpdatePassword,meta: { requiresAuth: true }},
     { path: '/group-member/:id', component: GroupView, meta: { requiresAuth: true } },
-    { path: '/tour-payment/:id', component: TourPayment,meta:{ requiresAuth: true } },
+    { path: '/tour-payment', component: TourPayment,meta:{ requiresAuth: true } },
     { path: '/payment-mode/:id', component: PaymentMode,meta:{ requiresAuth: true } },
     { path: '/payment-billing', component: BillingInformation,meta:{ requiresAuth: true } },
     { path: '/payment-cancel', component: PaymentCancel,meta:{ requiresAuth: true } },

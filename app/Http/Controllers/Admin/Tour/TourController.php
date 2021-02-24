@@ -123,7 +123,6 @@ class TourController extends Controller
     {
       return $this->validate($request, [
             'school_id' => 'required',
-            'no_of_person' => 'required',
             'itinerary_id' => 'required',
             'tour_id' => 'required',
             'travel_code' => 'required',

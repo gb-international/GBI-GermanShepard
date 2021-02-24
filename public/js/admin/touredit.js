@@ -133,20 +133,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -171,7 +157,6 @@ __webpack_require__.r(__webpack_exports__);
         itinerary_id: "",
         school_id: "",
         tour_start_date: "",
-        no_of_person: "",
         tour_end_date: "",
         tour_price: ""
       })
@@ -364,55 +349,6 @@ var render = function() {
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "travel_code" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "no_of_person" } }, [
-                          _vm._v("No. Of Person")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.no_of_person,
-                              expression: "form.no_of_person"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("no_of_person")
-                          },
-                          attrs: {
-                            type: "number",
-                            placeholder: "Enter No. Of Person"
-                          },
-                          domProps: { value: _vm.form.no_of_person },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "no_of_person",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "no_of_person" }
                         })
                       ],
                       1

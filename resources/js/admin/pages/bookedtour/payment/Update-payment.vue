@@ -177,6 +177,13 @@
     <div class="row justify-content-center mt-5" v-else>
       <button
         type="button"
+        class="btn btn-outline-primary btn-square itrn_add_btn mr-3"
+        @click="goBack()"
+      >
+        BACK
+      </button>
+      <button
+        type="button"
         class="btn btn-outline-primary btn-square itrn_add_btn"
         @click="submitPayment()"
       >
@@ -192,6 +199,7 @@ export default {
   name: "Tour-list",
   components: {
     "has-error": HasError,
+    Form,
   },
   data() {
     return {
@@ -276,7 +284,6 @@ export default {
     },
 
     submitPayment() {
-      this.teacherform.school_id = this.$route.params.school_id;
       if (
         this.teacherform.payment_mode == "self" &&
         this.teacherform.payment_type == "cheque"
@@ -299,8 +306,7 @@ export default {
       return false;
     },
     submitForm() {
-      this.teacherform
-        .post("/api/updatetourpayment", this.teacherform)
+      axios.post("/api/updatetourpayment", this.teacherform)
         .then((res) => {
           if (res.data["error"]) {
             this.$swal.fire({
@@ -313,9 +319,6 @@ export default {
             icon: "success",
             title: "Successfully Updated !!",
           });
-          this.$router.push(
-            `/payments/${this.$route.params.school_id}/${this.$route.params.tour_code}`
-          );
         })
         .catch((error) => {
           this.$swal.fire({

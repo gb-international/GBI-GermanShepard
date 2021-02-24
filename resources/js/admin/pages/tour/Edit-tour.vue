@@ -42,20 +42,6 @@ to submit the data we are using a function.
             </div>
           </div>
 
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="no_of_person">No. Of Person</label>
-              <input
-                type="number"
-                class="form-control"
-                placeholder="Enter No. Of Person"
-                v-model="form.no_of_person"
-                :class="{ 'is-invalid': form.errors.has('no_of_person') }"
-              />
-              <has-error :form="form" field="no_of_person"></has-error>
-            </div>
-          </div>
-
           <div class="col-sm-6">
             <div class="form-group">
               <label for="itinerary_id">Itinerary</label>
@@ -156,7 +142,6 @@ export default {
         itinerary_id: "",
         school_id: "",
         tour_start_date: "",
-        no_of_person: "",
         tour_end_date: "",
         tour_price: "",
       }),

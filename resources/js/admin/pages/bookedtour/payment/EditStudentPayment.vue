@@ -156,20 +156,6 @@ to submit the data we are using a function. -->
                 <has-error :form="form" field="form.status"></has-error>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="visible_to_user">Visible To User?</label>
-              <select
-                    class="form-control select-field"
-                    v-model.lazy="form.visible_to_user"
-                >
-                <option value="" disabled>Does user can see the Tour??</option>
-                  <option value="0">No</option>
-                  <option value="1">Yes</option>
-                </select>
-                <has-error :form="form" field="form.visible_to_user"></has-error>
-            </div>
-          </div>
         </div>
         <form-buttons />
       </form>
@@ -206,7 +192,6 @@ export default {
         amount: "",
         payment_data: "",
         status: "",
-        visible_to_user: "",
       }),
       banks:[],
     };
@@ -236,10 +221,8 @@ export default {
       });
     },
     UpdateBookedusers() {
-      console.log(this.form);
       this.form.put(`/api/bookedusers/${this.$route.params.id}`)
         .then((res) => {
-          console.log(res);
           this.$toast.fire({
             icon: "success",
             title: "Successfully Updated",

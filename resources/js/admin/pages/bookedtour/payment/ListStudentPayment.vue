@@ -88,6 +88,14 @@ export default {
           sortable: true,
           thClass: "table-head",
         },
+        
+        {
+          key: "user_type",
+          label: "USER TYPE",
+          sortable: true,
+          thClass: "table-head",
+        },
+
         {
           key: "updated_at",
           label: "LAST UPDATE",

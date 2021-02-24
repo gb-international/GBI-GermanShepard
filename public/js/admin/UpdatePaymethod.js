@@ -201,11 +201,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Tour-list",
   components: {
-    "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"]
+    "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
+    Form: vform__WEBPACK_IMPORTED_MODULE_0__["Form"]
   },
   data: function data() {
     return _defineProperty({
@@ -282,8 +290,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     submitPayment: function submitPayment() {
-      this.teacherform.school_id = this.$route.params.school_id;
-
       if (this.teacherform.payment_mode == "self" && this.teacherform.payment_type == "cheque") {
         this.chequePage = true;
       }
@@ -302,7 +308,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitForm: function submitForm() {
       var _this3 = this;
 
-      this.teacherform.post("/api/updatetourpayment", this.teacherform).then(function (res) {
+      axios.post("/api/updatetourpayment", this.teacherform).then(function (res) {
         if (res.data["error"]) {
           _this3.$swal.fire({
             icon: "error",
@@ -316,8 +322,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           icon: "success",
           title: "Successfully Updated !!"
         });
-
-        _this3.$router.push("/payments/".concat(_this3.$route.params.school_id, "/").concat(_this3.$route.params.tour_code));
       })["catch"](function (error) {
         _this3.$swal.fire({
           icon: "error",
@@ -850,6 +854,21 @@ var render = function() {
           ])
         ])
       : _c("div", { staticClass: "row justify-content-center mt-5" }, [
+          _c(
+            "button",
+            {
+              staticClass:
+                "btn btn-outline-primary btn-square itrn_add_btn mr-3",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.goBack()
+                }
+              }
+            },
+            [_vm._v("\n      BACK\n    ")]
+          ),
+          _vm._v(" "),
           _c(
             "button",
             {

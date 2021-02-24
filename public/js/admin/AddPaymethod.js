@@ -192,6 +192,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Tour-list",
@@ -199,7 +211,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"]
   },
   data: function data() {
-    return _defineProperty({
+    var _ref;
+
+    return _ref = {
       chequePage: false,
       tours: "",
       formShow: false,
@@ -235,7 +249,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         tour_code: this.$route.params.tour_code
       }),
       account_type: ["Current Account", "Saving Account", "Recurring Deposit Account", "Fixed Deposit Account"]
-    }, "banknames", []);
+    }, _defineProperty(_ref, "banknames", []), _defineProperty(_ref, "touruser", ''), _defineProperty(_ref, "perhead", 0), _ref;
   },
   mounted: function mounted() {
     this.userData();
@@ -251,11 +265,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       var data = {
-        school_id: this.$route.params.school_id
+        school_id: this.$route.params.school_id,
+        tour_code: this.$route.params.tour_code
       };
-      axios.post("/api/getshooluser", data).then(function (response) {
-        _this.userinfo = response.data;
-        _this.teacherform.user_id = _this.userinfo.user_id;
+      axios.post("/api/gettourusers", data).then(function (response) {
+        _this.teacherform.user_id = response.data.user_id;
+        _this.perhead = response.data.amount;
+        _this.touruser = response.data.tour;
+        _this.teacherform.amount = _this.touruser[1].total * _this.perhead;
       })["catch"](function (error) {
         _this.handleError(error);
       });
@@ -367,48 +384,39 @@ var render = function() {
       ? _c("div", [
           _c("div", { staticClass: "container p-t-15 mb-20" }, [
             _c("form", [
-              _vm.userinfo
+              _vm.touruser
                 ? _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-sm-4" },
-                      [
-                        _c("label", [_vm._v("Amount")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.teacherform.amount,
-                              expression: "teacherform.amount"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "number" },
-                          domProps: { value: _vm.teacherform.amount },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.teacherform,
-                                "amount",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.teacherform, field: "amount" }
-                        })
-                      ],
-                      1
-                    )
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c("label", [_vm._v("No Of Pax")]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          _vm._s(_vm.touruser[0].total + _vm.touruser[1].total)
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c("label", [_vm._v("Not Paid Members")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.touruser[0].total))])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c("label", [_vm._v("Amount")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.perhead) + " /per head")])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c("label", [_vm._v("Total Amount")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.teacherform.amount) + " /-")])
+                    ])
                   ])
                 : _vm._e(),
+              _vm._v(" "),
+              _c("hr"),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-sm-4" }, [

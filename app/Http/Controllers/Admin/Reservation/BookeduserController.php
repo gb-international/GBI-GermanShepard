@@ -42,16 +42,15 @@ class BookeduserController extends Controller
                 }
                 if($userpayment->payment_mode == 'student'){
                     $data = TourUser::where($where)
-                        ->with('user:id,name')
-                        ->get();
+                                ->with('user:id,name')
+                                ->get();
                     foreach ($data as $d ) {
-                        $payment = Userpayment::where(['user_id'=>$d->user_id,'tour_code'=>$tour_id])->first();
-                        if($payment){
-                            $d['payment'] = $payment->status;
-                            $d['paid_by'] = 'stuent';
+                        if($d->status == 'success'){
+                            $d['payment'] = 'success';
+                            $d['paid_by'] = 'student';
                         }else{
                             $d['payment'] = 'pending';
-                            $d['paid_by'] = 'stuent';
+                            $d['paid_by'] = 'student';
                         }
                     }
                 }
@@ -69,9 +68,8 @@ class BookeduserController extends Controller
 
     public function edit($id)
     {
-        $data = TourUser::where('id',$id)->with('tour:travel_code,tour_id')->first();
-        $payment = Userpayment::where(['user_id'=>$data->user_id,'tour_code'=>$data->tour->tour_id])->first();
-        return response()->json($payment);
+        $data = TourUser::where('id',$id)->first();
+        return response()->json($data);
     }
     public function show($id)
     {
@@ -82,17 +80,8 @@ class BookeduserController extends Controller
         return response()->json($tour);
     }
     public function update(Request $request,$id){
-        $tour = TourUser::where('id',$id)->with('tour:travel_code,tour_id,school_id')->first();
-        $data = Userpayment::where(['user_id'=>$tour->user_id,'tour_code'=>$tour->tour->tour_id])->first();
-        if(!$data){
-            $base = $request->all();
-            $base['user_id'] = $tour->user_id;
-            $base['school_id'] = $tour->tour->school_id;
-            $base['tour_code'] = $tour->tour->tour_id;
-            Userpayment::create($base);
-        }else{
-            $data->update($request->all());
-        }
+        $tour = TourUser::where('id',$id)->first();
+        $tour->update($request->all());
         return response()->json('updated successfully');
     }
     public function destroy(TourUser $touruser)

@@ -39,8 +39,11 @@
 
     <div v-if="tours">
       <div class="row" v-for="tour in tours" :key="tour.id">
+        
         <InchargeTourCard v-if="userinfo.is_incharge==1" :tour="tour" :userinfo="userinfo" />
+
         <tourcard v-else :tour="tour" :userinfo="userinfo" />
+        
       </div>
     </div>
   </div>
@@ -69,10 +72,10 @@ export default {
     tourListData() {
       var data = {'school_id':this.userinfo.school_id};
       this.$api.POST("/api/tour-list", data).then((res) => {
+        console.log(res);
         if (res.length == 0) {
           this.formShow = true;
         } else {
-          console.log(res);
           this.tours = res;
         }
       });

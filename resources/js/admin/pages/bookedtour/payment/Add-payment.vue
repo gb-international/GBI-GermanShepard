@@ -3,17 +3,29 @@
     <div v-if="chequePage == false">
       <div class="container p-t-15 mb-20">
         <form>
-          <div class="row" v-if="userinfo">
-            <div class="col-sm-4">
-              <label>Amount</label>
-              <input
-                type="number"
-                class="form-control"
-                v-model="teacherform.amount"
-              />
-              <has-error :form="teacherform" field="amount"></has-error>
+          <div class="row" v-if="touruser">
+
+            <div class="col-sm-3">
+              <label>No Of Pax</label>
+              <p>{{ touruser[0].total + touruser[1].total  }}</p>
             </div>
+            <div class="col-sm-3">
+              <label>Not Paid Members</label>
+              <p>{{ touruser[0].total }}</p>
+            </div>
+
+            <div class="col-sm-3">
+              <label>Amount</label>
+              <p>{{ perhead }} /per head</p>
+            </div>
+            
+            <div class="col-sm-3">
+              <label>Total Amount</label>
+              <p>{{ teacherform.amount }} /-</p>
+            </div>
+
           </div>
+          <hr />
           <div class="row">
             <div class="col-sm-4">
               <label for="payment_mode mt-20">Payment By</label>
@@ -227,6 +239,8 @@ export default {
         "Fixed Deposit Account",
       ],
       banknames: [],
+      touruser:'',
+      perhead:0,
     };
   },
   mounted() {
@@ -241,11 +255,16 @@ export default {
       this.$refs.recaptcha.reset();
     },
     userData() {
-      var data = { school_id: this.$route.params.school_id };
-      axios.post("/api/getshooluser", data)
+      var data = { 
+        school_id: this.$route.params.school_id,
+        tour_code:this.$route.params.tour_code 
+      };
+      axios.post("/api/gettourusers", data)
         .then((response) => {
-          this.userinfo = response.data;
-          this.teacherform.user_id = this.userinfo.user_id;
+          this.teacherform.user_id = response.data.user_id;
+          this.perhead = response.data.amount;
+          this.touruser = response.data.tour;
+          this.teacherform.amount = this.touruser[1].total * this.perhead; 
         })
         .catch((error) => {
           this.handleError(error);

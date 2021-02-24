@@ -201,6 +201,35 @@ Login types :
        Edit profile :   incharge,teacher,student
        ChangePassword : incharge,teacher,student
 
+----------------------------------------------
+Incharge choose 
+    -> by student payment mode
+        ->  now how to handel those teachers who are not going to pay.
+            (will they be able to see the itinerary or not )
+
+                -> teacher paid or unpaid ( can view itinerary )
+                -> but student can not view the itinerary without payment
+    
+    -> by teacher self
+        -> if Incharge choose payment mode self then check the payment status 
+            -> if payment status is not success then should i show the itinerary or not
+                -> don't show weather he is teacher or student
+            -> upaid teachers will be able to watch the itinerary or not 
+--------------------------------
+pyament method : 
+    remove amount input box 
+        -> add simple information 
+            -> show no of pax (22 )
+            -> show per head amount ( 1000)
+            -> not paid ? (teacher  2 )
+            -> total ( amount -> 20 * 1000 )
+
+--------------------------------
+remove no of pax from tour add,edit,view and from tours table
+--------------------------------
+
+in payment history 
+    -> show student or teacher type ( member type )
 
 
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Softon\Indipay\Facades\Indipay; 
 use App\Model\Tour\Tour;
+use App\Model\Tour\TourUser;
 use App\Model\Tour\Trackpayment;
 use App\Model\Tour\Userpayment;
 use App\User;
@@ -35,13 +36,22 @@ class PaymentController extends Controller
     $user = User::where('id',$request->user_id)->first();
     // add gst and internet charge amount here
     $amount = $data->tour_price;
-    if($user->information->user_profession =='teacher'){
-      $amount = $amount * $data->no_of_person;
+    if($user->is_incharge =='1'){
+      $tour_user = TourUser::where('travel_code',$request->travel_code)
+        ->select('is_paid')
+        ->groupBy('is_paid')
+        ->selectRaw('count(*) as total, is_paid')
+        ->get();
+        if($tour_user){
+          $amount = $data->tour_price * $tour_user[1]->total;
+        }else{
+          header("Location: /payment-cancel");
+          dd();
+        }
     }
 
     $internet_charge = ceil((($amount/0.9646)*3.54)/100);// internet charge
     $amount = $amount + $internet_charge;
-    
     $track = Trackpayment::create([
       'user_id'=>$request->user_id,
       'travel_code'=>$request->travel_code,
@@ -50,6 +60,7 @@ class PaymentController extends Controller
       'amount'=>(int)$amount,
       'added_by'=>$request->added_by
     ]);
+
     $form_data['order_id'] = $track->id;
     $form_data['amount'] = (int)$amount;
     $this->paymentData($request,$form_data);
@@ -69,7 +80,8 @@ class PaymentController extends Controller
     $response = Indipay::response($request);
     if($response['order_status'] == 'Success'){
       $track = Trackpayment::where('id',$response['order_id'])->first();
-      Userpayment::create([
+      $user = User::where('id',$track->user_id)->first();
+      $data = [
         'user_id' => $track->user_id,
         'school_id'=>$track->school_id,
         'tour_code' => $track->tour_id,
@@ -79,7 +91,14 @@ class PaymentController extends Controller
         'status' => strtolower($response['order_status']),
         'payment_data' => json_encode($response),
         'added_by'=>$track->added_by
-      ]);    
+      ];
+      if($user->is_incharge == '1'){
+        Userpayment::create($data);
+      }else{
+        $touruser = TourUser::where(['tour_code'=>$track->tour_id,'user_id'=>$user->id])
+                      ->first();
+        $touruser->update($data);
+      }
       $user=['name'=>$response['billing_name'],'phone_no'=>$response['billing_tel']];
       $sendsms = new SendSms;
       $sendsms->successPaymentSMS($user);

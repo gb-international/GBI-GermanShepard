@@ -690,14 +690,14 @@ export default {
       this.$router.push("/");
     }
     var data = this.$cookies.get("payment-data");
-    this.amount = parseInt(data.tour_price);
+    this.amount = parseInt(data.base_price);
     this.form.user_id = data.user_id;
     this.form.travel_code = data.travel_code;
     this.form.tour_id = data.tour_id;
     this.form.school_id = data.school_id;
     this.form.added_by = data.added_by;
-    this.form.tour_price = data.tour_price;
-    this.form.no_of_person = parseInt(data.no_of_person);
+    this.form.tour_price = parseInt(data.price);
+    this.form.no_of_person = parseInt(data.paid_person);
   },
 
   methods: {

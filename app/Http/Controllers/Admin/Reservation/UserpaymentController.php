@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin\Reservation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Tour\Userpayment;
+use App\Model\Tour\TourUser;
+use App\Model\Tour\Tour;
 use App\Model\School\School;
 use App\Model\User\Information;
 class UserpaymentController extends Controller
@@ -16,26 +18,10 @@ class UserpaymentController extends Controller
             ->select('user_id')
             ->first();
         $userpayment = Userpayment::where([
-            'school_id'=>$request->school_id,
             'tour_code'=>$request->tour_code,
             'user_id' => $school->user_id
         ])->with('user:id,name')->first();
 
-        // if($request->added_by == 'student'){
-        //     $userpayment = Userpayment::where([
-        //         'school_id'=>$request->school_id,
-        //         'tour_code'=>$request->tour_code,
-        //         'added_by'=> $request->added_by
-        //     ])->with('user')->get();
-        // }else if($request->added_by == 'teacher'){
-        //     $userpayment = Userpayment::where([
-        //         'school_id'=>$request->school_id,
-        //         'tour_code'=>$request->tour_code,
-        //         'added_by'=> $request->added_by
-        //     ])->first()->adminFormat();
-        // }else{
-        //     $userpayment = [];
-        // }
         return response()->json($userpayment);
     }
 
@@ -112,6 +98,17 @@ class UserpaymentController extends Controller
     public function getSchoolUser(Request $request){
         $school=School::select('user_id')->where('id',$request->school_id)->first();
         return response()->json($school);
+    }
+
+    public function getTourUser(Request $request){
+        $school=School::select('user_id')->where('id',$request->school_id)->first();
+        $touramount = Tour::where('tour_id',$request->tour_code)->select('tour_price')->first();
+        $tour = TourUser::where('tour_code',$request->tour_code)
+            ->select('is_paid')
+            ->groupBy('is_paid')
+            ->selectRaw('count(*) as total, is_paid')
+            ->get();
+        return response()->json(['tour'=>$tour,'user_id'=>$school->user_id,'amount'=>$touramount->tour_price]);
     }
 
 }

@@ -9,7 +9,7 @@ use App\Model\Itinerary\Itinerary;
 class Tour extends Model
 {
     protected $fillable = [
-        'tour_id','travel_code','itinerary_id','school_id','no_of_person', 'tour_start_date','tour_end_date','tour_price','status'
+        'tour_id','travel_code','itinerary_id','school_id','tour_start_date','tour_end_date','tour_price','status'
     ];
 
     public function itinerary(){

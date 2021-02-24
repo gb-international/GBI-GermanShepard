@@ -137,7 +137,7 @@ Route::namespace('Admin')->group(function (){
 		Route::post('createpayment','UserpaymentController@createpayment');
 		Route::post('addtourpayment','UserpaymentController@addtourpayment');
 		Route::post('updatetourpayment','UserpaymentController@updatetourpayment');
-		Route::post('getshooluser','UserpaymentController@getSchoolUser');
+		Route::post('gettourusers','UserpaymentController@getTourUser');
 		Route::get('getUserpayments/{id}','UserpaymentController@getUserpayments');
 	});
 	Route::namespace('GbiMember')->group(function(){

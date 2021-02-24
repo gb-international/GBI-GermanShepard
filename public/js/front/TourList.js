@@ -59,45 +59,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["tour", "userinfo"],
   data: function data() {
     return {};
+  },
+  methods: {
+    showTourDetail: function showTourDetail(tour_code) {
+      this.$cookies.set('tour_code', tour_code);
+      this.$router.push('/tour-detail');
+    },
+    payTour: function payTour(tour_id) {
+      this.$store.commit('PAYMENT_TOUR_DATA', {
+        'tour_id': tour_id
+      });
+      this.$router.push('/tour-payment');
+    }
   }
 });
 
@@ -178,24 +155,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["tour", "userinfo"],
   data: function data() {
@@ -203,8 +162,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showTourDetail: function showTourDetail(tour_code) {
-      this.$cookies.set('tour_code', tour_code);
-      this.$router.push('/tour-detail');
+      this.$cookies.set("tour_code", tour_code);
+      this.$router.push("/tour-detail");
+    },
+    payTour: function payTour(tour_id) {
+      this.$store.commit("PAYMENT_TOUR_DATA", {
+        tour_id: tour_id
+      });
+      this.$router.push("/tour-payment");
     }
   }
 });
@@ -222,6 +187,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _front_components_tour_TourCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/front/components/tour/TourCard */ "./resources/js/front/components/tour/TourCard.vue");
 /* harmony import */ var _front_components_tour_InchargeTourCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/front/components/tour/InchargeTourCard */ "./resources/js/front/components/tour/InchargeTourCard.vue");
+//
+//
+//
 //
 //
 //
@@ -298,10 +266,11 @@ __webpack_require__.r(__webpack_exports__);
         'school_id': this.userinfo.school_id
       };
       this.$api.POST("/api/tour-list", data).then(function (res) {
+        console.log(res);
+
         if (res.length == 0) {
           _this.formShow = true;
         } else {
-          console.log(res);
           _this.tours = res;
         }
       });
@@ -371,268 +340,110 @@ var render = function() {
         staticClass: "bg-cover text-white tour_list_card mt-3",
         style: {
           backgroundImage:
-            "url('/uploadimage/" + _vm.tour.tour.itinerary.detail_photo + "')"
+            "url('/uploadimage/" + _vm.tour.itinerary.detail_photo + "')"
         }
       },
       [
         _c("div", { staticClass: "container pt-4 font-weight-bold" }, [
-          _vm.userinfo.user_profession == "teacher"
-            ? _c("div", [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-8" }, [
-                    _c("p", { staticClass: "font-italic" }, [
-                      _c(
-                        "span",
-                        { staticClass: "display-4 font-weight-normal" },
-                        [_vm._v("Tour to")]
-                      ),
-                      _vm._v(" "),
-                      _c("small", [
-                        _vm._v(
-                          "(" +
-                            _vm._s(_vm.tour.tour.tour_start_date) +
-                            " - " +
-                            _vm._s(_vm.tour.tour.tour_end_date) +
-                            ")"
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "lead font-weight-normal" }, [
-                      _vm._v(_vm._s(_vm.tour.tour.itinerary.title))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-sm-4 text-center mb-10 mt-5" },
-                    [
-                      _vm.tour.payment == null || _vm.tour.payment == "not-paid"
-                        ? _c(
-                            "router-link",
-                            {
-                              staticClass: "btn btn-light",
-                              attrs: {
-                                to: "/tour-payment/" + _vm.tour.tour.tour_id
-                              }
-                            },
-                            [_vm._v("PAY NOW")]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.tour.payment == "success"
-                        ? _c("img", {
-                            staticClass: "w-45",
-                            attrs: { src: "/images/icons/paid.png" }
-                          })
-                        : _vm._e()
-                    ],
-                    1
-                  )
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-8" }, [
+              _c("p", { staticClass: "font-italic" }, [
+                _c("span", { staticClass: "display-4 font-weight-normal" }, [
+                  _vm._v("Tour to")
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "row text-center" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col p-0" },
-                    [
-                      _vm.tour.payment == null || _vm.tour.payment == "not-paid"
-                        ? _c(
-                            "div",
-                            {
-                              staticClass:
-                                "text-center bg-transparent-card p-t-15 pb-15 text-white"
-                            },
-                            [
-                              _c("img", {
-                                staticClass: "w-20 mr-1",
-                                attrs: {
-                                  src: "/images/icons/viewitinerary.png"
-                                }
-                              }),
-                              _vm._v("View Itinerary\n            ")
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.tour.payment == "success"
-                        ? _c(
-                            "router-link",
-                            {
-                              attrs: {
-                                to: "/tour-detail/" + _vm.tour.tour.tour_id
-                              }
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "text-center bg-transparent-card p-t-15 pb-15 text-white"
-                                },
-                                [
-                                  _c("img", {
-                                    staticClass: "w-20 mr-1",
-                                    attrs: {
-                                      src: "/images/icons/viewitinerary.png"
-                                    }
-                                  }),
-                                  _vm._v("View Itinerary\n              ")
-                                ]
-                              )
-                            ]
-                          )
-                        : _vm._e()
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col p-0" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: "/group-member/" + _vm.tour.tour.tour_id
-                          }
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "text-cente bg-transparent-card p-t-15 pb-15 ml-1 text-white"
-                            },
-                            [
-                              _c("img", {
-                                staticClass: "w-20 mr-1",
-                                attrs: {
-                                  src: "/images/icons/viewmemberlist.png"
-                                }
-                              }),
-                              _vm._v(" Group Members\n              ")
-                            ]
-                          )
-                        ]
-                      )
-                    ],
-                    1
+                _c("small", [
+                  _vm._v(
+                    "(" +
+                      _vm._s(_vm.tour.tour_start_date) +
+                      " - " +
+                      _vm._s(_vm.tour.tour_end_date) +
+                      ")"
                   )
                 ])
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "lead font-weight-normal" }, [
+                _vm._v(_vm._s(_vm.tour.itinerary.title))
               ])
-            : _vm._e(),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-4 text-center mb-10 mt-5" }, [
+              _vm.tour.paid_button == "show"
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-light",
+                      on: {
+                        click: function($event) {
+                          return _vm.payTour(_vm.tour.tour_id)
+                        }
+                      }
+                    },
+                    [_vm._v("Pay Now")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.tour.payment == "success"
+                ? _c("img", {
+                    staticClass: "w-45",
+                    attrs: { src: "/images/icons/paid.png" }
+                  })
+                : _vm._e()
+            ])
+          ]),
           _vm._v(" "),
-          _vm.userinfo.user_profession == "student"
-            ? _c("div", [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-8" }, [
-                    _c("p", { staticClass: "font-italic" }, [
-                      _c(
-                        "span",
-                        { staticClass: "display-4 font-weight-normal" },
-                        [_vm._v("Tour to")]
-                      ),
-                      _vm._v(" "),
-                      _c("small", [
-                        _vm._v(
-                          "(" +
-                            _vm._s(_vm.tour.tour.tour_start_date) +
-                            " - " +
-                            _vm._s(_vm.tour.tour.tour_end_date) +
-                            ")"
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "lead font-weight-normal" }, [
-                      _vm._v(_vm._s(_vm.tour.tour.itinerary.title))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-sm-4 text-center mb-10 mt-5" },
-                    [
-                      _vm.tour.payment == "not-paid"
-                        ? _c(
-                            "router-link",
-                            {
-                              staticClass: "btn btn-light",
-                              attrs: {
-                                to: "/tour-payment/" + _vm.tour.tour.tour_id
-                              }
-                            },
-                            [_vm._v("PAY NOW")]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.tour.payment == "success"
-                        ? _c("img", {
-                            staticClass: "w-45",
-                            attrs: { src: "/images/icons/paid.png" }
-                          })
-                        : _vm._e()
-                    ],
-                    1
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row p-0" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col-sm-12 p-0" },
-                    [
-                      _vm.tour.payment == "success"
-                        ? _c(
-                            "router-link",
-                            {
-                              attrs: {
-                                to: "/tour-detail/" + _vm.tour.tour.tour_id
-                              }
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "text-center bg-transparent-card p-t-15 pb-15 text-white"
-                                },
-                                [
-                                  _c("img", {
-                                    staticClass: "w-20 mr-1",
-                                    attrs: {
-                                      src: "/images/icons/viewitinerary.png"
-                                    }
-                                  }),
-                                  _vm._v(" View Itinerary\n              ")
-                                ]
-                              )
-                            ]
-                          )
-                        : _c(
-                            "div",
-                            {
-                              staticClass:
-                                "text-center bg-transparent-card p-t-15 pb-15 text-white"
-                            },
-                            [
-                              _c("img", {
-                                staticClass: "w-20 mr-1",
-                                attrs: {
-                                  src: "/images/icons/viewitinerary.png"
-                                }
-                              }),
-                              _vm._v("View Itinerary\n            ")
-                            ]
-                          )
-                    ],
-                    1
-                  )
-                ])
-              ])
-            : _vm._e()
+          _c("div", { staticClass: "row text-center" }, [
+            _c("div", { staticClass: "col p-0" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-center link bg-transparent-card p-t-15 pb-15 text-white link",
+                  on: {
+                    click: function($event) {
+                      return _vm.showTourDetail(_vm.tour.tour_id)
+                    }
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "w-20 mr-1",
+                    attrs: { src: "/images/icons/viewitinerary.png" }
+                  }),
+                  _vm._v(" View Itinerary\n            ")
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col p-0" },
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/group-member/" + _vm.tour.tour_id } },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "text-cente bg-transparent-card p-t-15 pb-15 ml-1 text-white"
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "w-20 mr-1",
+                          attrs: { src: "/images/icons/viewmemberlist.png" }
+                        }),
+                        _vm._v(" Group Members\n            ")
+                      ]
+                    )
+                  ]
+                )
+              ],
+              1
+            )
+          ])
         ])
       ]
     )
@@ -672,249 +483,96 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "container pt-4 font-weight-bold" }, [
-          _vm.userinfo.user_profession == "teacher"
-            ? _c("div", [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-8" }, [
-                    _c("p", { staticClass: "font-italic" }, [
-                      _c(
-                        "span",
-                        { staticClass: "display-4 font-weight-normal" },
-                        [_vm._v("Tour to")]
-                      ),
-                      _vm._v(" "),
-                      _c("small", [
-                        _vm._v(
-                          "(" +
-                            _vm._s(_vm.tour.tour.tour_start_date) +
-                            " - " +
-                            _vm._s(_vm.tour.tour.tour_end_date) +
-                            ")"
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "lead font-weight-normal" }, [
-                      _vm._v(_vm._s(_vm.tour.tour.itinerary.title))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-sm-4 text-center mb-10 mt-5" },
-                    [
-                      _vm.tour.payment == null || _vm.tour.payment == "not-paid"
-                        ? _c(
-                            "router-link",
-                            {
-                              staticClass: "btn btn-light",
-                              attrs: {
-                                to: "/tour-payment/" + _vm.tour.tour.tour_id
-                              }
-                            },
-                            [_vm._v("PAY NOW")]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.tour.payment == "success"
-                        ? _c("img", {
-                            staticClass: "w-45",
-                            attrs: { src: "/images/icons/paid.png" }
-                          })
-                        : _vm._e()
-                    ],
-                    1
-                  )
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-8" }, [
+              _c("p", { staticClass: "font-italic" }, [
+                _c("span", { staticClass: "display-4 font-weight-normal" }, [
+                  _vm._v("Tour to")
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "row text-center" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col p-0" },
-                    [
-                      _vm.tour.payment == null || _vm.tour.payment == "not-paid"
-                        ? _c(
-                            "div",
-                            {
-                              staticClass:
-                                "text-center bg-transparent-card p-t-15 pb-15 text-white"
-                            },
-                            [
-                              _c("img", {
-                                staticClass: "w-20 mr-1",
-                                attrs: {
-                                  src: "/images/icons/viewitinerary.png"
-                                }
-                              }),
-                              _vm._v("View Itinerary\n            ")
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.tour.payment == "success"
-                        ? _c(
-                            "router-link",
-                            {
-                              attrs: {
-                                to: "/tour-detail/" + _vm.tour.tour.tour_id
-                              }
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "text-center bg-transparent-card p-t-15 pb-15 text-white"
-                                },
-                                [
-                                  _c("img", {
-                                    staticClass: "w-20 mr-1",
-                                    attrs: {
-                                      src: "/images/icons/viewitinerary.png"
-                                    }
-                                  }),
-                                  _vm._v("View Itinerary\n              ")
-                                ]
-                              )
-                            ]
-                          )
-                        : _vm._e()
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col p-0" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: "/group-member/" + _vm.tour.tour.tour_id
-                          }
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "text-cente bg-transparent-card p-t-15 pb-15 ml-1 text-white"
-                            },
-                            [
-                              _c("img", {
-                                staticClass: "w-20 mr-1",
-                                attrs: {
-                                  src: "/images/icons/viewmemberlist.png"
-                                }
-                              }),
-                              _vm._v(" Group Members\n              ")
-                            ]
-                          )
-                        ]
-                      )
-                    ],
-                    1
+                _c("small", [
+                  _vm._v(
+                    "(" +
+                      _vm._s(_vm.tour.tour.tour_start_date) +
+                      " -\n              " +
+                      _vm._s(_vm.tour.tour.tour_end_date) +
+                      ")"
                   )
                 ])
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "lead font-weight-normal" }, [
+                _vm._v(
+                  "\n            " +
+                    _vm._s(_vm.tour.tour.itinerary.title) +
+                    "\n          "
+                )
               ])
-            : _vm._e(),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-4 text-center mb-10 mt-5" }, [
+              _vm.tour.paid_button == "show"
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-light",
+                      on: {
+                        click: function($event) {
+                          return _vm.payTour(_vm.tour.tour_id)
+                        }
+                      }
+                    },
+                    [_vm._v("\n            Pay Now\n          ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.tour.payment == "success"
+                ? _c("img", {
+                    staticClass: "w-45",
+                    attrs: { src: "/images/icons/paid.png" }
+                  })
+                : _vm._e()
+            ])
+          ]),
           _vm._v(" "),
-          _vm.userinfo.user_profession == "student"
-            ? _c("div", [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-8" }, [
-                    _c("p", { staticClass: "font-italic" }, [
-                      _c(
-                        "span",
-                        { staticClass: "display-4 font-weight-normal" },
-                        [_vm._v("Tour to")]
-                      ),
-                      _vm._v(" "),
-                      _c("small", [
-                        _vm._v(
-                          "(" +
-                            _vm._s(_vm.tour.tour.tour_start_date) +
-                            " - " +
-                            _vm._s(_vm.tour.tour.tour_end_date) +
-                            ")"
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "lead font-weight-normal" }, [
-                      _vm._v(_vm._s(_vm.tour.tour.itinerary.title))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
+          _c("div", { staticClass: "row p-0" }, [
+            _c("div", { staticClass: "col-sm-12 p-0" }, [
+              _vm.tour.payment == "success"
+                ? _c(
                     "div",
-                    { staticClass: "col-sm-4 text-center mb-10 mt-5" },
+                    {
+                      staticClass:
+                        "text-center link bg-transparent-card p-t-15 pb-15 text-white link",
+                      on: {
+                        click: function($event) {
+                          return _vm.showTourDetail(_vm.tour.tour.tour_id)
+                        }
+                      }
+                    },
                     [
-                      _vm.tour.payment == "not-paid"
-                        ? _c(
-                            "router-link",
-                            {
-                              staticClass: "btn btn-light",
-                              attrs: {
-                                to: "/tour-payment/" + _vm.tour.tour.tour_id
-                              }
-                            },
-                            [_vm._v("PAY NOW")]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.tour.payment == "success"
-                        ? _c("img", {
-                            staticClass: "w-45",
-                            attrs: { src: "/images/icons/paid.png" }
-                          })
-                        : _vm._e()
-                    ],
-                    1
+                      _c("img", {
+                        staticClass: "w-20 mr-1",
+                        attrs: { src: "/images/icons/viewitinerary.png" }
+                      }),
+                      _vm._v("\n            View Itinerary\n          ")
+                    ]
                   )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row p-0" }, [
-                  _c("div", { staticClass: "col-sm-12 p-0" }, [
-                    _vm.tour.payment == "success"
-                      ? _c(
-                          "div",
-                          {
-                            staticClass:
-                              "text-center link bg-transparent-card p-t-15 pb-15 text-white link",
-                            on: {
-                              click: function($event) {
-                                return _vm.showTourDetail(_vm.tour.tour.tour_id)
-                              }
-                            }
-                          },
-                          [
-                            _c("img", {
-                              staticClass: "w-20 mr-1",
-                              attrs: { src: "/images/icons/viewitinerary.png" }
-                            }),
-                            _vm._v(" View Itinerary\n            ")
-                          ]
-                        )
-                      : _c(
-                          "div",
-                          {
-                            staticClass:
-                              "text-center bg-transparent-card p-t-15 pb-15 text-white"
-                          },
-                          [
-                            _c("img", {
-                              staticClass: "w-20 mr-1",
-                              attrs: { src: "/images/icons/viewitinerary.png" }
-                            }),
-                            _vm._v("View Itinerary\n            ")
-                          ]
-                        )
-                  ])
-                ])
-              ])
-            : _vm._e()
+                : _c(
+                    "div",
+                    {
+                      staticClass:
+                        "text-center bg-transparent-card p-t-15 pb-15 text-white"
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "w-20 mr-1",
+                        attrs: { src: "/images/icons/viewitinerary.png" }
+                      }),
+                      _vm._v("View Itinerary\n          ")
+                    ]
+                  )
+            ])
+          ])
         ])
       ]
     )

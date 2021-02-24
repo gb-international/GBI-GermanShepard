@@ -31,6 +31,7 @@
     "/js/front/ProfileEdit.js": "/js/front/ProfileEdit.js",
     "/js/front/SafetySecurity.js": "/js/front/SafetySecurity.js",
     "/js/front/StudentProfileEdit.js": "/js/front/StudentProfileEdit.js",
+    "/js/front/TeacherProfileEdit.js": "/js/front/TeacherProfileEdit.js",
     "/js/front/TourDetail.js": "/js/front/TourDetail.js",
     "/js/front/TourList.js": "/js/front/TourList.js",
     "/js/front/TourPayment.js": "/js/front/TourPayment.js",
@@ -46,5 +47,6 @@
     "/vendors~js/front/ExploreDetail.js": "/vendors~js/front/ExploreDetail.js",
     "/vendors~js/front/GroupView.js": "/vendors~js/front/GroupView.js",
     "/vendors~js/front/UserInformation.js": "/vendors~js/front/UserInformation.js",
-    "/js/front/TeacherProfileEdit.js": "/js/front/TeacherProfileEdit.js"
+    "/js/front/TourPaymentStudent.js": "/js/front/TourPaymentStudent.js",
+    "/js/front/TourPaymentTeacher.js": "/js/front/TourPaymentTeacher.js"
 }

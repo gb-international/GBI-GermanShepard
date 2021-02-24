@@ -1,93 +1,40 @@
 <template>
   <div id="tour_payment" class="pb-4">
-    <div v-if="chequePage==false">
-      <div class="container p-t-15 mb-20" v-if="userinfo">
+    <div v-if="chequePage == false">
+      <div class="container p-t-15 mb-20" v-if="tour_info">
         <form>
           <div class="row">
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label for="tour_code">Itinerary Code</label>
-                <input
-                  type="text"
-                  :value="`${this.$route.params.id}`"
-                  class="form-control grey-border"
-                  readonly
-                />
-              </div>
+            <div class="col-sm-2">
+              <label class="text-muted" for="tour_code">Itinerary Code</label>
+              <p>{{ tour_id }}</p>
             </div>
-            <div class="col-sm-4">
-              <label for="person">Total Number of people</label>
-              <input
-                type="text"
-                class="form-control grey-border"
-                v-model="userinfo.no_of_person"
-                readonly
-              />
+            <div class="col-sm-3 text-center">
+              <label class="text-muted" for="person"
+                >Total Number of people</label
+              >
+              <p>{{ tour_info.total_members }}</p>
+            </div>
+            <div class="col-sm-2 text-center">
+              <label class="text-muted" for="person">Unpaid Members</label>
+              <p>{{ tour_info.unpaid_person }}</p>
+            </div>
+            <div class="col-sm-2 text-center">
+              <label class="text-muted" for="person">Paid Members</label>
+              <p>{{ tour_info.paid_person }}</p>
             </div>
 
-            <div class="col-sm-4">
-              <label for="price">Tour Price <small v-if="teacherform.added_by == 'teacher'"><b> ({{ userinfo.no_of_person }} * {{ userinfo.tour_price }})</b></small></label>
-              <input
-                type="text"
-                class="form-control grey-border"
-                v-model="tour_price"
-                readonly
-              />
+            <div class="col-sm-2 text-center">
+              <label class="text-muted" for="price">Tour Price</label>
+              <p>
+                {{ tour_info.base_price }} * {{ tour_info.paid_person }} =
+                {{ tour_info.price }} /-
+              </p>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-12">
-              <div class="student-section" v-if="userinfo.profession=='student'">
-                <div class="col-sm-6" v-if="student_bank">
-                  <label>Bank Details to pay</label>
-                  <div class="ml-5">
-                    <div class="row">
-                      <div class="col">
-                        Beneficary
-                        <span>:</span>
-                      </div>
-                      <div class="col">{{ student_bank.name}}</div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col">
-                        Bank
-                        <span>:</span>
-                      </div>
-                      <div class="col">{{ student_bank.bank_name }}</div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col">
-                        Account Number
-                        <span>:</span>
-                      </div>
-                      <div class="col">{{ student_bank.account_number }}</div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col">
-                        Account Type
-                        <span>:</span>
-                      </div>
-                      <div class="col">{{ student_bank.account_type }}</div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col">
-                        IFSC Code
-                        <span>:</span>
-                      </div>
-                      <div class="col">{{ student_bank.ifsc_code }}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <div class="col-sm-4">
               <label for="payment_mode mt-20">Payment Mode</label>
-              <div class="teacher-section" v-if="userinfo.profession=='teacher'">
+              <div class="teacher-section">
                 <div class="form-check-inline">
                   <label class="form-check-label">
                     <input
@@ -124,7 +71,8 @@
                     name="option"
                     v-model="teacherform.payment_type"
                     value="cheque"
-                  /> Cheque/DD
+                  />
+                  Cheque/DD
                 </label>
               </div>
             </div>
@@ -138,7 +86,8 @@
                     name="option"
                     v-model="teacherform.payment_type"
                     value="cash"
-                  /> Cash
+                  />
+                  Cash
                 </label>
               </div>
             </div>
@@ -152,12 +101,13 @@
                     name="option"
                     v-model="teacherform.payment_type"
                     value="net"
-                  /> Net Banking
+                  />
+                  Net Banking
                 </label>
               </div>
             </div>
           </div>
-          
+
           <div class="row" v-if="teacherform.payment_mode == 'student'">
             <div class="col-sm-6" v-for="bank in bankdetail" :key="bank.id">
               <hr />
@@ -220,7 +170,9 @@
                 class="btn btn-outline-primary btn-square add_row_modal"
                 data-toggle="modal"
                 data-target="#openModal"
-              >ADD Beneficary</button>
+              >
+                ADD Beneficary
+              </button>
             </div>
           </div>
 
@@ -239,17 +191,23 @@
             </div>
           </div>
           <div class="row justify-content-center mt-5">
-              <button 
-                v-if="teacherform.payment_type == 'net'"
-                type="button"
-                @click="onlinePayment()"
-                class="btn btn-outline-primary btn-square ml-2"
-                  >SUBMIT
-              </button>
+            <button
+              v-if="teacherform.payment_type == 'net'"
+              type="button"
+              @click="onlinePayment()"
+              class="btn btn-outline-primary btn-square ml-2"
+            >
+              SUBMIT
+            </button>
 
-              <button v-else type="button" class="btn btn-outline-primary btn-square"
-              @click="submitPayment()">SUBMIT</button>
-
+            <button
+              v-else
+              type="button"
+              class="btn btn-outline-primary btn-square"
+              @click="submitPayment()"
+            >
+              SUBMIT
+            </button>
           </div>
         </form>
 
@@ -258,7 +216,9 @@
           <div class="modal-dialog">
             <div class="modal-content modal-color">
               <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close" data-dismiss="modal">
+                  &times;
+                </button>
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="form-group">
@@ -286,7 +246,9 @@
                           v-for="bank in banknames"
                           :value="bank.name"
                           :key="bank.id"
-                        >{{ bank.name }}</option>
+                        >
+                          {{ bank.name }}
+                        </option>
                       </select>
                       <has-error :form="form" field="bank_name"></has-error>
                     </div>
@@ -298,11 +260,16 @@
                         type="number"
                         class="form-control grey-border"
                         v-model="form.account_number"
-                        :class="{ 'is-invalid': form.errors.has('account_number') }"
+                        :class="{
+                          'is-invalid': form.errors.has('account_number'),
+                        }"
                         placeholder="Enter Account Number"
                         name="account_number"
                       />
-                      <has-error :form="form" field="account_number"></has-error>
+                      <has-error
+                        :form="form"
+                        field="account_number"
+                      ></has-error>
                     </div>
                   </div>
                   <div class="col-sm-6">
@@ -311,9 +278,17 @@
                       <select
                         class="form-control grey-border"
                         v-model="form.account_type"
-                        :class="{ 'is-invalid': form.errors.has('account_type') }"
+                        :class="{
+                          'is-invalid': form.errors.has('account_type'),
+                        }"
                       >
-                        <option v-for="type in account_type" :value="type" :key="type">{{ type }}</option>
+                        <option
+                          v-for="type in account_type"
+                          :value="type"
+                          :key="type"
+                        >
+                          {{ type }}
+                        </option>
                       </select>
                       <has-error :form="form" field="account_type"></has-error>
                     </div>
@@ -339,7 +314,9 @@
                     type="button"
                     class="btn btn-outline-primary btn-square"
                     @click="ModalForm()"
-                  >ADD</button>
+                  >
+                    ADD
+                  </button>
                 </p>
               </div>
             </div>
@@ -355,39 +332,63 @@
           <div class="col-sm-4">
             <div class="form-group">
               <label for="father_name">Bank Name</label>
-              <input type="text" class="form-control" v-model="teacherform.cheque_bank_name" />
+              <input
+                type="text"
+                class="form-control"
+                v-model="teacherform.cheque_bank_name"
+              />
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="form-group">
               <label for="father_name">Date of Issue</label>
-              <input type="date" class="form-control" v-model="teacherform.date_of_issue" />
+              <input
+                type="date"
+                class="form-control"
+                v-model="teacherform.date_of_issue"
+              />
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="form-group">
               <label for="father_name">IFSC Code</label>
-              <input type="text" class="form-control" v-model="teacherform.ifsc_code" />
+              <input
+                type="text"
+                class="form-control"
+                v-model="teacherform.ifsc_code"
+              />
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="form-group">
               <label for="father_name">Cheque Number</label>
-              <input type="number" class="form-control" v-model="teacherform.cheque_number" />
+              <input
+                type="number"
+                class="form-control"
+                v-model="teacherform.cheque_number"
+              />
             </div>
           </div>
         </div>
         <div class="text-center">
-          <button type="button" class="btn btn-outline-primary btn-square" @click="backReset()">BACK</button>
+          <button
+            type="button"
+            class="btn btn-outline-primary btn-square"
+            @click="backReset()"
+          >
+            BACK
+          </button>
 
           <button
             type="button"
             class="btn btn-outline-primary btn-square"
             @click="validateCheque()"
-          >SUBMIT</button>
+          >
+            SUBMIT
+          </button>
         </div>
       </div>
     </div>
@@ -406,8 +407,8 @@ export default {
   data() {
     return {
       chequePage: false,
-      response:'',
-      tour_price:'',
+      response: "",
+      price: "",
 
       tours: "",
       formShow: false,
@@ -418,6 +419,7 @@ export default {
       student_bank: [],
       bankdetail: [],
       banknames: [],
+      tour_info: "",
       userinfo: "",
       robot: false,
 
@@ -433,7 +435,7 @@ export default {
         date_of_issue: "",
         ifsc_code: "",
         cheque_number: "",
-        added_by: "student",
+        added_by: "teacher",
       },
       form: new Form({
         name: "",
@@ -441,7 +443,7 @@ export default {
         account_number: "",
         account_type: "",
         ifsc_code: "",
-        tour_code: this.$route.params.id,
+        tour_code: this.tour_id,
       }),
       account_type: [
         "Current Account",
@@ -450,31 +452,36 @@ export default {
         "Fixed Deposit Account",
       ],
       banknames: [],
+      tour_id: "",
     };
   },
   mounted() {
-    if (localStorage.token == undefined) {
-      this.$router.push("/");
+    if (this.$store.state.paymentData != "") {
+      this.tour_id = this.$store.state.paymentData.tour_id;
+      this.userinfo = this.$cookies.get("user");
+      this.teacherform.school_id = this.userinfo.school_id;
+      console.log(this.userinfo);
+      this.tourBank();
+      this.userData();
+    } else {
+      this.$router.push("/tour-list");
     }
-
-    this.tourBank();
-    this.userData();
   },
 
   methods: {
-
     onVerify: function (response) {
       if (response) this.robot = true;
     },
     onCaptchaExpired: function () {
       this.$refs.recaptcha.reset();
     },
-
     tourBank() {
       var data = [];
       this.$axios
         .post("/api/tour-bankdetail", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
+          headers: {
+            Authorization: `Bearer ${this.$cookies.get("access_token")}`,
+          },
         })
         .then((response) => {
           this.bankdetail = response.data;
@@ -485,23 +492,21 @@ export default {
         });
     },
     userData() {
-      var data = { travel_code: this.$route.params.id };
+      var data = { travel_code: this.tour_id };
       this.$axios
         .post("/api/payment-tour", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
+          headers: {
+            Authorization: `Bearer ${this.$cookies.get("access_token")}`,
+          },
         })
         .then((response) => {
-          this.userinfo = response.data;
-          
-          this.teacherform.amount = this.userinfo.tour_price;
+          console.log(response);
+          this.tour_info = response.data;
+          this.teacherform.user_id = response.data.user_id;
+          this.teacherform.amount = response.data.price;
+          this.price = this.teacherform.amount;
           if (this.userinfo.profession == "teacher") {
-            this.teacherform.added_by = 'teacher';
-            this.teacherform.amount = this.userinfo.tour_price * this.userinfo.no_of_person;
             this.bankNameList();
-          }
-          this.tour_price = this.teacherform.amount;
-          if (this.userinfo.profession == "student") {
-            this.StudentBank();
           }
         })
         .catch((error) => {
@@ -511,7 +516,9 @@ export default {
     ModalForm() {
       this.$axios
         .post("/api/tour-bankdetail-store", this.form, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
+          headers: {
+            Authorization: `Bearer ${this.$cookies.get("access_token")}`,
+          },
         })
         .then((response) => {
           this.form.reset();
@@ -527,16 +534,15 @@ export default {
     },
 
     submitPayment() {
-
-      this.teacherform.tour_code = this.$route.params.id;
-      if(this.userinfo.profession == 'teacher'){
-        this.teacherform.amount = this.userinfo.tour_price * this.userinfo.no_of_person;
-      }else{
-        this.teacherform.amount = this.userinfo.tour_price;        
+      this.teacherform.tour_code = this.tour_id;
+      if (this.tour_info.profession == "teacher") {
+        this.teacherform.amount =
+          this.tour_info.price * this.tour_info.no_of_person;
+      } else {
+        this.teacherform.amount = this.tour_info.price;
       }
-      this.teacherform.user_id = this.userinfo.user_id;
-      this.teacherform.school_id = this.userinfo.school_id;
-      
+      this.teacherform.user_id = this.tour_info.user_id;
+
       if (this.robot == false) {
         this.$swal.fire({
           icon: "error",
@@ -551,7 +557,7 @@ export default {
       ) {
         this.teacherform.schoolbankdetail_id = "";
         this.chequePage = true;
-        // this.$router.push(`/payment-mode/${this.$route.params.id}`);
+        // this.$router.push(`/payment-mode/${this.tour_id}`);
       }
 
       if (
@@ -579,46 +585,32 @@ export default {
       });
     },
 
-    StudentBank() {
-      var data = { tour_code: this.$route.params.id };
-      this.$axios
-        .post("/api/tour-bankdetail-student", data, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
-        })
-        .then((response) => {
-          this.student_bank = response.data;
-          console.log(response);
-        })
-        .catch((error) => {
-          this.handleError(error);
-        });
-    },
-
-
-
     submitForm() {
       this.$axios
         .post("/api/tour-submit-payment", this.teacherform, {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
+          headers: {
+            Authorization: `Bearer ${this.$cookies.get("access_token")}`,
+          },
         })
         .then((response) => {
-          if(response.data['error']){
+          if (response.data["error"]) {
             this.$swal.fire({
               icon: "error",
               title: response.data.error,
-            }); 
-            return false; 
+            });
+            return false;
           }
           this.$swal.fire({
             icon: "success",
             title: "Successfully Added !!",
           });
+          this.$router.push("/tour-list");
         })
         .catch((error) => {
           this.handleError(error);
         });
     },
-    onlinePayment(){
+    onlinePayment() {
       if (this.robot == false) {
         this.$swal.fire({
           icon: "error",
@@ -627,23 +619,31 @@ export default {
         return false;
       }
       var data = {
-        user_id:'',
-        travel_code:'',
-        tour_id:'',
-        school_id:'',
-        added_by:'',
-        tour_price:'',
-        no_of_person:'',
+        user_id: "",
+        travel_code: "",
+        tour_id: "",
+        school_id: "",
+        added_by: "",
+        price: "",
+        no_of_person: "",
+        base_price: 0,
+        paid_person: 0,
+        unpaid_person: 0,
+        total_members: 0,
+        price: 0,
       };
-      data.user_id = this.userinfo.user_id;
-      data.travel_code = this.userinfo.travel_code;
-      data.tour_id = this.$route.params.id;
+      data.user_id = this.tour_info.user_id;
+      data.paid_person = this.tour_info.paid_person;
+      data.unpaid_person = this.tour_info.unpaid_person;
+      data.total_members = this.tour_info.total_members;
+      data.base_price = this.tour_info.base_price;
+      data.price = this.tour_info.price;
+      data.travel_code = this.tour_info.travel_code;
+      data.tour_id = this.tour_id;
       data.school_id = this.userinfo.school_id;
-      data.added_by = this.userinfo.profession;
-      data.tour_price = this.userinfo.tour_price;
-      data.no_of_person = this.userinfo.no_of_person;
-      this.$cookies.set('payment-data',data,60 * 60 * 1);// expire in 1 hour
-      this.$router.push('/payment-billing')
+      data.added_by = 'teacher';
+      this.$cookies.set("payment-data", data, 60 * 60 * 1); // expire in 1 hour
+      this.$router.push("/payment-billing");
     },
 
     backReset() {
@@ -654,16 +654,21 @@ export default {
       this.teacherform.cheque_number = "";
     },
 
-    validateCheque(){
-      if(this.teacherform.cheque_bank_name != '' && this.teacherform.date_of_issue != '' && this.teacherform.ifsc_code != '' && this.teacherform.cheque_number != ''){
+    validateCheque() {
+      if (
+        this.teacherform.cheque_bank_name != "" &&
+        this.teacherform.date_of_issue != "" &&
+        this.teacherform.ifsc_code != "" &&
+        this.teacherform.cheque_number != ""
+      ) {
         this.submitForm();
-      }else{
+      } else {
         this.$swal.fire({
           icon: "error",
           title: "Please fill all the fields !!",
         });
       }
-    }
+    },
   },
 };
 </script>

@@ -13,7 +13,8 @@ export function createStore() {
             SearchAll: [],
             status: '',
             token : '',
-            user: {}
+            user: {},
+            paymentData:'',
         },
         // Getters help to fetch the data from the templates 
         getters: {
@@ -120,7 +121,7 @@ export function createStore() {
                         context.commit('getSearchPostAll', response.data.data)
 
                     })
-            }
+            },
         },
         mutations: {
             // Return alll the data related to the api call
@@ -155,6 +156,9 @@ export function createStore() {
                 state.status = ''
                 state.token = ''
             },
+            PAYMENT_TOUR_DATA(state,payload){
+                state.paymentData = payload
+            }
         }
     })
 }
