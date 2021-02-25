@@ -1,9 +1,5 @@
-<!-- 
-
-This is template is for the viewing the itineraray with the help of the id of the itinerary 
-It takes id from the url and get the data from the api .
-
--->
+<!-- This is template is for the viewing the itineraray with the help of the id of the itinerary 
+It takes id from the url and get the data from the api .-->
 <template>
   <view-layout>
     <template #viewdata>
@@ -127,7 +123,7 @@ It takes id from the url and get the data from the api .
         <div class="row pl-4" v-if="show_json">
           <table class="">
             <tbody>
-              <tr v-for="(value, key, i) in tour_view.payment_data" :key="i">
+              <tr v-for="(value, key, i) in JSON.parse(tour_view.payment_data)" :key="i">
                 <td>
                   <p class="mr-5">
                     <b>{{ key }} : </b> <i>{{ value }} </i>
