@@ -44,16 +44,22 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-search-select */ "./node_modules/vue-search-select/dist/VueSearchSelect.common.js");
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_search_select__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
-/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-search-select */ "./node_modules/vue-search-select/dist/VueSearchSelect.common.js");
+/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_search_select__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/mixins/Vue2EditorMixin */ "./resources/js/admin/mixins/Vue2EditorMixin.js");
 /* harmony import */ var _admin_components_buttons_BackButton_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/buttons/BackButton.vue */ "./resources/js/admin/components/buttons/BackButton.vue");
 /* harmony import */ var _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/buttons/SubmitButton.vue */ "./resources/js/admin/components/buttons/SubmitButton.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -162,20 +168,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "New",
   components: {
-    ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_1__["ModelSelect"],
-    Multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_2___default.a,
-    VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"],
-    Form: vform__WEBPACK_IMPORTED_MODULE_3__["Form"],
-    "has-error": vform__WEBPACK_IMPORTED_MODULE_3__["HasError"],
+    ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_0__["ModelSelect"],
+    Multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_1___default.a,
+    Form: vform__WEBPACK_IMPORTED_MODULE_2__["Form"],
+    "has-error": vform__WEBPACK_IMPORTED_MODULE_2__["HasError"],
     "back-button": _admin_components_buttons_BackButton_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     "submit-button": _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
+  mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_3__["default"]],
   data: function data() {
     return {
       img_image: "",
       itinerary_list: [],
-      form: new vform__WEBPACK_IMPORTED_MODULE_3__["Form"]({
+      form: new vform__WEBPACK_IMPORTED_MODULE_2__["Form"]({
         title: "",
         description: "",
         image: "",
@@ -210,7 +216,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(api).then(function (response) {
         _this2.form.fill(response.data);
 
-        _this2.img_image = "images/tourprogram/" + _this2.form.image;
+        _this2.img_image = _this2.form.image;
         var data = _this2.form.itinerary;
         _this2.form.itinerary = [];
 
@@ -220,12 +226,7 @@ __webpack_require__.r(__webpack_exports__);
             name: data[i]["title"]
           });
         }
-
-        console.log(_this2.form);
       });
-    },
-    getImgUrl: function getImgUrl(img) {
-      return "/images/tourprogram/" + img;
     },
     changeImage: function changeImage(event) {
       var _this3 = this;
@@ -515,6 +516,16 @@ var render = function() {
                           class: {
                             "is-invalid": _vm.form.errors.has("description")
                           },
+                          attrs: {
+                            customModules: _vm.customModulesForEditor,
+                            editorOptions: _vm.editorSettings,
+                            id: "editor",
+                            useCustomImageHandler: ""
+                          },
+                          on: {
+                            "image-added": _vm.handleImageAdded,
+                            "image-removed": _vm.handleImageRemoved
+                          },
                           model: {
                             value: _vm.form.description,
                             callback: function($$v) {
@@ -546,7 +557,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "mode_of_transport" } }, [
-                          _vm._v("Tour category")
+                          _vm._v("Tour itinerary")
                         ]),
                         _c("br"),
                         _vm._v(" "),
@@ -782,6 +793,82 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormLayout_vue_vue_type_template_id_25c09338___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/admin/mixins/Vue2EditorMixin.js":
+/*!******************************************************!*\
+  !*** ./resources/js/admin/mixins/Vue2EditorMixin.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
+/* harmony import */ var quill_image_drop_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quill-image-drop-module */ "./node_modules/quill-image-drop-module/index.js");
+/* harmony import */ var quill_image_resize_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! quill-image-resize-module */ "./node_modules/quill-image-resize-module/image-resize.min.js");
+/* harmony import */ var quill_image_resize_module__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(quill_image_resize_module__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var Vue2EditorMixin = {
+  components: {
+    "vue-editor": vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"]
+  },
+  data: function data() {
+    return {
+      customModulesForEditor: [{
+        alias: "imageDrop",
+        module: quill_image_drop_module__WEBPACK_IMPORTED_MODULE_1__["ImageDrop"]
+      }, {
+        alias: "imageResize",
+        module: quill_image_resize_module__WEBPACK_IMPORTED_MODULE_2___default.a
+      }],
+      editorSettings: {
+        modules: {
+          imageDrop: true,
+          imageResize: {}
+        }
+      }
+    };
+  },
+  methods: {
+    handleImageAdded: function handleImageAdded(file, Editor, cursorLocation, resetUploader) {
+      var formData = new FormData();
+      formData.append("image", file);
+      axios({
+        url: "/api/images",
+        method: "POST",
+        data: formData
+      }).then(function (result) {
+        var url = result.data.url; // Get url from response
+
+        Editor.insertEmbed(cursorLocation, "image", url);
+        resetUploader();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    handleImageRemoved: function handleImageRemoved(file, Editor, cursorLocation, resetUploader) {
+      var formData = new FormData();
+      formData.append("image", file);
+      axios({
+        url: "/api/images/delete",
+        method: "POST",
+        data: formData
+      }).then(function (result) {
+        var url = result.data.url; // Get url from response
+
+        Editor.insertEmbed(cursorLocation, "image", url);
+        resetUploader();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (Vue2EditorMixin);
 
 /***/ }),
 

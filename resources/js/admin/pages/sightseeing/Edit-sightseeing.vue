@@ -129,7 +129,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="image"></label>
               <br />
-              <img :src="img_image" alt class="image w-100" />
+              <img :src="img_image" alt class="image width-140" />
               <has-error :form="form" field="image"></has-error>
             </div>
           </div>
@@ -152,12 +152,12 @@ export default {
     "has-error": HasError,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
-    "dropdown-filter":DropdownFilter
+    "dropdown-filter": DropdownFilter,
   },
   data() {
     return {
       img_image: "",
-      options:[],
+      options: [],
       city_list: [],
       form: new Form({
         name: "",
@@ -186,10 +186,10 @@ export default {
       axios.get("/api/state").then((res) => {
         if (res.data) {
           this.options = [];
-          for(let i = 0;i<res.data.length;i++){
+          for (let i = 0; i < res.data.length; i++) {
             this.options.push({
-              name:res.data[i].name,
-              id:res.data[i].id
+              name: res.data[i].name,
+              id: res.data[i].id,
             });
           }
         }
@@ -200,10 +200,10 @@ export default {
       axios.get("/api/state-city/" + id).then((res) => {
         if (res.data) {
           this.city_list = [];
-          for(let i = 0;i<res.data.length;i++){
+          for (let i = 0; i < res.data.length; i++) {
             this.city_list.push({
-              name:res.data[i].name,
-              id:res.data[i].id
+              name: res.data[i].name,
+              id: res.data[i].id,
             });
           }
         }
@@ -214,7 +214,7 @@ export default {
         .get(`/api/sightseeings/${this.$route.params.id}/edit`)
         .then((response) => {
           this.form.fill(response.data);
-          this.img_image = "images/sightseeing/" + this.form.image;
+          this.img_image = this.form.image;
         });
     },
     updateSightseeing() {

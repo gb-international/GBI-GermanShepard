@@ -44,8 +44,7 @@ data from the api to display the data about the encyclopedia from the backend .
           <table-loader />
         </template>
         <template #cell(image)="data">
-          
-          <img :src="getImgUrl(data.item.image)" class="w-60">
+          <img :src="data.item.image" class="w-60">
         </template>
         <template #cell(description)="data">
           <span :inner-html.prop="data.item.description | readMore(90)"></span>
@@ -124,9 +123,6 @@ export default {
     deleteItem(id,index=-1) {
       let payload = {'api':"/tourprogram/"+id,index,'index':index};
       this.$store.dispatch('deleteItem',payload);
-    },
-    getImgUrl(img) {
-      return "/images/tourprogram/" + img;
     },
   },
 };

@@ -507,7 +507,8 @@ __webpack_require__.r(__webpack_exports__);
         name: "",
         state: "",
         city: "",
-        image: [],
+        image: '',
+        alt: '',
         room: "",
         phoneno: "",
         email: "",
@@ -532,14 +533,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var file = event.target.files[0];
+      this.form.alt = file.name;
       var reader = new FileReader();
 
       reader.onload = function (event) {
-        _this.form.image.push({
-          name: file.name,
-          file: event.target.result
-        });
-
+        _this.form.image = event.target.result;
         _this.img_image = event.target.result;
       };
 
@@ -1223,7 +1221,7 @@ var render = function() {
                         _c("br"),
                         _vm._v(" "),
                         _c("img", {
-                          staticClass: "image",
+                          staticClass: "image width-140",
                           attrs: { src: _vm.img_image, alt: "" }
                         }),
                         _vm._v(" "),

@@ -317,6 +317,12 @@
           <label for="descriptionId">Description</label>
 
           <vue-editor
+            :customModules="customModulesForEditor"
+            :editorOptions="editorSettings"
+            id="editor"
+            useCustomImageHandler
+            @image-added="handleImageAdded"
+            @image-removed="handleImageRemoved"
             v-model="form.description"
             :class="{ 'is-invalid': form.errors.has('description') }"
           ></vue-editor>
@@ -401,6 +407,12 @@
               <vue-editor
                 v-model="data.day_description"
                 :class="{ 'is-invalid': form.errors.has('description') }"
+                :customModules="customModulesForEditor"
+                :editorOptions="editorSettings"
+                id="editor"
+                useCustomImageHandler
+                @image-added="handleImageAdded"
+                @image-removed="handleImageRemoved"
               ></vue-editor>
             </div>
           </div>
@@ -416,9 +428,9 @@
 import { ModelSelect } from "vue-search-select";
 import Multiselect from "vue-multiselect";
 import { Form, HasError, AlertError } from "vform";
-import { VueEditor, Quill } from "vue2-editor";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
+import Vue2EditorMixin from '@/admin/mixins/Vue2EditorMixin';
 export default {
   name: "EditItinerary",
   components: {
@@ -426,10 +438,10 @@ export default {
     ModelSelect,
     Multiselect,
     "has-error": HasError,
-    "vue-editor": VueEditor,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
   },
+  mixins:[Vue2EditorMixin],
   data() {
     return {
       cities: [],
@@ -486,10 +498,8 @@ export default {
         .then((response) => {
           setTimeout(() => $("#example").DataTable(), 1000);
           this.form.fill(response.data);
-          this.form.photo = "";
-          this.form.detail_photo = "";
-          this.photo = "/uploadimage/" + response.data.photo;
-          this.detail_photo = "/uploadimage/" + response.data.detail_photo;
+          this.photo = response.data.photo;
+          this.detail_photo = response.data.detail_photo;
           var day_data = response.data.itinerarydays;
           // this.sources.value = this.form.source;
           // this.sources.text = this.form.source;
@@ -506,8 +516,8 @@ export default {
               });
             }
           }
-          this.img_photo = "/uploadimage/" + this.form.photo;
-          this.img_detail_photo = "/uploadimage/" + this.form.detail_photo;
+          this.img_photo = this.form.photo;
+          this.img_detail_photo = this.form.detail_photo;
         });
     },
 

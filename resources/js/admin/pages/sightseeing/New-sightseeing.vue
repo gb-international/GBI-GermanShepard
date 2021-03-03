@@ -147,7 +147,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="image"></label>
               <br />
-              <img :src="img_image" alt class="image" />
+              <img :src="img_image" alt class="image width-140" />
               <has-error :form="form" field="image"></has-error>
             </div>
           </div>

@@ -17,6 +17,24 @@ class Encyclopedia extends Model
         'banner_image_alt',
     ];
 
+    public function getBannerImageAttribute($image)
+    {
+        if($image){
+            return \Storage::disk('s3')->url(config('gbi.encyclopedia_image').$image);
+        }else{
+            return '';
+        }
+    }
+
+    public function getThumbnailAttribute($image)
+    {
+        if($image){
+            return \Storage::disk('s3')->url(config('gbi.encyclopedia_image').$image);
+        }else{
+            return '';
+        }
+    }
+
     public function images(){
         return $this->hasMany('App\Model\Encyclopedia\EncyclopediaImage');
     }

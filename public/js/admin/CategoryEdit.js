@@ -76,12 +76,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
-/* harmony import */ var quill_image_drop_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! quill-image-drop-module */ "./node_modules/quill-image-drop-module/index.js");
-/* harmony import */ var quill_image_resize_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! quill-image-resize-module */ "./node_modules/quill-image-resize-module/image-resize.min.js");
-/* harmony import */ var quill_image_resize_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(quill_image_resize_module__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
-/* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/mixins/Vue2EditorMixin */ "./resources/js/admin/mixins/Vue2EditorMixin.js");
+/* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
+/* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
 //
 //
 //
@@ -187,8 +184,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
 
 
 
@@ -198,19 +193,19 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Form: vform__WEBPACK_IMPORTED_MODULE_0__["Form"],
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
-    "vue-editor": vue2_editor__WEBPACK_IMPORTED_MODULE_1__["VueEditor"],
-    "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
+  mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
   data: function data() {
     return {
       img_image: false,
       customModulesForEditor: [{
         alias: "imageDrop",
-        module: quill_image_drop_module__WEBPACK_IMPORTED_MODULE_2__["ImageDrop"]
+        module: ImageDrop
       }, {
         alias: "imageResize",
-        module: quill_image_resize_module__WEBPACK_IMPORTED_MODULE_3___default.a
+        module: ImageResize
       }],
       editorSettings: {
         modules: {
@@ -242,7 +237,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.form.fill(response.data);
 
         _this.form.image = [];
-        _this.img_image = "/images/category/" + response.data.image;
+        _this.img_image = response.data.image;
       });
     },
     UpdateCategory: function UpdateCategory() {
@@ -268,42 +263,6 @@ __webpack_require__.r(__webpack_exports__);
       };
 
       reader.readAsDataURL(file);
-    },
-    handleImageAdded: function handleImageAdded(file, Editor, cursorLocation, resetUploader) {
-      var formData = new FormData();
-      formData.append("image", file);
-      axios({
-        url: "/api/images",
-        method: "POST",
-        data: formData
-      }).then(function (result) {
-        var url = result.data.url; // Get url from response
-
-        Editor.insertEmbed(cursorLocation, "image", url);
-        resetUploader();
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    handleImageRemoved: function handleImageRemoved(file, Editor, cursorLocation, resetUploader) {
-      var formData = new FormData();
-      formData.append("image", file);
-      axios({
-        url: "/api/images/delete",
-        method: "POST",
-        data: formData
-      }).then(function (result) {
-        console.log(result);
-        var url = result.data.url; // Get url from response
-
-        Editor.insertEmbed(cursorLocation, "image", url);
-        resetUploader();
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    imagePath: function imagePath() {
-      return "/images/post/" + this.form.image;
     },
     back: function back() {
       this.$router.push("/categories");
@@ -996,6 +955,82 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormLayout_vue_vue_type_template_id_25c09338___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/admin/mixins/Vue2EditorMixin.js":
+/*!******************************************************!*\
+  !*** ./resources/js/admin/mixins/Vue2EditorMixin.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
+/* harmony import */ var quill_image_drop_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quill-image-drop-module */ "./node_modules/quill-image-drop-module/index.js");
+/* harmony import */ var quill_image_resize_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! quill-image-resize-module */ "./node_modules/quill-image-resize-module/image-resize.min.js");
+/* harmony import */ var quill_image_resize_module__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(quill_image_resize_module__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var Vue2EditorMixin = {
+  components: {
+    "vue-editor": vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"]
+  },
+  data: function data() {
+    return {
+      customModulesForEditor: [{
+        alias: "imageDrop",
+        module: quill_image_drop_module__WEBPACK_IMPORTED_MODULE_1__["ImageDrop"]
+      }, {
+        alias: "imageResize",
+        module: quill_image_resize_module__WEBPACK_IMPORTED_MODULE_2___default.a
+      }],
+      editorSettings: {
+        modules: {
+          imageDrop: true,
+          imageResize: {}
+        }
+      }
+    };
+  },
+  methods: {
+    handleImageAdded: function handleImageAdded(file, Editor, cursorLocation, resetUploader) {
+      var formData = new FormData();
+      formData.append("image", file);
+      axios({
+        url: "/api/images",
+        method: "POST",
+        data: formData
+      }).then(function (result) {
+        var url = result.data.url; // Get url from response
+
+        Editor.insertEmbed(cursorLocation, "image", url);
+        resetUploader();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    handleImageRemoved: function handleImageRemoved(file, Editor, cursorLocation, resetUploader) {
+      var formData = new FormData();
+      formData.append("image", file);
+      axios({
+        url: "/api/images/delete",
+        method: "POST",
+        data: formData
+      }).then(function (result) {
+        var url = result.data.url; // Get url from response
+
+        Editor.insertEmbed(cursorLocation, "image", url);
+        resetUploader();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (Vue2EditorMixin);
 
 /***/ }),
 

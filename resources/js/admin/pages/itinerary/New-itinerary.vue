@@ -326,6 +326,12 @@ to submit the data we are using a function.
               <label for="descriptionId">Description</label>
 
               <vue-editor
+                :customModules="customModulesForEditor"
+                :editorOptions="editorSettings"
+                id="editor"
+                useCustomImageHandler
+                @image-added="handleImageAdded"
+                @image-removed="handleImageRemoved"
                 v-model="form.description"
                 :class="{ 'is-invalid': form.errors.has('description') }"
               ></vue-editor>
@@ -413,6 +419,12 @@ to submit the data we are using a function.
               <vue-editor
                 v-model="data.day_description"
                 :class="{ 'is-invalid': form.errors.has('description') }"
+                :customModules="customModulesForEditor"
+                :editorOptions="editorSettings"
+                id="editor"
+                useCustomImageHandler
+                @image-added="handleImageAdded"
+                @image-removed="handleImageRemoved"
               ></vue-editor>
             </div>
           </div>
@@ -429,8 +441,7 @@ to submit the data we are using a function.
 import { ModelSelect } from "vue-search-select";
 import Multiselect from "vue-multiselect";
 import { Form, HasError, AlertError } from "vform";
-import { VueEditor, Quill } from "vue2-editor";
-
+import Vue2EditorMixin from '@/admin/mixins/Vue2EditorMixin';
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
@@ -439,13 +450,13 @@ export default {
   components: {
     ModelSelect,
     Multiselect,
-    VueEditor,
     Form,
     "has-error": HasError,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
     "dropdown-filter":DropdownFilter
   },
+  mixins:[Vue2EditorMixin],
   data() {
     return {
       options: [],
@@ -463,6 +474,8 @@ export default {
         hoteltype: "0",
         photo: "",
         detail_photo: "",
+        photo_alt:'',
+        detail_photo_alt:'',
         food: "",
         flight: "",
         bus: "",
@@ -516,6 +529,7 @@ export default {
         let reader = new FileReader();
         reader.onload = (event) => {
           this.form.photo = event.target.result;
+          this.form.photo_alt = file.name;
         };
         reader.readAsDataURL(file);
       }
@@ -532,6 +546,7 @@ export default {
         let reader = new FileReader();
         reader.onload = (event) => {
           this.form.detail_photo = event.target.result;
+          this.form.detail_photo_alt = file.name;
         };
         reader.readAsDataURL(file);
       }

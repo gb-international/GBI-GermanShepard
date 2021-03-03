@@ -160,14 +160,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/posts/".concat(this.$route.params.id)).then(function (response) {
         _this.posts = response.data;
-        console.log(_this.posts);
       });
-    },
-    imagePath: function imagePath(img) {
-      return "/images/post/" + img;
-    },
-    goBack: function goBack() {
-      this.$router.push("/posts");
     }
   }
 });
@@ -309,7 +302,7 @@ var render = function() {
               _vm._v(" "),
               _c("img", {
                 staticClass: "w-100",
-                attrs: { src: _vm.imagePath(_vm.posts.image) }
+                attrs: { src: _vm.posts.image }
               })
             ]),
             _vm._v(" "),

@@ -180,7 +180,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="image"></label>
               <br />
-              <img :src="img_image" alt class="image" />
+              <img :src="img_image" alt class="image width-140"/>
               <has-error :form="form" field="image"></has-error>
             </div>
           </div>
@@ -429,7 +429,8 @@ export default {
         name: "",
         state: "",
         city: "",
-        image: [],
+        image: '',
+        alt:'',
         room: "",
         phoneno: "",
         email: "",
@@ -459,8 +460,7 @@ export default {
     hotelData() {
       axios.get(`/api/hotel/${this.$route.params.id}/edit`).then((response) => {
         this.form.fill(response.data);
-        this.form.image = [];
-        this.img_image = "images/hotel/" + response.data.image;
+        this.img_image = response.data.image;
       });
     },
     UpdateHotel() {
@@ -478,12 +478,10 @@ export default {
     },
     changeDetailPhoto(event) {
       let file = event.target.files[0];
+      this.form.alt = file.name;
       let reader = new FileReader();
       reader.onload = (event) => {
-        this.form.image.push({
-          name: file.name,
-          file: event.target.result,
-        });
+        this.form.image  = event.target.result;
         this.img_image = event.target.result;
       };
       reader.readAsDataURL(file);

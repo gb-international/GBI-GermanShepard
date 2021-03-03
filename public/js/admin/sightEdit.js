@@ -235,7 +235,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/sightseeings/".concat(this.$route.params.id, "/edit")).then(function (response) {
         _this3.form.fill(response.data);
 
-        _this3.img_image = "images/sightseeing/" + _this3.form.image;
+        _this3.img_image = _this3.form.image;
       });
     },
     updateSightseeing: function updateSightseeing() {
@@ -639,7 +639,7 @@ var render = function() {
                         _c("br"),
                         _vm._v(" "),
                         _c("img", {
-                          staticClass: "image w-100",
+                          staticClass: "image width-140",
                           attrs: { src: _vm.img_image, alt: "" }
                         }),
                         _vm._v(" "),

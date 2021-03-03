@@ -181,6 +181,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "View",
@@ -189,15 +195,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      client_view: []
+      hotels: []
     };
   },
-  mounted: function mounted() {
-    this.$store.dispatch("getEditData", "/api/hotel/".concat(this.$route.params.id, "/edit"));
+  created: function created() {
+    this.hotelView();
   },
-  computed: {
-    viewData: function viewData() {
-      return this.$store.getters.getEditData; // Fill the form with the data
+  methods: {
+    hotelView: function hotelView() {
+      var _this = this;
+
+      axios.get("/api/hotel/".concat(this.$route.params.id)).then(function (res) {
+        _this.hotels = res.data;
+        console.log(res);
+      });
     }
   }
 });
@@ -332,121 +343,132 @@ var render = function() {
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Name")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.name))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.name))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Email")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.email))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.email))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Phone Number")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.phoneno))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.phoneno))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Hotel Star")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.type))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.type))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Address")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.address))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.address))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Room")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.room) + "/-")])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.room) + "/-")])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Api Single")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.api_single))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.api_single))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Api Double")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.api_double))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.api_double))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Api Triple")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.api_triple))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.api_triple))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Api Quad")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.api_quad))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.api_quad))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Mapai Single")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.mapi_single))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.mapi_single))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Mapai Double")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.mapi_double))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.mapi_double))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Mapai Triple")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.mapi_triple))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.mapi_triple))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Mapai Quad")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.mapi_quad))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.mapi_quad))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Cpai Single")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.cpai_single))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.cpai_single))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Cpai Double")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.cpai_double))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.cpai_double))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Cpai Triple")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.cpai_triple))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.cpai_triple))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Cpai Quad")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.cpai_quad))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.cpai_quad))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Created At")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.created_at))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.created_at))])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("h5", [_vm._v("Updated At")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.viewData.updated_at))])
+                _c("p", [_vm._v(_vm._s(_vm.hotels.updated_at))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-4" }, [
+                _c("h5", [_vm._v("Image")]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("img", {
+                    staticClass: "width-140",
+                    attrs: { src: _vm.hotels.image }
+                  })
+                ])
               ])
             ])
           ]

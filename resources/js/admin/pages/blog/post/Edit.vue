@@ -170,9 +170,7 @@ to submit the data we are using a function.
 
 <script>
 import { Form, HasError } from "vform";
-import { VueEditor, Quill } from "vue2-editor";
-import { ImageDrop } from "quill-image-drop-module";
-import ImageResize from "quill-image-resize-module";
+import Vue2EditorMixin from '@/admin/mixins/Vue2EditorMixin';
 import "vue-search-select/dist/VueSearchSelect.css";
 import Multiselect from "vue-multiselect";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
@@ -183,11 +181,11 @@ export default {
   components: {
     Form,
     "has-error": HasError,
-    "vue-editor": VueEditor,
     Multiselect,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
   },
+  mixins:[Vue2EditorMixin],
   data() {
     return {
       img_image: false,
@@ -228,7 +226,7 @@ export default {
         setTimeout(() => $("#example").DataTable(), 1000);
         this.form.fill(response.data);
         this.form.image = [];
-        this.img_image = "/images/post/" + response.data.image;
+        this.img_image = response.data.image;
       });
     },
     getCategories() {
@@ -265,46 +263,6 @@ export default {
         this.img_image = event.target.result;
       };
       reader.readAsDataURL(file);
-    },
-    handleImageAdded: function (file, Editor, cursorLocation, resetUploader) {
-      var formData = new FormData();
-      formData.append("image", file);
-      axios({
-        url: "/api/images",
-        method: "POST",
-        data: formData,
-      })
-        .then((result) => {
-          let url = result.data.url; // Get url from response
-          Editor.insertEmbed(cursorLocation, "image", url);
-          resetUploader();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-
-    handleImageRemoved: function (file, Editor, cursorLocation, resetUploader) {
-      var formData = new FormData();
-      formData.append("image", file);
-      axios({
-        url: "/api/images/delete",
-        method: "POST",
-        data: formData,
-      })
-        .then((result) => {
-          console.log(result);
-          let url = result.data.url; // Get url from response
-          Editor.insertEmbed(cursorLocation, "image", url);
-          resetUploader();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-
-    imagePath() {
-      return "/images/post/" + this.form.image;
     },
     back() {
       this.$router.push("/posts");

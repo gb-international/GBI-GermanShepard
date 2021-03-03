@@ -31,6 +31,12 @@ to submit the data we are using a function.
               <vue-editor
                 v-model="form.description"
                 :class="{ 'is-invalid': form.errors.has('description') }"
+                :customModules="customModulesForEditor"
+                :editorOptions="editorSettings"
+                id="editor"
+                useCustomImageHandler
+                @image-added="handleImageAdded"
+                @image-removed="handleImageRemoved"
               ></vue-editor>
               <has-error :form="form" field="description"></has-error>
             </div>
@@ -95,7 +101,7 @@ to submit the data we are using a function.
 
 <script>
 import { Form, HasError } from "vform";
-import { VueEditor, Quill } from "vue2-editor";
+import Vue2EditorMixin from '@/admin/mixins/Vue2EditorMixin';
 
 import FormButton from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
@@ -105,10 +111,10 @@ export default {
   components: {
     Form,
     "has-error": HasError,
-    "vue-editor": VueEditor,
     'form-buttons':FormButton,
     'form-layout':FormLayout,
   },
+  mixins:[Vue2EditorMixin],
   data() {
     return {
       img_image: false,

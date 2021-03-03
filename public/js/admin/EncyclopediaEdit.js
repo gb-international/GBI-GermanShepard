@@ -327,8 +327,8 @@ __webpack_require__.r(__webpack_exports__);
         _this2.form.fill(response.data);
 
         _this2.pdf_list = response.data.itinerarypdfs;
-        _this2.images["thumbnail"] = "/encyclopedia/" + response.data.thumbnail;
-        _this2.images["banner_image"] = "/encyclopedia/" + response.data.banner_image;
+        _this2.images["thumbnail"] = response.data.thumbnail;
+        _this2.images["banner_image"] = response.data.banner_image;
         _this2.list_images = response.data.images;
         _this2.form.thumbnail = [];
         _this2.form.banner_image = [];
@@ -421,9 +421,6 @@ __webpack_require__.r(__webpack_exports__);
 
       this.form.slug = slug.replace(/\s+/g, "-");
     },
-    getImgUrl: function getImgUrl(img) {
-      return "/encyclopedia/" + img;
-    },
     deleteImage: function deleteImage(id) {
       var _this5 = this;
 
@@ -440,6 +437,8 @@ __webpack_require__.r(__webpack_exports__);
       // Submit form
       var api = "/api/encyclopedias/".concat(this.$route.params.id);
       this.form.put(api).then(function (response) {
+        _this6.EncyclopediaList();
+
         _this6.$toast.fire({
           icon: "success",
           title: "Encyclopedia Updated successfully"
@@ -924,7 +923,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("img", {
-                          staticClass: "banner_image",
+                          staticClass: "banner_image width-140",
                           attrs: { src: _vm.images.banner_image, alt: "" }
                         }),
                         _vm._v(" "),
@@ -955,7 +954,7 @@ var render = function() {
                               _c("div", { staticClass: "card-body" }, [
                                 _c("img", {
                                   staticClass: "w-100",
-                                  attrs: { src: "/encyclopedia/" + img.image }
+                                  attrs: { src: img.image }
                                 })
                               ])
                             ]),

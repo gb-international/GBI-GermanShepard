@@ -12,6 +12,15 @@ class Itinerarypdf extends Model
     public function encyclopedia(){
     	return $this->belongsTo('App\Model\Encyclopedia\Encyclopedia');
     }
+
+	// public function getNameAttribute($image)
+    // {
+    //     if($image){
+    //         return \Storage::disk('s3')->url(config('gbi.encyclopedia_pdf').$image);
+    //     }else{
+    //         return '';
+    //     }
+    // }
 }
 
 

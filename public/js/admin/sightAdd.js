@@ -951,7 +951,7 @@ var render = function() {
                         _c("br"),
                         _vm._v(" "),
                         _c("img", {
-                          staticClass: "image",
+                          staticClass: "image width-140",
                           attrs: { src: _vm.img_image, alt: "" }
                         }),
                         _vm._v(" "),

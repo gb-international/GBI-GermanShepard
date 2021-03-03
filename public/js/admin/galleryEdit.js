@@ -226,11 +226,11 @@ __webpack_require__.r(__webpack_exports__);
     getSchools: function getSchools() {
       var _this2 = this;
 
-      axios.get("/api/school").then(function (response) {
-        for (var i = 0; i < response.data.data.length; i++) {
+      axios.get("/api/school").then(function (res) {
+        for (var i = 0; i < res.data.length; i++) {
           _this2.schools.push({
-            value: response.data.data[i].id,
-            text: response.data.data[i].school_name
+            value: res.data[i].id,
+            text: res.data[i].school_name
           });
         }
       });
@@ -277,9 +277,6 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("/api/gallery-img-delete", data).then(function (response) {
         _this5.getGalleryList();
       });
-    },
-    imagePath: function imagePath() {
-      return "/images/gallery/" + this.form.image;
     },
     back: function back() {
       this.$router.push("/gallery");
@@ -648,7 +645,7 @@ var render = function() {
                           _c("div", { staticClass: "card-body" }, [
                             _c("img", {
                               staticClass: "w-100",
-                              attrs: { src: "/images/gallery/" + img.path }
+                              attrs: { src: "" + img.path }
                             })
                           ])
                         ]),

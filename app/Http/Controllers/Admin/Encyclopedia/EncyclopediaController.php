@@ -22,6 +22,7 @@ class EncyclopediaController extends Controller
      */
     use ImageTrait;
     protected $data;
+
     public function __construct(){
         $this->data = [];
     }
@@ -62,7 +63,9 @@ class EncyclopediaController extends Controller
     public function store(Request $request)
     {
         $this->data = $this->validateEncyclopedia($request);
+
         $this->uploadImages($request);
+
         $encyclopedia = Encyclopedia::create($this->data);
         $this->uploadMultipleImages($request,$encyclopedia->id);
         
@@ -70,7 +73,7 @@ class EncyclopediaController extends Controller
         if(count($request->input('files')) > 0){
             $pdf = [];
             foreach ($request->input('files') as $file) {
-                $data = ['name'=>$this->uploadPdf($file['filename'],$file['content'])];
+                $data = ['name'=>$this->AwsFileUpload($file['content'],config('gbi.encyclopedia_pdf'),$file['filename'])];
                 $pdf[] = new Itinerarypdf($data);
                 $data = [];
             }
@@ -145,7 +148,7 @@ class EncyclopediaController extends Controller
     public function deleteImage(Request $request)
     {
         $image = EncyclopediaImage::where('id',$request->id)->first();
-        $this->deleteImg('/encyclopedia/'.$image->image);
+        $this->AwsDeleteImage($image->image);
         $image->delete();
         return response()->json('successfully deleted');
     }
@@ -173,13 +176,16 @@ class EncyclopediaController extends Controller
 
         if($request->thumbnail){
             $imagename = explode('.',$request->thumbnail[0]['name'])[0];
-            $this->data['thumbnail'] = $this->singleFile($request->thumbnail[0]['file'],'/encyclopedia/',$imagename);
+            // $this->data['thumbnail'] = $this->singleFile($request->thumbnail[0]['file'],'/encyclopedia/',$imagename);
+            
+            $this->data['thumbnail'] = $this->AwsFileUpload($request->thumbnail[0]['file'],config('gbi.encyclopedia_image'),$imagename);
             $this->data['thumbnail_alt'] = $imagename;
         }
         
         if($request->banner_image){
             $imagename = explode('.',$request->banner_image[0]['name'])[0];
-            $this->data['banner_image'] = $this->singleFile($request->banner_image[0]['file'],'/encyclopedia/',$imagename);
+            // $this->data['banner_image'] = $this->singleFile($request->banner_image[0]['file'],'/encyclopedia/',$imagename);
+            $this->data['banner_image'] = $this->AwsFileUpload($request->banner_image[0]['file'],config('gbi.encyclopedia_image'),$imagename);
             $this->data['banner_image_alt'] = $imagename;
         }
         
@@ -189,7 +195,9 @@ class EncyclopediaController extends Controller
         if(count($request->images) > 0){
             foreach ($request->images as $imagedata) {
                 $imagename = explode('.',$imagedata['name'])[0];
-                $image = $this->singleFile($imagedata['file'],'/encyclopedia/',$imagename);
+                // $image = $this->singleFile($imagedata['file'],'/encyclopedia/',$imagename);
+
+                $image = $this->AwsFileUpload($imagedata['file'],config('gbi.encyclopedia_image'),$imagename);
                 EncyclopediaImage::create([
                     'encyclopedia_id'=>$id,
                     'image'=>$image,

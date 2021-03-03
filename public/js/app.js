@@ -62820,8 +62820,8 @@ function createStore() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\web\GBI-GermanShepard\resources\js\front\app.js */"./resources/js/front/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\web\GBI-GermanShepard\resources\sass\front\app.scss */"./resources/sass/front/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\web\gbi\GBI-GermanShepard\resources\js\front\app.js */"./resources/js/front/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\web\gbi\GBI-GermanShepard\resources\sass\front\app.scss */"./resources/sass/front/app.scss");
 
 
 /***/ })

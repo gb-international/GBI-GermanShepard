@@ -121,7 +121,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -190,9 +189,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, "index", index);
 
       this.$store.dispatch('deleteItem', payload);
-    },
-    getImgUrl: function getImgUrl(img) {
-      return "/images/tourprogram/" + img;
     }
   }
 });
@@ -340,7 +336,7 @@ var render = function() {
                       return [
                         _c("img", {
                           staticClass: "w-60",
-                          attrs: { src: _vm.getImgUrl(data.item.image) }
+                          attrs: { src: data.item.image }
                         })
                       ]
                     }

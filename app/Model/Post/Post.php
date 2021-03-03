@@ -8,6 +8,15 @@ class Post extends Model
 {
     protected $fillable = ['category_id','title','image','alt','slug','summery','description','meta_title','meta_keyword','status'];
 
+    public function getImageAttribute($image)
+    {
+        if($image){
+            return \Storage::disk('s3')->url(config('gbi.post_image').$image);
+        }else{
+            return '';
+        }
+    }
+
     public function category()
     {
         return $this->belongsTo('App\Model\Post\Category');

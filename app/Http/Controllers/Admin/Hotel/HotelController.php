@@ -57,19 +57,11 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-       $hotel = Hotel::create($this->validateHotel($request));
-
-       if($request->image){
-            $imagename = explode('.',$request->image[0]['name'])[0];
-            $path = $this->singleFile($request->image[0]['file'],'/images/hotel/',$imagename);
-            $hotel->alt = $imagename;
-
-        }else{
-            $path = $hotel->image;
+        $data = $this->validateHotel($request);
+        if($request->image){
+            $data['image'] = $this->AwsFileUpload($request->image,config('gbi.hotel_image'),$request->alt);
         }
-        $hotel->image = $path;
-        $hotel->save();
-
+        $hotel = Hotel::create($data);
         return response()->json(['Message'=> 'Successfully Added...']);
     }
 
@@ -81,7 +73,7 @@ class HotelController extends Controller
      */
     public function show(Hotel $hotel)
     {
-        //
+        return response()->json($hotel);
     }
 
     /**
@@ -105,19 +97,15 @@ class HotelController extends Controller
     public function update(Request $request, Hotel $hotel)
     {
 
-        $data = $hotel->update($this->validateHotel($request));
-        if($request->image){
-            $imagename = explode('.',$request->image[0]['name'])[0];
-            $path = $this->singleFile($request->image[0]['file'],'/images/hotel/',$imagename);
-            $hotel->alt = $imagename;
-
+        $data = $this->validateHotel($request);
+        if($request->image != $hotel->image){
+            $data['image'] = $this->AwsFileUpload($request->image,config('gbi.hotel_image'),$request->alt);
+            $this->AwsDeleteImage($hotel->image);
         }else{
-            $path = $hotel->image;
+            unset($data['image']);
+            unset($data['alt']);
         }
-        $hotel->image = $path;
-        $hotel->save();
-
-
+        $hotel->update($data);
         return response()->json(['message'=>$data]);
     }
 
@@ -129,6 +117,7 @@ class HotelController extends Controller
      */
     public function destroy(Hotel $hotel)
     {
+        $this->AwsDeleteImage($hotel->image);
         $hotel->delete();
         return response()->json('successfully deleted');
     }

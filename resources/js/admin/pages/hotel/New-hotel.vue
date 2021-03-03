@@ -180,7 +180,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="image"></label>
               <br />
-              <img :src="img_image" alt class="image" />
+              <img :src="img_image" alt class="image width-140" />
               <has-error :form="form" field="image"></has-error>
             </div>
           </div>
@@ -428,7 +428,8 @@ export default {
         name: "",
         state: "",
         city: "",
-        image: [],
+        image: '',
+        alt:'',
         room: "",
         phoneno: "",
         email: "",
@@ -454,12 +455,10 @@ export default {
   methods: {
     changeDetailPhoto(event) {
       let file = event.target.files[0];
+      this.form.alt = file.name;
       let reader = new FileReader();
       reader.onload = (event) => {
-        this.form.image.push({
-          name: file.name,
-          file: event.target.result,
-        });
+        this.form.image  = event.target.result;
         this.img_image = event.target.result;
       };
       reader.readAsDataURL(file);

@@ -74,14 +74,53 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-search-select */ "./node_modules/vue-search-select/dist/VueSearchSelect.common.js");
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_search_select__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-search-select */ "./node_modules/vue-search-select/dist/VueSearchSelect.common.js");
+/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_search_select__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/mixins/Vue2EditorMixin */ "./resources/js/admin/mixins/Vue2EditorMixin.js");
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/buttons/SubmitButton.vue */ "./resources/js/admin/components/buttons/SubmitButton.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -211,24 +250,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "New",
   components: {
-    ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_1__["ModelSelect"],
-    VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"],
-    Form: vform__WEBPACK_IMPORTED_MODULE_2__["Form"],
-    'has-error': vform__WEBPACK_IMPORTED_MODULE_2__["HasError"],
+    ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_0__["ModelSelect"],
+    Form: vform__WEBPACK_IMPORTED_MODULE_1__["Form"],
+    "has-error": vform__WEBPACK_IMPORTED_MODULE_1__["HasError"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     "submit-button": _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
+  mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
     return {
       state_list: [],
       attachments: [],
       images: [],
-      form: new vform__WEBPACK_IMPORTED_MODULE_2__["Form"]({
-        state_name: '',
-        map_link: '',
-        slug: '',
-        description: '',
+      form: new vform__WEBPACK_IMPORTED_MODULE_1__["Form"]({
+        state_name: "",
+        map_link: "",
+        slug: "",
+        description: "",
         thumbnail: [],
         banner_image: [],
         images: [],
@@ -243,7 +282,7 @@ __webpack_require__.r(__webpack_exports__);
     cityList: function cityList() {
       var _this = this;
 
-      axios.get('/api/state').then(function (response) {
+      axios.get("/api/state").then(function (response) {
         _this.state_list = response.data;
       });
     },
@@ -253,7 +292,7 @@ __webpack_require__.r(__webpack_exports__);
       if (!files.length) return;
 
       for (var i = files.length - 1; i >= 0; i--) {
-        this.createImage(event.target.files[i].name, files[i]);
+        this.createImage(e.target.files[i].name, files[i]);
       }
     },
     createImage: function createImage(name, file) {
@@ -273,20 +312,22 @@ __webpack_require__.r(__webpack_exports__);
     addData: function addData() {
       var _this2 = this;
 
-      this.form.post('/api/encyclopedias').then(function (response) {
+      this.form.post("/api/encyclopedias").then(function (response) {
         _this2.$toast.fire({
-          icon: 'success',
-          title: 'Encyclopedia Added successfully'
+          icon: "success",
+          title: "Encyclopedia Added successfully"
         });
+
+        _this2.$router.push('/encyclopedias');
       })["catch"](function () {});
     },
     slugCreate: function slugCreate(event) {
       var slug = "";
       var value = event.target.value.toLowerCase(); // Trim the last whitespace
 
-      slug = value.replace(/\s*$/g, ''); // Change whitespace to "-"
+      slug = value.replace(/\s*$/g, ""); // Change whitespace to "-"
 
-      this.form.slug = slug.replace(/\s+/g, '-');
+      this.form.slug = slug.replace(/\s+/g, "-");
     },
     changeImage: function changeImage(event, model) {
       var _this3 = this;
@@ -298,24 +339,24 @@ __webpack_require__.r(__webpack_exports__);
         switch (model) {
           case "thumbnail":
             _this3.form.thumbnail.push({
-              'name': file.name,
-              'file': event.target.result
+              name: file.name,
+              file: event.target.result
             });
 
-            _this3.images['thumbnail'] = event.target.result;
+            _this3.images["thumbnail"] = event.target.result;
             break;
 
           case "banner":
             _this3.form.banner_image.push({
-              'name': file.name,
-              'file': event.target.result
+              name: file.name,
+              file: event.target.result
             });
 
             _this3.images.banner_image = event.target.result;
             break;
 
           default:
-            console.log('please select valid image');
+            console.log("please select valid image");
         }
       };
 
@@ -330,8 +371,8 @@ __webpack_require__.r(__webpack_exports__);
 
         reader.onload = function (event) {
           _this4.form.images.push({
-            'name': file.name,
-            'file': event.target.result
+            name: file.name,
+            file: event.target.result
           });
         };
 
@@ -560,6 +601,7 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control select-field",
+                            attrs: { required: "" },
                             on: {
                               change: [
                                 function($event) {
@@ -602,7 +644,13 @@ var render = function() {
                                   key: state.id,
                                   domProps: { value: state.name }
                                 },
-                                [_vm._v(_vm._s(state.name))]
+                                [
+                                  _vm._v(
+                                    "\n                " +
+                                      _vm._s(state.name) +
+                                      "\n              "
+                                  )
+                                ]
                               )
                             })
                           ],
@@ -682,7 +730,11 @@ var render = function() {
                           class: {
                             "is-invalid": _vm.form.errors.has("map_link")
                           },
-                          attrs: { placeholder: "Enter Map Link", rows: "6" },
+                          attrs: {
+                            placeholder: "Enter Map Link",
+                            rows: "6",
+                            required: ""
+                          },
                           domProps: { value: _vm.form.map_link },
                           on: {
                             input: function($event) {
@@ -722,6 +774,16 @@ var render = function() {
                         _c("vue-editor", {
                           class: {
                             "is-invalid": _vm.form.errors.has("description")
+                          },
+                          attrs: {
+                            customModules: _vm.customModulesForEditor,
+                            editorOptions: _vm.editorSettings,
+                            id: "editor",
+                            useCustomImageHandler: ""
+                          },
+                          on: {
+                            "image-added": _vm.handleImageAdded,
+                            "image-removed": _vm.handleImageRemoved
                           },
                           model: {
                             value: _vm.form.description,
@@ -814,7 +876,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("img", {
-                          staticClass: "banner_image",
+                          staticClass: "banner_image width-140",
                           attrs: { src: _vm.images.banner_image, alt: "" }
                         }),
                         _vm._v(" "),
@@ -1125,6 +1187,82 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormLayout_vue_vue_type_template_id_25c09338___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/admin/mixins/Vue2EditorMixin.js":
+/*!******************************************************!*\
+  !*** ./resources/js/admin/mixins/Vue2EditorMixin.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
+/* harmony import */ var quill_image_drop_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quill-image-drop-module */ "./node_modules/quill-image-drop-module/index.js");
+/* harmony import */ var quill_image_resize_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! quill-image-resize-module */ "./node_modules/quill-image-resize-module/image-resize.min.js");
+/* harmony import */ var quill_image_resize_module__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(quill_image_resize_module__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var Vue2EditorMixin = {
+  components: {
+    "vue-editor": vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"]
+  },
+  data: function data() {
+    return {
+      customModulesForEditor: [{
+        alias: "imageDrop",
+        module: quill_image_drop_module__WEBPACK_IMPORTED_MODULE_1__["ImageDrop"]
+      }, {
+        alias: "imageResize",
+        module: quill_image_resize_module__WEBPACK_IMPORTED_MODULE_2___default.a
+      }],
+      editorSettings: {
+        modules: {
+          imageDrop: true,
+          imageResize: {}
+        }
+      }
+    };
+  },
+  methods: {
+    handleImageAdded: function handleImageAdded(file, Editor, cursorLocation, resetUploader) {
+      var formData = new FormData();
+      formData.append("image", file);
+      axios({
+        url: "/api/images",
+        method: "POST",
+        data: formData
+      }).then(function (result) {
+        var url = result.data.url; // Get url from response
+
+        Editor.insertEmbed(cursorLocation, "image", url);
+        resetUploader();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    handleImageRemoved: function handleImageRemoved(file, Editor, cursorLocation, resetUploader) {
+      var formData = new FormData();
+      formData.append("image", file);
+      axios({
+        url: "/api/images/delete",
+        method: "POST",
+        data: formData
+      }).then(function (result) {
+        var url = result.data.url; // Get url from response
+
+        Editor.insertEmbed(cursorLocation, "image", url);
+        resetUploader();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (Vue2EditorMixin);
 
 /***/ }),
 

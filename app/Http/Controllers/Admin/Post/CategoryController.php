@@ -56,7 +56,7 @@ class CategoryController extends Controller
 
         if($request->image){
             $imagename = explode('.',$request->image[0]['name'])[0];
-            $data['image'] = $this->singleFile($request->image[0]['file'],'/images/category/',$imagename);
+            $data['image'] = $this->AwsFileUpload($request->image[0]['file'],config('gbi.category_image'),$imagename);
             $data['alt'] = $imagename;
         }
         Category::create($data);
@@ -97,9 +97,10 @@ class CategoryController extends Controller
         $data = $request->all();
         if($request->image){
             $imagename = explode('.',$request->image[0]['name'])[0];
-            $data['image'] = $this->singleFile($request->image[0]['file'],'/images/category/',$imagename);
-            $this->deleteImg("/images/category/{$category->image}");
-            $data['alt'] = $imagename;
+            $data['image'] = $this->AwsFileUpload($request->image[0]['file'],config('gbi.category_image'),$imagename);
+            $this->AwsDeleteImage($category->image);
+        }else{
+            unset($data['image']);
         }
         $category->update($data);
         return response()->json('succesfull created');
@@ -113,7 +114,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $this->deleteImg("/images/category/{$category->image}");
+        $this->AwsDeleteImage($category->image);
         $category->delete();
         return response()->json('successfully deleted');
     }

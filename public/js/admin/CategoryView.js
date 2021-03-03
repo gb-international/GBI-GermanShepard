@@ -295,7 +295,7 @@ var render = function() {
               _vm._v(" "),
               _c("img", {
                 staticClass: "w-100",
-                attrs: { src: _vm.imagePath(_vm.categories.image) }
+                attrs: { src: _vm.categories.image }
               })
             ]),
             _vm._v(" "),

@@ -61,4 +61,38 @@ trait ImageTrait {
         $img->save($upload_path.$name);
         return $name;
     }
+
+
+
+
+
+    public function AwsFileUpload($base64,$folder='',$imagename=''){
+        $name = $this->getFileName($base64,$imagename);
+        $this->uploadFile($base64,$name,$folder);
+        return $name;
+    }
+    private function getFileName($single, $imagename)
+    {
+        $strpos = strpos($single,';');
+        $sub = substr($single,0,$strpos);
+        $ex = explode('/',$sub)[1];
+        $name = Str::slug($imagename).time().rand(100,1000000).".".$ex;
+        return $name;
+    }
+
+    private function uploadFile($base64,$imageName,$folder){
+        list($baseType, $image) = explode(';', $base64);
+        list(, $image) = explode(',', $image);
+        $image = base64_decode($image);
+        $path = $folder . $imageName;
+       \Storage::disk('s3')->put($path, $image, 'public');
+    }
+
+    // ============================Delete AWS Image ==========================
+    public function AwsDeleteImage($image){
+        $path = explode("https://gbi-assets.s3.ap-south-1.amazonaws.com",$image);
+        if($path){
+            \Storage::disk('s3')->delete($path[1]);
+        }
+    }
 }

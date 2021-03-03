@@ -8,6 +8,23 @@ class Itinerary extends Model
 {
 	protected $fillable = ['source','destination','title','photo','photo_alt','detail_photo','detail_photo_alt','noofdays','description','tourtype','hotel_type','bus','train','flight','food','price','status'];
 
+	public function getPhotoAttribute($image)
+    {
+        if($image){
+            return \Storage::disk('s3')->url(config('gbi.itinerary_image').$image);
+        }else{
+            return '';
+        }
+    }
+	public function getDetailPhotoAttribute($image)
+    {
+        if($image){
+            return \Storage::disk('s3')->url(config('gbi.itinerary_image').$image);
+        }else{
+            return '';
+        }
+    }
+
 
 	public function itinerarydays()
 	{

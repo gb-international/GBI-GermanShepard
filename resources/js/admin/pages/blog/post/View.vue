@@ -13,7 +13,7 @@ to submit the data we are using a function.
 
       <div class="col-sm-4">
         <h5>Banner image</h5>
-        <img :src="imagePath(posts.image)" class="w-100" />
+        <img :src="posts.image" class="w-100" />
       </div>
 
       <div class="col-sm-12">
@@ -75,15 +75,7 @@ export default {
     categoryView() {
       axios.get(`/api/posts/${this.$route.params.id}`).then((response) => {
         this.posts = response.data;
-        console.log(this.posts);
       });
-    },
-
-    imagePath(img) {
-      return "/images/post/" + img;
-    },
-    goBack() {
-      this.$router.push("/posts");
     },
   },
 };

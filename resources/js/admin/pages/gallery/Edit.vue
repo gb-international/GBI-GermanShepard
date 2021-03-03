@@ -64,7 +64,7 @@ to submit the data we are using a function.
           >
             <div class="card">
               <div class="card-body">
-                <img :src="`/images/gallery/${img.path}`" class="w-100" />
+                <img :src="`${img.path}`" class="w-100" />
               </div>
             </div>
             <span
@@ -141,11 +141,11 @@ export default {
     },
 
     getSchools() {
-      axios.get("/api/school").then((response) => {
-        for (var i = 0; i < response.data.data.length; i++) {
+      axios.get("/api/school").then((res) => {
+        for (var i = 0; i < res.data.length; i++) {
           this.schools.push({
-            value: response.data.data[i].id,
-            text: response.data.data[i].school_name,
+            value: res.data[i].id,
+            text: res.data[i].school_name,
           });
         }
       });
@@ -182,10 +182,6 @@ export default {
       axios.post("/api/gallery-img-delete", data).then((response) => {
         this.getGalleryList();
       });
-    },
-
-    imagePath() {
-      return "/images/gallery/" + this.form.image;
     },
     back() {
       this.$router.push("/gallery");

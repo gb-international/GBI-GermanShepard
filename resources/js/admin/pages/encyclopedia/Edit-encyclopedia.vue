@@ -110,7 +110,7 @@ to submit the data we are using a function.
                 :class="{ 'is-invalid': form.errors.has('banner_image') }"
               />
 
-              <img :src="images.banner_image" alt class="banner_image" />
+              <img :src="images.banner_image" alt class="banner_image width-140" />
               <has-error :form="form" field="banner_image"></has-error>
             </div>
           </div>
@@ -126,7 +126,7 @@ to submit the data we are using a function.
           >
             <div class="card">
               <div class="card-body">
-                <img :src="`/encyclopedia/${img.image}`" class="w-100" />
+                <img :src="img.image" class="w-100" />
               </div>
             </div>
             <span
@@ -241,9 +241,8 @@ export default {
       axios.get(api).then((response) => {
         this.form.fill(response.data);
         this.pdf_list = response.data.itinerarypdfs;
-        this.images["thumbnail"] = "/encyclopedia/" + response.data.thumbnail;
-        this.images["banner_image"] =
-          "/encyclopedia/" + response.data.banner_image;
+        this.images["thumbnail"] = response.data.thumbnail;
+        this.images["banner_image"] = response.data.banner_image;
 
         this.list_images = response.data.images;
 
@@ -321,10 +320,6 @@ export default {
       this.form.slug = slug.replace(/\s+/g, "-");
     },
 
-    getImgUrl(img) {
-      return "/encyclopedia/" + img;
-    },
-
     deleteImage(id) {
       var data = { id: id };
       axios.post("/api/encyclopedia-img", data).then((response) => {
@@ -338,6 +333,7 @@ export default {
       this.form
         .put(api)
         .then((response) => {
+          this.EncyclopediaList();
           this.$toast.fire({
             icon: "success",
             title: "Encyclopedia Updated successfully",

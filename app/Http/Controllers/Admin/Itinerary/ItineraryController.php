@@ -55,10 +55,13 @@ class ItineraryController extends Controller
     {
         
         $data = $this->validateItinerary($request);
-        // linux and windows file staructure image path error and uploadig error.
-        $data['photo']=$this->thumbnail($request->photo,'/uploadimage/',$request->photo_alt);
+        if($request->photo){
+            $data['photo'] = $this->AwsFileUpload($request->photo,config('gbi.itinerary_image'),$request->photo_alt);
+        }
+        if($request->detail_photo){
+            $data['detail_photo'] = $this->AwsFileUpload($request->detail_photo,config('gbi.itinerary_image'),$request->detail_photo_alt);
+        }
 
-        $data['detail_photo'] = $this->banner($request->detail_photo,'/uploadimage/',$request->detail_photo_alt);
         $itinerary = new Itinerary();
         $id = $itinerary->insertGetId($data);
         $itinerary = Itinerary::where('id',$id)->first();
@@ -113,22 +116,22 @@ class ItineraryController extends Controller
     public function update(Request $request, Itinerary $itinerary)
     {
         $data = $this->validateItinerary($request);
-        if($request->photo){
-            $name = $this->thumbnail($request->photo,'/uploadimage/',$request->photo_alt);
-            $data['photo'] = $name;
-            $image = '/uploadimage/' . $itinerary->photo;
-            if(file_exists($image)){
-                @unlink($image);
-            }
-        }       
-        if($request->detail_photo){
-            $name1 = $this->banner($request->detail_photo,'/uploadimage/',$request->detail_photo_alt);
-            $data['detail_photo'] = $name1;
-            $image = '/uploadimage/' . $itinerary->detail_photo;
-            if(file_exists($image)){
-                @unlink($image);
-            }
-        }        
+        // thumbnail photo upload
+        if($request->photo != $itinerary->photo){
+            $data['photo'] = $this->AwsFileUpload($request->photo,config('gbi.itinerary_image'),$request->photo_alt);
+            $this->AwsDeleteImage($itinerary->photo);
+        }else{
+            unset($data['photo']);
+            unset($data['photo_alt']);
+        }
+        // detail photo upload
+        if($request->detail_photo != $itinerary->detail_photo){
+            $data['detail_photo'] = $this->AwsFileUpload($request->detail_photo,config('gbi.itinerary_image'),$request->detail_photo_alt);
+            $this->AwsDeleteImage($itinerary->detail_photo);
+        }else{
+            unset($data['detail_photo']);
+            unset($data['detail_photo_alt']);
+        }
         $itinerary->update($data);
         // Itinerary Day
         $itinerary->itinerarydays()->delete();
@@ -144,7 +147,7 @@ class ItineraryController extends Controller
         }
         $dayModels = Tourtype::find($dayModels);
         $itinerary->tourtypes()->sync($dayModels);
-        return response()->json(['message'=>'Successfully Addedd']);
+        return response()->json(['message'=>'Successfully Updated']);
     }
 
     /**
@@ -155,7 +158,8 @@ class ItineraryController extends Controller
      */
     public function destroy(Itinerary $itinerary)
     {
- 
+        $this->AwsDeleteImage($itinerary->photo);
+        $this->AwsDeleteImage($itinerary->detail_photo);
         $itinerary->delete();
         return response()->json('successfully deleted');
     }
