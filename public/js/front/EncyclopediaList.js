@@ -118,9 +118,6 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       });
-    },
-    getImgUrl: function getImgUrl(img) {
-      return "/encyclopedia/" + img;
     }
   },
   computed: {
@@ -236,8 +233,8 @@ var render = function() {
                               _c("img", {
                                 staticClass: "image__item card-img-top",
                                 attrs: {
-                                  "data-url": _vm.getImgUrl(state.thumbnail),
-                                  alt: "GBI Encyclopedia"
+                                  "data-url": state.thumbnail,
+                                  alt: state.state_name
                                 }
                               })
                             ],

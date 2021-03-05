@@ -45,8 +45,8 @@
                   <ImageSpinner class="image__spinner" />
                   <img
                     class="image__item card-img-top"
-                    :data-url="getImgUrl(state.thumbnail)"
-                    alt="GBI Encyclopedia"
+                    :data-url="state.thumbnail"
+                    :alt="state.state_name"
                   />
                 </figure>
                 <div class="card-img-overlay text-center">
@@ -103,9 +103,6 @@ export default {
         }
       });
     },
-    getImgUrl(img) {
-      return "/encyclopedia/" + img;
-    }
   },
   computed: {
     resultQuery() {

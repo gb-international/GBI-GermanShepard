@@ -205,8 +205,7 @@ var render = function() {
                             _c("img", {
                               staticClass: "image__item",
                               attrs: {
-                                "data-url":
-                                  "/images/tourprogram/" + program.image,
+                                "data-url": program.image,
                                 alt: program.title
                               }
                             })

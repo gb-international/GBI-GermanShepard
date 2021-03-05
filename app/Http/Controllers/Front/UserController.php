@@ -23,13 +23,15 @@ use Illuminate\Support\Facades\Hash;
 use App\Helpers\SendSms;
 use App\Jobs\ChangePasswordJob;
 use App\Rules\EmailValidate;
-
+use App\Traits\ImageTrait;
 
 
 class UserController extends Controller{
     public $successStatus = 200;
     private $id = 'csrikhi@gbinternational.in';
     private $pwd = 'Roger224225g32@';
+    use ImageTrait;
+
     /** 
      * login api 
      * 
@@ -146,18 +148,15 @@ class UserController extends Controller{
 
     public function UserImage(Request $request){
         $user = Auth::user();
-       
 
-        $strpos = strpos($request->input('photo'),';');
-        $sub = substr($request->input('photo'),0,$strpos);
-        $ex = explode('/',$sub)[1];
-        $name = time().".".$ex;
-        $img = Image::make($request->input('photo'))->resize(138, 138);
-        $upload_path = public_path()."/uploadimage/";
-        $img->save($upload_path.$name);
-
+        if ($request->hasFile('photo')) {
+            $this->AwsDeleteImage($user->information->photo);
+           $file = $request->file('photo');
+           $name = $file->getClientOriginalName().'-'. time();
+           $filePath = config('gbi.user_image') . $name;
+           \Storage::disk('s3')->put($filePath, file_get_contents($file));
+       }
         $information = Information::where('user_id', $user->id)->first();
-
         $information->photo = $name;
         $information->save();
         return response()->json(['photo'=>$name]);

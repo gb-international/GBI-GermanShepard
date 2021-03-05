@@ -1,5 +1,9 @@
 <?php
+/*
+Created by : Ajay yadav 
+Purpose : GBI Post Category (Blog ) manage here
 
+*/
 namespace App\Http\Controllers\Admin\Post;
 use App\Http\Controllers\Controller;
 use App\Model\Post\Category;

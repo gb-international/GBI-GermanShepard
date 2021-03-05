@@ -21,13 +21,13 @@
             <div id="imagePreview" style="background-image: url()">
               <img
                 v-if="image"
-                :src="'/uploadimage/' + image"
+                :src="image"
                 loading="lazy"
                 class="img"
               />
               <img
                 v-else
-                :src="'/uploadimage/' + image"
+                :src="image"
                 loading="lazy"
                 class="img"
                 alt="user profile"

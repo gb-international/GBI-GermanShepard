@@ -62,7 +62,7 @@
                 <ImageSpinner class="image__spinner" />
                 <img
                   class="image__item"
-                  :data-url="`/images/tourprogram/`+program.image"
+                  :data-url="program.image"
                   :alt="program.title"
                 />
               </figure>

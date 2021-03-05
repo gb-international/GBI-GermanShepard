@@ -1,0 +1,15 @@
+{
+    "requires": true,
+    "lockfileVersion": 1,
+    "dependencies": {
+        "@babel/code-frame": {
+            "version": "7.10.1",
+            "resolved": "https://7.10.1.tgz",
+            "integrity": "sha512zTj/X01jocB46mTywm/4SZw==",
+            "dev": true,
+            "requires": {
+                "fideloper/proxy": "^4.0.1"
+            }
+        }
+    }
+}

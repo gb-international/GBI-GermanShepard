@@ -2490,7 +2490,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -41078,9 +41077,7 @@ var render = function() {
                               [
                                 _c("img", {
                                   staticClass: "img img-circle nav_profile",
-                                  attrs: {
-                                    src: "/uploadimage/" + _vm.user.photo
-                                  }
+                                  attrs: { src: _vm.user.photo }
                                 }),
                                 _vm._v(" " + _vm._s(_vm.user.name))
                               ]

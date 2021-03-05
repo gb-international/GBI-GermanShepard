@@ -1,4 +1,9 @@
 <?php
+/* 
+Created by : Ajay yadav 
+Purpose : GBI Post (Blog ) manage here
+
+*/
 
 namespace App\Http\Controllers\Admin\Post;
 use App\Http\Controllers\Controller;
@@ -60,6 +65,7 @@ class PostController extends Controller
         }
         if($request->image){
             $imagename = explode('.',$request->image[0]['name'])[0];
+
             $data['image'] = $this->AwsFileUpload($request->image[0]['file'],config('gbi.post_image'),$imagename);
             $data['alt'] = $imagename;
         }
@@ -115,7 +121,7 @@ class PostController extends Controller
             $imagename = explode('.',$request->image[0]['name'])[0];
             if($imagename){
                 $data['image'] = $this->AwsFileUpload($request->image[0]['file'],config('gbi.post_image'),$imagename);
-                 $this->AwsDeleteImage($post->image);
+                $this->AwsDeleteImage($post->image);
                 $data['alt'] = $imagename;
             }
         }else{

@@ -2,7 +2,7 @@
   <!--*****    Author:@Ajay  **********-->
   <div id="BlogList">
     <div class="banner-image-parent">
-      <img :src="getImgPath(category.image)" />
+      <img :src="category.image" />
       <div class="container">
         <h1 class="text-center blog-heading">{{category.title }}</h1>
       </div>
@@ -68,9 +68,6 @@ export default {
       this.$axios.get(`/api/related-blog/${this.category.id}`).then(response => {
         this.RelatedPosts = response.data;
       });
-    },
-    getImgPath(img){
-      return `/images/category/`+img;
     },
   }
 };

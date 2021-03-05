@@ -32,12 +32,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BlogCard",
-  props: ['post'],
-  methods: {
-    getImgPath: function getImgPath(img) {
-      return "/images/post/" + img;
-    }
-  }
+  props: ['post']
 });
 
 /***/ }),
@@ -260,9 +255,6 @@ __webpack_require__.r(__webpack_exports__);
         _this3.form.name = '';
         _this3.form.description = '';
       });
-    },
-    getImgPath: function getImgPath(img) {
-      return "/images/post/" + img;
     }
   }
 });
@@ -288,7 +280,7 @@ var render = function() {
     _c("div", { staticClass: "container pt-3" }, [
       _c("img", {
         staticClass: "card-img-top border-radius-0",
-        attrs: { src: _vm.getImgPath(_vm.post.image), alt: "Bologna" }
+        attrs: { src: _vm.post.image, alt: "Bologna" }
       })
     ]),
     _vm._v(" "),
@@ -351,7 +343,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "BlogDetail" } }, [
     _c("div", { staticClass: "banner-image-parent" }, [
-      _c("img", { attrs: { src: _vm.getImgPath(_vm.posts.image) } }),
+      _c("img", { attrs: { src: _vm.posts.image } }),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "blog-title" }, [

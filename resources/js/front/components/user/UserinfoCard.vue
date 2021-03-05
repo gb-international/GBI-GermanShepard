@@ -15,7 +15,7 @@
               <ImageSpinner class="image__spinner" />
               <img
                 class="image__item img img-circle profile-img"
-                :data-url="`/uploadimage/${userinfo.photo}`"
+                :data-url="userinfo.photo"
                 alt="user profile"
               />
             </figure>

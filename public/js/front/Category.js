@@ -32,12 +32,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BlogCard",
-  props: ['post'],
-  methods: {
-    getImgPath: function getImgPath(img) {
-      return "/images/post/" + img;
-    }
-  }
+  props: ['post']
 });
 
 /***/ }),
@@ -123,9 +118,6 @@ __webpack_require__.r(__webpack_exports__);
       this.$axios.get("/api/related-blog/".concat(this.category.id)).then(function (response) {
         _this2.RelatedPosts = response.data;
       });
-    },
-    getImgPath: function getImgPath(img) {
-      return "/images/category/" + img;
     }
   }
 });
@@ -151,7 +143,7 @@ var render = function() {
     _c("div", { staticClass: "container pt-3" }, [
       _c("img", {
         staticClass: "card-img-top border-radius-0",
-        attrs: { src: _vm.getImgPath(_vm.post.image), alt: "Bologna" }
+        attrs: { src: _vm.post.image, alt: "Bologna" }
       })
     ]),
     _vm._v(" "),
@@ -214,7 +206,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "BlogList" } }, [
     _c("div", { staticClass: "banner-image-parent" }, [
-      _c("img", { attrs: { src: _vm.getImgPath(_vm.category.image) } }),
+      _c("img", { attrs: { src: _vm.category.image } }),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _c("h1", { staticClass: "text-center blog-heading" }, [

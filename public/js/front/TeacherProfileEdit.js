@@ -395,15 +395,12 @@ var render = function() {
                     _vm.image
                       ? _c("img", {
                           staticClass: "img",
-                          attrs: {
-                            src: "/uploadimage/" + _vm.image,
-                            loading: "lazy"
-                          }
+                          attrs: { src: _vm.image, loading: "lazy" }
                         })
                       : _c("img", {
                           staticClass: "img",
                           attrs: {
-                            src: "/uploadimage/" + _vm.image,
+                            src: _vm.image,
                             loading: "lazy",
                             alt: "user profile"
                           }
@@ -1495,8 +1492,7 @@ __webpack_require__.r(__webpack_exports__);
       this.createFile(files[0]);
     },
     onChange: function onChange(e) {
-      var files = e.target.files;
-      this.createFile(files[0]);
+      this.createFile(e.target.files[0]);
     },
     createFile: function createFile(file) {
       if (!file.type.match("image.*")) {
@@ -1504,32 +1500,23 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      var img = new Image();
-      var reader = new FileReader();
       var vm = this;
-
-      reader.onload = function (e) {
-        vm.image = e.target.result;
-        var data = new FormData();
-        data.append("photo", vm.image);
-        data.append("_method", "post"); // add this
-
-        vm.$axios.post("/api/update-user-image", data, {
-          headers: {
-            Authorization: "Bearer ".concat(localStorage.token)
-          }
-        }).then(function (response) {
-          vm.image = response.data.photo;
-          vm.$swal.fire({
-            icon: "success",
-            title: "Profile image updated !!"
-          });
-        })["catch"](function (error) {
-          return console.log();
-        }); //
-      };
-
-      reader.readAsDataURL(file);
+      var data = new FormData();
+      data.append("photo", file);
+      vm.$axios.post("/api/update-user-image", data, {
+        headers: {
+          Authorization: "Bearer ".concat(localStorage.token)
+        }
+      }).then(function (res) {
+        // vm.image = res.data.photo;
+        console.log(res);
+        vm.$swal.fire({
+          icon: "success",
+          title: "Profile image updated !!"
+        });
+      })["catch"](function (error) {
+        return console.log();
+      }); //
     },
     removeFile: function removeFile() {
       this.image = "";

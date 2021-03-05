@@ -11,7 +11,7 @@
             <ImageSpinner class="image__spinner" />
             <img
               class="image__item card-img-top"
-              :data-url="`/uploadimage/${state.photo}`"
+              :data-url="state.photo"
               alt="image"
             />
           </figure>

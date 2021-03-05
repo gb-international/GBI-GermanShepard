@@ -114,9 +114,8 @@
             </li>
 
             <li class="nav-item mr-10" v-else
-              
             >
-              <router-link class="nav-link" :to="`/dashboard`"> <img :src="`/uploadimage/${user.photo}`" class="img img-circle nav_profile"> {{ user.name }}</router-link>
+              <router-link class="nav-link" :to="`/dashboard`"> <img :src="user.photo" class="img img-circle nav_profile"> {{ user.name }}</router-link>
             </li>
           </ul>
         </div>

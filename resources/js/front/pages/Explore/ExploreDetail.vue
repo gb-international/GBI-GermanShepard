@@ -7,7 +7,7 @@
     <section class="banner-block">
       <img
         
-        :src="`/uploadimage/${itineraryData.detail_photo}`"
+        :src="itineraryData.detail_photo"
         loading="lazy"
         alt="itinerary"
       />

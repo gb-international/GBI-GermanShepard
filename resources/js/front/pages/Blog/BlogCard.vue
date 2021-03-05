@@ -3,7 +3,7 @@
         <div class="container pt-3">
         <img
             class="card-img-top border-radius-0"
-            :src="getImgPath(post.image)"
+            :src="post.image"
             alt="Bologna"
         />
         </div>
@@ -22,11 +22,6 @@
 <script>
 export default {
     name:"BlogCard",
-    props:['post'],
-    methods:{
-        getImgPath(img){
-            return `/images/post/`+img;
-        }
-    }
+    props:['post']
 }
 </script>

@@ -829,7 +829,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "image__item",
                       attrs: {
-                        "data-url": "/uploadimage/" + itinerary.photo,
+                        "data-url": itinerary.photo,
                         alt: itinerary.title
                       }
                     })

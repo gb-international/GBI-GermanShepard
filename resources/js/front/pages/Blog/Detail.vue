@@ -2,7 +2,7 @@
   <!--*****    Author:@Ajay  **********-->
   <div id="BlogDetail">
     <div class="banner-image-parent">
-      <img :src="getImgPath(posts.image)" />
+      <img :src="posts.image"/>
       <div class="container">
         <div class="blog-title">
           <h1 class="text-center blog-heading">{{posts.title }}</h1>
@@ -202,10 +202,7 @@ export default {
         this.form.name = '';
         this.form.description = '';
       });
-    },
-    getImgPath(img){
-      return `/images/post/`+img;
-    },
+    }
   }
 };
 </script>

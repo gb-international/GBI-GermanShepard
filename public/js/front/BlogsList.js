@@ -88,12 +88,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BlogCard",
-  props: ['post'],
-  methods: {
-    getImgPath: function getImgPath(img) {
-      return "/images/post/" + img;
-    }
-  }
+  props: ['post']
 });
 
 /***/ }),
@@ -368,7 +363,7 @@ var render = function() {
     _c("div", { staticClass: "container pt-3" }, [
       _c("img", {
         staticClass: "card-img-top border-radius-0",
-        attrs: { src: _vm.getImgPath(_vm.post.image), alt: "Bologna" }
+        attrs: { src: _vm.post.image, alt: "Bologna" }
       })
     ]),
     _vm._v(" "),

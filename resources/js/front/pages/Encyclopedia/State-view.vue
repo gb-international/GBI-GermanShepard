@@ -5,7 +5,7 @@
   
   <div class="State" v-if="state_data">
     <section class="banner-block">
-      <img id="traveleduimg" class="top-img" :src="getImgUrl(state_data.banner_image)" />
+      <img id="traveleduimg" class="top-img" :src="state_data.banner_image" />
     </section>
     <div class="container state_body mt-30">
       <div class="row">
@@ -22,7 +22,7 @@
             <div class="row p-0">
               <div class="col-6 p-0" v-for="img in state_data.images" :key="img.id">
                 <img
-                  :src="getImgUrl(img.image)"
+                  :src="img.image"
                   loading="lazy"
                   class="p-0"
                   :alt="img.alt"
@@ -50,7 +50,7 @@
                 <div class="card">
                   <img
                     class="card-img-top"
-                    :src="getImgUrl(state.thumbnail)"
+                    :src="state.thumbnail"
                     loading="lazy"
                     :alt="state.state_name"
                   />

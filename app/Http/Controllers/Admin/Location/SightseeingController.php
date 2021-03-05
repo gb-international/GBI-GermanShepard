@@ -1,5 +1,9 @@
 <?php
+/*
+Created by : Ajay yadav 
+Purpose : GBI Sightseeing manage here
 
+*/
 namespace App\Http\Controllers\Admin\Location;
 
 use App\Http\Controllers\Controller;

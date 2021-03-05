@@ -912,7 +912,7 @@ var render = function() {
     _c("section", { staticClass: "banner-block" }, [
       _c("img", {
         attrs: {
-          src: "/uploadimage/" + _vm.itineraryData.detail_photo,
+          src: _vm.itineraryData.detail_photo,
           loading: "lazy",
           alt: "itinerary"
         }

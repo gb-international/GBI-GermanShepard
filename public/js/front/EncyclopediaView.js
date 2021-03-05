@@ -404,10 +404,7 @@ var render = function() {
         _c("section", { staticClass: "banner-block" }, [
           _c("img", {
             staticClass: "top-img",
-            attrs: {
-              id: "traveleduimg",
-              src: _vm.getImgUrl(_vm.state_data.banner_image)
-            }
+            attrs: { id: "traveleduimg", src: _vm.state_data.banner_image }
           })
         ]),
         _vm._v(" "),
@@ -444,7 +441,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "p-0",
                           attrs: {
-                            src: _vm.getImgUrl(img.image),
+                            src: img.image,
                             loading: "lazy",
                             alt: img.alt
                           }
@@ -515,7 +512,7 @@ var render = function() {
                                 _c("img", {
                                   staticClass: "card-img-top",
                                   attrs: {
-                                    src: _vm.getImgUrl(state.thumbnail),
+                                    src: state.thumbnail,
                                     loading: "lazy",
                                     alt: state.state_name
                                   }
