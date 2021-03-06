@@ -7175,6 +7175,19 @@ a:hover {
   border: 1px solid lightgray !important;
 }
 
+.accept_cookies {
+  /* .cookie__decline {
+    background: darken($background-color, 8%);
+    color: $text-color;
+    &:hover, &:focus {
+      background: darken($background-color, 5%);
+    }
+    &:active {
+      background: darken($background-color, 8%);
+    }
+  } */
+}
+
 .accept_cookies .cookies {
   position: fixed;
   bottom: 0;
@@ -7249,32 +7262,23 @@ a:hover {
   }
 }
 
+.accept_cookies .cookie__decline,
 .accept_cookies .cookie__accept {
-  background: #3498db;
+  background: #1e2a36;
   color: #ecf0f1;
+  font-weight: 500;
 }
 
+.accept_cookies .cookie__decline:hover,
+.accept_cookies .cookie__decline:focus,
 .accept_cookies .cookie__accept:hover,
 .accept_cookies .cookie__accept:focus {
   background: #57aae1;
 }
 
+.accept_cookies .cookie__decline:active,
 .accept_cookies .cookie__accept:active {
   background: #68b2e4;
-}
-
-.accept_cookies .cookie__decline {
-  background: #1e2a36;
-  color: #ecf0f1;
-}
-
-.accept_cookies .cookie__decline:hover,
-.accept_cookies .cookie__decline:focus {
-  background: #233140;
-}
-
-.accept_cookies .cookie__decline:active {
-  background: #1e2a36;
 }
 
 .text_on_image .content-blog-banner {
@@ -8119,6 +8123,10 @@ a:hover {
   height: 275px;
   padding: 0px;
   background-size: 100% 100%;
+}
+
+#footer .footer-content .white-important {
+  color: white !important;
 }
 
 #footer .footer-content .footer-icons-section .icons {

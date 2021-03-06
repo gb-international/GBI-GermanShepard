@@ -172,6 +172,7 @@ export default {
         .POST("/api/tour-detail", data)
         .then((response) => {
           this.alldata = response;
+          console.log(response);
           this.itineraryData = response.itinerary;
           this.flightData = response.bookedflights;
           this.hotelData = response.bookedhotels;

@@ -155,8 +155,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["tour", "userinfo"],
   data: function data() {
@@ -341,8 +339,7 @@ var render = function() {
       {
         staticClass: "bg-cover text-white tour_list_card mt-3",
         style: {
-          backgroundImage:
-            "url('/uploadimage/" + _vm.tour.itinerary.detail_photo + "')"
+          backgroundImage: "url('" + _vm.tour.itinerary.detail_photo + "')"
         }
       },
       [
@@ -473,8 +470,7 @@ var render = function() {
       {
         staticClass: "bg-cover text-white tour_list_card mt-3",
         style: {
-          backgroundImage:
-            "url('/uploadimage/" + _vm.tour.tour.itinerary.detail_photo + "')"
+          backgroundImage: "url('" + _vm.tour.itinerary.detail_photo + "')"
         }
       },
       [

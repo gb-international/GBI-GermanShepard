@@ -1,9 +1,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import Vuex from 'vuex';
-
 Vue.use(Vuex)
-
 export function createStore() {
     return new Vuex.Store({
         state: {
@@ -30,6 +28,7 @@ export function createStore() {
             },
             isLoggedIn: state => !!state.token,
             authStatus: state => state.status,
+            user: state=> Vue.$cookies.get('user'),
         },
         //getAllTableData();
         actions: {

@@ -2039,6 +2039,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Cookies",
   data: function data() {
@@ -2047,13 +2063,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    if (!this.$cookies.isKey('cookies_alert')) {
+    if (!this.$cookies.isKey("cookies_alert")) {
       this.cookies_alert = true;
     }
   },
   methods: {
     acceptCookies: function acceptCookies() {
-      this.$cookies.set('cookies_alert', 'yes', '1y'); // this.$cookies.set('cookies_alert','yes','6s');
+      this.$cookies.set("cookies_alert", "yes", "1y"); // this.$cookies.set('cookies_alert','yes','6s');
 
       this.cookies_alert = false;
     }
@@ -2543,11 +2559,10 @@ __webpack_require__.r(__webpack_exports__);
 
     if (this.login == null) {
       this.login = 1;
-    }
+    } // if(this.$cookies.get('user') && this.$cookies.get('access_token')){
+    //   this.user = this.$cookies.get('user');
+    // }
 
-    if (this.$cookies.get('user') && this.$cookies.get('access_token')) {
-      this.user = this.$cookies.get('user');
-    }
 
     var url = '/api/details'; // this.$cookies.set('access_token',localStorage.getItem('token'));
   },
@@ -2560,8 +2575,8 @@ __webpack_require__.r(__webpack_exports__);
       if (token) {
         var data = [];
         this.$api.POST('/api/user-show', []).then(function (response) {
-          _this2.user.name = response.success.name;
-          _this2.user.photo = response.success.information.photo;
+          // this.user.name = response.success.name;
+          // this.user.photo = response.success.information.photo;
           _this2.$store.token = token;
 
           _this2.$store.commit('auth_success', token);
@@ -2754,6 +2769,111 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Footer",
@@ -2778,7 +2898,7 @@ __webpack_require__.r(__webpack_exports__);
       this.active_element = el;
     },
     loginCheck: function loginCheck() {
-      if (this.$cookies.get('access_token') == null || this.$cookies.get('access_token') == "") {
+      if (this.$cookies.get("access_token") == null || this.$cookies.get("access_token") == "") {
         this.login = false;
       } else {
         this.login = true;
@@ -40437,15 +40557,18 @@ var render = function() {
               _c("div", { staticClass: "container" }, [
                 _c("div", { staticClass: "row justify-content-center" }, [
                   _c("div", { staticClass: "col-sm-10" }, [
-                    _c("p", [
+                    _c("p", { staticClass: "m-0" }, [
                       _vm._v(
-                        "We use cookies to help us give you the best experience on our website."
+                        "\n                We use cookies to help us give you the best experience on our\n                website."
                       ),
                       _c("span", { staticClass: "mobile-hidden" }, [
                         _vm._v(
-                          "If you continue without changing your settings, we'll assume that you are happy to receive all cookies on our website. However, if you would like to, you can change your cookie settings at any time."
+                          "If you continue without changing your settings, we'll\n                  assume that you are happy to receive all cookies on our\n                  website. However, if you would like to, you can change your\n                  cookie settings at any time."
                         )
-                      ]),
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-center m-0 mt-2" }, [
                       _c(
                         "button",
                         {
@@ -40456,7 +40579,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("Accept cookies")]
+                        [_vm._v("\n                  Accept cookies")]
                       ),
                       _c(
                         "button",
@@ -40468,7 +40591,11 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("Decline cookies")]
+                        [
+                          _vm._v(
+                            "\n                  Decline cookies\n                "
+                          )
+                        ]
                       )
                     ])
                   ])
@@ -41077,9 +41204,11 @@ var render = function() {
                               [
                                 _c("img", {
                                   staticClass: "img img-circle nav_profile",
-                                  attrs: { src: _vm.user.photo }
+                                  attrs: { src: _vm.$store.getters.user.photo }
                                 }),
-                                _vm._v(" " + _vm._s(_vm.user.name))
+                                _vm._v(
+                                  " " + _vm._s(_vm.$store.getters.user.name)
+                                )
                               ]
                             )
                           ],
@@ -41235,7 +41364,11 @@ var render = function() {
                     staticClass: "text-white d-block pb-1",
                     attrs: { to: "/" }
                   },
-                  [_vm._v("Home")]
+                  [
+                    _c("span", { staticClass: "white-important" }, [
+                      _vm._v("Home")
+                    ])
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -41244,7 +41377,11 @@ var render = function() {
                     staticClass: "text-white d-block pb-1",
                     attrs: { to: "/explore-destination" }
                   },
-                  [_vm._v("Explore Destination")]
+                  [
+                    _c("span", { staticClass: "white-important" }, [
+                      _vm._v("Explore Destination")
+                    ])
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -41253,7 +41390,11 @@ var render = function() {
                     staticClass: "text-white d-block pb-1",
                     attrs: { to: "/resources/travel-education" }
                   },
-                  [_vm._v("Travel & Education")]
+                  [
+                    _c("span", { staticClass: "white-important" }, [
+                      _vm._v("Travel & Education")
+                    ])
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -41262,7 +41403,11 @@ var render = function() {
                     staticClass: "text-white d-block pb-1",
                     attrs: { to: "/resources/faq" }
                   },
-                  [_vm._v("FAQ")]
+                  [
+                    _c("span", { staticClass: "white-important" }, [
+                      _vm._v("FAQ")
+                    ])
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -41271,7 +41416,11 @@ var render = function() {
                     staticClass: "text-white d-block pb-1",
                     attrs: { to: "/blog" }
                   },
-                  [_vm._v("GBI Travel Blog")]
+                  [
+                    _c("span", { staticClass: "white-important" }, [
+                      _vm._v("GBI Travel Blog")
+                    ])
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -41280,7 +41429,11 @@ var render = function() {
                     staticClass: "text-white d-block pb-1",
                     attrs: { to: "/image-gallery/domestic" }
                   },
-                  [_vm._v("Gallery")]
+                  [
+                    _c("span", { staticClass: "white-important" }, [
+                      _vm._v("Gallery")
+                    ])
+                  ]
                 )
               ],
               1
@@ -41300,7 +41453,11 @@ var render = function() {
                     staticClass: "text-white d-block pb-1",
                     attrs: { to: "/about-us/our-story" }
                   },
-                  [_vm._v("Our Story")]
+                  [
+                    _c("span", { staticClass: "white-important" }, [
+                      _vm._v("Our Story")
+                    ])
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -41309,7 +41466,11 @@ var render = function() {
                     staticClass: "text-white d-block pb-1",
                     attrs: { to: "/resources/safety-security" }
                   },
-                  [_vm._v("Safety & Security")]
+                  [
+                    _c("span", { staticClass: "white-important" }, [
+                      _vm._v("Safety & Security")
+                    ])
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -41318,7 +41479,11 @@ var render = function() {
                     staticClass: "text-white d-block pb-1",
                     attrs: { to: "/about-us/how-we-work" }
                   },
-                  [_vm._v("How We Work")]
+                  [
+                    _c("span", { staticClass: "white-important" }, [
+                      _vm._v("How We Work")
+                    ])
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -41327,7 +41492,11 @@ var render = function() {
                     staticClass: "text-white d-block pb-1",
                     attrs: { to: "/about-us/join-our-team" }
                   },
-                  [_vm._v("Join Our Team")]
+                  [
+                    _c("span", { staticClass: "white-important" }, [
+                      _vm._v("Join Our Team")
+                    ])
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -41336,7 +41505,11 @@ var render = function() {
                     staticClass: "text-white d-block pb-1",
                     attrs: { to: "/contact-us" }
                   },
-                  [_vm._v("Contact Us")]
+                  [
+                    _c("span", { staticClass: "white-important" }, [
+                      _vm._v("Contact Us")
+                    ])
+                  ]
                 )
               ],
               1
@@ -41351,7 +41524,7 @@ var render = function() {
                 _c(
                   "p",
                   { staticClass: "text-white m-0 p-0 pb-4 text-center" },
-                  [_vm._v("Get Latest Update")]
+                  [_vm._v("\n              Get Latest Update\n            ")]
                 ),
                 _vm._v(" "),
                 _c("Subscribe")
@@ -41371,14 +41544,10 @@ var render = function() {
                   "©" + _vm._s(new Date().getFullYear()) + " GBI Holidays "
                 )
               ]),
-              _vm._v("Pvt. Ltd. All right reserved.\n            ")
+              _vm._v("Pvt. Ltd. All right reserved.\n          ")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-sm-6 text-right pr-5" }, [
-              _vm._v(
-                "\n              Privacy & Policy | Terms & Condition\n            "
-              )
-            ])
+            _vm._m(1)
           ])
         ])
       ])
@@ -41393,12 +41562,12 @@ var render = function() {
             _c(
               "p",
               { staticClass: "text-white p-0 pt-4 text-center font-20" },
-              [_vm._v("Get Latest Update")]
+              [_vm._v("\n          Get Latest Update\n        ")]
             ),
             _vm._v(" "),
             _c("Subscribe"),
             _vm._v(" "),
-            _vm._m(1)
+            _vm._m(2)
           ],
           1
         )
@@ -41503,7 +41672,7 @@ var render = function() {
                       }
                     },
                     [
-                      _vm._m(2),
+                      _vm._m(3),
                       _vm._v(" "),
                       _c("div", { staticClass: "nav-font text-jquery" }, [
                         _vm._v("profile")
@@ -41593,16 +41762,22 @@ var staticRenderFns = [
             "a",
             {
               attrs: {
-                href: "https://www.linkedin.com/company/gowithgbi/about/",
+                href: "https://www.linkedin.com/company/gowithgbi",
                 target: "blan"
               }
             },
             [_c("img", { attrs: { src: "/images/icons/linked-in.png" } })]
           ),
           _vm._v(" "),
-          _c("a", { attrs: { href: "tel:+9717922240" } }, [
-            _c("img", { attrs: { src: "/images/icons/whatsapp.png" } })
-          ])
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "https://api.whatsapp.com/send?phone=919717922240"
+              }
+            },
+            [_c("img", { attrs: { src: "/images/icons/whatsapp.png" } })]
+          )
         ]),
         _vm._v(" "),
         _c("hr", { staticClass: "mt-2 mb-2" }),
@@ -41619,6 +41794,38 @@ var staticRenderFns = [
           })
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-6 text-right pr-5" }, [
+      _c(
+        "a",
+        {
+          staticClass: "text-white",
+          attrs: {
+            target: "_blank",
+            href:
+              "https://s3.amazonaws.com/www.pands.gowithgbi.com/GBI+Privacy+and+Security+Policy.pdf"
+          }
+        },
+        [_vm._v("Privacy & Policy")]
+      ),
+      _vm._v("\n            |\n            "),
+      _c(
+        "a",
+        {
+          staticClass: "text-white",
+          attrs: {
+            target: "_blank",
+            href:
+              "https://s3.amazonaws.com/www.tandc.gowithgbi.com/GBI+Terms+and+Conditions.pdf"
+          }
+        },
+        [_vm._v("Terms & Condition")]
+      )
     ])
   },
   function() {
@@ -62668,6 +62875,9 @@ function createStore() {
       },
       authStatus: function authStatus(state) {
         return state.status;
+      },
+      user: function user(state) {
+        return vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('user');
       }
     },
     //getAllTableData();

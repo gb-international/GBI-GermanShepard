@@ -685,6 +685,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       };
       this.$api.POST("/api/tour-detail", data).then(function (response) {
         _this.alldata = response;
+        console.log(response);
         _this.itineraryData = response.itinerary;
         _this.flightData = response.bookedflights;
         _this.hotelData = response.bookedhotels;
@@ -885,7 +886,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "hotel-card" }, [
-    _c("img", { attrs: { src: "/images/hotel/1590495923.png" } }),
+    _c("img", { attrs: { src: _vm.hotel.hotel.image } }),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col hotel_info" }, [

@@ -4,9 +4,7 @@
      if teacher has selected payment mode then show to user -->
     <div
       class="bg-cover text-white tour_list_card mt-3"
-      :style="{
-        backgroundImage: `url('/uploadimage/${tour.tour.itinerary.detail_photo}')`,
-      }"
+      :style="{ backgroundImage: `url('${tour.itinerary.detail_photo}')` }"
     >
       <div class="container pt-4 font-weight-bold">
         <div class="row">

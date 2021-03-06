@@ -7,7 +7,7 @@
 
       <div class="row mb-10">
         <div class="col-sm-12 col-md-12 col-lg-6 pt-2">
-            <img class="img w-35 mr-2 link mb-2" src="/images/icons/back.png" @click="back()"/>
+            <img class="img w-20 mr-2 link mb-2" src="/images/icons/back.png" @click="back()"/>
           <button
             type="button"
             class="btn btn-sm btn-primary mb-2"

@@ -1310,7 +1310,7 @@ var render = function() {
       _c("div", { staticClass: "row mb-10" }, [
         _c("div", { staticClass: "col-sm-12 col-md-12 col-lg-6 pt-2" }, [
           _c("img", {
-            staticClass: "img w-35 mr-2 link mb-2",
+            staticClass: "img w-20 mr-2 link mb-2",
             attrs: { src: "/images/icons/back.png" },
             on: {
               click: function($event) {

@@ -47,7 +47,7 @@
     border-bottom:none;
   }
 
-   .cookie__accept, 
+  .cookie__accept, 
   .cookie__decline,
   .cookie__link {
     padding: 0.2rem 0.8rem;
@@ -68,17 +68,19 @@
   }
 
 
-  .cookie__accept {
-    background: $highlight-color;
-    color: $text-color;
-    &:hover, &:focus {
-      background: lighten($highlight-color, 8%);
-    }
-    &:active {
-      background: lighten($highlight-color, 12%);
-    }
-  }
-  .cookie__decline {
+  // .cookie__accept {
+  //   background: $highlight-color;
+  //   color: $text-color;
+  //   &:hover, &:focus {
+  //     background: lighten($highlight-color, 8%);
+  //   }
+  //   &:active {
+  //     background: lighten($highlight-color, 12%);
+  //   }
+  // }
+
+
+  /* .cookie__decline {
     background: darken($background-color, 8%);
     color: $text-color;
     &:hover, &:focus {
@@ -86,6 +88,17 @@
     }
     &:active {
       background: darken($background-color, 8%);
+    }
+  } */
+  .cookie__decline,.cookie__accept{
+    background: darken($background-color, 8%);
+    color: $text-color;
+    font-weight: 500;
+    &:hover, &:focus {
+      background: lighten($highlight-color, 8%);
+    }
+    &:active {
+      background: lighten($highlight-color, 12%);
     }
   }
 }

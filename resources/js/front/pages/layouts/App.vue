@@ -115,7 +115,7 @@
 
             <li class="nav-item mr-10" v-else
             >
-              <router-link class="nav-link" :to="`/dashboard`"> <img :src="user.photo" class="img img-circle nav_profile"> {{ user.name }}</router-link>
+              <router-link class="nav-link" :to="`/dashboard`"> <img :src="$store.getters.user.photo" class="img img-circle nav_profile"> {{ $store.getters.user.name }}</router-link>
             </li>
           </ul>
         </div>
@@ -183,7 +183,6 @@ export default {
       isnav_active: false,
       user:{name:'',photo:''},
       cookies_alert:false,
-      
     };
   },
 
@@ -196,8 +195,6 @@ export default {
         throw err;
       });
     });
-
-
 
     this.$bus.$on("logged", () => {
       this.isLogged = this.loginCheck();
@@ -215,9 +212,9 @@ export default {
     if(this.login == null){
       this.login = 1;
     }
-    if(this.$cookies.get('user') && this.$cookies.get('access_token')){
-      this.user = this.$cookies.get('user');
-    }
+    // if(this.$cookies.get('user') && this.$cookies.get('access_token')){
+    //   this.user = this.$cookies.get('user');
+    // }
     var url = '/api/details';
     // this.$cookies.set('access_token',localStorage.getItem('token'));
   },
@@ -227,8 +224,8 @@ export default {
       if (token) {
         var data = [];
         this.$api.POST('/api/user-show',[]).then(response=>{
-          this.user.name = response.success.name;
-          this.user.photo = response.success.information.photo;
+          // this.user.name = response.success.name;
+          // this.user.photo = response.success.information.photo;
           this.$store.token = token;
           this.$store.commit('auth_success',token);
           this.$cookies.set('login',2);

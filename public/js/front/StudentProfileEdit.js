@@ -1505,11 +1505,13 @@ __webpack_require__.r(__webpack_exports__);
       data.append("photo", file);
       vm.$axios.post("/api/update-user-image", data, {
         headers: {
-          Authorization: "Bearer ".concat(localStorage.token)
+          Authorization: "Bearer ".concat(this.$cookies.get('access_token'))
         }
       }).then(function (res) {
-        // vm.image = res.data.photo;
-        console.log(res);
+        var data = vm.$cookies.get('user');
+        data.photo = res.data.photo;
+        vm.image = data.photo;
+        vm.$cookies.set('user', data);
         vm.$swal.fire({
           icon: "success",
           title: "Profile image updated !!"

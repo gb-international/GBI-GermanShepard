@@ -150,16 +150,15 @@ class UserController extends Controller{
         $user = Auth::user();
 
         if ($request->hasFile('photo')) {
-            $this->AwsDeleteImage($user->information->photo);
            $file = $request->file('photo');
-           $name = $file->getClientOriginalName().'-'. time();
+           $name = time().'-'.$file->getClientOriginalName();
            $filePath = config('gbi.user_image') . $name;
            \Storage::disk('s3')->put($filePath, file_get_contents($file));
        }
         $information = Information::where('user_id', $user->id)->first();
         $information->photo = $name;
         $information->save();
-        return response()->json(['photo'=>$name]);
+        return response()->json(['photo'=>$information->photo]);
     }
     // User Edit 
 /** 

@@ -99,8 +99,9 @@ class HotelController extends Controller
 
         $data = $this->validateHotel($request);
         if($request->image != $hotel->image){
+          
             $data['image'] = $this->AwsFileUpload($request->image,config('gbi.hotel_image'),$request->alt);
-            $this->AwsDeleteImage($hotel->image);
+            // $this->AwsDeleteImage($hotel->image);
         }else{
             unset($data['image']);
             unset($data['alt']);
