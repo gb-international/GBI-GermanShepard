@@ -110,8 +110,8 @@ class TourController extends Controller{
             'itinerary.itinerarydays',
             'bookedhotels:id,check_in,check_out,hotel_id,tour_id',
             'bookedhotels.hotel:id,name,type,image',
-            'bookedflights',
-            'bookedflights.flight'
+            'bookedflights:id,arrival,departure,destination,flight_id,flight_number,source,tour_id,tour_code',
+            'bookedflights.flight:id,code,name'
         )
         ->where("tour_id",$request->travel_id)
         ->first();

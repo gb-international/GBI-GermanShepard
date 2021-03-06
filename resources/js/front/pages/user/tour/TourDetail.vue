@@ -80,10 +80,12 @@
           <h3 class="text-center mb-35">AIRLINES DETAILS</h3>
           <hr />
           <div v-for="air in flightData" :key="air.id">
+            
             <flight-app
               :list="air.flight_number"
               :flightDate="simpleDate(air.departure)"
             ></flight-app>
+
           </div>
         </div>
 

@@ -470,7 +470,7 @@ var render = function() {
       {
         staticClass: "bg-cover text-white tour_list_card mt-3",
         style: {
-          backgroundImage: "url('" + _vm.tour.itinerary.detail_photo + "')"
+          backgroundImage: "url('" + _vm.tour.tour.itinerary.detail_photo + "')"
         }
       },
       [
