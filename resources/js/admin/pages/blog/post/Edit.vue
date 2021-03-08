@@ -189,16 +189,6 @@ export default {
   data() {
     return {
       img_image: false,
-      customModulesForEditor: [
-        { alias: "imageDrop", module: ImageDrop },
-        { alias: "imageResize", module: ImageResize },
-      ],
-      editorSettings: {
-        modules: {
-          imageDrop: true,
-          imageResize: {},
-        },
-      },
       categories: [],
       tags: [],
       form: new Form({

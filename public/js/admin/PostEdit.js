@@ -207,19 +207,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       img_image: false,
-      customModulesForEditor: [{
-        alias: "imageDrop",
-        module: ImageDrop
-      }, {
-        alias: "imageResize",
-        module: ImageResize
-      }],
-      editorSettings: {
-        modules: {
-          imageDrop: true,
-          imageResize: {}
-        }
-      },
       categories: [],
       tags: [],
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({

@@ -98,7 +98,7 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, Category $category)
     {
-        $data = $request->all();
+        $data = $request->all();        
         if($request->image){
             $imagename = explode('.',$request->image[0]['name'])[0];
             $data['image'] = $this->AwsFileUpload($request->image[0]['file'],config('gbi.category_image'),$imagename);

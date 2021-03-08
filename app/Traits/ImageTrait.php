@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Image;
 use Illuminate\Support\Str;
+use Aws\S3\Exception\S3Exception;
 
 trait ImageTrait {
     // public $imgdata;
@@ -91,9 +92,12 @@ trait ImageTrait {
 
     // ============================Delete AWS Image ==========================
     public function AwsDeleteImage($image){
-        $path = explode("https://gbi-assets.s3.ap-south-1.amazonaws.com",$image);
-        if($path){
+        $path =explode("https://gbi-assets.s3.ap-south-1.amazonaws.com",$image);
+        try{
             \Storage::disk('s3')->delete($path[1]);
+        }
+        catch (S3Exception $e) {
+            return '0';
         }
     }
 }

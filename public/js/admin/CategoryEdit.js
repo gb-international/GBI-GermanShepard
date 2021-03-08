@@ -184,6 +184,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -200,19 +201,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       img_image: false,
-      customModulesForEditor: [{
-        alias: "imageDrop",
-        module: ImageDrop
-      }, {
-        alias: "imageResize",
-        module: ImageResize
-      }],
-      editorSettings: {
-        modules: {
-          imageDrop: true,
-          imageResize: {}
-        }
-      },
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         title: "",
         description: "",
@@ -230,10 +218,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/categories/".concat(this.$route.params.id, "/edit")).then(function (response) {
-        setTimeout(function () {
-          return $("#example").DataTable();
-        }, 1000);
-
         _this.form.fill(response.data);
 
         _this.form.image = [];

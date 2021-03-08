@@ -188,16 +188,6 @@ export default {
   mixins:[Vue2EditorMixin],
   data() {
     return {
-      customModulesForEditor: [
-        { alias: "imageDrop", module: ImageDrop },
-        { alias: "imageResize", module: ImageResize }
-      ],
-      editorSettings: {
-        modules: {
-          imageDrop: true,
-          imageResize: {}
-        }
-      },
       categories:[],
       tags:[],
       img_image:false,

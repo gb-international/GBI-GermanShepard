@@ -205,19 +205,6 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
   data: function data() {
     return {
-      customModulesForEditor: [{
-        alias: "imageDrop",
-        module: ImageDrop
-      }, {
-        alias: "imageResize",
-        module: ImageResize
-      }],
-      editorSettings: {
-        modules: {
-          imageDrop: true,
-          imageResize: {}
-        }
-      },
       categories: [],
       tags: [],
       img_image: false,

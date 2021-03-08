@@ -11,6 +11,7 @@ to submit the data we are using a function.
         role="form"
         enctype="multipart/form-data"
         @submit.prevent="UpdateCategory()"
+
       >
         <div class="row">
           <div class="col-sm-12">
@@ -121,16 +122,6 @@ export default {
   data() {
     return {
       img_image: false,
-      customModulesForEditor: [
-        { alias: "imageDrop", module: ImageDrop },
-        { alias: "imageResize", module: ImageResize },
-      ],
-      editorSettings: {
-        modules: {
-          imageDrop: true,
-          imageResize: {},
-        },
-      },
       form: new Form({
         title: "",
         description: "",
@@ -148,7 +139,6 @@ export default {
       axios
         .get(`/api/categories/${this.$route.params.id}/edit`)
         .then((response) => {
-          setTimeout(() => $("#example").DataTable(), 1000);
           this.form.fill(response.data);
           this.form.image = [];
           this.img_image = response.data.image;
