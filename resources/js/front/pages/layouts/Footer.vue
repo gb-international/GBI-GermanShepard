@@ -79,7 +79,7 @@
                   <a href="https://www.facebook.com/gowithgbi/" target="blank">
                     <img src="/images/icons/fb.png" />
                   </a>
-                  <a href="https://www.instagram.com/gbirikhi/" target="blan"
+                  <a href="https://www.instagram.com/gowithgbi/" target="blan"
                     ><img src="/images/icons/insta.png"
                   /></a>
                   <a href="https://twitter.com/gowithgbi" target="blan"

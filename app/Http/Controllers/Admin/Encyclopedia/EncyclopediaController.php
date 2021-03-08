@@ -122,7 +122,7 @@ class EncyclopediaController extends Controller
         if(count($request->input('files')) > 0){
             $pdf = [];
             foreach ($request->input('files') as $file) {
-                $data = ['name'=>$this->uploadPdf($file['filename'],$file['content'])];
+                $data = ['name'=>$this->AwsFileUpload($file['content'],config('gbi.encyclopedia_pdf'),$file['filename'])];
                 $pdf[] = new Itinerarypdf($data);
                 $data = [];
             }
@@ -154,13 +154,13 @@ class EncyclopediaController extends Controller
     }
 
 
-    public function uploadPdf($filename,$data){
-        $explode = explode(',', $data); // explode file 
-        $data = base64_decode($explode[1]);
-        $url =  public_path().'/encyclopedia/pdf/' . $filename;
-        file_put_contents($url , $data);
-        return $filename;
-    }  
+    // public function uploadPdf($filename,$data){
+    //     $explode = explode(',', $data); // explode file 
+    //     $data = base64_decode($explode[1]);
+    //     $url =  public_path().'/encyclopedia/pdf/' . $filename;
+    //     file_put_contents($url , $data);
+    //     return $filename;
+    // }  
 
      public function validateEncyclopedia($request)
     {

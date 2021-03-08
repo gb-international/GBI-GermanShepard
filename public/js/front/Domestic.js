@@ -273,10 +273,7 @@ var render = function() {
               _c("div", { staticClass: "card" }, [
                 _c("img", {
                   staticClass: "card-img card-image",
-                  attrs: {
-                    src: "/images/gallery/" + data.images[0].path,
-                    alt: data.images[0].alt
-                  }
+                  attrs: { src: data.images[0].path, alt: data.images[0].alt }
                 }),
                 _vm._v(" "),
                 _c(

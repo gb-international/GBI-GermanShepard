@@ -7583,7 +7583,7 @@ a:hover {
   min-height: 370px;
 }
 
-#ImagePreviewModal .img-preview img {
+#ImagePreviewModal .img-preview .main-img {
   transition: 1 linear;
   min-height: 370px;
 }

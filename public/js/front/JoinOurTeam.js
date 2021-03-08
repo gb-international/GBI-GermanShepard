@@ -216,7 +216,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      filename: "",
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         firstname: "",
         lastname: "",
@@ -228,6 +227,7 @@ __webpack_require__.r(__webpack_exports__);
         zipcode: "",
         postvancy: "",
         resume: "",
+        filename: "",
         messagescon: ""
       }),
       positions: ["Business Development Executive (Delhi)", "Business Development Executive (Punjab)", "Business Development Executive (Hyderabad)", "Software Developer", "Business Lead Generation Executive"]
@@ -244,8 +244,8 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!files.length) return;
       this.createImage(files[0]);
-      var fileData = event.target.files[0];
-      this.filename = fileData.name;
+      var fileData = e.target.files[0];
+      this.form.filename = fileData.name;
     },
     createImage: function createImage(file) {
       var image = new Image();
@@ -264,7 +264,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.post("/api/join-our-team/send").then(function (response) {
         _this.form.reset();
 
-        _this.filename = "";
+        _this.form.filename = "";
 
         _this.$swal.fire("Successfully Submited!", "Your resume has been sent to HR Deparment..", "success");
       })["catch"](function () {});
@@ -723,7 +723,7 @@ var render = function() {
                             attrs: {
                               name: "resume",
                               type: "file",
-                              accept: ".pdf, .doc, .docx"
+                              accept: ".pdf"
                             },
                             on: { change: _vm.onFileChange }
                           }),
@@ -732,8 +732,8 @@ var render = function() {
                             attrs: { form: _vm.form, field: "resume" }
                           }),
                           _vm._v(" "),
-                          _vm.filename
-                            ? _c("span", [_vm._v(_vm._s(_vm.filename))])
+                          _vm.form.filename
+                            ? _c("span", [_vm._v(_vm._s(_vm.form.filename))])
                             : _vm._e()
                         ],
                         1

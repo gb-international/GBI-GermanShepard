@@ -41731,7 +41731,7 @@ var staticRenderFns = [
             "a",
             {
               attrs: {
-                href: "https://www.instagram.com/gbirikhi/",
+                href: "https://www.instagram.com/gowithgbi/",
                 target: "blan"
               }
             },

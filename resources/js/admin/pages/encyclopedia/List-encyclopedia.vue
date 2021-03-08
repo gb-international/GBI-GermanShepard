@@ -45,11 +45,11 @@ data from the api to display the data about the encyclopedia from the backend .
           <table-loader />
         </template>
         <template #cell(thumbnail)="data">
-          <img :src="getImgUrl(data.item.thumbnail)" class="w-60" />
+          <img :src="data.item.thumbnail" class="w-60" />
         </template>
         
         <template #cell(banner_image)="data">
-          <img :src="getImgUrl(data.item.banner_image)" class="w-60" />
+          <img :src="data.item.banner_image" class="w-60" />
         </template>
 
         <template #cell(action)="data">
@@ -125,10 +125,7 @@ export default {
     deleteItem(id,index=-1) {
       let payload = {'api':"/encyclopedias/"+id,index,'index':index};
       this.$store.dispatch('deleteItem',payload);
-    },
-    getImgUrl(img) {
-      return "/encyclopedia/" + img;
-    },
+    }
   },
 };
 </script>

@@ -211,7 +211,7 @@
         @endcanany --}}
 
 
-        @canany(['add salesdps','edit salesdps','delete salesdps','itinerary salesdps'])
+        {{-- @canany(['add salesdps','edit salesdps','delete salesdps','itinerary salesdps'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="Sales departments">
             <i class="nav-icon fas fa-universal-access"></i>
@@ -234,7 +234,7 @@
         </li>
         @endcanany
 
-        
+         --}}
 
         @can(['city','state','country'])
         <li class="nav-item has-treeview">
@@ -310,13 +310,13 @@
             </li>
             @endcan
 
-            @can('encyclopediacomment')
+            {{-- @can('encyclopediacomment')
             <li class="nav-item">
                 <router-link to="/encyclopediacomment-list" class="nav-link" title="Encyclopedia Comments">
                 <p> Encyclopedia Comment</p>
                 </router-link>
             </li>
-            @endcan
+            @endcan --}}
 
 
             @can('user')

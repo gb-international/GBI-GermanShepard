@@ -88,7 +88,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     show: function show(i) {
       this.preview_img_index = i;
-      this.preview_img = '/images/gallery/' + this.gallery.images[i].path;
+      this.preview_img = this.gallery.images[i].path;
     },
     LeftImage: function LeftImage() {
       if (this.preview_img_index <= this.img_length && this.preview_img_index != 0) {
@@ -174,11 +174,7 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "card-img border-radius-0 cardimage",
-                      attrs: {
-                        src: "/images/gallery/" + data.path,
-                        alt: data.alt,
-                        title: data.alt
-                      }
+                      attrs: { src: data.path, alt: data.alt, title: data.alt }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "shera-img" })
@@ -212,7 +208,7 @@ var render = function() {
               _c("div", { staticClass: "modal-body" }, [
                 _c("div", { staticClass: "img-preview" }, [
                   _c("img", {
-                    class: _vm.imgclass,
+                    class: "main-img " + _vm.imgclass,
                     attrs: { src: _vm.preview_img }
                   }),
                   _vm._v(" "),
@@ -221,8 +217,9 @@ var render = function() {
                   _c("div", { staticClass: "img-preview-bottom" }, [
                     _c("div", { staticClass: "row text-center" }, [
                       _c("div", { staticClass: "col" }, [
-                        _c("i", {
-                          staticClass: "fas fa-angle-left link",
+                        _c("img", {
+                          staticClass: "w-35",
+                          attrs: { src: "/images/icons/back.png" },
                           on: {
                             click: function($event) {
                               return _vm.LeftImage()
@@ -232,8 +229,9 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col" }, [
-                        _c("i", {
-                          staticClass: "fas fa-search-minus link",
+                        _c("img", {
+                          staticClass: "w-20",
+                          attrs: { src: "/images/icons/zoom-out.png" },
                           on: {
                             click: function($event) {
                               return _vm.zoomOut()
@@ -243,8 +241,9 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col" }, [
-                        _c("i", {
-                          staticClass: "fas fa-search-plus link",
+                        _c("img", {
+                          staticClass: "w-20",
+                          attrs: { src: "/images/icons/zoom-in.png" },
                           on: {
                             click: function($event) {
                               return _vm.zoomIn()
@@ -254,8 +253,9 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col" }, [
-                        _c("i", {
-                          staticClass: "fas fa-angle-right link",
+                        _c("img", {
+                          staticClass: "w-35",
+                          attrs: { src: "/images/icons/forward.png" },
                           on: {
                             click: function($event) {
                               return _vm.RightImage()

@@ -78,7 +78,7 @@ trait ImageTrait {
         $strpos = strpos($single,';');
         $sub = substr($single,0,$strpos);
         $ex = explode('/',$sub)[1];
-        $name = Str::slug($imagename).time().rand(100,1000000).".".$ex;
+        $name = Str::slug($imagename).'-'.time().rand(100,1000000).".".$ex;
         return $name;
     }
     private function uploadFile($base64,$imageName,$folder){

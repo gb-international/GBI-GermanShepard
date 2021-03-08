@@ -23,5 +23,6 @@ return [
     'encyclopedia_image' => 'images/encyclopedia/',
     'encyclopedia_pdf' => 'images/encyclopedia/pdf/',   
     'user_image' => 'images/user/',
+    'resume_pdf' => 'images/resume/',
 ];
 

@@ -196,9 +196,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, "index", index);
 
       this.$store.dispatch('deleteItem', payload);
-    },
-    getImgUrl: function getImgUrl(img) {
-      return "/encyclopedia/" + img;
     }
   }
 });
@@ -346,7 +343,7 @@ var render = function() {
                       return [
                         _c("img", {
                           staticClass: "w-60",
-                          attrs: { src: _vm.getImgUrl(data.item.thumbnail) }
+                          attrs: { src: data.item.thumbnail }
                         })
                       ]
                     }
@@ -357,7 +354,7 @@ var render = function() {
                       return [
                         _c("img", {
                           staticClass: "w-60",
-                          attrs: { src: _vm.getImgUrl(data.item.banner_image) }
+                          attrs: { src: data.item.banner_image }
                         })
                       ]
                     }

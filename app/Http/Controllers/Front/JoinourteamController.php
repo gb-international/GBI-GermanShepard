@@ -26,13 +26,15 @@ use App\Jobs\JoinOurTeamUserJob;
 use App\Rules\EmailValidate;
 use App\Rules\PhoneNubmerValidate;
 use App\Rules\AlphaSpace;
-
+use App\Traits\ImageTrait;
 class JoinourteamController extends Controller
 {
+    use ImageTrait;
     public function resumeSend(Request $request)
     {
+       
     	$this->validate($request, [
-    		'firstname' => 'required|alpha',
+            'firstname' => 'required|alpha',
     		'lastname' => 'required|alpha',
     		'email' => ['required','email',new EmailValidate],
     		'contactno' => ['required','numeric',new PhoneNubmerValidate],
@@ -43,24 +45,20 @@ class JoinourteamController extends Controller
     		'postvancy' => 'required',
     		'resume' => 'required',
     		'messagescon' => 'required',
-
-    	]);
-
-
-        $data = $request->input('resume');// get the base64 file
-        $explode = explode(',', $data); // explode file 
-        // get the extension of file
-        $ext = explode('/',$data)[1]; 
-        $extension = explode(';', $ext)[0];
-        $valid_extension = ['pdf']; // valid extenion
-
-        if(in_array($extension, $valid_extension)){
-            $data = base64_decode($explode[1]);
-            $fileName = rand(100000,1001238912).".".$extension;
-            $url = public_path() . '/resume/' . $fileName;
-            file_put_contents($url , $data);
-            $url = url('/').'/resume/'.$fileName;
-        }else{
+            ]);
+            
+            
+            $data = $request->input('resume');// get the base64 file
+            $explode = explode(',', $data); // explode file 
+            // get the extension of file
+            $ext = explode('/',$data)[1]; 
+            $extension = explode(';', $ext)[0];
+            $valid_extension = ['pdf']; // valid extenion
+            
+            if(in_array($extension, $valid_extension)){
+                $name = $this->AwsFileUpload($data,config('gbi.resume_pdf'),$request->filename);
+                $url= \Storage::disk('s3')->url(config('gbi.resume_pdf').$name);
+            }else{
             return response()->json(['error'=>'Please Upload doc or pdf file']);
         }
     
@@ -76,13 +74,15 @@ class JoinourteamController extends Controller
 			'postvancy'=>$request->postvancy,
             'messagescon'=>$request->messagescon,
             'link'=>$url,
-            'emailto'=>'ajay_yadav@gbinternational.in'
+            'emailto'=>config('gbi.gbi_email')
             );
+
+        
 
          JoinOurTeamJob::dispatch($data);
          $data['emailto'] = $request->email;
          JoinOurTeamUserJob::dispatch($data);
-         return 'success';
+         return $data;
     }
 
     public function word_file(Request $request){

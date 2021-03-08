@@ -145,10 +145,10 @@
                         type="file"
                         @change="onFileChange"
                         :class="{ 'is-invalid': form.errors.has('resume') }"
-                        accept=".pdf, .doc, .docx"
+                        accept=".pdf"
                       />
                       <has-error :form="form" field="resume"></has-error>
-                      <span v-if="filename">{{ filename }}</span>
+                      <span v-if="form.filename">{{ form.filename }}</span>
                     </div>
                     <p>
                       <small>Please uplod PDF file only</small>
@@ -210,7 +210,6 @@ export default {
   },
   data() {
     return {
-      filename: "",
       form: new Form({
         firstname: "",
         lastname: "",
@@ -222,6 +221,7 @@ export default {
         zipcode: "",
         postvancy: "",
         resume: "",
+        filename: "",
         messagescon: "",
       }),
       positions:["Business Development Executive (Delhi)","Business Development Executive (Punjab)", "Business Development Executive (Hyderabad)", "Software Developer", "Business Lead Generation Executive"],
@@ -242,8 +242,8 @@ export default {
       if (!files.length) return;
 
       this.createImage(files[0]);
-      var fileData = event.target.files[0];
-      this.filename = fileData.name;
+      var fileData = e.target.files[0];
+      this.form.filename = fileData.name;
     },
     createImage(file) {
       var image = new Image();
@@ -260,7 +260,7 @@ export default {
         .post("/api/join-our-team/send")
         .then((response) => {
           this.form.reset();
-          this.filename = "";
+          this.form.filename = "";
           this.$swal.fire(
             "Successfully Submited!",
             "Your resume has been sent to HR Deparment..",

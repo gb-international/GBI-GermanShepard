@@ -13,7 +13,7 @@
             data-target="#ImagePreviewModal">
               <img
                 class="card-img border-radius-0 cardimage"
-                :src="`/images/gallery/${data.path}`"
+                :src="data.path"
                 :alt="data.alt"
                 :title="data.alt"
                 />
@@ -30,14 +30,14 @@
         <div class="modal-content border-radius-0">
           <div class="modal-body">
             <div class="img-preview">
-              <img :src="preview_img" :class="imgclass" >              
+              <img :src="preview_img" :class="`main-img ${imgclass}`" >              
               <div class="shera-img shera-img-modal"></div>
               <div class="img-preview-bottom">
                 <div class="row text-center">
-                  <div class="col"><i class="fas fa-angle-left link" @click="LeftImage()"></i></div>
-                  <div class="col"><i class="fas fa-search-minus link" @click="zoomOut()"></i></div>
-                  <div class="col"><i class="fas fa-search-plus link" @click="zoomIn()"></i></div>
-                  <div class="col"><i class="fas fa-angle-right link" @click="RightImage()"></i></div>
+                  <div class="col"><img src="/images/icons/back.png" @click="LeftImage()" class="w-35"/></div>
+                  <div class="col"><img src="/images/icons/zoom-out.png" @click="zoomOut()" class="w-20"/></div>
+                  <div class="col"><img src="/images/icons/zoom-in.png" @click="zoomIn()" class="w-20"/></div>
+                  <div class="col"><img src="/images/icons/forward.png" @click="RightImage()" class="w-35"/></div>
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@ export default {
     },
     show (i) {
       this.preview_img_index = i;
-      this.preview_img = '/images/gallery/'+ this.gallery.images[i].path;
+      this.preview_img = this.gallery.images[i].path;
     },
     LeftImage(){
       if((this.preview_img_index <= this.img_length)&&(this.preview_img_index != 0)){
