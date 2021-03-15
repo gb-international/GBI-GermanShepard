@@ -243,9 +243,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -365,20 +362,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var xlsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! xlsx */ "./node_modules/xlsx/xlsx.js");
 /* harmony import */ var xlsx__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(xlsx__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _admin_mixins_GroupExcelUpload__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/mixins/GroupExcelUpload */ "./resources/js/admin/mixins/GroupExcelUpload.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -1032,19 +1015,15 @@ var render = function() {
                           }
                         }
                       }),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "form-check-label font-12",
-                          attrs: { for: "studentCheckbox" }
-                        },
-                        [_vm._v("All")]
-                      )
+                      _c("label", {
+                        staticClass: "form-check-label font-12",
+                        attrs: { for: "studentCheckbox" }
+                      })
                     ])
                   : _c("div", [_vm._v("#")])
               ]),
               _vm._v(" "),
-              _c("th", [_vm._v("Sr.No")]),
+              _c("th", { staticClass: "w-80" }, [_vm._v("Sr no")]),
               _vm._v(" "),
               _c("th", [_vm._v("First Name")]),
               _vm._v(" "),
@@ -1114,7 +1093,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "text-center pt-2" }, [
+                    _c("td", { staticClass: "text-center padding-top-10" }, [
                       _vm._v(_vm._s(index + 1))
                     ]),
                     _vm._v(" "),
@@ -1517,99 +1496,89 @@ var render = function() {
             ? _c("p", { staticClass: "text-danger font-weight-bold" }, [
                 _vm._v(_vm._s(_vm.message))
               ])
-            : _vm._e(),
+            : _vm._e()
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "row w-100 mt-5 mb-5 justify-content-center text-center"
+        },
+        [
+          _c("div", { staticClass: "col-sm-5 m-0 p-0" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-default itrn_add_btn",
+                attrs: { type: "button" },
+                on: { click: _vm.generatePdf }
+              },
+              [_vm._v("DOWNLOAD PDF")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-5 m-0 p-0" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-default itrn_add_btn",
+                attrs: { type: "button", disabled: _vm.new_row_add == false },
+                on: {
+                  click: function($event) {
+                    return _vm.UserGroupSave()
+                  }
+                }
+              },
+              [_vm._v("UPDATE")]
+            )
+          ]),
           _vm._v(" "),
           _c(
             "div",
             {
-              staticClass:
-                "row reservation_bottom w-100 mt-5 mb-5 justify-content-center text-center"
+              staticClass: "col-sm-2 p-0 add-row-input-button text-left mt-29"
             },
             [
-              _c("div", { staticClass: "col-sm-4 pt-1" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-default itrn_add_btn",
-                    attrs: { type: "button" },
-                    on: { click: _vm.generatePdf }
-                  },
-                  [_vm._v("DOWNLOAD PDF")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-5 pt-1" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-default itrn_add_btn",
-                    attrs: {
-                      type: "button",
-                      disabled: _vm.new_row_add == false
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.UserGroupSave()
-                      }
+              _c("div", { staticClass: "input-group mb-3" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.row_input,
+                      expression: "row_input"
                     }
-                  },
-                  [_vm._v("UPDATE")]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col-sm-3 add-row-input-button p-0 m-0 text-left"
-                },
-                [
-                  _c("div", { staticClass: "row  p-0 m-0" }, [
-                    _c("div", { staticClass: "col-sm-5  p-0 m-0" }, [
-                      _c("small", [_vm._v("Add Row")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.row_input,
-                            expression: "row_input"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "number", placeholder: "Add Row.." },
-                        domProps: { value: _vm.row_input },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.row_input = $event.target.value
-                          }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "number", placeholder: "Add Row.." },
+                  domProps: { value: _vm.row_input },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.row_input = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group-append" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-info text-white pl-2",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.add_row()
                         }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-5 pt-24" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-info text-white",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.add_row()
-                            }
-                          }
-                        },
-                        [_vm._v("Go")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-2" })
-                  ])
-                ]
-              )
+                      }
+                    },
+                    [_vm._v("Go")]
+                  )
+                ])
+              ])
             ]
           )
         ]
@@ -1793,7 +1762,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-check-input checkbox-select-all",
-                        attrs: { type: "checkbox", title: "Select All" },
+                        attrs: {
+                          type: "checkbox",
+                          id: "teacherCheck",
+                          title: "Select All"
+                        },
                         domProps: {
                           checked: Array.isArray(_vm.selectAll)
                             ? _vm._i(_vm.selectAll, null) > -1
@@ -1821,12 +1794,15 @@ var render = function() {
                           }
                         }
                       }),
-                      _vm._v("All\n            ")
+                      _c("label", {
+                        staticClass: "form-check-label font-12",
+                        attrs: { for: "teacherCheck" }
+                      })
                     ])
                   : _c("div", [_vm._v("#")])
               ]),
               _vm._v(" "),
-              _c("th", [_vm._v("Sr.No")]),
+              _c("th", { staticClass: "w-80" }, [_vm._v("Sr no")]),
               _vm._v(" "),
               _c("th", [_vm._v("First Name")]),
               _vm._v(" "),
@@ -1898,7 +1874,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "text-center" }, [
+                    _c("td", { staticClass: "text-center padding-top-10" }, [
                       _vm._v(
                         "\n            " + _vm._s(index + 1) + "\n          "
                       )
@@ -2421,99 +2397,88 @@ var render = function() {
             ? _c("p", { staticClass: "text-danger font-weight-bold" }, [
                 _vm._v(_vm._s(_vm.message))
               ])
-            : _vm._e(),
+            : _vm._e()
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "row reservation_bottom w-100 mt-5 mb-5 justify-content-center text-center"
+        },
+        [
+          _c("div", { staticClass: "col-sm-5 m-0 p-0" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-default itrn_add_btn",
+                attrs: { type: "button" },
+                on: { click: _vm.generatePdf }
+              },
+              [_vm._v("DOWNLOAD PDF")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-5 m-0 p-0" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-default itrn_add_btn",
+                attrs: { type: "button", disabled: _vm.new_row_add == false },
+                on: {
+                  click: function($event) {
+                    return _vm.UserGroupSave()
+                  }
+                }
+              },
+              [_vm._v("UPDATE")]
+            )
+          ]),
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass:
-                "row reservation_bottom w-100 mt-5 mb-5 justify-content-center text-center"
-            },
+            { staticClass: "col-sm-2 add-row-input-button text-left mt-29" },
             [
-              _c("div", { staticClass: "col-sm-4 pt-1" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-default itrn_add_btn",
-                    attrs: { type: "button" },
-                    on: { click: _vm.generatePdf }
-                  },
-                  [_vm._v("\n            DOWNLOAD PDF\n          ")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-5 pt-1" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-default itrn_add_btn",
-                    attrs: {
-                      type: "button",
-                      disabled: _vm.new_row_add == false
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.UserGroupSave()
-                      }
+              _c("div", { staticClass: "input-group mb-3" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.row_input,
+                      expression: "row_input"
                     }
-                  },
-                  [_vm._v("\n            UPDATE\n          ")]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col-sm-3 add-row-input-button p-0 m-0 text-left"
-                },
-                [
-                  _c("div", { staticClass: "row p-0 m-0" }, [
-                    _c("div", { staticClass: "col-sm-5 p-0 m-0" }, [
-                      _c("small", [_vm._v("Add Row")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.row_input,
-                            expression: "row_input"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "number", placeholder: "Add Row.." },
-                        domProps: { value: _vm.row_input },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.row_input = $event.target.value
-                          }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "number", placeholder: "Add Row.." },
+                  domProps: { value: _vm.row_input },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.row_input = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group-append" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-info text-white pl-2",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.add_row()
                         }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-5 pt-24" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-info text-white",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.add_row()
-                            }
-                          }
-                        },
-                        [_vm._v("\n                Go\n              ")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-2" })
-                  ])
-                ]
-              )
+                      }
+                    },
+                    [_vm._v("Go")]
+                  )
+                ])
+              ])
             ]
           )
         ]

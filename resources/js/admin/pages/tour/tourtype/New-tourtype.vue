@@ -58,7 +58,7 @@ export default {
       this.form
         .post(path)
         .then((response) => {
-          this.$router.push(`/tourtype`);
+          this.form.reset();
           this.$toast.fire({
             icon: "success",
             title: "Successfully Updated !!!",

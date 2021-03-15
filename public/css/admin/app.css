@@ -55107,6 +55107,7 @@ Admin Login page
   font-size: 19px;
   outline: 0px;
   box-shadow: none;
+  font-weight: 500;
 }
 
 #admin_login #admin_login_form img {
@@ -55190,6 +55191,10 @@ iframe {
   margin-top: 35px;
 }
 
+.mt-29 {
+  margin-top: 29px;
+}
+
 .mb-30 {
   margin-bottom: 30px;
 }
@@ -55202,6 +55207,10 @@ iframe {
   margin-bottom: 10px;
 }
 
+.padding-top-10 {
+  padding-top: 10px !important;
+}
+
 .toggle_nv {
   display: block;
 }
@@ -55212,6 +55221,10 @@ iframe {
 
 .back_btn {
   margin-right: 20px;
+}
+
+.li-padding-18 ul {
+  padding-left: 18px !important;
 }
 
 .card {
@@ -55808,6 +55821,12 @@ input[type='datetime-local'] {
   font-size: 20px;
 }
 
+.btn-gbi {
+  height: 53px;
+  background-color: #332f58;
+  text-transform: uppercase;
+}
+
 .form-control:-moz-placeholder-shown {
   /* if placeholder is shown - meaning - no value in input */
   background-color: #fff !important;
@@ -55955,7 +55974,7 @@ input[type="file"] {
 
 .add-row-input-button input {
   border: 3px solid #332f58;
-  height: 35px;
+  height: 53px !important;
   width: 112px;
 }
 
@@ -56004,6 +56023,11 @@ input[type="file"] {
 .checkbox-select-all {
   padding-left: 0px;
   top: -15px;
+}
+
+.add-row-group {
+  height: 53px !important;
+  border: 2px solid #9a9a9a;
 }
 
 #pdfModalPreview .modal-lg {

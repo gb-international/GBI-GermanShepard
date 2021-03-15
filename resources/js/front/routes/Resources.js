@@ -4,6 +4,7 @@ const Faq = () => import(/* webpackChunkName: "js/front/faq" */ '@/front/pages/R
 const SafetySecurity = () => import(/* webpackChunkName: "js/front/SafetySecurity" */ '@/front/pages/Resources/SafetySecurity.vue');
 const EncyclopediaList = () => import(/* webpackChunkName: "js/front/EncyclopediaList" */ '@/front/pages/Encyclopedia/States.vue');
 const EncyclopediaView = () => import(/* webpackChunkName: "js/front/EncyclopediaView" */ '@/front/pages/Encyclopedia/State-view.vue');
+const PdfView = () => import(/* webpackChunkName: "js/front/PdfView" */ '@/front/pages/Encyclopedia/PdfView.vue');
 
 
 export default [
@@ -13,4 +14,5 @@ export default [
     { path: '/resources/safety-security', component: SafetySecurity },
     { path: '/resources/travel-encyclopedia', component: EncyclopediaList },
     { path: '/encyclopedia/:id', component: EncyclopediaView },
+    { path: '/itinerary-pdf/:slug', component: PdfView },
 ]

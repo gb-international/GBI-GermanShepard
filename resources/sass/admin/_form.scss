@@ -38,7 +38,11 @@ input[type='datetime-local']{
 	border:none;
 	font-size: 20px;
 }
-
+.btn-gbi{
+	height: 53px;
+	background-color: #332f58;
+	text-transform: uppercase;
+}
 
 .form-control:placeholder-shown {
 /* if placeholder is shown - meaning - no value in input */
@@ -160,7 +164,7 @@ input[type="file"] { width: 200px; }
 .add-row-input-button{
 	input{
 		border: 3px solid #332f58;
-		height: 35px;
+		height: 53px !important;
     	width: 112px;
 	}
 	button{
@@ -196,7 +200,10 @@ input[type="file"] { width: 200px; }
 	padding-left: 0px;
 	top: -15px;
 }
-
+.add-row-group{
+	height: 53px !important;
+	border:2px solid #9a9a9a;
+}
 #pdfModalPreview{
 	.modal-lg {
 		max-width: 65% !important;

@@ -43,9 +43,8 @@ const options = {
 }
 Vue.use(VueHtmlToPaper, options);
 const store = new createStore();
-
-
 Vue.component('admin-main', require('@/admin/pages/AdminMaster.vue').default);
+Vue.component('admin-nav-top', require('@/admin/pages/AdminNavTop.vue').default);
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 Vue.prototype.$Form = Form;
@@ -57,13 +56,14 @@ const toast = swal.mixin({
     showConfirmButton: false,
     timer: 3000
 });
-Vue.prototype.$toast = toast
+Vue.prototype.$toast = toast;
 const router = new VueRouter({
     // mode : 'history',
+    base:'/admin',
     routes, // short for `routes: routes`
-    mode: 'hash',
+    mode: 'history',
     scrollBehavior() { return { x: 0, y: 0 }; },
-})
+});
 
 const app = new Vue({
     el: '#app',

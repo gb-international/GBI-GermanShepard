@@ -727,6 +727,60 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ListCalculator",
   data: function data() {
@@ -805,7 +859,7 @@ __webpack_require__.r(__webpack_exports__);
     });
     axios.get("/api/hotel").then(function (response) {
       if (response.data) {
-        _this.hotel_list = response.data.data;
+        _this.hotel_list = response.data;
       }
     });
     axios.get("/api/bus").then(function (response) {
@@ -839,8 +893,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     check: function check(e) {},
     sumData: function sumData() {
-      var sum = 0;
       this.hotel_total = this.calculate(this.hotel_selected);
+      console.log(this.hotel_selected);
       this.escort_total = this.calculate(this.escort_selected);
       this.sight_seeing_total = this.calculate(this.sight_selected);
       this.bus_total = this.calculate(this.bus_selected);
@@ -987,6 +1041,23 @@ __webpack_require__.r(__webpack_exports__);
           _this2.escort_selected[index] = parseInt(data.salaryPerday);
         });
       }
+    },
+    remove_row: function remove_row(data, index) {
+      if (data == 'hotel') {
+        this.hotel_row.splice(index, 1);
+      } else if (data == 'bus') {
+        this.bus_row.splice(index, 1);
+      } else if (data == 'train') {
+        this.train_row.splice(index, 1);
+      } else if (data == 'flight') {
+        this.flight_row.splice(index, 1);
+      } else if (data == 'sight') {
+        this.sight_row.splice(index, 1);
+      } else if (data == 'escort') {
+        this.escort_row.splice(index, 1);
+      } else {
+        console.log('no selected item');
+      }
     }
   }
 });
@@ -1047,7 +1118,7 @@ var render = function() {
               _c("div", { staticClass: "row" }, [
                 _c(
                   "div",
-                  { staticClass: "col-sm-11" },
+                  { staticClass: "col-sm-12" },
                   _vm._l(_vm.hotel_row, function(data, index) {
                     return _c("div", { key: data.id, staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-3" }, [
@@ -1108,983 +1179,1093 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-9" }, [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-sm-2" }, [
-                            _c("label", [_vm._v("APAI Single")]),
-                            _vm._v(" "),
-                            data.apai_single != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.hotel_selected,
-                                          expression: "hotel_selected"
-                                        }
-                                      ],
-                                      staticClass: "custom-control-input",
-                                      attrs: {
-                                        type: "checkbox",
-                                        id: index + "1",
-                                        name: "example1"
-                                      },
-                                      domProps: {
-                                        value: data.apai_single / 1,
-                                        checked: Array.isArray(
-                                          _vm.hotel_selected
-                                        )
-                                          ? _vm._i(
-                                              _vm.hotel_selected,
-                                              data.apai_single / 1
-                                            ) > -1
-                                          : _vm.hotel_selected
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.check($event)
-                                        },
-                                        change: function($event) {
-                                          var $$a = _vm.hotel_selected,
-                                            $$el = $event.target,
-                                            $$c = $$el.checked ? true : false
-                                          if (Array.isArray($$a)) {
-                                            var $$v = data.apai_single / 1,
-                                              $$i = _vm._i($$a, $$v)
-                                            if ($$el.checked) {
-                                              $$i < 0 &&
-                                                (_vm.hotel_selected = $$a.concat(
-                                                  [$$v]
-                                                ))
-                                            } else {
-                                              $$i > -1 &&
-                                                (_vm.hotel_selected = $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1)))
-                                            }
-                                          } else {
-                                            _vm.hotel_selected = $$c
-                                          }
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
+                      data.hotel_id != ""
+                        ? _c("div", { staticClass: "col-sm-8" }, [
+                            _c("div", { staticClass: "row" }, [
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label", [_vm._v("APAI Single")]),
+                                _vm._v(" "),
+                                data.apai_single != undefined
+                                  ? _c(
+                                      "div",
                                       {
-                                        staticClass: "custom-control-label",
-                                        attrs: { for: index + "1" }
+                                        staticClass:
+                                          "custom-control custom-checkbox"
                                       },
-                                      [_vm._v(_vm._s(data.apai_single) + "/-")]
-                                    )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-2" }, [
-                            _c("label", [_vm._v("APAI Double")]),
-                            _vm._v(" "),
-                            data.apai_double != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.hotel_selected,
-                                          expression: "hotel_selected"
-                                        }
-                                      ],
-                                      staticClass: "custom-control-input",
-                                      attrs: {
-                                        type: "checkbox",
-                                        id: index + "2",
-                                        name: "example1"
-                                      },
-                                      domProps: {
-                                        value: data.apai_double / 2,
-                                        checked: Array.isArray(
-                                          _vm.hotel_selected
-                                        )
-                                          ? _vm._i(
-                                              _vm.hotel_selected,
-                                              data.apai_double / 2
-                                            ) > -1
-                                          : _vm.hotel_selected
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.check($event)
-                                        },
-                                        change: function($event) {
-                                          var $$a = _vm.hotel_selected,
-                                            $$el = $event.target,
-                                            $$c = $$el.checked ? true : false
-                                          if (Array.isArray($$a)) {
-                                            var $$v = data.apai_double / 2,
-                                              $$i = _vm._i($$a, $$v)
-                                            if ($$el.checked) {
-                                              $$i < 0 &&
-                                                (_vm.hotel_selected = $$a.concat(
-                                                  [$$v]
-                                                ))
-                                            } else {
-                                              $$i > -1 &&
-                                                (_vm.hotel_selected = $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1)))
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.hotel_selected,
+                                              expression: "hotel_selected"
                                             }
-                                          } else {
-                                            _vm.hotel_selected = $$c
-                                          }
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "custom-control-label",
-                                        attrs: { for: index + "2" }
-                                      },
-                                      [_vm._v(_vm._s(data.apai_double) + "/-")]
-                                    )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-2" }, [
-                            _c("label", [_vm._v("APAI Triple")]),
-                            _vm._v(" "),
-                            data.apai_triple != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.hotel_selected,
-                                          expression: "hotel_selected"
-                                        }
-                                      ],
-                                      staticClass: "custom-control-input",
-                                      attrs: {
-                                        type: "checkbox",
-                                        id: index + "3",
-                                        name: "example1"
-                                      },
-                                      domProps: {
-                                        value: data.apai_triple / 3,
-                                        checked: Array.isArray(
-                                          _vm.hotel_selected
-                                        )
-                                          ? _vm._i(
-                                              _vm.hotel_selected,
-                                              data.apai_triple / 3
-                                            ) > -1
-                                          : _vm.hotel_selected
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.check($event)
-                                        },
-                                        change: function($event) {
-                                          var $$a = _vm.hotel_selected,
-                                            $$el = $event.target,
-                                            $$c = $$el.checked ? true : false
-                                          if (Array.isArray($$a)) {
-                                            var $$v = data.apai_triple / 3,
-                                              $$i = _vm._i($$a, $$v)
-                                            if ($$el.checked) {
-                                              $$i < 0 &&
-                                                (_vm.hotel_selected = $$a.concat(
-                                                  [$$v]
-                                                ))
-                                            } else {
-                                              $$i > -1 &&
-                                                (_vm.hotel_selected = $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1)))
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: index + "1",
+                                            name: "example1"
+                                          },
+                                          domProps: {
+                                            value: data.apai_single / 1,
+                                            checked: Array.isArray(
+                                              _vm.hotel_selected
+                                            )
+                                              ? _vm._i(
+                                                  _vm.hotel_selected,
+                                                  data.apai_single / 1
+                                                ) > -1
+                                              : _vm.hotel_selected
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.check($event)
+                                            },
+                                            change: function($event) {
+                                              var $$a = _vm.hotel_selected,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = data.apai_single / 1,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    (_vm.hotel_selected = $$a.concat(
+                                                      [$$v]
+                                                    ))
+                                                } else {
+                                                  $$i > -1 &&
+                                                    (_vm.hotel_selected = $$a
+                                                      .slice(0, $$i)
+                                                      .concat(
+                                                        $$a.slice($$i + 1)
+                                                      ))
+                                                }
+                                              } else {
+                                                _vm.hotel_selected = $$c
+                                              }
                                             }
-                                          } else {
-                                            _vm.hotel_selected = $$c
                                           }
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "custom-control-label",
-                                        attrs: { for: index + "3" }
-                                      },
-                                      [_vm._v(_vm._s(data.apai_triple) + "/-")]
-                                    )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-2" }, [
-                            _c("label", [_vm._v("APAI Quad")]),
-                            _vm._v(" "),
-                            data.apai_quad != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.hotel_selected,
-                                          expression: "hotel_selected"
-                                        }
-                                      ],
-                                      staticClass: "custom-control-input",
-                                      attrs: {
-                                        type: "checkbox",
-                                        id: index + "4",
-                                        name: "example1"
-                                      },
-                                      domProps: {
-                                        value: data.apai_quad / 4,
-                                        checked: Array.isArray(
-                                          _vm.hotel_selected
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: index + "1" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(data.apai_single) + "/-"
+                                            )
+                                          ]
                                         )
-                                          ? _vm._i(
-                                              _vm.hotel_selected,
-                                              data.apai_quad / 4
-                                            ) > -1
-                                          : _vm.hotel_selected
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.check($event)
-                                        },
-                                        change: function($event) {
-                                          var $$a = _vm.hotel_selected,
-                                            $$el = $event.target,
-                                            $$c = $$el.checked ? true : false
-                                          if (Array.isArray($$a)) {
-                                            var $$v = data.apai_quad / 4,
-                                              $$i = _vm._i($$a, $$v)
-                                            if ($$el.checked) {
-                                              $$i < 0 &&
-                                                (_vm.hotel_selected = $$a.concat(
-                                                  [$$v]
-                                                ))
-                                            } else {
-                                              $$i > -1 &&
-                                                (_vm.hotel_selected = $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1)))
-                                            }
-                                          } else {
-                                            _vm.hotel_selected = $$c
-                                          }
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "custom-control-label",
-                                        attrs: { for: index + "4" }
-                                      },
-                                      [_vm._v(_vm._s(data.apai_quad) + "/-")]
+                                      ]
                                     )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-2" }, [
-                            _c("label", [_vm._v("MAPAI Single")]),
-                            _vm._v(" "),
-                            data.mapai_single != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.hotel_selected,
-                                          expression: "hotel_selected"
-                                        }
-                                      ],
-                                      staticClass: "custom-control-input",
-                                      attrs: {
-                                        type: "checkbox",
-                                        id: index + "5",
-                                        name: "example1"
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label", [_vm._v("APAI Double")]),
+                                _vm._v(" "),
+                                data.apai_double != null
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-checkbox"
                                       },
-                                      domProps: {
-                                        value: data.mapai_single / 1,
-                                        checked: Array.isArray(
-                                          _vm.hotel_selected
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.hotel_selected,
+                                              expression: "hotel_selected"
+                                            }
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: index + "2",
+                                            name: "example1"
+                                          },
+                                          domProps: {
+                                            value: data.apai_double / 2,
+                                            checked: Array.isArray(
+                                              _vm.hotel_selected
+                                            )
+                                              ? _vm._i(
+                                                  _vm.hotel_selected,
+                                                  data.apai_double / 2
+                                                ) > -1
+                                              : _vm.hotel_selected
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.check($event)
+                                            },
+                                            change: function($event) {
+                                              var $$a = _vm.hotel_selected,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = data.apai_double / 2,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    (_vm.hotel_selected = $$a.concat(
+                                                      [$$v]
+                                                    ))
+                                                } else {
+                                                  $$i > -1 &&
+                                                    (_vm.hotel_selected = $$a
+                                                      .slice(0, $$i)
+                                                      .concat(
+                                                        $$a.slice($$i + 1)
+                                                      ))
+                                                }
+                                              } else {
+                                                _vm.hotel_selected = $$c
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: index + "2" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(data.apai_double) + "/-"
+                                            )
+                                          ]
                                         )
-                                          ? _vm._i(
-                                              _vm.hotel_selected,
-                                              data.mapai_single / 1
-                                            ) > -1
-                                          : _vm.hotel_selected
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.check($event)
-                                        },
-                                        change: function($event) {
-                                          var $$a = _vm.hotel_selected,
-                                            $$el = $event.target,
-                                            $$c = $$el.checked ? true : false
-                                          if (Array.isArray($$a)) {
-                                            var $$v = data.mapai_single / 1,
-                                              $$i = _vm._i($$a, $$v)
-                                            if ($$el.checked) {
-                                              $$i < 0 &&
-                                                (_vm.hotel_selected = $$a.concat(
-                                                  [$$v]
-                                                ))
-                                            } else {
-                                              $$i > -1 &&
-                                                (_vm.hotel_selected = $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1)))
-                                            }
-                                          } else {
-                                            _vm.hotel_selected = $$c
-                                          }
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "custom-control-label",
-                                        attrs: { for: index + "5" }
-                                      },
-                                      [_vm._v(_vm._s(data.mapai_single) + "/-")]
+                                      ]
                                     )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-2" }, [
-                            _c("label", [_vm._v("MAPAI Double")]),
-                            _vm._v(" "),
-                            data.mapai_double != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.hotel_selected,
-                                          expression: "hotel_selected"
-                                        }
-                                      ],
-                                      staticClass: "custom-control-input",
-                                      attrs: {
-                                        type: "checkbox",
-                                        id: index + "6",
-                                        name: "example1"
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label", [_vm._v("APAI Triple")]),
+                                _vm._v(" "),
+                                data.apai_triple != null
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-checkbox"
                                       },
-                                      domProps: {
-                                        value: data.mapai_double / 2,
-                                        checked: Array.isArray(
-                                          _vm.hotel_selected
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.hotel_selected,
+                                              expression: "hotel_selected"
+                                            }
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: index + "3",
+                                            name: "example1"
+                                          },
+                                          domProps: {
+                                            value: data.apai_triple / 3,
+                                            checked: Array.isArray(
+                                              _vm.hotel_selected
+                                            )
+                                              ? _vm._i(
+                                                  _vm.hotel_selected,
+                                                  data.apai_triple / 3
+                                                ) > -1
+                                              : _vm.hotel_selected
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.check($event)
+                                            },
+                                            change: function($event) {
+                                              var $$a = _vm.hotel_selected,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = data.apai_triple / 3,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    (_vm.hotel_selected = $$a.concat(
+                                                      [$$v]
+                                                    ))
+                                                } else {
+                                                  $$i > -1 &&
+                                                    (_vm.hotel_selected = $$a
+                                                      .slice(0, $$i)
+                                                      .concat(
+                                                        $$a.slice($$i + 1)
+                                                      ))
+                                                }
+                                              } else {
+                                                _vm.hotel_selected = $$c
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: index + "3" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(data.apai_triple) + "/-"
+                                            )
+                                          ]
                                         )
-                                          ? _vm._i(
-                                              _vm.hotel_selected,
-                                              data.mapai_double / 2
-                                            ) > -1
-                                          : _vm.hotel_selected
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.check($event)
-                                        },
-                                        change: function($event) {
-                                          var $$a = _vm.hotel_selected,
-                                            $$el = $event.target,
-                                            $$c = $$el.checked ? true : false
-                                          if (Array.isArray($$a)) {
-                                            var $$v = data.mapai_double / 2,
-                                              $$i = _vm._i($$a, $$v)
-                                            if ($$el.checked) {
-                                              $$i < 0 &&
-                                                (_vm.hotel_selected = $$a.concat(
-                                                  [$$v]
-                                                ))
-                                            } else {
-                                              $$i > -1 &&
-                                                (_vm.hotel_selected = $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1)))
-                                            }
-                                          } else {
-                                            _vm.hotel_selected = $$c
-                                          }
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "custom-control-label",
-                                        attrs: { for: index + "6" }
-                                      },
-                                      [_vm._v(_vm._s(data.mapai_double) + "/-")]
+                                      ]
                                     )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-2" }, [
-                            _c("label", [_vm._v("MAPAI Triple")]),
-                            _vm._v(" "),
-                            data.mapai_triple != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.hotel_selected,
-                                          expression: "hotel_selected"
-                                        }
-                                      ],
-                                      staticClass: "custom-control-input",
-                                      attrs: {
-                                        type: "checkbox",
-                                        id: index + "7",
-                                        name: "example1"
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label", [_vm._v("APAI Quad")]),
+                                _vm._v(" "),
+                                data.apai_quad != null
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-checkbox"
                                       },
-                                      domProps: {
-                                        value: data.mapai_triple / 3,
-                                        checked: Array.isArray(
-                                          _vm.hotel_selected
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.hotel_selected,
+                                              expression: "hotel_selected"
+                                            }
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: index + "4",
+                                            name: "example1"
+                                          },
+                                          domProps: {
+                                            value: data.apai_quad / 4,
+                                            checked: Array.isArray(
+                                              _vm.hotel_selected
+                                            )
+                                              ? _vm._i(
+                                                  _vm.hotel_selected,
+                                                  data.apai_quad / 4
+                                                ) > -1
+                                              : _vm.hotel_selected
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.check($event)
+                                            },
+                                            change: function($event) {
+                                              var $$a = _vm.hotel_selected,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = data.apai_quad / 4,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    (_vm.hotel_selected = $$a.concat(
+                                                      [$$v]
+                                                    ))
+                                                } else {
+                                                  $$i > -1 &&
+                                                    (_vm.hotel_selected = $$a
+                                                      .slice(0, $$i)
+                                                      .concat(
+                                                        $$a.slice($$i + 1)
+                                                      ))
+                                                }
+                                              } else {
+                                                _vm.hotel_selected = $$c
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: index + "4" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(data.apai_quad) + "/-"
+                                            )
+                                          ]
                                         )
-                                          ? _vm._i(
-                                              _vm.hotel_selected,
-                                              data.mapai_triple / 3
-                                            ) > -1
-                                          : _vm.hotel_selected
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.check($event)
-                                        },
-                                        change: function($event) {
-                                          var $$a = _vm.hotel_selected,
-                                            $$el = $event.target,
-                                            $$c = $$el.checked ? true : false
-                                          if (Array.isArray($$a)) {
-                                            var $$v = data.mapai_triple / 3,
-                                              $$i = _vm._i($$a, $$v)
-                                            if ($$el.checked) {
-                                              $$i < 0 &&
-                                                (_vm.hotel_selected = $$a.concat(
-                                                  [$$v]
-                                                ))
-                                            } else {
-                                              $$i > -1 &&
-                                                (_vm.hotel_selected = $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1)))
-                                            }
-                                          } else {
-                                            _vm.hotel_selected = $$c
-                                          }
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "custom-control-label",
-                                        attrs: { for: index + "7" }
-                                      },
-                                      [_vm._v(_vm._s(data.mapai_triple) + "/-")]
+                                      ]
                                     )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-2" }, [
-                            _c("label", [_vm._v("MAPAI Quad")]),
-                            _vm._v(" "),
-                            data.mapai_quad != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.hotel_selected,
-                                          expression: "hotel_selected"
-                                        }
-                                      ],
-                                      staticClass: "custom-control-input",
-                                      attrs: {
-                                        type: "checkbox",
-                                        id: index + "8",
-                                        name: "example1"
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label", [_vm._v("MAPAI Single")]),
+                                _vm._v(" "),
+                                data.mapai_single != null
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-checkbox"
                                       },
-                                      domProps: {
-                                        value: data.mapai_quad / 4,
-                                        checked: Array.isArray(
-                                          _vm.hotel_selected
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.hotel_selected,
+                                              expression: "hotel_selected"
+                                            }
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: index + "5",
+                                            name: "example1"
+                                          },
+                                          domProps: {
+                                            value: data.mapai_single / 1,
+                                            checked: Array.isArray(
+                                              _vm.hotel_selected
+                                            )
+                                              ? _vm._i(
+                                                  _vm.hotel_selected,
+                                                  data.mapai_single / 1
+                                                ) > -1
+                                              : _vm.hotel_selected
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.check($event)
+                                            },
+                                            change: function($event) {
+                                              var $$a = _vm.hotel_selected,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = data.mapai_single / 1,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    (_vm.hotel_selected = $$a.concat(
+                                                      [$$v]
+                                                    ))
+                                                } else {
+                                                  $$i > -1 &&
+                                                    (_vm.hotel_selected = $$a
+                                                      .slice(0, $$i)
+                                                      .concat(
+                                                        $$a.slice($$i + 1)
+                                                      ))
+                                                }
+                                              } else {
+                                                _vm.hotel_selected = $$c
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: index + "5" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(data.mapai_single) + "/-"
+                                            )
+                                          ]
                                         )
-                                          ? _vm._i(
-                                              _vm.hotel_selected,
-                                              data.mapai_quad / 4
-                                            ) > -1
-                                          : _vm.hotel_selected
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.check($event)
-                                        },
-                                        change: function($event) {
-                                          var $$a = _vm.hotel_selected,
-                                            $$el = $event.target,
-                                            $$c = $$el.checked ? true : false
-                                          if (Array.isArray($$a)) {
-                                            var $$v = data.mapai_quad / 4,
-                                              $$i = _vm._i($$a, $$v)
-                                            if ($$el.checked) {
-                                              $$i < 0 &&
-                                                (_vm.hotel_selected = $$a.concat(
-                                                  [$$v]
-                                                ))
-                                            } else {
-                                              $$i > -1 &&
-                                                (_vm.hotel_selected = $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1)))
-                                            }
-                                          } else {
-                                            _vm.hotel_selected = $$c
-                                          }
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "custom-control-label",
-                                        attrs: { for: index + "8" }
-                                      },
-                                      [_vm._v(_vm._s(data.mapai_quad) + "/-")]
+                                      ]
                                     )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-2" }, [
-                            _c("label", [_vm._v("CPAI Single")]),
-                            _vm._v(" "),
-                            data.cpai_single != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.hotel_selected,
-                                          expression: "hotel_selected"
-                                        }
-                                      ],
-                                      staticClass: "custom-control-input",
-                                      attrs: {
-                                        type: "checkbox",
-                                        id: index + "9",
-                                        name: "example1"
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label", [_vm._v("MAPAI Double")]),
+                                _vm._v(" "),
+                                data.mapai_double != null
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-checkbox"
                                       },
-                                      domProps: {
-                                        value: data.cpai_single / 1,
-                                        checked: Array.isArray(
-                                          _vm.hotel_selected
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.hotel_selected,
+                                              expression: "hotel_selected"
+                                            }
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: index + "6",
+                                            name: "example1"
+                                          },
+                                          domProps: {
+                                            value: data.mapai_double / 2,
+                                            checked: Array.isArray(
+                                              _vm.hotel_selected
+                                            )
+                                              ? _vm._i(
+                                                  _vm.hotel_selected,
+                                                  data.mapai_double / 2
+                                                ) > -1
+                                              : _vm.hotel_selected
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.check($event)
+                                            },
+                                            change: function($event) {
+                                              var $$a = _vm.hotel_selected,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = data.mapai_double / 2,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    (_vm.hotel_selected = $$a.concat(
+                                                      [$$v]
+                                                    ))
+                                                } else {
+                                                  $$i > -1 &&
+                                                    (_vm.hotel_selected = $$a
+                                                      .slice(0, $$i)
+                                                      .concat(
+                                                        $$a.slice($$i + 1)
+                                                      ))
+                                                }
+                                              } else {
+                                                _vm.hotel_selected = $$c
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: index + "6" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(data.mapai_double) + "/-"
+                                            )
+                                          ]
                                         )
-                                          ? _vm._i(
-                                              _vm.hotel_selected,
-                                              data.cpai_single / 1
-                                            ) > -1
-                                          : _vm.hotel_selected
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.check($event)
-                                        },
-                                        change: function($event) {
-                                          var $$a = _vm.hotel_selected,
-                                            $$el = $event.target,
-                                            $$c = $$el.checked ? true : false
-                                          if (Array.isArray($$a)) {
-                                            var $$v = data.cpai_single / 1,
-                                              $$i = _vm._i($$a, $$v)
-                                            if ($$el.checked) {
-                                              $$i < 0 &&
-                                                (_vm.hotel_selected = $$a.concat(
-                                                  [$$v]
-                                                ))
-                                            } else {
-                                              $$i > -1 &&
-                                                (_vm.hotel_selected = $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1)))
-                                            }
-                                          } else {
-                                            _vm.hotel_selected = $$c
-                                          }
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "custom-control-label",
-                                        attrs: { for: index + "9" }
-                                      },
-                                      [_vm._v(_vm._s(data.cpai_single) + "/-")]
+                                      ]
                                     )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-2" }, [
-                            _c("label", [_vm._v("CPAI Double")]),
-                            _vm._v(" "),
-                            data.cpai_double != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.hotel_selected,
-                                          expression: "hotel_selected"
-                                        }
-                                      ],
-                                      staticClass: "custom-control-input",
-                                      attrs: {
-                                        type: "checkbox",
-                                        id: index + "10",
-                                        name: "example1"
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label", [_vm._v("MAPAI Triple")]),
+                                _vm._v(" "),
+                                data.mapai_triple != null
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-checkbox"
                                       },
-                                      domProps: {
-                                        value: data.cpai_double / 2,
-                                        checked: Array.isArray(
-                                          _vm.hotel_selected
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.hotel_selected,
+                                              expression: "hotel_selected"
+                                            }
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: index + "7",
+                                            name: "example1"
+                                          },
+                                          domProps: {
+                                            value: data.mapai_triple / 3,
+                                            checked: Array.isArray(
+                                              _vm.hotel_selected
+                                            )
+                                              ? _vm._i(
+                                                  _vm.hotel_selected,
+                                                  data.mapai_triple / 3
+                                                ) > -1
+                                              : _vm.hotel_selected
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.check($event)
+                                            },
+                                            change: function($event) {
+                                              var $$a = _vm.hotel_selected,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = data.mapai_triple / 3,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    (_vm.hotel_selected = $$a.concat(
+                                                      [$$v]
+                                                    ))
+                                                } else {
+                                                  $$i > -1 &&
+                                                    (_vm.hotel_selected = $$a
+                                                      .slice(0, $$i)
+                                                      .concat(
+                                                        $$a.slice($$i + 1)
+                                                      ))
+                                                }
+                                              } else {
+                                                _vm.hotel_selected = $$c
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: index + "7" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(data.mapai_triple) + "/-"
+                                            )
+                                          ]
                                         )
-                                          ? _vm._i(
-                                              _vm.hotel_selected,
-                                              data.cpai_double / 2
-                                            ) > -1
-                                          : _vm.hotel_selected
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.check($event)
-                                        },
-                                        change: function($event) {
-                                          var $$a = _vm.hotel_selected,
-                                            $$el = $event.target,
-                                            $$c = $$el.checked ? true : false
-                                          if (Array.isArray($$a)) {
-                                            var $$v = data.cpai_double / 2,
-                                              $$i = _vm._i($$a, $$v)
-                                            if ($$el.checked) {
-                                              $$i < 0 &&
-                                                (_vm.hotel_selected = $$a.concat(
-                                                  [$$v]
-                                                ))
-                                            } else {
-                                              $$i > -1 &&
-                                                (_vm.hotel_selected = $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1)))
-                                            }
-                                          } else {
-                                            _vm.hotel_selected = $$c
-                                          }
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "custom-control-label",
-                                        attrs: { for: index + "10" }
-                                      },
-                                      [_vm._v(_vm._s(data.cpai_double) + "/-")]
+                                      ]
                                     )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-2" }, [
-                            _c("label", [_vm._v("CPAI Triple")]),
-                            _vm._v(" "),
-                            data.cpai_triple != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.hotel_selected,
-                                          expression: "hotel_selected"
-                                        }
-                                      ],
-                                      staticClass: "custom-control-input",
-                                      attrs: {
-                                        type: "checkbox",
-                                        id: index + "11",
-                                        name: "example1"
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label", [_vm._v("MAPAI Quad")]),
+                                _vm._v(" "),
+                                data.mapai_quad != null
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-checkbox"
                                       },
-                                      domProps: {
-                                        value: data.cpai_triple / 3,
-                                        checked: Array.isArray(
-                                          _vm.hotel_selected
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.hotel_selected,
+                                              expression: "hotel_selected"
+                                            }
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: index + "8",
+                                            name: "example1"
+                                          },
+                                          domProps: {
+                                            value: data.mapai_quad / 4,
+                                            checked: Array.isArray(
+                                              _vm.hotel_selected
+                                            )
+                                              ? _vm._i(
+                                                  _vm.hotel_selected,
+                                                  data.mapai_quad / 4
+                                                ) > -1
+                                              : _vm.hotel_selected
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.check($event)
+                                            },
+                                            change: function($event) {
+                                              var $$a = _vm.hotel_selected,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = data.mapai_quad / 4,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    (_vm.hotel_selected = $$a.concat(
+                                                      [$$v]
+                                                    ))
+                                                } else {
+                                                  $$i > -1 &&
+                                                    (_vm.hotel_selected = $$a
+                                                      .slice(0, $$i)
+                                                      .concat(
+                                                        $$a.slice($$i + 1)
+                                                      ))
+                                                }
+                                              } else {
+                                                _vm.hotel_selected = $$c
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: index + "8" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(data.mapai_quad) + "/-"
+                                            )
+                                          ]
                                         )
-                                          ? _vm._i(
-                                              _vm.hotel_selected,
-                                              data.cpai_triple / 3
-                                            ) > -1
-                                          : _vm.hotel_selected
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.check($event)
-                                        },
-                                        change: function($event) {
-                                          var $$a = _vm.hotel_selected,
-                                            $$el = $event.target,
-                                            $$c = $$el.checked ? true : false
-                                          if (Array.isArray($$a)) {
-                                            var $$v = data.cpai_triple / 3,
-                                              $$i = _vm._i($$a, $$v)
-                                            if ($$el.checked) {
-                                              $$i < 0 &&
-                                                (_vm.hotel_selected = $$a.concat(
-                                                  [$$v]
-                                                ))
-                                            } else {
-                                              $$i > -1 &&
-                                                (_vm.hotel_selected = $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1)))
-                                            }
-                                          } else {
-                                            _vm.hotel_selected = $$c
-                                          }
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "custom-control-label",
-                                        attrs: { for: index + "11" }
-                                      },
-                                      [_vm._v(_vm._s(data.cpai_triple) + "/-")]
+                                      ]
                                     )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-2" }, [
-                            _c("label", [_vm._v("CPAI Quad")]),
-                            _vm._v(" "),
-                            data.cpai_quad != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.hotel_selected,
-                                          expression: "hotel_selected"
-                                        }
-                                      ],
-                                      staticClass: "custom-control-input",
-                                      attrs: {
-                                        type: "checkbox",
-                                        id: index + "12",
-                                        name: "example1"
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label", [_vm._v("CPAI Single")]),
+                                _vm._v(" "),
+                                data.cpai_single != null
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-checkbox"
                                       },
-                                      domProps: {
-                                        value: data.cpai_quad / 4,
-                                        checked: Array.isArray(
-                                          _vm.hotel_selected
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.hotel_selected,
+                                              expression: "hotel_selected"
+                                            }
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: index + "9",
+                                            name: "example1"
+                                          },
+                                          domProps: {
+                                            value: data.cpai_single / 1,
+                                            checked: Array.isArray(
+                                              _vm.hotel_selected
+                                            )
+                                              ? _vm._i(
+                                                  _vm.hotel_selected,
+                                                  data.cpai_single / 1
+                                                ) > -1
+                                              : _vm.hotel_selected
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.check($event)
+                                            },
+                                            change: function($event) {
+                                              var $$a = _vm.hotel_selected,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = data.cpai_single / 1,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    (_vm.hotel_selected = $$a.concat(
+                                                      [$$v]
+                                                    ))
+                                                } else {
+                                                  $$i > -1 &&
+                                                    (_vm.hotel_selected = $$a
+                                                      .slice(0, $$i)
+                                                      .concat(
+                                                        $$a.slice($$i + 1)
+                                                      ))
+                                                }
+                                              } else {
+                                                _vm.hotel_selected = $$c
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: index + "9" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(data.cpai_single) + "/-"
+                                            )
+                                          ]
                                         )
-                                          ? _vm._i(
-                                              _vm.hotel_selected,
-                                              data.cpai_quad / 4
-                                            ) > -1
-                                          : _vm.hotel_selected
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.check($event)
-                                        },
-                                        change: function($event) {
-                                          var $$a = _vm.hotel_selected,
-                                            $$el = $event.target,
-                                            $$c = $$el.checked ? true : false
-                                          if (Array.isArray($$a)) {
-                                            var $$v = data.cpai_quad / 4,
-                                              $$i = _vm._i($$a, $$v)
-                                            if ($$el.checked) {
-                                              $$i < 0 &&
-                                                (_vm.hotel_selected = $$a.concat(
-                                                  [$$v]
-                                                ))
-                                            } else {
-                                              $$i > -1 &&
-                                                (_vm.hotel_selected = $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1)))
-                                            }
-                                          } else {
-                                            _vm.hotel_selected = $$c
-                                          }
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "custom-control-label",
-                                        attrs: { for: index + "12" }
-                                      },
-                                      [_vm._v(_vm._s(data.cpai_quad) + "/-")]
+                                      ]
                                     )
-                                  ]
-                                )
-                              : _vm._e()
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label", [_vm._v("CPAI Double")]),
+                                _vm._v(" "),
+                                data.cpai_double != null
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-checkbox"
+                                      },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.hotel_selected,
+                                              expression: "hotel_selected"
+                                            }
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: index + "10",
+                                            name: "example1"
+                                          },
+                                          domProps: {
+                                            value: data.cpai_double / 2,
+                                            checked: Array.isArray(
+                                              _vm.hotel_selected
+                                            )
+                                              ? _vm._i(
+                                                  _vm.hotel_selected,
+                                                  data.cpai_double / 2
+                                                ) > -1
+                                              : _vm.hotel_selected
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.check($event)
+                                            },
+                                            change: function($event) {
+                                              var $$a = _vm.hotel_selected,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = data.cpai_double / 2,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    (_vm.hotel_selected = $$a.concat(
+                                                      [$$v]
+                                                    ))
+                                                } else {
+                                                  $$i > -1 &&
+                                                    (_vm.hotel_selected = $$a
+                                                      .slice(0, $$i)
+                                                      .concat(
+                                                        $$a.slice($$i + 1)
+                                                      ))
+                                                }
+                                              } else {
+                                                _vm.hotel_selected = $$c
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: index + "10" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(data.cpai_double) + "/-"
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label", [_vm._v("CPAI Triple")]),
+                                _vm._v(" "),
+                                data.cpai_triple != null
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-checkbox"
+                                      },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.hotel_selected,
+                                              expression: "hotel_selected"
+                                            }
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: index + "11",
+                                            name: "example1"
+                                          },
+                                          domProps: {
+                                            value: data.cpai_triple / 3,
+                                            checked: Array.isArray(
+                                              _vm.hotel_selected
+                                            )
+                                              ? _vm._i(
+                                                  _vm.hotel_selected,
+                                                  data.cpai_triple / 3
+                                                ) > -1
+                                              : _vm.hotel_selected
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.check($event)
+                                            },
+                                            change: function($event) {
+                                              var $$a = _vm.hotel_selected,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = data.cpai_triple / 3,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    (_vm.hotel_selected = $$a.concat(
+                                                      [$$v]
+                                                    ))
+                                                } else {
+                                                  $$i > -1 &&
+                                                    (_vm.hotel_selected = $$a
+                                                      .slice(0, $$i)
+                                                      .concat(
+                                                        $$a.slice($$i + 1)
+                                                      ))
+                                                }
+                                              } else {
+                                                _vm.hotel_selected = $$c
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: index + "11" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(data.cpai_triple) + "/-"
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label", [_vm._v("CPAI Quad")]),
+                                _vm._v(" "),
+                                data.cpai_quad != null
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-checkbox"
+                                      },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.hotel_selected,
+                                              expression: "hotel_selected"
+                                            }
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: index + "12",
+                                            name: "example1"
+                                          },
+                                          domProps: {
+                                            value: data.cpai_quad / 4,
+                                            checked: Array.isArray(
+                                              _vm.hotel_selected
+                                            )
+                                              ? _vm._i(
+                                                  _vm.hotel_selected,
+                                                  data.cpai_quad / 4
+                                                ) > -1
+                                              : _vm.hotel_selected
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.check($event)
+                                            },
+                                            change: function($event) {
+                                              var $$a = _vm.hotel_selected,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = data.cpai_quad / 4,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    (_vm.hotel_selected = $$a.concat(
+                                                      [$$v]
+                                                    ))
+                                                } else {
+                                                  $$i > -1 &&
+                                                    (_vm.hotel_selected = $$a
+                                                      .slice(0, $$i)
+                                                      .concat(
+                                                        $$a.slice($$i + 1)
+                                                      ))
+                                                }
+                                              } else {
+                                                _vm.hotel_selected = $$c
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: index + "12" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(data.cpai_quad) + "/-"
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("hr")
                           ])
-                        ]),
-                        _vm._v(" "),
-                        _c("hr")
+                        : _c("div", { staticClass: "col-sm-8" }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-1 pt-2" }, [
+                        _vm.hotel_row.length >= 0 && index == 0
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "btn btn_plus text-white",
+                                attrs: { type: "button", title: "Add Row" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.add_row("hotel")
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fas fa-plus" })]
+                            )
+                          : _c(
+                              "button",
+                              {
+                                staticClass: "btn btn_plus text-white",
+                                attrs: { type: "button", title: "Remove Row" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.remove_row("hotel", index)
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fas fa-minus" })]
+                            )
                       ]),
                       _vm._v(" "),
                       _c("hr")
                     ])
                   }),
                   0
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-1" }, [
-                  _c("div", { staticClass: "col-sm-1" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn_plus text-white",
-                        attrs: { type: "button", title: "Add Row" },
-                        on: {
-                          click: function($event) {
-                            return _vm.add_row("hotel")
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fas fa-plus" })]
-                    )
-                  ])
-                ])
+                )
               ])
             ])
           ]),
@@ -2096,10 +2277,10 @@ var render = function() {
               _c("div", { staticClass: "row" }, [
                 _c(
                   "div",
-                  { staticClass: "col-sm-11" },
+                  { staticClass: "col-sm-12" },
                   _vm._l(_vm.bus_row, function(bus_data, index) {
                     return _c("div", { key: bus_data.id, staticClass: "row" }, [
-                      _c("div", { staticClass: "col-sm-3" }, [
+                      _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Select Bus")]),
                         _vm._v(" "),
                         _c(
@@ -2173,29 +2354,41 @@ var render = function() {
                         _c("label", [_vm._v("Price")]),
                         _vm._v(" "),
                         _c("p", [_vm._v(_vm._s(bus_data.price) + " /-")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-1 pt-2" }, [
+                        _vm.bus_row.length >= 0 && index == 0
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "btn btn_plus text-white",
+                                attrs: { type: "button", title: "Add Row" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.add_row("bus")
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fas fa-plus" })]
+                            )
+                          : _c(
+                              "button",
+                              {
+                                staticClass: "btn btn_plus text-white",
+                                attrs: { type: "button", title: "Remove Row" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.remove_row("bus", index)
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fas fa-minus" })]
+                            )
                       ])
                     ])
                   }),
                   0
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-1" }, [
-                  _c("div", { staticClass: "col-sm-1" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn_plus text-white",
-                        attrs: { type: "button", title: "Add Row" },
-                        on: {
-                          click: function($event) {
-                            return _vm.add_row("bus")
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fas fa-plus" })]
-                    )
-                  ])
-                ])
+                )
               ])
             ])
           ]),
@@ -2207,7 +2400,7 @@ var render = function() {
               _c("div", { staticClass: "row" }, [
                 _c(
                   "div",
-                  { staticClass: "col-sm-11" },
+                  { staticClass: "col-sm-12" },
                   _vm._l(_vm.train_row, function(train_data, index) {
                     return _c(
                       "div",
@@ -2274,13 +2467,13 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-3" }, [
+                        _c("div", { staticClass: "col-sm-4" }, [
                           _c("label", [_vm._v("Code")]),
                           _vm._v(" "),
                           _c("p", [_vm._v(_vm._s(train_data.code))])
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-3" }, [
+                        _c("div", { staticClass: "col-sm-4" }, [
                           _c("label", [_vm._v("Price")]),
                           _vm._v(" "),
                           _c("input", {
@@ -2307,30 +2500,45 @@ var render = function() {
                               }
                             }
                           })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-1 pt-2" }, [
+                          _vm.train_row.length >= 0 && index == 0
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn_plus text-white",
+                                  attrs: { type: "button", title: "Add Row" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.add_row("train")
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-plus" })]
+                              )
+                            : _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn_plus text-white",
+                                  attrs: {
+                                    type: "button",
+                                    title: "Remove Row"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.remove_row("train", index)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-minus" })]
+                              )
                         ])
                       ]
                     )
                   }),
                   0
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-1" }, [
-                  _c("div", { staticClass: "col-sm-1" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn_plus text-white",
-                        attrs: { type: "button", title: "Add Row" },
-                        on: {
-                          click: function($event) {
-                            return _vm.add_row("train")
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fas fa-plus" })]
-                    )
-                  ])
-                ])
+                )
               ])
             ])
           ]),
@@ -2342,7 +2550,7 @@ var render = function() {
               _c("div", { staticClass: "row" }, [
                 _c(
                   "div",
-                  { staticClass: "col-sm-11" },
+                  { staticClass: "col-sm-12" },
                   _vm._l(_vm.flight_row, function(flight_data, index) {
                     return _c(
                       "div",
@@ -2409,13 +2617,13 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-3" }, [
+                        _c("div", { staticClass: "col-sm-4" }, [
                           _c("label", [_vm._v("Code")]),
                           _vm._v(" "),
                           _c("p", [_vm._v(_vm._s(flight_data.code))])
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-3" }, [
+                        _c("div", { staticClass: "col-sm-4" }, [
                           _c("label", [_vm._v("Price")]),
                           _vm._v(" "),
                           _c("input", {
@@ -2442,42 +2650,57 @@ var render = function() {
                               }
                             }
                           })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-1 pt-2" }, [
+                          _vm.flight_row.length >= 0 && index == 0
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn_plus text-white",
+                                  attrs: { type: "button", title: "Add Row" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.add_row("flight")
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-plus" })]
+                              )
+                            : _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn_plus text-white",
+                                  attrs: {
+                                    type: "button",
+                                    title: "Remove Row"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.remove_row("flight", index)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-minus" })]
+                              )
                         ])
                       ]
                     )
                   }),
                   0
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-1" }, [
-                  _c("div", { staticClass: "col-sm-1" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn_plus text-white",
-                        attrs: { type: "button", title: "Add Row" },
-                        on: {
-                          click: function($event) {
-                            return _vm.add_row("flight")
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fas fa-plus" })]
-                    )
-                  ])
-                ])
+                )
               ])
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card_calculator" }, [
             _c("div", { staticClass: "bus" }, [
-              _c("h6", [_vm._v("SightSeeing Price :")]),
+              _c("h6", [_vm._v("Sightseeing Price :")]),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
                 _c(
                   "div",
-                  { staticClass: "col-sm-11" },
+                  { staticClass: "col-sm-12" },
                   _vm._l(_vm.sight_row, function(sight_data, index) {
                     return _c(
                       "div",
@@ -2553,169 +2776,198 @@ var render = function() {
                         _c("div", { staticClass: "col-sm-3" }, [
                           _c("label", [_vm._v("Adult Price")]),
                           _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "custom-control custom-checkbox" },
-                            [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.sight_selected,
-                                    expression: "sight_selected"
-                                  }
-                                ],
-                                staticClass: "custom-control-input",
-                                attrs: {
-                                  type: "checkbox",
-                                  id: index + "adultprice",
-                                  name: "example1"
-                                },
-                                domProps: {
-                                  value: sight_data.adult_price,
-                                  checked: Array.isArray(_vm.sight_selected)
-                                    ? _vm._i(
-                                        _vm.sight_selected,
-                                        sight_data.adult_price
-                                      ) > -1
-                                    : _vm.sight_selected
-                                },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.check($event)
-                                  },
-                                  change: function($event) {
-                                    var $$a = _vm.sight_selected,
-                                      $$el = $event.target,
-                                      $$c = $$el.checked ? true : false
-                                    if (Array.isArray($$a)) {
-                                      var $$v = sight_data.adult_price,
-                                        $$i = _vm._i($$a, $$v)
-                                      if ($$el.checked) {
-                                        $$i < 0 &&
-                                          (_vm.sight_selected = $$a.concat([
-                                            $$v
-                                          ]))
-                                      } else {
-                                        $$i > -1 &&
-                                          (_vm.sight_selected = $$a
-                                            .slice(0, $$i)
-                                            .concat($$a.slice($$i + 1)))
-                                      }
-                                    } else {
-                                      _vm.sight_selected = $$c
-                                    }
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "label",
+                          sight_data.adult_price
+                            ? _c(
+                                "div",
                                 {
-                                  staticClass: "custom-control-label",
-                                  attrs: { for: index + "adultprice" }
+                                  staticClass: "custom-control custom-checkbox"
                                 },
-                                [_vm._v(_vm._s(sight_data.adult_price) + "/-")]
+                                [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.sight_selected,
+                                        expression: "sight_selected"
+                                      }
+                                    ],
+                                    staticClass: "custom-control-input",
+                                    attrs: {
+                                      type: "checkbox",
+                                      id: index + "adultprice"
+                                    },
+                                    domProps: {
+                                      value: sight_data.adult_price,
+                                      checked: Array.isArray(_vm.sight_selected)
+                                        ? _vm._i(
+                                            _vm.sight_selected,
+                                            sight_data.adult_price
+                                          ) > -1
+                                        : _vm.sight_selected
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.check($event)
+                                      },
+                                      change: function($event) {
+                                        var $$a = _vm.sight_selected,
+                                          $$el = $event.target,
+                                          $$c = $$el.checked ? true : false
+                                        if (Array.isArray($$a)) {
+                                          var $$v = sight_data.adult_price,
+                                            $$i = _vm._i($$a, $$v)
+                                          if ($$el.checked) {
+                                            $$i < 0 &&
+                                              (_vm.sight_selected = $$a.concat([
+                                                $$v
+                                              ]))
+                                          } else {
+                                            $$i > -1 &&
+                                              (_vm.sight_selected = $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1)))
+                                          }
+                                        } else {
+                                          _vm.sight_selected = $$c
+                                        }
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "custom-control-label",
+                                      attrs: { for: index + "adultprice" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(sight_data.adult_price) + "/-"
+                                      )
+                                    ]
+                                  )
+                                ]
                               )
-                            ]
-                          )
+                            : _vm._e()
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-3" }, [
+                        _c("div", { staticClass: "col-sm-2" }, [
                           _c("label", [_vm._v("Child Price")]),
                           _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "custom-control custom-checkbox" },
-                            [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.sight_selected,
-                                    expression: "sight_selected"
-                                  }
-                                ],
-                                staticClass: "custom-control-input",
-                                attrs: {
-                                  type: "checkbox",
-                                  id: index + "childchild",
-                                  name: "example1"
+                          sight_data.child_price
+                            ? _c(
+                                "div",
+                                {
+                                  staticClass: "custom-control custom-checkbox"
                                 },
-                                domProps: {
-                                  value: sight_data.child_price,
-                                  checked: Array.isArray(_vm.sight_selected)
-                                    ? _vm._i(
-                                        _vm.sight_selected,
-                                        sight_data.child_price
-                                      ) > -1
-                                    : _vm.sight_selected
-                                },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.check($event)
-                                  },
-                                  change: function($event) {
-                                    var $$a = _vm.sight_selected,
-                                      $$el = $event.target,
-                                      $$c = $$el.checked ? true : false
-                                    if (Array.isArray($$a)) {
-                                      var $$v = sight_data.child_price,
-                                        $$i = _vm._i($$a, $$v)
-                                      if ($$el.checked) {
-                                        $$i < 0 &&
-                                          (_vm.sight_selected = $$a.concat([
-                                            $$v
-                                          ]))
-                                      } else {
-                                        $$i > -1 &&
-                                          (_vm.sight_selected = $$a
-                                            .slice(0, $$i)
-                                            .concat($$a.slice($$i + 1)))
+                                [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.sight_selected,
+                                        expression: "sight_selected"
                                       }
-                                    } else {
-                                      _vm.sight_selected = $$c
+                                    ],
+                                    staticClass: "custom-control-input",
+                                    attrs: {
+                                      type: "checkbox",
+                                      id: index + "childchild"
+                                    },
+                                    domProps: {
+                                      value: sight_data.child_price,
+                                      checked: Array.isArray(_vm.sight_selected)
+                                        ? _vm._i(
+                                            _vm.sight_selected,
+                                            sight_data.child_price
+                                          ) > -1
+                                        : _vm.sight_selected
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.check($event)
+                                      },
+                                      change: function($event) {
+                                        var $$a = _vm.sight_selected,
+                                          $$el = $event.target,
+                                          $$c = $$el.checked ? true : false
+                                        if (Array.isArray($$a)) {
+                                          var $$v = sight_data.child_price,
+                                            $$i = _vm._i($$a, $$v)
+                                          if ($$el.checked) {
+                                            $$i < 0 &&
+                                              (_vm.sight_selected = $$a.concat([
+                                                $$v
+                                              ]))
+                                          } else {
+                                            $$i > -1 &&
+                                              (_vm.sight_selected = $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1)))
+                                          }
+                                        } else {
+                                          _vm.sight_selected = $$c
+                                        }
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "custom-control-label",
+                                      attrs: { for: index + "childchild" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(sight_data.child_price) + "/-"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-1 pt-2" }, [
+                          _vm.sight_row.length >= 0 && index == 0
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn_plus text-white",
+                                  attrs: { type: "button", title: "Add Row" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.add_row("sight")
                                     }
                                   }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "custom-control-label",
-                                  attrs: { for: index + "childchild" }
                                 },
-                                [_vm._v(_vm._s(sight_data.child_price) + "/-")]
+                                [_c("i", { staticClass: "fas fa-plus" })]
                               )
-                            ]
-                          )
+                            : _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn_plus text-white",
+                                  attrs: {
+                                    type: "button",
+                                    title: "Remove Row"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.remove_row("sight", index)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-minus" })]
+                              )
                         ])
                       ]
                     )
                   }),
                   0
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-1" }, [
-                  _c("div", { staticClass: "col-sm-1" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn_plus text-white",
-                        attrs: { type: "button", title: "Add Row" },
-                        on: {
-                          click: function($event) {
-                            return _vm.add_row("sight")
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fas fa-plus" })]
-                    )
-                  ])
-                ])
+                )
               ])
             ])
           ]),
@@ -2727,7 +2979,7 @@ var render = function() {
               _c("div", { staticClass: "row" }, [
                 _c(
                   "div",
-                  { staticClass: "col-sm-11" },
+                  { staticClass: "col-sm-12" },
                   _vm._l(_vm.escort_row, function(escort_data, index) {
                     return _c(
                       "div",
@@ -2794,42 +3046,57 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-3" }, [
+                        _c("div", { staticClass: "col-sm-4" }, [
                           _c("label", [_vm._v("Phone No")]),
                           _vm._v(" "),
                           _c("p", [_vm._v(_vm._s(escort_data.phoneno))])
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-3" }, [
+                        _c("div", { staticClass: "col-sm-4" }, [
                           _c("label", [_vm._v("Per Day Salary")]),
                           _vm._v(" "),
                           _c("p", [
                             _vm._v(_vm._s(escort_data.salaryPerday) + "/-")
                           ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-1 pt-2" }, [
+                          _vm.escort_row.length >= 0 && index == 0
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn_plus text-white",
+                                  attrs: { type: "button", title: "Add Row" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.add_row("escort")
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-plus" })]
+                              )
+                            : _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn_plus text-white",
+                                  attrs: {
+                                    type: "button",
+                                    title: "Remove Row"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.remove_row("escort", index)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-minus" })]
+                              )
                         ])
                       ]
                     )
                   }),
                   0
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-1" }, [
-                  _c("div", { staticClass: "col-sm-1" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn_plus text-white",
-                        attrs: { type: "button", title: "Add Row" },
-                        on: {
-                          click: function($event) {
-                            return _vm.add_row("escort")
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fas fa-plus" })]
-                    )
-                  ])
-                ])
+                )
               ])
             ])
           ]),
@@ -2918,7 +3185,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _c("tr", [
                                       _c("td", [
-                                        _c("b", [_vm._v("Sight Seeing")])
+                                        _c("b", [_vm._v("Sightseeing")])
                                       ]),
                                       _vm._v(" "),
                                       _c("td", [

@@ -137,7 +137,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var path = "/api/tourtype";
       this.form.post(path).then(function (response) {
-        _this.$router.push("/tourtype");
+        _this.form.reset();
 
         _this.$toast.fire({
           icon: "success",
@@ -235,7 +235,7 @@ var render = function() {
   return _c("div", { staticClass: "row justify-content-center" }, [
     _c(
       "div",
-      { staticClass: "col-sm-8" },
+      { staticClass: "col-sm-9 text-center" },
       [_c("back-button"), _vm._v(" "), _c("submit-button")],
       1
     )

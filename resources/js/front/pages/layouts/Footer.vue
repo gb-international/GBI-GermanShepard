@@ -145,7 +145,7 @@
 
     <!-- Mobile footer -->
     <div class="m-bottom">
-      <div class="bg-blue pb-3 mobile-subscription">
+      <div class="pb-3 mobile-subscription">
         <div class="container">
           <p class="text-white p-0 pt-4 text-center font-20">
             Get Latest Update
@@ -186,7 +186,8 @@
           >
             <router-link :to="`/`">
               <div class="nav-font">
-                <i class="fas fa-home"></i>
+                <img v-show="active_element == 0" src="/images/icons/white-home.png" class="w-20" />
+                <img v-show="active_element != 0" src="/images/icons/home.png" class="w-20" />
               </div>
               <div class="nav-font">home</div>
             </router-link>
@@ -199,7 +200,8 @@
           >
             <router-link :to="`/explore-destination`">
               <div class="nav-font">
-                <i class="fas fa-map-marked-alt"></i>
+                <img v-show="active_element == 1" src="/images/icons/white-explore.png" class="w-20" />
+                <img v-show="active_element != 1" src="/images/icons/explore.png" class="w-20" />
               </div>
               <div class="nav-font">explore</div>
             </router-link>
@@ -212,7 +214,8 @@
           >
             <router-link :to="`/contact-us`">
               <div class="nav-font">
-                <i class="fas fa-phone-alt"></i>
+                <img v-show="active_element == 3" src="/images/icons/white-phone-call.png" class="w-20" />
+                <img v-show="active_element != 3" src="/images/icons/phone-call.png" class="w-20" />
               </div>
               <div class="nav-font">call</div>
             </router-link>
@@ -233,14 +236,16 @@
               data-target="#LoginForm"
             >
               <div class="nav-font">
-                <i class="fas fa-user-alt"></i>
+                <img v-show="active_element == 2" src="/images/icons/white-user.png" class="w-20" />
+                <img v-show="active_element != 2" src="/images/icons/user.png" class="w-20" />
               </div>
               <div class="nav-font text-jquery">profile</div>
             </a>
             <!-- if not looged in -->
             <router-link :to="`/dashboard`" v-else>
               <div class="nav-font">
-                <i class="fas fa-user-alt"></i>
+                <img v-show="active_element == 2" src="/images/icons/white-user.png" class="w-20" />
+                <img v-show="active_element != 2" src="/images/icons/user.png" class="w-20" />
               </div>
               <div class="nav-font">Profile</div>
             </router-link>

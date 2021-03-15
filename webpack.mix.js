@@ -10,7 +10,6 @@ mix.webpackConfig({
 
 // if (mix.inProduction()) {
 //    const ASSET_URL = process.env.ASSET_URL;
-
 //    mix.webpackConfig(webpack => {
 //       return {
 //          plugins: [

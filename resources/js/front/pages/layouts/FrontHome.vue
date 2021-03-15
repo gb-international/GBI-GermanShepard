@@ -50,18 +50,16 @@
     </div>
 
     <div class="container">
-      <div class="card-titles">
-        <h1>Our Travel Programs</h1>
-        <h4>Immerge in a Riveting Journey</h4>
-      </div>
-      <div class="row" v-if="travel_programs">
+      <heading class="text-center" text="Our Travel Programs" />
+      <sub-heading class="text-center" text="Immerge in a Riveting Journey" />
+      <div class="row card-titles" v-if="travel_programs">
         <div class="col-sm-4" v-for="program in travel_programs" :key="program.id">
           <div class="card card-1 mb-15">
             <router-link :to="`/explore-destination`">
               <figure v-lazyload class="image__wrapper">
                 <ImageSpinner class="image__spinner" />
                 <img
-                  class="image__item"
+                  class="image__item border-radius-travel"
                   :data-url="program.image"
                   :alt="program.title"
                 />
@@ -76,11 +74,9 @@
         </div>
       </div>
 
+      <sub-heading class="text-center pb-2" text="Join our adventures at GB International" />
       <section class="content-video">
-        <article class="card-titles">
-          <h1>Join our adventures at GB International</h1>
-        </article>
-        <div class="content mt-35" v-if="video_data.length > 0">
+        <div class="content" v-if="video_data.length > 0">
           <div class="rwd-media">
             <video width="400" controls controlslist="nodownload">
               <source :src="video_path" type="video/mp4" />Your browser does not support HTML5 video.
@@ -94,8 +90,14 @@
 </template>
 
 <script>
+import Heading from '@/front/components/layout/Heading.vue';
+import SubHeading from '@/front/components/layout/SubHeading.vue';
 export default {
   name: "FrontHome",
+  components:{
+    Heading,
+    SubHeading
+  },
   data() {
     return {
       travel_programs: [],

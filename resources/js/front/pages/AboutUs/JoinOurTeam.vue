@@ -15,7 +15,7 @@
       <section>
         <article class="join-team">
           <div class="container">
-            <h1 class="text-center">JOIN OUR BRILLIANT MINDS</h1>
+            <heading class="text-center" text="JOIN OUR BRILLIANT MINDS" />
             <form
               role="form"
               method="POST"
@@ -184,6 +184,7 @@
 
 <script>
 import { Form, HasError } from "vform";
+import Heading from '@/front/components/layout/Heading.vue';
 export default {
   name: "JoinOurTeam",
   metaInfo: {
@@ -207,6 +208,7 @@ export default {
   },
   components: {
     HasError,
+    Heading,
   },
   data() {
     return {

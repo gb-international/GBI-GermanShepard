@@ -1,6 +1,6 @@
 <template>
     <div class="row justify-content-center">
-        <div class="col-sm-8">
+        <div class="col-sm-9 text-center">
         <back-button />
         <submit-button />
         </div>

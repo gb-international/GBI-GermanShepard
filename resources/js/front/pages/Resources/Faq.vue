@@ -29,7 +29,7 @@
     </div>
     <!-- Start how we work -->
     <section class="faq-question">
-      <h3 class="text-center p-3 font-weight-normal">Confused? Need not worry, we have answers to your queries.</h3>
+      <heading class="text-center mb-3" text="Confused? Need not worry, we have answers to your queries." />
       <div class="container">
         <div class="mb-2" v-for="(data,i) in resultQuery" :key="i">
           <div class="row mt-1">
@@ -56,8 +56,12 @@
 </template>
 
 <script>
+import Heading from '@/front/components/layout/Heading.vue';
 export default {
   name: "Faq",
+  components:{
+    Heading
+  },
    metaInfo: {
     title: 'GBI Frequently Asked Question',
     meta:[

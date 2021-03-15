@@ -145,6 +145,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "View",
@@ -158,26 +160,16 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    var _this = this;
-
-    var api = "/api/itinerary/".concat(this.$route.params.id);
-    axios.get(api).then(function (response) {
-      _this.itineraryData = response.data; // add data to the itineraryData
-    });
+    this.getData();
   },
-  computed: {},
   methods: {
-    deleteItinerary: function deleteItinerary(id) {
-      var _this2 = this;
+    getData: function getData() {
+      var _this = this;
 
-      axios.get("/delete/" + id).then(function () {
-        _this2.$store.dispatch("getAllitinerary");
-
-        _this2.$toast.fire({
-          icon: "success",
-          title: "Itinerary Deleted successfully"
-        });
-      })["catch"](function () {});
+      var api = "/api/itinerary/".concat(this.$route.params.id);
+      axios.get(api).then(function (response) {
+        _this.itineraryData = response.data; // add data to the itineraryData
+      });
     }
   }
 });
@@ -344,11 +336,14 @@ var render = function() {
                 _c("div", { staticClass: "col-sm-12" }, [
                   _c("h5", [_vm._v("Description")]),
                   _vm._v(" "),
-                  _c("p", {
-                    domProps: {
-                      innerHTML: _vm._s(_vm.itineraryData.description)
-                    }
-                  })
+                  _c("div", [
+                    _c("p", {
+                      staticClass: "li-padding-18",
+                      domProps: {
+                        innerHTML: _vm._s(_vm.itineraryData.description)
+                      }
+                    })
+                  ])
                 ]),
                 _vm._v(" "),
                 _vm._l(_vm.itineraryData.itinerarydays, function(data) {
@@ -378,6 +373,7 @@ var render = function() {
                         _c("h5", [_vm._v("Description")]),
                         _vm._v(" "),
                         _c("p", {
+                          staticClass: "li-padding-18",
                           domProps: { innerHTML: _vm._s(data.day_description) }
                         })
                       ])

@@ -13,19 +13,12 @@
      
 </head>
 <body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
 <div class="wrapper" id="app">
-  <!-- /.navbar -->
-  <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light" id="sidebarnavigation">
-      <!-- SEARCH FORM -->
-      
-
-      <!-- Right navbar links -->
+      <div class="navbar-nav">
+        <admin-nav-top />
+      </div>
       <ul class="navbar-nav ml-auto">
-        <!-- Messages Dropdown Menu -->
-              
-        <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown admin_top_right_icon">
           <a class="nav-link" data-toggle="dropdown" href="#">
             <p class="user_icon">U</p>
@@ -38,7 +31,6 @@
                              document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
             </a>
-
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
@@ -48,45 +40,28 @@
         </li>
       </ul>
     </nav>
-  <!-- /.navbar -->
-  <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4" id="admin_top_logo">
-        <!-- Brand Logo -->
-        <a href="/"  class="brand-link logo_link">
-            <img src="{{asset('assets/admin/default/icon/logo.png')}}"
-                 alt="GBI Logo"
-                 class="brand-image">
-            <span class="brand-text font-weight-light">.</span>
-        </a>
-        <!-- Sidebar -->
+      <a href="/"  class="brand-link logo_link">
+        <img src="{{asset('assets/admin/default/icon/logo.png')}}"
+              alt="GBI Logo" class="brand-image">
+        <span class="brand-text font-weight-light">.</span>
+      </a>
         <div class="sidebar">
-            <!-- Sidebar Menu -->
             @include('admin.router')
-            <!-- /.sidebar-menu -->
         </div>
-        <!-- /.sidebar -->
     </aside>
 
-        <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper pr-3 pl-3">
-            <!-- Content Header (Page header) -->
             <admin-main></admin-main>
         </div>
-        <!-- /.content-wrapper -->
 
-      <footer class="main-footer">
-          <div class="float-right d-none d-sm-block">
-              <b>Term & Condition</b>
-          </div>
-          <strong> &copy; 2019 <a href="#">admin</a>.</strong> All rights
-          reserved.
-      </footer>
-
-      <!-- Control Sidebar -->
-      <aside class="control-sidebar control-sidebar-dark">
-          <!-- Control sidebar content goes here -->
-      </aside>
-      <!-- /.control-sidebar -->
+    <footer class="main-footer">
+      <div class="float-right d-none d-sm-block">
+          <b>Term & Condition</b>
+      </div>
+      <strong> &copy; 2019 <a href="#">admin</a>.</strong> All rights
+      reserved.
+    </footer>
 </div>
 
 <!-- ./wrapper -->

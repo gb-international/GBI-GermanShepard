@@ -57,7 +57,7 @@
                 <input type="text" :value="user.name" readonly class="pl-2">
             </div>
             <div class="col-sm-5">
-                <select class="form-control" v-model="user.pnr_id">
+                <select class="form-control select-field" v-model="user.pnr_id">
                     <option v-for="pnr in pnrList" :key="pnr.pnr_number" :value="pnr.id">{{ pnr.pnr_number }}</option>
                 </select>
             </div>
@@ -70,13 +70,13 @@
               />
             </div>
         </div>
-        <div class="row justify-content-center mt-4 mb-2">
+        <div class="row justify-content-center mt-4 pb-5">
             <div class="col-sm-4" v-if="update_task == false">
-                <button type="button" class="btn text-white p-1" 
+                <button type="button" class="btn p-1 btn-gbi text-white text-uppercase" 
                 @click="addData()">Submit</button>
             </div>
             <div class="col-sm-3 mt-4" v-else>
-                <button type="button" class="btn text-white p-1" @click="print">Print</button>
+                <button type="button" class="btn text-white p-1 btn-gbi" @click="print">Print</button>
             </div>
         </div>
     </div>
@@ -103,13 +103,14 @@ export default {
     methods:{
         getTrain(){
             if(this.$route.params.transport == 'train'){
-                var api = 'api/bookedtrains/'+this.$route.params.id+'/edit';
+                var api = '/api/bookedtrains/'+this.$route.params.id+'/edit';
             }else if(this.$route.params.transport == 'flight'){
-                var api = 'api/bookedflights/'+this.$route.params.id+'/edit';
+                var api = '/api/bookedflights/'+this.$route.params.id+'/edit';
             }else{
-                var api = 'api/bookedbuses/'+this.$route.params.id+'/edit';
+                var api = '/api/bookedbuses/'+this.$route.params.id+'/edit';
             }
             axios.get(api).then((response) =>{
+                
                 this.headerFormat(response.data);
 
             })
@@ -123,7 +124,8 @@ export default {
                 transport_type: this.$route.params.transport
             };
             axios.post(api, data).then((response) => {
-                    this.pnrList = response.data;
+                this.pnrList = response.data;
+                // 
                 })
                 .catch((error) => {
                 this.handleError(error);
@@ -137,11 +139,11 @@ export default {
                 tour_code : this.$route.params.tour_id,
                 transport_type: this.$route.params.transport
             };
+            
             axios.post(api, data).then((response) => {
                     if(response.data.length>0){
                         this.update_task = true;
                         this.total_row = [];
-                        
                         this.total_row = response.data; 
                     }else{
                         this.getUser();
@@ -157,6 +159,7 @@ export default {
             var data = {tour_id : this.$route.params.tour_id };
             axios.post(api, data).then((response) => {
                     this.formate(response.data);
+                    
                 })
                 .catch((error) => {
                 this.handleError(error);
@@ -230,7 +233,7 @@ export default {
         },
 
         headerFormat(data){
-            console.log(data);
+            
             if(this.$route.params.transport == 'train'){
                 this.transport_info={
                     'name':data.train.name,

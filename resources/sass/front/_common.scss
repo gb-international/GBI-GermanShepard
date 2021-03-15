@@ -69,11 +69,51 @@
 
 .font-13{ font-size: 13px;}
 .font-14{ font-size: 14px;}
+.font-15{ font-size: 15px;}
 .font-20{ font-size: 20px;}
 .min-height-90{ min-height: 90px;}
 .text-gray{ color: #464444;}
 
+/* **************************************** */
+.gbi_main-heading {
+	color: #000000;
+    font-size: 24px;
+	font-weight: 600;
+    font-family: Raleway;
+}
+.gbi_sub-heading{
+	color: #333333;
+    font-size: 20px;
+    font-family: Raleway;
+}
+.gbi_paragraph{
+	color: #737373;
+    font-size: 17px;
+    font-family: Raleway;
+	line-height: 2rem;
+	-webkit-background-clip: text;
+		-moz-background-clip: text;
+			background-clip: text;
+}
+.largeFirstLetter::first-letter {
+	float: left;
+	font-size: 3rem;
+	background: #111;
+		-webkit-background-clip: text;
+		-moz-background-clip: text;
+			background-clip: text;
+}
+
+
+/* ********************************************************** */
+
+
+
+
+
+
 .border-radius-0{ border-radius: 0px;}
+.border-radius-travel{ border-radius: 0.25rem 0.25rem 0rem 0rem;}
 .border-1-grey { border: 1px solid #ccc !important;}
 .btn-square{
 	padding: 7px 35px;

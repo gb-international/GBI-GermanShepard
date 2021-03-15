@@ -840,7 +840,7 @@ var render = function() {
                                 expression: "form.status"
                               }
                             ],
-                            staticClass: "form-control",
+                            staticClass: "form-control select-field",
                             on: {
                               change: function($event) {
                                 var $$selectedVal = Array.prototype.filter

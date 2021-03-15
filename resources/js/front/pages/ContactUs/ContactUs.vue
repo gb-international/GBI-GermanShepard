@@ -17,7 +17,7 @@
             <div class="row">
               <div class="col-lg-6">
                 <div class="col-lg-12 icons">
-                  <h2 class="mb-3">HEAD OFFICE</h2>
+                  <heading class="mb-3" text="Head Office" />
 
                   <div class="row mb-3">
                     <div class="col-1">
@@ -64,7 +64,7 @@
                   </div>
 
                   <div class="headline mb-3">
-                    <h2>REGIONAL OFFICE</h2>
+                    <heading text="Regional Office" />
                   </div>
 
                   <div class="row mb-3">
@@ -128,6 +128,7 @@
 
 <script>
 import ContactusForm from "@/front/components/ContactusForm.vue";
+import Heading from '@/front/components/layout/Heading.vue';
 export default {
   name: "ContactUs",
    metaInfo: {
@@ -139,7 +140,8 @@ export default {
     ]
   },
   components:{
-    ContactusForm
+    ContactusForm,
+    Heading,
   }
 };
 </script>

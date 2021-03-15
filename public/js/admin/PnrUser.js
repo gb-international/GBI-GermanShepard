@@ -114,11 +114,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       if (this.$route.params.transport == 'train') {
-        var api = 'api/bookedtrains/' + this.$route.params.id + '/edit';
+        var api = '/api/bookedtrains/' + this.$route.params.id + '/edit';
       } else if (this.$route.params.transport == 'flight') {
-        var api = 'api/bookedflights/' + this.$route.params.id + '/edit';
+        var api = '/api/bookedflights/' + this.$route.params.id + '/edit';
       } else {
-        var api = 'api/bookedbuses/' + this.$route.params.id + '/edit';
+        var api = '/api/bookedbuses/' + this.$route.params.id + '/edit';
       }
 
       axios.get(api).then(function (response) {
@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
         transport_type: this.$route.params.transport
       };
       axios.post(api, data).then(function (response) {
-        _this2.pnrList = response.data;
+        _this2.pnrList = response.data; // 
       })["catch"](function (error) {
         _this2.handleError(error);
       });
@@ -246,8 +246,6 @@ __webpack_require__.r(__webpack_exports__);
       this.$htmlToPaper('printMe');
     },
     headerFormat: function headerFormat(data) {
-      console.log(data);
-
       if (this.$route.params.transport == 'train') {
         this.transport_info = {
           'name': data.train.name,
@@ -454,7 +452,7 @@ var render = function() {
                     expression: "user.pnr_id"
                   }
                 ],
-                staticClass: "form-control",
+                staticClass: "form-control select-field",
                 on: {
                   change: function($event) {
                     var $$selectedVal = Array.prototype.filter
@@ -500,13 +498,13 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "row justify-content-center mt-4 mb-2" }, [
+      _c("div", { staticClass: "row justify-content-center mt-4 pb-5" }, [
         _vm.update_task == false
           ? _c("div", { staticClass: "col-sm-4" }, [
               _c(
                 "button",
                 {
-                  staticClass: "btn text-white p-1",
+                  staticClass: "btn p-1 btn-gbi text-white text-uppercase",
                   attrs: { type: "button" },
                   on: {
                     click: function($event) {
@@ -521,7 +519,7 @@ var render = function() {
               _c(
                 "button",
                 {
-                  staticClass: "btn text-white p-1",
+                  staticClass: "btn text-white p-1 btn-gbi",
                   attrs: { type: "button" },
                   on: { click: _vm.print }
                 },

@@ -123,46 +123,146 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EditSaleAccountItinerary",
   components: {
     Form: vform__WEBPACK_IMPORTED_MODULE_0__["Form"],
-    'has-error': vform__WEBPACK_IMPORTED_MODULE_0__["HasError"]
+    "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"]
   },
   data: function data() {
     return {
       // Create a new form instance
       booking_fieldz: false,
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
-        title: '',
-        price: '',
-        name: '',
-        phoneno: '',
-        selling_price: '',
-        no_of_client: '',
-        start_date: '',
-        end_date: '',
-        booking_id: '',
-        status: ''
+        title: "",
+        price: "",
+        name: "",
+        phoneno: "",
+        selling_price: "",
+        no_of_client: "",
+        start_date: "",
+        end_date: "",
+        booking_id: "",
+        status: ""
       })
     };
   },
-  mounted: function mounted() {
-    this.$store.dispatch('getEditData', "/account/show/".concat(this.$route.params.id));
+  created: function created() {
+    this.getData(); // this.$store.dispatch(
+    //   "getEditData",
+    //   `/accounts/${this.$route.params.id}/show`
+    // );
   },
-  computed: {
-    editData: function editData() {
-      this.form.fill(this.$store.getters.getEditData); // Fill the form with the data
-    }
-  },
+  // computed: {
+  //   editData() {
+  //     this.form.fill(this.$store.getters.getEditData); // Fill the form with the data
+  //   },
+  // },
   methods: {
-    // Function to add the form data 
+    // Function to add the form data
+    getData: function getData() {
+      var api = "/api/accounts/".concat(this.$route.params.id);
+      axios.get(api).then(function (res) {
+        console.log(res);
+      });
+    },
     editSalesdp: function editSalesdp() {
       var _this = this;
 
       if (this.booking_fieldz == false) {
-        this.$swal.fire('Enter Booking ID', 'Booking Id should be Unique.', 'alert'); // tour code
+        this.$swal.fire("Enter Booking ID", "Booking Id should be Unique.", "alert"); // tour code
 
         axios.get("/api/tour").then(function (response) {
           if (response.data) {
@@ -171,10 +271,10 @@ __webpack_require__.r(__webpack_exports__);
             if (_this.tours.length >= 1) {
               var last_id = _this.tours[_this.tours.length - 1].id;
               last_id++;
-              var javaScriptRelease = 'TOURCODE000' + last_id;
+              var javaScriptRelease = "TOURCODE000" + last_id;
               _this.form.booking_id = javaScriptRelease;
             } else {
-              var javaScriptRelease = 'TOURCODE000' + '0';
+              var javaScriptRelease = "TOURCODE000" + "0";
               _this.form.booking_id = javaScriptRelease;
             }
           }
@@ -182,13 +282,13 @@ __webpack_require__.r(__webpack_exports__);
 
         return this.booking_fieldz = true;
       } else {
-        this.form.status = 'confirm';
+        this.form.status = "confirm";
         this.form.post("/account/update/".concat(this.$route.params.id)).then(function (response) {
           _this.$router.push("/account-itinerary");
 
           _this.$toast.fire({
-            icon: 'success',
-            title: 'Successfully Updated !!!'
+            icon: "success",
+            title: "Successfully Updated !!!"
           });
         })["catch"](function (error) {
           console.log(error);
@@ -200,13 +300,13 @@ __webpack_require__.r(__webpack_exports__);
     BookingCancel: function BookingCancel() {
       var _this2 = this;
 
-      this.form.status = 'cancel';
+      this.form.status = "cancel";
       this.form.post("/account/update/".concat(this.$route.params.id)).then(function (response) {
         _this2.$router.push("/account-itinerary");
 
         _this2.$toast.fire({
-          icon: 'error',
-          title: 'Successfully Canceled !!!'
+          icon: "error",
+          title: "Successfully Canceled !!!"
         });
       })["catch"](function () {});
     }
@@ -232,12 +332,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "content" }, [
     _c("div", { staticClass: "container-fluid" }, [
-      _vm._v("\n  " + _vm._s(_vm.editData) + "\n    "),
       _c("div", { staticClass: "row justify-content-around" }, [
-        _c("h3", { staticClass: "card-title" }, [
-          _vm._v("Booking Detail #" + _vm._s(this.$route.params.id))
-        ]),
-        _vm._v(" "),
         _c("div", { staticClass: "col-md-12" }, [
           _c(
             "form",
@@ -715,7 +810,11 @@ var render = function() {
                                   "btn btn-primary itrn_add_btn back_btn",
                                 attrs: { type: "submit" }
                               },
-                              [_vm._v("CONFIRM / UPDATE")]
+                              [
+                                _vm._v(
+                                  "\n                    CONFIRM / UPDATE\n                  "
+                                )
+                              ]
                             ),
                             _vm._v(" "),
                             _c(
@@ -730,7 +829,11 @@ var render = function() {
                                   }
                                 }
                               },
-                              [_vm._v("CANCEL")]
+                              [
+                                _vm._v(
+                                  "\n                    CANCEL\n                  "
+                                )
+                              ]
                             )
                           ])
                         : _vm._e()

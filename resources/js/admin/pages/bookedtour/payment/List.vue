@@ -168,7 +168,7 @@ It takes id from the url and get the data from the api .-->
 
                 <div class="col-sm-6">
                   <label> Payment Status </label>
-                  <select class="form-control" v-model="form.status">
+                  <select class="form-control select-field" v-model="form.status">
                     <option value="pending">Pending</option>
                     <option value="success">Success</option>
                   </select>

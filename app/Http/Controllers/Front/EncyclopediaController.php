@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 use App\Model\Encyclopedia\Encyclopedia;
 use App\Model\Encyclopedia\Encyclopediacomment;
 use App\Model\Itinerary\Itinerary;
+use App\Model\Itinerary\Itinerarypdf;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,13 @@ class EncyclopediaController extends Controller
             'parent_id' => $request->parent_id
         ];
         $data = Encyclopediacomment::create($data);
+        return response()->json($data);
+    }
+
+    public function Pdf($slug){
+        $data = Itinerarypdf::where('slug',$slug)
+            ->select(['name','slug','id'])
+            ->first();
         return response()->json($data);
     }
 }

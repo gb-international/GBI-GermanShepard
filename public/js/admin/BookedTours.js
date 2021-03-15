@@ -501,8 +501,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "View",
   data: function data() {
@@ -834,16 +832,6 @@ var render = function() {
   return _c("section", { staticClass: "content" }, [
     _c("div", { staticClass: "row justify-content-around" }, [
       _c("div", { staticClass: "col-md-12" }, [
-        _c("img", {
-          staticClass: "back-icon cursor-pointer pl-4",
-          attrs: { src: "/assets/front/icons/back.png" },
-          on: {
-            click: function($event) {
-              return _vm.goBack()
-            }
-          }
-        }),
-        _vm._v(" "),
         _c("div", { staticClass: "container container_admin_body" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-sm-4" }, [
@@ -890,7 +878,7 @@ var render = function() {
                   [
                     _c("img", {
                       attrs: {
-                        src: "assets/admin/default/icon/tour-manager.png"
+                        src: "/assets/admin/default/icon/tour-manager.png"
                       }
                     })
                   ]
@@ -908,7 +896,7 @@ var render = function() {
                   { attrs: { to: "/booked-tour-hotel/" + _vm.tour.id } },
                   [
                     _c("img", {
-                      attrs: { src: "assets/admin/default/icon/hotel.png" }
+                      attrs: { src: "/assets/admin/default/icon/hotel.png" }
                     })
                   ]
                 )
@@ -933,7 +921,9 @@ var render = function() {
                   },
                   [
                     _c("img", {
-                      attrs: { src: "assets/admin/default/icon/restaurant.png" }
+                      attrs: {
+                        src: "/assets/admin/default/icon/restaurant.png"
+                      }
                     })
                   ]
                 )
@@ -950,7 +940,7 @@ var render = function() {
                   { attrs: { to: "/booked-tour-flight/" + _vm.tour.id } },
                   [
                     _c("img", {
-                      attrs: { src: "assets/admin/default/icon/airlines.png" }
+                      attrs: { src: "/assets/admin/default/icon/airlines.png" }
                     })
                   ]
                 )
@@ -967,7 +957,9 @@ var render = function() {
                   { attrs: { to: "/booked-tour-train/" + _vm.tour.id } },
                   [
                     _c("img", {
-                      attrs: { src: "assets/admin/default/icon/train-icon.png" }
+                      attrs: {
+                        src: "/assets/admin/default/icon/train-icon.png"
+                      }
                     })
                   ]
                 )
@@ -984,7 +976,7 @@ var render = function() {
                   { attrs: { to: "/booked-tour-bus/" + _vm.tour.id } },
                   [
                     _c("img", {
-                      attrs: { src: "assets/admin/default/icon/bus-icon.png" }
+                      attrs: { src: "/assets/admin/default/icon/bus-icon.png" }
                     })
                   ]
                 )
@@ -1009,7 +1001,7 @@ var render = function() {
                   },
                   [
                     _c("img", {
-                      attrs: { src: "assets/admin/default/icon/student.png" }
+                      attrs: { src: "/assets/admin/default/icon/student.png" }
                     })
                   ]
                 )
@@ -1030,7 +1022,7 @@ var render = function() {
                   },
                   [
                     _c("img", {
-                      attrs: { src: "assets/admin/default/icon/payment.png" }
+                      attrs: { src: "/assets/admin/default/icon/payment.png" }
                     })
                   ]
                 )
@@ -1051,7 +1043,7 @@ var render = function() {
                   },
                   [
                     _c("img", {
-                      attrs: { src: "assets/admin/default/icon/snacks.png" }
+                      attrs: { src: "/assets/admin/default/icon/snacks.png" }
                     })
                   ]
                 )
@@ -1080,7 +1072,7 @@ var render = function() {
                       [
                         _c("img", {
                           attrs: {
-                            src: "assets/admin/default/icon/sightseeing.png"
+                            src: "/assets/admin/default/icon/sightseeing.png"
                           }
                         })
                       ]
@@ -1105,7 +1097,7 @@ var render = function() {
                   [
                     _c("img", {
                       attrs: {
-                        src: "assets/admin/default/icon/escort_Update.png"
+                        src: "/assets/admin/default/icon/escort_Update.png"
                       }
                     })
                   ]
@@ -1772,7 +1764,7 @@ var render = function() {
                         _c(
                           "button",
                           {
-                            staticClass: "btn text-white",
+                            staticClass: "btn text-white btn-gbi",
                             attrs: { type: "button" },
                             on: {
                               click: function($event) {
@@ -1788,11 +1780,9 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-3 pt-2 text-right" }, [
-                        _vm._v("Add Row :")
-                      ]),
+                      _c("div", { staticClass: "col-sm-2" }),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-4" }, [
+                      _c("div", { staticClass: "col-sm-5 align-self-right" }, [
                         _c("div", { staticClass: "input-group" }, [
                           _c("input", {
                             directives: [
@@ -1804,7 +1794,7 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "number", placeholder: "1" },
+                            attrs: { type: "number", placeholder: "Add Row.." },
                             domProps: { value: _vm.row_input },
                             on: {
                               input: function($event) {
@@ -1820,7 +1810,7 @@ var render = function() {
                             _c(
                               "button",
                               {
-                                staticClass: "btn text-white",
+                                staticClass: "btn text-white btn-gbi",
                                 attrs: { type: "button" },
                                 on: {
                                   click: function($event) {
@@ -1828,7 +1818,11 @@ var render = function() {
                                   }
                                 }
                               },
-                              [_c("i", { staticClass: "fa fa-search" })]
+                              [
+                                _vm._v(
+                                  "\n                        Go\n                      "
+                                )
+                              ]
                             )
                           ])
                         ])

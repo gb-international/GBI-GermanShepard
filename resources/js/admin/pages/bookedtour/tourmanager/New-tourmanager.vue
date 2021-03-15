@@ -97,7 +97,6 @@ export default {
       });
     },
     updateData() {
-      var path = `/api/bookedescorts`;
       if (this.escort_id == undefined) {
         this.$toast.fire({
           icon: "error",
@@ -112,7 +111,7 @@ export default {
         tour_code: this.tour.tour_id,
       };
       axios
-        .post(path, data)
+        .post('/api/bookedescorts', data)
         .then((response) => {
           if (response.data == 1) {
             this.$toast.fire({

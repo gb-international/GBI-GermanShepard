@@ -21,8 +21,11 @@
     </div>
 
     <div class="container mt-5 pt-5">
-
-      <image-card :gallery="gallery"></image-card>
+      <div v-if="gallery.length > 0">
+        <image-card :gallery="gallery"></image-card>
+      </div>
+      <p v-else class="text-center text-muted">Not Data Avaliable</p>
+        
 
       <Observer @intersect="intersected" />
 

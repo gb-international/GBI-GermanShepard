@@ -245,6 +245,57 @@ ccavenue path set in production
 -------------------
 
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+main heading make similiar like (education and travel)
+make make all sub-heaing similiar like (our story ) " One’s action can inspire others to dream bigger "
+
+view itinerary ( heading should same but with littlebit large )
+   -> day heading ( make it littlebit small )
+   -> book model ( heaing of itinerary )
+   -> take city name from title of the itinerary ( and make it selected in the city box )
+
+our story, how we work, safetry and security and education and travel
+    -> har ek paragraph ka first letter uppercase hona chachey
+
+first letter uppercase of each word
+left allign of tiger content 
+
+
+
+admin :
+    login page  should have same font like password, don't make it bold
+    make all dropdown same
+
+    itinerary view (remove  padding from list of discription just like fornt-end)
+    send itinerary ( check js loading )
+    itinerary calculator 
+        hotel data is not loaded  -> done
+        add remove button ( minus )
+        Sightseeing (SightSeeing)
+    
+    Account :
+        make is working 
+        name (Name )
+        Phoneno (Phone No.)
+        Place holder
+            selling_price ( Selling price)
+            phoneno (Phone no )
+        remove booking heading )
+
+    Back button on navigation section ( make common for all pages )
+    Student and Teacher list in booking 
+        -> remove 'All' from checkbox )
+        -> SrNo. ( Sr No. )
+        -> Sr No ( 1 should have padding from top around 2 px)
+        -> remove (Add Row text)and make height of add row input same as update button,
+        -> give some spacing between add row input and go button
+        -> payment ( status dropdown make hight large )
+
+        
 
 
 

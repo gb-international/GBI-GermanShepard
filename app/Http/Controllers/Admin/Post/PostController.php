@@ -141,7 +141,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-         $this->AwsDeleteImage($category->image);
+        $this->AwsDeleteImage($post->image);
         $post->delete();
         return response()->json('successfully deleted');
     }

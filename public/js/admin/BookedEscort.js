@@ -185,8 +185,6 @@ __webpack_require__.r(__webpack_exports__);
     updateData: function updateData() {
       var _this4 = this;
 
-      var path = "/api/bookedescorts";
-
       if (this.escort_id == undefined) {
         this.$toast.fire({
           icon: "error",
@@ -200,7 +198,7 @@ __webpack_require__.r(__webpack_exports__);
         tour_id: this.tour.id,
         tour_code: this.tour.tour_id
       };
-      axios.post(path, data).then(function (response) {
+      axios.post('/api/bookedescorts', data).then(function (response) {
         if (response.data == 1) {
           _this4.$toast.fire({
             icon: "error",
@@ -303,7 +301,7 @@ var render = function() {
   return _c("div", { staticClass: "row justify-content-center" }, [
     _c(
       "div",
-      { staticClass: "col-sm-8" },
+      { staticClass: "col-sm-9 text-center" },
       [_c("back-button"), _vm._v(" "), _c("submit-button")],
       1
     )

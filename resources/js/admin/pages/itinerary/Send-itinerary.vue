@@ -109,17 +109,19 @@ export default {
   },
   created() {
     this.form.itinerary_id = this.$route.params.id;
-    axios.get(`api/members/salesman`).then((response) => {
-      this.users = response.data;
-    });
+    this.getData();
   },
-
   methods: {
+    getData(){
+      axios.get(`/api/members/salesman`).then((response) => {
+        this.users = response.data;
+        console.log(response);
+      });
+    },
     addAccount() {
       this.form
         .post("/account/store")
         .then((response) => {
-          console.log(response);
           if (response.data == "error") {
             this.$swal.fire({
               title: "opps",

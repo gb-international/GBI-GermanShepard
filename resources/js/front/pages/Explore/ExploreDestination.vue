@@ -56,7 +56,7 @@
                               name="typetour"
                               @change="tourtypeOnChange($event)"
                             >
-                              <option selected>In mood for</option>
+                              <option selected disabled>In mood for</option>
                               <option
                                 v-for="index in tourtype_option"
                                 :key="index.id"
@@ -205,7 +205,7 @@
         <div class="row">
           <searchexplor :allSearchdata="allSearchdata"></searchexplor>
           <div class="col-lg-12 p-0" v-if="allSearchdata == ''">
-            <h4 class="text-center">UPCOMING TOUR</h4>
+            <heading class="text-center" text="Upcoming Tour" />
 
             <itinerary-list :list="upcoming_data"></itinerary-list>
 
@@ -219,7 +219,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 p-0" v-if="allSearchdata == ''">
-            <h4 class="text-center">POPULAR TOUR</h4>
+            <heading class="text-center" text="Popular Tour" />
 
             <itinerary-list :list="popular_data"></itinerary-list>
 
@@ -238,6 +238,8 @@ import SearchExplor from "./SearchExplor.vue";
 import { ModelSelect } from "vue-search-select";
 import { Form, HasError } from "vform";
 import ItineraryList from "@/front/components/ItineraryList";
+import Heading from '@/front/components/layout/Heading.vue';
+import SubHeading from '@/front/components/layout/SubHeading.vue';
 
 export default {
   name: "exploreDestination",
@@ -256,7 +258,9 @@ export default {
     ModelSelect,
     Form,
     HasError,
-    ItineraryList
+    ItineraryList,
+    Heading,
+    SubHeading,
   },
   data() {
     return {

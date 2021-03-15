@@ -160,20 +160,22 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    var _this = this;
-
     this.form.itinerary_id = this.$route.params.id;
-    axios.get("api/members/salesman").then(function (response) {
-      _this.users = response.data;
-    });
+    this.getData();
   },
   methods: {
+    getData: function getData() {
+      var _this = this;
+
+      axios.get("/api/members/salesman").then(function (response) {
+        _this.users = response.data;
+        console.log(response);
+      });
+    },
     addAccount: function addAccount() {
       var _this2 = this;
 
       this.form.post("/account/store").then(function (response) {
-        console.log(response);
-
         if (response.data == "error") {
           _this2.$swal.fire({
             title: "opps",

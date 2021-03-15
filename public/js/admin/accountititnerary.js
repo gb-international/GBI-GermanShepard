@@ -457,7 +457,9 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("view-icon", {
-                          attrs: { url: "/view-itinerary/" + data.item.id }
+                          attrs: {
+                            url: "/view-itinerary/" + data.item.itinerary_id
+                          }
                         })
                       ]
                     }

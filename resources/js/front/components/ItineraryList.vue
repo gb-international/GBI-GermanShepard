@@ -25,7 +25,7 @@
               <span>Hotel</span>
             </div>
             <div class="card-icon float-left p-0" v-if="itinerary.train == 1">
-              <i class="fas fa-train" aria-hidden="true"></i>
+              <img src="/images/icons/bus.png" class="footer-icon-width">
               <br />
               <span>Train</span>
             </div>
@@ -40,7 +40,7 @@
               <span>Flight</span>
             </div>
             <div class="card-icon float-left p-0" v-if="itinerary.food != '0'">
-              <i class="fas fa-hotel" aria-hidden="true"></i>
+              <img src="/images/icons/dish.png" class="footer-icon-width">
               <br />
               <span>utensils</span>
             </div>
