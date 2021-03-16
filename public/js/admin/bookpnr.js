@@ -68,8 +68,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "PnrList",
+  name: "PnrListUser",
   data: function data() {
     return {
       list: {},
@@ -207,22 +208,24 @@ var render = function() {
         "div",
         { staticClass: "col-sm-3 pt-3" },
         [
-          _c(
-            "router-link",
-            {
-              staticClass: "btn btn-info",
-              attrs: {
-                to:
-                  "/pnr-users/" +
-                  _vm.$route.params.transport +
-                  "/" +
-                  _vm.$route.params.id +
-                  "/" +
-                  _vm.$route.params.tour_id
-              }
-            },
-            [_vm._v("Assign PNR to Students")]
-          )
+          _vm.list.length > 0
+            ? _c(
+                "router-link",
+                {
+                  staticClass: "btn btn-info",
+                  attrs: {
+                    to:
+                      "/pnr-users/" +
+                      _vm.$route.params.transport +
+                      "/" +
+                      _vm.$route.params.id +
+                      "/" +
+                      _vm.$route.params.tour_id
+                  }
+                },
+                [_vm._v("Assign PNR to Students")]
+              )
+            : _vm._e()
         ],
         1
       )

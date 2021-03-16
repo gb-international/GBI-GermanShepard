@@ -74,7 +74,7 @@ data from the api to display the data about the Hotel from the backend .
 </template>
 <script>
 export default {
-  name: "List",
+  name: "ListEscrtUpdate",
   data() {
     return {
       escort: "",

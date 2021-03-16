@@ -64,7 +64,7 @@ import TableLoader from "@/admin/components/TableLoader.vue";
 import { mapState } from "vuex";
 
 export default {
-  name: "List",
+  name: "ListStudentPaymentTour",
   components: {
     "list-layout": listLayout,
     "table-loader": TableLoader,

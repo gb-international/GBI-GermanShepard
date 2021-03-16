@@ -92,7 +92,7 @@ import CitySelect from "@/admin/components/City-select.vue";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
-  name: "List",
+  name: "ListnewBus",
   components: {
     Form,
     CitySelect,

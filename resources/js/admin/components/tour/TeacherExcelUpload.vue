@@ -309,7 +309,7 @@ import { Form, HasError, AlertError } from "vform";
 import XLSX from "xlsx";
 import GroupExcelUpload from "@/admin/mixins/GroupExcelUpload";
 export default {
-  name: "AddGroup",
+  name: "AddGroupTeacherExcelUpload",
   mixins: [GroupExcelUpload],
   components: {
     "has-error": HasError,

@@ -6,5 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Salesdp extends Model
 {
-    protected $fillable = ['name','phoneno','email','salary','address','position','location','status',];
+    protected $fillable = [
+        'name',
+        'phoneno',
+        'email',
+        'salary',
+        'address',
+        'position',
+        'location',
+        'status',
+    ];
 }

@@ -107,7 +107,7 @@ import FormButton from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 
 export default {
-  name: "New",
+  name: "NewCategory",
   components: {
     Form,
     "has-error": HasError,

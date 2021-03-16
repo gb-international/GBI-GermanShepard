@@ -195,6 +195,7 @@ import ViewLayout from "@/admin/components/layout/ViewLayout.vue";
 import AddButton from "@/admin/components/buttons/AddButton.vue";
 
 export default {
+  name:"ListUserPyamentTour",
   components: {
     "view-layout": ViewLayout,
     "add-button": AddButton,

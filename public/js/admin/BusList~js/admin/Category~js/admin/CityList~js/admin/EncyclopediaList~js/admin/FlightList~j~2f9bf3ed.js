@@ -15,6 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: "AddButtonGBI",
   props: ['url']
 });
 
@@ -226,9 +227,11 @@ var render = function() {
     "router-link",
     { staticClass: "edit_link", attrs: { to: _vm.url } },
     [
-      _c("span", { staticClass: "badge badge-primary" }, [
-        _c("i", { staticClass: "fas fa-pencil-alt" })
-      ])
+      _c(
+        "span",
+        { staticClass: "badge badge-primary", attrs: { title: "Edit Item" } },
+        [_c("i", { staticClass: "fas fa-pencil-alt" })]
+      )
     ]
   )
 }

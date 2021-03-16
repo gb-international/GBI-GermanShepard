@@ -37,6 +37,7 @@ import axios from "axios";
 import clickOutside from "@/admin/directive/click-away.js";
 
 export default {
+  name:"DropdownListList",
   props: ["itemList", "selected"],
   data() {
     return {

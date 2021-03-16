@@ -84,6 +84,7 @@
 <script>
 
 export default {
+    name:"UserPnrList",
     data(){
         return{
             pnrList:{},

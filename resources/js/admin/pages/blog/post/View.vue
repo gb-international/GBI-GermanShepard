@@ -59,7 +59,7 @@ to submit the data we are using a function.
 <script>
 import ViewLayout from "@/admin/components/layout/ViewLayout.vue";
 export default {
-  name: "ViewCategories",
+  name: "ViewPost",
   components: {
     "view-layout": ViewLayout,
   },

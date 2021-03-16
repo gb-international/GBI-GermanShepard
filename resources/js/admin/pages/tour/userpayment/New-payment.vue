@@ -59,7 +59,7 @@ to submit the data we are using a function.
 <script>
 import { Form, HasError } from "vform";
 export default {
-  name: "NewTourType",
+  name: "NewPaymentUser",
 components:{Form,
   'has-error': HasError
   },

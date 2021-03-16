@@ -8,7 +8,7 @@ data from the api to display the data about the Hotel from the backend .
       <form
         role="form"
         enctype="multipart/form-data"
-        @submit.prevent="addFlight()"
+        @submit.prevent="addTrain()"
       >
         <div class="row">
           <div class="col-sm-4">
@@ -96,7 +96,7 @@ import CitySelect from "@/admin/components/City-select.vue";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
-  name: "List",
+  name: "ListNewTrainBooked",
   components: {
     CitySelect,
     Form,
@@ -135,7 +135,7 @@ export default {
   },
   // End the process of the the fetching data
   methods: {
-    addFlight() {
+    addTrain() {
       var path = `/api/bookedtrains`;
       this.form.tour_id = this.$route.params.id;
       this.form.tour_code = this.tour.tour_id;
@@ -154,7 +154,7 @@ export default {
           // this.$router.push(`/hotel-list/`)
           this.$toast.fire({
             icon: "success",
-            title: "Flight Added successfully",
+            title: "Train Added successfully",
           });
         })
         .catch(() => {});

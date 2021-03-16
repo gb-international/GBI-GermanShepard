@@ -8,8 +8,16 @@
         ></span>
         </router-link>
 </template>
+
+
 <script>
-export default {
-    props:['url']
-}
+    export default{
+        name:"CalculatorButtonGBI",
+        props:['url'],
+        data(){
+            return{
+
+            }
+        }
+    }
 </script>

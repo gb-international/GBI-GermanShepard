@@ -492,7 +492,7 @@ It takes id from the url and get the data from the api .
 
 <script>
 export default {
-  name: "View",
+  name: "BookingDashboardList",
   data() {
     return {
       client_view: [],

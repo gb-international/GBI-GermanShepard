@@ -81,7 +81,7 @@ import TableLoader from '@/admin/components/TableLoader.vue';
 import { mapState } from 'vuex';
 
 export default {
-  name: "List",
+  name: "ListBankDetail",
   components:{
     'list-layout':listLayout,
     'table-loader':TableLoader,

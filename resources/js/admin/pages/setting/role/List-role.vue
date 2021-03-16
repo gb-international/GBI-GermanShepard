@@ -73,7 +73,7 @@ import TableLoader from '@/admin/components/TableLoader.vue';
 import { mapState } from 'vuex';
 
 export default {
-  name: "List",
+  name: "ListRole",
   components:{
     'list-layout':listLayout,
     'table-loader':TableLoader,

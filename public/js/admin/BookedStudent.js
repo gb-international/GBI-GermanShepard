@@ -247,7 +247,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AddGroup",
+  name: "AddGroupStudentExcel",
   mixins: [_admin_mixins_GroupExcelUpload__WEBPACK_IMPORTED_MODULE_2__["default"]],
   components: {
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"]
@@ -672,7 +672,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AddGroup",
+  name: "AddGroupTeacherExcelUpload",
   mixins: [_admin_mixins_GroupExcelUpload__WEBPACK_IMPORTED_MODULE_2__["default"]],
   components: {
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"]
@@ -816,7 +816,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AddGroup",
+  name: "AddGroupMembers",
   components: {
     'student-layout': _admin_components_tour_StudentExcelUpload__WEBPACK_IMPORTED_MODULE_0__["default"],
     'teacher-layout': _admin_components_tour_TeacherExcelUpload__WEBPACK_IMPORTED_MODULE_1__["default"]

@@ -114,7 +114,7 @@ import BackButton from "@/admin/components/buttons/BackButton.vue";
 import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
-  name: "Edit",
+  name: "EditBankDetail",
   components: {
     Form,
     "has-error": HasError,

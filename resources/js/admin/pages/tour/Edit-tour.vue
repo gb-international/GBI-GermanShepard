@@ -123,7 +123,7 @@ import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 export default {
-  name: "NewTour",
+  name: "EditTour",
   components: {
     Form,
     "has-error": HasError,

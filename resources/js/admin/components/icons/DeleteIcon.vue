@@ -6,3 +6,13 @@
             ><i class="far fa-trash-alt"></i></span
         ></span>
 </template>
+<script>
+    export default{
+        name:"DeleteButtonGBI",
+        data(){
+            return{
+
+            }
+        }
+    }
+</script>

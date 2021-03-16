@@ -10,6 +10,7 @@
       </div>
       <div class="col-sm-3 pt-3">
         <router-link
+          v-if="list.length > 0"
           :to="`/pnr-users/${$route.params.transport}/${$route.params.id}/${$route.params.tour_id}`"
           class="btn btn-info"
         >Assign PNR to Students</router-link>
@@ -59,7 +60,7 @@
 </template>
 <script>
 export default {
-  name: "PnrList",
+  name: "PnrListUser",
   data() {
     return {
       list: {},

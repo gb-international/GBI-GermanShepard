@@ -17,3 +17,13 @@ to submit the data we are using a function.
     </div>
   </section>
 </template>
+<script>
+    export default{
+        name:"FromLayoutGBI",
+        data(){
+            return{
+
+            }
+        }
+    }
+</script>

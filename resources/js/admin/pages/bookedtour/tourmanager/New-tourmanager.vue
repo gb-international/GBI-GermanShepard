@@ -55,7 +55,7 @@ import { ModelSelect } from "vue-search-select";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
-  name: "List",
+  name: "ListTourmanager",
   components: {
     Form,
     "has-error": HasError,

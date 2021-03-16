@@ -50,7 +50,7 @@ data from the api to display the data about the Hotel from the backend .
             >
           </delete-icon>
           <view-icon :url="`/view-tour/${data.item.id}`"></view-icon>
-          <add-client-icon :url="`/booked-tour/${data.item.id}`"></add-client-icon>
+          <add-client-icon title="Booking Information" :url="`/booked-tour/${data.item.id}`"></add-client-icon>
         </template>
       </b-table> 
     </template>
@@ -74,7 +74,7 @@ import TableLoader from '@/admin/components/TableLoader.vue';
 import { mapState } from 'vuex';
 
 export default {
-  name: "List",
+  name: "ListTour",
   components:{
     'list-layout':listLayout,
     'table-loader':TableLoader,

@@ -40,7 +40,7 @@ import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 
 export default {
-  name: "New",
+  name: "NewTag",
   components: {
     Form,
     "has-error": HasError,

@@ -9,7 +9,13 @@
         </router-link>
 </template>
 <script>
-export default {
-    props:['url']
-}
+    export default{
+        name:"SendIconButtonGBI",
+        props:['url'],
+        data(){
+            return{
+
+            }
+        }
+    }
 </script>

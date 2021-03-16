@@ -210,7 +210,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Tour-list",
+  name: "Tour-listUpdatePaymentList",
   components: {
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
     Form: vform__WEBPACK_IMPORTED_MODULE_0__["Form"]

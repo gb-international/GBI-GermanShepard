@@ -25,6 +25,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: "BackButtonGBI",
   props: ['url'],
   methods: {
     goBack: function goBack() {
@@ -64,6 +65,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ViewLayoutGBI",
   components: {
     'back-button': _admin_components_buttons_BackButton_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -118,7 +120,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "View",
+  name: "ViewFlight",
   components: {
     "view-layout": _admin_components_layout_ViewLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },

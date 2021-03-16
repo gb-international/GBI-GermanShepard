@@ -45,6 +45,7 @@ data from the api to display the data about the Category from the backend .
 <script>
 import AddButton from '@/admin/components/buttons/AddButton.vue';
 export default {
+  name:"ListLayoutGBI",
   components:{
     'add-button':AddButton
   },

@@ -122,7 +122,7 @@
         </li>
         @endcanany
         
-        @canany(['add transports','edit transports','delete transports'])
+        @canany(['list buses','list trains','list flights'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="Transports">
             <i class="nav-icon fas fa-car"></i>
@@ -134,7 +134,7 @@
             <ul class="nav nav-treeview">
 
             
-            @can('list transport')
+            @can('list buses')
             <li class="nav-item">
                 <router-link to="/bus-list" class="nav-link" title="Buses">
                 <p> Bus </p>
@@ -142,7 +142,7 @@
             </li>
             @endcan
 
-            @can('list transport')
+            @can('list trains')
             <li class="nav-item">
                 <router-link to="/train-list" class="nav-link" title="Trains">
                 <p> Train </p>
@@ -151,7 +151,7 @@
             @endcan
 
 
-            @can('list transport')
+            @can('list flights')
             <li class="nav-item">
                 <router-link to="/flight-list" class="nav-link" title="Flights">
                 <p> Flight </p>

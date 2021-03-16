@@ -70,7 +70,7 @@
 
 <script>
 export default {
-  name: "List",
+  name: "DashboardGBI",
   data(){
     return{
       oddclass:false,

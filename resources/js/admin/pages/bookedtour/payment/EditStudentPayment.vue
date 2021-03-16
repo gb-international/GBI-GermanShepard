@@ -170,7 +170,7 @@ import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import { mapState } from "vuex";
 export default {
-  name: "EditBookeduser",
+  name: "EditBookeduserPament",
   components: {
     Form,
     "has-error": HasError,

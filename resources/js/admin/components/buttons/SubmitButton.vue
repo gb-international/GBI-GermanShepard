@@ -5,3 +5,13 @@
     </button>
         
 </template>
+<script>
+    export default{
+        name:"SubmitButtonGBI",
+        data(){
+            return{
+
+            }
+        }
+    }
+</script>

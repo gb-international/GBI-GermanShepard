@@ -15,6 +15,7 @@
 </template>
 <script>
 export default {
+    name:"BackButtonGBI",
     props:['url'],
     methods:{
         goBack(){

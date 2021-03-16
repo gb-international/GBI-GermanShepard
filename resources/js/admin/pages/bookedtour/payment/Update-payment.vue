@@ -196,7 +196,7 @@
 <script>
 import { Form, HasError, AlertError } from "vform";
 export default {
-  name: "Tour-list",
+  name: "Tour-listUpdatePaymentList",
   components: {
     "has-error": HasError,
     Form,

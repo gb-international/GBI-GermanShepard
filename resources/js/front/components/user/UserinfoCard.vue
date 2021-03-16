@@ -3,7 +3,7 @@
       <div class="container">
         <div class="text-right">
           <router-link :to="`/profile-edit`" class="user_edit" title="edit profile">
-            <img src="/images/icons/user.png" class="icon-width">
+            <img src="/images/icons/white-user.png" class="icon-width">
           </router-link><br>
           <router-link :to="`/update-password`" class="user_edit" title="setting">
             <img src="/images/icons/setting.png" class="icon-width">

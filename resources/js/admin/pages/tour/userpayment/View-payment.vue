@@ -125,7 +125,7 @@ It takes id from the url and get the data from the api .
 <script>
 import ViewLayout from "@/admin/components/layout/ViewLayout.vue";
 export default {
-  name: "ViewTour",
+  name: "ViewTourPaymentUser",
   components: {
     "view-layout": ViewLayout,
   },

@@ -40,7 +40,7 @@
 <script>
 import { Form, HasError } from 'vform'
 export default {
-    name: "EditTourType",
+    name: "EditPaymentUser",
     components:{Form,
   'has-error': HasError
   },

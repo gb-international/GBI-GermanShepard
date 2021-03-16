@@ -10,6 +10,7 @@
 import BackButton from "@/admin/components/buttons/BackButton.vue";
 import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
 export default {
+    name:"FormButtonGBI",
     components:{
         'back-button':BackButton,
         'submit-button':SubmitButton

@@ -28,7 +28,7 @@
 import StudentLayout from '@/admin/components/tour/StudentExcelUpload';
 import TeacherLayout from '@/admin/components/tour/TeacherExcelUpload';
 export default {
-  name: "AddGroup",
+  name: "AddGroupMembers",
   components:{
     'student-layout':StudentLayout,
     'teacher-layout':TeacherLayout,

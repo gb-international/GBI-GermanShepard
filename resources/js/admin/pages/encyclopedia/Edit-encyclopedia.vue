@@ -196,7 +196,7 @@ import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 export default {
-  name: "New",
+  name: "EditEncyclopedia",
   components: {
     ModelSelect,
     Form,
