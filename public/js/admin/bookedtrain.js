@@ -59,6 +59,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_City_select_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/City-select.vue */ "./resources/js/admin/components/City-select.vue");
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
 //
 //
 //
@@ -151,6 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -162,12 +164,14 @@ __webpack_require__.r(__webpack_exports__);
     Form: vform__WEBPACK_IMPORTED_MODULE_0__["Form"],
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
       row_input: "",
-      train_list: "",
+      train_list: [],
+      city_list: [],
       tour: "",
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         tour_id: "",
@@ -183,21 +187,58 @@ __webpack_require__.r(__webpack_exports__);
   },
   // Get all the data
   created: function created() {
-    var _this = this;
-
-    axios.get("/api/train").then(function (response) {
-      if (response.data) {
-        _this.train_list = response.data;
-      }
-    });
-    axios.get("/api/tour/".concat(this.$route.params.id, "/edit")).then(function (response) {
-      _this.tour = response.data;
-    });
+    this.getTrains();
+    this.getTour();
+    this.cityList();
   },
   // End the process of the the fetching data
   methods: {
-    addTrain: function addTrain() {
+    UpdatedTrain: function UpdatedTrain(value) {
+      this.form.train_id = value.id;
+    },
+    UpdatedSource: function UpdatedSource(value) {
+      this.form.source = value.name;
+    },
+    UpdatedDestination: function UpdatedDestination(value) {
+      this.form.destination = value.name;
+    },
+    cityList: function cityList() {
+      var _this = this;
+
+      axios.get("/api/city").then(function (res) {
+        if (res) {
+          for (var i = 0; i < res.data.data.length; i++) {
+            _this.city_list.push({
+              name: res.data.data[i].name,
+              id: res.data.data[i].id
+            });
+          }
+        }
+      });
+    },
+    getTrains: function getTrains() {
       var _this2 = this;
+
+      axios.get("/api/train").then(function (res) {
+        if (res) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this2.train_list.push({
+              name: res.data[i].name,
+              id: res.data[i].id
+            });
+          }
+        }
+      });
+    },
+    getTour: function getTour() {
+      var _this3 = this;
+
+      axios.get("/api/tour/".concat(this.$route.params.id, "/edit")).then(function (response) {
+        _this3.tour = response.data;
+      });
+    },
+    addTrain: function addTrain() {
+      var _this4 = this;
 
       var path = "/api/bookedtrains";
       this.form.tour_id = this.$route.params.id;
@@ -207,7 +248,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
 
         if (response.data == 1) {
-          _this2.$toast.fire({
+          _this4.$toast.fire({
             icon: "error",
             title: "Already Booked !!!"
           });
@@ -216,17 +257,11 @@ __webpack_require__.r(__webpack_exports__);
         } // this.$router.push(`/hotel-list/`)
 
 
-        _this2.$toast.fire({
+        _this4.$toast.fire({
           icon: "success",
           title: "Train Added successfully"
         });
       })["catch"](function () {});
-    },
-    SourceUpdate: function SourceUpdate(value) {
-      this.form.source = value;
-    },
-    DestinationUpdate: function DestinationUpdate(value) {
-      this.form.destination = value;
     },
     goBack: function goBack() {
       this.$router.push("/booked-tour/".concat(this.$route.params.id));
@@ -350,66 +385,11 @@ var render = function() {
                           _vm._v("Train")
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.train_id,
-                                expression: "form.train_id"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "train_id",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              {
-                                attrs: { value: "", disabled: "", hidden: "" }
-                              },
-                              [_vm._v("Select Train")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.train_list, function(train) {
-                              return _c(
-                                "option",
-                                {
-                                  key: train.id,
-                                  domProps: { value: train.id }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                " +
-                                      _vm._s(train.name) +
-                                      "\n              "
-                                  )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        ),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.train_list },
+                          on: { "update:option": _vm.UpdatedTrain }
+                        }),
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "train_id" }
@@ -428,8 +408,10 @@ var render = function() {
                           _vm._v("Source")
                         ]),
                         _vm._v(" "),
-                        _c("city-select", {
-                          on: { "update:option": _vm.SourceUpdate }
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.city_list },
+                          on: { "update:option": _vm.UpdatedSource }
                         }),
                         _vm._v(" "),
                         _c("has-error", {
@@ -449,8 +431,10 @@ var render = function() {
                           _vm._v("Destination")
                         ]),
                         _vm._v(" "),
-                        _c("city-select", {
-                          on: { "update:option": _vm.DestinationUpdate }
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.city_list },
+                          on: { "update:option": _vm.UpdatedDestination }
                         }),
                         _vm._v(" "),
                         _c("has-error", {

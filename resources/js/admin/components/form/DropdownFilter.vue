@@ -56,7 +56,7 @@ export default {
     selectedId:undefined,
     placeholder:{
       type:String,
-      default:'Enter an item name to search'
+      default:'Enter name to search'
     }
   },
   data() {

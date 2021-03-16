@@ -136,8 +136,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.form.put("/api/bus/".concat(this.$route.params.id)).then(function (response) {
-        console.log(response);
-
         _this2.$toast.fire({
           icon: "success",
           title: "Successfully Updated"
@@ -400,7 +398,7 @@ var render = function() {
                           staticClass: "form-control",
                           class: { "is-invalid": _vm.form.errors.has("price") },
                           attrs: {
-                            type: "text",
+                            type: "number",
                             placeholder: "Enter price",
                             rows: "5"
                           },

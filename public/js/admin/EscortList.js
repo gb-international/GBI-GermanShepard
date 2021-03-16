@@ -75,14 +75,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ListEscrtUpdate",
   data: function data() {
@@ -129,19 +121,6 @@ var render = function() {
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "container container_admin_body" }, [
           _c("div", { staticClass: "reservation" }, [
-            _c("h5", { staticClass: "mb-3" }, [
-              _c("img", {
-                staticClass: "back-icon cursor-pointer",
-                attrs: { src: "/assets/front/icons/back.png" },
-                on: {
-                  click: function($event) {
-                    return _vm.$router.go(-1)
-                  }
-                }
-              }),
-              _vm._v("\n            Escort Update\n          ")
-            ]),
-            _vm._v(" "),
             _c("div", { staticClass: "ml-4" }, [
               _c("div", { staticClass: "ml-1" }, [
                 _vm._m(0),

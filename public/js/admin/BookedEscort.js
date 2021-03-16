@@ -15,6 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_search_select__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
 //
 //
 //
@@ -58,14 +59,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -77,7 +71,8 @@ __webpack_require__.r(__webpack_exports__);
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
     ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_1__["ModelSelect"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
@@ -96,10 +91,12 @@ __webpack_require__.r(__webpack_exports__);
     escort_id: function escort_id(value) {
       var _this = this;
 
-      var path = "/api/escort/" + value + "/edit/";
-      axios.get(path).then(function (response) {
-        _this.manager_data = response.data;
-      });
+      if (value) {
+        var path = "/api/escort/" + value + "/edit/";
+        axios.get(path).then(function (response) {
+          _this.manager_data = response.data;
+        });
+      }
     }
   },
   methods: {
@@ -107,8 +104,16 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get("/api/escort").then(function (response) {
-        _this2.escort_list = response.data.data;
+        for (var i = 0; i < response.data.data.length; i++) {
+          _this2.escort_list.push({
+            name: response.data.data[i].name,
+            id: response.data.data[i].id
+          });
+        }
       });
+    },
+    UpdatedItem: function UpdatedItem(value) {
+      this.escort_id = value.id;
     },
     tourData: function tourData() {
       var _this3 = this;
@@ -193,62 +198,20 @@ var render = function() {
               [
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-sm-5" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("TOUR MANAGER")]),
-                      _vm._v(" "),
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model.lazy",
-                              value: _vm.escort_id,
-                              expression: "escort_id",
-                              modifiers: { lazy: true }
-                            }
-                          ],
-                          staticClass: "form-control select-field",
-                          on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.escort_id = $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "option",
-                            { attrs: { value: "", disabled: "", hidden: "" } },
-                            [_vm._v("Select Tour Manager")]
-                          ),
-                          _vm._v(" "),
-                          _vm._l(_vm.escort_list, function(data) {
-                            return _c(
-                              "option",
-                              { key: data.id, domProps: { value: data.id } },
-                              [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(data.name) +
-                                    "\n              "
-                                )
-                              ]
-                            )
-                          })
-                        ],
-                        2
-                      )
-                    ])
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", [_vm._v("TOUR MANAGER")]),
+                        _vm._v(" "),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.escort_list },
+                          on: { "update:option": _vm.UpdatedItem }
+                        })
+                      ],
+                      1
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [

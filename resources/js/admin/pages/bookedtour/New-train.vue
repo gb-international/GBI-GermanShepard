@@ -14,16 +14,10 @@ data from the api to display the data about the Hotel from the backend .
           <div class="col-sm-4">
             <div class="form-group">
               <label for="train_id">Train</label>
-              <select class="form-control select-field" v-model="form.train_id">
-                <option value="" disabled hidden>Select Train</option>
-                <option
-                  v-for="train in train_list"
-                  :value="train.id"
-                  :key="train.id"
-                >
-                  {{ train.name }}
-                </option>
-              </select>
+               <dropdown-filter class="mb-2" 
+                :itemList="train_list" 
+                @update:option="UpdatedTrain" />
+
               <has-error :form="form" field="train_id"></has-error>
             </div>
           </div>
@@ -31,14 +25,20 @@ data from the api to display the data about the Hotel from the backend .
           <div class="col-sm-4">
             <div class="form-group">
               <label for="source">Source</label>
-              <city-select @update:option="SourceUpdate"></city-select>
+              <!-- <city-select @update:option="SourceUpdate"></city-select> -->
+              <dropdown-filter class="mb-2" 
+                :itemList="city_list" 
+                @update:option="UpdatedSource" />
               <has-error :form="form" field="source"></has-error>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
               <label for="destination">Destination</label>
-              <city-select @update:option="DestinationUpdate"></city-select>
+              <!-- <city-select @update:option="DestinationUpdate"></city-select> -->
+              <dropdown-filter class="mb-2" 
+                :itemList="city_list" 
+                @update:option="UpdatedDestination" />
               <has-error :form="form" field="destination"></has-error>
             </div>
           </div>
@@ -95,6 +95,7 @@ import { Form, HasError } from "vform";
 import CitySelect from "@/admin/components/City-select.vue";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
+import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 export default {
   name: "ListNewTrainBooked",
   components: {
@@ -103,11 +104,13 @@ export default {
     "has-error": HasError,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
+    "dropdown-filter": DropdownFilter,
   },
   data() {
     return {
       row_input: "",
-      train_list: "",
+      train_list: [],
+      city_list:[],
       tour: "",
       form: new Form({
         tour_id: "",
@@ -123,18 +126,52 @@ export default {
   },
   // Get all the data
   created() {
-    axios.get(`/api/train`).then((response) => {
-      if (response.data) {
-        this.train_list = response.data;
-      }
-    });
-
-    axios.get(`/api/tour/${this.$route.params.id}/edit`).then((response) => {
-      this.tour = response.data;
-    });
+    this.getTrains();
+    this.getTour();
+    this.cityList();
   },
   // End the process of the the fetching data
   methods: {
+    UpdatedTrain(value){
+      this.form.train_id = value.id;
+    },
+    UpdatedSource(value){
+      this.form.source = value.name;
+    },
+    UpdatedDestination(value){
+      this.form.destination = value.name;
+    },
+    
+    cityList() {
+      axios.get(`/api/city`).then((res) => {
+        if (res) {
+          for(let i = 0;i<res.data.data.length;i++){
+            this.city_list.push({
+              name:res.data.data[i].name,
+              id:res.data.data[i].id
+            });
+          }
+        }
+      });
+    },
+    getTrains(){
+      axios.get(`/api/train`).then((res) => {
+        if (res) {
+          for(let i = 0;i<res.data.length;i++){
+            this.train_list.push({
+              name:res.data[i].name,
+              id:res.data[i].id
+            });
+          }
+        }
+      });
+    },
+    getTour(){
+      axios.get(`/api/tour/${this.$route.params.id}/edit`).then((response) => {
+        this.tour = response.data;
+      });
+    },
+
     addTrain() {
       var path = `/api/bookedtrains`;
       this.form.tour_id = this.$route.params.id;
@@ -159,14 +196,6 @@ export default {
         })
         .catch(() => {});
     },
-
-    SourceUpdate(value) {
-      this.form.source = value;
-    },
-    DestinationUpdate(value) {
-      this.form.destination = value;
-    },
-
     goBack() {
       this.$router.push(`/booked-tour/${this.$route.params.id}`);
     },

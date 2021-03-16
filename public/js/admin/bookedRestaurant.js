@@ -11,16 +11,13 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-search-select */ "./node_modules/vue-search-select/dist/VueSearchSelect.common.js");
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_search_select__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
-/* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
+/* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
 var _name$components$comp;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
 //
 //
 //
@@ -77,9 +74,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 }, _defineProperty(_name$components$comp, "components", {
   Form: vform__WEBPACK_IMPORTED_MODULE_0__["Form"],
   "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
-  ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_1__["ModelSelect"],
-  "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-  "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+  "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+  "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
 }), _defineProperty(_name$components$comp, "data", function data() {
   return {
     row_input: "",
@@ -94,19 +91,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     })
   };
 }), _defineProperty(_name$components$comp, "created", function created() {
-  this.hotelData();
+  this.GetData();
 }), _defineProperty(_name$components$comp, "methods", {
-  hotelData: function hotelData() {
+  GetData: function GetData() {
     var _this = this;
 
-    axios.get("/api/restaurants").then(function (response) {
-      for (var i = 0; i < response.data.length; i++) {
-        _this.options.push({
-          value: response.data[i].id,
-          text: response.data[i].name
-        });
+    axios.get("/api/restaurants").then(function (res) {
+      if (res) {
+        for (var i = 0; i < res.data.length; i++) {
+          _this.options.push({
+            name: res.data[i].name,
+            id: res.data[i].id
+          });
+        }
       }
     });
+  },
+  UpdatedItem: function UpdatedItem(value) {
+    this.form.restaurant_id = value.id;
   },
   addHotel: function addHotel() {
     var _this2 = this;
@@ -181,15 +183,10 @@ var render = function() {
                           _vm._v("Restaurant Name")
                         ]),
                         _vm._v(" "),
-                        _c("model-select", {
-                          attrs: { options: _vm.options, placeholder: "From" },
-                          model: {
-                            value: _vm.form.restaurant_id,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "restaurant_id", $$v)
-                            },
-                            expression: "form.restaurant_id"
-                          }
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.options },
+                          on: { "update:option": _vm.UpdatedItem }
                         }),
                         _vm._v(" "),
                         _c("has-error", {

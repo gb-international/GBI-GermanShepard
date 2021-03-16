@@ -2537,7 +2537,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container bg-white" }, [
-    _c("div", { staticClass: "AddGroup p-t-15" }, [
+    _c("div", { staticClass: "AddGroup p-t-15 pb-5" }, [
       _c("div", { staticClass: "row text-center text-muted pt-2" }, [
         _c("div", { staticClass: "col p-0 m-0" }, [
           _c(

@@ -639,7 +639,7 @@ export default {
     },
 
     deleteBookedTrain(id) {
-      var uri = "api/bookedtrains/" + id;
+      var uri = "/api/bookedtrains/" + id;
       this.$swal
         .fire({
           title: "Are you sure?",
@@ -665,7 +665,7 @@ export default {
     },
 
     deleteBookedsightseeing() {
-      var uri = "api/bookedsightseeings/" + this.tour.tour_id;
+      var uri = "/api/bookedsightseeings/" + this.tour.tour_id;
       this.$swal
         .fire({
           title: "Are you sure?",
@@ -691,7 +691,7 @@ export default {
     },
 
     deleteBookedHotel(id) {
-      var uri = "api/bookedhotels/" + id;
+      var uri = "/api/bookedhotels/" + id;
       this.$swal
         .fire({
           title: "Are you sure?",
@@ -717,7 +717,7 @@ export default {
     },
 
     deleteBookedRestaurant(id) {
-      var uri = "api/bookedrestaurants/" + id;
+      var uri = "/api/bookedrestaurants/" + id;
       this.$swal
         .fire({
           title: "Are you sure?",
@@ -743,7 +743,7 @@ export default {
     },
 
     deleteBookedEscort(id) {
-      var uri = "api/bookedescorts/" + id;
+      var uri = "/api/bookedescorts/" + id;
       this.$swal
         .fire({
           title: "Are you sure?",
@@ -769,7 +769,7 @@ export default {
     },
 
     deleteBookedFlight(id) {
-      var uri = "api/bookedflights/" + id;
+      var uri = "/api/bookedflights/" + id;
       this.$swal
         .fire({
           title: "Are you sure?",
@@ -794,7 +794,7 @@ export default {
         });
     },
     deleteBookedBus(id) {
-      var uri = "api/bookedbuses/" + id;
+      var uri = "/api/bookedbuses/" + id;
       this.$swal
         .fire({
           title: "Are you sure?",

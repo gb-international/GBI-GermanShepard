@@ -29,14 +29,14 @@
                 </li>
                 @endcan
 
-                @can('account itineraries')
+                {{-- @can('account itineraries')
                 <li class="nav-item">
                 <router-link to="/account-itinerary" class="nav-link" title="Account Itinerary">
                     
                     <p> Account Itinerary</p>
                 </router-link>
                 </li>
-                @endcan
+                @endcan --}}
 
                 @can("[front booking]")
                     <li class="nav-item">

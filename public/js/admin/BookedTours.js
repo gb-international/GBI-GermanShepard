@@ -655,7 +655,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteBookedTrain: function deleteBookedTrain(id) {
       var _this4 = this;
 
-      var uri = "api/bookedtrains/" + id;
+      var uri = "/api/bookedtrains/" + id;
       this.$swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -677,7 +677,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteBookedsightseeing: function deleteBookedsightseeing() {
       var _this5 = this;
 
-      var uri = "api/bookedsightseeings/" + this.tour.tour_id;
+      var uri = "/api/bookedsightseeings/" + this.tour.tour_id;
       this.$swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -699,7 +699,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteBookedHotel: function deleteBookedHotel(id) {
       var _this6 = this;
 
-      var uri = "api/bookedhotels/" + id;
+      var uri = "/api/bookedhotels/" + id;
       this.$swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -721,7 +721,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteBookedRestaurant: function deleteBookedRestaurant(id) {
       var _this7 = this;
 
-      var uri = "api/bookedrestaurants/" + id;
+      var uri = "/api/bookedrestaurants/" + id;
       this.$swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -743,7 +743,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteBookedEscort: function deleteBookedEscort(id) {
       var _this8 = this;
 
-      var uri = "api/bookedescorts/" + id;
+      var uri = "/api/bookedescorts/" + id;
       this.$swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -765,7 +765,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteBookedFlight: function deleteBookedFlight(id) {
       var _this9 = this;
 
-      var uri = "api/bookedflights/" + id;
+      var uri = "/api/bookedflights/" + id;
       this.$swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -787,7 +787,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteBookedBus: function deleteBookedBus(id) {
       var _this10 = this;
 
-      var uri = "api/bookedbuses/" + id;
+      var uri = "/api/bookedbuses/" + id;
       this.$swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",

@@ -14,19 +14,11 @@ data from the api to display the data about the Hotel from the backend .
           <div class="col-sm-5">
             <div class="form-group">
               <label>TOUR MANAGER</label>
-              <select
-                class="form-control select-field"
-                v-model.lazy="escort_id"
-              >
-              <option value="" disabled hidden>Select Tour Manager</option>
-                <option
-                  v-for="data in escort_list"
-                  :key="data.id"
-                  :value="data.id"
-                >
-                  {{ data.name }}
-                </option>
-              </select>
+
+              <dropdown-filter class="mb-2" 
+                :itemList="escort_list" 
+                @update:option="UpdatedItem" />
+
             </div>
           </div>
           <div class="col-sm-4">
@@ -54,6 +46,7 @@ import { Form, HasError } from "vform";
 import { ModelSelect } from "vue-search-select";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
+import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 export default {
   name: "ListTourmanager",
   components: {
@@ -62,6 +55,7 @@ export default {
     ModelSelect,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
+    "dropdown-filter": DropdownFilter,
   },
   data() {
     return {
@@ -78,18 +72,28 @@ export default {
   },
   watch: {
     escort_id: function (value) {
-      var path = `/api/escort/` + value + `/edit/`;
-      axios.get(path).then((response) => {
-        this.manager_data = response.data;
-      });
+      if(value){
+        var path = `/api/escort/` + value + `/edit/`;
+        axios.get(path).then((response) => {
+          this.manager_data = response.data;
+        });
+      }
     },
   },
 
   methods: {
     escortData() {
       axios.get(`/api/escort`).then((response) => {
-        this.escort_list = response.data.data;
+        for(let i = 0;i<response.data.data.length;i++){
+            this.escort_list.push({
+              name:response.data.data[i].name,
+              id:response.data.data[i].id
+            });
+          }
       });
+    },
+    UpdatedItem(value){
+      this.escort_id = value.id;
     },
     tourData() {
       axios.get(`/api/tour/${this.$route.params.id}/edit`).then((response) => {

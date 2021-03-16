@@ -59,6 +59,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_City_select_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/City-select.vue */ "./resources/js/admin/components/City-select.vue");
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
 //
 //
 //
@@ -165,8 +166,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
+
 
 
 
@@ -178,14 +178,15 @@ __webpack_require__.r(__webpack_exports__);
     Form: vform__WEBPACK_IMPORTED_MODULE_0__["Form"],
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
       row_input: "",
-      flight_list: "",
+      flight_list: [],
       tour: "",
-      city_list: "",
+      city_list: [],
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         tour_id: "",
         tour_code: "",
@@ -203,22 +204,44 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get("/api/flight").then(function (response) {
-      if (response.data) {
-        _this.flight_list = response.data;
+    axios.get("/api/flight").then(function (res) {
+      if (res) {
+        for (var i = 0; i < res.data.length; i++) {
+          _this.flight_list.push({
+            name: res.data[i].name,
+            id: res.data[i].id
+          });
+        }
       }
     });
     axios.get("/api/tour/".concat(this.$route.params.id, "/edit")).then(function (response) {
       _this.tour = response.data;
     });
+    this.cityList();
   },
   // End the process of the the fetching data
   methods: {
+    UpdatedFlight: function UpdatedFlight(value) {
+      this.form.flight_id = value.id;
+    },
+    UpdatedSource: function UpdatedSource(value) {
+      this.form.source = value.name;
+    },
+    UpdatedDestination: function UpdatedDestination(value) {
+      this.form.destination = value.name;
+    },
     cityList: function cityList() {
       var _this2 = this;
 
-      axios.get("/api/city").then(function (response) {
-        _this2.city_list = response.data.data;
+      axios.get("/api/city").then(function (res) {
+        if (res) {
+          for (var i = 0; i < res.data.data.length; i++) {
+            _this2.city_list.push({
+              name: res.data.data[i].name,
+              id: res.data.data[i].id
+            });
+          }
+        }
       });
     },
     addFlight: function addFlight() {
@@ -374,68 +397,11 @@ var render = function() {
                           _vm._v("Airline name")
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.flight_id,
-                                expression: "form.flight_id"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "flight_id",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              {
-                                attrs: { value: "", disabled: "", hidden: "" }
-                              },
-                              [_vm._v("Select Airline")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.flight_list, function(flight) {
-                              return _c(
-                                "option",
-                                {
-                                  key: flight.id,
-                                  domProps: { value: flight.id }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                " +
-                                      _vm._s(flight.name) +
-                                      " ( " +
-                                      _vm._s(flight.code) +
-                                      " )\n              "
-                                  )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        ),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.flight_list },
+                          on: { "update:option": _vm.UpdatedFlight }
+                        }),
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "flight_id" }
@@ -503,8 +469,10 @@ var render = function() {
                           _vm._v("Source")
                         ]),
                         _vm._v(" "),
-                        _c("city-select", {
-                          on: { "update:option": _vm.SourceUpdate }
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.city_list },
+                          on: { "update:option": _vm.UpdatedSource }
                         }),
                         _vm._v(" "),
                         _c("has-error", {
@@ -524,8 +492,10 @@ var render = function() {
                           _vm._v("Destination")
                         ]),
                         _vm._v(" "),
-                        _c("city-select", {
-                          on: { "update:option": _vm.DestinationUpdate }
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.city_list },
+                          on: { "update:option": _vm.UpdatedDestination }
                         }),
                         _vm._v(" "),
                         _c("has-error", {

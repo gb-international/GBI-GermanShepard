@@ -15,6 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_search_select__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
 //
 //
 //
@@ -102,7 +103,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
+
 
 
 
@@ -114,7 +115,8 @@ __webpack_require__.r(__webpack_exports__);
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
     ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_1__["ModelSelect"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
@@ -143,14 +145,19 @@ __webpack_require__.r(__webpack_exports__);
     cityList: function cityList() {
       var _this2 = this;
 
-      axios.get("/api/city").then(function (response) {
-        for (var i = 0; i < response.data.data.length; i++) {
-          _this2.options.push({
-            value: response.data.data[i].id,
-            text: response.data.data[i].name
-          });
+      axios.get("/api/city").then(function (res) {
+        if (res) {
+          for (var i = 0; i < res.data.data.length; i++) {
+            _this2.options.push({
+              name: res.data.data[i].name,
+              id: res.data.data[i].id
+            });
+          }
         }
       });
+    },
+    UpdatedCity: function UpdatedCity(value) {
+      this.form.city_id = value.id;
     },
     UpdateRestaurant: function UpdateRestaurant() {
       var _this3 = this;
@@ -212,15 +219,13 @@ var render = function() {
                           _vm._v("Select City")
                         ]),
                         _vm._v(" "),
-                        _c("model-select", {
-                          attrs: { options: _vm.options, placeholder: "From" },
-                          model: {
-                            value: _vm.form.city_id,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "city_id", $$v)
-                            },
-                            expression: "form.city_id"
-                          }
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: {
+                            itemList: _vm.options,
+                            selectedId: _vm.form.city_id
+                          },
+                          on: { "update:option": _vm.UpdatedCity }
                         }),
                         _vm._v(" "),
                         _c("has-error", {
@@ -346,7 +351,7 @@ var render = function() {
                             "is-invalid": _vm.form.errors.has("contact_number")
                           },
                           attrs: {
-                            type: "text",
+                            type: "number",
                             placeholder: "Enter contact number name"
                           },
                           domProps: { value: _vm.form.contact_number },

@@ -60,7 +60,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="Price">Price</label>
               <input
-                type="text"
+                type="number"
                 class="form-control"
                 placeholder="Enter Price"
                 v-model="form.price"

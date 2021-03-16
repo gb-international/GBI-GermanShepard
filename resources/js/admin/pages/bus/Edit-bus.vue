@@ -60,7 +60,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="price">Price</label>
               <input
-                type="text"
+                type="number"
                 class="form-control"
                 placeholder="Enter price"
                 rows="5"
@@ -117,7 +117,7 @@ export default {
       this.form
         .put(`/api/bus/${this.$route.params.id}`)
         .then((response) => {
-          console.log(response);
+
           this.$toast.fire({
             icon: "success",
             title: "Successfully Updated",

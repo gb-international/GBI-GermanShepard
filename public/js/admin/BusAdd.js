@@ -384,7 +384,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           class: { "is-invalid": _vm.form.errors.has("price") },
-                          attrs: { type: "text", placeholder: "Enter Price" },
+                          attrs: { type: "number", placeholder: "Enter Price" },
                           domProps: { value: _vm.form.price },
                           on: {
                             input: function($event) {
