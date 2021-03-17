@@ -86,9 +86,9 @@ export default {
   data() {
     return {
       fields: [
-        {key:'title',label:'TITLE',sortable:true,thClass: 'table-head'},
-        {key:'updated_at',label:'LAST UPDATE',sortable:true,thClass: 'table-head'},
-        {key:'action',label:'ACTION',thClass: 'table-head'}
+        {key:'title',label:'title',sortable:true,thClass: 'table-head'},
+        {key:'updated_at',label:'last update',sortable:true,thClass: 'table-head'},
+        {key:'action',label:'action',thClass: 'table-head'}
       ],
       filter:'',
       perPage:7,

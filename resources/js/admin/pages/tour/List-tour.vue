@@ -87,12 +87,12 @@ export default {
   data() {
     return {
       fields: [
-        {key:'tour_id',label:'CODE',sortable:true,thClass: 'table-head'},
-        {key:'school.school_name',label:'SCHOOL NAME',sortable:true,thClass: 'table-head'},
-        {key:'tour_start_date',label:'START DATE',sortable:true,thClass: 'table-head'},
-        {key:'tour_end_date',label:'END DATE',sortable:true,thClass: 'table-head'},
-        {key:'updated_at',label:'LAST UPDATE',sortable:true,thClass: 'table-head'},
-        {key:'action',label:'ACTION',thClass: 'table-head'}
+        {key:'tour_id',label:'code',sortable:true,thClass: 'table-head'},
+        {key:'school.school_name',label:'school name',sortable:true,thClass: 'table-head'},
+        {key:'tour_start_date',label:'start date',sortable:true,thClass: 'table-head'},
+        {key:'tour_end_date',label:'end date',sortable:true,thClass: 'table-head'},
+        {key:'updated_at',label:'last date',sortable:true,thClass: 'table-head'},
+        {key:'action',label:'active',thClass: 'table-head'}
       ],
       filter:'',
       perPage:7,

@@ -391,6 +391,12 @@ to submit the data we are using a function.
           <div class="row">
             <div class="col-sm-6">
               <label>Source</label>
+<!-- 
+              <dropdown-filter class="mb-2" 
+                :itemList="options" 
+                @update:option="SourceUpdateDay"
+              /> -->
+
               <select class="form-control select-field" v-model="data.day_source">
                 <option value="" disabled hidden>Select Source</option>
                 <option v-for="data in cities" :value="data.name" :key="data.id">{{data.name }}</option>
@@ -620,6 +626,12 @@ export default {
     DestinationUpdate(value){
       this.form.destination = value.name;
     },
+
+    SourceUpdateDay(value){
+      console.log(value);
+    }
+
+
   },
 };
 </script>

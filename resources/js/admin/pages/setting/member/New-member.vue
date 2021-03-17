@@ -119,20 +119,13 @@ to submit the data we are using a function.
           <div class="col-sm-4">
             <div class="form-group">
               <label for="RoleName">Role Assign</label>
-              <select
-                class="form-control select-field"
-                v-model="form.RoleName"
-                :class="{ 'is-invalid': form.errors.has('RoleName') }"
-              >
-                <option value="" disabled hidden>Select Role</option>
-                <option
-                  v-for="role in role_list"
-                  :value="role.name"
-                  :key="role.id"
-                >
-                  {{ role.name }}
-                </option>
-              </select>
+              
+              <dropdown-filter class="mb-2" 
+                :itemList="role_list" 
+                @update:option="updateRole" 
+              />
+
+
               <has-error :form="form" field="RoleName"></has-error>
             </div>
           </div>
@@ -147,6 +140,7 @@ to submit the data we are using a function.
 import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
+import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 export default {
   name: "NewMember",
   components: {
@@ -154,6 +148,7 @@ export default {
     "has-error": HasError,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
+     "dropdown-filter": DropdownFilter,
   },
   data() {
     return {
@@ -173,13 +168,24 @@ export default {
   },
 
   created() {
-    axios.get("/api/role").then((response) => {
-      setTimeout(() => $("#example").DataTable(), 1000);
-      this.role_list = response.data;
-    });
+    this.getRoles();
   },
 
   methods: {
+    getRoles(){
+      axios.get("/api/role").then((res) => {
+        if (res) {
+          for(let i = 0;i<res.data.length;i++){
+            this.role_list.push({
+              name:res.data[i].name,
+              id:res.data[i].name
+            });
+          }
+        }
+      });
+    },
+    updateRole(v){ this.form.RoleName = v.id },
+
     addMember() {
       this.form
         .post("/api/members/create")
@@ -188,7 +194,7 @@ export default {
           console.log(response);
           this.$toast.fire({
             icon: "success",
-            title: "Client Added successfully",
+            title: "GBI Member Added successfully",
           });
         })
         .catch(() => {});

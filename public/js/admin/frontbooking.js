@@ -179,27 +179,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       fields: [{
         key: 'created_at',
-        label: 'BOOKING DATE',
+        label: 'booking date',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'start_date',
-        label: 'START DATE',
+        label: 'start date',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'end_date',
-        label: 'END DATE',
+        label: 'end date',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'status',
-        label: 'STATUS',
+        label: 'status',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'action',
-        label: 'ACTION',
+        label: 'action',
         thClass: 'table-head'
       }],
       filter: '',

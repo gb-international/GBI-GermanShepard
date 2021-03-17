@@ -89,15 +89,10 @@ to submit the data we are using a function.
           <div class="col-sm-6">
             <div class="form-group">
               <label for="meta_keyword">Status</label>
-              <select
-                class="form-control select-field"
-                v-model="form.status"
-                :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
-              >
-                <option disabled value="">Select Status</option>
-                <option value="0">Draft</option>
-                <option value="1">Publish</option>
-              </select>
+              <dropdown-filter class="mb-2" 
+                :itemList="status_list" 
+                @update:option="updateStatus" 
+              />
               <has-error :form="form" field="meta_keyword"></has-error>
             </div>
           </div>
@@ -105,12 +100,10 @@ to submit the data we are using a function.
           <div class="col-sm-6">
             <div class="form-group">
               <label for="categories">Category</label>
-
-                <select class="form-control select-field" v-model="form.category_id">
-                  <option disabled value="" hidden>Select Category</option>
-                  <option v-for="cat in categories" :key="cat.id" :value="cat.id">{{ cat.title }}</option>
-              </select>
-
+              <dropdown-filter class="mb-2" 
+                :itemList="categories" 
+                @update:option="UpdateCategory" 
+              />
               <has-error :form="form" field="categories"></has-error>
             </div>
           </div>
@@ -174,6 +167,7 @@ import Multiselect from "vue-multiselect";
 import FormButtons from '@/admin/components/buttons/FormButtons.vue';
 import SubmitButton from '@/admin/components/buttons/SubmitButton.vue';
 import FormLayout from '@/admin/components/layout/FormLayout.vue';
+import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 
 export default {
   name: "NewPost",
@@ -184,6 +178,7 @@ export default {
     'form-buttons':FormButtons,
     'submit-button':SubmitButton,
     'form-layout':FormLayout,
+    "dropdown-filter": DropdownFilter,
   },
   mixins:[Vue2EditorMixin],
   data() {
@@ -191,6 +186,10 @@ export default {
       categories:[],
       tags:[],
       img_image:false,
+      status_list:[
+        {name:"Draft",id:0},
+        {name:"Public",id:1}
+      ],
       form: new Form({
         title: "",
         description: "",
@@ -210,10 +209,20 @@ export default {
   },
   methods: {
     getCategories() {
-      axios.get("/api/categories").then((response) => {
-        this.categories = response.data;
+      axios.get("/api/categories").then((res) => {
+        if (res) {
+          for(let i = 0;i<res.data.length;i++){
+            this.categories.push({
+              name:res.data[i].title,
+              id:res.data[i].id
+            });
+          }
+        }
       });
     },
+
+    UpdateCategory(v){ this.form.category_id = v.id },    
+    updateStatus(v){ this.form.status = v.id },
     
     getTags() {
       axios.get("/api/tags").then((response) => {
@@ -224,13 +233,13 @@ export default {
     AddPost() {
       this.form
         .post("/api/posts")
-        .then((response) => {
-          // this.form.reset();
+        .then((re) => {
           this.$swal.fire(
             "Added!",
-            "Item Added successfully",
+            "Post Added successfully",
             "success"
           );
+          this.$router.push('/posts');
         })
         .catch(() => {});
     },

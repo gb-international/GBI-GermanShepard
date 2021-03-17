@@ -196,32 +196,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       fields: [{
         key: 'tour_id',
-        label: 'CODE',
+        label: 'code',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'school.school_name',
-        label: 'SCHOOL NAME',
+        label: 'school name',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'tour_start_date',
-        label: 'START DATE',
+        label: 'start date',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'tour_end_date',
-        label: 'END DATE',
+        label: 'end date',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'updated_at',
-        label: 'LAST UPDATE',
+        label: 'last date',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'action',
-        label: 'ACTION',
+        label: 'active',
         thClass: 'table-head'
       }],
       filter: '',

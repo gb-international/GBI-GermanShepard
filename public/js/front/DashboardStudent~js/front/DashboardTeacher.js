@@ -382,7 +382,7 @@ var render = function() {
             [
               _c("img", {
                 staticClass: "icon-width",
-                attrs: { src: "/images/icons/user.png" }
+                attrs: { src: "/images/icons/white-user.png" }
               })
             ]
           ),

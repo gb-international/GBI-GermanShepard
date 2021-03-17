@@ -73,12 +73,13 @@ __webpack_require__.r(__webpack_exports__);
 
       var path = "/api/permission";
       this.form.post(path).then(function (response) {
+        _this.form.reset();
+
         _this.$toast.fire({
           icon: "success",
           title: "Successfully Updated !!!"
-        });
+        }); // this.$router.push(`/list-permission`);
 
-        _this.$router.push("/list-permission");
       })["catch"](function (error) {
         if (error.response.status === 422) {
           _this.errors = error.response.data.errors || {};

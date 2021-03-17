@@ -6,7 +6,7 @@
   <div id="joinOurteam">
     <div class="career_banner text_on_image banner_bg">
       <div class="content">
-        <p class="heading">JOIN OUR TEAM</p>
+        <p class="heading">Join Our Team</p>
       </div>
     </div>
 
@@ -14,8 +14,8 @@
       <!-- End banner area -->
       <section>
         <article class="join-team">
-          <div class="container">
-            <heading class="text-center" text="JOIN OUR BRILLIANT MINDS" />
+          <div class="container pb-5">
+            <heading class="text-center" text="Join Our Brilliant Minds" />
             <form
               role="form"
               method="POST"
@@ -170,7 +170,7 @@
                 </div>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn profile_button mb-5" value="Submit">
+                <button type="submit" class="btn profile_button" value="Submit">
                   Submit
                 </button>
               </div>

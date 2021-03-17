@@ -89,9 +89,9 @@ export default {
   data() {
     return {
       fields: [
-        {key:'code',label:'TRAIN NUMBER',sortable:true,thClass: 'table-head'},
-        {key:'name',label:'NAME',sortable:true,thClass: 'table-head'},
-        {key:'action',label:'ACTION',thClass: 'table-head'}
+        {key:'code',label:'train number',sortable:true,thClass: 'table-head'},
+        {key:'name',label:'name',sortable:true,thClass: 'table-head'},
+        {key:'action',label:'action',thClass: 'table-head'}
       ],
       filter:'',
       perPage:7,

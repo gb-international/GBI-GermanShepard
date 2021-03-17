@@ -7590,6 +7590,7 @@ a:hover {
 .text_on_image .content .heading {
   font-size: 30px;
   margin-bottom: 0px;
+  text-transform: capitalize !important;
 }
 
 .ui.selection.dropdown {

@@ -101,12 +101,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       fields: [{
         key: 'name',
-        label: 'STATE',
+        label: 'state',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'action',
-        label: 'ACTION',
+        label: 'action',
         thClass: 'table-head'
       }],
       limit: 2,

@@ -168,17 +168,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       fields: [{
         key: 'code',
-        label: 'TRAIN NUMBER',
+        label: 'train number',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'name',
-        label: 'NAME',
+        label: 'name',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'action',
-        label: 'ACTION',
+        label: 'action',
         thClass: 'table-head'
       }],
       filter: '',

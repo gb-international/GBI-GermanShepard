@@ -90,9 +90,9 @@ export default {
   data() {
     return {
       fields: [
-        {key:'email',label:'SUBSCRIBER EMAIL',sortable:true,thClass: 'table-head'},
-        {key:'status',label:'STAUS',sortable:true,thClass: 'table-head'},
-        {key:'action',label:'ACTION',thClass: 'table-head'}
+        {key:'email',label:'subscriber email',sortable:true,thClass: 'table-head'},
+        {key:'status',label:'status',sortable:true,thClass: 'table-head'},
+        {key:'action',label:'action',thClass: 'table-head'}
       ],
       filter:'',
       limit:2,

@@ -15,21 +15,14 @@ to submit the data we are using a function.
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
-              <label for="state_name">State</label>
-              <select
-                class="form-control select-field"
-                v-model="form.state_name"
-                @change="slugCreate($event)"
-              >
-              <option value="" disabled hidden>Select State</option>
-                <option
-                  v-for="state in state_list"
-                  :value="state.name"
-                  :key="state.id"
-                >
-                  {{ state.name }}
-                </option>
-              </select>
+              <!-- <label for="state_name">State</label>
+              
+              <dropdown-filter class="mb-2" 
+                :itemList="state_list" 
+                @update:option="UpdateState" 
+                :selectedId="form.state_name"
+              /> -->
+
               <has-error :form="form" field="state_name"></has-error>
             </div>
 
@@ -195,6 +188,7 @@ import { VueEditor, Quill } from "vue2-editor";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
+import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 export default {
   name: "EditEncyclopedia",
   components: {
@@ -205,6 +199,7 @@ export default {
     "form-buttons": FormButtons,
     "submit-button": SubmitButton,
     "form-layout": FormLayout,
+    "dropdown-filter": DropdownFilter,
   },
   data() {
     return {
@@ -226,16 +221,26 @@ export default {
     };
   },
   created() {
-    this.cityList();
+    this.StateList();
     this.EncyclopediaList();
   },
 
   methods: {
-    cityList() {
-      axios.get("/api/state").then((response) => {
-        this.state_list = response.data;
+    StateList() {
+      axios.get("/api/state").then((res) => {
+        if (res.data) {
+          for (let i = 0; i < res.data.length; i++) {
+            this.state_list.push({
+              name: res.data[i].name,
+              id: res.data[i].name,
+            });
+          }
+        }
       });
     },
+
+    UpdateState(v){ this.form.state_name = v.name; },
+
     EncyclopediaList() {
       var api = `/api/encyclopedias/${this.$route.params.id}/edit`;
       axios.get(api).then((response) => {
@@ -311,13 +316,15 @@ export default {
       }
     },
 
-    slugCreate(event) {
+    slugCreate(value) {
       var slug = "";
-      var value = event.target.value.toLowerCase();
-      // Trim the last whitespace
-      slug = value.replace(/\s*$/g, "");
-      // Change whitespace to "-"
-      this.form.slug = slug.replace(/\s+/g, "-");
+      if(value){
+        value = value.toLowerCase();
+        // Trim the last whitespace
+        slug = value.replace(/\s*$/g, "");
+        // Change whitespace to "-"
+        this.form.slug = slug.replace(/\s+/g, "-");
+      }
     },
 
     deleteImage(id) {

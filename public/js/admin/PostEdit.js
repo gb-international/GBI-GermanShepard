@@ -18,6 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
 //
 //
 //
@@ -185,9 +186,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
+
 
 
 
@@ -201,7 +200,8 @@ __webpack_require__.r(__webpack_exports__);
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
     Multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_3___default.a,
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
   data: function data() {
@@ -209,6 +209,13 @@ __webpack_require__.r(__webpack_exports__);
       img_image: false,
       categories: [],
       tags: [],
+      status_list: [{
+        name: "Draft",
+        id: 0
+      }, {
+        name: "Public",
+        id: 1
+      }],
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         title: "",
         description: "",
@@ -246,9 +253,22 @@ __webpack_require__.r(__webpack_exports__);
     getCategories: function getCategories() {
       var _this2 = this;
 
-      axios.get("/api/categories").then(function (response) {
-        _this2.categories = response.data;
+      axios.get("/api/categories").then(function (res) {
+        if (res) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this2.categories.push({
+              name: res.data[i].title,
+              id: res.data[i].id
+            });
+          }
+        }
       });
+    },
+    UpdateCategory: function UpdateCategory(v) {
+      this.form.category_id = v.id;
+    },
+    updateStatus: function updateStatus(v) {
+      this.form.status = v.id;
     },
     getTags: function getTags() {
       var _this3 = this;
@@ -556,59 +576,14 @@ var render = function() {
                           _vm._v("Status")
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.status,
-                                expression: "form.status"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
-                            class: {
-                              "is-invalid": _vm.form.errors.has("meta_keyword")
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "status",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: {
+                            itemList: _vm.status_list,
+                            selectedId: _vm.form.status
                           },
-                          [
-                            _c(
-                              "option",
-                              {
-                                attrs: { disabled: "", value: "", hidden: "" }
-                              },
-                              [_vm._v("Select Status")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "0" } }, [
-                              _vm._v("Draft")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "1" } }, [
-                              _vm._v("Publish")
-                            ])
-                          ]
-                        ),
+                          on: { "update:option": _vm.updateStatus }
+                        }),
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "meta_keyword" }
@@ -627,61 +602,14 @@ var render = function() {
                           _vm._v("Category")
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.category_id,
-                                expression: "form.category_id"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "category_id",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: {
+                            itemList: _vm.categories,
+                            selectedId: _vm.form.category_id
                           },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { disabled: "", value: "" } },
-                              [_vm._v("Select Category")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.categories, function(cat) {
-                              return _c(
-                                "option",
-                                { key: cat.id, domProps: { value: cat.id } },
-                                [
-                                  _vm._v(
-                                    "\n                " +
-                                      _vm._s(cat.title) +
-                                      "\n              "
-                                  )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        ),
+                          on: { "update:option": _vm.UpdateCategory }
+                        }),
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "categories" }

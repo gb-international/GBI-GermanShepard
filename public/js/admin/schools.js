@@ -173,22 +173,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       fields: [{
         key: 'school_name',
-        label: 'NAME',
+        label: 'name',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'principal_email_id',
-        label: 'PRINCIPal EMAIL',
+        label: 'principle name',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'principal_name',
-        label: 'INCHARGE NAME',
+        label: 'incharge name',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'action',
-        label: 'ACTION',
+        label: 'action',
         thClass: 'table-head'
       }],
       limit: 2,

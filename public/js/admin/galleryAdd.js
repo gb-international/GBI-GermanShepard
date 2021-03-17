@@ -11,19 +11,9 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-search-select */ "./node_modules/vue-search-select/dist/VueSearchSelect.common.js");
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_search_select__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
-/* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
+/* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
 //
 //
 //
@@ -100,14 +90,21 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Form: vform__WEBPACK_IMPORTED_MODULE_0__["Form"],
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
-    ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_1__["ModelSelect"],
-    "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    FormButtons: _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    FormButtons: _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
       options: [],
+      categories: [{
+        name: "Domestic",
+        id: "Domestic"
+      }, {
+        name: "International",
+        id: "International"
+      }],
       schools: [],
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         category: "",
@@ -127,11 +124,17 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/school").then(function (response) {
         for (var i = 0; i < response.data.length; i++) {
           _this.schools.push({
-            value: response.data[i].id,
-            text: response.data[i].school_name
+            name: response.data[i].school_name,
+            id: response.data[i].id
           });
         }
       });
+    },
+    UpdateCategory: function UpdateCategory(v) {
+      this.form.category = v.id;
+    },
+    updateSchool: function updateSchool(v) {
+      this.form.school_id = v.id;
     },
     changePhoto: function changePhoto(event) {
       var _this2 = this;
@@ -160,9 +163,11 @@ __webpack_require__.r(__webpack_exports__);
       this.form.post("/api/gallery").then(function (response) {
         _this3.form.reset();
 
+        _this3.$router.push('/gallery');
+
         _this3.$toast.fire({
           icon: "success",
-          title: "Category Added successfully"
+          title: "Gallery Added successfully"
         });
       })["catch"](function () {});
     }
@@ -214,59 +219,11 @@ var render = function() {
                           _vm._v("Gallery Category")
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.category,
-                                expression: "form.category"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
-                            class: {
-                              "is-invalid": _vm.form.errors.has("category")
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "category",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { default: "default", value: "" } },
-                              [_vm._v("Select Category")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "domestic" } }, [
-                              _vm._v("Domestic")
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "option",
-                              { attrs: { value: "international" } },
-                              [_vm._v("International")]
-                            )
-                          ]
-                        ),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.categories },
+                          on: { "update:option": _vm.UpdateCategory }
+                        }),
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "category" }
@@ -324,18 +281,10 @@ var render = function() {
                           _vm._v("School")
                         ]),
                         _vm._v(" "),
-                        _c("model-select", {
-                          attrs: {
-                            options: _vm.schools,
-                            placeholder: "Select School"
-                          },
-                          model: {
-                            value: _vm.form.school_id,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "school_id", $$v)
-                            },
-                            expression: "form.school_id"
-                          }
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.schools },
+                          on: { "update:option": _vm.updateSchool }
                         }),
                         _vm._v(" "),
                         _c("has-error", {

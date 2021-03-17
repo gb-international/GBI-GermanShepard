@@ -758,7 +758,7 @@ var staticRenderFns = [
       { staticClass: "contact_us_banner text_on_image banner_bg" },
       [
         _c("div", { staticClass: "content" }, [
-          _c("p", { staticClass: "heading" }, [_vm._v("CONTACT US")])
+          _c("p", { staticClass: "heading" }, [_vm._v("Contact Us")])
         ])
       ]
     )

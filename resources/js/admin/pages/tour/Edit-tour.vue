@@ -95,7 +95,6 @@ to submit the data we are using a function.
               <has-error :form="form" field="tour_end_date"></has-error>
             </div>
           </div>
-
           <div class="col-sm-4">
             <div class="form-group">
               <label for="tour_price">Tour Price</label>

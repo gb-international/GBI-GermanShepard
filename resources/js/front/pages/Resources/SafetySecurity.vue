@@ -5,7 +5,7 @@
   <div id="safetysecurity">
     <div class="safety_banner text_on_image banner_bg">
       <div class="content">
-        <p class="heading">SAFETY & SECURITY</p>
+        <p class="heading">Safety & Security</p>
       </div>
     </div>
 

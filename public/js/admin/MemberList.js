@@ -163,17 +163,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       fields: [{
         key: 'name',
-        label: 'PERMISSION NAME',
+        label: 'permission name',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'updated_at',
-        label: 'LAST UPDATE',
+        label: 'last update',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'action',
-        label: 'ACTION',
+        label: 'action',
         thClass: 'table-head'
       }],
       filter: '',
@@ -324,17 +324,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       fields: [{
         key: 'email',
-        label: 'SUBSCRIBER EMAIL',
+        label: 'subscriber email',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'status',
-        label: 'STAUS',
+        label: 'status',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'action',
-        label: 'ACTION',
+        label: 'action',
         thClass: 'table-head'
       }],
       filter: '',

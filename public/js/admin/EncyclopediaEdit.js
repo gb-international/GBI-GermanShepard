@@ -17,6 +17,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/buttons/SubmitButton.vue */ "./resources/js/admin/components/buttons/SubmitButton.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
 //
 //
 //
@@ -199,13 +200,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -221,7 +216,8 @@ __webpack_require__.r(__webpack_exports__);
     "has-erro": vform__WEBPACK_IMPORTED_MODULE_1__["HasError"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     "submit-button": _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   data: function data() {
     return {
@@ -243,16 +239,26 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.cityList();
+    this.StateList();
     this.EncyclopediaList();
   },
   methods: {
-    cityList: function cityList() {
+    StateList: function StateList() {
       var _this = this;
 
-      axios.get("/api/state").then(function (response) {
-        _this.state_list = response.data;
+      axios.get("/api/state").then(function (res) {
+        if (res.data) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this.state_list.push({
+              name: res.data[i].name,
+              id: res.data[i].name
+            });
+          }
+        }
       });
+    },
+    UpdateState: function UpdateState(v) {
+      this.form.state_name = v.name;
     },
     EncyclopediaList: function EncyclopediaList() {
       var _this2 = this;
@@ -348,13 +354,16 @@ __webpack_require__.r(__webpack_exports__);
         _loop();
       }
     },
-    slugCreate: function slugCreate(event) {
+    slugCreate: function slugCreate(value) {
       var slug = "";
-      var value = event.target.value.toLowerCase(); // Trim the last whitespace
 
-      slug = value.replace(/\s*$/g, ""); // Change whitespace to "-"
+      if (value) {
+        value = value.toLowerCase(); // Trim the last whitespace
 
-      this.form.slug = slug.replace(/\s+/g, "-");
+        slug = value.replace(/\s*$/g, ""); // Change whitespace to "-"
+
+        this.form.slug = slug.replace(/\s+/g, "-");
+      }
     },
     deleteImage: function deleteImage(id) {
       var _this5 = this;
@@ -424,77 +433,6 @@ var render = function() {
                       "div",
                       { staticClass: "form-group" },
                       [
-                        _c("label", { attrs: { for: "state_name" } }, [
-                          _vm._v("State")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.state_name,
-                                expression: "form.state_name"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
-                            on: {
-                              change: [
-                                function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.form,
-                                    "state_name",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                },
-                                function($event) {
-                                  return _vm.slugCreate($event)
-                                }
-                              ]
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              {
-                                attrs: { value: "", disabled: "", hidden: "" }
-                              },
-                              [_vm._v("Select State")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.state_list, function(state) {
-                              return _c(
-                                "option",
-                                {
-                                  key: state.id,
-                                  domProps: { value: state.name }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                " +
-                                      _vm._s(state.name) +
-                                      "\n              "
-                                  )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        ),
-                        _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "state_name" }
                         })

@@ -13,6 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
 //
 //
 //
@@ -151,13 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -167,7 +162,8 @@ __webpack_require__.r(__webpack_exports__);
     Form: vform__WEBPACK_IMPORTED_MODULE_0__["Form"],
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -186,16 +182,26 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    var _this = this;
-
-    axios.get("/api/role").then(function (response) {
-      setTimeout(function () {
-        return $("#example").DataTable();
-      }, 1000);
-      _this.role_list = response.data;
-    });
+    this.getRoles();
   },
   methods: {
+    getRoles: function getRoles() {
+      var _this = this;
+
+      axios.get("/api/role").then(function (res) {
+        if (res) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this.role_list.push({
+              name: res.data[i].name,
+              id: res.data[i].name
+            });
+          }
+        }
+      });
+    },
+    updateRole: function updateRole(v) {
+      this.form.RoleName = v.id;
+    },
     addMember: function addMember() {
       var _this2 = this;
 
@@ -206,7 +212,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this2.$toast.fire({
           icon: "success",
-          title: "Client Added successfully"
+          title: "GBI Member Added successfully"
         });
       })["catch"](function () {});
     }
@@ -582,69 +588,11 @@ var render = function() {
                           _vm._v("Role Assign")
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.RoleName,
-                                expression: "form.RoleName"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
-                            class: {
-                              "is-invalid": _vm.form.errors.has("RoleName")
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "RoleName",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              {
-                                attrs: { value: "", disabled: "", hidden: "" }
-                              },
-                              [_vm._v("Select Role")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.role_list, function(role) {
-                              return _c(
-                                "option",
-                                {
-                                  key: role.id,
-                                  domProps: { value: role.name }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                " +
-                                      _vm._s(role.name) +
-                                      "\n              "
-                                  )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        ),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.role_list },
+                          on: { "update:option": _vm.updateRole }
+                        }),
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "RoleName" }

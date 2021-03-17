@@ -183,7 +183,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "router-link",
-    { staticClass: "text-uppercase font-weight-bold", attrs: { to: _vm.url } },
+    { staticClass: "text-capitalize font-weight-bold", attrs: { to: _vm.url } },
     [_vm._t("default", [_vm._v("add")])],
     2
   )

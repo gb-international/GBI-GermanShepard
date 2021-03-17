@@ -1012,7 +1012,13 @@ var render = function() {
         _c(
           "h1",
           { staticClass: "font-20 text-lowercase text-capitalize pt-2 pb-2" },
-          [_c("u", [_vm._v(_vm._s(_vm.itineraryData.title))])]
+          [
+            _c("u", [
+              _vm._v(
+                _vm._s(_vm._f("CapitalizeString")(_vm.itineraryData.title))
+              )
+            ])
+          ]
         )
       ]),
       _vm._v(" "),
@@ -1031,15 +1037,15 @@ var render = function() {
             ]),
             _vm._v(" "),
             data.day_source != data.day_destination
-              ? _c("h1", { staticClass: "explor-head" }, [
+              ? _c("h1", { staticClass: "explor-head text-capitalize" }, [
                   _vm._v(
-                    _vm._s(data.day_source.toUpperCase()) +
+                    _vm._s(data.day_source) +
                       " - " +
-                      _vm._s(data.day_destination.toUpperCase())
+                      _vm._s(data.day_destination)
                   )
                 ])
               : _c("h1", { staticClass: "explor-head" }, [
-                  _vm._v(_vm._s(data.day_source.toUpperCase()))
+                  _vm._v(_vm._s(data.day_source))
                 ]),
             _vm._v(" "),
             _c("div", {

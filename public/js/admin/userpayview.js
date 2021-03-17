@@ -262,7 +262,7 @@ var render = function() {
             "router-link",
             {
               staticClass:
-                "btn btn-primary itrn_add_btn back_btn text-uppercase font-weight-bold",
+                "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { to: _vm.url },
               on: {
                 click: function($event) {
@@ -277,7 +277,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "btn btn-primary itrn_add_btn back_btn text-uppercase font-weight-bold",
+                "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { type: "button" },
               on: {
                 click: function($event) {

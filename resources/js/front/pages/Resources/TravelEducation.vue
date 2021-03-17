@@ -5,7 +5,7 @@
   <div id="traveleducation">
     <div class="education_banner text_on_image banner_bg">
       <div class="content">
-        <p class="heading">TRAVEL & EDUCATION</p>
+        <p class="heading">Travel & Education</p>        
       </div>
     </div>
 

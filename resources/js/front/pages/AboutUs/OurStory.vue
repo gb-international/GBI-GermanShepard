@@ -16,7 +16,7 @@
 
     <div class="banner_ourstory text_on_image banner_bg">
       <div class="content">
-        <p class="heading">OUR STORY</p>
+        <p class="heading">Our Story</p>
       </div>
     </div>
 

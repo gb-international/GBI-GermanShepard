@@ -314,7 +314,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "safety_banner text_on_image banner_bg" }, [
       _c("div", { staticClass: "content" }, [
-        _c("p", { staticClass: "heading" }, [_vm._v("SAFETY & SECURITY")])
+        _c("p", { staticClass: "heading" }, [_vm._v("Safety & Security")])
       ])
     ])
   }

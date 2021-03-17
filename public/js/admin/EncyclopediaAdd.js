@@ -17,6 +17,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/buttons/SubmitButton.vue */ "./resources/js/admin/components/buttons/SubmitButton.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
 //
 //
 //
@@ -167,15 +168,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -190,7 +183,8 @@ __webpack_require__.r(__webpack_exports__);
     "has-error": vform__WEBPACK_IMPORTED_MODULE_1__["HasError"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     "submit-button": _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
@@ -211,15 +205,28 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.cityList();
+    this.stateData();
   },
   methods: {
-    cityList: function cityList() {
+    stateData: function stateData() {
       var _this = this;
 
-      axios.get("/api/state").then(function (response) {
-        _this.state_list = response.data;
+      axios.get("/api/state").then(function (res) {
+        if (res.data) {
+          _this.options = [];
+
+          for (var i = 0; i < res.data.length; i++) {
+            _this.state_list.push({
+              name: res.data[i].name,
+              id: res.data[i].id
+            });
+          }
+        }
       });
+    },
+    UpdateState: function UpdateState(v) {
+      this.form.state_name = v.name;
+      this.slugCreate(v.name);
     },
     // This function will be called every time you add a file
     uploadFieldChange: function uploadFieldChange(e) {
@@ -247,7 +254,7 @@ __webpack_require__.r(__webpack_exports__);
     addData: function addData() {
       var _this2 = this;
 
-      this.form.post("/api/encyclopedias").then(function (response) {
+      this.form.post("/api/encyclopedias").then(function (res) {
         _this2.$toast.fire({
           icon: "success",
           title: "Encyclopedia Added successfully"
@@ -256,13 +263,16 @@ __webpack_require__.r(__webpack_exports__);
         _this2.$router.push('/encyclopedias');
       })["catch"](function () {});
     },
-    slugCreate: function slugCreate(event) {
+    slugCreate: function slugCreate(value) {
       var slug = "";
-      var value = event.target.value.toLowerCase(); // Trim the last whitespace
 
-      slug = value.replace(/\s*$/g, ""); // Change whitespace to "-"
+      if (value) {
+        value = value.toLowerCase(); // Trim the last whitespace
 
-      this.form.slug = slug.replace(/\s+/g, "-");
+        slug = value.replace(/\s*$/g, ""); // Change whitespace to "-"
+
+        this.form.slug = slug.replace(/\s+/g, "-");
+      }
     },
     changeImage: function changeImage(event, model) {
       var _this3 = this;
@@ -366,73 +376,11 @@ var render = function() {
                           _vm._v("State")
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.state_name,
-                                expression: "form.state_name"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
-                            attrs: { required: "" },
-                            on: {
-                              change: [
-                                function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.form,
-                                    "state_name",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                },
-                                function($event) {
-                                  return _vm.slugCreate($event)
-                                }
-                              ]
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              {
-                                attrs: { value: "", disabled: "", hidden: "" }
-                              },
-                              [_vm._v("Select State")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.state_list, function(state) {
-                              return _c(
-                                "option",
-                                {
-                                  key: state.id,
-                                  domProps: { value: state.name }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                " +
-                                      _vm._s(state.name) +
-                                      "\n              "
-                                  )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        ),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.state_list },
+                          on: { "update:option": _vm.UpdateState }
+                        }),
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "state_name" }

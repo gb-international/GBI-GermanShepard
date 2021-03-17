@@ -55175,6 +55175,10 @@ iframe {
   outline: none;
 }
 
+.table-head div {
+  text-transform: capitalize;
+}
+
 .card-layout {
   background-color: #fff;
   background-clip: border-box;

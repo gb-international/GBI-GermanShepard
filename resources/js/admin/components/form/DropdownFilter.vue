@@ -43,7 +43,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import clickOutside from "@/admin/directive/click-away.js";
 
 export default {

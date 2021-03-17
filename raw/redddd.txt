@@ -264,6 +264,10 @@ our story, how we work, safetry and security and education and travel
 first letter uppercase of each word
 left allign of tiger content 
 
+ food ( utensils) -> done
+ Banner Image ( make it sentance case ) -> done
+ Make all layout ( table header and input label in sentance case )
+ display Sentance case itinerary title also  -> done
 
 
 admin :

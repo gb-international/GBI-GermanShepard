@@ -151,22 +151,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       fields: [{
         key: "user.name",
-        label: "NAME",
+        label: "name",
         sortable: true,
         thClass: "table-head"
       }, {
         key: "payment",
-        label: "STATUS",
+        label: "status",
         sortable: true,
         thClass: "table-head"
       }, {
         key: "user_type",
-        label: "USER TYPE",
+        label: "user type",
         sortable: true,
         thClass: "table-head"
       }, {
         key: "updated_at",
-        label: "LAST UPDATE",
+        label: "last update",
         sortable: true,
         thClass: "table-head"
       }, {

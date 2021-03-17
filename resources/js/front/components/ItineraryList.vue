@@ -16,7 +16,7 @@
           </figure>
         </div>
         <div class="cardtext-col text-left">
-          <p class="m-0 font-13 pl-10 font-weight-bold">{{itinerary.title | sortlength(35,"")}}</p>
+          <p class="m-0 font-13 pl-10 font-weight-bold text-capitalize">{{itinerary.title | sortlength(35,"") | CapitalizeString }}</p>
           <p class="font-13 pl-10 mb-10">{{itinerary.noofdays}} Days Tour</p>
           <div class="pt-1 pb-2 pl-10">
             <div class="card-icon float-left p-0" v-if="itinerary.hotel_type != '0'">
@@ -42,7 +42,7 @@
             <div class="card-icon float-left p-0" v-if="itinerary.food != '0'">
               <img src="/images/icons/dish.png" class="footer-icon-width">
               <br />
-              <span>utensils</span>
+              <span>Food</span>
             </div>
           </div>
         </div>

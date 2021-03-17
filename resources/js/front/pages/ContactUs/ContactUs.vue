@@ -6,7 +6,7 @@
   <div id="contactus">
     <div class="contact_us_banner text_on_image banner_bg">
       <div class="content">
-        <p class="heading">CONTACT US</p>
+        <p class="heading">Contact Us</p>
       </div>
     </div>
     <!-- End banner area -->

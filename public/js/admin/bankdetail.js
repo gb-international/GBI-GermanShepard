@@ -176,32 +176,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       fields: [{
         key: 'name',
-        label: 'NAME',
+        label: 'name',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'bank_name',
-        label: 'BANK NAME',
+        label: 'bank name',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'account_number',
-        label: 'ACCOUNT NUMBER',
+        label: 'account number',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'ifsc_code',
-        label: 'IFSC',
+        label: 'ifsc',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'updated_at',
-        label: 'LAST UPDATE',
+        label: 'last update',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'action',
-        label: 'ACTION',
+        label: 'action',
         thClass: 'table-head'
       }],
       filter: '',

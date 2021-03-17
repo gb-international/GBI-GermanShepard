@@ -172,22 +172,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       fields: [{
         key: 'title',
-        label: 'TITLE',
+        label: 'title',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'image',
-        label: 'IMAGE',
+        label: 'image',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'description',
-        label: 'DESCRIPTION',
+        label: 'description',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'action',
-        label: 'ACTION',
+        label: 'action',
         thClass: 'table-head'
       }],
       filter: '',

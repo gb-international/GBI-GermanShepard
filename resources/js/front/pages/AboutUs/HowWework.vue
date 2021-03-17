@@ -6,7 +6,7 @@
   <div id="howwework">
     <div class="howwework_banner text_on_image banner_bg">
       <div class="content">
-        <p class="heading">HOW WE WORK</p>
+        <p class="heading">How We Work</p>
       </div>
     </div>
 

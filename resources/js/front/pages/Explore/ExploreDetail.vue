@@ -22,17 +22,17 @@
         >Book Now</button>
       </div>
       <div class="w-100 pt-2 text-center">
-        <h1 class="font-20 text-lowercase text-capitalize pt-2 pb-2"><u>{{itineraryData.title}}</u></h1>
+        <h1 class="font-20 text-lowercase text-capitalize pt-2 pb-2"><u>{{itineraryData.title | CapitalizeString}}</u></h1>
       </div>
       <div class="description" v-html="description"></div>
       <div class="row w-100 pt-3" id="explore_detail_part">
         <div class="col-sm-4" v-for="data in itineraryData.itinerarydays" :key="data.id">
           <h4 class="day_tab">Day {{ data.day}}</h4>
           <h1
-            class="explor-head"
+            class="explor-head text-capitalize"
             v-if="data.day_source != data.day_destination"
-          >{{data.day_source.toUpperCase() }} - {{data.day_destination.toUpperCase()}}</h1>
-          <h1 class="explor-head" v-else>{{ data.day_source.toUpperCase() }}</h1>
+          >{{data.day_source }} - {{data.day_destination }}</h1>
+          <h1 class="explor-head" v-else>{{ data.day_source }}</h1>
           <div class="card-text card-text-ul" v-html="data.day_description"></div>
         </div>
       </div>

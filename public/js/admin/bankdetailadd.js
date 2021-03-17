@@ -112,6 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_buttons_BackButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/buttons/BackButton.vue */ "./resources/js/admin/components/buttons/BackButton.vue");
 /* harmony import */ var _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/buttons/SubmitButton.vue */ "./resources/js/admin/components/buttons/SubmitButton.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
 //
 //
 //
@@ -206,26 +207,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -237,13 +219,26 @@ __webpack_require__.r(__webpack_exports__);
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
     "back-button": _admin_components_buttons_BackButton_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     "submit-button": _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
       // Create a new form instance
       banknames: [],
-      account_type: ["Current Account", "Saving Account", "Recurring Deposit Account", "Fixed Deposit Account"],
+      account_type: [{
+        name: 'Current Account',
+        id: 'Current Account'
+      }, {
+        name: 'Saving Account',
+        id: 'Saving Account'
+      }, {
+        name: 'Recurring Deposit Account',
+        id: 'Recurring Deposit Account'
+      }, {
+        name: 'Fixed Deposit Account',
+        id: 'Fixed Deposit Account'
+      }],
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         name: "",
         bank_name: "",
@@ -261,20 +256,33 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.form.post("/api/schoolbankdetails").then(function (response) {
-        _this.$router.push("/bankdetail");
+        _this.$router.push("/schoolbankdetails");
 
         _this.$toast.fire({
           icon: "success",
-          title: "Escort Added successfully"
+          title: "Bank Details Added successfully"
         });
       })["catch"](function () {});
     },
     bankNameList: function bankNameList() {
       var _this2 = this;
 
-      axios.get("/api/banknames").then(function (response) {
-        _this2.banknames = response.data;
+      axios.get("/api/banknames").then(function (res) {
+        if (res.data) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this2.banknames.push({
+              name: res.data[i].name,
+              id: res.data[i].id
+            });
+          }
+        }
       });
+    },
+    UpdateBank: function UpdateBank(v) {
+      this.form.bank_name = v.name;
+    },
+    updateAccountType: function updateAccountType(v) {
+      this.form.account_type = v.name;
     }
   }
 });
@@ -304,7 +312,7 @@ var render = function() {
             "router-link",
             {
               staticClass:
-                "btn btn-primary itrn_add_btn back_btn text-uppercase font-weight-bold",
+                "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { to: _vm.url },
               on: {
                 click: function($event) {
@@ -319,7 +327,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "btn btn-primary itrn_add_btn back_btn text-uppercase font-weight-bold",
+                "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { type: "button" },
               on: {
                 click: function($event) {
@@ -360,7 +368,7 @@ var render = function() {
     "button",
     {
       staticClass:
-        "btn btn-primary itrn_add_btn back_btn text-uppercase font-weight-bold"
+        "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold"
     },
     [_vm._t("default", [_vm._v("submit")])],
     2
@@ -495,69 +503,11 @@ var render = function() {
                           _vm._v("Bank Name")
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.bank_name,
-                                expression: "form.bank_name"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
-                            class: {
-                              "is-invalid": _vm.form.errors.has("bank_name")
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "bank_name",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              {
-                                attrs: { value: "", disabled: "", hidden: "" }
-                              },
-                              [_vm._v("Select Bank")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.banknames, function(bank) {
-                              return _c(
-                                "option",
-                                {
-                                  key: bank.id,
-                                  domProps: { value: bank.name }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                " +
-                                      _vm._s(bank.name) +
-                                      "\n              "
-                                  )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        ),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.banknames },
+                          on: { "update:option": _vm.UpdateBank }
+                        }),
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "bank_name" }
@@ -626,66 +576,11 @@ var render = function() {
                           _vm._v("Account Type")
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.account_type,
-                                expression: "form.account_type"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
-                            class: {
-                              "is-invalid": _vm.form.errors.has("account_type")
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "account_type",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              {
-                                attrs: { value: "", disabled: "", hidden: "" }
-                              },
-                              [_vm._v("Select Account Type")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.account_type, function(type) {
-                              return _c(
-                                "option",
-                                { key: type, domProps: { value: type } },
-                                [
-                                  _vm._v(
-                                    "\n                " +
-                                      _vm._s(type) +
-                                      "\n              "
-                                  )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        ),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.account_type },
+                          on: { "update:option": _vm.updateAccountType }
+                        }),
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "account_type" }

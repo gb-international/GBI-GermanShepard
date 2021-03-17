@@ -350,11 +350,11 @@ var render = function() {
         _c("article", { staticClass: "join-team" }, [
           _c(
             "div",
-            { staticClass: "container" },
+            { staticClass: "container pb-5" },
             [
               _c("heading", {
                 staticClass: "text-center",
-                attrs: { text: "JOIN OUR BRILLIANT MINDS" }
+                attrs: { text: "Join Our Brilliant Minds" }
               }),
               _vm._v(" "),
               _c(
@@ -887,7 +887,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "career_banner text_on_image banner_bg" }, [
       _c("div", { staticClass: "content" }, [
-        _c("p", { staticClass: "heading" }, [_vm._v("JOIN OUR TEAM")])
+        _c("p", { staticClass: "heading" }, [_vm._v("Join Our Team")])
       ])
     ])
   },
@@ -905,7 +905,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn profile_button mb-5",
+          staticClass: "btn profile_button",
           attrs: { type: "submit", value: "Submit" }
         },
         [_vm._v("\n                Submit\n              ")]

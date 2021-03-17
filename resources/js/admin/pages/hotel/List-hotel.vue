@@ -89,11 +89,11 @@ export default {
   data() {
     return {
       fields: [
-        {key:'name',label:'NAME',sortable:true,thClass: 'table-head'},
-        {key:'address',label:'ADDRESS',sortable:true,thClass: 'table-head'},
-        {key:'type',label:'STAR',sortable:true,thClass: 'table-head'},
-        {key:'phoneno',label:'CONTACT NO',sortable:true,thClass: 'table-head'},
-        {key:'action',label:'ACTION',thClass: 'table-head'}
+        {key:'name',label:'name',sortable:true,thClass: 'table-head'},
+        {key:'address',label:'address',sortable:true,thClass: 'table-head'},
+        {key:'type',label:'star',sortable:true,thClass: 'table-head'},
+        {key:'phoneno',label:'contact no',sortable:true,thClass: 'table-head'},
+        {key:'action',label:'action',thClass: 'table-head'}
       ],
       filter:'',
       perPage:7,

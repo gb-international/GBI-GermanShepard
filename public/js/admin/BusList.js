@@ -170,27 +170,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       fields: [{
         key: 'company_name',
-        label: 'COMPANY NAME',
+        label: 'company name',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'seater',
-        label: 'ADDRESS',
+        label: 'address',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'seat_type',
-        label: 'PERSON',
+        label: 'person',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'price',
-        label: 'PRICE',
+        label: 'price',
         sortable: true,
         thClass: 'table-head'
       }, {
         key: 'action',
-        label: 'ACTION',
+        label: 'action',
         thClass: 'table-head'
       }],
       filter: '',
