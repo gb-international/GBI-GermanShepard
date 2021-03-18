@@ -313,7 +313,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       show_json: false,
-      loading: true,
       tour_view: [],
       status_list: [{
         id: 'success',
@@ -352,7 +351,6 @@ __webpack_require__.r(__webpack_exports__);
         _this.form.amount = res.data.amount;
         _this.form.status = res.data.status;
         _this.tour_view = res.data;
-        _this.loading = false;
       });
     },
     tourPaymentSave: function tourPaymentSave() {
@@ -818,62 +816,56 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm.loading == false
-                    ? _c("div", { staticClass: "modal-body" }, [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-sm-6" }, [
-                            _c("label", [_vm._v(" Collect Amount ")]),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.amount,
-                                  expression: "form.amount"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              attrs: { type: "number" },
-                              domProps: { value: _vm.form.amount },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "amount",
-                                    $event.target.value
-                                  )
-                                }
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _c("label", [_vm._v(" Collect Amount ")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.amount,
+                              expression: "form.amount"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "number" },
+                          domProps: { value: _vm.form.amount },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
                               }
-                            })
-                          ]),
+                              _vm.$set(_vm.form, "amount", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-6" },
+                        [
+                          _c("label", [_vm._v(" Payment Status ")]),
                           _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "col-sm-6" },
-                            [
-                              _c("label", [_vm._v(" Payment Status ")]),
-                              _vm._v(" "),
-                              _c("dropdown-filter", {
-                                staticClass: "mb-2",
-                                attrs: { itemList: _vm.status_list },
-                                model: {
-                                  value: _vm.form.status,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "status", $$v)
-                                  },
-                                  expression: "form.status"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ])
-                      ])
-                    : _vm._e(),
+                          _c("dropdown-filter", {
+                            staticClass: "mb-2",
+                            attrs: { itemList: _vm.status_list },
+                            model: {
+                              value: _vm.form.status,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "status", $$v)
+                              },
+                              expression: "form.status"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]),
                   _vm._v(" "),
                   _c("p", { staticClass: "text-center" }, [
                     _c(

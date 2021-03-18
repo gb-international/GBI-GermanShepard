@@ -10,6 +10,10 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_directive_click_away_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/admin/directive/click-away.js */ "./resources/js/admin/directive/click-away.js");
+var _name$props$data$watc;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -53,7 +57,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony default export */ __webpack_exports__["default"] = (_name$props$data$watc = {
   name: "DropDownFilter",
   props: {
     itemList: {
@@ -83,85 +87,81 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     document.addEventListener("keyup", this.nextItem);
+  }
+}, _defineProperty(_name$props$data$watc, "watch", {
+  value: function value() {
+    this.getSelected(this.value);
+  }
+}), _defineProperty(_name$props$data$watc, "methods", {
+  nextItem: function nextItem(event) {
+    event.preventDefault();
 
-    if (this.value != null) {
-      this.getSelected();
+    if (event.keyCode == 38 && this.arrowCounter > 1) {
+      this.arrowCounter--;
+      this.fixScrolling();
+    } else if (event.keyCode == 40 && this.arrowCounter < this.itemList.length - 1) {
+      this.arrowCounter++;
+      this.fixScrolling();
     }
   },
-  methods: {
-    nextItem: function nextItem(event) {
-      event.preventDefault();
+  fixScrolling: function fixScrolling() {
+    if (this.$refs.options[this.arrowCounter]) {
+      var liH = this.$refs.options[this.arrowCounter].clientHeight;
+    }
 
-      if (event.keyCode == 38 && this.arrowCounter > 1) {
-        this.arrowCounter--;
-        this.fixScrolling();
-      } else if (event.keyCode == 40 && this.arrowCounter < this.itemList.length - 1) {
-        this.arrowCounter++;
-        this.fixScrolling();
-      }
-    },
-    fixScrolling: function fixScrolling() {
-      if (this.$refs.options[this.arrowCounter]) {
-        var liH = this.$refs.options[this.arrowCounter].clientHeight;
-      }
-
-      if (this.$refs.scrollContainer) {
-        this.$refs.scrollContainer.scrollTop = liH * this.arrowCounter;
-      }
-    },
-    getSelected: function getSelected() {
-      if (this.itemList != undefined && this.edit_flag == false) {
-        for (var i = 0; i < this.itemList.length; i++) {
-          if (this.itemList[i].id == this.value) {
-            console.log(this.value);
-            this.selectedItem = this.itemList[i];
-            this.inputValue = this.itemList[i].name;
-            this.edit_flag = true;
-          }
+    if (this.$refs.scrollContainer) {
+      this.$refs.scrollContainer.scrollTop = liH * this.arrowCounter;
+    }
+  },
+  getSelected: function getSelected(value) {
+    if (this.itemList != undefined && this.edit_flag == false) {
+      for (var i = 0; i < this.itemList.length; i++) {
+        if (this.itemList[i].id == value) {
+          this.selectedItem = this.itemList[i];
+          this.inputValue = this.itemList[i].name;
+          this.edit_flag = true;
         }
       }
-    },
-    showToggle: function showToggle() {
-      this.showlist = !this.showlist;
-    },
-    optionChanged: function optionChanged() {
-      this.$emit("input", this.selectedItem.id);
-    },
-    closeEvent: function closeEvent() {
-      // console.log("close event called");
-      this.showlist = false;
-      this.arrowCounter = 0;
-    },
-    resetSelection: function resetSelection() {
-      var _this = this;
-
-      this.selectedItem = {};
-      this.inputValue = "";
-      this.showlist = true;
-      this.$nextTick(function () {
-        return _this.$refs.dropdowninput.focus();
-      });
-      this.$emit("on-item-reset");
-    },
-    remodeReadOnlyError: function remodeReadOnlyError() {
-      $(".dropdown-input").attr("readonly", false);
-    },
-    selectItem: function selectItem(theItem) {
-      this.selectedItem = theItem;
-      this.$emit("input", theItem.id);
-      this.inputValue = "";
-      this.showlist = false;
-    },
-    itemVisible: function itemVisible(item) {
-      var currentName = item.name.toLowerCase();
-      var currentInput = this.inputValue.toLowerCase();
-      return currentName.includes(currentInput);
     }
   },
-  destroyed: function destroyed() {
-    document.removeEventListener("keyup", this.nextItem);
+  showToggle: function showToggle() {
+    this.showlist = !this.showlist;
+  },
+  optionChanged: function optionChanged() {
+    this.$emit("input", this.selectedItem.id);
+  },
+  closeEvent: function closeEvent() {
+    this.showlist = false;
+    this.arrowCounter = 0;
+  },
+  resetSelection: function resetSelection() {
+    var _this = this;
+
+    this.selectedItem = {};
+    this.inputValue = "";
+    this.showlist = true;
+    this.$nextTick(function () {
+      return _this.$refs.dropdowninput.focus();
+    });
+    this.$emit("on-item-reset");
+  },
+  remodeReadOnlyError: function remodeReadOnlyError() {
+    $(".dropdown-input").attr("readonly", false);
+  },
+  selectItem: function selectItem(theItem) {
+    this.selectedItem = theItem;
+    this.$emit("input", theItem.id);
+    this.inputValue = "";
+    this.showlist = false;
+  },
+  itemVisible: function itemVisible(item) {
+    var currentName = item.name.toLowerCase();
+    var currentInput = this.inputValue.toLowerCase();
+    return currentName.includes(currentInput);
   }
-});
+}), _defineProperty(_name$props$data$watc, "destroyed", function destroyed() {
+  document.removeEventListener("keyup", this.nextItem);
+}), _name$props$data$watc);
 
 /***/ }),
 

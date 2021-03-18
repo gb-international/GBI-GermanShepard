@@ -75,8 +75,10 @@ export default {
   },
   mounted() {
     document.addEventListener("keyup", this.nextItem);
-    if(this.value != null){
-      this.getSelected();
+  },
+  watch:{
+    value:function(){
+      this.getSelected(this.value);
     }
   },
 
@@ -102,11 +104,10 @@ export default {
         this.$refs.scrollContainer.scrollTop = liH * this.arrowCounter;
       }
     },
-    getSelected() {
+    getSelected(value) {
       if (this.itemList != undefined && this.edit_flag == false) {
         for (let i = 0; i < this.itemList.length; i++) {
-          if (this.itemList[i].id == this.value) {
-            console.log(this.value);
+          if (this.itemList[i].id == value) {
             this.selectedItem = this.itemList[i];
             this.inputValue = this.itemList[i].name;
             this.edit_flag = true;
@@ -121,7 +122,6 @@ export default {
       this.$emit("input", this.selectedItem.id);
     },
     closeEvent: function () {
-      // console.log("close event called");
       this.showlist = false;
       this.arrowCounter = 0;
     },

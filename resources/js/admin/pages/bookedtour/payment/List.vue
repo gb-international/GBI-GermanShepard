@@ -155,7 +155,7 @@ It takes id from the url and get the data from the api .-->
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" v-if="loading==false">
+            <div class="modal-body">
               <div class="row">
                 <div class="col-sm-6">
                   <label> Collect Amount </label>
@@ -205,7 +205,6 @@ export default {
   data() {
     return {
       show_json: false,
-      loading:true,
       tour_view: [],
       status_list:[
         {id:'success',name:"Success"},
@@ -240,7 +239,6 @@ export default {
         this.form.amount = res.data.amount;
         this.form.status = res.data.status;
         this.tour_view = res.data;
-        this.loading = false;
       });
     },
 
