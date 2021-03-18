@@ -15,13 +15,13 @@ to submit the data we are using a function.
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
-              <!-- <label for="state_name">State</label>
-              
-              <dropdown-filter class="mb-2" 
+              <label for="state_name">State</label>
+
+              <dropdown-filter class="mb-2"
                 :itemList="state_list" 
                 @update:option="UpdateState" 
-                :selectedId="form.state_name"
-              /> -->
+                :selectedId="form.state_name" 
+              />
 
               <has-error :form="form" field="state_name"></has-error>
             </div>
@@ -221,8 +221,8 @@ export default {
     };
   },
   created() {
-    this.StateList();
     this.EncyclopediaList();
+    this.StateList();
   },
 
   methods: {
@@ -255,6 +255,7 @@ export default {
         this.form.banner_image = [];
         this.form.images = [];
         this.form.files = [];
+        this.form.state_name = this.form.state_name.trim();
       });
     },
 

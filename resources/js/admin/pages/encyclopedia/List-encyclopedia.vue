@@ -39,7 +39,7 @@ data from the api to display the data about the encyclopedia from the backend .
         :items="items.data"
         :busy="$store.getters.isBusy"
         :filter="filter"
-        primary-key="updated_at"
+        primary-key="id"
       >
         <template #table-busy>
           <table-loader />

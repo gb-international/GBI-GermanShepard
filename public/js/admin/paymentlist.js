@@ -106,6 +106,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_layout_ViewLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/admin/components/layout/ViewLayout.vue */ "./resources/js/admin/components/layout/ViewLayout.vue");
 /* harmony import */ var _admin_components_buttons_AddButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/buttons/AddButton.vue */ "./resources/js/admin/components/buttons/AddButton.vue");
+/* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
 //
 //
 //
@@ -298,18 +299,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ListUserPyamentTour",
   components: {
     "view-layout": _admin_components_layout_ViewLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    "add-button": _admin_components_buttons_AddButton_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    "add-button": _admin_components_buttons_AddButton_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    "dropdown-filter": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
       show_json: false,
+      loading: true,
       tour_view: [],
+      status_list: [{
+        id: 'success',
+        name: "Success"
+      }, {
+        id: 'pending',
+        name: "Pending"
+      }],
       form: {
         id: 0,
         amount: "",
@@ -336,7 +348,11 @@ __webpack_require__.r(__webpack_exports__);
         tour_code: this.$route.params.tour_code
       };
       axios.post("/api/payments/list", data).then(function (res) {
+        _this.form.id = res.data.id;
+        _this.form.amount = res.data.amount;
+        _this.form.status = res.data.status;
         _this.tour_view = res.data;
+        _this.loading = false;
       });
     },
     tourPaymentSave: function tourPaymentSave() {
@@ -802,82 +818,62 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "modal-body" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-sm-6" }, [
-                        _c("label", [_vm._v(" Collect Amount ")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.amount,
-                              expression: "form.amount"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "number" },
-                          domProps: { value: _vm.form.amount },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "amount", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-6" }, [
-                        _c("label", [_vm._v(" Payment Status ")]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.status,
-                                expression: "form.status"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "status",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "pending" } }, [
-                              _vm._v("Pending")
-                            ]),
+                  _vm.loading == false
+                    ? _c("div", { staticClass: "modal-body" }, [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-sm-6" }, [
+                            _c("label", [_vm._v(" Collect Amount ")]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "success" } }, [
-                              _vm._v("Success")
-                            ])
-                          ]
-                        )
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.amount,
+                                  expression: "form.amount"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { type: "number" },
+                              domProps: { value: _vm.form.amount },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "amount",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-sm-6" },
+                            [
+                              _c("label", [_vm._v(" Payment Status ")]),
+                              _vm._v(" "),
+                              _c("dropdown-filter", {
+                                staticClass: "mb-2",
+                                attrs: { itemList: _vm.status_list },
+                                model: {
+                                  value: _vm.form.status,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.form, "status", $$v)
+                                  },
+                                  expression: "form.status"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ])
                       ])
-                    ])
-                  ]),
+                    : _vm._e(),
                   _vm._v(" "),
                   _c("p", { staticClass: "text-center" }, [
                     _c(

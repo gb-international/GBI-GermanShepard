@@ -239,8 +239,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.StateList();
     this.EncyclopediaList();
+    this.StateList();
   },
   methods: {
     StateList: function StateList() {
@@ -275,6 +275,7 @@ __webpack_require__.r(__webpack_exports__);
         _this2.form.banner_image = [];
         _this2.form.images = [];
         _this2.form.files = [];
+        _this2.form.state_name = _this2.form.state_name.trim();
       });
     },
     // This function will be called every time you add a file
@@ -433,6 +434,19 @@ var render = function() {
                       "div",
                       { staticClass: "form-group" },
                       [
+                        _c("label", { attrs: { for: "state_name" } }, [
+                          _vm._v("State")
+                        ]),
+                        _vm._v(" "),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: {
+                            itemList: _vm.state_list,
+                            selectedId: _vm.form.state_name
+                          },
+                          on: { "update:option": _vm.UpdateState }
+                        }),
+                        _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "state_name" }
                         })

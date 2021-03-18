@@ -11,38 +11,30 @@
           <div class="col-sm-4">
             <div class="form-group">
               <label for="sourceId">Source</label>
-              <select class="form-control select-field" v-model="form.source">
-                <option value="" disabled hidden>Select Source</option>
-                <option v-for="data in cities" :value="data.name" :key="data.id">{{data.name }}</option>
-              </select>
-
               
-
+              <dropdown-list class="mb-2" 
+                :itemList="options" 
+                :select="`name`"
+                v-model="form.source"
+              />
 
               {{ form.source }}
-              <!-- <model-select
-                :options="options"
-                v-model="sources"
-                placeholder="From"
-              ></model-select>
-              {{ sources.value }} -->
+
               <has-error :form="form" field="source"></has-error>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
               <label for="destinationId">Destination</label>
-              <select class="form-control select-field" v-model="form.destination">
-                <option value="" disabled hidden>Select Destination</option>
-                <option v-for="data in cities" :value="data.name" :key="data.id">{{data.name }}</option>
-              </select>
+              
+              <dropdown-list class="mb-2" 
+                :itemList="options" 
+                :select="`name`"
+                v-model="form.destination"
+              />
+
               {{ form.destination }}
-              <!-- <model-select
-                :options="options"
-                v-model="destinations"
-                placeholder="To"
-              ></model-select>
-              {{ destinations.value }} -->
+
               <has-error :form="form" field="destination"></has-error>
             </div>
           </div>
@@ -378,31 +370,22 @@
           <div class="row">
             <div class="col-sm-6">
               <label>Source</label>
-              <select class="form-control select-field" v-model="data.day_source">
-                <option value="" disabled hidden>Select Source</option>
-                <option v-for="data in cities" :value="data.name" :key="data.id">{{data.name }}</option>
-              </select>
-
-              <!-- <model-select
-                :options="options"
+              <dropdown-list class="mb-2" 
+                :itemList="options" 
+                :select="`name`"
                 v-model="data.day_source"
-                placeholder="From"
-              ></model-select> -->
-
+              />
               {{ data.day_source }}
             </div>
             <div class="col-sm-6">
               <label>Destination</label>
-              <select class="form-control select-field" v-model="data.day_destination">
-                <option value="" disabled hidden>Select Destination</option>
-                <option v-for="data in cities" :value="data.name" :key="data.id">{{data.name }}</option>
-              </select>
-              <!-- <model-select
-                :options="options"
+              
+              <dropdown-list class="mb-2" 
+                :itemList="options" 
+                :select="`name`"
                 v-model="data.day_destination"
-                placeholder="To"
-              ></model-select>
-              {{ data.day_destination.value }} -->
+              />
+
               {{ data.day_destination }}
             </div>
 
@@ -435,6 +418,8 @@ import { Form, HasError, AlertError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import Vue2EditorMixin from '@/admin/mixins/Vue2EditorMixin';
+
+import DropdownList from "@/admin/components/form/DropdownList.vue";
 export default {
   name: "EditItinerary",
   components: {
@@ -444,11 +429,12 @@ export default {
     "has-error": HasError,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
+    "dropdown-list":DropdownList,
   },
   mixins:[Vue2EditorMixin],
   data() {
     return {
-      cities: [],
+      options: [],
       sources: '',
       destinations: '',
       itinerarydays: [],
@@ -505,11 +491,6 @@ export default {
           this.photo = response.data.photo;
           this.detail_photo = response.data.detail_photo;
           var day_data = response.data.itinerarydays;
-          // this.sources.value = this.form.source;
-          // this.sources.text = this.form.source;
-          // this.destinations.value = this.form.destination;
-          // this.destinations.text = this.form.destination;
-
           for (var i = 0; i < day_data.length; i++) {
             if (this.itinerarydays.length != day_data.length) {
               this.itinerarydays.push({
@@ -526,8 +507,15 @@ export default {
     },
 
     cityList() {
-      axios.get("/api/city").then((response) => {
-        this.cities = response.data.data;
+      axios.get("/api/city").then((res) => {
+        if (res.data) {
+          for(let i = 0;i<res.data.data.length;i++){
+            this.options.push({
+              name:res.data.data[i].name,
+              id:res.data.data[i].id
+            });
+          }
+        }
       });
     },
 

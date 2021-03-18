@@ -18,18 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/mixins/Vue2EditorMixin */ "./resources/js/admin/mixins/Vue2EditorMixin.js");
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
-/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
 //
 //
 //
@@ -479,7 +468,7 @@ __webpack_require__.r(__webpack_exports__);
     "has-error": vform__WEBPACK_IMPORTED_MODULE_2__["HasError"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    "dropdown-list": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_3__["default"]],
   data: function data() {
@@ -524,8 +513,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/city").then(function (res) {
-        _this.cities = res.data.data;
-
         if (res.data) {
           for (var i = 0; i < res.data.data.length; i++) {
             _this.options.push({
@@ -604,19 +591,8 @@ __webpack_require__.r(__webpack_exports__);
             title: "Make sure you fill all the fields"
           });
           return false;
-        } // this.form.itinerarydays[i]["day_source"] = this.form.itinerarydays[i][
-        //   "day_source"
-        // ].value;
-        // this.form.itinerarydays[i]["day_destination"] = this.form.itinerarydays[
-        //   i
-        // ]["day_destination"].value;
-        //
-
-      } // this.form.source = this.form["source"].value;
-      // this.form.destination = this.form["destination"].value;
-      // add noofdays fields data to form data
-      // Submit form
-
+        }
+      }
 
       this.form.post("/api/itinerary").then(function (response) {
         _this5.$router.push("/itinerary-list");
@@ -645,12 +621,6 @@ __webpack_require__.r(__webpack_exports__);
       this.form.noofdays -= 1;
       var index = this.form.itinerarydays.length - 1;
       this.form.itinerarydays.splice(index, 1);
-    },
-    SourceUpdate: function SourceUpdate(value) {
-      this.form.source = value.name;
-    },
-    DestinationUpdate: function DestinationUpdate(value) {
-      this.form.destination = value.name;
     },
     SourceUpdateDay: function SourceUpdateDay(value) {
       console.log(value);
@@ -703,10 +673,16 @@ var render = function() {
                           _vm._v("Source")
                         ]),
                         _vm._v(" "),
-                        _c("dropdown-filter", {
+                        _c("dropdown-list", {
                           staticClass: "mb-2",
-                          attrs: { itemList: _vm.options },
-                          on: { "update:option": _vm.SourceUpdate }
+                          attrs: { itemList: _vm.options, select: "name" },
+                          model: {
+                            value: _vm.form.source,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "source", $$v)
+                            },
+                            expression: "form.source"
+                          }
                         }),
                         _vm._v(" "),
                         _c("has-error", {
@@ -726,10 +702,16 @@ var render = function() {
                           _vm._v("Destination")
                         ]),
                         _vm._v(" "),
-                        _c("dropdown-filter", {
+                        _c("dropdown-list", {
                           staticClass: "mb-2",
-                          attrs: { itemList: _vm.options },
-                          on: { "update:option": _vm.DestinationUpdate }
+                          attrs: { itemList: _vm.options, select: "name" },
+                          model: {
+                            value: _vm.form.destination,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "destination", $$v)
+                            },
+                            expression: "form.destination"
+                          }
                         }),
                         _vm._v(" "),
                         _c("has-error", {
@@ -1750,125 +1732,47 @@ var render = function() {
                       _c("h4", [_vm._v("Day " + _vm._s(data.day))]),
                       _vm._v(" "),
                       _c("div", { staticClass: "row" }, [
-                        _c("div", { staticClass: "col-sm-6" }, [
-                          _c("label", [_vm._v("Source")]),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: data.day_source,
-                                  expression: "data.day_source"
-                                }
-                              ],
-                              staticClass: "form-control select-field",
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    data,
-                                    "day_source",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c(
-                                "option",
-                                {
-                                  attrs: { value: "", disabled: "", hidden: "" }
+                        _c(
+                          "div",
+                          { staticClass: "col-sm-6" },
+                          [
+                            _c("label", [_vm._v("Source")]),
+                            _vm._v(" "),
+                            _c("dropdown-list", {
+                              staticClass: "mb-2",
+                              attrs: { itemList: _vm.options, select: "name" },
+                              model: {
+                                value: data.day_source,
+                                callback: function($$v) {
+                                  _vm.$set(data, "day_source", $$v)
                                 },
-                                [_vm._v("Select Source")]
-                              ),
-                              _vm._v(" "),
-                              _vm._l(_vm.cities, function(data) {
-                                return _c(
-                                  "option",
-                                  {
-                                    key: data.id,
-                                    domProps: { value: data.name }
-                                  },
-                                  [_vm._v(_vm._s(data.name))]
-                                )
-                              })
-                            ],
-                            2
-                          )
-                        ]),
+                                expression: "data.day_source"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-6" }, [
-                          _c("label", [_vm._v("Destination")]),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: data.day_destination,
-                                  expression: "data.day_destination"
-                                }
-                              ],
-                              staticClass: "form-control select-field",
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    data,
-                                    "day_destination",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c(
-                                "option",
-                                {
-                                  attrs: { value: "", disabled: "", hidden: "" }
+                        _c(
+                          "div",
+                          { staticClass: "col-sm-6" },
+                          [
+                            _c("label", [_vm._v("Destination")]),
+                            _vm._v(" "),
+                            _c("dropdown-list", {
+                              staticClass: "mb-2",
+                              attrs: { itemList: _vm.options, select: "name" },
+                              model: {
+                                value: data.day_destination,
+                                callback: function($$v) {
+                                  _vm.$set(data, "day_destination", $$v)
                                 },
-                                [_vm._v("Select Source")]
-                              ),
-                              _vm._v(" "),
-                              _vm._l(_vm.cities, function(data) {
-                                return _c(
-                                  "option",
-                                  {
-                                    key: data.id,
-                                    domProps: { value: data.name }
-                                  },
-                                  [_vm._v(_vm._s(data.name))]
-                                )
-                              })
-                            ],
-                            2
-                          )
-                        ]),
+                                expression: "data.day_destination"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
                         _c(
                           "div",

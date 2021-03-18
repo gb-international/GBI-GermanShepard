@@ -4,48 +4,68 @@
       v-if="Object.keys(selectedItem).length === 0"
       ref="dropdowninput"
       v-model.trim="inputValue"
-      class="dropdown-input"
+      class="form-control dropdown-input"
       type="text"
-      placeholder="Find country"
+      :placeholder="placeholder"
       @focus="showlist = true"
+      @click="remodeReadOnlyError()"
+      autocomplete="off"
     />
-    
-    <div
-      v-else
-      @click="resetSelection"
-      class="dropdown-selected"
-    >
-      {{ selectedItem.school_name }}
+
+    <div v-else @click="resetSelection" class="dropdown-selected">
+      {{ selectedItem.name }}
     </div>
-    <div v-show="showlist" class="dropdown-list">
-      <div
-        @click="selectItem(item)"
-        v-show="itemVisible(item)"
-        v-for="item in itemList"
-        :key="item.id"
-        class="dropdown-item"
-        
-      >
-        {{ item.school_name }}
-      </div>
+    <i class="fas fa-caret-down" @click="showToggle()"></i>
+    <div v-if="showlist == true" class="dropdown-list" @keyup="nextItem">
+      <ul ref="scrollContainer">
+        <li
+          @click="selectItem(item)"
+          v-show="itemVisible(item)"
+          v-for="(item, index) in itemList"
+          :key="item.id"
+          @keydown.enter="selectItem(matches[arrowCounter])"
+          :class="{ 'active-item': arrowCounter === index }"
+          class="dropdown-item"
+          @keydown.esc="showlist = false"
+          ref="options"
+        >
+          <label
+            ><input class="d-none" type="checkbox" :value="item.id" />{{
+              item.name
+            }}</label
+          >
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-import clickOutside from "@/admin/directive/click-away.js";
+import "@/admin/directive/click-away.js";
 
 export default {
-  name:"DropdownListList",
-  props: ["itemList", "selected"],
+  name: "DropDownFilter",
+  props: {
+    itemList: {
+      type: Array,
+      required: true,
+    },
+    value:{
+      
+    },
+    placeholder: {
+      type: String,
+      default: "Enter name to search",
+    },
+  },
   data() {
     return {
       selectedItem: {},
+      arrowCounter: 0,
       inputValue: "",
       apiLoaded: false,
       showlist: false,
-      selectedItem: "",
+      edit_flag: false,
     };
   },
   watch: {
@@ -53,38 +73,82 @@ export default {
       this.optionChanged();
     },
   },
-  mounted(){
-    console.log(this.selected);
+  mounted() {
+    document.addEventListener("keyup", this.nextItem);
+    if(this.value != null){
+      this.getSelected();
+    }
   },
 
   methods: {
+    nextItem(event) {
+      event.preventDefault();
+      if (event.keyCode == 38 && this.arrowCounter > 1) {
+        this.arrowCounter--;
+        this.fixScrolling();
+      } else if (
+        event.keyCode == 40 &&
+        this.arrowCounter < this.itemList.length - 1
+      ) {
+        this.arrowCounter++;
+        this.fixScrolling();
+      }
+    },
+    fixScrolling() {
+      if (this.$refs.options[this.arrowCounter]) {
+        var liH = this.$refs.options[this.arrowCounter].clientHeight;
+      }
+      if (this.$refs.scrollContainer) {
+        this.$refs.scrollContainer.scrollTop = liH * this.arrowCounter;
+      }
+    },
+    getSelected() {
+      if (this.itemList != undefined && this.edit_flag == false) {
+        for (let i = 0; i < this.itemList.length; i++) {
+          if (this.itemList[i].id == this.value) {
+            console.log(this.value);
+            this.selectedItem = this.itemList[i];
+            this.inputValue = this.itemList[i].name;
+            this.edit_flag = true;
+          }
+        }
+      }
+    },
+    showToggle() {
+      this.showlist = !this.showlist;
+    },
     optionChanged() {
-      this.$emit("update:option", this.selectedItem);
+      this.$emit("input", this.selectedItem.id);
     },
     closeEvent: function () {
       // console.log("close event called");
       this.showlist = false;
+      this.arrowCounter = 0;
     },
     resetSelection() {
       this.selectedItem = {};
-      this.inputValue = '';
-      console.log('hi');
+      this.inputValue = "";
+      this.showlist = true;
       this.$nextTick(() => this.$refs.dropdowninput.focus());
       this.$emit("on-item-reset");
-      this.showlist = true;
+    },
+    remodeReadOnlyError() {
+      $(".dropdown-input").attr("readonly", false);
     },
     selectItem(theItem) {
       this.selectedItem = theItem;
+      this.$emit("input", theItem.id);
       this.inputValue = "";
-      this.$emit("on-item-selected", theItem);
       this.showlist = false;
     },
     itemVisible(item) {
-      let currentName = item.school_name.toLowerCase();
+      let currentName = item.name.toLowerCase();
       let currentInput = this.inputValue.toLowerCase();
       return currentName.includes(currentInput);
     },
-    
+  },
+  destroyed() {
+    document.removeEventListener("keyup", this.nextItem);
   },
 };
 </script>

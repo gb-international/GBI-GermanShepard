@@ -391,7 +391,7 @@ var render = function() {
                   items: _vm.items.data,
                   busy: _vm.$store.getters.isBusy,
                   filter: _vm.filter,
-                  "primary-key": "updated_at"
+                  "primary-key": "id"
                 },
                 scopedSlots: _vm._u([
                   {

@@ -1,0 +1,125 @@
+
+`accounts` (`id`, `itinerary_id`, `price`, `salesdp_id`, `client_id`, `selling_price`, `no_of_client`, `start_date`, `end_date`, `booking_id`, `status`, `added_by`, `created_at`, `updated_at`, `payment_by`, `payment_mode`, `payment_amount`, `cheque_no`, `payment_status`)
+
+`banknames` (`id`, `name`, `created_at`, `updated_at`)
+
+`bookedbuses` (`id`, `tour_id`, `tour_code`, `bus_id`, `source`, `destination`, `departure`, `arrival`, `price`, `created_at`, `updated_at`)
+
+`bookedescorts` (`id`, `tour_id`, `tour_code`, `escort_id`, `created_at`, `updated_at`)
+
+`bookedflights` (`id`, `tour_id`, `tour_code`, `flight_id`, `source`, `destination`, `flight_number`, `departure`, `arrival`, `price`, `created_at`, `updated_at`)
+
+`bookedhotels` (`id`, `tour_id`, `tour_code`, `hotel_id`, `check_in`, `check_out`, `price`, `created_at`, `updated_at`) 
+
+`bookedrestaurants` (`id`, `tour_id`, `tour_code`, `restaurant_id`, `date_of_arrival`, `created_at`, `updated_at`)
+
+`bookedsightseeings` (`id`, `tour_id`, `tour_code`, `itineraryday_id`, `sightseeing_id`, `mark_arrive`, `created_at`, `updated_at`)
+
+`bookedtrains` (`id`, `tour_id`, `tour_code`, `train_id`, `source`, `destination`, `departure`, `arrival`, `price`, `created_at`, `updated_at`)
+
+
+`buses` (`id`, `company_name`, `seater`, `seat_type`, `price`, `created_at`, `updated_at`)
+
+`categories` (`id`, `title`, `image`, `alt`, `slug`, `description`, `meta_title`, `meta_keyword`, `created_at`, `updated_at`)
+
+`category_post` (`category_id`, `post_id`)
+
+`cities` (`id`, `country_id`, `state_id`, `name`, `created_at`, `updated_at`)
+
+`comments` (`id`, `post_id`, `name`, `description`, `created_at`, `updated_at`)
+
+`countries` (`id`, `name`, `created_at`, `updated_at`)
+
+`encyclopediacomments` (`id`, `encyclopedia_id`, `user_id`, `body`, `parent_id`, `status`, `created_at`, `updated_at`) 
+
+`encyclopedias` (`id`, `state_name`, `slug`, `thumbnail`, `thumbnail_alt`, `banner_image`, `banner_image_alt`, `description`, `map_link`, `created_at`, `updated_at`)
+
+`encyclopedia_images` (`id`, `encyclopedia_id`, `image`, `alt`, `created_at`, `updated_at`)
+
+`escorts` (`id`, `name`, `salaryPerday`, `phoneno`, `email`, `address`, `id_card_number`, `id_photo`, `status`, `created_at`, `updated_at`)
+
+`failed_jobs` (`id`, `connection`, `queue`, `payload`, `exception`, `failed_at`) 
+
+`flights` (`id`, `code`, `name`, `created_at`, `updated_at`)
+
+`foods` (`id`, `tour_id`, `tour_code`, `name`, `quantity`, `created_at`, `updated_at`)
+
+`frontbookings` (`id`, `user_id`, `itinerary_id`, `start_date`, `end_date`, `person`, `room`, `occupancy_type`, `noofday`, `accomodation`, `city`, `transport`, `sightseen`, `status`, `created_at`, `updated_at`)
+
+`galleries` (`id`, `category`, `title`, `slug`, `school_id`, `created_at`, `updated_at`)
+
+`galleryimages` (`id`, `gallery_id`, `path`, `alt`, `created_at`, `updated_at`)
+
+`groupmembers` (`id`, `user_id`, `tour_id`, `school_id`, `first_name`, `last_name`, `email`, `gender`, `mobile`, `age`, `is_paid`, `user_type`, `created_at`, `updated_at`)
+
+`hotels` (`id`, `type`, `name`, `state`, `city`, `address`, `phoneno`, `email`, `room`, `image`, `alt`, `apai_single`, `apai_double`, `apai_triple`, `apai_quad`, `mapai_single`, `mapai_double`, `mapai_triple`, `mapai_quad`, `cpai_single`, `cpai_double`, `cpai_triple`, `cpai_quad`, `status`, `created_at`, `updated_at`)
+
+
+`informations` (`id`, `user_id`, `change_password`, `gbi_link`, `client_type`, `client_input`, `phone_no`, `otp`, `father_name`, `mother_name`, `dob`, `address`, `city`, `state`, `country`, `zip_code`, `user_class`, `admission_year`, `varified`, `photo`, `gender`, `user_profession`, `profession_name`, `profession_address`, `school_id`, `institution_code`, `reset_link`, `link_time`, `created_at`, `updated_at`)
+
+`itineraries` (`id`, `source`, `destination`, `title`, `photo`, `photo_alt`, `detail_photo`, `detail_photo_alt`, `noofdays`, `description`, `tourtype`, `hotel_type`, `bus`, `train`, `flight`, `food`, `price`, `status`, `created_at`, `updated_at`)
+
+
+`itinerarydays` (`id`, `itinerary_id`, `day`, `day_source`, `day_destination`, `day_description`, `status`, `created_at`, `updated_at`)
+
+
+`itinerarypdfs` (`id`, `encyclopedia_id`, `name`, `slug`, `created_at`, `updated_at`)
+
+`itinerary_tourprogram` (`itinerary_id`, `tourprogram_id`) 
+
+`itinerary_tourtype` (`itinerary_id`, `tourtype_id`) 
+
+`model_has_roles` (`role_id`, `model_type`, `model_id`)
+
+`notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `data`, `read_at`, `created_at`, `updated_at`)
+
+`otps` (`id`, `phone_no`, `otp_send`, `otp_date`, `created_at`, `updated_at`)
+
+`permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`)
+
+`pnrs` (`id`, `transport_id`, `transport_type`, `tour_code`, `pnr_number`)
+
+`pnr_user` (`id`, `user_id`, `pnr_id`, `tour_id`, `transport_id`, `transport_type`)
+
+`posts` (`id`, `category_id`, `title`, `slug`, `image`, `alt`, `summery`, `description`, `meta_title`, `meta_keyword`, `status`, `created_at`, `updated_at`) 
+
+`post_tag` (`post_id`, `tag_id`)
+
+`restaurants` (`id`, `city_id`, `name`, `address`, `contact_name`, `contact_number`, `created_at`, `updated_at`)
+
+`roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) 
+
+`role_has_permissions` (`permission_id`, `role_id`)
+
+`schoolbankdetails` (`id`, `user_id`, `tour_code`, `school_id`, `name`, `bank_name`, `account_number`, `account_type`, `ifsc_code`, `created_at`, `updated_at`)
+
+`schools` (`id`, `school_name`, `street`, `city_name`, `state_name`, `country_name`, `pincode`, `finance_email_id`, `principal_email_id`, `mobile`, `address`, `created_at`, `updated_at`, `principal_name`, `principal_mobile_number`, `user_id`)
+
+`sightseeings` (`id`, `city_id`, `state_id`, `name`, `address`, `image`, `alt`, `description`, `adult_price`, `child_price`, `created_at`, `updated_at`)
+
+`states` (`id`, `country_id`, `name`, `created_at`, `updated_at`)
+
+`students` (`id`, `school_id`, `user_id`, `first_name`, `last_name`, `father_name`, `gender`, `mobile`, `alternate_mobile`, `email`, `class`, `address`, `dob`, `created_at`, `updated_at`)
+
+`subscribers` (`id`, `user_id`, `email`, `status`, `created_at`, `updated_at`)
+
+`tags` (`id`, `title`, `created_at`, `updated_at`)
+
+`tourprograms` (`id`, `title`, `slug`, `description`, `image`, `alt`, `created_at`, `updated_at`)
+
+`tours` (`id`, `tour_id`, `travel_code`, `itinerary_id`, `school_id`, `tour_start_date`, `tour_end_date`, `tour_price`, `status`, `created_at`, `updated_at`)
+
+`tourtypes` (`id`, `name`, `created_at`, `updated_at`)
+
+`tour_user` (`id`, `travel_code`, `user_id`, `tour_code`, `user_type`, `is_paid`, `created_at`, `updated_at`, `schoolbankdetail_id`, `payment_mode`, `payment_type`, `ifsc_code`, `cheque_number`, `amount`, `cheque_bank_name`, `date_of_issue`, `payment_data`, `status`)
+
+`trackpayments` (`id`, `user_id`, `travel_code`, `amount`, `tour_id`, `school_id`, `created_at`, `updated_at`)
+
+`trains` (`id`, `code`, `name`, `created_at`, `updated_at`)
+
+`userpayments` (`id`, `user_id`, `school_id`, `tour_code`, `schoolbankdetail_id`, `payment_mode`, `payment_type`, `ifsc_code`, `cheque_number`, `amount`, `total_tour_price`, `collect_amount`, `cheque_bank_name`, `date_of_issue`, `status`, `payment_data`, `created_at`, `updated_at`)
+
+`users` (`id`, `user_role`, `user_type`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `reset_link`, `link_time`, `status`, `created_at`, `updated_at`, `is_incharge`)
+
+
+

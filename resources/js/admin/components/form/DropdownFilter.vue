@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import clickOutside from "@/admin/directive/click-away.js";
+import "@/admin/directive/click-away.js";
 
 export default {
   name:"DropDownFilter",

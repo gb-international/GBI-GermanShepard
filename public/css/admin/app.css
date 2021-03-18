@@ -56043,6 +56043,10 @@ input[type="file"] {
   background-color: white;
 }
 
+.modal-content {
+  background-color: #f3f3f3;
+}
+
 .navbar-laravel {
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

@@ -26,9 +26,9 @@
             <div class="form-group">
               <label for="bank_name">Bank Name</label>
               
-               <dropdown-filter class="mb-2" 
+               <dropdown-filter class="mb-2"
                 :itemList="banknames" 
-                @update:option="updateAccountType" 
+                @update:option="UpdateBank" 
                 :selectedId="form.bank_name" 
               />
 

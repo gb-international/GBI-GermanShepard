@@ -518,7 +518,7 @@ var render = function() {
                             itemList: _vm.banknames,
                             selectedId: _vm.form.bank_name
                           },
-                          on: { "update:option": _vm.updateAccountType }
+                          on: { "update:option": _vm.UpdateBank }
                         }),
                         _vm._v(" "),
                         _c("has-error", {

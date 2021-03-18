@@ -155,7 +155,7 @@ It takes id from the url and get the data from the api .-->
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body" v-if="loading==false">
               <div class="row">
                 <div class="col-sm-6">
                   <label> Collect Amount </label>
@@ -168,10 +168,11 @@ It takes id from the url and get the data from the api .-->
 
                 <div class="col-sm-6">
                   <label> Payment Status </label>
-                  <select class="form-control select-field" v-model="form.status">
-                    <option value="pending">Pending</option>
-                    <option value="success">Success</option>
-                  </select>
+
+                  <dropdown-filter class="mb-2" 
+                    :itemList="status_list" 
+                    v-model="form.status"
+                  />
                 </div>
               </div>
             </div>
@@ -193,17 +194,23 @@ It takes id from the url and get the data from the api .-->
 <script>
 import ViewLayout from "@/admin/components/layout/ViewLayout.vue";
 import AddButton from "@/admin/components/buttons/AddButton.vue";
-
+import DropdownList from "@/admin/components/form/DropdownList.vue";
 export default {
   name:"ListUserPyamentTour",
   components: {
     "view-layout": ViewLayout,
     "add-button": AddButton,
+    "dropdown-filter": DropdownList,
   },
   data() {
     return {
       show_json: false,
+      loading:true,
       tour_view: [],
+      status_list:[
+        {id:'success',name:"Success"},
+        {id:'pending',name:"Pending"}
+      ],
       form: {
         id: 0,
         amount: "",
@@ -229,7 +236,11 @@ export default {
         tour_code: this.$route.params.tour_code
       };
       axios.post("/api/payments/list", data).then((res) => {
+        this.form.id = res.data.id;
+        this.form.amount = res.data.amount;
+        this.form.status = res.data.status;
         this.tour_view = res.data;
+        this.loading = false;
       });
     },
 
