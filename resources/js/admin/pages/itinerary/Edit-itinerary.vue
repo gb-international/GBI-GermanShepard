@@ -2,411 +2,409 @@
 <template>
   <form-layout>
     <template #formdata>
-      <form
-        role="form"
-        enctype="multipart/form-data"
-        @submit.prevent="updateItinerary()"
-      >
-        <div class="row mb-30">
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="sourceId">Source</label>
-              
-              <dropdown-list class="mb-2" 
-                :itemList="options" 
-                :select="`name`"
-                v-model="form.source"
-              />
+      <div>
+        <form
+          role="form"
+          enctype="multipart/form-data"
+          @submit.prevent="updateItinerary()"
+        >
+          <div class="row mb-30">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="sourceId">Source</label>
+                
+                <dropdown-list class="mb-2" 
+                  :itemList="cities" 
+                  v-model="form.source"
+                />
 
-              {{ form.source }}
+                {{ form.source }}
 
-              <has-error :form="form" field="source"></has-error>
+                <has-error :form="form" field="source"></has-error>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="destinationId">Destination</label>
-              
-              <dropdown-list class="mb-2" 
-                :itemList="options" 
-                :select="`name`"
-                v-model="form.destination"
-              />
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="destinationId">Destination</label>
+                
+                <dropdown-list class="mb-2" 
+                  :itemList="cities" 
+                  v-model="form.destination"
+                />
 
-              {{ form.destination }}
+                {{ form.destination }}
 
-              <has-error :form="form" field="destination"></has-error>
+                <has-error :form="form" field="destination"></has-error>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="noofdaysId">Number Of Days</label>
-                  <input
-                    type="text"
-                    readonly="readonly"
-                    class="form-control"
-                    v-model="form.noofdays"
-                    :class="{ 'is-invalid': form.errors.has('noofdays') }"
-                    placeholder="Enter Number Of Days"
-                    name="noofdays"
-                    min="1"
-                  />
-                  <has-error :form="form" field="noofdays"></has-error>
+            <div class="col-sm-4">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="noofdaysId">Number Of Days</label>
+                    <input
+                      type="text"
+                      readonly="readonly"
+                      class="form-control"
+                      v-model="form.noofdays"
+                      :class="{ 'is-invalid': form.errors.has('noofdays') }"
+                      placeholder="Enter Number Of Days"
+                      name="noofdays"
+                      min="1"
+                    />
+                    <has-error :form="form" field="noofdays"></has-error>
+                  </div>
                 </div>
-              </div>
-              <div class="col-sm-3">
-                <button
-                  type="button"
-                  class="btn btn_plus text-white mt-35"
-                  @click="addRow()"
-                >
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-              <div class="col-sm-3">
-                <button
-                  type="button"
-                  class="btn btn_plus text-white mt-35"
-                  @click="removeRow()"
-                >
-                  <i class="fas fa-minus"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-30">
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="tourtypeId">Tour Type</label>
-              <div>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input
-                    type="radio"
-                    class="custom-control-input"
-                    id="NationalId"
-                    value="National"
-                    name="tourtype"
-                    v-model="form.tourtype"
-                  />
-                  <label class="custom-control-label" for="NationalId"
-                    >National</label
+                <div class="col-sm-3">
+                  <button
+                    type="button"
+                    class="btn btn_plus text-white mt-35"
+                    @click="addRow()"
                   >
+                    <i class="fas fa-plus"></i>
+                  </button>
                 </div>
-
-                <!-- Default inline 2-->
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input
-                    type="radio"
-                    class="custom-control-input"
-                    value="International"
-                    id="InternationalId"
-                    name="tourtype"
-                    v-model="form.tourtype"
-                  />
-                  <label class="custom-control-label" for="InternationalId"
-                    >International</label
+                <div class="col-sm-3">
+                  <button
+                    type="button"
+                    class="btn btn_plus text-white mt-35"
+                    @click="removeRow()"
                   >
+                    <i class="fas fa-minus"></i>
+                  </button>
                 </div>
               </div>
-
-              <div class="error" v-if="form.errors.has('tourtype')">
-                {{ form.errors.get("tourtype") }}
-              </div>
             </div>
           </div>
+          <div class="row mb-30">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="tourtypeId">Tour Type</label>
+                <div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="NationalId"
+                      value="National"
+                      name="tourtype"
+                      v-model="form.tourtype"
+                    />
+                    <label class="custom-control-label" for="NationalId"
+                      >National</label
+                    >
+                  </div>
 
-          <div class="col-sm-5">
-            <div class="form-group aligen_top_input">
-              <label for="hotel_type">Hotel Type</label>
-              <br />
+                  <!-- Default inline 2-->
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      value="International"
+                      id="InternationalId"
+                      name="tourtype"
+                      v-model="form.tourtype"
+                    />
+                    <label class="custom-control-label" for="InternationalId"
+                      >International</label
+                    >
+                  </div>
+                </div>
 
-              <div class="custom-control custom-radio custom-control-inline">
-                <input
-                  type="radio"
-                  class="custom-control-input"
-                  id="nohotelRadio"
-                  value="0"
-                  name="hotel_type"
-                  v-model="form.hotel_type"
-                  :class="{ 'is-invalid': form.errors.has('hotel_type') }"
-                />
-                <label class="custom-control-label" for="nohotelRadio"
-                  >No Hotel</label
-                >
-              </div>
-
-              <div class="custom-control custom-radio custom-control-inline">
-                <input
-                  type="radio"
-                  class="custom-control-input"
-                  id="hotelRadio"
-                  value="3"
-                  name="hotel_type"
-                  v-model="form.hotel_type"
-                  :class="{ 'is-invalid': form.errors.has('hotel_type') }"
-                />
-                <label class="custom-control-label" for="hotelRadio"
-                  >3 Star</label
-                >
-              </div>
-
-              <div class="custom-control custom-radio custom-control-inline">
-                <input
-                  type="radio"
-                  class="custom-control-input"
-                  id="hotelRadio1"
-                  name="hotel_type"
-                  v-model="form.hotel_type"
-                  :class="{ 'is-invalid': form.errors.has('hotel_type') }"
-                  value="4"
-                />
-                <label class="custom-control-label" for="hotelRadio1"
-                  >4 Star</label
-                >
-              </div>
-
-              <div class="custom-control custom-radio custom-control-inline">
-                <input
-                  type="radio"
-                  class="custom-control-input"
-                  id="hotelRadio2"
-                  name="hotel_type"
-                  v-model="form.hotel_type"
-                  :class="{ 'is-invalid': form.errors.has('hotel_type') }"
-                  value="5"
-                />
-                <label class="custom-control-label" for="hotelRadio2"
-                  >5 Star</label
-                >
-              </div>
-              <has-error :form="form" field="hotel_type"></has-error>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="form-group">
-              <label for="mode_of_transport">Mode of Transport</label>
-              <br />
-              <div class="custom-control custom-checkbox custom-control-inline">
-                <input
-                  type="checkbox"
-                  class="custom-control-input"
-                  id="transport"
-                  v-model="form.flight"
-                  true-value="1"
-                  false-value="0"
-                />
-                <label class="custom-control-label" for="transport"
-                  >Flight</label
-                >
-              </div>
-
-              <div class="custom-control custom-checkbox custom-control-inline">
-                <input
-                  type="checkbox"
-                  class="custom-control-input"
-                  id="transport1"
-                  v-model="form.bus"
-                  true-value="1"
-                  false-value="0"
-                />
-                <label class="custom-control-label" for="transport1">Bus</label>
-              </div>
-
-              <div class="custom-control custom-checkbox custom-control-inline">
-                <input
-                  type="checkbox"
-                  class="custom-control-input"
-                  id="transport2"
-                  v-model="form.train"
-                  true-value="1"
-                  false-value="0"
-                />
-                <label class="custom-control-label" for="transport2"
-                  >Train</label
-                >
-              </div>
-              <div class="error" v-if="form.errors.has('transport')">
-                <lable class="danger text-danger">{{
-                  form.errors.get("transport")
-                }}</lable>
+                <div class="error" v-if="form.errors.has('tourtype')">
+                  {{ form.errors.get("tourtype") }}
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="mode_of_transport">Tour category</label>
-              <br />
+            <div class="col-sm-5">
+              <div class="form-group aligen_top_input">
+                <label for="hotel_type">Hotel Type</label>
+                <br />
 
-              <multiselect
-                v-model="form.tourtypes"
-                :options="tour_type_list"
-                :multiple="true"
-                :close-on-select="true"
-                :show-labels="false"
-                placeholder="Pick some"
-                label="name"
-                track-by="name"
-              ></multiselect>
-            </div>
-          </div>
-        </div>
-
-        <div class="row mb-30">
-          <div class="col-sm-8">
-            <div class="form-group">
-              <label for="titleId">Title</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter Title"
-                name="title"
-                v-model="form.title"
-                :class="{ 'is-invalid': form.errors.has('title') }"
-              />
-              <has-error :form="form" field="title"></has-error>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="tourtypeId">Food</label>
-              <div>
                 <div class="custom-control custom-radio custom-control-inline">
                   <input
                     type="radio"
                     class="custom-control-input"
-                    id="food_yes"
-                    value="1"
-                    name="food"
-                    v-model="form.food"
-                  />
-                  <label class="custom-control-label" for="food_yes">Yes</label>
-                </div>
-
-                <!-- Default inline 2-->
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input
-                    type="radio"
-                    class="custom-control-input"
+                    id="nohotelRadio"
                     value="0"
-                    id="food_no"
-                    name="food"
-                    v-model="form.food"
+                    name="hotel_type"
+                    v-model="form.hotel_type"
+                    :class="{ 'is-invalid': form.errors.has('hotel_type') }"
                   />
-                  <label class="custom-control-label" for="food_no">No</label>
+                  <label class="custom-control-label" for="nohotelRadio"
+                    >No Hotel</label
+                  >
                 </div>
-              </div>
 
-              <div class="error" v-if="form.errors.has('food')">
-                {{ form.errors.get("food") }}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="form-group mb-30">
-          <label for="descriptionId">Description</label>
-
-          <vue-editor
-            :customModules="customModulesForEditor"
-            :editorOptions="editorSettings"
-            id="editor"
-            useCustomImageHandler
-            @image-added="handleImageAdded"
-            @image-removed="handleImageRemoved"
-            v-model="form.description"
-            :class="{ 'is-invalid': form.errors.has('description') }"
-          ></vue-editor>
-          <has-error :form="form" field="description"></has-error>
-        </div>
-        <div class="row mb-30">
-          <div class="col-sm-6">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
+                <div class="custom-control custom-radio custom-control-inline">
                   <input
-                    @change="changePhoto($event)"
-                    name="photo"
-                    type="file"
-                    class="overflow-hidden"
-                    :class="{ 'is-invalid': form.errors.has('photo') }"
+                    type="radio"
+                    class="custom-control-input"
+                    id="hotelRadio"
+                    value="3"
+                    name="hotel_type"
+                    v-model="form.hotel_type"
+                    :class="{ 'is-invalid': form.errors.has('hotel_type') }"
                   />
+                  <label class="custom-control-label" for="hotelRadio"
+                    >3 Star</label
+                  >
                 </div>
-              </div>
-              <div class="col-sm-6">
-                <img v-if="photo != ''" :src="photo" alt width="80" height="80" />
-              </div>
-            </div>
-          </div>
 
-          <div class="col-sm-6">
-            <div class="row">
-              <div class="col-sm-5">
-                <div class="form-group">
+                <div class="custom-control custom-radio custom-control-inline">
                   <input
-                    @change="changeDetailPhoto($event)"
-                    type="file"
-                    class="overflow-hidden"
-                    :class="{ 'is-invalid': form.errors.has('detail_photo') }"
+                    type="radio"
+                    class="custom-control-input"
+                    id="hotelRadio1"
+                    name="hotel_type"
+                    v-model="form.hotel_type"
+                    :class="{ 'is-invalid': form.errors.has('hotel_type') }"
+                    value="4"
                   />
+                  <label class="custom-control-label" for="hotelRadio1"
+                    >4 Star</label
+                  >
                 </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input
+                    type="radio"
+                    class="custom-control-input"
+                    id="hotelRadio2"
+                    name="hotel_type"
+                    v-model="form.hotel_type"
+                    :class="{ 'is-invalid': form.errors.has('hotel_type') }"
+                    value="5"
+                  />
+                  <label class="custom-control-label" for="hotelRadio2"
+                    >5 Star</label
+                  >
+                </div>
+                <has-error :form="form" field="hotel_type"></has-error>
               </div>
-              <div class="col-sm-7">
-                <img v-if="detail_photo != ''" :src="detail_photo" alt width="80" height="80" class="detail_photo" />
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="mode_of_transport">Mode of Transport</label>
+                <br />
+                <div class="custom-control custom-checkbox custom-control-inline">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="transport"
+                    v-model="form.flight"
+                    true-value="1"
+                    false-value="0"
+                  />
+                  <label class="custom-control-label" for="transport"
+                    >Flight</label
+                  >
+                </div>
+
+                <div class="custom-control custom-checkbox custom-control-inline">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="transport1"
+                    v-model="form.bus"
+                    true-value="1"
+                    false-value="0"
+                  />
+                  <label class="custom-control-label" for="transport1">Bus</label>
+                </div>
+
+                <div class="custom-control custom-checkbox custom-control-inline">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="transport2"
+                    v-model="form.train"
+                    true-value="1"
+                    false-value="0"
+                  />
+                  <label class="custom-control-label" for="transport2"
+                    >Train</label
+                  >
+                </div>
+                <div class="error" v-if="form.errors.has('transport')">
+                  <lable class="danger text-danger">{{
+                    form.errors.get("transport")
+                  }}</lable>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <hr />
-
-        <div class="card content" v-for="(data, index) in itinerarydays" :key="index">
-          <h4>Day {{ data.day }}</h4>
           <div class="row">
             <div class="col-sm-6">
-              <label>Source</label>
-              <dropdown-list class="mb-2" 
-                :itemList="options" 
-                :select="`name`"
-                v-model="data.day_source"
-              />
-              {{ data.day_source }}
-            </div>
-            <div class="col-sm-6">
-              <label>Destination</label>
-              
-              <dropdown-list class="mb-2" 
-                :itemList="options" 
-                :select="`name`"
-                v-model="data.day_destination"
-              />
+              <div class="form-group">
+                <label for="mode_of_transport">Tour category</label>
+                <br />
 
-              {{ data.day_destination }}
-            </div>
-
-            <div class="col-sm-12">
-              <label>Description</label>
-              <vue-editor
-                v-model="data.day_description"
-                :class="{ 'is-invalid': form.errors.has('description') }"
-                :customModules="customModulesForEditor"
-                :editorOptions="editorSettings"
-                id="editor"
-                useCustomImageHandler
-                @image-added="handleImageAdded"
-                @image-removed="handleImageRemoved"
-              ></vue-editor>
+                <multiselect
+                  v-model="form.tourtypes"
+                  :options="tour_type_list"
+                  :multiple="true"
+                  :close-on-select="true"
+                  :show-labels="false"
+                  placeholder="Pick some"
+                  label="name"
+                  track-by="name"
+                ></multiselect>
+              </div>
             </div>
           </div>
-        </div>
 
-        <form-buttons />
-      </form>
+          <div class="row mb-30">
+            <div class="col-sm-8">
+              <div class="form-group">
+                <label for="titleId">Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Title"
+                  name="title"
+                  v-model="form.title"
+                  :class="{ 'is-invalid': form.errors.has('title') }"
+                />
+                <has-error :form="form" field="title"></has-error>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="tourtypeId">Food</label>
+                <div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="food_yes"
+                      value="1"
+                      name="food"
+                      v-model="form.food"
+                    />
+                    <label class="custom-control-label" for="food_yes">Yes</label>
+                  </div>
+
+                  <!-- Default inline 2-->
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      value="0"
+                      id="food_no"
+                      name="food"
+                      v-model="form.food"
+                    />
+                    <label class="custom-control-label" for="food_no">No</label>
+                  </div>
+                </div>
+
+                <div class="error" v-if="form.errors.has('food')">
+                  {{ form.errors.get("food") }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group mb-30">
+            <label for="descriptionId">Description</label>
+
+            <vue-editor
+              :customModules="customModulesForEditor"
+              :editorOptions="editorSettings"
+              id="editor"
+              useCustomImageHandler
+              @image-added="handleImageAdded"
+              @image-removed="handleImageRemoved"
+              v-model="form.description"
+              :class="{ 'is-invalid': form.errors.has('description') }"
+            ></vue-editor>
+            <has-error :form="form" field="description"></has-error>
+          </div>
+          <div class="row mb-30">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input
+                      @change="changePhoto($event)"
+                      name="photo"
+                      type="file"
+                      class="overflow-hidden"
+                      :class="{ 'is-invalid': form.errors.has('photo') }"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <img v-if="photo != ''" :src="photo" alt width="80" height="80" />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="form-group">
+                    <input
+                      @change="changeDetailPhoto($event)"
+                      type="file"
+                      class="overflow-hidden"
+                      :class="{ 'is-invalid': form.errors.has('detail_photo') }"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-7">
+                  <img v-if="detail_photo != ''" :src="detail_photo" alt width="80" height="80" class="detail_photo" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <div class="card content" v-for="(data, index) in itinerarydays" :key="index">
+            <h4>Day {{ data.day }}</h4>
+            <div class="row">
+              <div class="col-sm-6">
+                <label>Source</label>
+                <dropdown-list class="mb-2" 
+                  :itemList="cities" 
+                  v-model="data.day_source"
+                />
+                {{ data.day_source }}
+              </div>
+              <div class="col-sm-6">
+                <label>Destination</label>
+                
+                <dropdown-list class="mb-2" 
+                  :itemList="cities" 
+                  v-model="data.day_destination"
+                />
+
+                {{ data.day_destination }}
+              </div>
+
+              <div class="col-sm-12">
+                <label>Description</label>
+                <vue-editor
+                  v-model="data.day_description"
+                  :class="{ 'is-invalid': form.errors.has('description') }"
+                  :customModules="customModulesForEditor"
+                  :editorOptions="editorSettings"
+                  id="editor"
+                  useCustomImageHandler
+                  @image-added="handleImageAdded"
+                  @image-removed="handleImageRemoved"
+                ></vue-editor>
+              </div>
+            </div>
+          </div>
+
+          <form-buttons />
+        </form>
+      </div>
     </template>
   </form-layout>
 </template>
@@ -434,7 +432,7 @@ export default {
   mixins:[Vue2EditorMixin],
   data() {
     return {
-      options: [],
+      cities: [],
       sources: '',
       destinations: '',
       itinerarydays: [],
@@ -473,14 +471,7 @@ export default {
     this.cityList();
     this.tourTypeData();
   },
-  // watch: {
-  //   "sources.value": function () {
-  //     this.form.source = this.sources["value"];
-  //   },
-  //   "destinations.value": function () {
-  //     this.form.destination = this.destinations["value"];
-  //   },
-  // },
+
   methods: {
     itineraryList() {
       axios
@@ -510,9 +501,9 @@ export default {
       axios.get("/api/city").then((res) => {
         if (res.data) {
           for(let i = 0;i<res.data.data.length;i++){
-            this.options.push({
+            this.cities.push({
               name:res.data.data[i].name,
-              id:res.data.data[i].id
+              id:res.data.data[i].name
             });
           }
         }

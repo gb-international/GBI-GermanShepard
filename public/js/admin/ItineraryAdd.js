@@ -517,7 +517,7 @@ __webpack_require__.r(__webpack_exports__);
           for (var i = 0; i < res.data.data.length; i++) {
             _this.options.push({
               name: res.data.data[i].name,
-              id: res.data.data[i].id
+              id: res.data.data[i].name
             });
           }
         }

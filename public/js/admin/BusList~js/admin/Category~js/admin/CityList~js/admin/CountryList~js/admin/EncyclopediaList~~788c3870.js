@@ -251,10 +251,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "content" }, [
     _c("div", { staticClass: "row justify-content-around" }, [
-      _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "col-md-12 pb-5" }, [
         _c(
           "div",
-          { staticClass: "container container_admin_body list-section" },
+          { staticClass: "container container_admin_body list-section pb-5" },
           [
             _c(
               "b-row",

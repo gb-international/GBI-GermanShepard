@@ -29,7 +29,15 @@ It takes id from the url and get the data from the api .
                   >
                     <div class="col-sm-3">
                       <label>Select Hotel</label>
-                      <select
+
+                      <dropdown-list 
+                        :itemList="hotel_list" 
+                        v-model="data.hotel_id" 
+                        @change="onChange(index, 'hotel',data.hotel_id)" 
+                      />
+
+
+                      <!-- <select
                         class="form-control select-field"
                         v-model="data.hotel_id"
                         @change="onChange(index, $event, 'hotel')"
@@ -41,7 +49,7 @@ It takes id from the url and get the data from the api .
                         >
                           {{ hotel.name }}
                         </option>
-                      </select>
+                      </select> -->
                     </div>
                     <div class="col-sm-8" v-if="data.hotel_id != ''">
                       <div class="row">
@@ -348,23 +356,16 @@ It takes id from the url and get the data from the api .
                     v-for="(bus_data, index) in bus_row"
                     :key="bus_data.id"
                   >
-                    <div class="col-sm-2">
-                      <label>Select Bus</label>
-                      <select
-                        class="form-control select-field"
-                        v-model="bus_data.bus_id"
-                        @change="onChange(index, $event, 'bus')"
-                      >
-                        <option
-                          v-for="bus in bus_list"
-                          :value="bus.id"
-                          :key="bus.id"
-                        >
-                          {{ bus.company_name }}
-                        </option>
-                      </select>
-                    </div>
                     <div class="col-sm-3">
+                      <label>Select Bus</label>
+                      <dropdown-list 
+                        :itemList="bus_list" 
+                        v-model="bus_data.bus_id" 
+                        @change="onChange(index, 'bus',bus_data.bus_id)" 
+                      />
+
+                    </div>
+                    <div class="col-sm-2">
                       <label>Seater</label>
                       <p>{{ bus_data.seater }}</p>
                     </div>
@@ -416,19 +417,13 @@ It takes id from the url and get the data from the api .
                   >
                     <div class="col-sm-3">
                       <label>Select Train</label>
-                      <select
-                        class="form-control select-field"
-                        v-model="train_data.train_id"
-                        @change="onChange(index, $event, 'train')"
-                      >
-                        <option
-                          v-for="train in train_list"
-                          :value="train.id"
-                          :key="train.id"
-                        >
-                          {{ train.name }}
-                        </option>
-                      </select>
+
+                      <dropdown-list 
+                        :itemList="train_list" 
+                        v-model="train_data.train_id" 
+                        @change="onChange(index, 'train',train_data.train_id)" 
+                      />
+
                     </div>
                     <div class="col-sm-4">
                       <label>Code</label>
@@ -482,19 +477,13 @@ It takes id from the url and get the data from the api .
                   >
                     <div class="col-sm-3">
                       <label>Select Flight</label>
-                      <select
-                        class="form-control select-field"
-                        v-model="flight_data.flight_id"
-                        @change="onChange(index, $event, 'flight')"
-                      >
-                        <option
-                          v-for="flight in flight_list"
-                          :value="flight.id"
-                          :key="flight.id"
-                        >
-                          {{ flight.name }}
-                        </option>
-                      </select>
+
+                      <dropdown-list 
+                        :itemList="flight_list" 
+                        v-model="flight_data.flight_id" 
+                        @change="onChange(index, 'flight',flight_data.flight_id)" 
+                      />
+
                     </div>
                     <div class="col-sm-4">
                       <label>Code</label>
@@ -548,19 +537,13 @@ It takes id from the url and get the data from the api .
                   >
                     <div class="col-sm-3">
                       <label>Select SightSeeing</label>
-                      <select
-                        class="form-control select-field"
-                        v-model="sight_data.sight_id"
-                        @change="onChange(index, $event, 'sight')"
-                      >
-                        <option
-                          v-for="sight in sight_list"
-                          :value="sight.id"
-                          :key="sight.id"
-                        >
-                          {{ sight.name }}
-                        </option>
-                      </select>
+
+                      <dropdown-list 
+                        :itemList="sight_list" 
+                        v-model="sight_data.sight_id" 
+                        @change="onChange(index, 'sight',sight_data.sight_id)" 
+                      />
+
                     </div>
                     <div class="col-sm-3">
                       <label>City</label>
@@ -642,19 +625,14 @@ It takes id from the url and get the data from the api .
                   >
                     <div class="col-sm-3">
                       <label>Select Escort</label>
-                      <select
-                        class="form-control select-field"
-                        v-model="escort_data.escort_id"
-                        @change="onChange(index, $event, 'escort')"
-                      >
-                        <option
-                          v-for="sight in escort_list"
-                          :value="sight.id"
-                          :key="sight.it"
-                        >
-                          {{ sight.name }}
-                        </option>
-                      </select>
+
+                      <dropdown-list 
+                        :itemList="escort_list" 
+                        v-model="escort_data.escort_id" 
+                        @change="onChange(index, 'escort',escort_data.escort_id)" 
+                      />
+
+
                     </div>
                     <div class="col-sm-4">
                       <label>Phone No</label>
@@ -771,8 +749,12 @@ It takes id from the url and get the data from the api .
 </template>
 
 <script>
+import DropdownList from "@/admin/components/form/DropdownList.vue";
 export default {
   name: "ListCalculator",
+  components:{
+    "dropdown-list": DropdownList,
+  },
   data() {
     return {
       showModal: false,
@@ -780,12 +762,12 @@ export default {
       itineraryData: "",
       row_input: "hotel",
       hotel_counter: 0,
-      hotel_list: "",
-      bus_list: "",
-      train_list: "",
-      flight_list: "",
-      sight_list: "",
-      escort_list: "",
+      hotel_list: [],
+      bus_list: [],
+      train_list: [],
+      flight_list: [],
+      sight_list: [],
+      escort_list: [],
       hotel_selected: [],
       bus_selected: [],
       sight_selected: [],
@@ -835,7 +817,12 @@ export default {
 
     axios.get(`/api/bus`).then((response) => {
       if (response.data) {
-        this.bus_list = response.data.data;
+        for(let i = 0;i<response.data.data.length;i++){
+          this.bus_list.push({
+            name:response.data.data[i].company_name,
+            id:response.data.data[i].id
+          });
+        }
       }
     });
 
@@ -943,8 +930,7 @@ export default {
         this.escort_row.push({ escort_id: "", phoneno: "", salaryPerday: "" });
       }
     },
-    onChange(index, event, type) {
-      var value = event.target.value;
+    onChange(index, type,value) {
       if (type == "hotel") {
         var path = `/api/hotel/` + value + "/edit";
         axios.get(path).then((response) => {

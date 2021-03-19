@@ -106,7 +106,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_layout_ViewLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/admin/components/layout/ViewLayout.vue */ "./resources/js/admin/components/layout/ViewLayout.vue");
 /* harmony import */ var _admin_components_buttons_AddButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/buttons/AddButton.vue */ "./resources/js/admin/components/buttons/AddButton.vue");
-/* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
+//
 //
 //
 //
@@ -308,7 +309,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     "view-layout": _admin_components_layout_ViewLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     "add-button": _admin_components_buttons_AddButton_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    "dropdown-filter": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -324,7 +325,7 @@ __webpack_require__.r(__webpack_exports__);
       form: {
         id: 0,
         amount: "",
-        status: "pending"
+        status: ""
       },
       student_list: false,
       edit_id: 0
@@ -338,6 +339,9 @@ __webpack_require__.r(__webpack_exports__);
       this.form.id = tour.id;
       this.form.amount = tour.amount;
       this.form.status = tour.status;
+    },
+    updateStatus: function updateStatus(v) {
+      this.form.status = v.id;
     },
     tourPayment: function tourPayment() {
       var _this = this;
@@ -852,14 +856,11 @@ var render = function() {
                           _vm._v(" "),
                           _c("dropdown-filter", {
                             staticClass: "mb-2",
-                            attrs: { itemList: _vm.status_list },
-                            model: {
-                              value: _vm.form.status,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "status", $$v)
-                              },
-                              expression: "form.status"
-                            }
+                            attrs: {
+                              itemList: _vm.status_list,
+                              selectedId: _vm.form.status
+                            },
+                            on: { "update:option": _vm.updateStatus }
                           })
                         ],
                         1

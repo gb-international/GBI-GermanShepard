@@ -55482,14 +55482,24 @@ table#table-transition .flip-list-move {
   color: #adadad !important;
 }
 
-.calculator label {
+.calculator label,
+.calculator .dropdown-selected {
   font-size: 12px !important;
   margin-left: 0px !important;
 }
 
 .calculator input,
-.calculator select {
+.calculator select,
+.calculator .dropdown-selected {
   height: 40px !important;
+}
+
+.calculator .dropdown-selected {
+  padding-top: 5px !important;
+}
+
+.calculator .dropdown-field .fa-caret-down {
+  top: 11px;
 }
 
 .calculator input {

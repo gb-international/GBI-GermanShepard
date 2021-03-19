@@ -49,20 +49,14 @@ class User extends Authenticatable
     public function encyclopediacomments(){
         return $this->hasMany('App\Model\Encyclopedia\Encyclopediacomment');
     }
-    
     // now we can delete usertravel because 'bookedusers' is working now
     public function UserTravel(){
         return $this->hasMany('App\Model\Tour\TourUser','user_id')->orderBy('created_at','DESC');
     }
 
-    
     public function bookedusers(){
         return $this->hasMany('App\Model\Reservation\Bookeduser','user_id')->orderBy('created_at','DESC');
     }
-
-
-
-   
     public function frontbooking()
 	{
 		return $this->hasMany('App\Model\Tour\Frontbooking');

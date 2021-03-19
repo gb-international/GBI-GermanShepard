@@ -171,7 +171,8 @@ It takes id from the url and get the data from the api .-->
 
                   <dropdown-filter class="mb-2" 
                     :itemList="status_list" 
-                    v-model="form.status"
+                    :selectedId="form.status"
+                    @update:option="updateStatus"
                   />
                 </div>
               </div>
@@ -194,13 +195,13 @@ It takes id from the url and get the data from the api .-->
 <script>
 import ViewLayout from "@/admin/components/layout/ViewLayout.vue";
 import AddButton from "@/admin/components/buttons/AddButton.vue";
-import DropdownList from "@/admin/components/form/DropdownList.vue";
+import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 export default {
   name:"ListUserPyamentTour",
   components: {
     "view-layout": ViewLayout,
     "add-button": AddButton,
-    "dropdown-filter": DropdownList,
+    "dropdown-filter": DropdownFilter,
   },
   data() {
     return {
@@ -213,7 +214,7 @@ export default {
       form: {
         id: 0,
         amount: "",
-        status: "pending",
+        status: "",
       },
       student_list: false,
       edit_id: 0,
@@ -228,6 +229,8 @@ export default {
       this.form.amount = tour.amount;
       this.form.status = tour.status;
     },
+
+    updateStatus (v) { this.form.status = v.id;},
 
     tourPayment() {
       var data = {

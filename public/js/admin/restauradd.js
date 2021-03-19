@@ -15,7 +15,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
-/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
+/* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
+//
+//
+//
 //
 //
 //
@@ -111,7 +114,7 @@ __webpack_require__.r(__webpack_exports__);
     ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_0__["ModelSelect"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    "dropdown-list": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
@@ -142,9 +145,6 @@ __webpack_require__.r(__webpack_exports__);
           }
         }
       });
-    },
-    UpdatedCity: function UpdatedCity(value) {
-      this.form.city_id = value.id;
     },
     addRestaurant: function addRestaurant() {
       var _this2 = this;
@@ -207,10 +207,16 @@ var render = function() {
                           _vm._v("Select City")
                         ]),
                         _vm._v(" "),
-                        _c("dropdown-filter", {
+                        _c("dropdown-list", {
                           staticClass: "mb-2",
                           attrs: { itemList: _vm.options },
-                          on: { "update:option": _vm.UpdatedCity }
+                          model: {
+                            value: _vm.form.city_id,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "city_id", $$v)
+                            },
+                            expression: "form.city_id"
+                          }
                         }),
                         _vm._v(" "),
                         _c("has-error", {

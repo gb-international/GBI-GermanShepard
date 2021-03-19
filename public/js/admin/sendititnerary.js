@@ -114,6 +114,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_buttons_BackButton_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/buttons/BackButton.vue */ "./resources/js/admin/components/buttons/BackButton.vue");
 /* harmony import */ var _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/buttons/SubmitButton.vue */ "./resources/js/admin/components/buttons/SubmitButton.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
 //
 //
 //
@@ -190,11 +191,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
+
 
 
 
@@ -208,7 +205,8 @@ __webpack_require__.r(__webpack_exports__);
     ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_1__["ModelSelect"],
     "back-button": _admin_components_buttons_BackButton_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     "submit-button": _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   data: function data() {
     return {
@@ -231,9 +229,18 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/members/salesman").then(function (response) {
-        _this.users = response.data;
-        console.log(response);
+        if (response.data) {
+          for (var i = 0; i < response.data.length; i++) {
+            _this.users.push({
+              name: response.data[i].name,
+              id: response.data[i].id
+            });
+          }
+        }
       });
+    },
+    UserUpdate: function UserUpdate(value) {
+      this.form.salesdp_id = value.id;
     },
     addAccount: function addAccount() {
       var _this2 = this;
@@ -246,7 +253,8 @@ __webpack_require__.r(__webpack_exports__);
             type: "error"
           });
         } else {
-          // this.$router.push('/itinerary-list')
+          _this2.$router.push('/itinerary-list');
+
           _this2.$toast.fire({
             icon: "success",
             title: "Successfully Sent"
@@ -527,57 +535,11 @@ var render = function() {
                           _vm._v("Sales Dep")
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.salesdp_id,
-                                expression: "form.salesdp_id"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "salesdp_id",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              {
-                                attrs: { value: "", disabled: "", hidden: "" }
-                              },
-                              [_vm._v("Select Sales Man")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.users, function(data) {
-                              return _c(
-                                "option",
-                                { key: data.id, domProps: { value: data.id } },
-                                [_vm._v(_vm._s(data.name))]
-                              )
-                            })
-                          ],
-                          2
-                        ),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.users },
+                          on: { "update:option": _vm.UserUpdate }
+                        }),
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "salesdp_id" }

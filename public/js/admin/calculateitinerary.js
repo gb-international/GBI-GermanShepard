@@ -9,6 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
 //
 //
 //
@@ -759,30 +760,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ListCalculator",
+  components: {
+    "dropdown-list": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       showModal: false,
@@ -790,12 +773,12 @@ __webpack_require__.r(__webpack_exports__);
       itineraryData: "",
       row_input: "hotel",
       hotel_counter: 0,
-      hotel_list: "",
-      bus_list: "",
-      train_list: "",
-      flight_list: "",
-      sight_list: "",
-      escort_list: "",
+      hotel_list: [],
+      bus_list: [],
+      train_list: [],
+      flight_list: [],
+      sight_list: [],
+      escort_list: [],
       hotel_selected: [],
       bus_selected: [],
       sight_selected: [],
@@ -864,7 +847,12 @@ __webpack_require__.r(__webpack_exports__);
     });
     axios.get("/api/bus").then(function (response) {
       if (response.data) {
-        _this.bus_list = response.data.data;
+        for (var i = 0; i < response.data.data.length; i++) {
+          _this.bus_list.push({
+            name: response.data.data[i].company_name,
+            id: response.data.data[i].id
+          });
+        }
       }
     });
     axios.get("/api/train").then(function (response) {
@@ -981,10 +969,8 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    onChange: function onChange(index, event, type) {
+    onChange: function onChange(index, type, value) {
       var _this2 = this;
-
-      var value = event.target.value;
 
       if (type == "hotel") {
         var path = "/api/hotel/" + value + "/edit";
@@ -1121,63 +1107,34 @@ var render = function() {
                   { staticClass: "col-sm-12" },
                   _vm._l(_vm.hotel_row, function(data, index) {
                     return _c("div", { key: data.id, staticClass: "row" }, [
-                      _c("div", { staticClass: "col-sm-3" }, [
-                        _c("label", [_vm._v("Select Hotel")]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: data.hotel_id,
-                                expression: "data.hotel_id"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-3" },
+                        [
+                          _c("label", [_vm._v("Select Hotel")]),
+                          _vm._v(" "),
+                          _c("dropdown-list", {
+                            attrs: { itemList: _vm.hotel_list },
                             on: {
-                              change: [
-                                function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    data,
-                                    "hotel_id",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                },
-                                function($event) {
-                                  return _vm.onChange(index, $event, "hotel")
-                                }
-                              ]
-                            }
-                          },
-                          _vm._l(_vm.hotel_list, function(hotel) {
-                            return _c(
-                              "option",
-                              { key: hotel.id, domProps: { value: hotel.id } },
-                              [
-                                _vm._v(
-                                  "\n                        " +
-                                    _vm._s(hotel.name) +
-                                    "\n                      "
+                              change: function($event) {
+                                return _vm.onChange(
+                                  index,
+                                  "hotel",
+                                  data.hotel_id
                                 )
-                              ]
-                            )
-                          }),
-                          0
-                        )
-                      ]),
+                              }
+                            },
+                            model: {
+                              value: data.hotel_id,
+                              callback: function($$v) {
+                                _vm.$set(data, "hotel_id", $$v)
+                              },
+                              expression: "data.hotel_id"
+                            }
+                          })
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
                       data.hotel_id != ""
                         ? _c("div", { staticClass: "col-sm-8" }, [
@@ -2280,65 +2237,36 @@ var render = function() {
                   { staticClass: "col-sm-12" },
                   _vm._l(_vm.bus_row, function(bus_data, index) {
                     return _c("div", { key: bus_data.id, staticClass: "row" }, [
-                      _c("div", { staticClass: "col-sm-2" }, [
-                        _c("label", [_vm._v("Select Bus")]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: bus_data.bus_id,
-                                expression: "bus_data.bus_id"
-                              }
-                            ],
-                            staticClass: "form-control select-field",
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-3" },
+                        [
+                          _c("label", [_vm._v("Select Bus")]),
+                          _vm._v(" "),
+                          _c("dropdown-list", {
+                            attrs: { itemList: _vm.bus_list },
                             on: {
-                              change: [
-                                function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    bus_data,
-                                    "bus_id",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                },
-                                function($event) {
-                                  return _vm.onChange(index, $event, "bus")
-                                }
-                              ]
-                            }
-                          },
-                          _vm._l(_vm.bus_list, function(bus) {
-                            return _c(
-                              "option",
-                              { key: bus.id, domProps: { value: bus.id } },
-                              [
-                                _vm._v(
-                                  "\n                        " +
-                                    _vm._s(bus.company_name) +
-                                    "\n                      "
+                              change: function($event) {
+                                return _vm.onChange(
+                                  index,
+                                  "bus",
+                                  bus_data.bus_id
                                 )
-                              ]
-                            )
-                          }),
-                          0
-                        )
-                      ]),
+                              }
+                            },
+                            model: {
+                              value: bus_data.bus_id,
+                              callback: function($$v) {
+                                _vm.$set(bus_data, "bus_id", $$v)
+                              },
+                              expression: "bus_data.bus_id"
+                            }
+                          })
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-3" }, [
+                      _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Seater")]),
                         _vm._v(" "),
                         _c("p", [_vm._v(_vm._s(bus_data.seater))])
@@ -2406,66 +2334,34 @@ var render = function() {
                       "div",
                       { key: train_data.id, staticClass: "row" },
                       [
-                        _c("div", { staticClass: "col-sm-3" }, [
-                          _c("label", [_vm._v("Select Train")]),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: train_data.train_id,
-                                  expression: "train_data.train_id"
-                                }
-                              ],
-                              staticClass: "form-control select-field",
+                        _c(
+                          "div",
+                          { staticClass: "col-sm-3" },
+                          [
+                            _c("label", [_vm._v("Select Train")]),
+                            _vm._v(" "),
+                            _c("dropdown-list", {
+                              attrs: { itemList: _vm.train_list },
                               on: {
-                                change: [
-                                  function($event) {
-                                    var $$selectedVal = Array.prototype.filter
-                                      .call($event.target.options, function(o) {
-                                        return o.selected
-                                      })
-                                      .map(function(o) {
-                                        var val =
-                                          "_value" in o ? o._value : o.value
-                                        return val
-                                      })
-                                    _vm.$set(
-                                      train_data,
-                                      "train_id",
-                                      $event.target.multiple
-                                        ? $$selectedVal
-                                        : $$selectedVal[0]
-                                    )
-                                  },
-                                  function($event) {
-                                    return _vm.onChange(index, $event, "train")
-                                  }
-                                ]
-                              }
-                            },
-                            _vm._l(_vm.train_list, function(train) {
-                              return _c(
-                                "option",
-                                {
-                                  key: train.id,
-                                  domProps: { value: train.id }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        " +
-                                      _vm._s(train.name) +
-                                      "\n                      "
+                                change: function($event) {
+                                  return _vm.onChange(
+                                    index,
+                                    "train",
+                                    train_data.train_id
                                   )
-                                ]
-                              )
-                            }),
-                            0
-                          )
-                        ]),
+                                }
+                              },
+                              model: {
+                                value: train_data.train_id,
+                                callback: function($$v) {
+                                  _vm.$set(train_data, "train_id", $$v)
+                                },
+                                expression: "train_data.train_id"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-4" }, [
                           _c("label", [_vm._v("Code")]),
@@ -2556,66 +2452,34 @@ var render = function() {
                       "div",
                       { key: flight_data.id, staticClass: "row" },
                       [
-                        _c("div", { staticClass: "col-sm-3" }, [
-                          _c("label", [_vm._v("Select Flight")]),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: flight_data.flight_id,
-                                  expression: "flight_data.flight_id"
-                                }
-                              ],
-                              staticClass: "form-control select-field",
+                        _c(
+                          "div",
+                          { staticClass: "col-sm-3" },
+                          [
+                            _c("label", [_vm._v("Select Flight")]),
+                            _vm._v(" "),
+                            _c("dropdown-list", {
+                              attrs: { itemList: _vm.flight_list },
                               on: {
-                                change: [
-                                  function($event) {
-                                    var $$selectedVal = Array.prototype.filter
-                                      .call($event.target.options, function(o) {
-                                        return o.selected
-                                      })
-                                      .map(function(o) {
-                                        var val =
-                                          "_value" in o ? o._value : o.value
-                                        return val
-                                      })
-                                    _vm.$set(
-                                      flight_data,
-                                      "flight_id",
-                                      $event.target.multiple
-                                        ? $$selectedVal
-                                        : $$selectedVal[0]
-                                    )
-                                  },
-                                  function($event) {
-                                    return _vm.onChange(index, $event, "flight")
-                                  }
-                                ]
-                              }
-                            },
-                            _vm._l(_vm.flight_list, function(flight) {
-                              return _c(
-                                "option",
-                                {
-                                  key: flight.id,
-                                  domProps: { value: flight.id }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        " +
-                                      _vm._s(flight.name) +
-                                      "\n                      "
+                                change: function($event) {
+                                  return _vm.onChange(
+                                    index,
+                                    "flight",
+                                    flight_data.flight_id
                                   )
-                                ]
-                              )
-                            }),
-                            0
-                          )
-                        ]),
+                                }
+                              },
+                              model: {
+                                value: flight_data.flight_id,
+                                callback: function($$v) {
+                                  _vm.$set(flight_data, "flight_id", $$v)
+                                },
+                                expression: "flight_data.flight_id"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-4" }, [
                           _c("label", [_vm._v("Code")]),
@@ -2706,66 +2570,34 @@ var render = function() {
                       "div",
                       { key: sight_data.id, staticClass: "row" },
                       [
-                        _c("div", { staticClass: "col-sm-3" }, [
-                          _c("label", [_vm._v("Select SightSeeing")]),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: sight_data.sight_id,
-                                  expression: "sight_data.sight_id"
-                                }
-                              ],
-                              staticClass: "form-control select-field",
+                        _c(
+                          "div",
+                          { staticClass: "col-sm-3" },
+                          [
+                            _c("label", [_vm._v("Select SightSeeing")]),
+                            _vm._v(" "),
+                            _c("dropdown-list", {
+                              attrs: { itemList: _vm.sight_list },
                               on: {
-                                change: [
-                                  function($event) {
-                                    var $$selectedVal = Array.prototype.filter
-                                      .call($event.target.options, function(o) {
-                                        return o.selected
-                                      })
-                                      .map(function(o) {
-                                        var val =
-                                          "_value" in o ? o._value : o.value
-                                        return val
-                                      })
-                                    _vm.$set(
-                                      sight_data,
-                                      "sight_id",
-                                      $event.target.multiple
-                                        ? $$selectedVal
-                                        : $$selectedVal[0]
-                                    )
-                                  },
-                                  function($event) {
-                                    return _vm.onChange(index, $event, "sight")
-                                  }
-                                ]
-                              }
-                            },
-                            _vm._l(_vm.sight_list, function(sight) {
-                              return _c(
-                                "option",
-                                {
-                                  key: sight.id,
-                                  domProps: { value: sight.id }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        " +
-                                      _vm._s(sight.name) +
-                                      "\n                      "
+                                change: function($event) {
+                                  return _vm.onChange(
+                                    index,
+                                    "sight",
+                                    sight_data.sight_id
                                   )
-                                ]
-                              )
-                            }),
-                            0
-                          )
-                        ]),
+                                }
+                              },
+                              model: {
+                                value: sight_data.sight_id,
+                                callback: function($$v) {
+                                  _vm.$set(sight_data, "sight_id", $$v)
+                                },
+                                expression: "sight_data.sight_id"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-3" }, [
                           _c("label", [_vm._v("City")]),
@@ -2985,66 +2817,34 @@ var render = function() {
                       "div",
                       { key: escort_data.id, staticClass: "row" },
                       [
-                        _c("div", { staticClass: "col-sm-3" }, [
-                          _c("label", [_vm._v("Select Escort")]),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: escort_data.escort_id,
-                                  expression: "escort_data.escort_id"
-                                }
-                              ],
-                              staticClass: "form-control select-field",
+                        _c(
+                          "div",
+                          { staticClass: "col-sm-3" },
+                          [
+                            _c("label", [_vm._v("Select Escort")]),
+                            _vm._v(" "),
+                            _c("dropdown-list", {
+                              attrs: { itemList: _vm.escort_list },
                               on: {
-                                change: [
-                                  function($event) {
-                                    var $$selectedVal = Array.prototype.filter
-                                      .call($event.target.options, function(o) {
-                                        return o.selected
-                                      })
-                                      .map(function(o) {
-                                        var val =
-                                          "_value" in o ? o._value : o.value
-                                        return val
-                                      })
-                                    _vm.$set(
-                                      escort_data,
-                                      "escort_id",
-                                      $event.target.multiple
-                                        ? $$selectedVal
-                                        : $$selectedVal[0]
-                                    )
-                                  },
-                                  function($event) {
-                                    return _vm.onChange(index, $event, "escort")
-                                  }
-                                ]
-                              }
-                            },
-                            _vm._l(_vm.escort_list, function(sight) {
-                              return _c(
-                                "option",
-                                {
-                                  key: sight.it,
-                                  domProps: { value: sight.id }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        " +
-                                      _vm._s(sight.name) +
-                                      "\n                      "
+                                change: function($event) {
+                                  return _vm.onChange(
+                                    index,
+                                    "escort",
+                                    escort_data.escort_id
                                   )
-                                ]
-                              )
-                            }),
-                            0
-                          )
-                        ]),
+                                }
+                              },
+                              model: {
+                                value: escort_data.escort_id,
+                                callback: function($$v) {
+                                  _vm.$set(escort_data, "escort_id", $$v)
+                                },
+                                expression: "escort_data.escort_id"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-4" }, [
                           _c("label", [_vm._v("Phone No")]),

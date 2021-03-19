@@ -140,6 +140,7 @@ export default {
       this.$emit("input", theItem.id);
       this.inputValue = "";
       this.showlist = false;
+      this.$emit("change", theItem.id);
     },
     itemVisible(item) {
       let currentName = item.name.toLowerCase();

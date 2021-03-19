@@ -12,9 +12,12 @@ to submit the data we are using a function.
           <div class="col-sm-4">
             <div class="form-group">
               <label for="city_id">Select City</label>
-              <dropdown-filter class="mb-2" 
+
+              <dropdown-list class="mb-2" 
                 :itemList="options" 
-                @update:option="UpdatedCity" />
+                v-model="form.city_id"
+              />
+              
               <has-error :form="form" field="city_id"></has-error>
             </div>
           </div>
@@ -85,7 +88,7 @@ import { ModelSelect } from "vue-search-select";
 import { Form, HasError, AlertError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
-import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
+import DropdownList from "@/admin/components/form/DropdownList.vue";
 export default {
   name: "NewRestaurant",
   components: {
@@ -94,7 +97,7 @@ export default {
     ModelSelect,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
-    "dropdown-filter": DropdownFilter
+    "dropdown-list": DropdownList
   },
   data() {
     return {
@@ -125,7 +128,6 @@ export default {
       });
     },
 
-    UpdatedCity(value){ this.form.city_id = value.id; },
 
     addRestaurant() {
       this.form

@@ -500,7 +500,7 @@ export default {
           for(let i = 0;i<res.data.data.length;i++){
             this.options.push({
               name:res.data.data[i].name,
-              id:res.data.data[i].id
+              id:res.data.data[i].name
             });
           }
         }

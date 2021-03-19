@@ -1,143 +1,139 @@
 
-localhost::8000/api/bus/all/{size}
-localhost::8000/api/bus
-localhost::8000/api/train/all/{size}
-localhost::8000/api/train
-localhost::8000/api/flight/all/{size}
-localhost::8000/api/flight
+localhost::8000/api/bus/all/{size} // get data with pagination
+localhost::8000/api/bus // resource controller (list,add,edit,update,view)
+localhost::8000/api/train/all/{size} // get data with pagination
+localhost::8000/api/train // resource controller (list,add,edit,update,view)
+localhost::8000/api/flight/all/{size} // get data with pagination
+localhost::8000/api/flight // resource controller (list,add,edit,update,view)
 
 
-localhost::8000/api/country/all/{size}
-localhost::8000/api/country
-localhost::8000/api/city/all/{size}
-localhost::8000/api/city
-localhost::8000/api/state/all/{size}
-localhost::8000/api/state
-localhost::8000/api/sightseeings/all/{size}
-localhost::8000/api/sightseeings
+localhost::8000/api/country/all/{size} // get data with pagination
+localhost::8000/api/country // resource controller (list,add,edit,update,view)
+localhost::8000/api/city/all/{size} // get data with pagination
+localhost::8000/api/city // resource controller (list,add,edit,update,view)
+localhost::8000/api/state/all/{size} // get data with pagination
+localhost::8000/api/state // resource controller (list,add,edit,update,view)
+localhost::8000/api/sightseeings/all/{size} // get data with pagination
+localhost::8000/api/sightseeings // resource controller (list,add,edit,update,view)
 
 
-localhost::8000/api/itinerary/all/{size}
-localhost::8000/api/itinerary
-localhost::8000/api/itinerarydayget/{id}
+localhost::8000/api/itinerary/all/{size} // get data with pagination
+localhost::8000/api/itinerary // resource controller (list,add,edit,update,view)
+localhost::8000/api/itinerarydayget/{id} // get single itinerraryday data
 
 
-localhost::8000/api/tour/all/{size}
-localhost::8000/api/tour
-localhost::8000/api/tourtype/all/{size}
-localhost::8000/api/tourtype
-localhost::8000/api/tourprogram/all/{size}
-localhost::8000/api/tourprogram
-localhost::8000/api/schoolbankdetails/all/{size}
-localhost::8000/api/schoolbankdetails
-localhost::8000/api/userpayments/all/{size}
-localhost::8000/api/userpayments
-localhost::8000/api/frontbooking/all/{size}
-localhost::8000/api/frontbooking/{id}
-localhost::8000/api/frontbooking-status
-localhost::8000/api/frontbooking-delete/{id}
-localhost::8000/api/touruser-list
-localhost::8000/api/add-pnr-user
-localhost::8000/api/pnruser/get
-localhost::8000/api/update-pnruser
+localhost::8000/api/tour/all/{size} // get data with pagination
+localhost::8000/api/tour // resource controller (list,add,edit,update,view)
+localhost::8000/api/tourtype/all/{size} // get data with pagination
+localhost::8000/api/tourtype // resource controller (list,add,edit,update,view)
+localhost::8000/api/tourprogram/all/{size} // get data with pagination
+localhost::8000/api/tourprogram // resource controller (list,add,edit,update,view)
+localhost::8000/api/schoolbankdetails/all/{size} // get data with pagination
+localhost::8000/api/schoolbankdetails // resource controller (list,add,edit,update,view)
+localhost::8000/api/userpayments/all/{size} // get data with pagination
+localhost::8000/api/userpayments // get payments data of the user
+localhost::8000/api/frontbooking/all/{size} // get data with pagination
+localhost::8000/api/frontbooking/{id} // get front-booking informaton of single record
+localhost::8000/api/frontbooking-status // change status of the front-booking
+localhost::8000/api/frontbooking-delete/{id} // delete front-booking data
+localhost::8000/api/touruser-list // get tour list 
+localhost::8000/api/add-pnr-user // assign pnr to each user who is going on tour
+localhost::8000/api/pnruser/get // get pnrs
+localhost::8000/api/update-pnruser // update pnr infomation
 
-localhost::8000/api/foods/{id}
-localhost::8000/api/foods
-localhost::8000/api/Route::patch('foods/{id}
-localhost::8000/api/Route::delete('foods/{id}
-localhost::8000/api///escortUpdate
-localhost::8000/api/escortUpdates/{id}
+localhost::8000/api/foods/{id} // get single food information
+localhost::8000/api/foods // resource controller (list,add,edit,update,view)
 
-localhost::8000/api/restaurants/all/{size}
-localhost::8000/api/restaurants
+localhost::8000/api/escortUpdates/{id} // get any updates from escorts 
+
+localhost::8000/api/restaurants/all/{size} // get data with pagination
+localhost::8000/api/restaurants // resource controller (list,add,edit,update,view)
 
 
-localhost::8000/api/hotel/all/{size}
-localhost::8000/api/hotel
+localhost::8000/api/hotel/all/{size} // get data with pagination
+localhost::8000/api/hotel // resource controller (list,add,edit,update,view)
 
-localhost::8000/api/school/all/{size}
+localhost::8000/api/school/all/{size} // get data with pagination
 localhost::8000/api/schools-login-details/{id}
-localhost::8000/api/school
-localhost::8000/api/student
+localhost::8000/api/school // resource controller (list,add,edit,update,view)
 localhost::8000/api/groupmembers/{tour_code}/{type}
-localhost::8000/api/groupmembers/update
-localhost::8000/api/groupmember/destroy
-localhost::8000/api/groupmember/add
-localhost::8000/api/groupmembers/addlogindetail
+localhost::8000/api/groupmembers/update // update data
+localhost::8000/api/groupmember/destroy // delete data
+localhost::8000/api/groupmember/add // add data
+localhost::8000/api/groupmembers/addlogindetail // send login credentials
 
 
 
-localhost::8000/api/escort/all/{size}
-localhost::8000/api/escort-login-link
-localhost::8000/api/escort
+localhost::8000/api/escort/all/{size} // get data with pagination
+localhost::8000/api/escort-login-link // send login link to escort for login
+localhost::8000/api/escort // resource controller (list,add,edit,update,view)
 
 
-localhost::8000/api/gallery-img-delete
-localhost::8000/api/gallery/all/{size}
-localhost::8000/api/gallery
-
-
-
-localhost::8000/api/role/all/{size}
-localhost::8000/api/role
-localhost::8000/api/permission/all/{size}
-localhost::8000/api/permission
-
-
-localhost::8000/api/bookedescorts
-localhost::8000/api/bookedhotels
-localhost::8000/api/bookedrestaurants
-localhost::8000/api/bookedsightseeings
-localhost::8000/api/bookedflights
-localhost::8000/api/bookedtrains
-localhost::8000/api/bookedbuses
-localhost::8000/api/pnrs
-localhost::8000/api/bookedusers/bankdetails/{id}
-localhost::8000/api/bookedusers/{id}
-localhost::8000/api/bookedusers-view/{id}
-localhost::8000/api/bookedusers
-
-localhost::8000/api/pnrs/get
-localhost::8000/api/payments/list
-localhost::8000/api/payments/student
-localhost::8000/api/createpayment
-localhost::8000/api/addtourpayment
-localhost::8000/api/updatetourpayment
-localhost::8000/api/gettourusers
-localhost::8000/api/getUserpayments/{id}
-
-localhost::8000/api/members/all/{size}
-localhost::8000/api/members
-localhost::8000/api/members/create
-localhost::8000/api/members/destroy/{user}
-localhost::8000/api/members/salesman
-
-localhost::8000/api/accounts/all/{size}
-localhost::8000/api/accounts
-
-
-localhost::8000/api/encyclopedia-img
-localhost::8000/api/encyclopedias/all/{size}
-localhost::8000/api/encyclopedias
-localhost::8000/api/encyclopediacomments
+localhost::8000/api/gallery-img-delete // delete single image while uploading from text-editor
+localhost::8000/api/gallery/all/{size} // get data with pagination
+localhost::8000/api/gallery // resource controller (list,add,edit,update,view)
 
 
 
-localhost::8000/api/subscribers/all/{size}
-localhost::8000/api/subscribers
-localhost::8000/api/Route::delete('subscribers/{id}
+localhost::8000/api/role/all/{size} // get data with pagination
+localhost::8000/api/role // resource controller (list,add,edit,update,view)
+localhost::8000/api/permission/all/{size} // get data with pagination
+localhost::8000/api/permission // resource controller (list,add,edit,update,view)
 
-localhost::8000/api/website
-localhost::8000/api/user
-localhost::8000/api/user/all/{size}
+
+localhost::8000/api/bookedescorts // resource controller (list,add,edit,update,view)
+localhost::8000/api/bookedhotels // resource controller (list,add,edit,update,view)
+localhost::8000/api/bookedrestaurants // resource controller (list,add,edit,update,view)
+localhost::8000/api/bookedsightseeings // resource controller (list,add,edit,update,view)
+localhost::8000/api/bookedflights // resource controller (list,add,edit,update,view)
+localhost::8000/api/bookedtrains // resource controller (list,add,edit,update,view)
+localhost::8000/api/bookedbuses // resource controller (list,add,edit,update,view)
+localhost::8000/api/pnrs // resource controller (list,add,edit,update,view)
+localhost::8000/api/bookedusers/bankdetails/{id} // get user bankdetails with id
+localhost::8000/api/bookedusers/{id} // get all the bookedusers 
+localhost::8000/api/bookedusers-view/{id} // show bookedusers
+localhost::8000/api/bookedusers // resource controller (list,add,edit,update,view)
+
+localhost::8000/api/pnrs/get // get all the pnrs
+localhost::8000/api/payments/list // get all the payment list
+localhost::8000/api/payments/student // get the payment of the students list
+localhost::8000/api/createpayment // create payment info
+localhost::8000/api/addtourpayment // add tour payment according to tour
+localhost::8000/api/updatetourpayment // update tour payment at the tour dashboard
+localhost::8000/api/gettourusers // get all the users who are goinig on tour
+localhost::8000/api/getUserpayments/{id} // get payment details of the users
+
+localhost::8000/api/members/all/{size} // get data with pagination
+localhost::8000/api/members // get all the members who are going on tour
+localhost::8000/api/members/create // create member who is going on tour
+localhost::8000/api/members/destroy/{user} // delete user member who is not going on tour
+
+localhost::8000/api/accounts/all/{size} // get data with pagination
+localhost::8000/api/accounts // resource controller (list,add,edit,update,view)
+
+
+localhost::8000/api/encyclopedia-img // get all the encyclopedia images
+localhost::8000/api/encyclopedias/all/{size} // get data with pagination
+localhost::8000/api/encyclopedias // resource controller (list,add,edit,update,view)
+localhost::8000/api/encyclopediacomments // resource controller (list,add,edit,update,view)
+
+
+
+localhost::8000/api/subscribers/all/{size} // get data with pagination
+localhost::8000/api/subscribers // get all the subscribers who have subscribed
+localhost::8000/api/subscribers/{id} // delete the subscriber
+
+localhost::8000/api/website // get set the home page data for the front-end
+localhost::8000/api/user // resource controller (list,add,edit,update,view)
+localhost::8000/api/user/all/{size} // get data with pagination
 localhost::8000/api/user/{id}
-localhost::8000/api/images
+localhost::8000/api/images // get images
 localhost::8000/api/images/delete
 
 
-localhost::8000/api/categories/all/{size}
-localhost::8000/api/categories
-localhost::8000/api/posts/all/{size}
-localhost::8000/api/posts
-localhost::8000/api/tags/all/{size}
-localhost::8000/api/tags
+localhost::8000/api/categories/all/{size} // get data with pagination
+localhost::8000/api/categories // resource controller (list,add,edit,update,view)
+localhost::8000/api/posts/all/{size} // get data with pagination
+localhost::8000/api/posts // resource controller (list,add,edit,update,view)
+localhost::8000/api/tags/all/{size} // get data with pagination
+localhost::8000/api/tags // resource controller (list,add,edit,update,view)

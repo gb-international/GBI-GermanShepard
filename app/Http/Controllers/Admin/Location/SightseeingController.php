@@ -9,7 +9,7 @@ namespace App\Http\Controllers\Admin\Location;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Resources\SightseeingCollection;
+use App\Http\Resources\SightSeeingCollection;
 use App\Model\Reservation\Sightseeing;
 use App\Traits\ImageTrait;
 use App\Rules\AlphaSpace;
@@ -30,7 +30,7 @@ class SightseeingController extends Controller
     }
     public function index()
     {
-        return new SightseeingCollection(Sightseeing::with(['city','state'])->get());
+        return new SightSeeingCollection(Sightseeing::with(['city','state'])->get());
     }
 
     /**
