@@ -12,7 +12,7 @@ to submit the data we are using a function.
         enctype="multipart/form-data"
         @submit.prevent="addItem()"
       >
-        <div class="row">
+        <div class="row" v-if="form.state_name">
           <div class="col-sm-3">
             <div class="form-group">
               <label for="state_name">State</label>
@@ -22,7 +22,6 @@ to submit the data we are using a function.
                 @update:option="UpdateState" 
                 :selectedId="form.state_name" 
               />
-
               <has-error :form="form" field="state_name"></has-error>
             </div>
 
@@ -188,7 +187,7 @@ import { VueEditor, Quill } from "vue2-editor";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
-import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
+import DropdownFilter from "@/admin/components/form/DropdownList.vue";
 export default {
   name: "EditEncyclopedia",
   components: {

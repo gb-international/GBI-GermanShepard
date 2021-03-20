@@ -51,7 +51,7 @@ export default {
       required: true,
     },
     value:{
-      
+
     },
     placeholder: {
       type: String,
@@ -66,20 +66,18 @@ export default {
       apiLoaded: false,
       showlist: false,
       edit_flag: false,
+      content:this.value,
     };
   },
   watch: {
-    selectedItem: function () {
-      this.optionChanged();
-    },
-  },
-  mounted() {
-    document.addEventListener("keyup", this.nextItem);
-  },
-  watch:{
-    value:function(){
-      this.getSelected(this.value);
+    itemList:function(){
+      if(this.itemList.length > 0){
+        this.getSelected(this.content);
+      }
     }
+  },
+  created() {
+    document.addEventListener("keyup", this.nextItem);
   },
 
   methods: {
@@ -104,6 +102,10 @@ export default {
         this.$refs.scrollContainer.scrollTop = liH * this.arrowCounter;
       }
     },
+    closeEvent: function () {
+      this.showlist = false;
+      this.arrowCounter = 0;
+    },
     getSelected(value) {
       if (this.itemList != undefined && this.edit_flag == false) {
         for (let i = 0; i < this.itemList.length; i++) {
@@ -121,10 +123,7 @@ export default {
     optionChanged() {
       this.$emit("input", this.selectedItem.id);
     },
-    closeEvent: function () {
-      this.showlist = false;
-      this.arrowCounter = 0;
-    },
+    
     resetSelection() {
       this.selectedItem = {};
       this.inputValue = "";
@@ -137,7 +136,8 @@ export default {
     },
     selectItem(theItem) {
       this.selectedItem = theItem;
-      this.$emit("input", theItem.id);
+      this.content = theItem.id;
+      this.$emit("input", this.content);
       this.inputValue = "";
       this.showlist = false;
       this.$emit("change", theItem.id);

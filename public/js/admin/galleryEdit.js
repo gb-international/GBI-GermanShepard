@@ -109,6 +109,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -129,10 +131,10 @@ __webpack_require__.r(__webpack_exports__);
       images: [],
       categories: [{
         name: "Domestic",
-        id: "Domestic"
+        id: "domestic"
       }, {
         name: "International",
-        id: "International"
+        id: "international"
       }],
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         category: "",

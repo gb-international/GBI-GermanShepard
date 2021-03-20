@@ -11,4 +11,5 @@ Admin
     accoun@gbinternational.in
     12345678
 
-
+    blogger@gbinternational.in
+    Blogger@123

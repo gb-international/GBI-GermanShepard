@@ -43,16 +43,16 @@ to submit the data we are using a function.
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="phoneno">Phone Number</label>
+              <label for="phone_no">Phone Number</label>
               <input
                 type="text"
                 class="form-control"
-                v-model="form.phoneno"
-                :class="{ 'is-invalid': form.errors.has('phoneno') }"
+                v-model="form.phone_no"
+                :class="{ 'is-invalid': form.errors.has('phone_no') }"
                 placeholder="Enter Phone No"
-                name="phoneno"
+                name="phone_no"
               />
-              <has-error :form="form" field="phoneno"></has-error>
+              <has-error :form="form" field="phone_no"></has-error>
             </div>
           </div>
         </div>
@@ -118,17 +118,28 @@ to submit the data we are using a function.
 
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="RoleName">Role Assign</label>
-              
+              <label for="role_name">Role Assign</label>
               <dropdown-filter class="mb-2" 
                 :itemList="role_list" 
                 @update:option="updateRole" 
+                :class="{ 'is-invalid': form.errors.has('role_name') }"
               />
-
-
-              <has-error :form="form" field="RoleName"></has-error>
+              <has-error :form="form" field="role_name"></has-error>
             </div>
           </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="role_name">Department</label>
+              <dropdown-filter class="mb-2" 
+                :itemList="departments" 
+                @update:option="updateDepartment" 
+                :class="{ 'is-invalid': form.errors.has('department_id') }"
+              />
+              <has-error :form="form" field="department_id"></has-error>
+            </div>
+          </div>
+            
         </div>
         <form-buttons />
       </form>
@@ -153,22 +164,25 @@ export default {
   data() {
     return {
       role_list: [],
+      departments: [],
       // Create a new form instance
       form: new Form({
         name: "",
         email: "",
         password: "",
         c_password: "",
-        phoneno: "",
+        phone_no: "",
         address: "",
         dob: "",
-        RoleName: "",
+        role_name: "",
+        department_id:'',
       }),
     };
   },
 
   created() {
     this.getRoles();
+    this.getDepartment();
   },
 
   methods: {
@@ -182,19 +196,46 @@ export default {
             });
           }
         }
+        console.log(this.role_list);
       });
     },
-    updateRole(v){ this.form.RoleName = v.id },
+    
+    getDepartment(){
+      axios.get("/api/departments").then((res) => {
+        if (res) {
+          for(let i = 0;i<res.data.length;i++){
+            this.departments.push({
+              name:res.data[i].name,
+              id:res.data[i].id
+            });
+          }
+        }
+      });
+    },
+
+    updateRole(v){ this.form.role_name = v.id },
+    updateDepartment(v){ this.form.department_id = v.id },
 
     addMember() {
-      this.form
+      // this.form
+      //   .post("/api/members/create")
+      //   .then((response) => {
+      //     this.$router.push(`/list-member`);
+      //     console.log(response);
+      //     this.$toast.fire({
+      //       icon: "success",
+      //       title: "GBI Member Added successfully",
+      //     });
+      //   })
+      //   .catch(() => {});
+
+        this.form
         .post("/api/members/create")
-        .then((response) => {
+        .then((res) => {
           this.$router.push(`/list-member`);
-          console.log(response);
           this.$toast.fire({
             icon: "success",
-            title: "GBI Member Added successfully",
+            title: "GBI Member Added Successfully",
           });
         })
         .catch(() => {});

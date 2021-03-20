@@ -152,6 +152,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -168,21 +179,24 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       role_list: [],
+      departments: [],
       // Create a new form instance
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         name: "",
         email: "",
         password: "",
         c_password: "",
-        phoneno: "",
+        phone_no: "",
         address: "",
         dob: "",
-        RoleName: ""
+        role_name: "",
+        department_id: ''
       })
     };
   },
   created: function created() {
     this.getRoles();
+    this.getDepartment();
   },
   methods: {
     getRoles: function getRoles() {
@@ -197,22 +211,50 @@ __webpack_require__.r(__webpack_exports__);
             });
           }
         }
+
+        console.log(_this.role_list);
+      });
+    },
+    getDepartment: function getDepartment() {
+      var _this2 = this;
+
+      axios.get("/api/departments").then(function (res) {
+        if (res) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this2.departments.push({
+              name: res.data[i].name,
+              id: res.data[i].id
+            });
+          }
+        }
       });
     },
     updateRole: function updateRole(v) {
-      this.form.RoleName = v.id;
+      this.form.role_name = v.id;
+    },
+    updateDepartment: function updateDepartment(v) {
+      this.form.department_id = v.id;
     },
     addMember: function addMember() {
-      var _this2 = this;
+      var _this3 = this;
 
-      this.form.post("/api/members/create").then(function (response) {
-        _this2.$router.push("/list-member");
+      // this.form
+      //   .post("/api/members/create")
+      //   .then((response) => {
+      //     this.$router.push(`/list-member`);
+      //     console.log(response);
+      //     this.$toast.fire({
+      //       icon: "success",
+      //       title: "GBI Member Added successfully",
+      //     });
+      //   })
+      //   .catch(() => {});
+      this.form.post("/api/members/create").then(function (res) {
+        _this3.$router.push("/list-member");
 
-        console.log(response);
-
-        _this2.$toast.fire({
+        _this3.$toast.fire({
           icon: "success",
-          title: "GBI Member Added successfully"
+          title: "GBI Member Added Successfully"
         });
       })["catch"](function () {});
     }
@@ -348,7 +390,7 @@ var render = function() {
                       "div",
                       { staticClass: "form-group" },
                       [
-                        _c("label", { attrs: { for: "phoneno" } }, [
+                        _c("label", { attrs: { for: "phone_no" } }, [
                           _vm._v("Phone Number")
                         ]),
                         _vm._v(" "),
@@ -357,32 +399,36 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.phoneno,
-                              expression: "form.phoneno"
+                              value: _vm.form.phone_no,
+                              expression: "form.phone_no"
                             }
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("phoneno")
+                            "is-invalid": _vm.form.errors.has("phone_no")
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter Phone No",
-                            name: "phoneno"
+                            name: "phone_no"
                           },
-                          domProps: { value: _vm.form.phoneno },
+                          domProps: { value: _vm.form.phone_no },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.$set(_vm.form, "phoneno", $event.target.value)
+                              _vm.$set(
+                                _vm.form,
+                                "phone_no",
+                                $event.target.value
+                              )
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "phoneno" }
+                          attrs: { form: _vm.form, field: "phone_no" }
                         })
                       ],
                       1
@@ -584,18 +630,47 @@ var render = function() {
                       "div",
                       { staticClass: "form-group" },
                       [
-                        _c("label", { attrs: { for: "RoleName" } }, [
+                        _c("label", { attrs: { for: "role_name" } }, [
                           _vm._v("Role Assign")
                         ]),
                         _vm._v(" "),
                         _c("dropdown-filter", {
                           staticClass: "mb-2",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("role_name")
+                          },
                           attrs: { itemList: _vm.role_list },
                           on: { "update:option": _vm.updateRole }
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "RoleName" }
+                          attrs: { form: _vm.form, field: "role_name" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "role_name" } }, [
+                          _vm._v("Department")
+                        ]),
+                        _vm._v(" "),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("department_id")
+                          },
+                          attrs: { itemList: _vm.departments },
+                          on: { "update:option": _vm.updateDepartment }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "department_id" }
                         })
                       ],
                       1

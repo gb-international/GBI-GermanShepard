@@ -145,7 +145,10 @@ Route::namespace('Admin')->group(function (){
 		Route::get('/members','GBIMemberController@index');
 		Route::post('/members/create','GBIMemberController@register');
 		Route::post('/members/destroy/{user}',"GBIMemberController@destroy");
+		Route::delete('/members/{id}',"GBIMemberController@destroy");
 		Route::get('/members/salesman',"GBIMemberController@memberType");
+		Route::get('/departments/all/{size}','DepartmentController@all');
+		Route::resource('/departments',"DepartmentController");
 	});
 	Route::namespace('Account')->group(function(){
 		Route::get('/accounts/all/{size}','AccountController@all');

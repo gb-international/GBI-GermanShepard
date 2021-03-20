@@ -14,8 +14,10 @@ use Validator;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Http\Request;
+
 use App\Rules\EmailValidate;
 use App\Rules\AlphaSpace;
+use App\Rules\PhoneNubmerValidate;
 class GBIMemberController extends Controller
 {
 
@@ -25,6 +27,7 @@ class GBIMemberController extends Controller
             'id','name','email','updated_at'
             ])
             ->where('user_role','1')
+            ->with(['UserRole:role_id,model_id','UserRole.role:id,name'])
             ->latest('updated_at')
             ->paginate($size));
     }
@@ -36,27 +39,32 @@ class GBIMemberController extends Controller
 
     public function register(Request $request){ 
 
-        $validator = Validator::make($request->all(), [ 
+        $this->validate($request, [ 
             'name' => ['required',new AlphaSpace],
             'address' => 'required|min:3',
             'email' => ['required','email',new EmailValidate],
+            'phone_no' => ['required','numeric',new PhoneNubmerValidate],
             'password' => 'required', 
             'c_password' => 'required|same:password', 
+            'role_name' => 'required',
+            'department_id' => 'required',
         ]);
-        if ($validator->fails()) { 
-            return response()->json(['error'=>$validator->errors()], 401);            
-        }
+
+        // if ($validator->fails()) { 
+        //     return response()->json(['error'=>$validator->errors()], 401);            
+        // }
 
         $input = $request->all(); 
         $input['password'] = bcrypt($input['password']); 
         $user = User::create($input);
 
         $user->user_role = '1';
-        $user->user_type = $request->RoleName;
+        $user->department_id = $request->department_id;
+        $user->user_type = $request->role_name;
 
         $user->save();
 
-        $user->assignRole($request->RoleName);
+        $user->assignRole($request->role_name);
 
         // Add more information to the informations table
         
@@ -74,7 +82,8 @@ class GBIMemberController extends Controller
 
     }
 
-    public function destroy(User $user){
+    public function destroy($id){
+        $user = User::where('id',$id)->first();
         $user->delete();
         return response()->json('successfully deleted');
     }

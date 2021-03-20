@@ -143,8 +143,6 @@ __webpack_require__.r(__webpack_exports__);
       // Submit the form via a itinerary request
       this.form.permissions = this.items;
       this.form.put("/api/role/".concat(this.$route.params.id)).then(function (response) {
-        _this2.$router.push("/list-role/");
-
         _this2.$toast.fire({
           icon: "success",
           title: "Successfully Updated"

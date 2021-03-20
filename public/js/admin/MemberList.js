@@ -142,6 +142,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -164,6 +165,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       fields: [{
         key: 'name',
         label: 'permission name',
+        sortable: true,
+        thClass: 'table-head'
+      }, {
+        key: 'user_role.role.name',
+        label: 'Role',
         sortable: true,
         thClass: 'table-head'
       }, {
@@ -546,6 +552,10 @@ var render = function() {
                     key: "cell(action)",
                     fn: function(data) {
                       return [
+                        _c("view-icon", {
+                          attrs: { url: "/user/" + data.item.id }
+                        }),
+                        _vm._v(" "),
                         _c("delete-icon", {
                           nativeOn: {
                             click: function($event) {

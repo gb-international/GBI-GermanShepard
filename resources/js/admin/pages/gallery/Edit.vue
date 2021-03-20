@@ -16,6 +16,8 @@ to submit the data we are using a function.
           <div class="col-sm-4">
             <div class="form-group">
               <label for="category">Gallery Category</label>
+
+              
               <dropdown-filter class="mb-2" 
                 :itemList="categories" 
                 @update:option="UpdateCategory" 
@@ -113,8 +115,8 @@ export default {
       schools: [],
       images: [],
       categories:[
-        {name:"Domestic",id:"Domestic"},
-        {name:"International",id:"International"}
+        {name:"Domestic",id:"domestic"},
+        {name:"International",id:"international"}
       ],
       form: new Form({
         category: "",

@@ -84,8 +84,8 @@ export default {
     return {
       options: [],
       categories:[
-        {name:"Domestic",id:"Domestic"},
-        {name:"International",id:"International"}
+        {name:"Domestic",id:"domestic"},
+        {name:"International",id:"international"}
       ],
       schools: [],
       form: new Form({

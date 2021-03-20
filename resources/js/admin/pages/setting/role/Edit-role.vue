@@ -119,7 +119,6 @@ export default {
       this.form
         .put(`/api/role/${this.$route.params.id}`)
         .then((response) => {
-          this.$router.push(`/list-role/`);
           this.$toast.fire({
             icon: "success",
             title: "Successfully Updated",

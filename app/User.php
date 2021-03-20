@@ -71,6 +71,18 @@ class User extends Authenticatable
         return $this->hasOne('App\Model\User\Subscriber');
     }
 
+    public function UserRole(){
+        return $this->hasOne('App\Model\RoleAndPermission\RoleUser','model_id','id');
+    }
+
+    public function scopeIncharge($query)
+    {
+        return $query->where('is_incharge', 1);
+    }
+
+    public function department(){
+        return $this->hasOne('App\Model\User\Department');
+    }
 
     public function getAllPermissionsAttribute() {
         $permissions = [];
@@ -80,11 +92,6 @@ class User extends Authenticatable
             }
         }
         return $permissions;
-    }
-
-    public function scopeIncharge($query)
-    {
-        return $query->where('is_incharge', 1);
     }
 
 }

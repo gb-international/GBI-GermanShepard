@@ -125,6 +125,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ViewUsers",
   data: function data() {
@@ -141,7 +142,6 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/user/".concat(this.$route.params.id)).then(function (response) {
         _this.user = response.data;
-        console.log(_this.user);
       });
     },
     goBack: function goBack() {
@@ -191,9 +191,7 @@ var render = function() {
                 ? _c("div", { staticClass: "col-sm-6 text-center" }, [
                     _c("img", {
                       staticClass: "img-circle w-80",
-                      attrs: {
-                        src: "/uploadimage/" + _vm.user.information.photo
-                      }
+                      attrs: { src: _vm.user.information.photo }
                     })
                   ])
                 : _vm._e()

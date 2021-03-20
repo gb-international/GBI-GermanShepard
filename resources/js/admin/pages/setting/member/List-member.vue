@@ -44,6 +44,7 @@ data from the api to display the data about the Category from the backend .
           <table-loader />
         </template>
         <template #cell(action)="data">
+          <view-icon :url="`/user/${data.item.id}`"></view-icon>
           <delete-icon 
             @click.native="deleteItem(data.item.id,data.index)"
             >
@@ -85,6 +86,7 @@ export default {
     return {
       fields: [
         {key:'name',label:'permission name',sortable:true,thClass: 'table-head'},
+        {key:'user_role.role.name',label:'Role',sortable:true,thClass: 'table-head'},
         {key:'updated_at',label:'last update',sortable:true,thClass: 'table-head'},
         {key:'action',label:'action',thClass: 'table-head'}
       ],

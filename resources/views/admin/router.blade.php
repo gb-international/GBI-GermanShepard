@@ -232,7 +232,7 @@
 
          --}}
 
-        @can(['city','state','country','sightseeing'])
+        @canany(['city','state','country','sightseeing'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="GBI Location">
             <i class="nav-icon fas fa-map-marker-alt"></i>
@@ -278,10 +278,10 @@
 
             </ul>
         </li>
-        @endcan
+        @endcanany
 
 
-        @can(['tourprogram','encyclopedia','customer','subscriber','bankdetail','gallery'])
+        @canany(['tourprogram','encyclopedia','customer','subscriber','bankdetail','gallery'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="GBI Websites">
             <i class="nav-icon fas fa-file-alt"></i>
@@ -353,10 +353,10 @@
             
             </ul>
         </li>
-        @endcan
+        @endcanany
 
         
-        @can(['posts','categories','tags'])
+        @canany(['posts','categories','tags'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="GBI Blogs">
                 <i class="nav-icon fas fa-file-alt"></i>
@@ -391,17 +391,25 @@
 
             </ul>
         </li>
-        @endcan
+        @endcanany
 
 
 
-        @canany(['setting','roles','permissions','gbimembers'])
+        @canany(['setting','roles','permissions','gbimembers','departments'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="Settings">
                 <i class="nav-icon fas fa-cog"></i>
                 <p> Setting <i class="right fas fa-angle-right"></i></p>
             </a>
             <ul class="nav nav-treeview">                        
+            
+            @can('departments')
+            <li class="nav-item">
+                <router-link to="/list-departments" class="nav-link" title="GBI Role">
+                <p> Departments</p>
+                </router-link>
+            </li>
+            @endcan
             
             @can('roles')
             <li class="nav-item">
@@ -410,6 +418,7 @@
                 </router-link>
             </li>
             @endcan
+
 
             @can('permissions')
             <li class="nav-item">
@@ -429,7 +438,7 @@
 
             </ul>
         </li>
-        @endcan
+        @endcanany
 
     </ul>
 </nav>
