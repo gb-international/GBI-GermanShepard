@@ -3,6 +3,7 @@
 
 const ListMember = () => import(/* webpackChunkName: "js/admin/MemberList" */ '@/admin/pages/setting/member/List-member.vue');
 const AddMember = () => import(/* webpackChunkName: "js/admin/MemberAdd" */ '@/admin/pages/setting/member/New-member.vue');
+const EditMember = () => import(/* webpackChunkName: "js/admin/EditMember" */ '@/admin/pages/setting/member/Edit-member.vue');
 
 const User = () => import(/* webpackChunkName: "js/admin/User" */ '@/admin/pages/website/user/List.vue');
 const UserView = () => import(/* webpackChunkName: "js/admin/UserView" */ '@/admin/pages/website/user/View.vue');
@@ -16,6 +17,7 @@ const EditDepartment = () => import(/* webpackChunkName: "js/admin/DepartmentEdi
 export default [
     { path: '/list-member', component: ListMember },
     { path: '/add-member', component: AddMember },
+    { path: '/edit-member/:id', component: EditMember },
     
     { path: '/user', component: User },
     { path: '/user/:id', component: UserView }, 

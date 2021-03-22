@@ -143,6 +143,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -554,6 +555,10 @@ var render = function() {
                       return [
                         _c("view-icon", {
                           attrs: { url: "/user/" + data.item.id }
+                        }),
+                        _vm._v(" "),
+                        _c("edit-icon", {
+                          attrs: { url: "/edit-member/" + data.item.id }
                         }),
                         _vm._v(" "),
                         _c("delete-icon", {

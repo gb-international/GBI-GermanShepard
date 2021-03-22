@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use App\Rules\EmailValidate;
 use App\Rules\AlphaSpace;
 use App\Rules\PhoneNubmerValidate;
+use Illuminate\Validation\Rule;
 class GBIMemberController extends Controller
 {
 
@@ -81,6 +82,53 @@ class GBIMemberController extends Controller
         return response()->json('Successfully Registered !!!');
 
     }
+
+    public function edit($id){
+        $user = User::select(['name','email','id','department_id'])
+            ->with([
+                'UserRole:role_id,model_id',
+                'UserRole.role:id,name',
+                'information:user_id,phone_no,address,dob',
+            ])->where('id',$id)
+            ->first();
+        return response()->json($user);
+    }
+
+   public function update(Request $request,$id){
+       $user = User::where('id',$id)->first();
+       $this->validate($request, [ 
+            'name' => ['required',new AlphaSpace],
+            'address' => 'required|min:3',
+            'email' => [
+                'required','email',new EmailValidate,
+                Rule::unique('users')->ignore($user->id)
+            ],
+            'phone_no' => ['required','numeric',new PhoneNubmerValidate],
+            'role_name' => 'required',
+            'department_id' => 'required',
+            ]);
+        
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'department_id' => $request->department_id
+        ]);
+
+        $user->information->update([
+            'phone_no' => $request->phone_no,
+            'address' => $request->address,
+            'dob' => $request->dob
+        ]);
+        
+        if($request->old_role != $request->role_name){
+            if($request->old_role != ''){
+                $user->removeRole($request->old_role);
+            }
+            $user->assignRole($request->role_name);
+        }
+
+        return $user;
+   }
 
     public function destroy($id){
         $user = User::where('id',$id)->first();

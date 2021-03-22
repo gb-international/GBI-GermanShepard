@@ -144,6 +144,8 @@ Route::namespace('Admin')->group(function (){
 		Route::get('/members/all/{size}','GBIMemberController@all');
 		Route::get('/members','GBIMemberController@index');
 		Route::post('/members/create','GBIMemberController@register');
+		Route::get('/members/{id}/edit','GBIMemberController@edit');
+		Route::put('/members/{id}','GBIMemberController@update');
 		Route::post('/members/destroy/{user}',"GBIMemberController@destroy");
 		Route::delete('/members/{id}',"GBIMemberController@destroy");
 		Route::get('/members/salesman',"GBIMemberController@memberType");

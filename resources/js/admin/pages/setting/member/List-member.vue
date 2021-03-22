@@ -45,6 +45,7 @@ data from the api to display the data about the Category from the backend .
         </template>
         <template #cell(action)="data">
           <view-icon :url="`/user/${data.item.id}`"></view-icon>
+          <edit-icon :url="`/edit-member/${data.item.id}`"></edit-icon>
           <delete-icon 
             @click.native="deleteItem(data.item.id,data.index)"
             >

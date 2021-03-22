@@ -8,7 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Information extends Model
 {
     protected $table = 'informations';
-    protected $fillable = ['user_profession','school_id','institution_code'];
+    protected $fillable = [
+        'user_profession',
+        'school_id',
+        'institution_code',
+        'phone_no',
+        'dob',
+        'address'
+    ];
 
     public function getPhotoAttribute($image)
     {
