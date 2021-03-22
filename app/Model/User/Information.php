@@ -14,7 +14,8 @@ class Information extends Model
         'institution_code',
         'phone_no',
         'dob',
-        'address'
+        'address',
+        'user_id'
     ];
 
     public function getPhotoAttribute($image)

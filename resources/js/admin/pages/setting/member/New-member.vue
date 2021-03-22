@@ -196,7 +196,6 @@ export default {
             });
           }
         }
-        console.log(this.role_list);
       });
     },
     
@@ -217,18 +216,6 @@ export default {
     updateDepartment(v){ this.form.department_id = v.id },
 
     addMember() {
-      // this.form
-      //   .post("/api/members/create")
-      //   .then((response) => {
-      //     this.$router.push(`/list-member`);
-      //     console.log(response);
-      //     this.$toast.fire({
-      //       icon: "success",
-      //       title: "GBI Member Added successfully",
-      //     });
-      //   })
-      //   .catch(() => {});
-
         this.form
         .post("/api/members/create")
         .then((res) => {

@@ -105,8 +105,6 @@ __webpack_require__.r(__webpack_exports__);
 
       // Submit the form via a itinerary request
       this.form.put("/api/departments/".concat(this.$route.params.id)).then(function (response) {
-        console.log(response);
-
         _this2.$router.go(-1);
 
         _this2.$toast.fire({

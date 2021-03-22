@@ -91,7 +91,6 @@ export default {
       this.form
         .put(`/api/departments/${this.$route.params.id}`)
         .then((response) => {
-          console.log(response);
           this.$router.go(-1);
           this.$toast.fire({
             icon: "success",

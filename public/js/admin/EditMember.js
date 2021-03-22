@@ -222,9 +222,8 @@ __webpack_require__.r(__webpack_exports__);
     updateMember: function updateMember() {
       var _this4 = this;
 
-      console.log(this.form);
       this.form.put("/api/members/".concat(this.$route.params.id)).then(function (res) {
-        console.log(res); // this.$router.push(`/list-member`);
+        _this4.$router.push("/list-member");
 
         _this4.$toast.fire({
           icon: "success",

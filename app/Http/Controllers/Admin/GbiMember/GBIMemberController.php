@@ -106,6 +106,7 @@ class GBIMemberController extends Controller
             'phone_no' => ['required','numeric',new PhoneNubmerValidate],
             'role_name' => 'required',
             'department_id' => 'required',
+            'dob'=> 'required'
             ]);
         
         $user->update([
@@ -113,13 +114,18 @@ class GBIMemberController extends Controller
             'email' => $request->email,
             'department_id' => $request->department_id
         ]);
-
-        $user->information->update([
+        $info = [
+            'user_id' => $user->id,
             'phone_no' => $request->phone_no,
             'address' => $request->address,
             'dob' => $request->dob
-        ]);
-        
+        ];
+        if($user->information){
+            $user->information->update($info);
+        }else{
+            Information::create($info);
+        }
+
         if($request->old_role != $request->role_name){
             if($request->old_role != ''){
                 $user->removeRole($request->old_role);

@@ -211,8 +211,6 @@ __webpack_require__.r(__webpack_exports__);
             });
           }
         }
-
-        console.log(_this.role_list);
       });
     },
     getDepartment: function getDepartment() {
@@ -238,17 +236,6 @@ __webpack_require__.r(__webpack_exports__);
     addMember: function addMember() {
       var _this3 = this;
 
-      // this.form
-      //   .post("/api/members/create")
-      //   .then((response) => {
-      //     this.$router.push(`/list-member`);
-      //     console.log(response);
-      //     this.$toast.fire({
-      //       icon: "success",
-      //       title: "GBI Member Added successfully",
-      //     });
-      //   })
-      //   .catch(() => {});
       this.form.post("/api/members/create").then(function (res) {
         _this3.$router.push("/list-member");
 

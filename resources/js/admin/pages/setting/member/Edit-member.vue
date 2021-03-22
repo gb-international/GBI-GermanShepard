@@ -202,12 +202,10 @@ export default {
     },
 
     updateMember() {
-      console.log(this.form);
         this.form
         .put(`/api/members/${this.$route.params.id}`)
         .then((res) => {
-          console.log(res);
-          // this.$router.push(`/list-member`);
+          this.$router.push(`/list-member`);
           this.$toast.fire({
             icon: "success",
             title: "GBI Member Update Successfully",
