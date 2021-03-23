@@ -306,11 +306,10 @@ var render = function() {
                                     }
                                   }
                                 }),
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(permission.name) +
-                                    "\n              "
-                                )
+                                _vm._v(" "),
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(permission.name))
+                                ])
                               ]
                             ),
                             _vm._v(" "),

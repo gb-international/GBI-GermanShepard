@@ -28,7 +28,7 @@ data from the api to display the data about the Category from the backend .
                 <slot name="searchbar"></slot>
               </b-col>
           </b-row>
-          <b-row>
+          <b-row class="text-capitalize">
               <!-- Table data -->
             <slot name="table"></slot>
 

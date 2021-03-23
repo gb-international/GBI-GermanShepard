@@ -55987,21 +55987,21 @@ input[type="file"] {
 }
 
 .add-row-input-button input {
-  border: 3px solid #332f58;
+  border: 3px solid #6c757d;
   height: 53px !important;
   width: 112px;
 }
 
 .add-row-input-button button {
-  background-color: #403b3b;
+  background-color: #6c757d;
   border-radius: 20px;
-  border: 3px solid #403b3b;
+  border: 3px solid #6c757d;
 }
 
 .add-row-input-button button:hover {
-  background-color: #403b3b;
+  background-color: #6c757d;
   border-radius: 20px;
-  border: 3px solid #403b3b;
+  border: 3px solid #6c757d;
 }
 
 .add-row-input-button .pt-24 {

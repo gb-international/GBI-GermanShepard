@@ -10,7 +10,7 @@
             </router-link>
         </li>
         
-        @canany(['itineraries','account itineraries','front booking'])
+        @canany(['itineraries','account-itineraries','front-booking'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="Itinerary">
                 <i class="nav-icon far fa-file-alt"></i>
@@ -28,7 +28,7 @@
                 </li>
                 @endcan
 
-                {{-- @can('account itineraries')
+                {{-- @can('account-itineraries')
                 <li class="nav-item">
                 <router-link to="/account-itinerary" class="nav-link" title="Account Itinerary">
                     
@@ -37,7 +37,7 @@
                 </li>
                 @endcan --}}
 
-                @can("[front booking]")
+                @can("front-booking")
                     <li class="nav-item">
                     <router-link :to="`/front-booking`" class="nav-link" title="Website Query">
                         <p> Website Query</p></router-link>
@@ -106,7 +106,7 @@
                 </router-link>
             </li>
             @endcan
-            @can('list restaurants')
+            @can('restaurants')
             <li class="nav-item">
                 <router-link to="/restaurant-list" class="nav-link" title="Restaurant List">
                 
@@ -159,21 +159,21 @@
         </li>
         @endcanany
 
-        @canany("['schools']")
+        @can('schools')
             <li class="nav-item">
             <router-link :to="`/schools`" class="nav-link" title="School">
                 <i class="nav-icon fas fa-school"></i>
-                <p> School</p></router-link>
+                <p> Schools</p></router-link>
             </li>
-        @endcanany
+        @endcan
 
-        @canany("['escorts']")
+        @can("escorts")
             <li class="nav-item">
             <router-link :to="`/escort-list`" class="nav-link" title="Escort">
                 <i class="nav-icon fas fa-male"></i>
                 <p> Escort</p></router-link>
             </li>
-        @endcanany
+        @endcan
 
         
         {{-- @canany(['add student','edit student','delete student'])

@@ -299,6 +299,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "b-row",
+              { staticClass: "text-capitalize" },
               [
                 _vm._t("table"),
                 _vm._v(" "),

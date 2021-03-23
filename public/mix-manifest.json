@@ -5,8 +5,8 @@
     "/js/admin/AdminDashboard.js": "/js/admin/AdminDashboard.js",
     "/js/admin/BankdetailView.js": "/js/admin/BankdetailView.js",
     "/js/admin/BookedEscort.js": "/js/admin/BookedEscort.js",
-    "/js/admin/BookedEscort~js/admin/BookedHotel~js/admin/BusAdd~js/admin/BusEdit~js/admin/CategoryAdd~js/~6953303b.js": "/js/admin/BookedEscort~js/admin/BookedHotel~js/admin/BusAdd~js/admin/BusEdit~js/admin/CategoryAdd~js/~6953303b.js",
-    "/js/admin/BookedEscort~js/admin/BookedHotel~js/admin/BusAdd~js/admin/BusEdit~js/admin/CityAdd~js/admi~b9d50048.js": "/js/admin/BookedEscort~js/admin/BookedHotel~js/admin/BusAdd~js/admin/BusEdit~js/admin/CityAdd~js/admi~b9d50048.js",
+    "/js/admin/BookedEscort~js/admin/BookedHotel~js/admin/BusAdd~js/admin/BusEdit~js/admin/CategoryAdd~js/~ad8b4977.js": "/js/admin/BookedEscort~js/admin/BookedHotel~js/admin/BusAdd~js/admin/BusEdit~js/admin/CategoryAdd~js/~ad8b4977.js",
+    "/js/admin/BookedEscort~js/admin/BookedHotel~js/admin/BusAdd~js/admin/BusEdit~js/admin/CityAdd~js/admi~39d8aaa2.js": "/js/admin/BookedEscort~js/admin/BookedHotel~js/admin/BusAdd~js/admin/BusEdit~js/admin/CityAdd~js/admi~39d8aaa2.js",
     "/js/admin/BookedHotel.js": "/js/admin/BookedHotel.js",
     "/js/admin/BookedStudent.js": "/js/admin/BookedStudent.js",
     "/js/admin/BookedTours.js": "/js/admin/BookedTours.js",
@@ -26,6 +26,7 @@
     "/js/admin/CountryList.js": "/js/admin/CountryList.js",
     "/js/admin/DepartmentEdit.js": "/js/admin/DepartmentEdit.js",
     "/js/admin/DepartmentNew.js": "/js/admin/DepartmentNew.js",
+    "/js/admin/EditMember.js": "/js/admin/EditMember.js",
     "/js/admin/EditStudentPayment.js": "/js/admin/EditStudentPayment.js",
     "/js/admin/EncycllopediaListComment.js": "/js/admin/EncycllopediaListComment.js",
     "/js/admin/EncycloPediaComment.js": "/js/admin/EncycloPediaComment.js",
@@ -135,8 +136,5 @@
     "/vendors~js/admin/CategoryAdd~js/admin/CategoryEdit~js/admin/EncyclopediaAdd~js/admin/ItineraryAdd~js~eaed20ee.js": "/vendors~js/admin/CategoryAdd~js/admin/CategoryEdit~js/admin/EncyclopediaAdd~js/admin/ItineraryAdd~js~eaed20ee.js",
     "/vendors~js/admin/EncycloPediaComment.js": "/vendors~js/admin/EncycloPediaComment.js",
     "/vendors~js/admin/ItineraryAdd~js/admin/ItineraryEdit~js/admin/PostAdd~js/admin/PostEdit~js/admin/Tou~041b08b8.js": "/vendors~js/admin/ItineraryAdd~js/admin/ItineraryEdit~js/admin/PostAdd~js/admin/PostEdit~js/admin/Tou~041b08b8.js",
-    "/vendors~js/admin/PostAdd~js/admin/PostEdit.js": "/vendors~js/admin/PostAdd~js/admin/PostEdit.js",
-    "/js/admin/BookedEscort~js/admin/BookedHotel~js/admin/BusAdd~js/admin/BusEdit~js/admin/CategoryAdd~js/~ad8b4977.js": "/js/admin/BookedEscort~js/admin/BookedHotel~js/admin/BusAdd~js/admin/BusEdit~js/admin/CategoryAdd~js/~ad8b4977.js",
-    "/js/admin/BookedEscort~js/admin/BookedHotel~js/admin/BusAdd~js/admin/BusEdit~js/admin/CityAdd~js/admi~39d8aaa2.js": "/js/admin/BookedEscort~js/admin/BookedHotel~js/admin/BusAdd~js/admin/BusEdit~js/admin/CityAdd~js/admi~39d8aaa2.js",
-    "/js/admin/EditMember.js": "/js/admin/EditMember.js"
+    "/vendors~js/admin/PostAdd~js/admin/PostEdit.js": "/vendors~js/admin/PostAdd~js/admin/PostEdit.js"
 }

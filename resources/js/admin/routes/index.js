@@ -14,6 +14,7 @@ import Sightseeing from '@/admin/routes/Sightseeing.js';
 import Tour from '@/admin/routes/Tour.js';
 import Transport from '@/admin/routes/Transport.js';
 import Website from '@/admin/routes/Website.js';
+import ErrorFile from '@/admin/routes/ErrorFile.js';
 
 
 export const routes = [
@@ -33,4 +34,5 @@ export const routes = [
     ...Tour,
     ...Transport,
     ...Website,
+    ...ErrorFile,
 ]

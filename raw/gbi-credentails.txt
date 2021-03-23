@@ -8,8 +8,8 @@ Admin
     
     deepak@gbinternational.in
     12345678
-    accoun@gbinternational.in
+    account@gbinternational.in
     12345678
 
     blogger@gbinternational.in
-    Blogger@123
+    Ajay@123

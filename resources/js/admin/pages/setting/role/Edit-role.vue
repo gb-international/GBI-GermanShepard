@@ -42,7 +42,7 @@ to submit the data we are using a function.
                     v-model="items[index].id"
                     :true-value="permission.id"
                   />
-                  {{ permission.name }}
+                  <span class="text-capitalize">{{ permission.name }}</span>
                 </label>
                 <hr />
               </div>
