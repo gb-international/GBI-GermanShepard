@@ -12,14 +12,18 @@
         alt="itinerary"
       />
     </section>
-    {{editData}}
     <div class="container">
       <div class="w-100 text-right mt-2">
         <button
+          v-if="login"
           class="btn profile_button text-white book_btn"
           data-toggle="modal"
           data-target="#bookModal"
         >Book Now</button>
+
+        <button v-else class="btn profile_button text-white book_btn" id="loginButton"
+                data-toggle="modal"
+                data-target="#LoginForm">Book Now</button>
       </div>
       <div class="w-100 pt-2 text-center">
         <h1 class="font-20 text-lowercase text-capitalize pt-2 pb-2"><u>{{itineraryData.title | CapitalizeString}}</u></h1>
@@ -42,9 +46,16 @@
     <div class="modal" id="bookModal">
       <div class="modal-dialog">
         <div class="modal-content modal-color">
-          <div class="modal-body">
+          <div class="modal-body" v-if="itineraryData.itinerarydays">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <booking></booking>
+
+            <booking 
+              v-if="loading== false"
+              :title="itineraryData.title"
+              :selected_cities="selected_cities"
+              :city_list="city_list"
+              ></booking>
+
           </div>
         </div>
       </div>
@@ -84,24 +95,47 @@ export default {
       day: 0,
       description: "",
       itineraryData: [],
-      
+      selected_cities:[],
+      city_list:[],
+      login:false,
+      loading:true,
     };
   },
 
   mounted() {
-    this.$store.dispatch(
-      "getEditData",
-      `/api/itinerary/${this.$route.params.id}`
-    );
-  },
-
-  computed: {
-    editData() {
-      this.itineraryData = this.$store.getters.getEditData;
+    if (this.$cookies.get('access_token') != null) {
+      this.login = true;
     }
   },
+  created(){
+    this.getItinerary();
+  },
   methods: {
-    
+    getItinerary(){
+      this.$axios.get(`/api/itinerary/${this.$route.params.id}`).then((res)=>{
+        this.itineraryData = res.data;
+        if(this.itineraryData.itinerarydays){
+          var data = this.itineraryData.itinerarydays;
+          let selected=[];
+          this.selected_cities = [];
+          if(data){
+            this.selected_cities = [];
+            for(let i=0;i<data.length;i++){
+              selected.push(data[i].day_source);
+              selected.push(data[i].day_destination);
+            }
+          }
+          this.selected_cities = [...new Set(selected)];
+        }
+        this.getRelatedCities(this.itineraryData.destination);
+      });
+    },
+    getRelatedCities(destination){
+      this.$axios.get(`/api/related-cities/${destination}`).then((res)=>{
+        this.city_list = res.data;
+        this.loading = false;
+      });
+    }
   }
 };
 </script>

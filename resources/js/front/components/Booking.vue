@@ -3,6 +3,7 @@
       Author:@Ajay
   ****************************************************-->
   <div class="booking-form grey-form">
+    <p class="font-weight-bold text-dark text-capitalize p-0 m-0">{{title | CapitalizeString}}</p>
     <p v-if="first_form">When would you like to go?</p>
     <p v-if="second_form">Please Specify Your Requirements.</p>
     <form class="form" method="POST" @submit.prevent="BookingSubmit">
@@ -192,8 +193,8 @@
           Back</button
         ><span class="mr-10"></span>
 
-        <button type="submit" v-if="book_btn" class="btn profile_button">
-          Book
+        <button type="submit" v-if="book_btn" class="btn profile_button text-capitalize">
+          send inquiry
         </button>
       </div>
     </form>
@@ -209,11 +210,10 @@ export default {
     multiselect: ModelSelect,
     "has-error": HasError,
   },
-  props: ["list"],
+  props: ["list","title","selected_cities","city_list"],
   data() {
     return {
       transports: ["Bus", "Train", "Air"],
-      city_list: "",
       sightseeing_list: "",
       travel_type_list: [
         "Train",
@@ -232,7 +232,7 @@ export default {
         person: 2,
         room: 1,
         occupancy_type: "",
-        city_id: "",
+        city_id: [],
         sightseen: "",
         transport: "",
         noofday: 1,
@@ -252,20 +252,24 @@ export default {
     "form.city_id": function () {
       this.sightseeingData(this.form.city_id);
     },
+
   },
 
-  mounted() {
-    this.cityData();
+  created() {
     this.form.itinerary_id = this.$route.params.id;
+    this.selectedItineraryCities();
   },
   
   methods: {
-    cityData() {
-      this.$axios.get("/api/city-list").then((response) => {
-        this.city_list = response.data;
-      });
+    selectedItineraryCities(){
+      if(this.city_list.length > 0){
+        for(let i = 0;i<this.city_list.length;i++){
+          if(this.selected_cities.includes(this.city_list[i].name)){
+           this.form.city_id.push(this.city_list[i]); 
+          }
+        }
+      }
     },
-
     sightseeingData(city) {
       this.$axios.post("/api/city-sightseeing", { list: city })
         .then((response) => {
@@ -297,7 +301,6 @@ export default {
     cityList() {
       this.$axios.get("/api/city").then((response) => {
         for (var i = 0; i < response.data.data.length; i++) {
-          console.log(response);
           this.options.push({
             value: response.data.data[i].name,
           });
@@ -306,7 +309,7 @@ export default {
     },
 
     BookingSubmit() {
-      if (this.$cookies.get('user_token') == null) {
+      if (this.$cookies.get('access_token') == null) {
         window.$(".close").click();
         this.$swal.fire({
           icon: "error",
@@ -316,9 +319,10 @@ export default {
         });
         return false;
       }
+      console.log(this.form);
       this.form
         .post("/api/booking", {
-          headers: { Authorization: `Bearer ${localStorage.token}` },
+          headers: { Authorization: `Bearer ${this.$cookies.get('access_token')}` },
         })
         .then((response) => {
           this.form.reset();

@@ -214,6 +214,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -222,11 +223,10 @@ __webpack_require__.r(__webpack_exports__);
     multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default.a,
     "has-error": vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]
   },
-  props: ["list"],
+  props: ["list", "title", "selected_cities", "city_list"],
   data: function data() {
     return {
       transports: ["Bus", "Train", "Air"],
-      city_list: "",
       sightseeing_list: "",
       travel_type_list: ["Train", "AC Bus", "Flight", "Train", "Flight", "Train", "AC Bus"],
       occupancy_list: ["Single", "Double", "Triple", "Quad"],
@@ -236,7 +236,7 @@ __webpack_require__.r(__webpack_exports__);
         person: 2,
         room: 1,
         occupancy_type: "",
-        city_id: "",
+        city_id: [],
         sightseen: "",
         transport: "",
         noofday: 1,
@@ -255,25 +255,27 @@ __webpack_require__.r(__webpack_exports__);
       this.sightseeingData(this.form.city_id);
     }
   },
-  mounted: function mounted() {
-    this.cityData();
+  created: function created() {
     this.form.itinerary_id = this.$route.params.id;
+    this.selectedItineraryCities();
   },
   methods: {
-    cityData: function cityData() {
-      var _this = this;
-
-      this.$axios.get("/api/city-list").then(function (response) {
-        _this.city_list = response.data;
-      });
+    selectedItineraryCities: function selectedItineraryCities() {
+      if (this.city_list.length > 0) {
+        for (var i = 0; i < this.city_list.length; i++) {
+          if (this.selected_cities.includes(this.city_list[i].name)) {
+            this.form.city_id.push(this.city_list[i]);
+          }
+        }
+      }
     },
     sightseeingData: function sightseeingData(city) {
-      var _this2 = this;
+      var _this = this;
 
       this.$axios.post("/api/city-sightseeing", {
         list: city
       }).then(function (response) {
-        _this2.sightseeing_list = response.data;
+        _this.sightseeing_list = response.data;
       });
     },
     secondForm: function secondForm() {
@@ -298,22 +300,20 @@ __webpack_require__.r(__webpack_exports__);
       this.form.noofday = this.form.noofday + 1;
     },
     cityList: function cityList() {
-      var _this3 = this;
+      var _this2 = this;
 
       this.$axios.get("/api/city").then(function (response) {
         for (var i = 0; i < response.data.data.length; i++) {
-          console.log(response);
-
-          _this3.options.push({
+          _this2.options.push({
             value: response.data.data[i].name
           });
         }
       });
     },
     BookingSubmit: function BookingSubmit() {
-      var _this4 = this;
+      var _this3 = this;
 
-      if (this.$cookies.get('user_token') == null) {
+      if (this.$cookies.get('access_token') == null) {
         window.$(".close").click();
         this.$swal.fire({
           icon: "error",
@@ -323,26 +323,27 @@ __webpack_require__.r(__webpack_exports__);
         return false;
       }
 
+      console.log(this.form);
       this.form.post("/api/booking", {
         headers: {
-          Authorization: "Bearer ".concat(localStorage.token)
+          Authorization: "Bearer ".concat(this.$cookies.get('access_token'))
         }
       }).then(function (response) {
-        _this4.form.reset();
+        _this3.form.reset();
 
         window.$(".close").click();
 
-        _this4.$swal.fire({
+        _this3.$swal.fire({
           icon: "success",
           title: "Booking Successfull!! We will contact you soon !!"
         });
       })["catch"](function (error) {
-        _this4.$swal.fire({
+        _this3.$swal.fire({
           icon: "error",
           title: "Please provide valide details"
         });
 
-        _this4.handleError(error);
+        _this3.handleError(error);
       });
     }
   }
@@ -360,6 +361,29 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _front_components_Booking_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/front/components/Booking.vue */ "./resources/js/front/components/Booking.vue");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -437,18 +461,57 @@ __webpack_require__.r(__webpack_exports__);
     return {
       day: 0,
       description: "",
-      itineraryData: []
+      itineraryData: [],
+      selected_cities: [],
+      city_list: [],
+      login: false,
+      loading: true
     };
   },
   mounted: function mounted() {
-    this.$store.dispatch("getEditData", "/api/itinerary/".concat(this.$route.params.id));
-  },
-  computed: {
-    editData: function editData() {
-      this.itineraryData = this.$store.getters.getEditData;
+    if (this.$cookies.get('access_token') != null) {
+      this.login = true;
     }
   },
-  methods: {}
+  created: function created() {
+    this.getItinerary();
+  },
+  methods: {
+    getItinerary: function getItinerary() {
+      var _this = this;
+
+      this.$axios.get("/api/itinerary/".concat(this.$route.params.id)).then(function (res) {
+        _this.itineraryData = res.data;
+
+        if (_this.itineraryData.itinerarydays) {
+          var data = _this.itineraryData.itinerarydays;
+          var selected = [];
+          _this.selected_cities = [];
+
+          if (data) {
+            _this.selected_cities = [];
+
+            for (var i = 0; i < data.length; i++) {
+              selected.push(data[i].day_source);
+              selected.push(data[i].day_destination);
+            }
+          }
+
+          _this.selected_cities = _toConsumableArray(new Set(selected));
+        }
+
+        _this.getRelatedCities(_this.itineraryData.destination);
+      });
+    },
+    getRelatedCities: function getRelatedCities(destination) {
+      var _this2 = this;
+
+      this.$axios.get("/api/related-cities/".concat(destination)).then(function (res) {
+        _this2.city_list = res.data;
+        _this2.loading = false;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -469,6 +532,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "booking-form grey-form" }, [
+    _c(
+      "p",
+      { staticClass: "font-weight-bold text-dark text-capitalize p-0 m-0" },
+      [_vm._v(_vm._s(_vm._f("CapitalizeString")(_vm.title)))]
+    ),
+    _vm._v(" "),
     _vm.first_form ? _c("p", [_vm._v("When would you like to go?")]) : _vm._e(),
     _vm._v(" "),
     _vm.second_form
@@ -961,10 +1030,10 @@ var render = function() {
             ? _c(
                 "button",
                 {
-                  staticClass: "btn profile_button",
+                  staticClass: "btn profile_button text-capitalize",
                   attrs: { type: "submit" }
                 },
-                [_vm._v("\n        Book\n      ")]
+                [_vm._v("\n        send inquiry\n      ")]
               )
             : _vm._e()
         ])
@@ -1004,9 +1073,31 @@ var render = function() {
         }
       })
     ]),
-    _vm._v("\n  " + _vm._s(_vm.editData) + "\n  "),
+    _vm._v(" "),
     _c("div", { staticClass: "container" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "w-100 text-right mt-2" }, [
+        _vm.login
+          ? _c(
+              "button",
+              {
+                staticClass: "btn profile_button text-white book_btn",
+                attrs: { "data-toggle": "modal", "data-target": "#bookModal" }
+              },
+              [_vm._v("Book Now")]
+            )
+          : _c(
+              "button",
+              {
+                staticClass: "btn profile_button text-white book_btn",
+                attrs: {
+                  id: "loginButton",
+                  "data-toggle": "modal",
+                  "data-target": "#LoginForm"
+                }
+              },
+              [_vm._v("Book Now")]
+            )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "w-100 pt-2 text-center" }, [
         _c(
@@ -1061,45 +1152,39 @@ var render = function() {
     _c("div", { staticClass: "modal", attrs: { id: "bookModal" } }, [
       _c("div", { staticClass: "modal-dialog" }, [
         _c("div", { staticClass: "modal-content modal-color" }, [
-          _c(
-            "div",
-            { staticClass: "modal-body" },
-            [
-              _c(
-                "button",
-                {
-                  staticClass: "close",
-                  attrs: { type: "button", "data-dismiss": "modal" }
-                },
-                [_vm._v("×")]
-              ),
-              _vm._v(" "),
-              _c("booking")
-            ],
-            1
-          )
+          _vm.itineraryData.itinerarydays
+            ? _c(
+                "div",
+                { staticClass: "modal-body" },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "close",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("×")]
+                  ),
+                  _vm._v(" "),
+                  _vm.loading == false
+                    ? _c("booking", {
+                        attrs: {
+                          title: _vm.itineraryData.title,
+                          selected_cities: _vm.selected_cities,
+                          city_list: _vm.city_list
+                        }
+                      })
+                    : _vm._e()
+                ],
+                1
+              )
+            : _vm._e()
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-100 text-right mt-2" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn profile_button text-white book_btn",
-          attrs: { "data-toggle": "modal", "data-target": "#bookModal" }
-        },
-        [_vm._v("Book Now")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

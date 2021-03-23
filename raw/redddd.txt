@@ -299,7 +299,11 @@ admin :
         -> give some spacing between add row input and go button
         -> payment ( status dropdown make hight large )
 
-        
+
+
+check auth if he is performing booking
+add itinerary title on the top of popup (without replacing any content)
+send inquiry
 
 
 

@@ -47,6 +47,9 @@ Route::namespace('Front')->group(function(){
 	Route::post('register-user', 'AuthController@register');
 	Route::post('refreshtoken','AuthController@refresh');
 
+	// Related Cities
+	Route::get('/related-cities/{id}','LocationController@relatedCities');
+
 	Route::group(['middleware' => 'auth:api'], function(){
 		Route::post('details', 'UserController@details');
 		Route::post('/user-show', 'UserController@show');
