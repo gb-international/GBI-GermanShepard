@@ -343,6 +343,44 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -352,16 +390,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "exploreDestination",
   metaInfo: {
-    title: 'GBI Explore Destination',
+    title: "GBI Explore Destination",
     meta: [{
-      name: 'description',
-      content: '@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button'
+      name: "description",
+      content: "@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button"
     }, {
-      name: 'keywords',
-      content: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs'
+      name: "keywords",
+      content: "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs"
     }, {
-      name: 'url',
-      content: 'https://www.gowithgbi.com/resources/explore-destination'
+      name: "url",
+      content: "https://www.gowithgbi.com/resources/explore-destination"
     }]
   },
   components: {
@@ -377,7 +415,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       save_disable_btn: false,
       remove_disable_btn: true,
       multicity: false,
-      region: 'national',
+      region: "national",
       noofdays_option: 10,
       tourtype_option: [],
       options: [],
@@ -654,8 +692,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           vm.searchForm.source.push(source);
           vm.searchForm.destination.push(destination);
         } else {
-          console.log('hi');
-          this.$swal.fire('Error', 'Please select all the fields', 'error'); // swal.fire({
+          console.log("hi");
+          this.$swal.fire("Error", "Please select all the fields", "error"); // swal.fire({
           //   text: "Select all the locations!",
           //   type: "warning"
           // });
@@ -679,13 +717,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           vm.allSearchdata = res.data.data;
 
           if (vm.allSearchdata.length == 0) {
-            _this8.$swal.fire('Alert', 'No data Found!!', 'info');
+            _this8.$swal.fire("Alert", "No data Found!!", "info");
           }
         })["catch"](function (error) {
-          _this8.$swal.fire('Alert', 'please select the fields', 'error');
+          _this8.$swal.fire("Alert", "please select the fields", "error");
         });
       } else {
-        this.$swal.fire('Alert', 'please select locations', 'error');
+        this.$swal.fire("Alert", "please select locations", "error");
       }
     }
   },
@@ -709,7 +747,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     region: function region() {
-      if (this.region == 'national') {
+      if (this.region == "national") {
         this.destinationCities = this.options;
       } else {
         this.getInternationalCities();
@@ -1015,7 +1053,13 @@ var render = function() {
                                                 key: index.id,
                                                 domProps: { value: index.id }
                                               },
-                                              [_vm._v(_vm._s(index.name))]
+                                              [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(index.name) +
+                                                    "\n                            "
+                                                )
+                                              ]
                                             )
                                           })
                                         ],
@@ -1063,7 +1107,13 @@ var render = function() {
                                                 key: index.id,
                                                 domProps: { value: index }
                                               },
-                                              [_vm._v(_vm._s(index))]
+                                              [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(index) +
+                                                    "\n                            "
+                                                )
+                                              ]
                                             )
                                           })
                                         ],
@@ -1311,7 +1361,13 @@ var render = function() {
                                               key: index.id,
                                               domProps: { value: index }
                                             },
-                                            [_vm._v(_vm._s(index.name))]
+                                            [
+                                              _vm._v(
+                                                "\n                              " +
+                                                  _vm._s(index.name) +
+                                                  "\n                            "
+                                              )
+                                            ]
                                           )
                                         })
                                       ],
@@ -1357,7 +1413,13 @@ var render = function() {
                                               key: index.id,
                                               domProps: { value: index.id }
                                             },
-                                            [_vm._v(_vm._s(index.name))]
+                                            [
+                                              _vm._v(
+                                                "\n                              " +
+                                                  _vm._s(index.name) +
+                                                  "\n                            "
+                                              )
+                                            ]
                                           )
                                         })
                                       ],
@@ -1392,7 +1454,7 @@ var render = function() {
                           ]
                         }
                       },
-                      [_vm._v("Search")]
+                      [_vm._v("\n                  Search\n                ")]
                     )
                   ])
                 ])
@@ -1405,51 +1467,38 @@ var render = function() {
     _vm._v(" "),
     _c("main", { staticClass: "pl-2 pr-2" }, [
       _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row m-0" }, [
-          _c("div", { staticClass: "col-lg-12" }, [
-            _c(
+        _vm.allSearchdata == ""
+          ? _c(
               "div",
-              { staticClass: "row" },
+              [
+                _c("itinerary-list", { attrs: { list: _vm.items_list } }),
+                _vm._v(" "),
+                _c("Observer", { on: { intersect: _vm.intersected } }),
+                _vm._v(" "),
+                _vm.loading
+                  ? _c(
+                      "div",
+                      {
+                        staticClass:
+                          "loading-img-parent text-center mt-5 w-100 mb-4"
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "loading-img",
+                          attrs: { src: "/images/icons/loader.gif" }
+                        })
+                      ]
+                    )
+                  : _vm._e()
+              ],
+              1
+            )
+          : _c(
+              "div",
               [_c("itinerary-list", { attrs: { list: _vm.allSearchdata } })],
               1
             )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm.allSearchdata == ""
-        ? _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "row m-0" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
-                _c(
-                  "div",
-                  { staticClass: "row" },
-                  [
-                    _c("itinerary-list", { attrs: { list: _vm.items_list } }),
-                    _vm._v(" "),
-                    _c("Observer", { on: { intersect: _vm.intersected } })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _vm.loading
-                ? _c(
-                    "div",
-                    {
-                      staticClass: "loading-img-parent text-center w-100 mb-4"
-                    },
-                    [
-                      _c("img", {
-                        staticClass: "loading-img",
-                        attrs: { src: "/images/icons/loader.gif" }
-                      })
-                    ]
-                  )
-                : _vm._e()
-            ])
-          ])
-        : _vm._e()
+      ])
     ])
   ])
 }

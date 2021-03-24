@@ -17,7 +17,8 @@
                         data-toggle="tab"
                         href="#home"
                         v-on:click="multicity = !multicity"
-                      >Oneway</a>
+                        >Oneway</a
+                      >
                     </li>
                     <li class="nav-item">
                       <a
@@ -25,7 +26,8 @@
                         data-toggle="tab"
                         href="#menu1"
                         v-on:click="multicity = !multicity"
-                      >Multicity</a>
+                        >Multicity</a
+                      >
                     </li>
                   </ul>
                   <!-- start single location Tab panes serach bar for source and destination-->
@@ -36,18 +38,39 @@
                           <div class="row pt-3 pb-3">
                             <div class="col">
                               <div class="custom-control custom-radio">
-                                <input type="radio" id="national" name="customRadio" value="national" class="custom-control-input"  v-model="region" />
-                                <label class="custom-control-label" for="national">National</label>
-                              </div>
-                            </div>
-                            
-                            <div class="col">
-                              <div class="custom-control custom-radio">
-                                <input type="radio" id="international" name="customRadio" value="international" class="custom-control-input"  v-model="region" />
-                                <label class="custom-control-label" for="international">International</label>
+                                <input
+                                  type="radio"
+                                  id="national"
+                                  name="customRadio"
+                                  value="national"
+                                  class="custom-control-input"
+                                  v-model="region"
+                                />
+                                <label
+                                  class="custom-control-label"
+                                  for="national"
+                                  >National</label
+                                >
                               </div>
                             </div>
 
+                            <div class="col">
+                              <div class="custom-control custom-radio">
+                                <input
+                                  type="radio"
+                                  id="international"
+                                  name="customRadio"
+                                  value="international"
+                                  class="custom-control-input"
+                                  v-model="region"
+                                />
+                                <label
+                                  class="custom-control-label"
+                                  for="international"
+                                  >International</label
+                                >
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -80,7 +103,9 @@
                                 v-for="index in tourtype_option"
                                 :key="index.id"
                                 :value="index.id"
-                              >{{ index.name }}</option>
+                              >
+                                {{ index.name }}
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -96,7 +121,9 @@
                                 v-for="index in noofdays_option"
                                 :key="index.id"
                                 :value="index"
-                              >{{ index }}</option>
+                              >
+                                {{ index }}
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -125,7 +152,11 @@
                       </div>
 
                       <div class="row p-0 parent_padding">
-                        <div class="col-lg-8" v-for="(row, index) in rows" :key="index">
+                        <div
+                          class="col-lg-8"
+                          v-for="(row, index) in rows"
+                          :key="index"
+                        >
                           <div class="row">
                             <div class="col-6 col-sm-6 input-p nopadding">
                               <model-select
@@ -146,18 +177,29 @@
                         <div class="col-lg-2">
                           <div class="row button_group">
                             <div class="col-12">
-                              <div class="buttons save_btn link" v-if="city_button == current_counter">
-                                  <img src="/images/icons/multiple_add.png"
+                              <div
+                                class="buttons save_btn link"
+                                v-if="city_button == current_counter"
+                              >
+                                <img
+                                  src="/images/icons/multiple_add.png"
                                   v-if="city_button == current_counter"
-                                  class="" 
-                                  v-bind:class="{ disable : save_disable_btn }"
-                                  @click="addRow">
+                                  class=""
+                                  v-bind:class="{ disable: save_disable_btn }"
+                                  @click="addRow"
+                                />
                               </div>
 
-                              <div class="buttons remove_btn link" v-if="city_button == current_counter">
-                                  <img src="/images/icons/multiple_minus.png" class="" v-bind:class="{ disable : remove_disable_btn }"
-                                  @click="deleteRow(current_counter-1)">
-
+                              <div
+                                class="buttons remove_btn link"
+                                v-if="city_button == current_counter"
+                              >
+                                <img
+                                  src="/images/icons/multiple_minus.png"
+                                  class=""
+                                  v-bind:class="{ disable: remove_disable_btn }"
+                                  @click="deleteRow(current_counter - 1)"
+                                />
                               </div>
                             </div>
                           </div>
@@ -178,7 +220,9 @@
                                 v-for="index in tourtype_option"
                                 :key="index.id"
                                 :value="index"
-                              >{{ index.name}}</option>
+                              >
+                                {{ index.name }}
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -194,7 +238,9 @@
                                 v-for="index in tourtype_option"
                                 :key="index.id"
                                 :value="index.id"
-                              >{{ index.name }}</option>
+                              >
+                                {{ index.name }}
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -210,7 +256,9 @@
                     @click.prevent="searchAll()"
                     type="submit"
                     @click="show = !show"
-                  >Search</button>
+                  >
+                    Search
+                  </button>
                 </p>
               </form>
             </div>
@@ -218,29 +266,19 @@
         </div>
       </div>
     </div>
- 
+
     <main class="pl-2 pr-2">
+      
       <div class="container">
-        <div class="row m-0">
-          <div class="col-lg-12">
-            <div class="row">
-              <itinerary-list :list="allSearchdata"></itinerary-list>
-            </div>
+        <div  v-if="allSearchdata == ''">
+          <itinerary-list :list="items_list"></itinerary-list>
+          <Observer @intersect="intersected" />
+          <div class="loading-img-parent text-center mt-5 w-100 mb-4" v-if="loading">
+            <img class="loading-img" src="/images/icons/loader.gif" />
           </div>
         </div>
-      </div>
-
-      <div class="container" v-if="allSearchdata == ''">
-        <div class="row m-0">
-          <div class="col-lg-12">
-            <div class="row">
-              <itinerary-list :list="items_list"></itinerary-list>
-              <Observer @intersect="intersected" />
-            </div>
-          </div>
-          <div class="loading-img-parent text-center w-100 mb-4" v-if="loading">
-            <img class="loading-img" src="/images/icons/loader.gif">
-          </div>
+        <div v-else>
+          <itinerary-list :list="allSearchdata"></itinerary-list>
         </div>
       </div>
     </main>
@@ -257,16 +295,26 @@ import _ from "lodash";
 
 export default {
   name: "exploreDestination",
-   metaInfo: {
-    title: 'GBI Explore Destination',
-    meta:[
-      { name: 'description', content: '@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button' },
-      { name: 'keywords', content: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs' },
-      { name: 'url', content: 'https://www.gowithgbi.com/resources/explore-destination' },
-
-    ]
+  metaInfo: {
+    title: "GBI Explore Destination",
+    meta: [
+      {
+        name: "description",
+        content:
+          "@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button",
+      },
+      {
+        name: "keywords",
+        content:
+          "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs",
+      },
+      {
+        name: "url",
+        content: "https://www.gowithgbi.com/resources/explore-destination",
+      },
+    ],
   },
-  
+
   components: {
     searchexplor: SearchExplor,
     ModelSelect,
@@ -280,11 +328,11 @@ export default {
       save_disable_btn: false,
       remove_disable_btn: true,
       multicity: false,
-      region:'national',
+      region: "national",
       noofdays_option: 10,
       tourtype_option: [],
       options: [],
-      destinationCities:[],
+      destinationCities: [],
       sources: { value: "", text: "" },
       destinations: { value: "", text: "" },
       multi_source: { value: "", text: "" },
@@ -292,8 +340,8 @@ export default {
       rows: [
         {
           source: { value: "", text: "" },
-          destination: { value: "", text: "" }
-        }
+          destination: { value: "", text: "" },
+        },
       ],
       city_button: 1,
       counter: 2,
@@ -318,21 +366,21 @@ export default {
         source: [],
         destination: [],
         tourtype: [],
-        noofday: []
-      })
+        noofday: [],
+      }),
     };
   },
   computed: {
     // start filterdata source and destination
     filteredSource() {
       if (!this.search) return this.data;
-      return this.data.filter(result => {
+      return this.data.filter((result) => {
         return result.source.toLowerCase().includes(this.search.toLowerCase());
       });
     },
     filteredData() {
       if (!this.searchs) return this.datas;
-      return this.datas.filter(resultdata => {
+      return this.datas.filter((resultdata) => {
         return resultdata.destination
           .toLowerCase()
           .includes(this.searchs.toLowerCase());
@@ -340,10 +388,10 @@ export default {
     },
     alldata() {
       return this.$store.getters.getAllData;
-    }
+    },
   },
   created() {
-    this.$axios.get("/api/search").then(res => {
+    this.$axios.get("/api/search").then((res) => {
       this.data = res.data.data;
       this.datas = res.data.data;
     });
@@ -353,51 +401,51 @@ export default {
   },
 
   methods: {
-    getCities(){
-      this.$axios.get(`/api/regional-cities/national`).then(res => {
+    getCities() {
+      this.$axios.get(`/api/regional-cities/national`).then((res) => {
         for (var i = 0; i < res.data.length; i++) {
           this.options.push({
             value: res.data[i].name,
-            text: res.data[i].name
+            text: res.data[i].name,
           });
         }
         this.destinationCities = this.options;
-      });      
+      });
     },
 
-    getInternationalCities(){
-      this.$axios.get(`/api/regional-cities/international`).then(res => {
+    getInternationalCities() {
+      this.$axios.get(`/api/regional-cities/international`).then((res) => {
         this.destinationCities = [];
         for (var i = 0; i < res.data.length; i++) {
           this.destinationCities.push({
             value: res.data[i].name,
-            text: res.data[i].name
+            text: res.data[i].name,
           });
         }
-      }); 
+      });
     },
     async intersected() {
-      if(this.loading == false){
+      if (this.loading == false) {
         this.loading = true;
-        
+
         var url = `/api/itinerary-list?page=` + this.page;
         const res = await fetch(url);
-  
+
         this.page++;
         var items = await res.json();
-        if(items.data.length > 0){
+        if (items.data.length > 0) {
           this.items_list = [...this.items_list, ...items.data];
         }
         items = [];
-        this.loading = false;        
+        this.loading = false;
       }
     },
-    RealSearch: _.debounce(function() {
+    RealSearch: _.debounce(function () {
       this.$store.dispatch("SearchPost", this.keyword);
     }, 1000),
 
     tourTypeData() {
-      this.$axios.get("/api/tourtype").then(res => {
+      this.$axios.get("/api/tourtype").then((res) => {
         this.tourtype_option = res.data;
       });
     },
@@ -423,7 +471,7 @@ export default {
       this.noofday = event.target.value;
     },
     //add rows multiple location itinerary
-    addRow: function() {
+    addRow: function () {
       var vm = this;
       var current = this.current_counter;
       var previous = current - 1;
@@ -431,13 +479,13 @@ export default {
       this.city_button = this.city_button + 1;
       this.rows.push({
         source: { value: "", text: "" },
-        destination: { value: "", text: "" }
+        destination: { value: "", text: "" },
       });
       // this.rows[current].source = this.rows[previous].destination;
       vm.rows[vm.current_counter - 1].destination = vm.multi_source;
     },
     //delete rows multiple location itinerary
-    deleteRow: function(index) {
+    deleteRow: function (index) {
       this.current_counter = this.current_counter - 1;
       this.city_button = this.city_button - 1;
       this.rows.splice(index, 1);
@@ -500,12 +548,8 @@ export default {
           vm.searchForm.source.push(source);
           vm.searchForm.destination.push(destination);
         } else {
-          console.log('hi');
-          this.$swal.fire(
-            'Error',
-            'Please select all the fields',
-            'error'
-          );
+          console.log("hi");
+          this.$swal.fire("Error", "Please select all the fields", "error");
           // swal.fire({
           //   text: "Select all the locations!",
           //   type: "warning"
@@ -528,42 +572,30 @@ export default {
       ) {
         vm.searchForm
           .post("api/search-itinerary")
-          .then(res => {
+          .then((res) => {
             console.log(res);
             vm.allSearchdata = res.data.data;
             if (vm.allSearchdata.length == 0) {
-              this.$swal.fire(
-                'Alert',
-                'No data Found!!',
-                'info'
-              );
+              this.$swal.fire("Alert", "No data Found!!", "info");
             }
           })
-          .catch(error => {
-            this.$swal.fire(
-              'Alert',
-              'please select the fields',
-              'error'
-            );
+          .catch((error) => {
+            this.$swal.fire("Alert", "please select the fields", "error");
           });
       } else {
-        this.$swal.fire(
-          'Alert',
-          'please select locations',
-          'error'
-        );
+        this.$swal.fire("Alert", "please select locations", "error");
       }
-    }
+    },
   },
   watch: {
-    multi_source: function(value) {
+    multi_source: function (value) {
       var self = this;
       if (self.rows[0]) {
         self.rows[this.current_counter - 1].destination = value;
       }
     },
 
-    current_counter: function(value) {
+    current_counter: function (value) {
       if (value == 1) {
         this.save_disable_btn = false;
         this.remove_disable_btn = true;
@@ -574,19 +606,19 @@ export default {
       }
     },
 
-    region:function(){
-      if(this.region == 'national'){
+    region: function () {
+      if (this.region == "national") {
         this.destinationCities = this.options;
-      }else{
-        this.getInternationalCities();       
+      } else {
+        this.getInternationalCities();
       }
-    }
+    },
   },
 
   destroyed() {
     // search autocompelete start
     document.removeEventListener("click", this.handleClickOutside);
     document.removeEventListener("click", this.handleClickOutsides);
-  }
+  },
 };
 </script>         

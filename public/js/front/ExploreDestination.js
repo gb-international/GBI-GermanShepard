@@ -298,6 +298,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -307,16 +315,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "exploreDestination",
   metaInfo: {
-    title: 'GBI Explore Destination',
+    title: "GBI Explore Destination",
     meta: [{
-      name: 'description',
-      content: '@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button'
+      name: "description",
+      content: "@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button"
     }, {
-      name: 'keywords',
-      content: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs'
+      name: "keywords",
+      content: "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs"
     }, {
-      name: 'url',
-      content: 'https://www.gowithgbi.com/resources/explore-destination'
+      name: "url",
+      content: "https://www.gowithgbi.com/resources/explore-destination"
     }]
   },
   components: {
@@ -352,6 +360,8 @@ __webpack_require__.r(__webpack_exports__);
         value: "",
         text: ""
       },
+      region: "national",
+      destinationCities: [],
       rows: [{
         source: {
           value: "",
@@ -417,33 +427,54 @@ __webpack_require__.r(__webpack_exports__);
       _this3.data = response.data.data;
       _this3.datas = response.data.data;
     });
-    this.$axios.get("/api/city").then(function (response) {
-      for (var i = 0; i < response.data.data.length; i++) {
-        _this3.options.push({
-          value: response.data.data[i].name,
-          text: response.data.data[i].name
-        });
-      }
-    });
     this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
       _this3.upcoming_data = response.data;
     });
     this.tourTypeData();
     this.popularTour();
+    this.getCities();
   },
   methods: {
-    popularTour: function popularTour() {
+    getCities: function getCities() {
       var _this4 = this;
 
+      this.$axios.get("/api/regional-cities/national").then(function (res) {
+        for (var i = 0; i < res.data.length; i++) {
+          _this4.options.push({
+            value: res.data[i].name,
+            text: res.data[i].name
+          });
+        }
+
+        _this4.destinationCities = _this4.options;
+      });
+    },
+    getInternationalCities: function getInternationalCities() {
+      var _this5 = this;
+
+      this.$axios.get("/api/regional-cities/international").then(function (res) {
+        _this5.destinationCities = [];
+
+        for (var i = 0; i < res.data.length; i++) {
+          _this5.destinationCities.push({
+            value: res.data[i].name,
+            text: res.data[i].name
+          });
+        }
+      });
+    },
+    popularTour: function popularTour() {
+      var _this6 = this;
+
       this.$axios.get("/api/travel-program/popular-tour").then(function (response) {
-        _this4.popular_data = response.data;
+        _this6.popular_data = response.data;
       });
     },
     tourTypeData: function tourTypeData() {
-      var _this5 = this;
+      var _this7 = this;
 
       this.$axios.get("/api/tourtype").then(function (response) {
-        _this5.tourtype_option = response.data;
+        _this7.tourtype_option = response.data;
       });
     },
     reset: function reset() {
@@ -533,7 +564,7 @@ __webpack_require__.r(__webpack_exports__);
     //search autocompelete end
     //  serach data api
     searchAll: function searchAll() {
-      var _this6 = this;
+      var _this8 = this;
 
       // Submit form
       var vm = this;
@@ -552,8 +583,8 @@ __webpack_require__.r(__webpack_exports__);
           vm.searchForm.source.push(source);
           vm.searchForm.destination.push(destination);
         } else {
-          console.log('hi');
-          this.$swal.fire('Error', 'Please select all the fields', 'error'); // swal.fire({
+          console.log("hi");
+          this.$swal.fire("Error", "Please select all the fields", "error"); // swal.fire({
           //   text: "Select all the locations!",
           //   type: "warning"
           // });
@@ -576,13 +607,13 @@ __webpack_require__.r(__webpack_exports__);
           vm.allSearchdata = response.data.data;
 
           if (vm.allSearchdata.length == 0) {
-            _this6.$swal.fire('Alert', 'Not Found!!1', 'info');
+            _this8.$swal.fire("Alert", "No data found !!!", "info");
           }
         })["catch"](function (error) {
-          _this6.$swal.fire('Alert', 'please select the fields', 'error');
+          _this8.$swal.fire("Alert", "please select the fields", "error");
         });
       } else {
-        this.$swal.fire('Alert', 'please select locations', 'error');
+        this.$swal.fire("Alert", "please select locations", "error");
       }
     }
   },
@@ -603,6 +634,13 @@ __webpack_require__.r(__webpack_exports__);
       if (value == this.counter) {
         this.save_disable_btn = true;
         this.remove_disable_btn = false;
+      }
+    },
+    region: function region() {
+      if (this.region == "national") {
+        this.destinationCities = this.options;
+      } else {
+        this.getInternationalCities();
       }
     }
   },
@@ -738,7 +776,109 @@ var render = function() {
                             attrs: { id: "home" }
                           },
                           [
-                            _c("br"),
+                            _c("div", { staticClass: "row search-radio" }, [
+                              _c("div", { staticClass: "col-sm-6" }, [
+                                _c("div", { staticClass: "row pt-3 pb-3" }, [
+                                  _c("div", { staticClass: "col" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-radio"
+                                      },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.region,
+                                              expression: "region"
+                                            }
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "radio",
+                                            id: "national",
+                                            name: "customRadio",
+                                            value: "national"
+                                          },
+                                          domProps: {
+                                            checked: _vm._q(
+                                              _vm.region,
+                                              "national"
+                                            )
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              _vm.region = "national"
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: "national" }
+                                          },
+                                          [_vm._v("National")]
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-radio"
+                                      },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.region,
+                                              expression: "region"
+                                            }
+                                          ],
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "radio",
+                                            id: "international",
+                                            name: "customRadio",
+                                            value: "international"
+                                          },
+                                          domProps: {
+                                            checked: _vm._q(
+                                              _vm.region,
+                                              "international"
+                                            )
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              _vm.region = "international"
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: "international" }
+                                          },
+                                          [_vm._v("International")]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ]),
                             _vm._v(" "),
                             _c(
                               "div",
@@ -778,7 +918,7 @@ var render = function() {
                                   [
                                     _c("model-select", {
                                       attrs: {
-                                        options: _vm.options,
+                                        options: _vm.destinationCities,
                                         placeholder: "Arrive at"
                                       },
                                       model: {
@@ -1226,84 +1366,64 @@ var render = function() {
     _vm._v(" "),
     _c("main", { staticClass: "pl-2 pr-2" }, [
       _c("div", { staticClass: "container" }, [
-        _c(
-          "div",
-          { staticClass: "row" },
-          [
-            _c("searchexplor", { attrs: { allSearchdata: _vm.allSearchdata } }),
-            _vm._v(" "),
-            _vm.allSearchdata == ""
-              ? _c(
+        _vm.allSearchdata == ""
+          ? _c(
+              "div",
+              { staticClass: "p-0" },
+              [
+                _c("heading", {
+                  staticClass: "text-center",
+                  attrs: { text: "Upcoming Tour" }
+                }),
+                _vm._v(" "),
+                _c("itinerary-list", { attrs: { list: _vm.upcoming_data } }),
+                _vm._v(" "),
+                _c(
                   "div",
-                  { staticClass: "col-lg-12 p-0" },
+                  { staticClass: "nopadding m-b-15" },
                   [
-                    _c("heading", {
-                      staticClass: "text-center",
-                      attrs: { text: "Upcoming Tour" }
-                    }),
-                    _vm._v(" "),
-                    _c("itinerary-list", {
-                      attrs: { list: _vm.upcoming_data }
-                    }),
-                    _vm._v(" "),
                     _c(
-                      "div",
-                      { staticClass: "col-lg-12 nopadding m-b-15" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "listexplore",
-                            attrs: { to: "/explore-list" }
-                          },
-                          [_vm._v("View More")]
-                        )
-                      ],
-                      1
+                      "router-link",
+                      {
+                        staticClass: "listexplore",
+                        attrs: { to: "/explore-list" }
+                      },
+                      [_vm._v("View More")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("heading", {
+                  staticClass: "text-center",
+                  attrs: { text: "Popular Tour" }
+                }),
+                _vm._v(" "),
+                _c("itinerary-list", { attrs: { list: _vm.popular_data } }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "nopadding m-b-15" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "listexplore",
+                        attrs: { to: "/explore-list" }
+                      },
+                      [_vm._v("View More")]
                     )
                   ],
                   1
                 )
-              : _vm._e()
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _vm.allSearchdata == ""
-            ? _c(
-                "div",
-                { staticClass: "col-lg-12 p-0" },
-                [
-                  _c("heading", {
-                    staticClass: "text-center",
-                    attrs: { text: "Popular Tour" }
-                  }),
-                  _vm._v(" "),
-                  _c("itinerary-list", { attrs: { list: _vm.popular_data } }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-lg-12 nopadding m-b-15" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "listexplore",
-                          attrs: { to: "/explore-list" }
-                        },
-                        [_vm._v("View More")]
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            : _vm._e()
-        ])
+              ],
+              1
+            )
+          : _c(
+              "div",
+              [_c("itinerary-list", { attrs: { list: _vm.allSearchdata } })],
+              1
+            )
       ])
     ])
   ])

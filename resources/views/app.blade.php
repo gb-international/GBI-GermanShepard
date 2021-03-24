@@ -8,6 +8,7 @@
   <!-- CSRF Token -->
   <title>{{ config('app.name', 'GBI') }}</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  
   <link rel="icon" type="image/png" href="{{ asset('assets/front/images/favicon.png') }}" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

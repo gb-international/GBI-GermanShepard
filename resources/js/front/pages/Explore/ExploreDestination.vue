@@ -31,7 +31,26 @@
                   <!-- start single location Tab panes serach bar for source and destination-->
                   <div class="tab-content explor-content pb-1">
                     <div id="home" class="container tab-pane active">
-                      <br />
+                      <div class="row search-radio">
+                        <div class="col-sm-6">
+                          <div class="row pt-3 pb-3">
+                            <div class="col">
+                              <div class="custom-control custom-radio">
+                                <input type="radio" id="national" name="customRadio" value="national" class="custom-control-input"  v-model="region" />
+                                <label class="custom-control-label" for="national">National</label>
+                              </div>
+                            </div>
+                            
+                            <div class="col">
+                              <div class="custom-control custom-radio">
+                                <input type="radio" id="international" name="customRadio" value="international" class="custom-control-input"  v-model="region" />
+                                <label class="custom-control-label" for="international">International</label>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                       <div class="row p-0 parent_padding">
                         <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
                           <model-select
@@ -43,7 +62,7 @@
                         </div>
                         <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
                           <model-select
-                            :options="options"
+                            :options="destinationCities"
                             v-model="destinations"
                             placeholder="Arrive at"
                           ></model-select>
@@ -202,31 +221,20 @@
  
     <main class="pl-2 pr-2">
       <div class="container">
-        <div class="row">
-          <searchexplor :allSearchdata="allSearchdata"></searchexplor>
-          <div class="col-lg-12 p-0" v-if="allSearchdata == ''">
-            <heading class="text-center" text="Upcoming Tour" />
-
-            <itinerary-list :list="upcoming_data"></itinerary-list>
-
-            <div class="col-lg-12 nopadding m-b-15">
-              <router-link to="/explore-list" class="listexplore">View More</router-link>
-            </div>
+        <div class="p-0" v-if="allSearchdata == ''">
+          <heading class="text-center" text="Upcoming Tour" />
+          <itinerary-list :list="upcoming_data" />
+          <div class="nopadding m-b-15">
+            <router-link to="/explore-list" class="listexplore">View More</router-link>
+          </div>
+          <heading class="text-center" text="Popular Tour" />
+          <itinerary-list :list="popular_data" />
+          <div class="nopadding m-b-15">
+            <router-link to="/explore-list" class="listexplore">View More</router-link>
           </div>
         </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 p-0" v-if="allSearchdata == ''">
-            <heading class="text-center" text="Popular Tour" />
-
-            <itinerary-list :list="popular_data"></itinerary-list>
-
-            <div class="col-lg-12 nopadding m-b-15">
-              <router-link to="/explore-list" class="listexplore">View More</router-link>
-            </div>
-          </div>
+        <div v-else>
+          <itinerary-list :list="allSearchdata"></itinerary-list>
         </div>
       </div>
     </main>
@@ -238,21 +246,31 @@ import SearchExplor from "./SearchExplor.vue";
 import { ModelSelect } from "vue-search-select";
 import { Form, HasError } from "vform";
 import ItineraryList from "@/front/components/ItineraryList";
-import Heading from '@/front/components/layout/Heading.vue';
-import SubHeading from '@/front/components/layout/SubHeading.vue';
+import Heading from "@/front/components/layout/Heading.vue";
+import SubHeading from "@/front/components/layout/SubHeading.vue";
 
 export default {
   name: "exploreDestination",
-   metaInfo: {
-    title: 'GBI Explore Destination',
-    meta:[
-      { name: 'description', content: '@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button' },
-      { name: 'keywords', content: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs' },
-      { name: 'url', content: 'https://www.gowithgbi.com/resources/explore-destination' },
-
-    ]
+  metaInfo: {
+    title: "GBI Explore Destination",
+    meta: [
+      {
+        name: "description",
+        content:
+          "@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button",
+      },
+      {
+        name: "keywords",
+        content:
+          "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs",
+      },
+      {
+        name: "url",
+        content: "https://www.gowithgbi.com/resources/explore-destination",
+      },
+    ],
   },
-  
+
   components: {
     searchexplor: SearchExplor,
     ModelSelect,
@@ -274,11 +292,13 @@ export default {
       destinations: { value: "", text: "" },
       multi_source: { value: "", text: "" },
       multi_destination: { value: "", text: "" },
+      region: "national",
+      destinationCities: [],
       rows: [
         {
           source: { value: "", text: "" },
-          destination: { value: "", text: "" }
-        }
+          destination: { value: "", text: "" },
+        },
       ],
       city_button: 1,
       counter: 2,
@@ -302,21 +322,21 @@ export default {
         source: [],
         destination: [],
         tourtype: [],
-        noofday: []
-      })
+        noofday: [],
+      }),
     };
   },
   computed: {
     // start filterdata source and destination
     filteredSource() {
       if (!this.search) return this.data;
-      return this.data.filter(result => {
+      return this.data.filter((result) => {
         return result.source.toLowerCase().includes(this.search.toLowerCase());
       });
     },
     filteredData() {
       if (!this.searchs) return this.datas;
-      return this.datas.filter(resultdata => {
+      return this.datas.filter((resultdata) => {
         return resultdata.destination
           .toLowerCase()
           .includes(this.searchs.toLowerCase());
@@ -324,36 +344,52 @@ export default {
     },
     alldata() {
       return this.$store.getters.getAllData;
-    }
+    },
   },
   created() {
-    this.$axios.get("/api/search").then(response => {
+    this.$axios.get("/api/search").then((response) => {
       this.data = response.data.data;
       this.datas = response.data.data;
     });
-    this.$axios.get("/api/city").then(response => {
-      for (var i = 0; i < response.data.data.length; i++) {
-        this.options.push({
-          value: response.data.data[i].name,
-          text: response.data.data[i].name
-        });
-      }
-    });
-    this.$axios.get("/api/travel-program/upcoming-tour").then(response => {
+    this.$axios.get("/api/travel-program/upcoming-tour").then((response) => {
       this.upcoming_data = response.data;
     });
 
     this.tourTypeData();
     this.popularTour();
+    this.getCities();
   },
   methods: {
+    getCities() {
+      this.$axios.get(`/api/regional-cities/national`).then((res) => {
+        for (var i = 0; i < res.data.length; i++) {
+          this.options.push({
+            value: res.data[i].name,
+            text: res.data[i].name,
+          });
+        }
+        this.destinationCities = this.options;
+      });
+    },
+
+    getInternationalCities() {
+      this.$axios.get(`/api/regional-cities/international`).then((res) => {
+        this.destinationCities = [];
+        for (var i = 0; i < res.data.length; i++) {
+          this.destinationCities.push({
+            value: res.data[i].name,
+            text: res.data[i].name,
+          });
+        }
+      });
+    },
     popularTour() {
-      this.$axios.get("/api/travel-program/popular-tour").then(response => {
+      this.$axios.get("/api/travel-program/popular-tour").then((response) => {
         this.popular_data = response.data;
       });
     },
     tourTypeData() {
-      this.$axios.get("/api/tourtype").then(response => {
+      this.$axios.get("/api/tourtype").then((response) => {
         this.tourtype_option = response.data;
       });
     },
@@ -379,7 +415,7 @@ export default {
       this.noofday = event.target.value;
     },
     //add rows multiple location itinerary
-    addRow: function() {
+    addRow: function () {
       var vm = this;
       var current = this.current_counter;
       var previous = current - 1;
@@ -387,13 +423,13 @@ export default {
       this.city_button = this.city_button + 1;
       this.rows.push({
         source: { value: "", text: "" },
-        destination: { value: "", text: "" }
+        destination: { value: "", text: "" },
       });
       // this.rows[current].source = this.rows[previous].destination;
       vm.rows[vm.current_counter - 1].destination = vm.multi_source;
     },
     //delete rows multiple location itinerary
-    deleteRow: function(index) {
+    deleteRow: function (index) {
       this.current_counter = this.current_counter - 1;
       this.city_button = this.city_button - 1;
       this.rows.splice(index, 1);
@@ -459,12 +495,8 @@ export default {
           vm.searchForm.source.push(source);
           vm.searchForm.destination.push(destination);
         } else {
-          console.log('hi');
-          this.$swal.fire(
-            'Error',
-            'Please select all the fields',
-            'error'
-          );
+          console.log("hi");
+          this.$swal.fire("Error", "Please select all the fields", "error");
           // swal.fire({
           //   text: "Select all the locations!",
           //   type: "warning"
@@ -487,41 +519,29 @@ export default {
       ) {
         vm.searchForm
           .post("api/search-itinerary")
-          .then(response => {
+          .then((response) => {
             vm.allSearchdata = response.data.data;
             if (vm.allSearchdata.length == 0) {
-              this.$swal.fire(
-                'Alert',
-                'Not Found!!1',
-                'info'
-              );
+              this.$swal.fire("Alert", "No data found !!!", "info");
             }
           })
-          .catch(error => {
-            this.$swal.fire(
-              'Alert',
-              'please select the fields',
-              'error'
-            );
+          .catch((error) => {
+            this.$swal.fire("Alert", "please select the fields", "error");
           });
       } else {
-        this.$swal.fire(
-          'Alert',
-          'please select locations',
-          'error'
-        );
+        this.$swal.fire("Alert", "please select locations", "error");
       }
-    }
+    },
   },
   watch: {
-    multi_source: function(value) {
+    multi_source: function (value) {
       var self = this;
       if (self.rows[0]) {
         self.rows[this.current_counter - 1].destination = value;
       }
     },
 
-    current_counter: function(value) {
+    current_counter: function (value) {
       if (value == 1) {
         this.save_disable_btn = false;
         this.remove_disable_btn = true;
@@ -530,13 +550,20 @@ export default {
         this.save_disable_btn = true;
         this.remove_disable_btn = false;
       }
-    }
+    },
+    region: function () {
+      if (this.region == "national") {
+        this.destinationCities = this.options;
+      } else {
+        this.getInternationalCities();
+      }
+    },
   },
 
   destroyed() {
     // search autocompelete start
     document.removeEventListener("click", this.handleClickOutside);
     document.removeEventListener("click", this.handleClickOutsides);
-  }
+  },
 };
 </script>         
