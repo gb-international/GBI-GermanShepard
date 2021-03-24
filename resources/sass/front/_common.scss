@@ -104,10 +104,26 @@
 			background-clip: text;
 }
 
-
 /* ********************************************************** */
 
-
+.search-radio{
+	.custom-control-label::before {
+		background-color: transparent;
+		border: 1px solid white;
+	}
+	.custom-control-input:checked~.custom-control-label::before {
+		color: #fff;
+		border-color: #ffffff;
+		background-color: transparent;
+	}
+	.custom-radio .custom-control-input:checked~.custom-control-label::after {
+		background-color: white;
+		border-radius: 50%;
+		width: 10px;
+		height: 10px;
+		margin: 3px;
+	}
+}
 
 
 

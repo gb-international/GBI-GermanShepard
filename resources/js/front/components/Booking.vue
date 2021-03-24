@@ -319,7 +319,6 @@ export default {
         });
         return false;
       }
-      console.log(this.form);
       this.form
         .post("/api/booking", {
           headers: { Authorization: `Bearer ${this.$cookies.get('access_token')}` },
@@ -329,7 +328,8 @@ export default {
           window.$(".close").click();
           this.$swal.fire({
             icon: "success",
-            title: "Booking Successfull!! We will contact you soon !!",
+            title:"Successfull",
+            text: "We will contact you soon !!",
           });
         })
         .catch((error) => {

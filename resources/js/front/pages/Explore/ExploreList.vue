@@ -31,7 +31,26 @@
                   <!-- start single location Tab panes serach bar for source and destination-->
                   <div class="tab-content explor-content pb-1">
                     <div id="home" class="container tab-pane active">
-                      <br />
+                      <div class="row search-radio">
+                        <div class="col-sm-6">
+                          <div class="row pt-3 pb-3">
+                            <div class="col">
+                              <div class="custom-control custom-radio">
+                                <input type="radio" id="national" name="customRadio" value="national" class="custom-control-input"  v-model="region" />
+                                <label class="custom-control-label" for="national">National</label>
+                              </div>
+                            </div>
+                            
+                            <div class="col">
+                              <div class="custom-control custom-radio">
+                                <input type="radio" id="international" name="customRadio" value="international" class="custom-control-input"  v-model="region" />
+                                <label class="custom-control-label" for="international">International</label>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                       <div class="row p-0 parent_padding">
                         <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
                           <model-select
@@ -43,7 +62,7 @@
                         </div>
                         <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
                           <model-select
-                            :options="options"
+                            :options="destinationCities"
                             v-model="destinations"
                             placeholder="Arrive at"
                           ></model-select>
@@ -202,8 +221,12 @@
  
     <main class="pl-2 pr-2">
       <div class="container">
-        <div class="row">
-          <searchexplor :allSearchdata="allSearchdata"></searchexplor>
+        <div class="row m-0">
+          <div class="col-lg-12">
+            <div class="row">
+              <itinerary-list :list="allSearchdata"></itinerary-list>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -257,9 +280,11 @@ export default {
       save_disable_btn: false,
       remove_disable_btn: true,
       multicity: false,
+      region:'national',
       noofdays_option: 10,
       tourtype_option: [],
       options: [],
+      destinationCities:[],
       sources: { value: "", text: "" },
       destinations: { value: "", text: "" },
       multi_source: { value: "", text: "" },
@@ -318,23 +343,39 @@ export default {
     }
   },
   created() {
-    this.$axios.get("/api/search").then(response => {
-      this.data = response.data.data;
-      this.datas = response.data.data;
-    });
-    this.$axios.get("/api/city").then(response => {
-      for (var i = 0; i < response.data.data.length; i++) {
-        this.options.push({
-          value: response.data.data[i].name,
-          text: response.data.data[i].name
-        });
-      }
+    this.$axios.get("/api/search").then(res => {
+      this.data = res.data.data;
+      this.datas = res.data.data;
     });
     this.tourTypeData();
     this.intersected();
+    this.getCities();
   },
-  methods: {
 
+  methods: {
+    getCities(){
+      this.$axios.get(`/api/regional-cities/national`).then(res => {
+        for (var i = 0; i < res.data.length; i++) {
+          this.options.push({
+            value: res.data[i].name,
+            text: res.data[i].name
+          });
+        }
+        this.destinationCities = this.options;
+      });      
+    },
+
+    getInternationalCities(){
+      this.$axios.get(`/api/regional-cities/international`).then(res => {
+        this.destinationCities = [];
+        for (var i = 0; i < res.data.length; i++) {
+          this.destinationCities.push({
+            value: res.data[i].name,
+            text: res.data[i].name
+          });
+        }
+      }); 
+    },
     async intersected() {
       if(this.loading == false){
         this.loading = true;
@@ -356,8 +397,8 @@ export default {
     }, 1000),
 
     tourTypeData() {
-      this.$axios.get("/api/tourtype").then(response => {
-        this.tourtype_option = response.data;
+      this.$axios.get("/api/tourtype").then(res => {
+        this.tourtype_option = res.data;
       });
     },
 
@@ -487,12 +528,13 @@ export default {
       ) {
         vm.searchForm
           .post("api/search-itinerary")
-          .then(response => {
-            vm.allSearchdata = response.data.data;
+          .then(res => {
+            console.log(res);
+            vm.allSearchdata = res.data.data;
             if (vm.allSearchdata.length == 0) {
               this.$swal.fire(
                 'Alert',
-                'Not Found!!1',
+                'No data Found!!',
                 'info'
               );
             }
@@ -529,6 +571,14 @@ export default {
       if (value == this.counter) {
         this.save_disable_btn = true;
         this.remove_disable_btn = false;
+      }
+    },
+
+    region:function(){
+      if(this.region == 'national'){
+        this.destinationCities = this.options;
+      }else{
+        this.getInternationalCities();       
       }
     }
   },

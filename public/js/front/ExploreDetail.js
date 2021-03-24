@@ -323,7 +323,6 @@ __webpack_require__.r(__webpack_exports__);
         return false;
       }
 
-      console.log(this.form);
       this.form.post("/api/booking", {
         headers: {
           Authorization: "Bearer ".concat(this.$cookies.get('access_token'))
@@ -335,7 +334,8 @@ __webpack_require__.r(__webpack_exports__);
 
         _this3.$swal.fire({
           icon: "success",
-          title: "Booking Successfull!! We will contact you soon !!"
+          title: "Successfull",
+          text: "We will contact you soon !!"
         });
       })["catch"](function (error) {
         _this3.$swal.fire({

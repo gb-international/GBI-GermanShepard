@@ -387,7 +387,14 @@ var render = function() {
                                   "/view-itinerary/" + _vm.booking.itinerary.id
                               }
                             },
-                            [_vm._v(_vm._s(_vm.booking.itinerary.title))]
+                            [
+                              _vm._v(
+                                _vm._s(_vm.booking.itinerary.title) +
+                                  " (ID: " +
+                                  _vm._s(_vm.booking.itinerary.id) +
+                                  ")\n          "
+                              )
+                            ]
                           )
                         ],
                         1

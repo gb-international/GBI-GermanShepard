@@ -49,6 +49,7 @@ Route::namespace('Front')->group(function(){
 
 	// Related Cities
 	Route::get('/related-cities/{id}','LocationController@relatedCities');
+	Route::get('/regional-cities/{region}','LocationController@regionalCities');
 
 	Route::group(['middleware' => 'auth:api'], function(){
 		Route::post('details', 'UserController@details');

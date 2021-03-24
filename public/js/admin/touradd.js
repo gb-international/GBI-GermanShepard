@@ -173,12 +173,12 @@ __webpack_require__.r(__webpack_exports__);
     schoolData: function schoolData() {
       var _this = this;
 
-      axios.get("/api/school").then(function (response) {
-        if (response.data) {
-          for (var i = 0; i < response.data.length; i++) {
+      axios.get("/api/school").then(function (res) {
+        if (res.data) {
+          for (var i = 0; i < res.data.length; i++) {
             _this.options.push({
-              name: response.data[i].school_name,
-              id: response.data[i].id
+              name: res.data[i].school_name,
+              id: res.data[i].id
             });
           }
         }
@@ -187,12 +187,12 @@ __webpack_require__.r(__webpack_exports__);
     itineraryData: function itineraryData() {
       var _this2 = this;
 
-      axios.get("/api/itinerary").then(function (response) {
-        if (response.data) {
-          for (var i = 0; i < response.data.length; i++) {
+      axios.get("/api/itinerary").then(function (res) {
+        if (res.data) {
+          for (var i = 0; i < res.data.length; i++) {
             _this2.itinerary_list.push({
-              name: response.data[i].title,
-              id: response.data[i].id
+              name: res.data[i].title + " (".concat(res.data[i].id, ")"),
+              id: res.data[i].id
             });
           }
         }
@@ -201,9 +201,9 @@ __webpack_require__.r(__webpack_exports__);
     tourData: function tourData() {
       var _this3 = this;
 
-      axios.get("/api/tour").then(function (response) {
-        if (response.data) {
-          _this3.tours = response.data.data;
+      axios.get("/api/tour").then(function (res) {
+        if (res.data) {
+          _this3.tours = res.data.data;
 
           if (_this3.tours.length >= 1) {
             var last_id = _this3.tours[_this3.tours.length - 1].id;
@@ -217,7 +217,7 @@ __webpack_require__.r(__webpack_exports__);
     AddSchool: function AddSchool() {
       var _this4 = this;
 
-      this.form.post("/api/tour").then(function (response) {
+      this.form.post("/api/tour").then(function (res) {
         _this4.$router.push("/tours/");
 
         _this4.$toast.fire({

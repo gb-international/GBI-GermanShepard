@@ -4458,7 +4458,7 @@ article {
 }
 
 .cardlist .cardtext-col .card-icon {
-  width: 70px;
+  width: 60px;
 }
 
 @media only screen and (max-width: 510px) {
@@ -7486,6 +7486,25 @@ a:hover {
 }
 
 /* ********************************************************** */
+
+.search-radio .custom-control-label::before {
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+.search-radio .custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  border-color: #ffffff;
+  background-color: transparent;
+}
+
+.search-radio .custom-radio .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: white;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 3px;
+}
 
 .border-radius-0 {
   border-radius: 0px;

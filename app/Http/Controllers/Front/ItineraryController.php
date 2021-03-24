@@ -39,9 +39,12 @@ class ItineraryController extends Controller
     {
         $this->validate($request, [
             'tourtype' => 'required',
-            'noofday' => 'required'
+            'noofday' => 'required',
+            'source' => 'required',
+            'destination' => 'required',
         ]);
-        
+
+       
         $source = $request->source;
         $destination = $request->destination;
         $tourtype = $request->tourtype;
@@ -57,10 +60,10 @@ class ItineraryController extends Controller
         }
        // return  $request->all();
         if($source !=null ){
-            $data = DB::table('itineraries')
-                ->where('noofdays',$noofday)
-                ->whereIn('source',$source)
-                ->OrWhereIn('destination',$destination)
+            $source = explode(",",$request->source[0])[0];
+            $destination = explode(",",$request->destination[0])[0];
+            $data = Itinerary::where(['source'=>$source,'destination'=>$destination])
+                ->Orwhere('noofdays',$noofday)
                 ->get();
             return response()->json([
                 'data'=>$data

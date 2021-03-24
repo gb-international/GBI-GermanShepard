@@ -156,12 +156,12 @@ export default {
   },
   methods: {
     schoolData() {
-      axios.get(`/api/school`).then((response) => {
-        if (response.data) {
-          for(let i = 0;i<response.data.length;i++){
+      axios.get(`/api/school`).then((res) => {
+        if (res.data) {
+          for(let i = 0;i<res.data.length;i++){
             this.options.push({
-              name:response.data[i].school_name,
-              id:response.data[i].id
+              name:res.data[i].school_name,
+              id:res.data[i].id
             });
           }
         }
@@ -169,12 +169,12 @@ export default {
     },
 
     itineraryData() {
-      axios.get(`/api/itinerary`).then((response) => {
-        if (response.data) {
-          for(let i = 0;i<response.data.length;i++){
+      axios.get(`/api/itinerary`).then((res) => {
+        if (res.data) {
+          for(let i = 0;i<res.data.length;i++){
             this.itinerary_list.push({
-              name:response.data[i].title,
-              id:response.data[i].id
+              name:res.data[i].title + ` (${res.data[i].id})`,
+              id:res.data[i].id
             });
           }
         }
@@ -182,9 +182,9 @@ export default {
     },
 
     tourData() {
-      axios.get(`/api/tour`).then((response) => {
-        if (response.data) {
-          this.tours = response.data.data;
+      axios.get(`/api/tour`).then((res) => {
+        if (res.data) {
+          this.tours = res.data.data;
           if (this.tours.length >= 1) {
             var last_id = this.tours[this.tours.length - 1].id;
             last_id++;
@@ -198,7 +198,7 @@ export default {
     AddSchool() {
       this.form
         .post("/api/tour")
-        .then((response) => {
+        .then((res) => {
           this.$router.push(`/tours/`);
           this.$toast.fire({
             icon: "success",
