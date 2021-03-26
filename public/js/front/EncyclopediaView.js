@@ -224,9 +224,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -681,9 +678,7 @@ var render = function() {
                                           staticClass:
                                             "mr-3 rounded-circle w-45",
                                           attrs: {
-                                            src: _vm.getProfileImage(
-                                              comment.user.information.photo
-                                            ),
+                                            src: comment.user.information.photo,
                                             alt: "John Doe"
                                           }
                                         }),
@@ -830,11 +825,10 @@ var render = function() {
                                                               staticClass:
                                                                 "mr-3 rounded-circle w-45",
                                                               attrs: {
-                                                                src: _vm.getProfileImage(
+                                                                src:
                                                                   comment.user
                                                                     .information
-                                                                    .photo
-                                                                ),
+                                                                    .photo,
                                                                 alt: "Jane Doe"
                                                               }
                                                             }),

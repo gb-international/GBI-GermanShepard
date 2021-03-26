@@ -13,9 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
-/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
-//
-//
+/* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
 //
 //
 //
@@ -146,7 +144,7 @@ __webpack_require__.r(__webpack_exports__);
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    "dropdown-list": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -476,16 +474,19 @@ var render = function() {
                               _vm._v("Role Assign")
                             ]),
                             _vm._v(" "),
-                            _c("dropdown-filter", {
+                            _c("dropdown-list", {
                               staticClass: "mb-2",
                               class: {
                                 "is-invalid": _vm.form.errors.has("role_name")
                               },
-                              attrs: {
-                                itemList: _vm.role_list,
-                                selectedId: _vm.form.role_name
-                              },
-                              on: { "update:option": _vm.updateRole }
+                              attrs: { itemList: _vm.role_list },
+                              model: {
+                                value: _vm.form.role_name,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "role_name", $$v)
+                                },
+                                expression: "form.role_name"
+                              }
                             }),
                             _vm._v(" "),
                             _c("has-error", {
@@ -505,18 +506,21 @@ var render = function() {
                               _vm._v("Department")
                             ]),
                             _vm._v(" "),
-                            _c("dropdown-filter", {
+                            _c("dropdown-list", {
                               staticClass: "mb-2",
                               class: {
                                 "is-invalid": _vm.form.errors.has(
                                   "department_id"
                                 )
                               },
-                              attrs: {
-                                itemList: _vm.departments,
-                                selectedId: _vm.form.department_id
-                              },
-                              on: { "update:option": _vm.updateDepartment }
+                              attrs: { itemList: _vm.departments },
+                              model: {
+                                value: _vm.form.department_id,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "department_id", $$v)
+                                },
+                                expression: "form.department_id"
+                              }
                             }),
                             _vm._v(" "),
                             _c("has-error", {

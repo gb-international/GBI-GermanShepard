@@ -2,7 +2,7 @@
       <!--************************************************
       Author:@Ajay
       ****************************************************-->
-  <div id="app">
+  <div>
 
     <nav class="navbar navbar-expand-md bg-white navbar-light fixed-top" id="navbar">
       <div class="container">
@@ -157,6 +157,7 @@
       <intro></intro>
 
     </div>
+    
     <gbi-footer></gbi-footer>
     
   </div>

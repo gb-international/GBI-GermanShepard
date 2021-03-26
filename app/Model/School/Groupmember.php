@@ -14,6 +14,10 @@ class Groupmember extends Model
         'is_paid'=>'boolean'
     ];
 
+    public function setEmailAttribute($value){
+        return $this->attributes['email'] = strtolower($value);
+    }
+
     public function setIsPaidAttribute($value)
     {
         if($value == true){

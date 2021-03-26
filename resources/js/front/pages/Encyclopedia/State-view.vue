@@ -118,8 +118,7 @@
                   <div v-if="comment.parent_id == null">
                     <div v-if="comment.user" class="media p-0">
                       <img
-                        :src="getProfileImage(comment.user.information.photo)"
-                        alt="John Doe"
+                        :src="comment.user.information.photo"    alt="John Doe"
                         class="mr-3 rounded-circle w-45"
                       />
                       <div class="media-body">
@@ -171,9 +170,7 @@
                             v-if="reply.parent_id == comment.id"
                           >
                             <img
-                              :src="
-                                getProfileImage(comment.user.information.photo)
-                              "
+                              :src="comment.user.information.photo"
                               alt="Jane Doe"
                               class="mr-3 rounded-circle w-45"
                             />

@@ -8,18 +8,16 @@
           enctype="multipart/form-data"
           @submit.prevent="updateItinerary()"
         >
-          <div class="row mb-30">
+          <div class="row mb-30" v-if="form.title">
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="sourceId">Source</label>
                 
                 <dropdown-list class="mb-2" 
                   :itemList="cities" 
-                  v-model="form.source"
+                  v-model.trim="form.source"
                 />
-
-                {{ form.source }}
-
+                
                 <has-error :form="form" field="source"></has-error>
               </div>
             </div>
@@ -31,8 +29,6 @@
                   :itemList="cities" 
                   v-model="form.destination"
                 />
-
-                {{ form.destination }}
 
                 <has-error :form="form" field="destination"></has-error>
               </div>
@@ -373,7 +369,6 @@
                   :itemList="cities" 
                   v-model="data.day_source"
                 />
-                {{ data.day_source }}
               </div>
               <div class="col-sm-6">
                 <label>Destination</label>
@@ -383,7 +378,6 @@
                   v-model="data.day_destination"
                 />
 
-                {{ data.day_destination }}
               </div>
 
               <div class="col-sm-12">
@@ -412,7 +406,7 @@
 <script>
 import { ModelSelect } from "vue-search-select";
 import Multiselect from "vue-multiselect";
-import { Form, HasError, AlertError } from "vform";
+import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import Vue2EditorMixin from '@/admin/mixins/Vue2EditorMixin';

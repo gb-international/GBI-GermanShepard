@@ -12,7 +12,7 @@ to submit the data we are using a function.
         enctype="multipart/form-data"
         @submit.prevent="UpdateBus()"
       >
-        <div class="row">
+        <div class="row" v-if="form.company_name">
           <div class="col-sm-4">
             <div class="form-group">
               <label for="company_name">Bus Company name</label>
@@ -30,7 +30,11 @@ to submit the data we are using a function.
           <div class="col-sm-4">
             <div class="form-group">
               <label for="seater">Seater</label>
-              <dropdown-filter class="mb-2" :itemList="seater" @update:option="UpdateSeater" :selectedId="form.seater"/>
+              <dropdown-filter 
+                class="mb-2" 
+                :itemList="seater_list"
+                v-model.trim="form.seater"
+              />
               <has-error :form="form" field="seater"></has-error>
             </div>
           </div>
@@ -39,7 +43,11 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="seat_type">Seat type</label>
               
-              <dropdown-filter class="mb-2" :itemList="seat_type" @update:option="updateSeatType" :selectedId="form.seat_type"/>
+              <dropdown-filter 
+                class="mb-2" 
+                :itemList="seat_type" 
+                v-model="form.seat_type"
+              />
 
               <has-error :form="form" field="seat_type"></has-error>
             </div>
@@ -71,7 +79,7 @@ to submit the data we are using a function.
 import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
-import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
+import DropdownFilter from "@/admin/components/form/DropdownList.vue";
 export default {
   name: "NewBus",
   components: {
@@ -84,7 +92,7 @@ export default {
   data() {
     return {
       // Create a new form instance
-      seater: [
+      seater_list: [
         {name:'10',id:'10'},
         {name:'20',id:'20'},
         {name:'30',id:'30'},
@@ -112,11 +120,8 @@ export default {
     this.editBus();
   },
   methods: {
-    UpdateSeater(v){ this.form.seater = v.name },    
-    updateSeatType(v){ this.form.seat_type = v.name },
     editBus() {
       axios.get(`/api/bus/${this.$route.params.id}/edit`).then((response) => {
-        setTimeout(() => $("#example").DataTable(), 1000);
         this.form.fill(response.data);
       });
     },

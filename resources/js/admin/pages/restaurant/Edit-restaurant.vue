@@ -12,16 +12,15 @@ to submit the data we are using a function.
         enctype="multipart/form-data"
         @submit.prevent="UpdateRestaurant()"
       >
-        <div class="row">
+        <div class="row" v-if="form.city_id">
           <div class="col-sm-4">
             <div class="form-group">
               <label for="city_id">Select City</label>
 
               <dropdown-list class="mb-2" 
                 :itemList="options" 
-                v-model="form.city_id"
+                v-model.trim="form.city_id"
               />
-
               <has-error :form="form" field="city_id"></has-error>
             </div>
           </div>
@@ -56,7 +55,7 @@ to submit the data we are using a function.
 
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="contact_number">Contact number</label>
+              <label for="contact_number">Contact Number</label>
               <input
                 type="number"
                 class="form-control"
@@ -88,7 +87,7 @@ to submit the data we are using a function.
 </template>
 
 <script>
-import { Form, HasError, AlertError } from "vform";
+import { Form, HasError } from "vform";
 import { ModelSelect } from "vue-search-select";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
@@ -125,17 +124,13 @@ export default {
         .get(`/api/restaurants/${this.$route.params.id}/edit`)
         .then((response) => {
           this.form.fill(response.data);
+          this.cityList();
         });
     },
     cityList() {
       axios.get(`/api/city`).then((res) => {
         if (res) {
-          for(let i = 0;i<res.data.data.length;i++){
-            this.options.push({
-              name:res.data.data[i].name,
-              id:res.data.data[i].id
-            });
-          }
+          this.options = res.data.data;          
         }
       });
     },

@@ -55,14 +55,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _SearchExplor_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchExplor.vue */ "./resources/js/front/pages/Explore/SearchExplor.vue");
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-search-select */ "./node_modules/vue-search-select/dist/VueSearchSelect.common.js");
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_search_select__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _front_components_ItineraryList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/front/components/ItineraryList */ "./resources/js/front/components/ItineraryList.vue");
-/* harmony import */ var _front_components_layout_Heading_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/front/components/layout/Heading.vue */ "./resources/js/front/components/layout/Heading.vue");
-/* harmony import */ var _front_components_layout_SubHeading_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/front/components/layout/SubHeading.vue */ "./resources/js/front/components/layout/SubHeading.vue");
+/* harmony import */ var _front_components_layout_Heading_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/front/components/layout/Heading.vue */ "./resources/js/front/components/layout/Heading.vue");
+/* harmony import */ var _front_components_layout_SubHeading_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/front/components/layout/SubHeading.vue */ "./resources/js/front/components/layout/SubHeading.vue");
+/* harmony import */ var _front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/front/mixins/user/ExploreSearchMixin */ "./resources/js/front/mixins/user/ExploreSearchMixin.js");
+/* harmony import */ var _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/front/components/Explore/AlertModals.vue */ "./resources/js/front/components/Explore/AlertModals.vue");
 //
 //
 //
@@ -306,14 +302,74 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "exploreDestination",
+  mixins: [_front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_2__["default"]],
   metaInfo: {
     title: "GBI Explore Destination",
     meta: [{
@@ -328,243 +384,37 @@ __webpack_require__.r(__webpack_exports__);
     }]
   },
   components: {
-    searchexplor: _SearchExplor_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_1__["ModelSelect"],
-    Form: vform__WEBPACK_IMPORTED_MODULE_2__["Form"],
-    HasError: vform__WEBPACK_IMPORTED_MODULE_2__["HasError"],
-    ItineraryList: _front_components_ItineraryList__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Heading: _front_components_layout_Heading_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    SubHeading: _front_components_layout_SubHeading_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    Heading: _front_components_layout_Heading_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    SubHeading: _front_components_layout_SubHeading_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    'alert-modals': _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
-      save_disable_btn: false,
-      remove_disable_btn: true,
-      multicity: false,
-      noofdays_option: 10,
-      tourtype_option: [],
-      options: [],
-      sources: {
-        value: "",
-        text: ""
-      },
-      destinations: {
-        value: "",
-        text: ""
-      },
-      multi_source: {
-        value: "",
-        text: ""
-      },
-      multi_destination: {
-        value: "",
-        text: ""
-      },
-      region: "national",
-      destinationCities: [],
-      rows: [{
-        source: {
-          value: "",
-          text: ""
-        },
-        destination: {
-          value: "",
-          text: ""
-        }
-      }],
-      city_button: 1,
-      counter: 2,
-      customers: [],
-      current_counter: 1,
-      show: true,
-      data: [],
-      datas: [],
-      search: "",
-      searchs: "",
-      isOpen: false,
-      isOpens: false,
-      arrowCounter: 0,
-      arrowCounters: 0,
-      allSearchdata: [],
-      noofday: "",
-      tourtype: "",
       upcoming_data: "",
-      popular_data: "",
-      searchForm: new vform__WEBPACK_IMPORTED_MODULE_2__["Form"]({
-        source: [],
-        destination: [],
-        tourtype: [],
-        noofday: []
-      })
+      popular_data: ""
     };
   },
-  computed: {
-    // start filterdata source and destination
-    filteredSource: function filteredSource() {
-      var _this = this;
-
-      if (!this.search) return this.data;
-      return this.data.filter(function (result) {
-        return result.source.toLowerCase().includes(_this.search.toLowerCase());
-      });
-    },
-    filteredData: function filteredData() {
-      var _this2 = this;
-
-      if (!this.searchs) return this.datas;
-      return this.datas.filter(function (resultdata) {
-        return resultdata.destination.toLowerCase().includes(_this2.searchs.toLowerCase());
-      });
-    },
-    alldata: function alldata() {
-      return this.$store.getters.getAllData;
-    }
-  },
   created: function created() {
-    var _this3 = this;
-
-    this.$axios.get("/api/search").then(function (response) {
-      _this3.data = response.data.data;
-      _this3.datas = response.data.data;
-    });
-    this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
-      _this3.upcoming_data = response.data;
-    });
-    this.tourTypeData();
+    this.UpcomingData();
     this.popularTour();
-    this.getCities();
   },
   methods: {
-    getCities: function getCities() {
-      var _this4 = this;
-
-      this.$axios.get("/api/regional-cities/national").then(function (res) {
-        for (var i = 0; i < res.data.length; i++) {
-          _this4.options.push({
-            value: res.data[i].name,
-            text: res.data[i].name
-          });
-        }
-
-        _this4.destinationCities = _this4.options;
-      });
-    },
-    getInternationalCities: function getInternationalCities() {
-      var _this5 = this;
-
-      this.$axios.get("/api/regional-cities/international").then(function (res) {
-        _this5.destinationCities = [];
-
-        for (var i = 0; i < res.data.length; i++) {
-          _this5.destinationCities.push({
-            value: res.data[i].name,
-            text: res.data[i].name
-          });
-        }
-      });
-    },
     popularTour: function popularTour() {
-      var _this6 = this;
+      var _this = this;
 
       this.$axios.get("/api/travel-program/popular-tour").then(function (response) {
-        _this6.popular_data = response.data;
+        _this.popular_data = response.data;
       });
     },
-    tourTypeData: function tourTypeData() {
-      var _this7 = this;
+    UpcomingData: function UpcomingData() {
+      var _this2 = this;
 
-      this.$axios.get("/api/tourtype").then(function (response) {
-        _this7.tourtype_option = response.data;
+      this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
+        _this2.upcoming_data = response.data;
       });
     },
-    reset: function reset() {
-      this.item = {};
-    },
-    selectFromParentComponent1: function selectFromParentComponent1() {
-      // select option from parent component
-      this.item = this.options[0];
-    },
-    reset2: function reset2() {
-      this.item2 = "";
-    },
-    selectFromParentComponent2: function selectFromParentComponent2() {
-      // select option from parent component
-      this.item2 = this.options2[0].value;
-    },
-    tourtypeOnChange: function tourtypeOnChange(value) {
-      this.tourtype = event.target.value;
-    },
-    noofdaysOnChange: function noofdaysOnChange(value) {
-      this.noofday = event.target.value;
-    },
-    //add rows multiple location itinerary
-    addRow: function addRow() {
-      var vm = this;
-      var current = this.current_counter;
-      var previous = current - 1;
-      this.current_counter = this.current_counter + 1;
-      this.city_button = this.city_button + 1;
-      this.rows.push({
-        source: {
-          value: "",
-          text: ""
-        },
-        destination: {
-          value: "",
-          text: ""
-        }
-      }); // this.rows[current].source = this.rows[previous].destination;
-
-      vm.rows[vm.current_counter - 1].destination = vm.multi_source;
-    },
-    //delete rows multiple location itinerary
-    deleteRow: function deleteRow(index) {
-      this.current_counter = this.current_counter - 1;
-      this.city_button = this.city_button - 1;
-      this.rows.splice(index, 1);
-    },
-    //search autocompelete start
-    onChange: function onChange() {
-      // Let's warn the parent that a change was made
-      this.$emit("input", this.search); // Is the data given by an outside ajax request?
-
-      if (this.isAsync) {
-        this.isLoading = true;
-      } else {
-        // Let's search our flat array
-        // this.filterResults();
-        this.isOpen = true;
-      }
-    },
-    onChanges: function onChanges() {
-      this.$emit("input", this.searchs); // Let's search our flat array
-
-      this.isOpens = true;
-    },
-    setResult: function setResult(result) {
-      this.search = result;
-      this.isOpen = false;
-    },
-    setResults: function setResults(resultdata) {
-      this.searchs = resultdata;
-      this.isOpens = false;
-    },
-    handleClickOutside: function handleClickOutside(evt) {
-      if (!this.$el.contains(evt.target)) {
-        this.isOpen = false;
-        this.arrowCounter = -1;
-      }
-    },
-    handleClickOutsides: function handleClickOutsides(evt) {
-      if (!this.$el.contains(evt.target)) {
-        this.isOpens = false;
-        this.arrowCounters = -1;
-      }
-    },
-    //search autocompelete end
-    //  serach data api
     searchAll: function searchAll() {
-      var _this8 = this;
+      var _this3 = this;
 
       // Submit form
       var vm = this;
@@ -583,11 +433,7 @@ __webpack_require__.r(__webpack_exports__);
           vm.searchForm.source.push(source);
           vm.searchForm.destination.push(destination);
         } else {
-          console.log("hi");
-          this.$swal.fire("Error", "Please select all the fields", "error"); // swal.fire({
-          //   text: "Select all the locations!",
-          //   type: "warning"
-          // });
+          this.$swal.fire("Error", "Please select all the fields", "error");
         }
 
         var rows_length = vm.rows.length;
@@ -603,51 +449,20 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (vm.searchForm.destination[0] != "" && vm.searchForm.destination[0] != "") {
-        vm.searchForm.post("api/search-itinerary").then(function (response) {
-          vm.allSearchdata = response.data.data;
+        vm.searchForm.post("api/search-itinerary").then(function (res) {
+          vm.allSearchdata = res.data.data;
 
           if (vm.allSearchdata.length == 0) {
-            _this8.$swal.fire("Alert", "No data found !!!", "info");
+            _this3.modoals_show = true;
+            $("#AlertModalForExplore").modal('show');
           }
         })["catch"](function (error) {
-          _this8.$swal.fire("Alert", "please select the fields", "error");
+          _this3.$swal.fire("Alert", "please select the fields", "error");
         });
       } else {
         this.$swal.fire("Alert", "please select locations", "error");
       }
     }
-  },
-  watch: {
-    multi_source: function multi_source(value) {
-      var self = this;
-
-      if (self.rows[0]) {
-        self.rows[this.current_counter - 1].destination = value;
-      }
-    },
-    current_counter: function current_counter(value) {
-      if (value == 1) {
-        this.save_disable_btn = false;
-        this.remove_disable_btn = true;
-      }
-
-      if (value == this.counter) {
-        this.save_disable_btn = true;
-        this.remove_disable_btn = false;
-      }
-    },
-    region: function region() {
-      if (this.region == "national") {
-        this.destinationCities = this.options;
-      } else {
-        this.getInternationalCities();
-      }
-    }
-  },
-  destroyed: function destroyed() {
-    // search autocompelete start
-    document.removeEventListener("click", this.handleClickOutside);
-    document.removeEventListener("click", this.handleClickOutsides);
   }
 });
 
@@ -976,7 +791,13 @@ var render = function() {
                                                 key: index.id,
                                                 domProps: { value: index.id }
                                               },
-                                              [_vm._v(_vm._s(index.name))]
+                                              [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(index.name) +
+                                                    "\n                            "
+                                                )
+                                              ]
                                             )
                                           })
                                         ],
@@ -1024,7 +845,13 @@ var render = function() {
                                                 key: index.id,
                                                 domProps: { value: index }
                                               },
-                                              [_vm._v(_vm._s(index))]
+                                              [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(index) +
+                                                    "\n                            "
+                                                )
+                                              ]
                                             )
                                           })
                                         ],
@@ -1272,7 +1099,13 @@ var render = function() {
                                               key: index.id,
                                               domProps: { value: index }
                                             },
-                                            [_vm._v(_vm._s(index.name))]
+                                            [
+                                              _vm._v(
+                                                "\n                              " +
+                                                  _vm._s(index.name) +
+                                                  "\n                            "
+                                              )
+                                            ]
                                           )
                                         })
                                       ],
@@ -1318,7 +1151,13 @@ var render = function() {
                                               key: index.id,
                                               domProps: { value: index.id }
                                             },
-                                            [_vm._v(_vm._s(index.name))]
+                                            [
+                                              _vm._v(
+                                                "\n                              " +
+                                                  _vm._s(index.name) +
+                                                  "\n                            "
+                                              )
+                                            ]
                                           )
                                         })
                                       ],
@@ -1353,7 +1192,7 @@ var render = function() {
                           ]
                         }
                       },
-                      [_vm._v("Search")]
+                      [_vm._v("\n                  Search\n                ")]
                     )
                   ])
                 ])
@@ -1365,66 +1204,80 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("main", { staticClass: "pl-2 pr-2" }, [
-      _c("div", { staticClass: "container" }, [
-        _vm.allSearchdata == ""
-          ? _c(
-              "div",
-              { staticClass: "p-0" },
-              [
-                _c("heading", {
-                  staticClass: "text-center",
-                  attrs: { text: "Upcoming Tour" }
-                }),
-                _vm._v(" "),
-                _c("itinerary-list", { attrs: { list: _vm.upcoming_data } }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "nopadding m-b-15" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "listexplore",
-                        attrs: { to: "/explore-list" }
-                      },
-                      [_vm._v("View More")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("heading", {
-                  staticClass: "text-center",
-                  attrs: { text: "Popular Tour" }
-                }),
-                _vm._v(" "),
-                _c("itinerary-list", { attrs: { list: _vm.popular_data } }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "nopadding m-b-15" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "listexplore",
-                        attrs: { to: "/explore-list" }
-                      },
-                      [_vm._v("View More")]
-                    )
-                  ],
-                  1
-                )
-              ],
-              1
-            )
-          : _c(
-              "div",
-              [_c("itinerary-list", { attrs: { list: _vm.allSearchdata } })],
-              1
-            )
-      ])
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _vm.allSearchdata == ""
+            ? _c(
+                "div",
+                { staticClass: "p-0" },
+                [
+                  _c("heading", {
+                    staticClass: "text-center",
+                    attrs: { text: "Upcoming Tour" }
+                  }),
+                  _vm._v(" "),
+                  _c("itinerary-list", { attrs: { list: _vm.upcoming_data } }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "nopadding m-b-15" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "listexplore",
+                          attrs: { to: "/explore-list" }
+                        },
+                        [_vm._v("View More")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("heading", {
+                    staticClass: "text-center",
+                    attrs: { text: "Popular Tour" }
+                  }),
+                  _vm._v(" "),
+                  _c("itinerary-list", { attrs: { list: _vm.popular_data } }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "nopadding m-b-15" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "listexplore",
+                          attrs: { to: "/explore-list" }
+                        },
+                        [_vm._v("View More")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            : _c(
+                "div",
+                [_c("itinerary-list", { attrs: { list: _vm.allSearchdata } })],
+                1
+              ),
+          _vm._v(" "),
+          _c("alert-modals", {
+            attrs: {
+              sources: _vm.sources,
+              destinations: _vm.destinations,
+              noofdays: _vm.noofday,
+              tourtypes: _vm.tour_type_text
+            }
+          })
+        ],
+        1
+      )
     ])
   ])
 }

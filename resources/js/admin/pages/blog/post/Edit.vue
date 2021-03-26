@@ -12,7 +12,7 @@ to submit the data we are using a function.
         enctype="multipart/form-data"
         @submit.prevent="UpdatePost()"
       >
-        <div class="row">
+        <div class="row" v-if="form.title">
           <div class="col-sm-12">
             <div class="form-group">
               <label for="title">Title</label>
@@ -91,10 +91,9 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="meta_keyword">Status</label>
 
-               <dropdown-filter class="mb-2" 
+               <dropdown-list class="mb-2" 
                 :itemList="status_list" 
-                @update:option="updateStatus" 
-                :selectedId="form.status"
+                v-model="form.status"
               />
               
               <has-error :form="form" field="meta_keyword"></has-error>
@@ -104,10 +103,9 @@ to submit the data we are using a function.
           <div class="col-sm-6">
             <div class="form-group">
               <label for="categories">Category</label>
-              <dropdown-filter class="mb-2" 
+              <dropdown-list class="mb-2" 
                 :itemList="categories" 
-                @update:option="UpdateCategory" 
-                :selectedId="form.category_id"
+                v-model="form.category_id"
               />
 
               <has-error :form="form" field="categories"></has-error>
@@ -172,7 +170,7 @@ import "vue-search-select/dist/VueSearchSelect.css";
 import Multiselect from "vue-multiselect";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
-import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
+import DropdownList from "@/admin/components/form/DropdownList.vue";
 
 export default {
   name: "NewPost",
@@ -182,7 +180,7 @@ export default {
     Multiselect,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
-    "dropdown-filter": DropdownFilter,
+    "dropdown-list": DropdownList,
   },
   mixins:[Vue2EditorMixin],
   data() {

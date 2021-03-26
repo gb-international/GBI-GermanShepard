@@ -13,7 +13,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
-/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
+/* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -143,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    "dropdown-filter": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -257,322 +263,343 @@ var render = function() {
                 }
               },
               [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-4 d-hidden" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "tour_id" } }, [
-                          _vm._v("Tour Code")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.tour_id,
-                              expression: "form.tour_id"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("tour_id")
-                          },
-                          attrs: {
-                            type: "text",
-                            readonly: "",
-                            placeholder: "Enter School name"
-                          },
-                          domProps: { value: _vm.form.tour_id },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "tour_id", $event.target.value)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "tour_id" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "travel_code" } }, [
-                          _vm._v("School Travel Code")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.travel_code,
-                              expression: "form.travel_code"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("travel_code")
-                          },
-                          attrs: {
-                            type: "text",
-                            placeholder:
-                              "Enter Travel Code to share with school"
-                          },
-                          domProps: { value: _vm.form.travel_code },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "travel_code",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "travel_code" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "itinerary_id" } }, [
-                          _vm._v("Itinerary")
-                        ]),
-                        _vm._v(" "),
-                        _c("dropdown-filter", {
-                          staticClass: "mb-2",
-                          attrs: {
-                            itemList: _vm.itinerary_list,
-                            selectedId: _vm.form.itinerary_id
-                          },
-                          on: { "update:option": _vm.itineraryUpdate }
-                        }),
-                        _vm._v(" "),
-                        _vm.form.errors.has("itinerary_id")
-                          ? _c("div", { staticClass: "error" }, [
-                              _c(
-                                "label",
-                                { staticClass: "danger text-danger" },
-                                [
-                                  _vm._v(
-                                    _vm._s(_vm.form.errors.get("itinerary_id"))
+                _vm.form.tour_id
+                  ? _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm-4 d-hidden" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "tour_id" } }, [
+                              _vm._v("Tour Code")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.tour_id,
+                                  expression: "form.tour_id"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.form.errors.has("tour_id")
+                              },
+                              attrs: {
+                                type: "text",
+                                readonly: "",
+                                placeholder: "Enter School name"
+                              },
+                              domProps: { value: _vm.form.tour_id },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "tour_id",
+                                    $event.target.value
                                   )
-                                ]
-                              )
-                            ])
-                          : _vm._e()
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "itinerary_id" } }, [
-                          _vm._v("School")
-                        ]),
-                        _vm._v(" "),
-                        _c("dropdown-filter", {
-                          staticClass: "mb-2",
-                          attrs: {
-                            itemList: _vm.school_list,
-                            selectedId: _vm.form.school_id
-                          },
-                          on: { "update:option": _vm.schoolUpdate }
-                        }),
-                        _vm._v(" "),
-                        _vm.form.errors.has("school_id")
-                          ? _c("div", { staticClass: "error" }, [
-                              _c(
-                                "label",
-                                { staticClass: "danger text-danger" },
-                                [
-                                  _vm._v(
-                                    _vm._s(_vm.form.errors.get("school_id"))
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "tour_id" }
+                            })
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-4" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "travel_code" } }, [
+                              _vm._v("School Travel Code")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.travel_code,
+                                  expression: "form.travel_code"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.form.errors.has("travel_code")
+                              },
+                              attrs: {
+                                type: "text",
+                                placeholder:
+                                  "Enter Travel Code to share with school"
+                              },
+                              domProps: { value: _vm.form.travel_code },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "travel_code",
+                                    $event.target.value
                                   )
-                                ]
-                              )
-                            ])
-                          : _vm._e()
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "tour_start_date" } }, [
-                          _vm._v("Tour Start Date")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.tour_start_date,
-                              expression: "form.tour_start_date"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("tour_start_date")
-                          },
-                          attrs: {
-                            type: "date",
-                            placeholder: "Enter Tour Start Date"
-                          },
-                          domProps: { value: _vm.form.tour_start_date },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                                }
                               }
-                              _vm.$set(
-                                _vm.form,
-                                "tour_start_date",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "tour_start_date" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "tour_end_date" } }, [
-                          _vm._v("Tour End Date")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.tour_end_date,
-                              expression: "form.tour_end_date"
-                            }
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "travel_code" }
+                            })
                           ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("tour_end_date")
-                          },
-                          attrs: {
-                            type: "date",
-                            placeholder: "Enter Enter Date"
-                          },
-                          domProps: { value: _vm.form.tour_end_date },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "itinerary_id" } }, [
+                              _vm._v("Itinerary")
+                            ]),
+                            _vm._v(" "),
+                            _c("dropdown-filter", {
+                              staticClass: "mb-2",
+                              attrs: { itemList: _vm.itinerary_list },
+                              model: {
+                                value: _vm.form.itinerary_id,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "itinerary_id", $$v)
+                                },
+                                expression: "form.itinerary_id"
                               }
-                              _vm.$set(
-                                _vm.form,
-                                "tour_end_date",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "tour_end_date" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "tour_price" } }, [
-                          _vm._v("Tour Price")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.tour_price,
-                              expression: "form.tour_price"
-                            }
+                            }),
+                            _vm._v(" "),
+                            _vm.form.errors.has("itinerary_id")
+                              ? _c("div", { staticClass: "error" }, [
+                                  _c(
+                                    "label",
+                                    { staticClass: "danger text-danger" },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.form.errors.get("itinerary_id")
+                                        )
+                                      )
+                                    ]
+                                  )
+                                ])
+                              : _vm._e()
                           ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("tour_price")
-                          },
-                          attrs: {
-                            type: "text",
-                            placeholder: "Enter Tour Price"
-                          },
-                          domProps: { value: _vm.form.tour_price },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "itinerary_id" } }, [
+                              _vm._v("School")
+                            ]),
+                            _vm._v(" "),
+                            _c("dropdown-filter", {
+                              staticClass: "mb-2",
+                              attrs: { itemList: _vm.school_list },
+                              model: {
+                                value: _vm.form.school_id,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "school_id", $$v)
+                                },
+                                expression: "form.school_id"
                               }
-                              _vm.$set(
-                                _vm.form,
-                                "tour_price",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "tour_price" }
-                        })
-                      ],
-                      1
-                    )
-                  ])
-                ]),
+                            }),
+                            _vm._v(" "),
+                            _vm.form.errors.has("school_id")
+                              ? _c("div", { staticClass: "error" }, [
+                                  _c(
+                                    "label",
+                                    { staticClass: "danger text-danger" },
+                                    [
+                                      _vm._v(
+                                        _vm._s(_vm.form.errors.get("school_id"))
+                                      )
+                                    ]
+                                  )
+                                ])
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-4" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "tour_start_date" } }, [
+                              _vm._v("Tour Start Date")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.tour_start_date,
+                                  expression: "form.tour_start_date"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.form.errors.has(
+                                  "tour_start_date"
+                                )
+                              },
+                              attrs: {
+                                type: "date",
+                                placeholder: "Enter Tour Start Date"
+                              },
+                              domProps: { value: _vm.form.tour_start_date },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "tour_start_date",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: {
+                                form: _vm.form,
+                                field: "tour_start_date"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-4" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "tour_end_date" } }, [
+                              _vm._v("Tour End Date")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.tour_end_date,
+                                  expression: "form.tour_end_date"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.form.errors.has(
+                                  "tour_end_date"
+                                )
+                              },
+                              attrs: {
+                                type: "date",
+                                placeholder: "Enter Enter Date"
+                              },
+                              domProps: { value: _vm.form.tour_end_date },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "tour_end_date",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "tour_end_date" }
+                            })
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-4" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "tour_price" } }, [
+                              _vm._v("Tour Price")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.tour_price,
+                                  expression: "form.tour_price"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.form.errors.has("tour_price")
+                              },
+                              attrs: {
+                                type: "text",
+                                placeholder: "Enter Tour Price"
+                              },
+                              domProps: { value: _vm.form.tour_price },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "tour_price",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "tour_price" }
+                            })
+                          ],
+                          1
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
                 _c("form-buttons")
               ],

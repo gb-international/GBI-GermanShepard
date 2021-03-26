@@ -10,6 +10,7 @@
             <ImageSpinner class="image__spinner" />
             <img
               class="image__item"
+              :src="itinerary.photo"
               :data-url="itinerary.photo"
               :alt="itinerary.title"
             />

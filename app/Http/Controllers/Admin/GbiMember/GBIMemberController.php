@@ -14,11 +14,13 @@ use Validator;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Http\Request;
-
 use App\Rules\EmailValidate;
 use App\Rules\AlphaSpace;
 use App\Rules\PhoneNubmerValidate;
 use Illuminate\Validation\Rule;
+use App\Jobs\GbiNewMemberWelcomeMailJob;
+
+
 class GBIMemberController extends Controller
 {
 
@@ -78,6 +80,10 @@ class GBIMemberController extends Controller
         $more->photo = 'user.png';
         $more->gender = '';
         $more->save();
+        // send mail 
+        $data = ['name'=>$user->name,'email'=>$user->email ];
+            
+        GbiNewMemberWelcomeMailJob::dispatch($data);
         // End more information 
         return response()->json('Successfully Registered !!!');
 

@@ -12,7 +12,7 @@ to submit the data we are using a function.
         enctype="multipart/form-data"
         @submit.prevent="UpdateTour()"
       >
-        <div class="row">
+        <div class="row" v-if="form.tour_id">
           <div class="col-sm-4 d-hidden">
             <div class="form-group">
               <label for="tour_id">Tour Code</label>
@@ -46,7 +46,10 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="itinerary_id">Itinerary</label>
 
-              <dropdown-filter class="mb-2" :itemList="itinerary_list" @update:option="itineraryUpdate" :selectedId="form.itinerary_id"/>
+              <dropdown-filter 
+                class="mb-2" :itemList="itinerary_list" 
+                v-model="form.itinerary_id"
+              />
 
               <div class="error" v-if="form.errors.has('itinerary_id')">
                 <label class="danger text-danger">{{
@@ -60,7 +63,10 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="itinerary_id">School</label>
 
-              <dropdown-filter class="mb-2" :itemList="school_list" @update:option="schoolUpdate" :selectedId="form.school_id"/>
+              <dropdown-filter class="mb-2" 
+                :itemList="school_list" 
+                v-model="form.school_id"
+              />
 
               <div class="error" v-if="form.errors.has('school_id')">
                 <label class="danger text-danger">{{
@@ -120,7 +126,7 @@ to submit the data we are using a function.
 import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
-import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
+import DropdownFilter from "@/admin/components/form/DropdownList.vue";
 export default {
   name: "EditTour",
   components: {

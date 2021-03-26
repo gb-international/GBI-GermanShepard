@@ -100,17 +100,23 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     fixScrolling: function fixScrolling() {
-      if (this.$refs.options[this.arrowCounter]) {
-        var liH = this.$refs.options[this.arrowCounter].clientHeight;
-      }
+      if (this.showlist) {
+        if (this.$refs.options[this.arrowCounter]) {
+          var liH = this.$refs.options[this.arrowCounter].clientHeight;
+        }
 
-      if (this.$refs.scrollContainer) {
-        this.$refs.scrollContainer.scrollTop = liH * this.arrowCounter;
+        if (this.$refs.scrollContainer) {
+          this.$refs.scrollContainer.scrollTop = liH * this.arrowCounter;
+        }
       }
     },
     closeEvent: function closeEvent() {
-      this.showlist = false;
-      this.arrowCounter = 0;
+      if (this.showlist) {
+        this.edit_flag = false;
+        this.getSelected(this.content);
+        this.showlist = false;
+        this.arrowCounter = 0;
+      }
     },
     getSelected: function getSelected(value) {
       if (this.itemList != undefined && this.edit_flag == false) {

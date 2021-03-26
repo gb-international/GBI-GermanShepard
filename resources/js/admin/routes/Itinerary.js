@@ -14,10 +14,12 @@ const FrontBookingView = () => import(/* webpackChunkName: "js/admin/frontbookin
 const CalculatorItinerary = () => import(/* webpackChunkName: "js/admin/calculateitinerary" */ '@/admin/pages/itinerary/Calculator-itinerary.vue');
 
 
-// //SALES department
+//SALES department
 const ItineraryFromAccount = () => import(/* webpackChunkName: "js/admin/itineraryAccount" */ '@/admin/pages/sales/ItineraryFromAccount.vue');
 const SendDetails = () => import(/* webpackChunkName: "js/admin/senddetails" */ '@/admin/pages/sales/Submit-details.vue');
 
+const ItineraryRequest = () => import(/* webpackChunkName: "js/admin/ItineraryRequest" */ '@/admin/pages/itinerary-request/List.vue');
+const ItineraryRequestView = () => import(/* webpackChunkName: "js/admin/ItineraryRequestView" */ '@/admin/pages/itinerary-request/View.vue');
 
 
 export default [
@@ -36,4 +38,7 @@ export default [
     //Sales Department
     { path: '/itinerary-from-account', component: ItineraryFromAccount },
     { path: '/submit-details/:id', component: SendDetails },
+
+    { path: '/itinerary-request', component: ItineraryRequest},
+    { path: '/itinerary-request/:id', component: ItineraryRequestView},
 ]

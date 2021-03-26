@@ -17,6 +17,10 @@ class Hotel extends Model
         }
     }
 
+    public function setEmailAttribute($value){
+        return $this->attributes['email'] = strtolower($value);
+    }
+
     public function bookedhotels()
     {
     	return $this->hasMany('App\Model\Reservation\Bookedhotel');

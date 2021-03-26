@@ -17,10 +17,9 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="state_name">State</label>
 
-              <dropdown-filter class="mb-2"
+              <dropdown-list class="mb-2"
                 :itemList="state_list" 
-                @update:option="UpdateState" 
-                :selectedId="form.state_name" 
+                v-model="form.state_name" 
               />
               <has-error :form="form" field="state_name"></has-error>
             </div>
@@ -187,7 +186,7 @@ import { VueEditor, Quill } from "vue2-editor";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
-import DropdownFilter from "@/admin/components/form/DropdownList.vue";
+import DropdownList from "@/admin/components/form/DropdownList.vue";
 export default {
   name: "EditEncyclopedia",
   components: {
@@ -198,7 +197,7 @@ export default {
     "form-buttons": FormButtons,
     "submit-button": SubmitButton,
     "form-layout": FormLayout,
-    "dropdown-filter": DropdownFilter,
+    "dropdown-list": DropdownList,
   },
   data() {
     return {
@@ -263,7 +262,7 @@ export default {
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length) return;
       for (var i = files.length - 1; i >= 0; i--) {
-        this.createImage(event.target.files[i].name, files[i]);
+        this.createImage(e.target.files[i].name, files[i]);
       }
     },
     createImage(name, file) {

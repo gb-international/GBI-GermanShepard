@@ -9,9 +9,11 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Itinerary\Itinerary;
+use App\Model\Itinerary\Itineraryrequest;
 use App\Model\Tour\Tourprogram;
-
+use App\Rules\EmailValidate;
 use DB;
+use App\Jobs\SendItineraryRequestToGbiMailJob;
 
 class ItineraryController extends Controller
 {
@@ -113,5 +115,21 @@ class ItineraryController extends Controller
     public function list($count=8)
     {
         return response()->json(Itinerary::simplePaginate($count));
+    }
+
+    public function requestItinerary(Request $request){
+        $validated = $this->validate($request, [
+            'tourtype' => 'required',
+            'noofday' => 'required',
+            'source' => 'required',
+            'destination' => 'required',
+            'phoneno' => 'required',
+            'email' => ['required',new EmailValidate],
+        ]);
+        
+        Itineraryrequest::create($validated);
+
+        SendItineraryRequestToGbiMailJob::dispatch($validated);
+
     }
 }

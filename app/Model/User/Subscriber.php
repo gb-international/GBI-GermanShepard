@@ -11,4 +11,10 @@ class Subscriber extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function setEmailAttribute($value){
+        return $this->attributes['email'] = strtolower($value);
+    }
+
+    
 }

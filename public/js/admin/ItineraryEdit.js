@@ -424,12 +424,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -668,161 +662,163 @@ var render = function() {
                   }
                 },
                 [
-                  _c("div", { staticClass: "row mb-30" }, [
-                    _c("div", { staticClass: "col-sm-4" }, [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _c("label", { attrs: { for: "sourceId" } }, [
-                            _vm._v("Source")
-                          ]),
-                          _vm._v(" "),
-                          _c("dropdown-list", {
-                            staticClass: "mb-2",
-                            attrs: { itemList: _vm.cities },
-                            model: {
-                              value: _vm.form.source,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "source", $$v)
-                              },
-                              expression: "form.source"
-                            }
-                          }),
-                          _vm._v(
-                            "\n\n              " +
-                              _vm._s(_vm.form.source) +
-                              "\n\n              "
-                          ),
-                          _c("has-error", {
-                            attrs: { form: _vm.form, field: "source" }
-                          })
-                        ],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-4" }, [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _c("label", { attrs: { for: "destinationId" } }, [
-                            _vm._v("Destination")
-                          ]),
-                          _vm._v(" "),
-                          _c("dropdown-list", {
-                            staticClass: "mb-2",
-                            attrs: { itemList: _vm.cities },
-                            model: {
-                              value: _vm.form.destination,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "destination", $$v)
-                              },
-                              expression: "form.destination"
-                            }
-                          }),
-                          _vm._v(
-                            "\n\n              " +
-                              _vm._s(_vm.form.destination) +
-                              "\n\n              "
-                          ),
-                          _c("has-error", {
-                            attrs: { form: _vm.form, field: "destination" }
-                          })
-                        ],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-4" }, [
-                      _c("div", { staticClass: "row" }, [
-                        _c("div", { staticClass: "col-sm-6" }, [
+                  _vm.form.title
+                    ? _c("div", { staticClass: "row mb-30" }, [
+                        _c("div", { staticClass: "col-sm-4" }, [
                           _c(
                             "div",
                             { staticClass: "form-group" },
                             [
-                              _c("label", { attrs: { for: "noofdaysId" } }, [
-                                _vm._v("Number Of Days")
+                              _c("label", { attrs: { for: "sourceId" } }, [
+                                _vm._v("Source")
                               ]),
                               _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.form.noofdays,
-                                    expression: "form.noofdays"
-                                  }
-                                ],
-                                staticClass: "form-control",
-                                class: {
-                                  "is-invalid": _vm.form.errors.has("noofdays")
-                                },
-                                attrs: {
-                                  type: "text",
-                                  readonly: "readonly",
-                                  placeholder: "Enter Number Of Days",
-                                  name: "noofdays",
-                                  min: "1"
-                                },
-                                domProps: { value: _vm.form.noofdays },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
+                              _c("dropdown-list", {
+                                staticClass: "mb-2",
+                                attrs: { itemList: _vm.cities },
+                                model: {
+                                  value: _vm.form.source,
+                                  callback: function($$v) {
                                     _vm.$set(
                                       _vm.form,
-                                      "noofdays",
-                                      $event.target.value
+                                      "source",
+                                      typeof $$v === "string" ? $$v.trim() : $$v
                                     )
-                                  }
+                                  },
+                                  expression: "form.source"
                                 }
                               }),
                               _vm._v(" "),
                               _c("has-error", {
-                                attrs: { form: _vm.form, field: "noofdays" }
+                                attrs: { form: _vm.form, field: "source" }
                               })
                             ],
                             1
                           )
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-3" }, [
+                        _c("div", { staticClass: "col-sm-4" }, [
                           _c(
-                            "button",
-                            {
-                              staticClass: "btn btn_plus text-white mt-35",
-                              attrs: { type: "button" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.addRow()
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "destinationId" } }, [
+                                _vm._v("Destination")
+                              ]),
+                              _vm._v(" "),
+                              _c("dropdown-list", {
+                                staticClass: "mb-2",
+                                attrs: { itemList: _vm.cities },
+                                model: {
+                                  value: _vm.form.destination,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.form, "destination", $$v)
+                                  },
+                                  expression: "form.destination"
                                 }
-                              }
-                            },
-                            [_c("i", { staticClass: "fas fa-plus" })]
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "destination" }
+                              })
+                            ],
+                            1
                           )
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-3" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn_plus text-white mt-35",
-                              attrs: { type: "button" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.removeRow()
-                                }
-                              }
-                            },
-                            [_c("i", { staticClass: "fas fa-minus" })]
-                          )
+                        _c("div", { staticClass: "col-sm-4" }, [
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-sm-6" }, [
+                              _c(
+                                "div",
+                                { staticClass: "form-group" },
+                                [
+                                  _c(
+                                    "label",
+                                    { attrs: { for: "noofdaysId" } },
+                                    [_vm._v("Number Of Days")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.noofdays,
+                                        expression: "form.noofdays"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    class: {
+                                      "is-invalid": _vm.form.errors.has(
+                                        "noofdays"
+                                      )
+                                    },
+                                    attrs: {
+                                      type: "text",
+                                      readonly: "readonly",
+                                      placeholder: "Enter Number Of Days",
+                                      name: "noofdays",
+                                      min: "1"
+                                    },
+                                    domProps: { value: _vm.form.noofdays },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "noofdays",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("has-error", {
+                                    attrs: { form: _vm.form, field: "noofdays" }
+                                  })
+                                ],
+                                1
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-sm-3" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn_plus text-white mt-35",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.addRow()
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-plus" })]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-sm-3" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn_plus text-white mt-35",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.removeRow()
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-minus" })]
+                              )
+                            ])
+                          ])
                         ])
                       ])
-                    ])
-                  ]),
+                    : _vm._e(),
                   _vm._v(" "),
                   _c("div", { staticClass: "row mb-30" }, [
                     _c("div", { staticClass: "col-sm-4" }, [
@@ -1731,12 +1727,7 @@ var render = function() {
                                   },
                                   expression: "data.day_source"
                                 }
-                              }),
-                              _vm._v(
-                                "\n              " +
-                                  _vm._s(data.day_source) +
-                                  "\n            "
-                              )
+                              })
                             ],
                             1
                           ),
@@ -1757,12 +1748,7 @@ var render = function() {
                                   },
                                   expression: "data.day_destination"
                                 }
-                              }),
-                              _vm._v(
-                                "\n\n              " +
-                                  _vm._s(data.day_destination) +
-                                  "\n            "
-                              )
+                              })
                             ],
                             1
                           ),

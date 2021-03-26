@@ -74,9 +74,12 @@ export default {
       if(this.itemList.length > 0){
         this.getSelected(this.content);
       }
-    }
+    },
   },
   created() {
+    if(this.value){
+      this.getSelected(this.value);
+    }
     document.addEventListener("keyup", this.nextItem);
   },
 
@@ -95,16 +98,22 @@ export default {
       }
     },
     fixScrolling() {
-      if (this.$refs.options[this.arrowCounter]) {
-        var liH = this.$refs.options[this.arrowCounter].clientHeight;
-      }
-      if (this.$refs.scrollContainer) {
-        this.$refs.scrollContainer.scrollTop = liH * this.arrowCounter;
+      if(this.showlist){
+        if (this.$refs.options[this.arrowCounter]) {
+          var liH = this.$refs.options[this.arrowCounter].clientHeight;
+        }
+        if (this.$refs.scrollContainer) {
+          this.$refs.scrollContainer.scrollTop = liH * this.arrowCounter;
+        }
       }
     },
     closeEvent: function () {
-      this.showlist = false;
-      this.arrowCounter = 0;
+      if(this.showlist){
+        this.edit_flag = false;
+        this.getSelected(this.content);
+        this.showlist = false;
+        this.arrowCounter = 0;
+      }
     },
     getSelected(value) {
       if (this.itemList != undefined && this.edit_flag == false) {

@@ -65,6 +65,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       required: true
     },
     selectedId: undefined,
+    value: {},
     placeholder: {
       type: String,
       "default": 'Enter name to search'
@@ -99,15 +100,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       } else if (event.keyCode == 40 && this.arrowCounter < this.itemList.length - 1) {
         this.arrowCounter++;
         this.fixScrolling();
-      }
+      } else {}
     },
     fixScrolling: function fixScrolling() {
-      if (this.$refs.options[this.arrowCounter]) {
-        var liH = this.$refs.options[this.arrowCounter].clientHeight;
-      }
+      if (this.showlist) {
+        if (this.$refs.options[this.arrowCounter]) {
+          var liH = this.$refs.options[this.arrowCounter].clientHeight;
+        }
 
-      if (this.$refs.scrollContainer) {
-        this.$refs.scrollContainer.scrollTop = liH * this.arrowCounter;
+        if (this.$refs.scrollContainer) {
+          this.$refs.scrollContainer.scrollTop = liH * this.arrowCounter;
+        }
       }
     },
     getSelected: function getSelected() {
@@ -128,9 +131,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$emit("update:option", this.selectedItem);
     },
     closeEvent: function closeEvent() {
-      // console.log("close event called");
-      this.showlist = false;
-      this.arrowCounter = 0;
+      if (this.showlist) {
+        this.showlist = false;
+        this.arrowCounter = 0;
+      }
     },
     resetSelection: function resetSelection() {
       var _this = this;

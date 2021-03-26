@@ -42,13 +42,16 @@
             <router-link :to="`/encyclopedia/${state.slug}`">
               <div class="card">
                 <figure v-lazyload class="image__wrapper card_image_ency">
+
                   <ImageSpinner class="image__spinner" />
                   <img
                     class="image__item card-img-top"
+                    :src="state.thumbnail"
                     :data-url="state.thumbnail"
                     :alt="state.state_name"
                   />
                 </figure>
+                
                 <div class="card-img-overlay text-center">
                   <p class="card-text text-white">{{ state.state_name }}</p>
                 </div>

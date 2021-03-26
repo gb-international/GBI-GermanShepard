@@ -12,16 +12,15 @@ to submit the data we are using a function.
         enctype="multipart/form-data"
         @submit.prevent="updateGallery()"
       >
-        <div class="row">
+        <div class="row" v-if="form.title">
           <div class="col-sm-4">
             <div class="form-group">
               <label for="category">Gallery Category</label>
 
               
-              <dropdown-filter class="mb-2" 
+              <dropdown-list class="mb-2" 
                 :itemList="categories" 
-                @update:option="UpdateCategory" 
-                :selectedId="form.category" 
+                v-model="form.category" 
               />
 
               <has-error :form="form" field="category"></has-error>
@@ -45,10 +44,9 @@ to submit the data we are using a function.
           <div class="col-sm-8">
             <div class="form-group">
               <label for="category">School</label>
-              <dropdown-filter class="mb-2" 
+              <dropdown-list class="mb-2" 
                 :itemList="schools" 
-                @update:option="updateSchool" 
-                :selectedId="form.school_id" 
+                v-model="form.school_id" 
               />
 
               <has-error :form="form" field="school_id"></has-error>
@@ -99,7 +97,7 @@ to submit the data we are using a function.
 import { Form, HasError } from "vform";
 import FormButton from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
-import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
+import DropdownList from "@/admin/components/form/DropdownList.vue";
 export default {
   name: "EditGallery",
   components: {
@@ -107,7 +105,7 @@ export default {
     "has-error": HasError,
     "form-buttons": FormButton,
     "form-layout": FormLayout,
-    "dropdown-filter": DropdownFilter,
+    "dropdown-list": DropdownList,
   },
   data() {
     return {

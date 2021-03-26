@@ -6,7 +6,7 @@
         enctype="multipart/form-data"
         @submit.prevent="updateEscort()"
       >
-        <div class="row">
+        <div class="row" v-if="form.name">
           <div class="col-sm-4">
             <div class="form-group">
               <label for="name">Name</label>
@@ -26,10 +26,9 @@
             <div class="form-group">
               <label for="bank_name">Bank Name</label>
               
-               <dropdown-filter class="mb-2"
+               <dropdown-list class="mb-2"
                 :itemList="banknames" 
-                @update:option="UpdateBank" 
-                :selectedId="form.bank_name" 
+                v-model="form.bank_name" 
               />
 
               <has-error :form="form" field="bank_name"></has-error>
@@ -55,7 +54,11 @@
             <div class="form-group">
               <label for="account_type">Account Type</label>
               
-              <dropdown-filter class="mb-2" :itemList="account_type" @update:option="updateAccountType" :selectedId="form.account_type"/>
+              <dropdown-list 
+                class="mb-2" 
+                :itemList="account_type" 
+                v-model="form.account_type"
+              />
 
               <has-error :form="form" field="account_type"></has-error>
             </div>
@@ -99,7 +102,7 @@ import { Form, HasError } from "vform";
 import BackButton from "@/admin/components/buttons/BackButton.vue";
 import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
-import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
+import DropdownList from "@/admin/components/form/DropdownList.vue";
 export default {
   name: "EditBankDetail",
   components: {
@@ -108,7 +111,7 @@ export default {
     "back-button": BackButton,
     "submit-button": SubmitButton,
     "form-layout": FormLayout,
-    "dropdown-filter": DropdownFilter,
+    "dropdown-list": DropdownList,
   },
   data() {
     return {

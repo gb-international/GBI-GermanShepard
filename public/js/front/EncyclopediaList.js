@@ -77,6 +77,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "States",
@@ -233,6 +236,7 @@ var render = function() {
                               _c("img", {
                                 staticClass: "image__item card-img-top",
                                 attrs: {
+                                  src: state.thumbnail,
                                   "data-url": state.thumbnail,
                                   alt: state.state_name
                                 }

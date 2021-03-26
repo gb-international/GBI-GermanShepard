@@ -99,6 +99,9 @@ Route::namespace('Front')->group(function(){
 
 	// Subscriber
 	Route::post('subscribe','SubscriberController@store');
+
+	// requrest itinerary
+	Route::post('/request-itinerary','ItineraryController@requestItinerary');
 });
 
 

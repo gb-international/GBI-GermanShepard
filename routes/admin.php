@@ -46,6 +46,12 @@ Route::namespace('Admin')->group(function (){
 		Route::get('itinerary/all/{size}','ItineraryController@all');
 		Route::resource('itinerary','ItineraryController');
 		Route::get('itinerarydayget/{id}','ItinerarydayController@index');
+
+
+		Route::get('itineraryrequst/all/{size}','ItineraryrequestController@all');
+		Route::get('itineraryrequst/{id}','ItineraryrequestController@show');
+		Route::delete('itineraryrequst/{id}','ItineraryrequestController@Destroy');
+		
 	});
 
 	Route::namespace('Tour')->group(function(){

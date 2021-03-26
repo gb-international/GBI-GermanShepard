@@ -43,6 +43,14 @@
                         <p> Website Query</p></router-link>
                     </li>
                 @endcan
+                
+                @can("itinerary-request")
+                    <li class="nav-item">
+                    <router-link :to="`/itinerary-request`" class="nav-link" title="Website Query">
+                        <p> Itinerary Request</p></router-link>
+                    </li>
+                @endcan
+
 
             </ul>
         </li>

@@ -32,6 +32,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function setEmailAttribute($value){
+        return $this->attributes['email'] = strtolower($value);
+    }
+
+    
       /**
      * Add a mutator to ensure hashed passwords
      */

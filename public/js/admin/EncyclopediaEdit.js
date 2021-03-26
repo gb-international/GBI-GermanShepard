@@ -198,7 +198,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -216,7 +215,7 @@ __webpack_require__.r(__webpack_exports__);
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     "submit-button": _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    "dropdown-filter": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    "dropdown-list": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   data: function data() {
     return {
@@ -283,7 +282,7 @@ __webpack_require__.r(__webpack_exports__);
       if (!files.length) return;
 
       for (var i = files.length - 1; i >= 0; i--) {
-        this.createImage(event.target.files[i].name, files[i]);
+        this.createImage(e.target.files[i].name, files[i]);
       }
     },
     createImage: function createImage(name, file) {
@@ -438,13 +437,16 @@ var render = function() {
                               _vm._v("State")
                             ]),
                             _vm._v(" "),
-                            _c("dropdown-filter", {
+                            _c("dropdown-list", {
                               staticClass: "mb-2",
-                              attrs: {
-                                itemList: _vm.state_list,
-                                selectedId: _vm.form.state_name
-                              },
-                              on: { "update:option": _vm.UpdateState }
+                              attrs: { itemList: _vm.state_list },
+                              model: {
+                                value: _vm.form.state_name,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "state_name", $$v)
+                                },
+                                expression: "form.state_name"
+                              }
                             }),
                             _vm._v(" "),
                             _c("has-error", {

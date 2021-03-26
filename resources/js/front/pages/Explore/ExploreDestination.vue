@@ -17,7 +17,8 @@
                         data-toggle="tab"
                         href="#home"
                         v-on:click="multicity = !multicity"
-                      >Oneway</a>
+                        >Oneway</a
+                      >
                     </li>
                     <li class="nav-item">
                       <a
@@ -25,7 +26,8 @@
                         data-toggle="tab"
                         href="#menu1"
                         v-on:click="multicity = !multicity"
-                      >Multicity</a>
+                        >Multicity</a
+                      >
                     </li>
                   </ul>
                   <!-- start single location Tab panes serach bar for source and destination-->
@@ -36,18 +38,39 @@
                           <div class="row pt-3 pb-3">
                             <div class="col">
                               <div class="custom-control custom-radio">
-                                <input type="radio" id="national" name="customRadio" value="national" class="custom-control-input"  v-model="region" />
-                                <label class="custom-control-label" for="national">National</label>
-                              </div>
-                            </div>
-                            
-                            <div class="col">
-                              <div class="custom-control custom-radio">
-                                <input type="radio" id="international" name="customRadio" value="international" class="custom-control-input"  v-model="region" />
-                                <label class="custom-control-label" for="international">International</label>
+                                <input
+                                  type="radio"
+                                  id="national"
+                                  name="customRadio"
+                                  value="national"
+                                  class="custom-control-input"
+                                  v-model="region"
+                                />
+                                <label
+                                  class="custom-control-label"
+                                  for="national"
+                                  >National</label
+                                >
                               </div>
                             </div>
 
+                            <div class="col">
+                              <div class="custom-control custom-radio">
+                                <input
+                                  type="radio"
+                                  id="international"
+                                  name="customRadio"
+                                  value="international"
+                                  class="custom-control-input"
+                                  v-model="region"
+                                />
+                                <label
+                                  class="custom-control-label"
+                                  for="international"
+                                  >International</label
+                                >
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -80,7 +103,9 @@
                                 v-for="index in tourtype_option"
                                 :key="index.id"
                                 :value="index.id"
-                              >{{ index.name }}</option>
+                              >
+                                {{ index.name }}
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -96,7 +121,9 @@
                                 v-for="index in noofdays_option"
                                 :key="index.id"
                                 :value="index"
-                              >{{ index }}</option>
+                              >
+                                {{ index }}
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -125,7 +152,11 @@
                       </div>
 
                       <div class="row p-0 parent_padding">
-                        <div class="col-lg-8" v-for="(row, index) in rows" :key="index">
+                        <div
+                          class="col-lg-8"
+                          v-for="(row, index) in rows"
+                          :key="index"
+                        >
                           <div class="row">
                             <div class="col-6 col-sm-6 input-p nopadding">
                               <model-select
@@ -146,18 +177,29 @@
                         <div class="col-lg-2">
                           <div class="row button_group">
                             <div class="col-12">
-                              <div class="buttons save_btn link" v-if="city_button == current_counter">
-                                  <img src="/images/icons/multiple_add.png"
+                              <div
+                                class="buttons save_btn link"
+                                v-if="city_button == current_counter"
+                              >
+                                <img
+                                  src="/images/icons/multiple_add.png"
                                   v-if="city_button == current_counter"
-                                  class="" 
-                                  v-bind:class="{ disable : save_disable_btn }"
-                                  @click="addRow">
+                                  class=""
+                                  v-bind:class="{ disable: save_disable_btn }"
+                                  @click="addRow"
+                                />
                               </div>
 
-                              <div class="buttons remove_btn link" v-if="city_button == current_counter">
-                                  <img src="/images/icons/multiple_minus.png" class="" v-bind:class="{ disable : remove_disable_btn }"
-                                  @click="deleteRow(current_counter-1)">
-
+                              <div
+                                class="buttons remove_btn link"
+                                v-if="city_button == current_counter"
+                              >
+                                <img
+                                  src="/images/icons/multiple_minus.png"
+                                  class=""
+                                  v-bind:class="{ disable: remove_disable_btn }"
+                                  @click="deleteRow(current_counter - 1)"
+                                />
                               </div>
                             </div>
                           </div>
@@ -178,7 +220,9 @@
                                 v-for="index in tourtype_option"
                                 :key="index.id"
                                 :value="index"
-                              >{{ index.name}}</option>
+                              >
+                                {{ index.name }}
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -194,7 +238,9 @@
                                 v-for="index in tourtype_option"
                                 :key="index.id"
                                 :value="index.id"
-                              >{{ index.name }}</option>
+                              >
+                                {{ index.name }}
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -210,7 +256,9 @@
                     @click.prevent="searchAll()"
                     type="submit"
                     @click="show = !show"
-                  >Search</button>
+                  >
+                    Search
+                  </button>
                 </p>
               </form>
             </div>
@@ -218,39 +266,50 @@
         </div>
       </div>
     </div>
- 
+
     <main class="pl-2 pr-2">
       <div class="container">
         <div class="p-0" v-if="allSearchdata == ''">
           <heading class="text-center" text="Upcoming Tour" />
           <itinerary-list :list="upcoming_data" />
           <div class="nopadding m-b-15">
-            <router-link to="/explore-list" class="listexplore">View More</router-link>
+            <router-link to="/explore-list" class="listexplore"
+              >View More</router-link
+            >
           </div>
           <heading class="text-center" text="Popular Tour" />
           <itinerary-list :list="popular_data" />
           <div class="nopadding m-b-15">
-            <router-link to="/explore-list" class="listexplore">View More</router-link>
+            <router-link to="/explore-list" class="listexplore"
+              >View More</router-link
+            >
           </div>
         </div>
         <div v-else>
           <itinerary-list :list="allSearchdata"></itinerary-list>
         </div>
+
+        <alert-modals 
+          
+          :sources="sources" 
+          :destinations="destinations"
+          :noofdays="noofday" 
+          :tourtypes="tour_type_text"
+        />
+
       </div>
     </main>
   </div>
 </template>
 
 <script>
-import SearchExplor from "./SearchExplor.vue";
-import { ModelSelect } from "vue-search-select";
-import { Form, HasError } from "vform";
-import ItineraryList from "@/front/components/ItineraryList";
 import Heading from "@/front/components/layout/Heading.vue";
 import SubHeading from "@/front/components/layout/SubHeading.vue";
-
+import ExploreSearchMixin from "@/front/mixins/user/ExploreSearchMixin";
+import AlertModals from '@/front/components/Explore/AlertModals.vue';
 export default {
   name: "exploreDestination",
+  mixins: [ExploreSearchMixin],
   metaInfo: {
     title: "GBI Explore Destination",
     meta: [
@@ -272,211 +331,32 @@ export default {
   },
 
   components: {
-    searchexplor: SearchExplor,
-    ModelSelect,
-    Form,
-    HasError,
-    ItineraryList,
     Heading,
     SubHeading,
+    'alert-modals':AlertModals
   },
   data() {
     return {
-      save_disable_btn: false,
-      remove_disable_btn: true,
-      multicity: false,
-      noofdays_option: 10,
-      tourtype_option: [],
-      options: [],
-      sources: { value: "", text: "" },
-      destinations: { value: "", text: "" },
-      multi_source: { value: "", text: "" },
-      multi_destination: { value: "", text: "" },
-      region: "national",
-      destinationCities: [],
-      rows: [
-        {
-          source: { value: "", text: "" },
-          destination: { value: "", text: "" },
-        },
-      ],
-      city_button: 1,
-      counter: 2,
-      customers: [],
-      current_counter: 1,
-      show: true,
-      data: [],
-      datas: [],
-      search: "",
-      searchs: "",
-      isOpen: false,
-      isOpens: false,
-      arrowCounter: 0,
-      arrowCounters: 0,
-      allSearchdata: [],
-      noofday: "",
-      tourtype: "",
       upcoming_data: "",
       popular_data: "",
-      searchForm: new Form({
-        source: [],
-        destination: [],
-        tourtype: [],
-        noofday: [],
-      }),
     };
   },
-  computed: {
-    // start filterdata source and destination
-    filteredSource() {
-      if (!this.search) return this.data;
-      return this.data.filter((result) => {
-        return result.source.toLowerCase().includes(this.search.toLowerCase());
-      });
-    },
-    filteredData() {
-      if (!this.searchs) return this.datas;
-      return this.datas.filter((resultdata) => {
-        return resultdata.destination
-          .toLowerCase()
-          .includes(this.searchs.toLowerCase());
-      });
-    },
-    alldata() {
-      return this.$store.getters.getAllData;
-    },
-  },
-  created() {
-    this.$axios.get("/api/search").then((response) => {
-      this.data = response.data.data;
-      this.datas = response.data.data;
-    });
-    this.$axios.get("/api/travel-program/upcoming-tour").then((response) => {
-      this.upcoming_data = response.data;
-    });
 
-    this.tourTypeData();
+  created() {
+    this.UpcomingData();
     this.popularTour();
-    this.getCities();
   },
   methods: {
-    getCities() {
-      this.$axios.get(`/api/regional-cities/national`).then((res) => {
-        for (var i = 0; i < res.data.length; i++) {
-          this.options.push({
-            value: res.data[i].name,
-            text: res.data[i].name,
-          });
-        }
-        this.destinationCities = this.options;
-      });
-    },
-
-    getInternationalCities() {
-      this.$axios.get(`/api/regional-cities/international`).then((res) => {
-        this.destinationCities = [];
-        for (var i = 0; i < res.data.length; i++) {
-          this.destinationCities.push({
-            value: res.data[i].name,
-            text: res.data[i].name,
-          });
-        }
-      });
-    },
     popularTour() {
       this.$axios.get("/api/travel-program/popular-tour").then((response) => {
         this.popular_data = response.data;
       });
     },
-    tourTypeData() {
-      this.$axios.get("/api/tourtype").then((response) => {
-        this.tourtype_option = response.data;
+    UpcomingData() {
+      this.$axios.get("/api/travel-program/upcoming-tour").then((response) => {
+        this.upcoming_data = response.data;
       });
     },
-
-    reset() {
-      this.item = {};
-    },
-    selectFromParentComponent1() {
-      // select option from parent component
-      this.item = this.options[0];
-    },
-    reset2() {
-      this.item2 = "";
-    },
-    selectFromParentComponent2() {
-      // select option from parent component
-      this.item2 = this.options2[0].value;
-    },
-    tourtypeOnChange(value) {
-      this.tourtype = event.target.value;
-    },
-    noofdaysOnChange(value) {
-      this.noofday = event.target.value;
-    },
-    //add rows multiple location itinerary
-    addRow: function () {
-      var vm = this;
-      var current = this.current_counter;
-      var previous = current - 1;
-      this.current_counter = this.current_counter + 1;
-      this.city_button = this.city_button + 1;
-      this.rows.push({
-        source: { value: "", text: "" },
-        destination: { value: "", text: "" },
-      });
-      // this.rows[current].source = this.rows[previous].destination;
-      vm.rows[vm.current_counter - 1].destination = vm.multi_source;
-    },
-    //delete rows multiple location itinerary
-    deleteRow: function (index) {
-      this.current_counter = this.current_counter - 1;
-      this.city_button = this.city_button - 1;
-      this.rows.splice(index, 1);
-    },
-    //search autocompelete start
-    onChange() {
-      // Let's warn the parent that a change was made
-      this.$emit("input", this.search);
-      // Is the data given by an outside ajax request?
-      if (this.isAsync) {
-        this.isLoading = true;
-      } else {
-        // Let's search our flat array
-        // this.filterResults();
-        this.isOpen = true;
-      }
-    },
-    onChanges() {
-      this.$emit("input", this.searchs);
-      // Let's search our flat array
-      this.isOpens = true;
-    },
-    setResult(result) {
-      this.search = result;
-      this.isOpen = false;
-    },
-    setResults(resultdata) {
-      this.searchs = resultdata;
-      this.isOpens = false;
-    },
-
-    handleClickOutside(evt) {
-      if (!this.$el.contains(evt.target)) {
-        this.isOpen = false;
-        this.arrowCounter = -1;
-      }
-    },
-    handleClickOutsides(evt) {
-      if (!this.$el.contains(evt.target)) {
-        this.isOpens = false;
-        this.arrowCounters = -1;
-      }
-    },
-
-    //search autocompelete end
-
-    //  serach data api
     searchAll() {
       // Submit form
       let vm = this;
@@ -485,7 +365,6 @@ export default {
       let destination = [];
       vm.searchForm.noofday = vm.noofday;
       vm.searchForm.tourtype = vm.tourtype;
-
       // if multicity search or simple search
       if (vm.multicity) {
         //Multiple city search
@@ -495,12 +374,7 @@ export default {
           vm.searchForm.source.push(source);
           vm.searchForm.destination.push(destination);
         } else {
-          console.log("hi");
           this.$swal.fire("Error", "Please select all the fields", "error");
-          // swal.fire({
-          //   text: "Select all the locations!",
-          //   type: "warning"
-          // });
         }
         var rows_length = vm.rows.length;
         for (var i = 0; i <= rows_length - 1; i++) {
@@ -519,10 +393,11 @@ export default {
       ) {
         vm.searchForm
           .post("api/search-itinerary")
-          .then((response) => {
-            vm.allSearchdata = response.data.data;
+          .then((res) => {
+            vm.allSearchdata = res.data.data;
             if (vm.allSearchdata.length == 0) {
-              this.$swal.fire("Alert", "No data found !!!", "info");
+              this.modoals_show = true;
+              $("#AlertModalForExplore").modal('show');
             }
           })
           .catch((error) => {
@@ -532,38 +407,6 @@ export default {
         this.$swal.fire("Alert", "please select locations", "error");
       }
     },
-  },
-  watch: {
-    multi_source: function (value) {
-      var self = this;
-      if (self.rows[0]) {
-        self.rows[this.current_counter - 1].destination = value;
-      }
-    },
-
-    current_counter: function (value) {
-      if (value == 1) {
-        this.save_disable_btn = false;
-        this.remove_disable_btn = true;
-      }
-      if (value == this.counter) {
-        this.save_disable_btn = true;
-        this.remove_disable_btn = false;
-      }
-    },
-    region: function () {
-      if (this.region == "national") {
-        this.destinationCities = this.options;
-      } else {
-        this.getInternationalCities();
-      }
-    },
-  },
-
-  destroyed() {
-    // search autocompelete start
-    document.removeEventListener("click", this.handleClickOutside);
-    document.removeEventListener("click", this.handleClickOutsides);
   },
 };
 </script>         

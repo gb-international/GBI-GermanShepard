@@ -75,10 +75,9 @@ to submit the data we are using a function.
           <div class="col-sm-4">
             <div class="form-group">
               <label for="role_name">Role Assign</label>
-              <dropdown-filter class="mb-2" 
+              <dropdown-list class="mb-2" 
                 :itemList="role_list" 
-                @update:option="updateRole" 
-                :selectedId="form.role_name"
+                v-model="form.role_name"
                 :class="{ 'is-invalid': form.errors.has('role_name') }"
               />
               <has-error :form="form" field="role_name"></has-error>
@@ -88,10 +87,9 @@ to submit the data we are using a function.
           <div class="col-sm-4">
             <div class="form-group">
               <label for="role_name">Department</label>
-              <dropdown-filter class="mb-2" 
+              <dropdown-list class="mb-2" 
                 :itemList="departments" 
-                @update:option="updateDepartment" 
-                :selectedId="form.department_id"
+                v-model="form.department_id"
                 :class="{ 'is-invalid': form.errors.has('department_id') }"
               />
               <has-error :form="form" field="department_id"></has-error>
@@ -123,7 +121,7 @@ to submit the data we are using a function.
 import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
-import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
+import DropdownList from "@/admin/components/form/DropdownList.vue";
 export default {
   name: "NewMember",
   components: {
@@ -131,7 +129,7 @@ export default {
     "has-error": HasError,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
-     "dropdown-filter": DropdownFilter,
+     "dropdown-list": DropdownList,
   },
   data() {
     return {

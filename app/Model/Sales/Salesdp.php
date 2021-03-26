@@ -16,4 +16,8 @@ class Salesdp extends Model
         'location',
         'status',
     ];
+
+    public function setEmailAttribute($value){
+        return $this->attributes['email'] = strtolower($value);
+    }
 }

@@ -67,15 +67,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _SearchExplor_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchExplor.vue */ "./resources/js/front/pages/Explore/SearchExplor.vue");
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-search-select */ "./node_modules/vue-search-select/dist/VueSearchSelect.common.js");
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_search_select__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _front_components_ItineraryList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/front/components/ItineraryList */ "./resources/js/front/components/ItineraryList.vue");
-/* harmony import */ var _front_components_Observer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/front/components/Observer */ "./resources/js/front/components/Observer.vue");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/front/mixins/user/ExploreSearchMixin */ "./resources/js/front/mixins/user/ExploreSearchMixin.js");
+/* harmony import */ var _front_components_Observer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/front/components/Observer */ "./resources/js/front/components/Observer.vue");
+/* harmony import */ var _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/front/components/Explore/AlertModals.vue */ "./resources/js/front/components/Explore/AlertModals.vue");
 
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -381,14 +375,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-
-
-
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "exploreDestination",
+  name: "exploreDestinationList",
   metaInfo: {
     title: "GBI Explore Destination",
     meta: [{
@@ -403,140 +400,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }]
   },
   components: {
-    searchexplor: _SearchExplor_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_2__["ModelSelect"],
-    Form: vform__WEBPACK_IMPORTED_MODULE_3__["Form"],
-    HasError: vform__WEBPACK_IMPORTED_MODULE_3__["HasError"],
-    ItineraryList: _front_components_ItineraryList__WEBPACK_IMPORTED_MODULE_4__["default"],
-    Observer: _front_components_Observer__WEBPACK_IMPORTED_MODULE_5__["default"]
+    Observer: _front_components_Observer__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'alert-modals': _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  data: function data() {
-    return {
-      save_disable_btn: false,
-      remove_disable_btn: true,
-      multicity: false,
-      region: "national",
-      noofdays_option: 10,
-      tourtype_option: [],
-      options: [],
-      destinationCities: [],
-      sources: {
-        value: "",
-        text: ""
-      },
-      destinations: {
-        value: "",
-        text: ""
-      },
-      multi_source: {
-        value: "",
-        text: ""
-      },
-      multi_destination: {
-        value: "",
-        text: ""
-      },
-      rows: [{
-        source: {
-          value: "",
-          text: ""
-        },
-        destination: {
-          value: "",
-          text: ""
-        }
-      }],
-      city_button: 1,
-      counter: 2,
-      customers: [],
-      current_counter: 1,
-      show: true,
-      data: [],
-      datas: [],
-      search: "",
-      searchs: "",
-      isOpen: false,
-      isOpens: false,
-      arrowCounter: 0,
-      arrowCounters: 0,
-      allSearchdata: [],
-      noofday: "",
-      tourtype: "",
-      loading: false,
-      page: 1,
-      items_list: [],
-      searchForm: new vform__WEBPACK_IMPORTED_MODULE_3__["Form"]({
-        source: [],
-        destination: [],
-        tourtype: [],
-        noofday: []
-      })
-    };
-  },
-  computed: {
-    // start filterdata source and destination
-    filteredSource: function filteredSource() {
-      var _this = this;
-
-      if (!this.search) return this.data;
-      return this.data.filter(function (result) {
-        return result.source.toLowerCase().includes(_this.search.toLowerCase());
-      });
-    },
-    filteredData: function filteredData() {
-      var _this2 = this;
-
-      if (!this.searchs) return this.datas;
-      return this.datas.filter(function (resultdata) {
-        return resultdata.destination.toLowerCase().includes(_this2.searchs.toLowerCase());
-      });
-    },
-    alldata: function alldata() {
-      return this.$store.getters.getAllData;
-    }
-  },
-  created: function created() {
-    var _this3 = this;
-
-    this.$axios.get("/api/search").then(function (res) {
-      _this3.data = res.data.data;
-      _this3.datas = res.data.data;
-    });
-    this.tourTypeData();
-    this.intersected();
-    this.getCities();
-  },
+  mixins: [_front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
   methods: {
-    getCities: function getCities() {
-      var _this4 = this;
-
-      this.$axios.get("/api/regional-cities/national").then(function (res) {
-        for (var i = 0; i < res.data.length; i++) {
-          _this4.options.push({
-            value: res.data[i].name,
-            text: res.data[i].name
-          });
-        }
-
-        _this4.destinationCities = _this4.options;
-      });
-    },
-    getInternationalCities: function getInternationalCities() {
-      var _this5 = this;
-
-      this.$axios.get("/api/regional-cities/international").then(function (res) {
-        _this5.destinationCities = [];
-
-        for (var i = 0; i < res.data.length; i++) {
-          _this5.destinationCities.push({
-            value: res.data[i].name,
-            text: res.data[i].name
-          });
-        }
-      });
-    },
     intersected: function intersected() {
-      var _this6 = this;
+      var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var url, res, items;
@@ -544,19 +414,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!(_this6.loading == false)) {
+                if (!(_this.loading == false)) {
                   _context.next = 13;
                   break;
                 }
 
-                _this6.loading = true;
-                url = "/api/itinerary-list?page=" + _this6.page;
+                _this.loading = true;
+                url = "/api/itinerary-list?page=" + _this.page;
                 _context.next = 5;
                 return fetch(url);
 
               case 5:
                 res = _context.sent;
-                _this6.page++;
+                _this.page++;
                 _context.next = 9;
                 return res.json();
 
@@ -564,11 +434,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 items = _context.sent;
 
                 if (items.data.length > 0) {
-                  _this6.items_list = [].concat(_toConsumableArray(_this6.items_list), _toConsumableArray(items.data));
+                  _this.items_list = [].concat(_toConsumableArray(_this.items_list), _toConsumableArray(items.data));
                 }
 
                 items = [];
-                _this6.loading = false;
+                _this.loading = false;
 
               case 13:
               case "end":
@@ -578,102 +448,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    RealSearch: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(function () {
-      this.$store.dispatch("SearchPost", this.keyword);
-    }, 1000),
-    tourTypeData: function tourTypeData() {
-      var _this7 = this;
-
-      this.$axios.get("/api/tourtype").then(function (res) {
-        _this7.tourtype_option = res.data;
-      });
-    },
-    reset: function reset() {
-      this.item = {};
-    },
-    selectFromParentComponent1: function selectFromParentComponent1() {
-      // select option from parent component
-      this.item = this.options[0];
-    },
-    reset2: function reset2() {
-      this.item2 = "";
-    },
-    selectFromParentComponent2: function selectFromParentComponent2() {
-      // select option from parent component
-      this.item2 = this.options2[0].value;
-    },
-    tourtypeOnChange: function tourtypeOnChange(value) {
-      this.tourtype = event.target.value;
-    },
-    noofdaysOnChange: function noofdaysOnChange(value) {
-      this.noofday = event.target.value;
-    },
-    //add rows multiple location itinerary
-    addRow: function addRow() {
-      var vm = this;
-      var current = this.current_counter;
-      var previous = current - 1;
-      this.current_counter = this.current_counter + 1;
-      this.city_button = this.city_button + 1;
-      this.rows.push({
-        source: {
-          value: "",
-          text: ""
-        },
-        destination: {
-          value: "",
-          text: ""
-        }
-      }); // this.rows[current].source = this.rows[previous].destination;
-
-      vm.rows[vm.current_counter - 1].destination = vm.multi_source;
-    },
-    //delete rows multiple location itinerary
-    deleteRow: function deleteRow(index) {
-      this.current_counter = this.current_counter - 1;
-      this.city_button = this.city_button - 1;
-      this.rows.splice(index, 1);
-    },
-    //search autocompelete start
-    onChange: function onChange() {
-      // Let's warn the parent that a change was made
-      this.$emit("input", this.search); // Is the data given by an outside ajax request?
-
-      if (this.isAsync) {
-        this.isLoading = true;
-      } else {
-        // Let's search our flat array
-        // this.filterResults();
-        this.isOpen = true;
-      }
-    },
-    onChanges: function onChanges() {
-      this.$emit("input", this.searchs); // Let's search our flat array
-
-      this.isOpens = true;
-    },
-    setResult: function setResult(result) {
-      this.search = result;
-      this.isOpen = false;
-    },
-    setResults: function setResults(resultdata) {
-      this.searchs = resultdata;
-      this.isOpens = false;
-    },
-    handleClickOutside: function handleClickOutside(evt) {
-      if (!this.$el.contains(evt.target)) {
-        this.isOpen = false;
-        this.arrowCounter = -1;
-      }
-    },
-    handleClickOutsides: function handleClickOutsides(evt) {
-      if (!this.$el.contains(evt.target)) {
-        this.isOpens = false;
-        this.arrowCounters = -1;
-      }
-    },
     searchAll: function searchAll() {
-      var _this8 = this;
+      var _this2 = this;
 
       // Submit form
       var vm = this;
@@ -692,11 +468,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           vm.searchForm.source.push(source);
           vm.searchForm.destination.push(destination);
         } else {
-          console.log("hi");
-          this.$swal.fire("Error", "Please select all the fields", "error"); // swal.fire({
-          //   text: "Select all the locations!",
-          //   type: "warning"
-          // });
+          this.$swal.fire("Error", "Please select all the fields", "error");
         }
 
         var rows_length = vm.rows.length;
@@ -713,51 +485,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       if (vm.searchForm.destination[0] != "" && vm.searchForm.destination[0] != "") {
         vm.searchForm.post("api/search-itinerary").then(function (res) {
-          console.log(res);
           vm.allSearchdata = res.data.data;
 
           if (vm.allSearchdata.length == 0) {
-            _this8.$swal.fire("Alert", "No data Found!!", "info");
+            _this2.modoals_show = true;
+            $("#AlertModalForExplore").modal('show');
           }
         })["catch"](function (error) {
-          _this8.$swal.fire("Alert", "please select the fields", "error");
+          _this2.$swal.fire("Alert", "please select the fields", "error");
         });
       } else {
         this.$swal.fire("Alert", "please select locations", "error");
       }
     }
-  },
-  watch: {
-    multi_source: function multi_source(value) {
-      var self = this;
-
-      if (self.rows[0]) {
-        self.rows[this.current_counter - 1].destination = value;
-      }
-    },
-    current_counter: function current_counter(value) {
-      if (value == 1) {
-        this.save_disable_btn = false;
-        this.remove_disable_btn = true;
-      }
-
-      if (value == this.counter) {
-        this.save_disable_btn = true;
-        this.remove_disable_btn = false;
-      }
-    },
-    region: function region() {
-      if (this.region == "national") {
-        this.destinationCities = this.options;
-      } else {
-        this.getInternationalCities();
-      }
-    }
-  },
-  destroyed: function destroyed() {
-    // search autocompelete start
-    document.removeEventListener("click", this.handleClickOutside);
-    document.removeEventListener("click", this.handleClickOutsides);
   }
 });
 
@@ -802,219 +542,548 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "exploreDestination" } }, [
-    _c(
-      "div",
-      { staticClass: "explore_banner text_on_image banner_bg explore_bg_img" },
-      [
-        _c("div", { staticClass: "content" }, [
-          _c("div", { staticClass: "container-fluid" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-12 m-0 p-0" }, [
-                _c("form", { attrs: { role: "form", autocomplete: "off" } }, [
-                  _c("div", { staticClass: "nav-sreach-explo" }, [
-                    _c("ul", { staticClass: "nav nav-tabs serch-explo-menu" }, [
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link active border-none",
-                            attrs: { "data-toggle": "tab", href: "#home" },
-                            on: {
-                              click: function($event) {
-                                _vm.multicity = !_vm.multicity
-                              }
-                            }
-                          },
-                          [_vm._v("Oneway")]
-                        )
-                      ]),
+  return _c(
+    "div",
+    { attrs: { id: "exploreDestination" } },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "explore_banner text_on_image banner_bg explore_bg_img"
+        },
+        [
+          _c("div", { staticClass: "content" }, [
+            _c("div", { staticClass: "container-fluid" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-sm-12 m-0 p-0" }, [
+                  _c("form", { attrs: { role: "form", autocomplete: "off" } }, [
+                    _c("div", { staticClass: "nav-sreach-explo" }, [
+                      _c(
+                        "ul",
+                        { staticClass: "nav nav-tabs serch-explo-menu" },
+                        [
+                          _c("li", { staticClass: "nav-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "nav-link active border-none",
+                                attrs: { "data-toggle": "tab", href: "#home" },
+                                on: {
+                                  click: function($event) {
+                                    _vm.multicity = !_vm.multicity
+                                  }
+                                }
+                              },
+                              [_vm._v("Oneway")]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "nav-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "nav-link border-none",
+                                attrs: { "data-toggle": "tab", href: "#menu1" },
+                                on: {
+                                  click: function($event) {
+                                    _vm.multicity = !_vm.multicity
+                                  }
+                                }
+                              },
+                              [_vm._v("Multicity")]
+                            )
+                          ])
+                        ]
+                      ),
                       _vm._v(" "),
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link border-none",
-                            attrs: { "data-toggle": "tab", href: "#menu1" },
-                            on: {
-                              click: function($event) {
-                                _vm.multicity = !_vm.multicity
-                              }
-                            }
-                          },
-                          [_vm._v("Multicity")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "tab-content explor-content pb-1" },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "container tab-pane active",
-                            attrs: { id: "home" }
-                          },
-                          [
-                            _c("div", { staticClass: "row search-radio" }, [
-                              _c("div", { staticClass: "col-sm-6" }, [
-                                _c("div", { staticClass: "row pt-3 pb-3" }, [
-                                  _c("div", { staticClass: "col" }, [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "custom-control custom-radio"
-                                      },
-                                      [
-                                        _c("input", {
-                                          directives: [
+                      _c(
+                        "div",
+                        { staticClass: "tab-content explor-content pb-1" },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "container tab-pane active",
+                              attrs: { id: "home" }
+                            },
+                            [
+                              _c("div", { staticClass: "row search-radio" }, [
+                                _c("div", { staticClass: "col-sm-6" }, [
+                                  _c("div", { staticClass: "row pt-3 pb-3" }, [
+                                    _c("div", { staticClass: "col" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "custom-control custom-radio"
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.region,
+                                                expression: "region"
+                                              }
+                                            ],
+                                            staticClass: "custom-control-input",
+                                            attrs: {
+                                              type: "radio",
+                                              id: "national",
+                                              name: "customRadio",
+                                              value: "national"
+                                            },
+                                            domProps: {
+                                              checked: _vm._q(
+                                                _vm.region,
+                                                "national"
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.region = "national"
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "label",
                                             {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: _vm.region,
-                                              expression: "region"
+                                              staticClass:
+                                                "custom-control-label",
+                                              attrs: { for: "national" }
+                                            },
+                                            [_vm._v("National")]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "custom-control custom-radio"
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.region,
+                                                expression: "region"
+                                              }
+                                            ],
+                                            staticClass: "custom-control-input",
+                                            attrs: {
+                                              type: "radio",
+                                              id: "international",
+                                              name: "customRadio",
+                                              value: "international"
+                                            },
+                                            domProps: {
+                                              checked: _vm._q(
+                                                _vm.region,
+                                                "international"
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.region = "international"
+                                              }
                                             }
-                                          ],
-                                          staticClass: "custom-control-input",
-                                          attrs: {
-                                            type: "radio",
-                                            id: "national",
-                                            name: "customRadio",
-                                            value: "national"
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "custom-control-label",
+                                              attrs: { for: "international" }
+                                            },
+                                            [_vm._v("International")]
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "row p-0 parent_padding" },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "col-6 col-sm-4 col-lg-4 input-p nopadding"
+                                    },
+                                    [
+                                      _c("model-select", {
+                                        attrs: {
+                                          options: _vm.options,
+                                          placeholder: "Leave from",
+                                          autocomplete: "off"
+                                        },
+                                        model: {
+                                          value: _vm.sources,
+                                          callback: function($$v) {
+                                            _vm.sources = $$v
                                           },
-                                          domProps: {
-                                            checked: _vm._q(
-                                              _vm.region,
-                                              "national"
-                                            )
+                                          expression: "sources"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "col-6 col-sm-4 col-lg-4 input-p nopadding"
+                                    },
+                                    [
+                                      _c("model-select", {
+                                        attrs: {
+                                          options: _vm.destinationCities,
+                                          placeholder: "Arrive at"
+                                        },
+                                        model: {
+                                          value: _vm.destinations,
+                                          callback: function($$v) {
+                                            _vm.destinations = $$v
                                           },
-                                          on: {
-                                            change: function($event) {
-                                              _vm.region = "national"
-                                            }
-                                          }
-                                        }),
-                                        _vm._v(" "),
+                                          expression: "destinations"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "col-6 col-sm-2 col-lg-2 input-p nopadding"
+                                    },
+                                    [
+                                      _c("div", { staticClass: "select" }, [
                                         _c(
-                                          "label",
+                                          "select",
                                           {
-                                            staticClass: "custom-control-label",
-                                            attrs: { for: "national" }
+                                            staticClass:
+                                              "placeholder_color ui fluid search selection dropdown",
+                                            attrs: { name: "typetour" },
+                                            on: {
+                                              change: function($event) {
+                                                return _vm.tourtypeOnChange(
+                                                  $event
+                                                )
+                                              }
+                                            }
                                           },
-                                          [_vm._v("National")]
+                                          [
+                                            _c(
+                                              "option",
+                                              { attrs: { selected: "" } },
+                                              [_vm._v("In mood for")]
+                                            ),
+                                            _vm._v(" "),
+                                            _vm._l(
+                                              _vm.tourtype_option,
+                                              function(index) {
+                                                return _c(
+                                                  "option",
+                                                  {
+                                                    key: index.id,
+                                                    domProps: {
+                                                      value: index.id
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                              " +
+                                                        _vm._s(index.name) +
+                                                        "\n                            "
+                                                    )
+                                                  ]
+                                                )
+                                              }
+                                            )
+                                          ],
+                                          2
                                         )
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "col-6 col-sm-2 col-lg-2 input-p nopadding"
+                                    },
+                                    [
+                                      _c("div", { staticClass: "select" }, [
+                                        _c(
+                                          "select",
+                                          {
+                                            staticClass:
+                                              "selectpicker ui selection dropdown",
+                                            attrs: { name: "noofday" },
+                                            on: {
+                                              change: function($event) {
+                                                return _vm.noofdaysOnChange(
+                                                  $event
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "option",
+                                              { attrs: { selected: "" } },
+                                              [_vm._v("No. of days")]
+                                            ),
+                                            _vm._v(" "),
+                                            _vm._l(
+                                              _vm.noofdays_option,
+                                              function(index) {
+                                                return _c(
+                                                  "option",
+                                                  {
+                                                    key: index.id,
+                                                    domProps: { value: index }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                              " +
+                                                        _vm._s(index) +
+                                                        "\n                            "
+                                                    )
+                                                  ]
+                                                )
+                                              }
+                                            )
+                                          ],
+                                          2
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "container tab-pane",
+                              attrs: { id: "menu1" }
+                            },
+                            [
+                              _c("br"),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "row p-0 parent_padding" },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "col-6 col-sm-4 col-lg-4 input-p nopadding"
+                                    },
+                                    [
+                                      _c("model-select", {
+                                        attrs: {
+                                          options: _vm.options,
+                                          placeholder: "Leave from"
+                                        },
+                                        model: {
+                                          value: _vm.multi_source,
+                                          callback: function($$v) {
+                                            _vm.multi_source = $$v
+                                          },
+                                          expression: "multi_source"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "col-6 col-sm-4 col-lg-4 input-p nopadding"
+                                    },
+                                    [
+                                      _c("model-select", {
+                                        attrs: {
+                                          options: _vm.options,
+                                          placeholder: "Arrive at"
+                                        },
+                                        model: {
+                                          value: _vm.multi_destination,
+                                          callback: function($$v) {
+                                            _vm.multi_destination = $$v
+                                          },
+                                          expression: "multi_destination"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "row p-0 parent_padding" },
+                                [
+                                  _vm._l(_vm.rows, function(row, index) {
+                                    return _c(
+                                      "div",
+                                      { key: index, staticClass: "col-lg-8" },
+                                      [
+                                        _c("div", { staticClass: "row" }, [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "col-6 col-sm-6 input-p nopadding"
+                                            },
+                                            [
+                                              _c("model-select", {
+                                                attrs: {
+                                                  options: _vm.options,
+                                                  placeholder: "Leave from"
+                                                },
+                                                model: {
+                                                  value: row["source"],
+                                                  callback: function($$v) {
+                                                    _vm.$set(row, "source", $$v)
+                                                  },
+                                                  expression: "row['source']"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "col-6 col-sm-6 input-p nopadding"
+                                            },
+                                            [
+                                              _c("model-select", {
+                                                attrs: {
+                                                  options: _vm.options,
+                                                  placeholder: "Arrive at"
+                                                },
+                                                model: {
+                                                  value: row["destination"],
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      row,
+                                                      "destination",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "row['destination']"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ])
                                       ]
                                     )
-                                  ]),
+                                  }),
                                   _vm._v(" "),
-                                  _c("div", { staticClass: "col" }, [
+                                  _c("div", { staticClass: "col-lg-2" }, [
                                     _c(
                                       "div",
-                                      {
-                                        staticClass:
-                                          "custom-control custom-radio"
-                                      },
+                                      { staticClass: "row button_group" },
                                       [
-                                        _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: _vm.region,
-                                              expression: "region"
-                                            }
-                                          ],
-                                          staticClass: "custom-control-input",
-                                          attrs: {
-                                            type: "radio",
-                                            id: "international",
-                                            name: "customRadio",
-                                            value: "international"
-                                          },
-                                          domProps: {
-                                            checked: _vm._q(
-                                              _vm.region,
-                                              "international"
-                                            )
-                                          },
-                                          on: {
-                                            change: function($event) {
-                                              _vm.region = "international"
-                                            }
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "label",
-                                          {
-                                            staticClass: "custom-control-label",
-                                            attrs: { for: "international" }
-                                          },
-                                          [_vm._v("International")]
-                                        )
+                                        _c("div", { staticClass: "col-12" }, [
+                                          _vm.city_button == _vm.current_counter
+                                            ? _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "buttons save_btn link"
+                                                },
+                                                [
+                                                  _vm.city_button ==
+                                                  _vm.current_counter
+                                                    ? _c("img", {
+                                                        class: {
+                                                          disable:
+                                                            _vm.save_disable_btn
+                                                        },
+                                                        attrs: {
+                                                          src:
+                                                            "/images/icons/multiple_add.png"
+                                                        },
+                                                        on: {
+                                                          click: _vm.addRow
+                                                        }
+                                                      })
+                                                    : _vm._e()
+                                                ]
+                                              )
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.city_button == _vm.current_counter
+                                            ? _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "buttons remove_btn link"
+                                                },
+                                                [
+                                                  _c("img", {
+                                                    class: {
+                                                      disable:
+                                                        _vm.remove_disable_btn
+                                                    },
+                                                    attrs: {
+                                                      src:
+                                                        "/images/icons/multiple_minus.png"
+                                                    },
+                                                    on: {
+                                                      click: function($event) {
+                                                        return _vm.deleteRow(
+                                                          _vm.current_counter -
+                                                            1
+                                                        )
+                                                      }
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            : _vm._e()
+                                        ])
                                       ]
                                     )
                                   ])
-                                ])
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "row p-0 parent_padding" },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-6 col-sm-4 col-lg-4 input-p nopadding"
-                                  },
-                                  [
-                                    _c("model-select", {
-                                      attrs: {
-                                        options: _vm.options,
-                                        placeholder: "Leave from",
-                                        autocomplete: "off"
-                                      },
-                                      model: {
-                                        value: _vm.sources,
-                                        callback: function($$v) {
-                                          _vm.sources = $$v
-                                        },
-                                        expression: "sources"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-6 col-sm-4 col-lg-4 input-p nopadding"
-                                  },
-                                  [
-                                    _c("model-select", {
-                                      attrs: {
-                                        options: _vm.destinationCities,
-                                        placeholder: "Arrive at"
-                                      },
-                                      model: {
-                                        value: _vm.destinations,
-                                        callback: function($$v) {
-                                          _vm.destinations = $$v
-                                        },
-                                        expression: "destinations"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "row parent_padding" }, [
                                 _c(
                                   "div",
                                   {
@@ -1051,7 +1120,7 @@ var render = function() {
                                               "option",
                                               {
                                                 key: index.id,
-                                                domProps: { value: index.id }
+                                                domProps: { value: index }
                                               },
                                               [
                                                 _vm._v(
@@ -1098,19 +1167,19 @@ var render = function() {
                                             [_vm._v("No. of days")]
                                           ),
                                           _vm._v(" "),
-                                          _vm._l(_vm.noofdays_option, function(
+                                          _vm._l(_vm.tourtype_option, function(
                                             index
                                           ) {
                                             return _c(
                                               "option",
                                               {
                                                 key: index.id,
-                                                domProps: { value: index }
+                                                domProps: { value: index.id }
                                               },
                                               [
                                                 _vm._v(
                                                   "\n                              " +
-                                                    _vm._s(index) +
+                                                    _vm._s(index.name) +
                                                     "\n                            "
                                                 )
                                               ]
@@ -1122,385 +1191,90 @@ var render = function() {
                                     ])
                                   ]
                                 )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "container tab-pane",
-                            attrs: { id: "menu1" }
-                          },
-                          [
-                            _c("br"),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "row p-0 parent_padding" },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-6 col-sm-4 col-lg-4 input-p nopadding"
-                                  },
-                                  [
-                                    _c("model-select", {
-                                      attrs: {
-                                        options: _vm.options,
-                                        placeholder: "Leave from"
-                                      },
-                                      model: {
-                                        value: _vm.multi_source,
-                                        callback: function($$v) {
-                                          _vm.multi_source = $$v
-                                        },
-                                        expression: "multi_source"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-6 col-sm-4 col-lg-4 input-p nopadding"
-                                  },
-                                  [
-                                    _c("model-select", {
-                                      attrs: {
-                                        options: _vm.options,
-                                        placeholder: "Arrive at"
-                                      },
-                                      model: {
-                                        value: _vm.multi_destination,
-                                        callback: function($$v) {
-                                          _vm.multi_destination = $$v
-                                        },
-                                        expression: "multi_destination"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "row p-0 parent_padding" },
-                              [
-                                _vm._l(_vm.rows, function(row, index) {
-                                  return _c(
-                                    "div",
-                                    { key: index, staticClass: "col-lg-8" },
-                                    [
-                                      _c("div", { staticClass: "row" }, [
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-6 col-sm-6 input-p nopadding"
-                                          },
-                                          [
-                                            _c("model-select", {
-                                              attrs: {
-                                                options: _vm.options,
-                                                placeholder: "Leave from"
-                                              },
-                                              model: {
-                                                value: row["source"],
-                                                callback: function($$v) {
-                                                  _vm.$set(row, "source", $$v)
-                                                },
-                                                expression: "row['source']"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-6 col-sm-6 input-p nopadding"
-                                          },
-                                          [
-                                            _c("model-select", {
-                                              attrs: {
-                                                options: _vm.options,
-                                                placeholder: "Arrive at"
-                                              },
-                                              model: {
-                                                value: row["destination"],
-                                                callback: function($$v) {
-                                                  _vm.$set(
-                                                    row,
-                                                    "destination",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression: "row['destination']"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      ])
-                                    ]
-                                  )
-                                }),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-lg-2" }, [
-                                  _c(
-                                    "div",
-                                    { staticClass: "row button_group" },
-                                    [
-                                      _c("div", { staticClass: "col-12" }, [
-                                        _vm.city_button == _vm.current_counter
-                                          ? _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "buttons save_btn link"
-                                              },
-                                              [
-                                                _vm.city_button ==
-                                                _vm.current_counter
-                                                  ? _c("img", {
-                                                      class: {
-                                                        disable:
-                                                          _vm.save_disable_btn
-                                                      },
-                                                      attrs: {
-                                                        src:
-                                                          "/images/icons/multiple_add.png"
-                                                      },
-                                                      on: { click: _vm.addRow }
-                                                    })
-                                                  : _vm._e()
-                                              ]
-                                            )
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        _vm.city_button == _vm.current_counter
-                                          ? _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "buttons remove_btn link"
-                                              },
-                                              [
-                                                _c("img", {
-                                                  class: {
-                                                    disable:
-                                                      _vm.remove_disable_btn
-                                                  },
-                                                  attrs: {
-                                                    src:
-                                                      "/images/icons/multiple_minus.png"
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      return _vm.deleteRow(
-                                                        _vm.current_counter - 1
-                                                      )
-                                                    }
-                                                  }
-                                                })
-                                              ]
-                                            )
-                                          : _vm._e()
-                                      ])
-                                    ]
-                                  )
-                                ])
-                              ],
-                              2
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "row parent_padding" }, [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "col-6 col-sm-2 col-lg-2 input-p nopadding"
-                                },
-                                [
-                                  _c("div", { staticClass: "select" }, [
-                                    _c(
-                                      "select",
-                                      {
-                                        staticClass:
-                                          "placeholder_color ui fluid search selection dropdown",
-                                        attrs: { name: "typetour" },
-                                        on: {
-                                          change: function($event) {
-                                            return _vm.tourtypeOnChange($event)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "option",
-                                          { attrs: { selected: "" } },
-                                          [_vm._v("In mood for")]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm._l(_vm.tourtype_option, function(
-                                          index
-                                        ) {
-                                          return _c(
-                                            "option",
-                                            {
-                                              key: index.id,
-                                              domProps: { value: index }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                              " +
-                                                  _vm._s(index.name) +
-                                                  "\n                            "
-                                              )
-                                            ]
-                                          )
-                                        })
-                                      ],
-                                      2
-                                    )
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "col-6 col-sm-2 col-lg-2 input-p nopadding"
-                                },
-                                [
-                                  _c("div", { staticClass: "select" }, [
-                                    _c(
-                                      "select",
-                                      {
-                                        staticClass:
-                                          "selectpicker ui selection dropdown",
-                                        attrs: { name: "noofday" },
-                                        on: {
-                                          change: function($event) {
-                                            return _vm.noofdaysOnChange($event)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "option",
-                                          { attrs: { selected: "" } },
-                                          [_vm._v("No. of days")]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm._l(_vm.tourtype_option, function(
-                                          index
-                                        ) {
-                                          return _c(
-                                            "option",
-                                            {
-                                              key: index.id,
-                                              domProps: { value: index.id }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                              " +
-                                                  _vm._s(index.name) +
-                                                  "\n                            "
-                                              )
-                                            ]
-                                          )
-                                        })
-                                      ],
-                                      2
-                                    )
-                                  ])
-                                ]
-                              )
-                            ])
-                          ]
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-center" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "btn btn-defalt btn-lg center-block profile_button",
-                        attrs: { type: "submit" },
-                        on: {
-                          click: [
-                            function($event) {
-                              $event.preventDefault()
-                              return _vm.searchAll()
-                            },
-                            function($event) {
-                              _vm.show = !_vm.show
-                            }
-                          ]
-                        }
-                      },
-                      [_vm._v("\n                  Search\n                ")]
-                    )
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-center" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "btn btn-defalt btn-lg center-block profile_button",
+                          attrs: { type: "submit" },
+                          on: {
+                            click: [
+                              function($event) {
+                                $event.preventDefault()
+                                return _vm.searchAll()
+                              },
+                              function($event) {
+                                _vm.show = !_vm.show
+                              }
+                            ]
+                          }
+                        },
+                        [_vm._v("\n                  Search\n                ")]
+                      )
+                    ])
                   ])
                 ])
               ])
             ])
           ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("main", { staticClass: "pl-2 pr-2" }, [
+        _c("div", { staticClass: "container" }, [
+          _vm.allSearchdata == ""
+            ? _c(
+                "div",
+                [
+                  _c("itinerary-list", { attrs: { list: _vm.items_list } }),
+                  _vm._v(" "),
+                  _c("Observer", { on: { intersect: _vm.intersected } }),
+                  _vm._v(" "),
+                  _vm.loading
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            "loading-img-parent text-center mt-5 w-100 mb-4"
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "loading-img",
+                            attrs: { src: "/images/icons/loader.gif" }
+                          })
+                        ]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            : _c(
+                "div",
+                [_c("itinerary-list", { attrs: { list: _vm.allSearchdata } })],
+                1
+              )
         ])
-      ]
-    ),
-    _vm._v(" "),
-    _c("main", { staticClass: "pl-2 pr-2" }, [
-      _c("div", { staticClass: "container" }, [
-        _vm.allSearchdata == ""
-          ? _c(
-              "div",
-              [
-                _c("itinerary-list", { attrs: { list: _vm.items_list } }),
-                _vm._v(" "),
-                _c("Observer", { on: { intersect: _vm.intersected } }),
-                _vm._v(" "),
-                _vm.loading
-                  ? _c(
-                      "div",
-                      {
-                        staticClass:
-                          "loading-img-parent text-center mt-5 w-100 mb-4"
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "loading-img",
-                          attrs: { src: "/images/icons/loader.gif" }
-                        })
-                      ]
-                    )
-                  : _vm._e()
-              ],
-              1
-            )
-          : _c(
-              "div",
-              [_c("itinerary-list", { attrs: { list: _vm.allSearchdata } })],
-              1
-            )
-      ])
-    ])
-  ])
+      ]),
+      _vm._v(" "),
+      _c("alert-modals", {
+        attrs: {
+          sources: _vm.sources,
+          destinations: _vm.destinations,
+          noofdays: _vm.noofday,
+          tourtypes: _vm.tour_type_text
+        }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
