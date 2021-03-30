@@ -2529,6 +2529,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2549,8 +2579,8 @@ __webpack_require__.r(__webpack_exports__);
       countDown: 0,
       isnav_active: false,
       user: {
-        name: '',
-        photo: ''
+        name: "",
+        photo: ""
       },
       cookies_alert: false
     };
@@ -2578,7 +2608,7 @@ __webpack_require__.r(__webpack_exports__);
     // this.$cookies.set('login',1);
     // check is cookies is accepted or not
     this.loginCheck();
-    this.login = this.$cookies.get('login');
+    this.login = this.$cookies.get("login");
 
     if (this.login == null) {
       this.login = 1;
@@ -2587,24 +2617,23 @@ __webpack_require__.r(__webpack_exports__);
     // }
 
 
-    var url = '/api/details'; // this.$cookies.set('access_token',localStorage.getItem('token'));
+    var url = "/api/details"; // this.$cookies.set('access_token',localStorage.getItem('token'));
   },
   methods: {
     loginCheck: function loginCheck() {
       var _this2 = this;
 
-      var token = this.$cookies.get('access_token');
+      var token = this.$cookies.get("access_token");
 
       if (token) {
-        var data = [];
-        this.$api.POST('/api/user-show', []).then(function (response) {
+        this.$api.POST("/api/user-show", []).then(function (response) {
           // this.user.name = response.success.name;
           // this.user.photo = response.success.information.photo;
           _this2.$store.token = token;
 
-          _this2.$store.commit('auth_success', token);
+          _this2.$store.commit("auth_success", token);
 
-          _this2.$cookies.set('login', 2);
+          _this2.$cookies.set("login", 2);
 
           _this2.login = 2;
           return 2;
@@ -2612,7 +2641,7 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         this.login = 2;
 
-        if (this.$cookies.get('login') == 1) {
+        if (this.$cookies.get("login") == 1) {
           this.login = 1;
         }
       }
@@ -2625,7 +2654,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     acceptCookies: function acceptCookies() {
-      this.$cookies.set('cookies_alert', 'yes', '1y'); // this.$cookies.set('cookies_alert','yes','6s');
+      this.$cookies.set("cookies_alert", "yes", "1y"); // this.$cookies.set('cookies_alert','yes','6s');
 
       this.cookies_alert = false;
     }
@@ -2930,7 +2959,20 @@ __webpack_require__.r(__webpack_exports__);
         this.login = false;
       } else {
         this.login = true;
-        this.$router.push("/dashboard");
+        var current_path = this.$route.path; //those urls where we don't want to redirect to dashboard
+
+        var urls = ["/encyclopedia/", "/explore-detail/"];
+        var redirect = 1;
+
+        for (var i = 0; i < urls.length; i++) {
+          if (current_path.includes(urls[i])) {
+            redirect = 0;
+          }
+        }
+
+        if (redirect == 1) {
+          this.$router.push("/dashboard");
+        }
       }
     }
   }
@@ -2989,7 +3031,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.emailForm.post("/api/sendlink").then(function (response) {
-        _this.emailForm.email_link = ''; // this.emailForm.email_link = '';
+        _this.emailForm.email_link = ""; // this.emailForm.email_link = '';
 
         _this.$swal.fire({
           title: "Please Check your Email Account",
@@ -3027,6 +3069,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _front_pages_user_Register__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/front/pages/user/Register */ "./resources/js/front/pages/user/Register.vue");
 /* harmony import */ var _front_pages_user_ChangePassword__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/front/pages/user/ChangePassword */ "./resources/js/front/pages/user/ChangePassword.vue");
 /* harmony import */ var _front_components_Loader_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/front/components/Loader.vue */ "./resources/js/front/components/Loader.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3194,7 +3247,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.isLoading = false;
       })["catch"](function (err) {
-        _this.login_message = "Credentials do not match try again !!";
+        _this.login_message = err.response.data.message;
         _this.isLoading = false;
       });
     },
@@ -3386,6 +3439,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Register",
@@ -3396,8 +3453,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       register_sms: "",
-      password_error: '',
-      password_error_mismatch: '',
+      password_error: "",
+      password_error_mismatch: "",
       registerForm: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         name: "",
         email: "",
@@ -3418,10 +3475,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   watch: {
-    'registerForm.password': function registerFormPassword() {
+    "registerForm.password": function registerFormPassword() {
       this.checkPassword(this.registerForm.password);
     },
-    'registerForm.c_password': function registerFormC_password() {
+    "registerForm.c_password": function registerFormC_password() {
       this.checkPasswordMatch();
     }
   },
@@ -3548,7 +3605,7 @@ __webpack_require__.r(__webpack_exports__);
       if (!this.checkPassword(this.registerForm.password)) {
         return false;
       } else {
-        this.password_error = '';
+        this.password_error = "";
       }
 
       if (this.registerForm.password == this.registerForm.c_password) {
@@ -3562,8 +3619,8 @@ __webpack_require__.r(__webpack_exports__);
             _this3.verify_button = 0;
             _this3.otp_verify = 0;
             _this3.register_sms = "";
-            _this3.password_error = '';
-            _this3.password_error_mismatch = '';
+            _this3.password_error = "";
+            _this3.password_error_mismatch = "";
             window.$(".login_close").click();
           }
 
@@ -3580,18 +3637,20 @@ __webpack_require__.r(__webpack_exports__);
       var result = re.test(str);
 
       if (result == false) {
-        this.password_error = 'Password should contain 8 letters, with at least a symbol, upper and lower case letters and a number ';
+        this.password_error = "Password should contain 8 letters, with at least a symbol, upper and lower case letters and a number ";
       } else {
-        this.password_error = '';
+        this.password_error = "";
       }
 
       return result;
     },
     checkPasswordMatch: function checkPasswordMatch() {
-      if (this.registerForm.password != this.registerForm.c_password) {
+      if (this.registerForm.c_password.length == 0) {
+        this.password_error_mismatch = "";
+      } else if (this.registerForm.password != this.registerForm.c_password) {
         this.password_error_mismatch = "Password Mismatch";
       } else {
-        this.password_error_mismatch = '';
+        this.password_error_mismatch = "";
       }
     }
   }
@@ -41202,7 +41261,7 @@ var render = function() {
                                     staticClass: "dropdown-item",
                                     attrs: { to: "/image-gallery/domestic" }
                                   },
-                                  [_vm._v("Domestic ")]
+                                  [_vm._v("Domestic\n                ")]
                                 ),
                                 _vm._v(" "),
                                 _c(
@@ -41258,7 +41317,8 @@ var render = function() {
                                   attrs: { src: _vm.$store.getters.user.photo }
                                 }),
                                 _vm._v(
-                                  " " + _vm._s(_vm.$store.getters.user.name)
+                                  "\n              " +
+                                    _vm._s(_vm.$store.getters.user.name)
                                 )
                               ]
                             )
@@ -41370,7 +41430,7 @@ var staticRenderFns = [
           staticStyle: { padding: "5px 13px 0px 0px !important" },
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("×")]
+        [_vm._v("\n            ×\n          ")]
       )
     ])
   }
@@ -42296,7 +42356,11 @@ var render = function() {
                         _vm._v(" "),
                         _vm.login_message
                           ? _c("p", { staticClass: "text-danger" }, [
-                              _vm._v(_vm._s(_vm.login_message))
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(_vm.login_message) +
+                                  "\n            "
+                              )
                             ])
                           : _vm._e(),
                         _vm._v(" "),
@@ -42305,7 +42369,7 @@ var render = function() {
                           {
                             staticClass: "btn btn-default btn-block loginbutton"
                           },
-                          [_vm._v("Login")]
+                          [_vm._v("\n              Login\n            ")]
                         ),
                         _vm._v(" "),
                         _vm.isLoading == true ? _c("loader") : _vm._e(),
@@ -63208,8 +63272,8 @@ function createStore() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\web\gbi\GBI-GermanShepard\resources\js\front\app.js */"./resources/js/front/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\web\gbi\GBI-GermanShepard\resources\sass\front\app.scss */"./resources/sass/front/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\web\gbi-local\GBI-GermanShepard\resources\js\front\app.js */"./resources/js/front/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\web\gbi-local\GBI-GermanShepard\resources\sass\front\app.scss */"./resources/sass/front/app.scss");
 
 
 /***/ })

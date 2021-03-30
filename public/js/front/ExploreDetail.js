@@ -438,6 +438,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ExploreDetail",
@@ -468,6 +472,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       loading: true
     };
   },
+  watch: {
+    '$store.state.token': function $storeStateToken() {
+      if (this.$store.state.token) {
+        this.login = true;
+      }
+    }
+  },
   mounted: function mounted() {
     if (this.$cookies.get('access_token') != null) {
       this.login = true;
@@ -480,7 +491,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     getItinerary: function getItinerary() {
       var _this = this;
 
-      this.$axios.get("/api/itinerary/".concat(this.$route.params.id)).then(function (res) {
+      this.$axios.get("/api/itinerary-view/".concat(this.$route.params.id)).then(function (res) {
         _this.itineraryData = res.data;
 
         if (_this.itineraryData.itinerarydays) {
@@ -1075,28 +1086,43 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "w-100 text-right mt-2" }, [
-        _vm.login
-          ? _c(
-              "button",
-              {
-                staticClass: "btn profile_button text-white book_btn",
-                attrs: { "data-toggle": "modal", "data-target": "#bookModal" }
-              },
-              [_vm._v("Book Now")]
+      _c("div", { staticClass: "row w-100 mt-2" }, [
+        _c(
+          "div",
+          { staticClass: "col-sm-8" },
+          _vm._l(_vm.itineraryData.tourtypes, function(tourtype) {
+            return _c(
+              "span",
+              { key: tourtype.id, staticClass: "badge badge-dark ml-1" },
+              [_vm._v(_vm._s(tourtype.name))]
             )
-          : _c(
-              "button",
-              {
-                staticClass: "btn profile_button text-white book_btn",
-                attrs: {
-                  id: "loginButton",
-                  "data-toggle": "modal",
-                  "data-target": "#LoginForm"
-                }
-              },
-              [_vm._v("Book Now")]
-            )
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-4 p-0 m-0 text-right" }, [
+          _vm.login
+            ? _c(
+                "button",
+                {
+                  staticClass: "btn profile_button text-white book_btn",
+                  attrs: { "data-toggle": "modal", "data-target": "#bookModal" }
+                },
+                [_vm._v("Book Now")]
+              )
+            : _c(
+                "button",
+                {
+                  staticClass: "btn profile_button text-white book_btn",
+                  attrs: {
+                    id: "loginButton",
+                    "data-toggle": "modal",
+                    "data-target": "#LoginForm"
+                  }
+                },
+                [_vm._v("Book Now")]
+              )
+        ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "w-100 pt-2 text-center" }, [

@@ -198,6 +198,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -374,15 +382,25 @@ __webpack_require__.r(__webpack_exports__);
         _this5.EncyclopediaList();
       });
     },
-    addItem: function addItem() {
+    deletePdf: function deletePdf(id) {
       var _this6 = this;
+
+      var data = {
+        id: id
+      };
+      axios.post("/api/encyclopedia-pdf", data).then(function (response) {
+        _this6.EncyclopediaList();
+      });
+    },
+    addItem: function addItem() {
+      var _this7 = this;
 
       // Submit form
       var api = "/api/encyclopedias/".concat(this.$route.params.id);
       this.form.put(api).then(function (response) {
-        _this6.EncyclopediaList();
+        _this7.EncyclopediaList();
 
-        _this6.$toast.fire({
+        _this7.$toast.fire({
           icon: "success",
           title: "Encyclopedia Updated successfully"
         });
@@ -780,7 +798,32 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-10" }, [
-                                _c("p", [_vm._v(_vm._s(pdf.name))])
+                                _c("p", [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(pdf.name) +
+                                      "\n                    "
+                                  ),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "badge badge-danger position-absolute cursor-pointer ml-3",
+                                      attrs: { title: "Delete Item" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.deletePdf(pdf.id)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass: "far fa-trash-alt",
+                                        attrs: { "aria-hidden": "true" }
+                                      })
+                                    ]
+                                  )
+                                ])
                               ])
                             ])
                           ]

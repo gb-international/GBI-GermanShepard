@@ -37,14 +37,13 @@ if (process.window == 'undefined') {
 
 Vue.config.productionTip = false;
 Vue.component("vue-headful", vueHeadful);
-
 Vue.component("ImageSpinner", require("@/front/components/ImageSpinner.vue").default);
 Vue.component("gbi-footer", require("@/front/pages/layouts/Footer.vue").default);
 Vue.component("front", require("@/front/pages/layouts/App.vue").default);
 
 
-const router = createRouter()
-const store = createStore()
+const router = createRouter();
+const store = createStore();
 sync(store, router);
 
 router.beforeEach((to, from, next) => {

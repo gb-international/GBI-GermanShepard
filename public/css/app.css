@@ -6371,6 +6371,12 @@ a:hover {
   }
 }
 
+@media (min-width: 992px) {
+  #itinerayrFormModal .modal-lg {
+    max-width: 80% !important;
+  }
+}
+
 .AddGroup input {
   box-shadow: none !important;
   border: none;
@@ -7454,7 +7460,7 @@ a:hover {
 .swal-close-button {
   border-radius: 0px !important;
   padding: 5px 40px !important;
-  background: #14b7b0 !important;
+  background: #3490dc !important;
   font-size: 16px;
   color: white;
   font-weight: 400;
@@ -7477,7 +7483,7 @@ a:hover {
 
 .modal-footer-link-custom span {
   cursor: pointer;
-  color: #14ad98;
+  color: #3490dc !important;
   text-decoration: underline;
 }
 

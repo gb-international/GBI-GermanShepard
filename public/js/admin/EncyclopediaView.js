@@ -335,7 +335,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("img", {
                       staticClass: "img-thumbnail",
-                      attrs: { src: _vm.getImgUrl(_vm.list_data.banner_image) }
+                      attrs: { src: _vm.list_data.banner_image }
                     })
                   ]),
                   _vm._v(" "),
@@ -362,7 +362,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("img", {
                     staticClass: "img-thumbnail",
-                    attrs: { src: _vm.getImgUrl(_vm.list_data.thumbnail) }
+                    attrs: { src: _vm.list_data.thumbnail }
                   })
                 ])
               ])
@@ -385,7 +385,7 @@ var render = function() {
                     [
                       _c("img", {
                         staticClass: "img-thumbnail",
-                        attrs: { src: _vm.getImgUrl(image.image) }
+                        attrs: { src: image.image }
                       })
                     ]
                   )

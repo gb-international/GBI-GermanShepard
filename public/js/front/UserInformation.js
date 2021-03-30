@@ -95,6 +95,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ProfileEdit",
@@ -104,14 +106,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      name: '',
-      address: '',
+      name: "",
+      address: "",
       school_field: false,
       namefield: false,
       addressfield: false,
       institutionfield: false,
       second_step: false,
-      label_name: '',
+      label_name: "",
       oddclass: false,
       evenclass: true,
       loadingWizard: false,
@@ -123,7 +125,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   beforeMount: function beforeMount() {
-    if (this.$cookies.get('access_token') == null) {
+    if (this.$cookies.get("access_token") == null) {
       this.$router.push("/");
     }
   },
@@ -144,14 +146,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     institution: function institution() {
-      if (this.institution != '') {
+      if (this.institution != "") {
         this.second_step = true;
       }
 
-      if (this.institution == 'other') {
+      if (this.institution == "other") {
         this.namefield = true;
         this.addressfield = true;
-        this.label_name = 'Educational Institution';
+        this.label_name = "Educational Institution";
       } else {
         this.namefield = false;
         this.addressfield = false;
@@ -163,11 +165,11 @@ __webpack_require__.r(__webpack_exports__);
       this.school_field = false;
       console.log(this.school_field);
 
-      if (this.profession == 'corporate') {
+      if (this.profession == "corporate") {
         this.namefield = true;
         this.addressfield = true;
-        this.label_name = 'Corporate';
-      } else if (this.profession == 'other') {
+        this.label_name = "Corporate";
+      } else if (this.profession == "other") {
         this.namefield = true;
         this.label_name = "Occupation";
       } else {
@@ -175,12 +177,12 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     name: function name() {
-      if (this.name != '') {
+      if (this.name != "") {
         this.second_step = true;
       }
     },
     address: function address() {
-      if (this.address != '') {
+      if (this.address != "") {
         this.second_step = true;
       }
     }
@@ -198,23 +200,23 @@ __webpack_require__.r(__webpack_exports__);
       };
       this.$axios.post("/api/user-info-update", data, {
         headers: {
-          Authorization: "Bearer ".concat(this.$cookies.get('access_token'))
+          Authorization: "Bearer ".concat(this.$cookies.get("access_token"))
         }
       }).then(function (response) {
-        var data = _this2.$cookies.get('user');
+        var data = _this2.$cookies.get("user");
 
         data.status = 1;
         data.user_profession = _this2.profession;
 
-        _this2.$cookies.remove('user');
+        _this2.$cookies.remove("user");
 
-        _this2.$cookies.set('user', data);
+        _this2.$cookies.set("user", data);
 
         _this2.$router.push("/dashboard");
       })["catch"](function (error) {
         _this2.$swal.fire({
-          icon: 'error',
-          title: 'Please fill all the fields'
+          icon: "error",
+          title: "Please fill all the fields"
         });
       });
     },
@@ -423,7 +425,13 @@ var render = function() {
                                     key: school.id,
                                     domProps: { value: school.id }
                                   },
-                                  [_vm._v(_vm._s(school.school_name))]
+                                  [
+                                    _vm._v(
+                                      "\n                  " +
+                                        _vm._s(school.school_name) +
+                                        "\n                "
+                                    )
+                                  ]
                                 )
                               }),
                               _vm._v(" "),

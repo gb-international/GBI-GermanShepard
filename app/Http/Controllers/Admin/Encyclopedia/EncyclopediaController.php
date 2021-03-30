@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\Traits\ImageTrait;
+use Illuminate\Support\Facades\File;
 use Image;
 
 
@@ -152,6 +153,20 @@ class EncyclopediaController extends Controller
         $image->delete();
         return response()->json('successfully deleted');
     }
+
+    
+    public function deletePdf(Request $request)
+    {
+        $pdf_data = Itinerarypdf::where('id',$request->id)->first();
+        $pdf = public_path()."/encyclopedia/pdf/$pdf_data->name";
+        if (File::exists($pdf)) { 
+            unlink($pdf);
+        }
+        $pdf_data->delete();
+        return response()->json('successfully deleted');
+    }
+
+
 
 
     public function uploadPdf($filename,$data){

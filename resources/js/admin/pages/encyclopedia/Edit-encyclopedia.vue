@@ -164,7 +164,15 @@ to submit the data we are using a function.
                     <i class="fas fa-file-pdf"></i>
                   </div>
                   <div class="col-sm-10">
-                    <p>{{ pdf.name }}</p>
+                    <p>
+                      {{ pdf.name }}
+                      <span
+                        class="badge badge-danger position-absolute cursor-pointer ml-3"
+                        title="Delete Item"
+                        @click="deletePdf(pdf.id)"
+                        ><i class="far fa-trash-alt" aria-hidden="true"></i
+                      ></span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -332,6 +340,14 @@ export default {
         this.EncyclopediaList();
       });
     },
+    
+    deletePdf(id) {
+      var data = { id: id };
+      axios.post("/api/encyclopedia-pdf", data).then((response) => {
+        this.EncyclopediaList();
+      });
+    },
+
 
     addItem() {
       // Submit form

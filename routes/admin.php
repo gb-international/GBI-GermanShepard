@@ -165,6 +165,7 @@ Route::namespace('Admin')->group(function (){
 
 	Route::namespace('Encyclopedia')->group(function(){
 		Route::post('/encyclopedia-img','EncyclopediaController@deleteImage');
+		Route::post('/encyclopedia-pdf','EncyclopediaController@deletePdf');
 		Route::get('encyclopedias/all/{size}','EncyclopediaController@all');
 		Route::resource('encyclopedias','EncyclopediaController');
 		Route::resource('encyclopediacomments','EncyclopediacommentController');

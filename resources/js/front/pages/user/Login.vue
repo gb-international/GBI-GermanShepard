@@ -1,11 +1,15 @@
 <template>
-      <!--************************************************
+  <!--************************************************
       Author:@Ajay
       ****************************************************-->
   <div id="userlogin" v-if="formno == '1'">
     <div class="mx-auto border-0">
       <div class="border-bottom-0 bg-transparent">
-        <ul class="nav nav-tabs justify-content-center" id="pills-tab" role="tablist">
+        <ul
+          class="nav nav-tabs justify-content-center"
+          id="pills-tab"
+          role="tablist"
+        >
           <li class="nav-item">
             <a
               class="nav-link active login_tab"
@@ -15,7 +19,8 @@
               role="tab"
               aria-controls="pills-login"
               aria-selected="true"
-            >Login</a>
+              >Login</a
+            >
           </li>
           <li class="nav-item">
             <a
@@ -26,7 +31,8 @@
               role="tab"
               aria-controls="pills-register"
               aria-selected="false"
-            >Register</a>
+              >Register</a
+            >
           </li>
         </ul>
       </div>
@@ -48,7 +54,7 @@
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <img src="/images/icons/email.png" class="icon-width">
+                    <img src="/images/icons/email.png" class="icon-width" />
                   </span>
                 </div>
 
@@ -65,7 +71,7 @@
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <img src="/images/icons/key.png" class="icon-width">
+                    <img src="/images/icons/key.png" class="icon-width" />
                   </span>
                 </div>
                 <input
@@ -78,13 +84,19 @@
                 <has-error :form="loginform" field="password"></has-error>
               </div>
 
-              <p v-if="login_message" class="text-danger">{{ login_message }}</p>
+              <p v-if="login_message" class="text-danger">
+                {{ login_message }}
+              </p>
 
-              <button class="btn btn-default btn-block loginbutton">Login</button>
-              <loader v-if="isLoading==true"></loader>
+              <button class="btn btn-default btn-block loginbutton">
+                Login
+              </button>
+              <loader v-if="isLoading == true"></loader>
 
               <p class="text-center message">
-                <a href="#" class="forget_link" v-on:click="changeform">Forget Password?</a>
+                <a href="#" class="forget_link" v-on:click="changeform"
+                  >Forget Password?</a
+                >
               </p>
             </form>
           </div>
@@ -112,13 +124,12 @@
       <a href="#" class="forget_link" v-on:click="changeform">Login</a>
     </p>
   </div>
-
 </template>
 <script>
 import { Form, HasError, AlertError } from "vform";
 import Register from "@/front/pages/user/Register";
 import changePssword from "@/front/pages/user/ChangePassword";
-import loader from '@/front/components/Loader.vue';
+import loader from "@/front/components/Loader.vue";
 
 export default {
   name: "UserLogin",
@@ -127,7 +138,7 @@ export default {
     HasError,
     Register,
     "change-password": changePssword,
-    loader
+    loader,
   },
   props: ["login_link"],
   data() {
@@ -135,12 +146,12 @@ export default {
       formno: "1",
       isRunning: false,
       interval: null,
-      isLoading:false,
+      isLoading: false,
       loginform: new Form({
         email: "",
-        password: ""
+        password: "",
       }),
-      login_message: ""
+      login_message: "",
     };
   },
 
@@ -151,18 +162,18 @@ export default {
       this.isLoading = true;
       this.$store
         .dispatch("login", { email, password })
-        .then(response => {
+        .then((response) => {
           this.loginform.reset();
           window.$(".login_close").click();
           this.login_message = "";
           this.$bus.$emit("logged", "User logged");
-          if(response.data.user.status == 0){
+          if (response.data.user.status == 0) {
             this.$router.push("/user-information");
           }
           this.isLoading = false;
         })
-        .catch(err =>{
-          this.login_message = "Credentials do not match try again !!";
+        .catch((err) => {
+          this.login_message = err.response.data.message;
           this.isLoading = false;
         });
     },
@@ -174,7 +185,7 @@ export default {
       } else {
         this.formno = "0";
       }
-    }
-  }
+    },
+  },
 };
 </script>

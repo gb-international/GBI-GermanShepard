@@ -132,4 +132,12 @@ class ItineraryController extends Controller
         SendItineraryRequestToGbiMailJob::dispatch($validated);
 
     }
+
+    public function view($id){
+        $data = Itinerary::where('id',$id)->with([
+            'tourtypes',
+            'itinerarydays'
+        ])->first();
+        return response()->json($data);
+    }
 }

@@ -286,7 +286,21 @@ export default {
         this.login = false;
       } else {
         this.login = true;
-        this.$router.push("/dashboard");
+        let current_path = this.$route.path;
+        //those urls where we don't want to redirect to dashboard
+        let urls = [
+          "/encyclopedia/",
+          "/explore-detail/"
+        ];
+        let redirect = 1;
+        for(let i=0;i<urls.length;i++){
+          if(current_path.includes(urls[i])){
+            redirect = 0;
+          }
+        }
+        if(redirect == 1){
+          this.$router.push("/dashboard");
+        }
       }
     },
   },

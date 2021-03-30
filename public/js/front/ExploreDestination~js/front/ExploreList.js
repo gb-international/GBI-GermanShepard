@@ -118,6 +118,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ExploreAlertsModals",
@@ -142,12 +160,12 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
-        source: '',
-        destination: '',
-        tourtype: '',
-        noofday: '',
-        phoneno: '',
-        email: ''
+        source: "",
+        destination: "",
+        tourtype: "",
+        noofday: "",
+        phoneno: "",
+        email: ""
       })
     };
   },
@@ -159,12 +177,12 @@ __webpack_require__.r(__webpack_exports__);
       this.form.destination = this.destinations.value;
       this.form.tourtype = this.tourtypes;
       this.form.noofday = this.noofdays;
-      this.form.post('/api/request-itinerary').then(function (res) {
+      this.form.post("/api/request-itinerary").then(function (res) {
         _this.form.reset();
 
         _this.$swal.fire("Submited!!", "Your Query Has Been Submited !!", "success");
 
-        $("#itinerayrFormModal").modal('hide');
+        $("#itinerayrFormModal").modal("hide");
       });
     }
   }
@@ -378,7 +396,7 @@ var render = function() {
                         _c("div", { staticClass: "col" }, [
                           _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "tour_code" } }, [
-                              _vm._v(" No. of Days  ")
+                              _vm._v(" No. of Days ")
                             ]),
                             _vm._v(" "),
                             _c("p", { staticClass: "text-muted pl-4" }, [
@@ -404,9 +422,10 @@ var render = function() {
                             directives: [
                               {
                                 name: "model",
-                                rawName: "v-model",
+                                rawName: "v-model.number",
                                 value: _vm.form.phoneno,
-                                expression: "form.phoneno"
+                                expression: "form.phoneno",
+                                modifiers: { number: true }
                               }
                             ],
                             staticClass: "form-control input-border",
@@ -414,7 +433,7 @@ var render = function() {
                               "is-invalid": _vm.form.errors.has("phoneno")
                             },
                             attrs: {
-                              type: "text",
+                              type: "number",
                               placeholder: "Enter Mobile Number",
                               required: ""
                             },
@@ -427,8 +446,11 @@ var render = function() {
                                 _vm.$set(
                                   _vm.form,
                                   "phoneno",
-                                  $event.target.value
+                                  _vm._n($event.target.value)
                                 )
+                              },
+                              blur: function($event) {
+                                return _vm.$forceUpdate()
                               }
                             }
                           }),
@@ -526,7 +548,7 @@ var staticRenderFns = [
                     staticClass: "btn swal-close-button mt-3 text-center",
                     attrs: { type: "button", "data-dismiss": "modal" }
                   },
-                  [_vm._v("OK")]
+                  [_vm._v("\n              OK\n            ")]
                 )
               ]),
               _vm._v(" "),
@@ -537,7 +559,7 @@ var staticRenderFns = [
                   attrs: { "data-dismiss": "modal" }
                 },
                 [
-                  _vm._v("For Itinerary "),
+                  _vm._v("\n            For Itinerary\n            "),
                   _c(
                     "span",
                     {
@@ -568,7 +590,7 @@ var staticRenderFns = [
           staticClass: "btn swal-close-button mt-3 text-center",
           attrs: { type: "submit" }
         },
-        [_vm._v("OK")]
+        [_vm._v("\n                OK\n              ")]
       )
     ])
   }

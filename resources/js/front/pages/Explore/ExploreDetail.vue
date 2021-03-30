@@ -6,24 +6,28 @@
   <div id="explorelist">
     <section class="banner-block">
       <img
-        
         :src="itineraryData.detail_photo"
         loading="lazy"
         alt="itinerary"
       />
     </section>
     <div class="container">
-      <div class="w-100 text-right mt-2">
-        <button
-          v-if="login"
-          class="btn profile_button text-white book_btn"
-          data-toggle="modal"
-          data-target="#bookModal"
-        >Book Now</button>
+      <div class="row w-100 mt-2">
+        <div class="col-sm-8">
+          <span class="badge badge-dark ml-1" v-for="tourtype in itineraryData.tourtypes" :key="tourtype.id">{{ tourtype.name }}</span>
+        </div>
+        <div class="col-sm-4 p-0 m-0 text-right">
+          <button
+            v-if="login"
+            class="btn profile_button text-white book_btn"
+            data-toggle="modal"
+            data-target="#bookModal"
+          >Book Now</button>
 
-        <button v-else class="btn profile_button text-white book_btn" id="loginButton"
-                data-toggle="modal"
-                data-target="#LoginForm">Book Now</button>
+          <button v-else class="btn profile_button text-white book_btn" id="loginButton"
+                  data-toggle="modal"
+                  data-target="#LoginForm">Book Now</button>
+        </div>
       </div>
       <div class="w-100 pt-2 text-center">
         <h1 class="font-20 text-lowercase text-capitalize pt-2 pb-2"><u>{{itineraryData.title | CapitalizeString}}</u></h1>
@@ -101,7 +105,13 @@ export default {
       loading:true,
     };
   },
-
+  watch: {
+    '$store.state.token': function() {
+      if(this.$store.state.token){
+        this.login = true;
+      }
+    }
+  },
   mounted() {
     if (this.$cookies.get('access_token') != null) {
       this.login = true;
@@ -112,7 +122,7 @@ export default {
   },
   methods: {
     getItinerary(){
-      this.$axios.get(`/api/itinerary/${this.$route.params.id}`).then((res)=>{
+      this.$axios.get(`/api/itinerary-view/${this.$route.params.id}`).then((res)=>{
         this.itineraryData = res.data;
         if(this.itineraryData.itinerarydays){
           var data = this.itineraryData.itinerarydays;

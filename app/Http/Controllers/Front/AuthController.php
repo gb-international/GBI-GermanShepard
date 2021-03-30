@@ -37,6 +37,15 @@ class AuthController extends Controller{
                 'status' => 422
             ], 422);
         }
+
+        if ($user->user_role == 1) {
+            return response()->json([
+                'message' => 'You are not allowed to login!!',
+                'status' => 422
+            ], 422);
+        }
+
+        
         
         
         

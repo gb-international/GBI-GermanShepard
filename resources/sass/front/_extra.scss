@@ -137,3 +137,12 @@
 	    -webkit-transform: rotate(360deg);
 	 }
 }
+
+
+@media (min-width: 992px) {
+	#itinerayrFormModal{
+		.modal-lg {
+			max-width: 80% !important;
+		}
+	}
+}
