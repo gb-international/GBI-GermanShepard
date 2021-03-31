@@ -2255,7 +2255,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showIntro: function showIntro() {
-      window.$("#introButton").click();
+      $("#introButton").click();
     },
     setImage: function setImage() {
       var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;

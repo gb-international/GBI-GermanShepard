@@ -16,8 +16,6 @@
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-
- 
   <meta property="og:title" content="G.B International is a travel educational specialist for young minds.">
   <meta property="og:site_name" content="gowithgbi.com">
   <meta property="og:url" content="https://www.gowithgbi.com/travel-and-education#/">
@@ -37,10 +35,10 @@
     </div>
   </div>
 
-  <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
   {{-- <script>
     $("body").on("contextmenu", function () {  
       return false;  

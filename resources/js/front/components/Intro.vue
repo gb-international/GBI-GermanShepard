@@ -152,7 +152,7 @@ export default {
   },
   methods: {
     showIntro() {
-      window.$("#introButton").click();
+      $("#introButton").click();
     },
     setImage(index = 0) {
       this.data.path = this.images[index].path;
