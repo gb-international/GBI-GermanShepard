@@ -47,7 +47,6 @@ class ItineraryController extends Controller
         ]);
 
         $data = [];
-        $newdata = [];
         $source = $request->source;
         $destination = $request->destination;
         $tourtype = $request->tourtype;
@@ -68,26 +67,26 @@ class ItineraryController extends Controller
             $data = Itinerary::where([
                 'source'=>$source,
                 'destination'=>$destination,
-                'noofdays' => $noofday,
+                // 'noofdays' => $noofday,
             ])
             ->with('tourtypes')
             ->get();
         }
         // return $request->all();
-        if($data){
-            foreach($data as $d){
-                $tourtypes = DB::table('itinerary_tourtype')
-                    ->where([
-                        'itinerary_id' => $d->id,
-                        'tourtype_id' => $request->tourtype
-                    ])->first();
-                if($tourtypes){
-                    array_push($newdata,$d);
-                }
-            }
-        }
+        // if($data){
+        //     foreach($data as $d){
+        //         $tourtypes = DB::table('itinerary_tourtype')
+        //             ->where([
+        //                 'itinerary_id' => $d->id,
+        //                 'tourtype_id' => $request->tourtype
+        //             ])->first();
+        //         if($tourtypes){
+        //             array_push($newdata,$d);
+        //         }
+        //     }
+        // }
         return response()->json([
-            'data'=>$newdata
+            'data'=>$data
         ],200);
     }
 
