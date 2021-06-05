@@ -9,8 +9,11 @@ namespace App\Http\Controllers\Admin\Notification;
 use App\User;
 use Illuminate\Http\Request;
 use App\Model\User\Subscriber;
+use App\Model\Notification\Body;
 use App\Model\User\Notification;
 use App\Http\Controllers\Controller;
+use App\Model\Notification\Template;
+
 
 class NotificationController extends Controller
 {
@@ -51,14 +54,15 @@ class NotificationController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Itinerary  $itinerary
-     * @return \Illuminate\Http\Response
+     * Show a resource in view.
      */
-    public function show(Itinerary $itinerary)
+   
+    public function show($id)
     {
-       
+        $notif = Notification::find($id);
+        $notif->template;
+        $notif->body;
+        return response()->json($notif);
     }
 
 }
