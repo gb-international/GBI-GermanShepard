@@ -10,6 +10,7 @@
  */
 return [
     'escort_login_link' => env('ESCORT_LOGIN_LINK'),
+    //'feedback_link' => env('FEEDBACK_LINK'),
     'bank_id' => env('GBI_BANK_DETAIL_ID'),
     'gbi_email' => env('CONTACT_US_MAIL'),
     //  aws images path (folder)

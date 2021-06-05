@@ -1,7 +1,9 @@
 <template>
   <!--************************************************
-      Author:@Ajay
+      Author: @Ajay, 
+      Edited by: @Manas
       ****************************************************-->
+  <!-- Edits: Added dropdowns to Travel Encyclopedia, Added Dropdown to Profile  -->
   <div>
     <nav
       class="navbar navbar-expand-md bg-white navbar-light fixed-top"
@@ -63,11 +65,26 @@
                 <router-link class="dropdown-item mt-10" :to="`/resources/faq`"
                   >Faq</router-link
                 >
-                <router-link
-                  class="dropdown-item mt-10"
-                  :to="`/resources/travel-encyclopedia`"
-                  >Travel Encyclopedia</router-link
+                <a
+                  class="dropdown-item mt-10 dropdown-toggle"
+                  data-toggle="dropdown"
+                  tabindex="-1"
+                  href="#"
+                  >Travel Encyclopedia</a
                 >
+
+                <div class="dropdown-menu custom-dropdown custom-dd">
+                  <router-link
+                    :to="`/resources/travel-encyclopedia`"
+                    class="dropdown-item"
+                    >Domestic (India)
+                  </router-link>
+                  <router-link
+                    :to="`/resources/travel-encyclopedia-international`"
+                    class="dropdown-item"
+                    >International</router-link
+                  >
+                </div>
               </div>
             </li>
             <li class="nav-item mr-10">
@@ -116,7 +133,7 @@
                   <router-link
                     :to="`/image-gallery/domestic`"
                     class="dropdown-item"
-                    >Domestic
+                    >Domestic (India)
                   </router-link>
                   <router-link
                     :to="`/image-gallery/international`"
@@ -144,15 +161,101 @@
               </a>
             </li>
 
-            <li class="nav-item mr-10" v-else>
-              <router-link class="nav-link" :to="`/dashboard`">
+            <li class="nav-item dropdown mr-10" v-else>
+              <a class="nav-link dropdown-toggle"
+                id="navbarDropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                href="#" 
+              >
+              {{ $store.getters.user.name }}
                 <img
                   :src="$store.getters.user.photo"
                   class="img img-circle nav_profile"
                 />
-                {{ $store.getters.user.name }}</router-link
+                </a>
+              <div
+                class="dropdown-menu dropdown-menu-right pt-2"
+                aria-labelledby="navbarDropdownMenuLink"
               >
+                <router-link
+                  :to="`/tour-list`"
+                  class="dropdown-item pt-10"
+                  >
+                  <div class="profileDD">
+                    <div> <img
+                    src="/images/icons/trip_dd.png"
+                    class="img mr-3 mb-3 dd_icons_1"/> </div>
+                    <div>
+                      <b>My Trip</b>
+                      <br/> <p>See booking details, Print e-ticket, Cancel Booking
+                      <br/>Modify Booking, Check Refund Status & More..</p>
+                    </div>
+                  </div>
+                </router-link
+                >
+                <a
+                  class="dropdown-item pt-10"
+                  >
+                  <div class="profileDD">
+                    <div> <img
+                    src="/images/icons/payment_dd.png"
+                    class="img mr-3 mb-3 dd_icons_1"/> </div>
+                    <div>
+                      <b>Make Payment</b> 
+                      <br/><p>Complete your pending payments here.
+                      </p>
+                    </div>
+                  </div>
+                  </a
+                >
+                <router-link
+                  :to="`/dashboard`"
+                  class="dropdown-item pt-10"
+                  >
+                  <div class="profileDD">
+                    <div> <img
+                    src="/images/icons/profile_dd.png"
+                    class="img mr-3 mb-3 dd_icons_2"/> </div>
+                    <div>
+                      <b>Profile</b>
+                      <p>Manage your profile, traveller details, login details
+                      </br> and password.</p>
+                    </div>
+                  </div>
+                  </router-link>
+
+                <a class="dropdown-item pt-10"
+                  >
+                  <div class="profileDD">
+                    <div> <img
+                    src="/images/icons/notifs_dd.png"
+                    class="img mr-3 mb-3 dd_icons_2"/> </div>
+                    <div>
+                      <b>Notification</b>
+                      <p>Check your notifications here.</p>
+                    </div>
+                  </div>
+                </a
+                >
+
+                <a class="dropdown-item pt-10 "
+                  >
+                  <div 
+                    class="logout"
+                    @click="logout"
+                    style="cursor: pointer;"
+                  >
+                    <img
+                    src="/images/icons/logout_dd.png"
+                    class="img mr-3 dd_icons_2"
+                  /><b>Logout</b>
+                </div>
+                </a>
+              </div>
             </li>
+
           </ul>
         </div>
       </div>
@@ -250,6 +353,21 @@ export default {
     // this.$cookies.set('access_token',localStorage.getItem('token'));
   },
   methods: {
+
+   logout() {
+          this.$api.POST('/api/logout-user', []).then(response => {
+              this.$cookies.remove('access_token');
+              this.$store.dispatch("logout").then(() => {
+                  this.$bus.$emit("logged", "User loogedout");
+                  this.$router.push("/");
+              })
+          }).catch(error => {
+              this.$store.dispatch("logout").then(() => {
+                  this.$bus.$emit("logged", "User loogedout");
+                  this.$router.push("/");
+              })
+          })
+    },
     loginCheck() {
       const token = this.$cookies.get("access_token");
       if (token) {
@@ -285,3 +403,59 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+.custom-dd{
+  margin-top: -32px; 
+  margin-left: 19vh;
+}
+
+.dropdown-menu {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);
+}
+.dropdown-item b{
+  font-size: 15px;
+  font-weight: 600;
+  font-family: sans-serif;
+}
+.dropdown-item p{
+  font-size: 12px;
+  font-weight: 400;
+  font-family: sans-serif;
+}
+.profileDD {
+  padding-top: 5px;
+  padding-bottom: 5px; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+  height: 70px;
+  width: auto;
+}
+
+.logout {
+  padding: 7px 5px 7px 5px;
+}
+
+.dd_icons_1 {
+  width: 38px !important; 
+  height: auto !important;
+}
+.dd_icons_2 {
+  width: 35px !important; 
+  height: auto !important;
+}
+@media only screen and (max-width: 720px) {
+
+  .dd_icons_2 {
+    width: 31px !important; 
+    height: auto !important;
+  }
+ .dd_icons_2 {
+    width: 28px !important; 
+    height: auto !important;
+  }
+}
+</style>

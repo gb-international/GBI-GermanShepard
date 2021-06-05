@@ -5,19 +5,29 @@
         <div v-if="chequePage == false">
           <div class="container p-t-15 mb-20">
             <form>
-              {{ touruser }}
               <div class="row" v-if="touruser">
 
-                <div class="col-sm-3">
-                  <label>No Of Pax</label>
+                <div class="col-sm-2">
+                  <label>Total Pax</label>
                   <p>{{ touruser[0].total + touruser[1].total  }}</p>
-                </div>
-                <div class="col-sm-3">
-                  <label>Not Paid Members</label>
-                  <p>{{ touruser[0].total }}</p>
                 </div>
 
                 <div class="col-sm-3">
+                  <label>Complimentary Pax</label>
+                  <p>{{ touruser[1].total }}</p>
+                </div>
+
+                <div class="col-sm-2">
+                  <label>Students</label>
+                  <p>{{ totalStudents }}</p>
+                </div>
+
+                <div class="col-sm-2">
+                  <label>Teachers</label>
+                  <p>{{ totalTeachers }}</p>
+                </div>
+
+                <div class="col-sm-2">
                   <label>Amount</label>
                   <p>{{ perhead }} /per head</p>
                 </div>
@@ -41,7 +51,7 @@
                           value="student"
                           name="payment_mode"
                           v-model="teacherform.payment_mode"
-                        />By Student
+                        />By Student / Teacher
                       </label>
                     </div>
                     <div class="form-check-inline">
@@ -218,6 +228,8 @@ export default {
       banknames: [],
       userinfo: "",
       robot: false,
+      totalTeachers: "",
+      totalStudents: "",
       teacherform: new Form({
         payment_mode: "self",
         payment_type: "",
@@ -230,7 +242,7 @@ export default {
         date_of_issue: "",
         ifsc_code: "",
         cheque_number: "",
-        added_by: "gbi",
+        added_by: "GBI",
       }),
       form: new Form({
         name: "",
@@ -273,7 +285,11 @@ export default {
           this.teacherform.user_id = response.data.user_id;
           this.perhead = response.data.amount;
           this.touruser = response.data.tour;
-          this.teacherform.amount = this.touruser[1].total * this.perhead; 
+          this.teacherform.amount = this.touruser[0].total * this.perhead;
+          this.totalTeachers = response.data.teachers;
+          this.totalStudents = response.data.students;
+
+          console.log(response)
         })
         .catch((error) => {
         });

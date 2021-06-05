@@ -70,6 +70,7 @@ export function createStore() {
                         .then(resp => {
                             const token = resp.data.success.token
                             const user = resp.data.success.user
+                            Vue.$cookies.set('user',user)
                             localStorage.setItem('token', token)
                             axios.defaults.headers.common['Authorization'] = token
                             commit('auth_success', token, user)

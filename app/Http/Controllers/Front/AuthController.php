@@ -95,6 +95,7 @@ class AuthController extends Controller{
         // Get the data from the response
         $data = json_decode($response->getContent());
         $userData = [
+            'id' => $user->id,
             'name'=>$user->name,
             'email'=>$user->email,
             'photo'=>$user->information->photo,
@@ -107,6 +108,8 @@ class AuthController extends Controller{
             'status'=>$user->status,
             'is_incharge'=>$user->is_incharge,
             'school_id'=>$user->information->school_id,
+            'company_id'=>$user->information->company_id,
+            'client_type'=>$user->information->client_type,
             'change_password' => $user->information->change_password
         ];
         // Format the final response in a desirable format

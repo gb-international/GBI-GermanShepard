@@ -1,12 +1,15 @@
 import Bank from '@/admin/routes/Bank.js';
 import Blog from '@/admin/routes/Blog.js';
 import BookedTour from '@/admin/routes/BookedTour.js';
+import Corporate from '@/admin/routes/Corporate.js';
 import Escort from '@/admin/routes/Escort.js';
+import Feedback from '@/admin/routes/Feedback.js';
 import GalleryEncyclopedia from '@/admin/routes/GalleryEncyclopedia.js';
 import Home from '@/admin/routes/Home.js';
 import Hotel from '@/admin/routes/Hotel.js';
 import Itinerary from '@/admin/routes/Itinerary.js';
 import Location from '@/admin/routes/Location.js';
+import PaymentLink from '@/admin/routes/PaymentLink.js';
 import Role from '@/admin/routes/Role.js';
 import School from '@/admin/routes/School.js';
 import Setting from '@/admin/routes/Setting.js';
@@ -21,12 +24,15 @@ export const routes = [
     ...Bank,
     ...Blog,
     ...BookedTour,
+    ...Corporate,
     ...Escort,
+    ...Feedback,
     ...GalleryEncyclopedia,
     ...Home,
     ...Hotel,
     ...Itinerary,
     ...Location,
+    ...PaymentLink,
     ...Role,
     ...School,
     ...Setting,

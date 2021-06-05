@@ -37,7 +37,9 @@ Route::namespace('Front')->group(function(){
 	Route::get('/travel-programs','WebsiteController@travel_programs');
 	// Blog 
 	Route::get('/blog-list/{count?}','BlogController@list');
+	Route::get('/blog-recents','BlogController@recents');
 	Route::get('/category-list','BlogController@categoryList');
+	Route::get('/keyword-list','BlogController@keywordList');
 	Route::get('/category/{slug}','BlogController@category');
 	Route::get('/getpost/{slug}','BlogController@view');
 	Route::get('/related-blog/{cat_id}','BlogController@relatedPost');
@@ -61,16 +63,24 @@ Route::namespace('Front')->group(function(){
 		Route::post('/update-password','UserController@UpdatePassword');
 		Route::post('/update-user-image','UserController@UserImage');
 		Route::post('/tour-detail', 'TourController@tourDetail');
+
+		// School
 		Route::post('/tour-list', 'TourController@tourList');
+
+		// Corporate
+		Route::post('/corp-tour-list', 'TourController@corpTourList');
+
 		Route::post('/tour-travel-save', 'TourController@tourDetailSave');
 		Route::post('/payment-tour', 'TourController@paymentTour');
-		Route::post('/tour-bankdetail-student', 'SchoolbankdetailController@bankdetailsStudent');
+		Route::post('/tour-bankdetail-student', ' SchoolbankdetailController@bankdetailsStudent');
 		Route::post('/tour-bankdetail', 'SchoolbankdetailController@bankdetails');
 		Route::post('/tour-bankdetail-store', 'SchoolbankdetailController@store');
 		Route::post('/tour-submit-payment', 'UserpaymentController@store');
 		Route::post('/tour-payment-status', 'UserpaymentController@tourPayStatus');
 		// payment by ccavenue
 		Route::post('/user-tour-payment','PaymentController@payment');
+		//Payment History - School
+		Route::post('/schoool/payment-history','PaymentController@viewPaymentDeails');
 		// Comments
 		Route::post('/encyclopedia-comments','EncyclopediaController@PostComment');
 		Route::post('/booking','FrontbookingController@booking');
@@ -103,6 +113,13 @@ Route::namespace('Front')->group(function(){
 
 	// requrest itinerary
 	Route::post('/request-itinerary','ItineraryController@requestItinerary');
+
+	// Feedback Submit
+	Route::post('/feedback-submit','FeedbackController@store');
+
+	//Tour Itinerary Detail
+	Route::get('/get-tour/{id}','TourController@tourItinerary');
+	
 });
 
 

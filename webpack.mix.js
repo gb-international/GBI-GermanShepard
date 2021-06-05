@@ -23,8 +23,8 @@ mix.webpackConfig({
 //       };
 //    });
 // }
-// mix.js('resources/js/front/app.js', 'public/js')
-//    .sass('resources/sass/front/app.scss', 'public/css')
+//mix.js('resources/js/front/app.js', 'public/js')
+   //.sass('resources/sass/front/app.scss', 'public/css')
 
 
 mix.webpackConfig(webpack => {

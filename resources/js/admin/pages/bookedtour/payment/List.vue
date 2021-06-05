@@ -157,16 +157,45 @@ It takes id from the url and get the data from the api .-->
             <!-- Modal body -->
             <div class="modal-body">
               <div class="row">
-                <div class="col-sm-6">
-                  <label> Collect Amount </label>
+                <div class="col-sm-3">
+                  <label>Per Head</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="perHead"
+                  />
+                </div>
+
+                <div class="col-sm-3">
+                  <label>Total Pax</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="totalPax"
+                    readonly
+                  />
+                </div>
+                <div class="col-sm-3">
+                  <label>Complimentary</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="totalCompl"
+                    readonly
+                  />
+                </div>
+                <div class="col-sm-3">
+                  <label>Full Amount</label>
                   <input
                     type="number"
                     class="form-control"
                     v-model="form.amount"
+                    readonly
                   />
-                </div>
-
-                <div class="col-sm-6">
+                </div> 
+                </div>               
+                <div class="row">
+                <div class="col-sm-12">
                   <label> Payment Status </label>
 
                   <dropdown-filter class="mb-2" 
@@ -211,6 +240,9 @@ export default {
         {id:'success',name:"Success"},
         {id:'pending',name:"Pending"}
       ],
+      totalPax: "",
+      totalCompl: "",
+      perHead: "",
       form: {
         id: 0,
         amount: "",
@@ -239,9 +271,19 @@ export default {
       };
       axios.post("/api/payments/list", data).then((res) => {
         this.form.id = res.data.id;
-        this.form.amount = res.data.amount;
+        //this.form.amount = res.data.amount;
         this.form.status = res.data.status;
         this.tour_view = res.data;
+      });
+      axios.post("/api/gettourusers", data)
+        .then((response) => {
+         this.tour_view.amount = response.data.tour[0].total * response.data.amount;
+         this.form.amount = response.data.tour[0].total * response.data.amount;
+         this.totalPax = response.data.tour[0].total;
+         this.totalCompl = response.data.tour[1].total;
+         this.perHead = response.data.amount;
+        })
+        .catch((error) => {
       });
     },
 

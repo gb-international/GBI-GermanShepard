@@ -58,7 +58,7 @@ export default {
           this.form.reset();
           this.$toast.fire({
             icon: "success",
-            title: "Category Added successfully",
+            title: "Tag Added successfully",
           });
         })
         .catch(() => {});

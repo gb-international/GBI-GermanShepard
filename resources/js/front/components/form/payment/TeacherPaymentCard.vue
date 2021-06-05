@@ -15,9 +15,15 @@
     <hr />
 
     <div class="row">
+      <div class="col-8">Complimentary</div>
+      <div class="col-4 text-right">{{ cPax }}</div>
+    </div>
+    <hr />
+
+    <div class="row">
       <div class="col-6">Total package cost</div>
       <div class="col-6 text-right">
-        {{ pax }} * <img src="/images/icons/rupee.png" />{{ amount|numberWithCommas }}
+        <img src="/images/icons/rupee.png" />{{ total|numberWithCommas }}
       </div>
     </div>
     <hr />
@@ -64,18 +70,23 @@ export default {
       type: Number,
       required: true,
     },
+    cPax: {
+      type: Number,
+      required: true,
+    }
   },
   data() {
     return {
       internet_charge: false,
       internet_fee: 0,
       grand_total: 0,
+      total: 0,
     };
   },
   created() {
-    this.grand_total = this.amount * this.pax;
-    this.internet_fee = Math.ceil(((this.grand_total / 0.9646) * 3.54) / 100);
-    this.grand_total = this.grand_total + this.internet_fee;
+    this.total = this.amount * this.pax;
+    this.internet_fee = Math.ceil(((this.total / 0.9646) * 3.54) / 100);
+    this.grand_total = this.total + this.internet_fee;
   },
 };
 </script>

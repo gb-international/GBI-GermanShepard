@@ -4,6 +4,7 @@
   ****************************************************-->
   <div class="container bg-white">
     <div class="AddGroup p-t-15">
+    <img class="img w-20 mr-2 link mb-2" src="/images/icons/back.png" @click="$router.go(-1)"/>
       <div class="row text-center text-muted pt-2">
         <div class="col p-0 m-0">
           <span class="mb-0 pointer link" @click="navigateTab(0)">Student List</span>

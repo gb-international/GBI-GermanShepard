@@ -55,16 +55,16 @@ Route::namespace('Admin')->group(function (){
 	});
 
 	Route::namespace('Tour')->group(function(){
+
+		//Tour
 		Route::get('tour/all/{size}','TourController@all');
-		Route::resource('tour','TourController');
+		Route::resource('tour','TourController'); 
 		Route::get('tourtype/all/{size}','TourtypeController@all');
 		Route::resource('tourtype','TourtypeController');
 		Route::get('tourprogram/all/{size}','TourprogramController@all');
 		Route::resource('tourprogram','TourprogramController');
-		Route::get('schoolbankdetails/all/{size}','SchoolbankdetailController@all');
-		Route::resource('schoolbankdetails','SchoolbankdetailController');
-		Route::get('userpayments/all/{size}','UserpaymentController@all');
-		Route::resource('userpayments','UserpaymentController');
+		
+		//Booking
 		Route::get('frontbooking/all/{size}','FrontbookingController@all');
 		Route::get('frontbooking/{id}','FrontbookingController@show');
 		Route::post('frontbooking-status','FrontbookingController@status');
@@ -73,6 +73,23 @@ Route::namespace('Admin')->group(function (){
 		Route::post('add-pnr-user','TouruserController@addPnrUser');
 		Route::post('pnruser/get','TouruserController@PnrUserGet');
 		Route::post('update-pnruser','TouruserController@update');
+
+		//school
+		//Route::get('tour/school/all','TourController@Allschool');
+		Route::get('tour/school/{size}','TourController@school');
+		Route::resource('schoolbankdetails','SchoolbankdetailController');
+		Route::get('schoolbankdetails/all/{size}','SchoolbankdetailController@all');
+		Route::get('userpayments/all/{size}','UserpaymentController@all');
+		Route::resource('userpayments','UserpaymentController');
+
+		//corporate
+		//Route::get('tour/corporate/all','TourController@AllCorp');
+		Route::get('corpbankdetails/all/{size}','CorpbankdetailController@all');
+		Route::resource('corpbankdetails','CorpbankdetailController');
+		Route::get('corppayments/all/{size}','CorpPaymentController@all');
+		Route::resource('corppayments','CorpPaymentController');
+		Route::get('tour/corporate/{size}','TourController@corporate');
+
 		// foods
 		Route::get('foods/{id}','FoodController@index');
 		Route::post('foods','FoodController@store');
@@ -96,10 +113,26 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('school','SchoolController');
 		Route::resource('student','StudentController');
 		Route::get('groupmembers/{tour_code}/{type}','GroupmemberController@getMember');
+		Route::get('groupmembers/{tour_code}/{type}/pending','GroupmemberController@getMemberPending');
 		Route::post('groupmembers/update','GroupmemberController@updateMember');
 		Route::post('groupmember/destroy','GroupmemberController@destroyMember');
 		Route::post('groupmember/add','GroupmemberController@addMember');
 		Route::post('groupmembers/addlogindetail','GroupmemberController@addlogindetail');
+		Route::post('groupmembers/send-member-login','GroupmemberController@sendMemberLogin');
+		
+	});
+
+	Route::namespace('Corporate')->group(function(){
+		Route::get('company/all/{size}','CompanyController@all');
+		Route::get('corporate-login-details/{id}','CompanyController@login');
+		Route::resource('company','CompanyController');
+		//Route::resource('student','StudentController');
+		Route::get('corp-group/{tour_code}/{type}','CorpGroupmemberController@getMember');
+		Route::post('corp-group/update','CorpGroupmemberController@updateMember');
+		Route::post('corp-group/destroy','CorpGroupmemberController@destroyMember');
+		Route::post('corp-group/add','CorpGroupmemberController@addMember');
+		Route::post('corp-group/addlogindetail','CorpGroupmemberController@addlogindetail');
+		Route::post('corp-group/send-member-login','CorpGroupmemberController@sendMemberLogin');
 		
 	});
 
@@ -138,6 +171,7 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('bookedusers','BookeduserController');
 
 		Route::post('pnrs/get','PnrController@getData');
+
 		Route::post('payments/list','UserpaymentController@paymentList');
 		Route::post('payments/student','UserpaymentController@paymentStudent');
 		Route::post('createpayment','UserpaymentController@createpayment');
@@ -145,6 +179,16 @@ Route::namespace('Admin')->group(function (){
 		Route::post('updatetourpayment','UserpaymentController@updatetourpayment');
 		Route::post('gettourusers','UserpaymentController@getTourUser');
 		Route::get('getUserpayments/{id}','UserpaymentController@getUserpayments');
+
+
+		Route::post('corporate/payments/list','CorpPaymentController@paymentList');
+		Route::post('corporate/payments/all','CorpPaymentController@paymentCorp');
+		Route::post('corporate/createpayment','CorpPaymentController@createpayment');
+		Route::post('corporate/addtourpayment','CorpPaymentController@addtourpayment');
+		Route::post('corporate/updatetourpayment','CorpPaymentController@updatetourpayment');
+		Route::post('corporate/gettourusers','CorpPaymentController@getTourUser');
+		Route::get('corporate/getUserpayments/{id}','CorpPaymentController@getUserpayments');
+
 	});
 	Route::namespace('GbiMember')->group(function(){
 		Route::get('/members/all/{size}','GBIMemberController@all');
@@ -193,7 +237,21 @@ Route::namespace('Admin')->group(function (){
 		Route::get('tags/all/{size}','TagController@all');
 		Route::resource('tags','TagController');
 	});
-	
+
+	//Feedbacks
+	Route::namespace('Feedback')->group(function(){
+		Route::get('feedbacks/all','FeedbackController@index');
+		Route::get('feedbacks/old','FeedbackController@indexOld');
+		Route::post('feedback/send-link','FeedbackController@sendLink');
+		
+	});
+
+
+	//Payment Link
+	Route::namespace('Payment')->group(function(){
+		Route::post('payment-link/send','PaymentController@sendLink');
+	});
+
 });
 
 

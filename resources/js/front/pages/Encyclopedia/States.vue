@@ -1,8 +1,10 @@
 <template>
       <!--************************************************
-      Author:@Ajay
+      Author: @Ajay, 
+      Edited by: @Manas
       ****************************************************-->
-  <!-- Remove this dummy_height when you add some data to this page -->
+  <!-- Edits: Edits were made to functions - stateList(), SelectBox(), resultQuery(), to make national state searches. Custom text was added for error message on no data searches. -->
+
   <div class="States">
     <div class="encyclopedia_banner text_on_image banner_bg explore_bg_img">
       <div class="content encyclopedia">
@@ -10,7 +12,7 @@
           <div class="row">
             <div class="col-sm-4">
               <div class="encyclopedia-content">
-                <h1 class="heading">Encyclopedia</h1>
+                <h1 class="heading">Domestic Encyclopedia</h1>
                 <span
                   class="sub"
                 >Explore and embrace the vibrancy of cultures and traditions of the beautiful countries and states of the globe</span>
@@ -58,6 +60,7 @@
               </div>
             </router-link>
           </div>
+          <p v-show="resultQuery.length < 1" style="color: black; margin-top: 10vh; font-size: 20px;">Information about this State/Region is current not available, we will update it soon.</p>
         </div>
       </div>
       <br />
@@ -93,17 +96,24 @@ export default {
   methods: {
     stateList() {
       this.$axios.get("/api/encyclopedia-list").then(response => {
-        this.state_list = response.data;
-      });
-    },
-    SelectBox() {
-      this.$axios.get("/api/state").then(response => {
-        for (var i = 0; i < response.data.length; i++) {
-          this.options.push({
-            value: response.data[i].name,
-            text: response.data[i].name
-          });
-        }
+        //this.state_list = response.data;
+        for (let i = 0; i < response.data.length; i++) {
+              if(response.data[i].country == 'India' ){
+                  this.state_list.push(response.data[i]);
+              }
+            }
+        });
+      },
+      SelectBox() {
+        this.$axios.get("/api/state").then(response => {
+          for (var i = 0; i < response.data.length; i++) {
+            if(response.data[i].country_id === 2 ){
+              this.options.push({
+                value: response.data[i].name,
+                text: response.data[i].name
+              });
+            }
+          }
       });
     },
   },
@@ -115,6 +125,7 @@ export default {
             .toLowerCase()
             .split(" ")
             .every(v => item.state_name.toLowerCase().includes(v));
+            console.log(v)
         });
       } else {
         return this.state_list;

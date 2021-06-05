@@ -22,6 +22,14 @@ Vue.component(AlertError.name, AlertError)
 Vue.prototype.$Form = Form;
 Vue.prototype.$swal = swal;
 
+//Dsiabled Console messages
+Vue.config.devtools = false;
+Vue.config.debug = false;
+Vue.config.silent = true;
+console.log = function() {};
+
+// End
+
 const toast = swal.mixin({
     toast: true,
     position: 'top-end',

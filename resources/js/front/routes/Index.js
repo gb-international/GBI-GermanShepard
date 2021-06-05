@@ -9,9 +9,11 @@ import Home from '@/front/routes/Home.js';
 import Resources from '@/front/routes/Resources.js';
 import GBIBlog from '@/front/routes/GBIBlog.js';
 import AboutUs from '@/front/routes/AboutUs.js';
+import Feedback from '@/front/routes/Feedback.js';
 import ContactUs from '@/front/routes/ContactUs.js';
 import ExploreDestination from '@/front/routes/ExploreDestination.js';
 import ErrorPage from '@/front/routes/Error.js';
+import PaymentLink from '@/front/routes/PaymentLink.js';
 import User from '@/front/routes/User.js';
 
 export function createRouter() {
@@ -26,8 +28,10 @@ export function createRouter() {
             ...AboutUs,
             ...ContactUs,
             ...ExploreDestination,
-            ...User,
+            ...Feedback,
             ...ErrorPage,
+            ...PaymentLink,
+            ...User,
         ]
     })
 }

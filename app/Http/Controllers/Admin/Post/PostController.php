@@ -58,10 +58,19 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $data = $request->all();
-        $tag_id= [];      
+        $data = $request->except('meta_keyword');
+        $tag_id= [];
+        $meta_keyword="";   
         foreach ($request->tags as $tag) {
+            if($tag['id'] == ''){
+                $tag = Tag::create($tag);
+            }
             array_push($tag_id,$tag['id']);
+            if($meta_keyword ==""){
+                $meta_keyword = $meta_keyword . $tag['title'];
+            } else {
+                $meta_keyword = $meta_keyword .' '. $tag['title'];
+            }
         }
         if($request->image){
             $imagename = explode('.',$request->image[0]['name'])[0];
@@ -71,6 +80,8 @@ class PostController extends Controller
         }
 
         $post = Post::create($data);
+        $post->meta_keyword = $meta_keyword;
+        $post->save();
         $post->tags()->sync($tag_id);
 
         return response()->json('succesfull created');
@@ -84,7 +95,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $post->category;
+        $category = Category::find($post->category_id);
+        $post->category = $category->title;
         $post->tags;
         return response()->json($post);
     }
@@ -111,25 +123,36 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $data = $request->all();
-        // $data['status'] = (int)$data['status'];
-        $tag_id= [];       
+
+
+        $data = $request->except('meta_keyword');
+        $tag_id= [];
+        $meta_keyword="";   
         foreach ($request->tags as $tag) {
+            if($tag['id'] == ''){
+                $tag = Tag::create($tag);
+            }
             array_push($tag_id,$tag['id']);
+            if($meta_keyword ==""){
+                $meta_keyword = $meta_keyword . $tag['title'];
+            } else {
+                $meta_keyword = $meta_keyword .' '. $tag['title'];
+            }
         }
         if($request->image){
             $imagename = explode('.',$request->image[0]['name'])[0];
-            if($imagename){
-                $data['image'] = $this->AwsFileUpload($request->image[0]['file'],config('gbi.post_image'),$imagename);
-                $this->AwsDeleteImage($post->image);
-                $data['alt'] = $imagename;
-            }
+
+            $data['image'] = $this->AwsFileUpload($request->image[0]['file'],config('gbi.post_image'),$imagename);
+            $data['alt'] = $imagename;
         }else{
             unset($data['image']);
         }
 
         $post->update($data);
+        $post->meta_keyword = $meta_keyword;
+        $post->save();
         $post->tags()->sync($tag_id);
+
         return $data;
     }
 

@@ -35,8 +35,21 @@ It takes id from the url and get the data from the api .
           <p>{{ booking.end_date }}</p>
         </div>
         <div class="col-sm-4">
-          <h5>No. of Person</h5>
-          <p>{{ booking.person }}</p>
+          <h5>No. of Days</h5>
+          <p>{{ booking.noofday }}</p>
+        </div>
+        <div class="col-sm-4">
+          <h5>{{booking.adults ? 'Adults' : 'Passengers'}}</h5>
+          <p v-if="booking.adults">{{booking.adults}}</p>
+          <p v-else>{{booking.person}}</p>
+        </div>
+         <div class="col-sm-4" v-if="booking.children">
+          <h5>Children</h5>
+          <p>{{booking.children}}</p>
+        </div>
+         <div class="col-sm-4" v-if="booking.infants">
+          <h5>Infants</h5>
+          <p>{{booking.infants}}</p>
         </div>
         <div class="col-sm-4">
           <h5>Rooms</h5>
@@ -45,10 +58,6 @@ It takes id from the url and get the data from the api .
         <div class="col-sm-4">
           <h5>Occupancy Type</h5>
           <p>{{ booking.occupancy_type }}</p>
-        </div>
-        <div class="col-sm-4">
-          <h5>No. of Days</h5>
-          <p>{{ booking.noofday }}</p>
         </div>
         <div class="col-sm-4">
           <h5>Accomodation</h5>

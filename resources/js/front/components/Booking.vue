@@ -42,15 +42,57 @@
           <div class="form-group">
             <label for="number_of_person">Number of Person</label>
             <input
-              type="number"
+              type="text"
               class="form-control"
               id="number_of_person"
-              min="2"
-              v-model="form.person"
-              :class="{ 'is-invalid': form.errors.has('person') }"
-              required
+              data-toggle="modal"
+              data-target="#personsModal"
+              @click="showPersonModal = true"
+              v-model="people"
+              readonly
             />
             <has-error :form="form" field="start_date"></has-error>
+          </div>
+          <div class="modal" tabindex="-1" role="dialog" id="personsModal" v-if="showPersonModal">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Passengers</h5>
+                  <button type="button" class="close" aria-label="Close" @click="showPersonModal = false">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="marginT">
+                      <label for="number_of_adults" class="personLables">Adults(>12 years)</label>
+                       <fieldset>
+                          <input type="button" value="-" class="decrease" @click="decrVal('adults')"/>
+                          <input type="passengers" id="incrdcr" v-model="form.adults" readonly/>
+                          <input type="button" value="+" class="increase" @click="incrVal('adults')"/>
+                       </fieldset>
+                    </div>
+                    <div class="marginT">
+                      <label for="number_of_children" class="personLables">Children(2 to 12 years)</label>
+                      <fieldset>
+                          <input type="button" value="-" class="decrease" @click="decrVal('children')"/>
+                          <input type="passengers" id="incrdcr" v-model="form.children" readonly/>
+                          <input type="button" value="+" class="increase" @click="incrVal('children')"/>
+                       </fieldset>
+                    </div>
+                    <div class="marginT">
+                      <label for="number_of_infants" class="personLables">Infants(3 days to 2 years)</label>
+                     <fieldset>
+                          <input type="button" value="-" class="decrease" @click="decrVal('infants')"/>
+                          <input type="passengers" id="incrdcr" v-model="form.infants" readonly/>
+                          <input type="button" value="+" class="increase" @click="incrVal('infants')"/>
+                       </fieldset>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" @click="savePersons">Confirm</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -230,6 +272,9 @@ export default {
         state_date: "",
         end_date: "",
         person: 2,
+        adults: 2,
+        children: 0,
+        infants: 0,
         room: 1,
         occupancy_type: "",
         city_id: [],
@@ -246,13 +291,15 @@ export default {
 
       first_form: true,
       second_form: false,
+      groupAlert: false,
+      showPersonModal: false,
+      people: 2,
     };
   },
   watch: {
     "form.city_id": function () {
       this.sightseeingData(this.form.city_id);
     },
-
   },
 
   created() {
@@ -261,6 +308,47 @@ export default {
   },
   
   methods: {
+    incrVal(data){
+        if(data == 'adults'){
+          this.form.adults += 1
+        } else if(data == 'children'){
+          this.form.children +=1
+        } else if(data == 'infants'){
+          this.form.infants += 1
+        }
+    },
+     decrVal(data){
+        if(data == 'adults' && this.form.adults > 0){
+          this.form.adults -= 1
+        } else if(data == 'children' && this.form.children > 0){
+          this.form.children -=1
+        } else if(data == 'infants' && this.form.infants > 0){
+          this.form.infants -= 1
+        }
+    },
+    savePersons(){
+      this.form.person = parseInt(this.form.children) + parseInt(this.form.adults);
+      if(this.form.infants > 0){
+        this.people =  this.form.person +' + '+ this.form.infants+' Infant(s)';
+      } else {
+        this.people =  this.form.person;
+      }
+      this.showPersonModal = false;
+      this.checkGroup()
+    },
+    checkGroup(){
+      if(this.form.person >= 10 && !this.groupAlert){
+          this.groupAlert = true
+          this.$swal.fire({
+            icon: "info",
+            title: "Group Booking",
+            text: "As you are booking for more 10+ people, we have considered this as a group booking."
+          });
+      }
+      else if(this.form.person < 10 && this.groupAlert){
+          this.groupAlert = false
+        }
+    },
     selectedItineraryCities(){
       if(this.city_list.length > 0){
         for(let i = 0;i<this.city_list.length;i++){
@@ -343,3 +431,49 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.marginT {
+  margin-top: 10px !important;
+}
+legend {
+    padding-bottom: 14px;
+    text-align: left;
+}
+fieldset {
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+}
+fieldset, input[type="button"] {
+    border: 0;
+}
+input[type="button"] {
+    background-color: #3490dc;
+    color: #fff;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    font-size: 17px;
+    border-radius: 20px;
+    padding-bottom: 5px;
+
+}
+input[type="passengers"] {
+    border: 1px solid #F4F3F3;
+    height: 40px;
+    width: 60%;
+    text-align: center;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+.personLables{
+  color: grey;
+  text-align: center;
+  font-weight: 600;
+}
+.btn-primary{
+  background-color: #3490dc !important;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+</style>

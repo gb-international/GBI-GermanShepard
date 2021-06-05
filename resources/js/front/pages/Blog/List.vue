@@ -9,7 +9,7 @@
             <div class="col-lg-12">
               <div class="row justify-content-center">
 
-                <div class="col-lg-8 col-md-5 col-sm-12 p-0">
+                <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                   <input
                     type="text"
                     v-model="form.title"
@@ -17,8 +17,8 @@
                     placeholder="Enter the title"
                   />
                 </div>
-                
-                <div class="col-lg-1 col-md-1 col-sm-12 p-0 or-section pt-2">
+
+                <!-- <div class="col-lg-1 col-md-1 col-sm-12 p-0 or-section pt-2">
                   <p class="text-center or-text"><b>OR</b></p>
                 </div>
 
@@ -35,7 +35,49 @@
                     </select>
                     <i class="fas fa-caret-down"></i>
                   </div>
+                </div> -->
+                
+
+              </div>
+              <span v-if="error_message != ''" class="text-danger">{{ error_message }}</span>
+            </div>
+          </form>
+        </div>
+
+        <div class="search-blog-form col-lg-8 col-md-8 col-sm-12">
+          <form method="post" novalidate="novalidate">
+            <div class="col-lg-12">
+              <div class="row justify-content-between">
+
+                 <div class="col-lg-6 col-md-6 col-sm-12 p-2">
+                  <div class="select-cat">
+                    <select
+                      class="form-control search-slt"
+                      id="exampleFormControlSelect1"
+                      v-model="form.category_id"
+                    >
+                      <option value="undefined" disabled>Select category</option>
+                      <option v-for="cat in category_list" :key="cat.id" :value="cat.id">{{cat.title }}</option>
+                    </select>
+                    <i class="fas fa-caret-down"></i>
+                  </div>
                 </div>
+
+
+                <div class="col-lg-6 col-md-6 col-sm-12 p-2">
+                  <div class="select-cat">
+                    <select
+                      class="form-control search-slt"
+                      id="exampleFormControlSelect1"
+                      v-model="form.tag_id"
+                    >
+                      <option value="undefined" disabled>Select Keyword</option>
+                      <option v-for="cat in keyword_list" :key="cat.id" :value="cat.id">{{cat.title}}</option>
+                    </select>
+                    <i class="fas fa-caret-down"></i>
+                  </div>
+                </div>
+                
 
               </div>
               <span v-if="error_message != ''" class="text-danger">{{ error_message }}</span>
@@ -74,7 +116,7 @@
 
 <script>
 import Observer from "@/front/components/Observer";
-import BlogCard from './BlogCard';
+import BlogCard from '@/front/components/blog//BlogCard';
 export default {
   name: "BlogList",
   components:{ BlogCard,Observer },
@@ -89,11 +131,13 @@ export default {
       loading: false,
       form:{
         category_id:undefined,
-        title : ''
+        title : '',
+        tag_id: undefined,
       },
       error_message:'',
       search:false,
-      page:1
+      page:1,
+      keyword_list:[]
     };
   },
   watch:{
@@ -128,6 +172,7 @@ export default {
 
   mounted(){
     this.CategoryList();
+    this.KeywordList();
   },
   methods:{
     async intersected() {
@@ -154,8 +199,14 @@ export default {
       });
     },
 
+    KeywordList(){
+      this.$axios.get("/api/keyword-list").then(response => {
+        this.keyword_list = response.data;
+      });
+    },
+
     SearchBlog(){
-      if((this.form.category_id == undefined ) && (this.form.title == '')){
+      if((this.form.category_id == undefined ) && (this.form.title == '') && (this.form.tag_id == undefined)){
         this.error_message = 'Try again!!!';
         return false;
       }

@@ -1,3 +1,9 @@
+<!--************************************************
+      Author:@Ajay 
+      Edited by: @Manas
+      ****************************************************-->
+<!-- Edits: Added custom error to meta keyword field, the data element meta_keywordWarn was added -->
+
 <!-- 
 
 This template helps us to create a new hotel it takes the data from the form and sumbit with the help of the api
@@ -68,9 +74,10 @@ to submit the data we are using a function.
                 class="form-control"
                 v-model="form.meta_keyword"
                 :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
-                placeholder="Enter meta title"
+                placeholder="Enter meta keyword"
               />
               <has-error :form="form" field="meta_keyword"></has-error>
+              <p v-if="meta_keywordWarn && form.meta_keyword === '' " class="warn-error"> The meta keyword field is required.</p>
             </div>
           </div>
         </div>
@@ -78,7 +85,7 @@ to submit the data we are using a function.
         <div class="row">
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="image">Please upload a Banner image !</label>
+              <label for="image">Please upload a Banner image!</label>
               <br />
               <input
                 @change="changeDetailPhoto($event)"
@@ -122,6 +129,7 @@ export default {
   data() {
     return {
       img_image: false,
+      meta_keywordWarn: false,
       form: new Form({
         title: "",
         description: "",
@@ -135,7 +143,7 @@ export default {
     this.editCategory();
   },
   methods: {
-    editCategory() {
+    editCategory(){
       axios
         .get(`/api/categories/${this.$route.params.id}/edit`)
         .then((response) => {
@@ -145,6 +153,9 @@ export default {
         });
     },
     UpdateCategory() {
+      if (!this.form.meta_keyword) {
+        this.meta_keywordWarn = true
+      }
       this.form
         .put(`/api/categories/${this.$route.params.id}`)
         .then((response) => {
@@ -175,3 +186,12 @@ export default {
   },
 };
 </script> 
+
+<style scoped>
+  .warn-error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+  }
+</style>

@@ -1,3 +1,9 @@
+<!--************************************************
+      Author:@Ajay 
+      Edited by: @Manas
+      ****************************************************-->
+<!-- Edits: Added custom error texts, the function changeField() was added, edits were made to UpdatePost() funtion for custom error on submission -->
+
 <!-- 
 
 This template helps us to create a new hotel it takes the data from the form and sumbit with the help of the api
@@ -19,11 +25,13 @@ to submit the data we are using a function.
               <input
                 type="text"
                 class="form-control"
-                v-model="form.title"
+                :value="form.title"
+                @input="changeField('title', $event.target.value)"
                 :class="{ 'is-invalid': form.errors.has('title') }"
                 placeholder="Enter title"
               />
               <has-error :form="form" field="title"></has-error>
+              <p v-if="titleWarn" class="warn-error"> Title can't be empty.</p>
             </div>
           </div>
 
@@ -41,21 +49,24 @@ to submit the data we are using a function.
                 :class="{ 'is-invalid': form.errors.has('description') }"
               ></vue-editor>
               <has-error :form="form" field="description"></has-error>
+              <p v-if="descriptionWarn" class="warn-error"> Please input description.</p>
+
             </div>
           </div>
-
           <div class="col-sm-12">
             <div class="form-group">
-              <label for="description">Summery</label>
+              <label for="description">Summary</label>
               <textarea
                 row="3"
                 type="text"
                 class="form-control"
                 v-model="form.summery"
+                @change="changeField('summery', $event.target.value)"
                 :class="{ 'is-invalid': form.errors.has('summery') }"
-                placeholder="Enter summery"
+                placeholder="Enter summary"
               ></textarea>
               <has-error :form="form" field="summery"></has-error>
+              <p v-if="summeryWarn" class="warn-error"> Please input summary.</p>
             </div>
           </div>
 
@@ -66,37 +77,39 @@ to submit the data we are using a function.
                 type="text"
                 class="form-control"
                 v-model="form.meta_title"
+                @change="changeField('meta_title', $event.target.value)"
                 :class="{ 'is-invalid': form.errors.has('meta_title') }"
                 placeholder="Enter meta title"
               />
               <has-error :form="form" field="meta_title"></has-error>
+              <p v-if="meta_titleWarn" class="warn-error"> Please input Meta Title.</p>
             </div>
           </div>
 
           <div class="col-sm-6">
             <div class="form-group">
               <label for="meta_keyword">Meta Keywords</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="form.meta_keyword"
-                :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
-                placeholder="Enter meta title"
-              />
-              <has-error :form="form" field="meta_keyword"></has-error>
+              <tags-input element-id="tags"
+                  v-model="meta_key"
+                  :existing-tags="tags"
+                  :typeahead="true"
+                  @tags-updated="updateTags"
+                  >
+                </tags-input>
+              <has-error :form="form" field="tags"></has-error>
+              <p v-if="tagsWarn && meta_key.length < 1 " class="warn-error">Please choose keywords.</p>
             </div>
           </div>
 
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="meta_keyword">Status</label>
-
-               <dropdown-list class="mb-2" 
+              <label for="status">Status</label>
+               <status-dd class="mb-2" 
                 :itemList="status_list" 
                 v-model="form.status"
               />
               
-              <has-error :form="form" field="meta_keyword"></has-error>
+              <has-error :form="form" field="status"></has-error>
             </div>
           </div>
 
@@ -112,26 +125,7 @@ to submit the data we are using a function.
             </div>
           </div>
 
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="tags">Tags</label>
-
-              <multiselect
-                v-model="form.tags"
-                :options="tags"
-                :multiple="true"
-                :close-on-select="true"
-                placeholder="Pick Tags"
-                label="title"
-                track-by="title"
-              ></multiselect>
-
-              <has-error :form="form" field="tags"></has-error>
-            </div>
-          </div>
-
-
-          <div class="col-sm-4">
+          <div class="col-sm-10">
             <div class="form-group">
               <label class="label" for="input"
                 >Please upload a Banner image !</label
@@ -171,6 +165,9 @@ import Multiselect from "vue-multiselect";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import DropdownList from "@/admin/components/form/DropdownList.vue";
+import StatusDropdown from "@/admin/components/form/StatusDropdown2.vue";
+import TagsInput from '@voerro/vue-tagsinput';
+
 
 export default {
   name: "NewPost",
@@ -181,13 +178,22 @@ export default {
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
     "dropdown-list": DropdownList,
+    "status-dd": StatusDropdown,
+    "tags-input": TagsInput,
   },
   mixins:[Vue2EditorMixin],
   data() {
     return {
       img_image: false,
-      categories: [],
-      tags: [],
+      titleWarn: false,
+      descriptionWarn: false,
+      summeryWarn: false,
+      meta_titleWarn: false,
+      meta_keywordWarn: false,
+      tagsWarn: false,
+      categories:[],
+      tags:[],
+      meta_key: [],
       status_list:[
         {name:"Draft",id:0},
         {name:"Public",id:1}
@@ -210,15 +216,66 @@ export default {
     this.getCategories();
     this.getTags();
     this.editPost();
+    this.meta_key = this.form.tags;
   },
   methods: {
+    changeField (field, input) {
+      if(field === 'title'){
+          if(input === ''){
+            this.titleWarn = true;
+          } else {
+            this.titleWarn = false;
+            this.form.title = input
+          }
+          
+      }
+      if(field === 'summery'){
+          if(input === ''){
+            this.summeryWarn = true;
+          } else {
+            this.summeryWarn = false;
+          }
+          
+      }
+      if(field === 'meta_title'){
+          if(input === ''){
+            this.meta_titleWarn = true;
+          } else {
+            this.meta_titleWarn = false;
+          }
+      }
+      if(field === 'meta_keyword'){
+          if(input === ''){
+            this.meta_keywordWarn = true;
+          } else {
+            this.meta_keywordWarn = false;
+          }
+          
+      }
+    },
     editPost() {
       axios.get(`/api/posts/${this.$route.params.id}/edit`).then((response) => {
         setTimeout(() => $("#example").DataTable(), 1000);
         this.form.fill(response.data);
         this.form.image = [];
         this.img_image = response.data.image;
+
+         for(let i = 0;i< response.data.tags.length;i++){
+          this.meta_key.push({
+            value: response.data.tags[i].title,
+            key: response.data.tags[i].id
+          });
+      }
       });
+    },
+     updateTags(){
+      this.form.meta_keyword = []
+      for(let i = 0;i<this.meta_key.length;i++){
+          this.form.meta_keyword.push({
+            title:this.meta_key[i].value,
+            id:this.meta_key[i].key
+          });
+      }
     },
     getCategories() {
       axios.get("/api/categories").then((res) => {
@@ -237,12 +294,33 @@ export default {
     updateStatus(v){ this.form.status = v.id },
 
     getTags() {
-      axios.get("/api/tags").then((response) => {
-        this.tags = response.data;
+      axios.get("/api/tags").then((res) => {
+        //this.tags = response.data;
+        if (res) {
+          for(let i = 0;i<res.data.length;i++){
+            this.tags.push({
+              value:res.data[i].title,
+              key:res.data[i].id
+            });
+          }
+          //console.log(this.form.tags)
+        }
       });
     },
     UpdatePost() {
-      this.form
+      if(!this.form.description){
+         this.descriptionWarn = true;
+      } else {
+        this.descriptionWarn = false;
+      }
+
+      if (this.form.tags.length < 1 ) {
+        this.tagsWarn = true
+      }
+
+      if(this.titleWarn !== true && this.form.tags.length !== 0 ){
+        this.form.tags = this.form.meta_keyword
+        this.form
         .put(`/api/posts/${this.$route.params.id}`)
         .then((response) => {
           this.$swal.fire(
@@ -252,6 +330,8 @@ export default {
           );
         })
         .catch(() => {});
+      }
+      
     },
     changeDetailPhoto(event) {
       let file = event.target.files[0];
@@ -271,3 +351,13 @@ export default {
   },
 };
 </script> 
+
+
+<style scoped>
+  .warn-error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+  }
+</style>

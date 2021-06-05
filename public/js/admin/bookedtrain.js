@@ -1,1 +1,739 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[89],{12:function(t,e,i){"use strict";i(39);function r(t,e,i){return e in t?Object.defineProperty(t,e,{value:i,enumerable:!0,configurable:!0,writable:!0}):t[e]=i,t}var n={name:"DropDownFilter",props:{itemList:{type:Array,required:!0},selectedId:void 0,value:{},placeholder:{type:String,default:"Enter name to search"}},data:function(){var t;return r(t={selectedItem:{},arrowCounter:0,inputValue:"",apiLoaded:!1,showlist:!1},"selectedItem",""),r(t,"edit_flag",!1),t},watch:{selectedItem:function(){this.optionChanged()}},mounted:function(){document.addEventListener("keyup",this.nextItem)},methods:{nextItem:function(t){t.preventDefault(),38==t.keyCode&&this.arrowCounter>1?(this.arrowCounter--,this.fixScrolling()):40==t.keyCode&&this.arrowCounter<this.itemList.length-1&&(this.arrowCounter++,this.fixScrolling())},fixScrolling:function(){if(this.showlist){if(this.$refs.options[this.arrowCounter])var t=this.$refs.options[this.arrowCounter].clientHeight;this.$refs.scrollContainer&&(this.$refs.scrollContainer.scrollTop=t*this.arrowCounter)}},getSelected:function(){if(null!=this.itemList&&0==this.edit_flag)for(var t=0;t<this.itemList.length;t++)this.itemList[t].id==this.selectedId&&(this.selectedItem=this.itemList[t],this.inputValue=this.itemList[t].name,this.edit_flag=!0)},showToggle:function(){this.showlist=!this.showlist},optionChanged:function(){this.$emit("update:option",this.selectedItem)},closeEvent:function(){this.showlist&&(this.showlist=!1,this.arrowCounter=0)},resetSelection:function(){var t=this;this.selectedItem={},this.inputValue="",this.showlist=!0,this.$nextTick((function(){return t.$refs.dropdowninput.focus()})),this.$emit("on-item-reset")},remodeReadOnlyError:function(){$(".dropdown-input").attr("readonly",!1)},selectItem:function(t){this.selectedItem=t,this.inputValue="",this.$emit("on-item-selected",t),this.showlist=!1},itemVisible:function(t){var e=t.name.toLowerCase(),i=this.inputValue.toLowerCase();return e.includes(i)}},destroyed:function(){document.removeEventListener("keyup",this.nextItem)}},o=i(0),s=Object(o.a)(n,(function(){var t=this,e=t.$createElement,i=t._self._c||e;return t.itemList?i("div",{directives:[{name:"click-outside",rawName:"v-click-outside",value:t.closeEvent,expression:"closeEvent"}],staticClass:"dropdown-field"},[0===Object.keys(t.selectedItem).length?i("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.inputValue,expression:"inputValue",modifiers:{trim:!0}}],ref:"dropdowninput",staticClass:"form-control dropdown-input",attrs:{type:"text",placeholder:t.placeholder,autocomplete:"off"},domProps:{value:t.inputValue},on:{focus:function(e){t.showlist=!0},click:function(e){return t.remodeReadOnlyError()},input:function(e){e.target.composing||(t.inputValue=e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}}):i("div",{staticClass:"dropdown-selected",on:{click:t.resetSelection}},[t._v("\n    "+t._s(t.selectedItem.name)+"\n  ")]),t._v(" "),i("i",{staticClass:"fas fa-caret-down",on:{click:function(e){return t.showToggle()}}}),t._v(" "),null!=t.selectedId?i("span",[t._v(t._s(t.getSelected()))]):t._e(),t._v(" "),1==t.showlist&&null==t.selectedId?i("div",{staticClass:"dropdown-list",on:{keyup:t.nextItem}},[i("ul",{ref:"scrollContainer"},t._l(t.itemList,(function(e,r){return i("li",{directives:[{name:"show",rawName:"v-show",value:t.itemVisible(e),expression:"itemVisible(item)"}],key:e.id,ref:"options",refInFor:!0,staticClass:"dropdown-item",class:{"active-item":t.arrowCounter===r},on:{click:function(i){return t.selectItem(e)},keydown:[function(e){return!e.type.indexOf("key")&&t._k(e.keyCode,"enter",13,e.key,"Enter")?null:t.selectItem(t.matches[t.arrowCounter])},function(e){if(!e.type.indexOf("key")&&t._k(e.keyCode,"esc",27,e.key,["Esc","Escape"]))return null;t.showlist=!1}]}},[t._v("\n        "+t._s(e.name)+"\n      ")])})),0)]):t._e()]):t._e()}),[],!1,null,null,null);e.a=s.exports},17:function(t,e,i){"use strict";var r={name:"SubmitButtonGBI",data:function(){return{}}},n=i(0),o=Object(n.a)(r,(function(){var t=this.$createElement;return(this._self._c||t)("button",{staticClass:"btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold"},[this._t("default",[this._v("submit")])],2)}),[],!1,null,null,null);e.a=o.exports},19:function(t,e,i){"use strict";var r={name:"BackButtonGBI",props:["url"],methods:{goBack:function(){this.$router.back()}}},n=i(0),o=Object(n.a)(r,(function(){var t=this,e=t.$createElement,i=t._self._c||e;return i("span",[t.url?i("router-link",{staticClass:"btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",attrs:{to:t.url},on:{click:function(e){return t.goBack()}}},[t._t("default",[t._v("Back")])],2):i("button",{staticClass:"btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",attrs:{type:"button"},on:{click:function(e){return t.goBack()}}},[t._t("default",[t._v("Back")])],2)],1)}),[],!1,null,null,null);e.a=o.exports},260:function(t,e,i){"use strict";i.r(e);var r=i(1),n=i(27),o=i(4),s=i(3),a=i(12),l={name:"ListNewTrainBooked",components:{CitySelect:n.a,Form:r.Form,"has-error":r.HasError,"form-buttons":o.a,"form-layout":s.a,"dropdown-filter":a.a},data:function(){return{row_input:"",train_list:[],city_list:[],tour:"",form:new r.Form({tour_id:"",tour_code:"",train_id:"",source:"",destination:"",departure:"",arrival:"",price:""})}},created:function(){this.getTrains(),this.getTour(),this.cityList()},methods:{UpdatedTrain:function(t){this.form.train_id=t.id},UpdatedSource:function(t){this.form.source=t.name},UpdatedDestination:function(t){this.form.destination=t.name},cityList:function(){var t=this;axios.get("/api/city").then((function(e){if(e)for(var i=0;i<e.data.data.length;i++)t.city_list.push({name:e.data.data[i].name,id:e.data.data[i].id})}))},getTrains:function(){var t=this;axios.get("/api/train").then((function(e){if(e)for(var i=0;i<e.data.length;i++)t.train_list.push({name:e.data[i].name,id:e.data[i].id})}))},getTour:function(){var t=this;axios.get("/api/tour/".concat(this.$route.params.id,"/edit")).then((function(e){t.tour=e.data}))},addTrain:function(){var t=this;this.form.tour_id=this.$route.params.id,this.form.tour_code=this.tour.tour_id,this.form.post("/api/bookedtrains").then((function(e){if(console.log(e),1==e.data)return t.$toast.fire({icon:"error",title:"Already Booked !!!"}),!1;t.$toast.fire({icon:"success",title:"Train Added successfully"})})).catch((function(){}))},goBack:function(){this.$router.push("/booked-tour/".concat(this.$route.params.id))}}},c=i(0),u=Object(c.a)(l,(function(){var t=this,e=t.$createElement,i=t._self._c||e;return i("form-layout",{scopedSlots:t._u([{key:"formdata",fn:function(){return[i("form",{attrs:{role:"form",enctype:"multipart/form-data"},on:{submit:function(e){return e.preventDefault(),t.addTrain()}}},[i("div",{staticClass:"row"},[i("div",{staticClass:"col-sm-4"},[i("div",{staticClass:"form-group"},[i("label",{attrs:{for:"train_id"}},[t._v("Train")]),t._v(" "),i("dropdown-filter",{staticClass:"mb-2",attrs:{itemList:t.train_list},on:{"update:option":t.UpdatedTrain}}),t._v(" "),i("has-error",{attrs:{form:t.form,field:"train_id"}})],1)]),t._v(" "),i("div",{staticClass:"col-sm-4"},[i("div",{staticClass:"form-group"},[i("label",{attrs:{for:"source"}},[t._v("Source")]),t._v(" "),i("dropdown-filter",{staticClass:"mb-2",attrs:{itemList:t.city_list},on:{"update:option":t.UpdatedSource}}),t._v(" "),i("has-error",{attrs:{form:t.form,field:"source"}})],1)]),t._v(" "),i("div",{staticClass:"col-sm-4"},[i("div",{staticClass:"form-group"},[i("label",{attrs:{for:"destination"}},[t._v("Destination")]),t._v(" "),i("dropdown-filter",{staticClass:"mb-2",attrs:{itemList:t.city_list},on:{"update:option":t.UpdatedDestination}}),t._v(" "),i("has-error",{attrs:{form:t.form,field:"destination"}})],1)]),t._v(" "),i("div",{staticClass:"col-sm-4"},[i("div",{staticClass:"form-group"},[i("label",{attrs:{for:"departure"}},[t._v("Departure")]),t._v(" "),i("input",{directives:[{name:"model",rawName:"v-model",value:t.form.departure,expression:"form.departure"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("departure")},attrs:{type:"datetime-local",placeholder:"Enter departure"},domProps:{value:t.form.departure},on:{input:function(e){e.target.composing||t.$set(t.form,"departure",e.target.value)}}}),t._v(" "),i("has-error",{attrs:{form:t.form,field:"departure"}})],1)]),t._v(" "),i("div",{staticClass:"col-sm-4"},[i("div",{staticClass:"form-group"},[i("label",{attrs:{for:"arrival"}},[t._v("Arrival")]),t._v(" "),i("input",{directives:[{name:"model",rawName:"v-model",value:t.form.arrival,expression:"form.arrival"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("arrival")},attrs:{type:"datetime-local",placeholder:"Enter arrival"},domProps:{value:t.form.arrival},on:{input:function(e){e.target.composing||t.$set(t.form,"arrival",e.target.value)}}}),t._v(" "),i("has-error",{attrs:{form:t.form,field:"arrival"}})],1)]),t._v(" "),i("div",{staticClass:"col-sm-4"},[i("div",{staticClass:"form-group"},[i("label",{attrs:{for:"price"}},[t._v("Price")]),t._v(" "),i("input",{directives:[{name:"model",rawName:"v-model",value:t.form.price,expression:"form.price"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("price")},attrs:{type:"number",placeholder:"Enter Price"},domProps:{value:t.form.price},on:{input:function(e){e.target.composing||t.$set(t.form,"price",e.target.value)}}}),t._v(" "),i("has-error",{attrs:{form:t.form,field:"price"}})],1)])]),t._v(" "),i("form-buttons")],1)]},proxy:!0}])})}),[],!1,null,null,null);e.default=u.exports},27:function(t,e,i){"use strict";var r={name:"CitySelectGBI",data:function(){return{list:[],selectedCity:""}},created:function(){var t=this;axios.get("/api/city").then((function(e){t.list=e.data.data}))},methods:{optionChanged:function(){this.$emit("update:option",this.selectedCity)}}},n=i(0),o=Object(n.a)(r,(function(){var t=this,e=t.$createElement,i=t._self._c||e;return i("div",[i("select",{directives:[{name:"model",rawName:"v-model",value:t.selectedCity,expression:"selectedCity"}],staticClass:"form-control select-field",on:{change:[function(e){var i=Array.prototype.filter.call(e.target.options,(function(t){return t.selected})).map((function(t){return"_value"in t?t._value:t.value}));t.selectedCity=e.target.multiple?i:i[0]},t.optionChanged]}},[i("option",{attrs:{value:"",disabled:"",hidden:""}},[t._v("Select City")]),t._v(" "),t._l(t.list,(function(e){return i("option",{key:e.id,domProps:{value:e.name}},[t._v(t._s(e.name))])}))],2)])}),[],!1,null,null,null);e.a=o.exports},3:function(t,e,i){"use strict";var r={name:"FromLayoutGBI",data:function(){return{}}},n=i(0),o=Object(n.a)(r,(function(){var t=this.$createElement,e=this._self._c||t;return e("section",{staticClass:"content"},[e("div",{staticClass:"container-fluid"},[e("div",{staticClass:"row justify-content-around"},[e("div",{staticClass:"col-md-12 pl-4 pb-5"},[this._t("formdata")],2)])])])}),[],!1,null,null,null);e.a=o.exports},39:function(t,e,i){"use strict";var r=i(14);i.n(r).a.directive("click-outside",{bind:function(t,e,i){window.event=function(r){t==r.target||t.contains(r.target)||i.context[e.expression](r)},document.body.addEventListener("click",window.event)},unbind:function(t){document.body.removeEventListener("click",window.event)}})},4:function(t,e,i){"use strict";var r=i(19),n=i(17),o={name:"FormButtonGBI",components:{"back-button":r.a,"submit-button":n.a}},s=i(0),a=Object(s.a)(o,(function(){var t=this.$createElement,e=this._self._c||t;return e("div",{staticClass:"row justify-content-center"},[e("div",{staticClass:"col-sm-9 text-center"},[e("back-button"),this._v(" "),e("submit-button")],1)])}),[],!1,null,null,null);e.a=a.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["js/admin/bookedtrain"],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/City-select.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/City-select.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "CitySelectGBI",
+  data: function data() {
+    return {
+      list: [],
+      selectedCity: ""
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/city").then(function (response) {
+      _this.list = response.data.data;
+    });
+  },
+  methods: {
+    optionChanged: function optionChanged() {
+      this.$emit("update:option", this.selectedCity);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/bookedtour/New-train.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/pages/bookedtour/New-train.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _admin_components_City_select_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/City-select.vue */ "./resources/js/admin/components/City-select.vue");
+/* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
+/* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ListNewTrainBooked",
+  components: {
+    CitySelect: _admin_components_City_select_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Form: vform__WEBPACK_IMPORTED_MODULE_0__["Form"],
+    "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
+    "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  data: function data() {
+    return {
+      row_input: "",
+      train_list: [],
+      city_list: [],
+      tour: "",
+      form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
+        tour_id: "",
+        tour_code: "",
+        train_id: "",
+        source: "",
+        destination: "",
+        departure: "",
+        arrival: "",
+        price: ""
+      })
+    };
+  },
+  // Get all the data
+  created: function created() {
+    this.getTrains();
+    this.getTour();
+    this.cityList();
+  },
+  // End the process of the the fetching data
+  methods: {
+    UpdatedTrain: function UpdatedTrain(value) {
+      this.form.train_id = value.id;
+    },
+    UpdatedSource: function UpdatedSource(value) {
+      this.form.source = value.name;
+    },
+    UpdatedDestination: function UpdatedDestination(value) {
+      this.form.destination = value.name;
+    },
+    cityList: function cityList() {
+      var _this = this;
+
+      axios.get("/api/city").then(function (res) {
+        if (res) {
+          for (var i = 0; i < res.data.data.length; i++) {
+            _this.city_list.push({
+              name: res.data.data[i].name,
+              id: res.data.data[i].id
+            });
+          }
+        }
+      });
+    },
+    getTrains: function getTrains() {
+      var _this2 = this;
+
+      axios.get("/api/train").then(function (res) {
+        if (res) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this2.train_list.push({
+              name: res.data[i].name,
+              id: res.data[i].id
+            });
+          }
+        }
+      });
+    },
+    getTour: function getTour() {
+      var _this3 = this;
+
+      axios.get("/api/tour/".concat(this.$route.params.id, "/edit")).then(function (response) {
+        _this3.tour = response.data;
+      });
+    },
+    addTrain: function addTrain() {
+      var _this4 = this;
+
+      var path = "/api/bookedtrains";
+      this.form.tour_id = this.$route.params.id;
+      this.form.tour_code = this.tour.tour_id; // this.form.push({'tour_id':idid,'tour_code':this.tour.tour_id});
+
+      this.form.post(path).then(function (response) {
+        console.log(response);
+
+        if (response.data == 1) {
+          _this4.$toast.fire({
+            icon: "error",
+            title: "Already Booked !!!"
+          });
+
+          return false;
+        } // this.$router.push(`/hotel-list/`)
+
+
+        _this4.$toast.fire({
+          icon: "success",
+          title: "Train Added successfully"
+        });
+      })["catch"](function () {});
+    },
+    goBack: function goBack() {
+      this.$router.push("/booked-tour/".concat(this.$route.params.id));
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/City-select.vue?vue&type=template&id=3ecff5c3&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/City-select.vue?vue&type=template&id=3ecff5c3& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "select",
+      {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.selectedCity,
+            expression: "selectedCity"
+          }
+        ],
+        staticClass: "form-control select-field",
+        on: {
+          change: [
+            function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.selectedCity = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            },
+            _vm.optionChanged
+          ]
+        }
+      },
+      [
+        _c("option", { attrs: { value: "", disabled: "", hidden: "" } }, [
+          _vm._v("Select City")
+        ]),
+        _vm._v(" "),
+        _vm._l(_vm.list, function(city) {
+          return _c(
+            "option",
+            { key: city.id, domProps: { value: city.name } },
+            [_vm._v(_vm._s(city.name))]
+          )
+        })
+      ],
+      2
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/bookedtour/New-train.vue?vue&type=template&id=a6530616&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/pages/bookedtour/New-train.vue?vue&type=template&id=a6530616& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("form-layout", {
+    scopedSlots: _vm._u([
+      {
+        key: "formdata",
+        fn: function() {
+          return [
+            _c(
+              "form",
+              {
+                attrs: { role: "form", enctype: "multipart/form-data" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.addTrain()
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "train_id" } }, [
+                          _vm._v("Train")
+                        ]),
+                        _vm._v(" "),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.train_list },
+                          on: { "update:option": _vm.UpdatedTrain }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "train_id" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "source" } }, [
+                          _vm._v("Source")
+                        ]),
+                        _vm._v(" "),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.city_list },
+                          on: { "update:option": _vm.UpdatedSource }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "source" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "destination" } }, [
+                          _vm._v("Destination")
+                        ]),
+                        _vm._v(" "),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.city_list },
+                          on: { "update:option": _vm.UpdatedDestination }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "destination" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "departure" } }, [
+                          _vm._v("Departure")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.departure,
+                              expression: "form.departure"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("departure")
+                          },
+                          attrs: {
+                            type: "datetime-local",
+                            placeholder: "Enter departure"
+                          },
+                          domProps: { value: _vm.form.departure },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "departure",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "departure" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "arrival" } }, [
+                          _vm._v("Arrival")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.arrival,
+                              expression: "form.arrival"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("arrival")
+                          },
+                          attrs: {
+                            type: "datetime-local",
+                            placeholder: "Enter arrival"
+                          },
+                          domProps: { value: _vm.form.arrival },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "arrival", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "arrival" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "price" } }, [
+                          _vm._v("Price")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.price,
+                              expression: "form.price"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: { "is-invalid": _vm.form.errors.has("price") },
+                          attrs: { type: "number", placeholder: "Enter Price" },
+                          domProps: { value: _vm.form.price },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "price", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "price" }
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("form-buttons")
+              ],
+              1
+            )
+          ]
+        },
+        proxy: true
+      }
+    ])
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/City-select.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/admin/components/City-select.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _City_select_vue_vue_type_template_id_3ecff5c3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./City-select.vue?vue&type=template&id=3ecff5c3& */ "./resources/js/admin/components/City-select.vue?vue&type=template&id=3ecff5c3&");
+/* harmony import */ var _City_select_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./City-select.vue?vue&type=script&lang=js& */ "./resources/js/admin/components/City-select.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _City_select_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _City_select_vue_vue_type_template_id_3ecff5c3___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _City_select_vue_vue_type_template_id_3ecff5c3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/components/City-select.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/City-select.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/admin/components/City-select.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_City_select_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./City-select.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/City-select.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_City_select_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/City-select.vue?vue&type=template&id=3ecff5c3&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/admin/components/City-select.vue?vue&type=template&id=3ecff5c3& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_City_select_vue_vue_type_template_id_3ecff5c3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./City-select.vue?vue&type=template&id=3ecff5c3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/City-select.vue?vue&type=template&id=3ecff5c3&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_City_select_vue_vue_type_template_id_3ecff5c3___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_City_select_vue_vue_type_template_id_3ecff5c3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/bookedtour/New-train.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/admin/pages/bookedtour/New-train.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _New_train_vue_vue_type_template_id_a6530616___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./New-train.vue?vue&type=template&id=a6530616& */ "./resources/js/admin/pages/bookedtour/New-train.vue?vue&type=template&id=a6530616&");
+/* harmony import */ var _New_train_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./New-train.vue?vue&type=script&lang=js& */ "./resources/js/admin/pages/bookedtour/New-train.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _New_train_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _New_train_vue_vue_type_template_id_a6530616___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _New_train_vue_vue_type_template_id_a6530616___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/pages/bookedtour/New-train.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/bookedtour/New-train.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/admin/pages/bookedtour/New-train.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_New_train_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./New-train.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/bookedtour/New-train.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_New_train_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/bookedtour/New-train.vue?vue&type=template&id=a6530616&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/admin/pages/bookedtour/New-train.vue?vue&type=template&id=a6530616& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_New_train_vue_vue_type_template_id_a6530616___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./New-train.vue?vue&type=template&id=a6530616& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/bookedtour/New-train.vue?vue&type=template&id=a6530616&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_New_train_vue_vue_type_template_id_a6530616___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_New_train_vue_vue_type_template_id_a6530616___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

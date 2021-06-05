@@ -1,6 +1,5 @@
 <!-- 
-This is template is for the viewing the itineraray with the help of the id of the itinerary 
-It takes id from the url and get the data from the api .
+This is template is for the viewing the booked tour details.
 
 -->
 <template>
@@ -15,8 +14,9 @@ It takes id from the url and get the data from the api .
         <div class="container container_admin_body">
           <div class="row">
             <div class="col-sm-4">
-              <h6>SCHOOL NAME</h6>
-              <p>{{ school.school_name }}</p>
+              <h6>{{ tour.customer_type == 'corporate' ? 'COMPANY NAME'  : 'SCHOOL NAME' }}</h6>
+              <p v-if="tour.customer_type == 'corporate'">{{ entity['company_name'] }}</p>
+               <p v-else>{{ entity['school_name'] }}</p>
             </div>
             <div class="col-sm-2">
               <h6>PRICE</h6>
@@ -75,16 +75,31 @@ It takes id from the url and get the data from the api .
                 <img :src="`/assets/admin/default/icon/bus-icon.png`" />
               </router-link>
             </div>
-            <div class="col-sm-3 mb-3 m-30">
+            <div v-if="tour.customer_type == 'school'" class="col-sm-3 mb-3 m-30">
               <router-link
-                :to="`/booked-tour-student/${school.id}/${tour.tour_id}`"
+                :to="`/booked-tour-group/${entity['id']}/${tour.tour_id}`"
               >
                 <img :src="`/assets/admin/default/icon/student.png`" />
               </router-link>
             </div>
 
-            <div class="col-sm-3 mb-3 m-30">
-              <router-link :to="`/payments/${school.id}/${tour.tour_id}`">
+            <div v-else class="col-sm-3 mb-3 m-30">
+              <router-link
+                :to="`/booked-corp-group/${entity['id']}/${tour.tour_id}`"
+              >
+                <img :src="`/assets/admin/default/icon/groupList.png`" />
+              </router-link>
+            </div>
+
+
+            <div v-if="tour.customer_type == 'school'" class="col-sm-3 mb-3 m-30">
+              <router-link :to="`/payments-school/${entity['id']}/${tour.tour_id}`">
+                <img :src="`/assets/admin/default/icon/payment.png`" />
+              </router-link>
+            </div>
+
+            <div v-else class="col-sm-3 mb-3 m-30">
+              <router-link :to="`/payments-corporate/${entity['id']}/${tour.tour_id}`">
                 <img :src="`/assets/admin/default/icon/payment.png`" />
               </router-link>
             </div>
@@ -496,7 +511,7 @@ export default {
   data() {
     return {
       client_view: [],
-      school: [],
+      entity: [],
       tour: [],
       train: [],
       hotel: [],
@@ -517,7 +532,7 @@ export default {
       counter: 0,
     };
   },
-  created() {
+  mounted() {
     this.getAllData();
     this.labelChange();
   },
@@ -621,8 +636,8 @@ export default {
           }
         });
     },
-    getAllData() {
-      axios.get(`/api/tour/${this.$route.params.id}`).then((response) => {
+    async getAllData() {
+       await axios.get(`/api/tour/${this.$route.params.id}`).then((response) => {
         if (response.data) {
           this.tour = response.data["tour"];
           this.train = response.data["train"];
@@ -631,9 +646,10 @@ export default {
           this.escorts = response.data["escort"];
           this.bus = response.data["bus"];
           this.flight = response.data["flight"];
-          this.school = response.data["school"];
+          this.entity = response.data["entity"];
           this.itinerary = response.data["itinerary"];
           this.sightseeing = response.data["sightseeing"];
+          //console.log(this.entity);
         }
       });
     },
