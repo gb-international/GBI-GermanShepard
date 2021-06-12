@@ -20,9 +20,6 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "softon/indipay": "^1.2",
         "spatie/laravel-permission": "^3.13",
-        "illuminate/contracts": "8.31",
-        "illuminate/queue": "^8.17",
-        "illuminate/support": "^8.17"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
