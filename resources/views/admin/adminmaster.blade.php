@@ -40,9 +40,9 @@
         </li>
       </ul>
     </nav>
-    <aside class="main-sidebar sidebar-dark-primary elevation-4" id="admin_top_logo">
+    <aside class="main-sidebar elevation-4" id="admin_top_logo">
       <a href="/"  class="brand-link logo_link">
-        <img src="{{asset('assets/admin/default/icon/logo.png')}}"
+        <img src="{{asset('assets/admin/default/icon/admin_logo.png')}}"
               alt="GBI Logo" class="brand-image">
         <span class="brand-text font-weight-light">.</span>
       </a>
@@ -228,6 +228,13 @@
     color: #fff;
     background-color: #007bff !important;
 }
+li a{
+    color: #333059 !important;
+  }
+.nav-link:hover{
+    background-color: #333059fa !important;
+    color: white !important;
+  }
 </style>
 
 </body>

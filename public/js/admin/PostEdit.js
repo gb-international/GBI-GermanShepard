@@ -180,6 +180,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -211,6 +224,7 @@ __webpack_require__.r(__webpack_exports__);
       meta_titleWarn: false,
       meta_keywordWarn: false,
       tagsWarn: false,
+      clientTypeWarn: false,
       categories: [],
       tags: [],
       meta_key: [],
@@ -230,7 +244,8 @@ __webpack_require__.r(__webpack_exports__);
         meta_keyword: "",
         status: "",
         tags: [],
-        category_id: ""
+        category_id: "",
+        client_type: ""
       })
     };
   },
@@ -348,12 +363,19 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!this.form.description) {
         this.descriptionWarn = true;
+        return false;
       } else {
         this.descriptionWarn = false;
       }
 
       if (this.form.tags.length < 1) {
         this.tagsWarn = true;
+        return false;
+      }
+
+      if (this.form.clientTypeWarn === '') {
+        this.clientTypeWarn = true;
+        return false;
       }
 
       if (this.titleWarn !== true && this.form.tags.length !== 0) {
@@ -781,7 +803,82 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-10" }, [
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "client_type" } }, [
+                              _vm._v("Client Type")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.client_type,
+                                    expression: "form.client_type"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.form,
+                                      "client_type",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  { attrs: { value: "eduInstitute" } },
+                                  [_vm._v("Educational Institute")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "corporate" } },
+                                  [_vm._v("Corporate")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "general" } }, [
+                                  _vm._v("General")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "client_type" }
+                            }),
+                            _vm._v(" "),
+                            _vm.clientTypeWarn && _vm.form.client_type === ""
+                              ? _c("p", { staticClass: "warn-error" }, [
+                                  _vm._v(" Please choose a client type.")
+                                ])
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-4" }, [
                         _c(
                           "div",
                           { staticClass: "form-group" },

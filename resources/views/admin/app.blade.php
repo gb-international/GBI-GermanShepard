@@ -23,4 +23,5 @@
     </div>
 </div>
 </body>
+@yield('style')
 </html>

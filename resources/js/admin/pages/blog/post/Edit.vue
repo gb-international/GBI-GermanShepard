@@ -125,7 +125,20 @@ to submit the data we are using a function.
             </div>
           </div>
 
-          <div class="col-sm-10">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="client_type">Client Type</label>
+              <select class="form-control" v-model="form.client_type">
+                <option value="eduInstitute">Educational Institute</option>
+                <option value="corporate">Corporate</option>
+                <option value="general">General</option>
+              </select>
+              <has-error :form="form" field="client_type"></has-error>
+              <p v-if="clientTypeWarn && form.client_type === '' " class="warn-error"> Please choose a client type.</p>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
             <div class="form-group">
               <label class="label" for="input"
                 >Please upload a Banner image !</label
@@ -191,6 +204,7 @@ export default {
       meta_titleWarn: false,
       meta_keywordWarn: false,
       tagsWarn: false,
+      clientTypeWarn: false,
       categories:[],
       tags:[],
       meta_key: [],
@@ -208,6 +222,7 @@ export default {
         status: "",
         tags: [],
         category_id: "",
+        client_type:"",
       }),
     };
   },
@@ -310,12 +325,18 @@ export default {
     UpdatePost() {
       if(!this.form.description){
          this.descriptionWarn = true;
+         return false;
       } else {
         this.descriptionWarn = false;
       }
 
       if (this.form.tags.length < 1 ) {
         this.tagsWarn = true
+        return false;
+      }
+      if (this.form.clientTypeWarn === '') {
+        this.clientTypeWarn = true
+        return false;
       }
 
       if(this.titleWarn !== true && this.form.tags.length !== 0 ){

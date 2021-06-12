@@ -246,7 +246,6 @@ Route::namespace('Admin')->group(function (){
 		
 	});
 
-
 	//Payment Link
 	Route::namespace('Payment')->group(function(){
 		Route::post('payment-link/send','PaymentController@sendLink');

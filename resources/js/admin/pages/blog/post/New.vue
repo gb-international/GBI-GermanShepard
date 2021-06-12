@@ -144,26 +144,20 @@ to submit the data we are using a function.
             </div>
           </div>
 
-          <!-- <div class="col-sm-6">
+          <div class="col-sm-6">
             <div class="form-group">
-              <label for="tags">Tags</label>
-
-              <multiselect
-                v-model="form.tags"
-                :options="tags"
-                :multiple="true"
-                :close-on-select="true"
-                placeholder="Pick Tags"
-                label="title"
-                track-by="title"
-              ></multiselect>
-
-              <has-error :form="form" field="tags"></has-error>
-              <p v-if="tagsWarn && form.tags.length < 1 " class="warn-error"> Please pick tags.</p>
+              <label for="client_type">Client Type</label>
+              <select class="form-control" v-model="form.client_type">
+                <option value="eduInstitute">Educational Institute</option>
+                <option value="corporate">Corporate</option>
+                <option value="general">General</option>
+              </select>
+              <has-error :form="form" field="client_type"></has-error>
+              <p v-if="clientTypeWarn && form.client_type === '' " class="warn-error"> Please choose a client type.</p>
             </div>
-          </div> -->
+          </div>
 
-          <div class="col-sm-10">
+          <div class="col-sm-4">
             <div class="form-group">
               <label class="label" for="input"
                 >Please upload a Banner image !</label
@@ -206,7 +200,7 @@ import SubmitButton from '@/admin/components/buttons/SubmitButton.vue';
 import FormLayout from '@/admin/components/layout/FormLayout.vue';
 import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 import StatusDropdown from "@/admin/components/form/StatusDropdown.vue";
-import TagsInput from '@voerro/vue-tagsinput';
+import TagsInput from '@voerro/vue-tagsinput'
 
 export default {
   name: "NewPost",
@@ -232,6 +226,7 @@ export default {
       statusWarn: false,
       categoryWarn: false,
       tagsWarn: false,
+      clientTypeWarn: false,
       status_list:[
         {name:"Draft",id:0},
         {name:"Public",id:1}
@@ -246,6 +241,7 @@ export default {
         status:"",
         category_id:"",
         category:"",
+        client_type:"",
         tags:[],
       }),
     };
@@ -311,6 +307,10 @@ export default {
       }
       if (this.meta_key.length < 1 ) {
         this.tagsWarn = true
+        return false;
+      }
+      if (this.form.clientTypeWarn === '') {
+        this.clientTypeWarn = true
         return false;
       }
       this.form.tags = this.form.meta_keyword

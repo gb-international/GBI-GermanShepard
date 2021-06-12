@@ -215,6 +215,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -351,7 +369,63 @@ var render = function() {
         _c("paragraph", {
           attrs: {
             text:
-              "The journey of GB International dates back to 1983 when Mr. Jasbir Singh Rikhi founded the company single-handedly with the desire of guiding students for a better future. He seeks to use travel as a tool to guide young minds learn from experiences outside their comfort zone. GBI has been working hard to transform this very idea into reality through finely curated travel tours."
+              "In ancient times, the offset of travel was only on the sole purpose of spiritual fulfillment and medicinal offerings. During the course of time, people began to explore different destinations for knowledge, cultural exploration, scenic beauty and other special interests. But much of our great historical monuments and culture are still unseen and unheard to many people."
+          }
+        }),
+        _vm._v(" "),
+        _c("paragraph", {
+          attrs: {
+            text:
+              "So, with constant efforts of our CEO Mr. Jasbir Singh Rikhi to bring back our lost cultural and    architectural heritage of our country, he aims to bridge this gap and build a strong foundation in educating young minds and passionate travellers towards our rich history. He, being a passionate traveler himself from the hospitality sector, whenever used to hit the road on his Royal Enfield to explore new places, he realised that people who came to pay a visit to that particular destination would click a photo and move on without showing any interest in its rich history, culture and not even admiring the architectural and technological advancements. This made a huge impact on him and made him realise that there is a greater need to educate people(young minds and passionate travelers) about our rich cultural heritage through fun and innovative methods."
+          }
+        }),
+        _vm._v(" "),
+        _c("paragraph", {
+          attrs: {
+            text:
+              "And so the journey of GBI was set forth in 1983 by our CEO Mr. Jasbir Singh Rikhi single-handedly with the motive to release the pressure of classroom learning and allow young minds to learn from new and engaging environments outside their comfort zone through experiential journeys.Serving for around 40 yrs in the industry, we provide a platform for young minds and passionate travelers to explore and discover different cultural aspects and scientific explorations across the globe with journeys booked through our web platforms."
+          }
+        }),
+        _vm._v(" "),
+        _c("paragraph", {
+          attrs: {
+            text:
+              "Our USP as an organization is to help young minds and travelers to learn, explore and discover with best-in-class service and quality, while they hit the road with us. GBI’s travel program features observation, experiential learning and skill development along with fun loaded activities."
+          }
+        }),
+        _vm._v(" "),
+        _c("paragraph", {
+          attrs: {
+            text:
+              "Designed with academic standards and the requirements posed by the fellow travelers, we strive to provide a real world context in a more conceptual and practical manner. We, therefore, create enriching programs tailored to specific curriculum and our journeys are designed to support more than one disciplinary connection such as history and culture, heritage and arts to name a few. We believe that traveling with GBI can do a lot more than a change in the way a person perceives the world; it can enhance their skills and their ability to make the world a better place."
+          }
+        }),
+        _vm._v(" "),
+        _c("paragraph", {
+          attrs: {
+            text:
+              "We, as an organisation also cater MICE, events, corporate meetups and conferences with best-in-class service and quality that speaks for itself. With our 24x7 personal and professional support, assurance to our clients , we have been successful in maintaining an excellent track record in the educational and corporate world. We have been our client’s favourite in providing them with unforgettable experiences on their journeys through several team building activities, workshops & seminar facilities."
+          }
+        }),
+        _vm._v(" "),
+        _c("paragraph", {
+          attrs: {
+            text:
+              "Our team of experienced and well trained excursion event managers are capable enough to handle any situation with ease, when you are on the tour with us. Our Management believes in one simple concept that is to be truthful to ourselves and give value to our GBI clients."
+          }
+        }),
+        _vm._v(" "),
+        _c("paragraph", {
+          attrs: {
+            text:
+              "We as an organization believe in one simple thing “Move Ahead With Time” and so we are  changing our research patterns and approaches with time to meet the demands and requirements of the new upcoming trends."
+          }
+        }),
+        _vm._v(" "),
+        _c("paragraph", {
+          attrs: {
+            text:
+              "As an educational travel specialist we believe that  learning never stops, neither the advancements pertaining to history/culture, architecture, religion and science . It is us who needs to identify the scenarios that best fits us in a particular situation while we are on the go."
           }
         }),
         _vm._v(" "),
@@ -370,9 +444,34 @@ var render = function() {
         _vm._v(" "),
         _c("section", { staticClass: "bgcolor-section" }, [
           _c("div", { staticClass: "col-lg-12" }, [
+            _c("div", { staticClass: "col-md-12 col-lg-12 pt-5 mx-10" }, [
+              _c("div", { staticClass: "ourstory-content" }, [
+                _c(
+                  "figure",
+                  {
+                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
+                    staticClass: "image__wrapper"
+                  },
+                  [
+                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "image__item ic-cal-re",
+                      attrs: {
+                        id: "ourstoryimg1",
+                        "data-url": "/assets/front/images/mission.png",
+                        alt: "our story"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
             _c("article", { staticClass: "about-story" }, [
               _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6 col-lg-7" }, [
+                _c("div", { staticClass: "col-md-12 col-lg-12" }, [
                   _c(
                     "div",
                     { staticClass: "ourstory-content" },
@@ -386,39 +485,12 @@ var render = function() {
                       _c("paragraph", {
                         attrs: {
                           text:
-                            "Our mission is to facilitate a true connection between the students and the educational tour by trying to compliment classroom learning with a touch of the real. At GBI, we strive to combine reliable travel support with practical knowledge of textbooks to create an enriching travel experience that last a lifetime."
+                            "We are on a  mission to help young minds and  passionate travelers to travel to destinations that expose them to practical learning and cultural exploration.\n                      We truly understand how a place or a location can make you feel elated, and so with our customised itineraries and experienced team of travel professionals, we aim to deliver you with a great travel experience that best fits your needs and aspirations. \n                      We add our personal and professional touch to your journeys with our dedicated 24x7 personal support available anytime anywhere.\n                      We at GBI know how a traveler feels when he/she travels to a new place , and to overcome the fear of FOMO(Fear Of Missing Out), we make that extra effort to plan your journeys in a much more systematic and professional manner."
                         }
                       })
                     ],
                     1
                   )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6 col-lg-5" }, [
-                  _c("div", { staticClass: "ourstory-content" }, [
-                    _c(
-                      "figure",
-                      {
-                        directives: [
-                          { name: "lazyload", rawName: "v-lazyload" }
-                        ],
-                        staticClass: "image__wrapper"
-                      },
-                      [
-                        _c("ImageSpinner", { staticClass: "image__spinner" }),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "image__item ic-cal-re",
-                          attrs: {
-                            id: "ourstoryimg1",
-                            "data-url": "/assets/front/images/mission.png",
-                            alt: "our story"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ])
                 ])
               ])
             ])
@@ -429,7 +501,7 @@ var render = function() {
           _c("div", { staticClass: "col-lg-12" }, [
             _c("article", { staticClass: "about-vision pa-t-15" }, [
               _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6 col-lg-5" }, [
+                _c("div", { staticClass: "col-md-12 col-lg-12" }, [
                   _c("div", { staticClass: "ourstory-content" }, [
                     _c(
                       "figure",
@@ -456,7 +528,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-6 col-lg-7" }, [
+                _c("div", { staticClass: "col-md-12 col-lg-12" }, [
                   _c(
                     "div",
                     { staticClass: "ourstory-content" },
@@ -472,7 +544,14 @@ var render = function() {
                       _c("paragraph", {
                         attrs: {
                           text:
-                            "GBI’s philosophy behind all its program is to reach out to young minds to bring in them confidence and expand their horizons to prepare them face the challenges of mundane reality. We aim to enhance their skills through excursion to understand how various culture and different countries work."
+                            "GBI’s aims to provide a travel platform whether online or offline for young minds and passionate travelers to expand their horizons and prepare them well, to face the day-to-day challenges of mundane reality. We aim to enhance their skills with a practical approach through excursions and help them connect with people, culture and mouth-watering cuisines of different continents across the globe."
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("paragraph", {
+                        attrs: {
+                          text:
+                            "For business travellers, we aim to provide a more customer-centric approach with our team of innovative and experienced professionals and we ensure to make your meetings and conferences memorable and cherishable ones. Through continuous adaptation of new innovative technological advancements, we aim to achieve the client’s long term meeting objectives; thereby ensuring customer satisfaction."
                         }
                       })
                     ],

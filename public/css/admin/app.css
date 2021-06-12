@@ -54973,7 +54973,7 @@ bh=banner header |bp=banner para |ch=content header|cp=content para|cardh=card h
 }
 
 .router-link-active {
-  background-color: #5a5380;
+  background-color: #333059fa !important;
   color: white !important;
 }
 
@@ -55030,7 +55030,7 @@ bh=banner header |bp=banner para |ch=content header|cp=content para|cardh=card h
 }
 
 #admin_top_logo {
-  background-color: #332f58;
+  background-color: white;
 }
 
 #admin_top_logo .logo_link {
@@ -55084,10 +55084,10 @@ Admin Login page
 */
 
 #admin_login {
-  background-color: #332f58;
+  background-color: white;
   height: 657px;
   font-family: Raleway;
-  color: #d2c9c9;
+  color: #333059;
 }
 
 #admin_login #admin_login_form {
@@ -55096,18 +55096,18 @@ Admin Login page
 
 #admin_login #admin_login_form input[type='email'],
 #admin_login #admin_login_form input[type='password'] {
-  background-color: #332f58 !important;
+  background-color: white !important;
   border-left: 0px;
   border-top: 0px;
   border-right: 0px;
   border-radius: 0px;
   height: 47px;
-  border-bottom: 2px solid #d2c9c9;
-  color: white;
+  border-bottom: 2px solid #333059;
+  color: #333059;
   font-size: 19px;
   outline: 0px;
   box-shadow: none;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 #admin_login #admin_login_form img {
@@ -55119,19 +55119,19 @@ Admin Login page
   height: 44px;
   border-radius: 0px;
   margin-top: 32px;
-  border: 2px solid #d2c9c9;
+  border: 2px solid #333059;
   background-color: transparent;
   font-size: 19px;
 }
 
 #admin_login #admin_login_form button:hover {
-  background-color: #d2c9c9;
-  color: #332f58;
+  background-color: #333059;
+  color: white;
   font-weight: 600;
 }
 
 #admin_login #admin_login_form a {
-  color: #d2c9c9;
+  color: #333059;
 }
 
 .btn_plus {

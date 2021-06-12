@@ -336,6 +336,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.showPersonModal = false;
+      this.checkGroup();
     },
     checkGroup: function checkGroup() {
       if (this.form.person >= 10 && !this.groupAlert) {

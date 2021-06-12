@@ -12,8 +12,17 @@
 
     <div class="container mt-2">
       <heading text="How We Work" />
-      <sub-heading text="What makes GB International a valuable travel educationalist?" />
-      <paragraph text="Designed with academic standards in mind, GBI’s travel program feature observation, experiential learning and skill development along with fun loaded activities. We strive to provide a real world context for concepts learned in classroom. We, therefore, create enriching programs tailored to specific curricula and our tours are designed to support more than one disciplinary connection such as history and culture, heritage and arts to name a few. Travel, we believe, can do a lot more than a change in the way a person looks at the world; it can enhance their skills and their ability to make the world a better place." />
+      <paragraph text="We at GB International follow a  ROFRE mechanism  which helps our teams to execute and plan the excursions based on the requirements of the clients (students and travelers). Every GBI  team member takes into the consideration the scope of the travel and based on the custom needs we plan and execute the trip. Our 40 years of research and experimental approach has helped us understand the customer and their needs better."/>
+        <paragraph text="R-Requirement gathering"/>
+        <paragraph text="O-Objective"/>
+        <paragraph text="F-Financial Planning"/>
+        <paragraph text="R-Road Map"/>
+        <paragraph text="E-Execution"/>
+        <paragraph text="Travel research for destination and market"/>
+        <sub-heading text="Itinerary Development" />
+        <paragraph text="Understanding the objective of travel plan include the main curriculum handpicked ,collaborate ,research problem, research and resource material, curriculum connection."/>
+        <sub-heading text="Financial Planning" />
+        <paragraph text="Gathering requirements and scope, creating a road map, performing analysis , travel and implementation planning and executing  the plan."/>
     </div>
 
     <!-- End how we work -->
