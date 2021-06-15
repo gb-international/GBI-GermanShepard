@@ -76,7 +76,6 @@ to submit the data we are using a function.
               <has-error :form="form" field="meta_title"></has-error>
             </div>
           </div>
-
           <div class="col-sm-6">
             <div class="form-group">
               <label for="meta_keyword">Meta Keywords</label>

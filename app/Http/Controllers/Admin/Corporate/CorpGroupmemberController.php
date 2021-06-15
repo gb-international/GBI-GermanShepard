@@ -60,7 +60,9 @@ class CorpGroupmemberController extends Controller
                 // subscribe for newsletter
                 if( !$subscriber = Subscriber::where('email',$user->email)->first()){
                     $data['email'] = $user->email;
+                    $data['name'] = $user->name;
                     $data['user_id'] = $user->id;
+                    $data['client_type'] = 'corporate';
                     Subscriber::create($data);
                 }
             }else{
@@ -95,6 +97,7 @@ class CorpGroupmemberController extends Controller
         $user = new User();
         $user->name = $groupmember['first_name'].' '.$groupmember['last_name'];
         $user->email = $groupmember['email'];
+        $user->user_type = 'corporate';
         $user->password = bcrypt($groupmember['email']);
         $user->status = 1;
         $user->save();
@@ -137,6 +140,14 @@ class CorpGroupmemberController extends Controller
             $user_info->gender = $request->gender;
             $user_info->company_id = $request->company_id;
             $user_info->save();
+
+            if( !$subscriber = Subscriber::where('email', $user->email)->first()){
+                    $data['email'] = $user->email;
+                    $data['name'] = $user->name;
+                    $data['user_id'] = $user->id;
+                    $data['client_type'] = 'corporate';
+                    Subscriber::create($data);
+            }
 
             $user->password = $pass;
             Mail::send(new AccountRegistered($user));

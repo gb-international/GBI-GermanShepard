@@ -22,7 +22,8 @@ class Itinerary extends Model
 		'flight',
 		'food',
 		'price',
-		'status'
+		'status',
+		'client_type',
 	];
 
 	public function getPhotoAttribute($image)

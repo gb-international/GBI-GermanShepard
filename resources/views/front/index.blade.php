@@ -184,5 +184,6 @@ $(document).ready(function(){
   "priceRange":"Rs1000-Rs10,000"
 }
 </script>
+
  </body>
 </html>

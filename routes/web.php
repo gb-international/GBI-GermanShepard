@@ -8,6 +8,11 @@ use App\Mail\ForgetPasswordMail;
 use App\Mail\PasswordResetMail;
 use App\Mail\WelcomeMail;
 
+/*Route::post('/t', function () {
+    event(new \App\Events\SendNotification('test'));
+    dd('Event Run Successfully.');
+});*/
+
 Route::post('/payment','Front\PaymentController@payment');
 Route::post('/response','Front\PaymentController@response');
 Route::post('/cancel','Front\PaymentController@cancel');

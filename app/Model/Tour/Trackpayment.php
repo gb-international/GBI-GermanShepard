@@ -12,6 +12,7 @@ class Trackpayment extends Model
     	'amount',
     	'tour_id',
     	'school_id',
+    	'company_id',
     	'added_by',
 		'billing_name',
 		'billing_address',

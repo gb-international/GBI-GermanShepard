@@ -22,11 +22,8 @@
                 {{ tour_info.price }} /-
               </p>
             </div>
-
-
           </div>
           <div class="row">
-
              <div class="col-sm-4">
               <label class="text-muted" for="person"
                 >Total Number of people</label

@@ -4,7 +4,7 @@ namespace App\Model\Tour;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Trackpayment extends Model
+class TrackCorpPayment extends Model
 {
 	protected $table = 'track_corp_payments';
     protected $fillable = [

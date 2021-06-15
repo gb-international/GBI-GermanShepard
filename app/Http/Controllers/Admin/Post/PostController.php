@@ -10,7 +10,6 @@ Added: Notification controller to send notifications on new blog upload.
 
 namespace App\Http\Controllers\Admin\Post;
 
-use App\Http\Controllers\Admin\Notification\NotificationController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\PostRequest;
 use Illuminate\Http\Request;
@@ -18,7 +17,7 @@ use App\Traits\ImageTrait;
 use App\Model\Post\Post;
 use App\Model\Post\Category;
 use App\Model\Post\Tag;
-use Session;
+use App\Jobs\Notifications;
 
 
 class PostController extends Controller
@@ -91,27 +90,26 @@ class PostController extends Controller
         $post->meta_keyword = $meta_keyword;
         $post->save();
         $post->tags()->sync($tag_id);
-        $data2 = array();
-        $data[] = (array)[
+        $notifData = [
             'notification_type' => 'posts',
             'client_type' => $post->client_type,
-            'category' => 'blog',
+            'category' => 'posts',
             'category_id' => $post->id,
-            'contentData' => [
-                'title' => $post->title,
-                'description' => $post->summery,
-            ]
+            'title' => $post->title,
+            'body' => $post->summery,
         ];
         //return redirect()->route('notifRoute', $data);
         //return response()->json('succesfull created');
-        setcookie('gbi_notification_type', 'posts', time() + 3600, "/");
+        /*setcookie('gbi_notification_type', 'posts', time() + 3600, "/");
         setcookie('gbi_notif_clientType', $post->client_type, time() + 3600, "/");
         setcookie('gbi_notif_category', 'blog', time() + 3600, "/");
         setcookie('gbi_notif_categoryId', $post->id, time() + 3600, "/");
         setcookie('gbi_notif_title', $post->title, time() + 3600, "/");
-        setcookie('gbi_notif_description', $post->summery, time() + 3600, "/");
+        setcookie('gbi_notif_description', $post->summery, time() + 3600, "/");*/
 
-        $notif = (new NotificationController)->store();
+        //$notif = (new NotificationController)->store();
+        dispatch(new Notifications($notifData));
+        //event(new \App\Events\SendNotification($notifData));
         return response()->json('succesfull created');
     }
 

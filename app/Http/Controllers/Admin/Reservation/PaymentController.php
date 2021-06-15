@@ -12,6 +12,7 @@ use App\User;
 use App\Helpers\SendSms;
 use App\Helpers\Crypto;
 use App\Jobs\PaymentSuccessJob;
+use App\Jobs\Notifications;
 
 class PaymentController extends Controller
 {
@@ -108,11 +109,18 @@ class PaymentController extends Controller
         $touruser->update($data);
       }
       $user=['name'=>$response['billing_name'],'phone_no'=>$response['billing_tel']];
-      $sendsms = new SendSms;
-      $sendsms->successPaymentSMS($user);
-      $email_data['emailto'] = $response['billing_email'];
-      // pass data to send the email here ($user is just dummy)
-      PaymentSuccessJob::dispatch($email_data);
+      //$sendsms = new SendSms;
+      //$sendsms->successPaymentSMS($user);
+      //$email_data['emailto'] = $response['billing_email'];
+      $notifData = [
+        'category' => 'trackpayments',
+        'category_id' => $track->id,
+        'userId' => $track->user_id,
+        'name' => $response['billing_name'],
+        'phone_no' => $response['billing_tel'],
+        'emailto' => $response['billing_email'],
+      ];
+      PaymentSuccessJob::dispatch($notifData);
       $track->delete();
       header("Location:/tour-list");
       dd($response);

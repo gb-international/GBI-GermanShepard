@@ -1,6 +1,6 @@
 <template>
   <div class="container" id="payment_information">
-    <form class="form" method="POST" action="/payment">
+    <form class="form" method="POST" action="/test-data">
       <div class="desktop">
         <!-- desktop view -->
         <div class="row pt-4 pb-4">

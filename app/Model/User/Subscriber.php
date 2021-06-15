@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subscriber extends Model
 {
-    protected $fillable = ['email', 'user_id','status', 'promotion', 'posts', 'travel', 'website'];
+    protected $fillable = ['email', 'client_type', 'user_id','status', 'promotion_notification', 'posts_notification', 'travel_notification', 'website_notification'];
 
     public function user(){
         return $this->belongsTo('App\User');

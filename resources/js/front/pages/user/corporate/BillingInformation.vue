@@ -1,6 +1,6 @@
 <template>
   <div class="container" id="payment_information">
-    <form class="form" method="POST" action="/payment">
+    <form class="form" method="POST" action="/test-data">
       <div class="desktop">
         <!-- desktop view -->
         <div class="row pt-4 pb-4">
@@ -648,7 +648,7 @@ export default {
         user_id: "",
         travel_code: "",
         tour_id: "",
-        school_id: "",
+        company_id: "",
         tour_price: "",
         no_of_person: "",
       },
@@ -692,7 +692,7 @@ export default {
     this.form.user_id = data.user_id;
     this.form.travel_code = data.travel_code;
     this.form.tour_id = data.tour_id;
-    this.form.school_id = data.school_id;
+    this.form.company_id = data.company_id;
     this.form.tour_price = parseInt(data.price);
     this.form.no_of_person = parseInt(data.paid_person);
   },

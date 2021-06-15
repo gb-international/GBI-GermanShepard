@@ -142,20 +142,16 @@ class GroupmemberController extends Controller
             $user_info->gender = $request->gender;
             $user_info->school_id = $request->school_id;
             $user_info->save();
-
-            if($groupmember) {
-              $groupmember->user_id = $user->id;
-            }
-
-            Mail::send(new AccountRegistered($user));
-
-
-            $user->password = $pass;
+           
             if( !$subscriber = Subscriber::where('email',$user->email)->first()){
                 $data['email'] = $user->email;
                 $data['user_id'] = $user->id;
+                $data['name'] = $user->name;
+                $data['client_type'] = 'eduInstitute';
                 Subscriber::create($data);
             }
+            $user->password = $pass;
+            Mail::send(new AccountRegistered($user));
             
         }
 

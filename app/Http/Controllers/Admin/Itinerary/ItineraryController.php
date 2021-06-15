@@ -12,6 +12,7 @@ use App\Model\Tour\Tourtype;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Traits\ImageTrait;
+use App\Jobs\Notifications;
 
 class ItineraryController extends Controller
 {
@@ -78,6 +79,19 @@ class ItineraryController extends Controller
         }
         $dayModels = Tourtype::find($dayModels);
         $itinerary->tourtypes()->attach($dayModels);
+
+        $notifData = [
+            'notification_type' => 'travel',
+            'client_type' => $itinerary->client_type,
+            'category' => 'itineraries',
+            'category_id' => $itinerary->id,
+            'title' => $itinerary->title,
+            'body' => $itinerary->description,
+        ];
+
+        dispatch(new Notifications($notifData));
+        //event(new \App\Events\SendNotification($notifData));
+
         return response()->json(['success'=>'Successfully added']);
     }
 
@@ -147,6 +161,7 @@ class ItineraryController extends Controller
         }
         $dayModels = Tourtype::find($dayModels);
         $itinerary->tourtypes()->sync($dayModels);
+
         return response()->json(['message'=>'Successfully Updated']);
     }
 
@@ -180,7 +195,8 @@ class ItineraryController extends Controller
             'bus'=>'',
             'train'=>'',
             'flight'=>'',
-            'price'=>'',          
+            'price'=>'',
+            'client_type'=>'',        
       ]);
     }
 

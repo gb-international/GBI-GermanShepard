@@ -250,6 +250,19 @@
                 ></multiselect>
               </div>
             </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="client_type">Client Type</label>
+                <select class="form-control customSelect" v-model="form.client_type">
+                  <option value="eduInstitute">Educational Institute</option>
+                  <option value="corporate">Corporate</option>
+                  <option value="general">General</option>
+                </select>
+                <has-error :form="form" field="client_type"></has-error>
+              </div>
+            </div>
+            
           </div>
 
           <div class="row mb-30">
@@ -452,6 +465,7 @@ export default {
         bus: "",
         flight: "",
         transport: "",
+        client_type:"",
         tourtypes: [],
         itinerarydays: [
           { day: 1, day_source: "", day_destination: "", day_description: "" },
@@ -602,4 +616,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.customSelect{
+    min-height: 53px !important;
+    font-size: 17px !important;
+    padding: 0px 40px 0 8px !important;
+    color: #737879 !important;
+    background: #fff !important;
+    font-weight: 600;
+}
+</style>
 

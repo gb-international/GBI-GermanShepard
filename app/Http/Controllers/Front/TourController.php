@@ -117,7 +117,6 @@ class TourController extends Controller{
         $user = Auth::user();
         $total_pax = CorpGroupmember::where('tour_id', $request->travel_code)->count();
         $already_paid = CorpGroupmember::where('tour_id', $request->travel_code)->where('payment_status', 'success')->count();
-         // if user is student or teacher
         if($user->is_incharge == 0){
             $travels =  TourUser::with([
                 'tour' => function($tour){

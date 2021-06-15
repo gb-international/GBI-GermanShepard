@@ -26,10 +26,11 @@ class PaymentController extends Controller
     $amount = $request->tour_price + $internet_charge;
 
     $track = Trackpayment::create([
-      'user_id'=>133,
+      'user_id'=>$request->user_id,
       'travel_code'=>$request->travel_code,
       'tour_id'=>$request->tour_id,
       'school_id'=>$request->school_id,
+      'company_id'=>$request->company_id,
       'amount'=>(int)$amount,
       "billing_name" => $request->billing_name,
       "billing_address" => $request->billing_address,
@@ -154,11 +155,20 @@ class PaymentController extends Controller
         $touruser->update($data);
       }
       $user=['name'=>$response['billing_name'],'phone_no'=>$response['billing_tel']];
-      $sendsms = new SendSms;
-      $sendsms->successPaymentSMS($user);
-      $email_data['emailto'] = $response['billing_email'];
+      //$sendsms = new SendSms;
+      //$sendsms->successPaymentSMS($user);
+      //$email_data['emailto'] = $response['billing_email'];
       // pass data to send the email here ($user is just dummy)
-      PaymentSuccessJob::dispatch($email_data);
+      $notifData = [
+        'category' => 'trackpayments',
+        'category_id' => $track->id,
+        'userId' => $track->user_id,
+        'name' => $response['billing_name'],
+        'phone_no' => $response['billing_tel'],
+        'emailto' => $response['billing_email'],
+      ];
+      event(new \App\Events\SendNotification(['title' => 'Your Payment was successful.']));
+      PaymentSuccessJob::dispatch($notifData);
       $track->delete();
       header("Location:/tour-list");
       dd($response);
