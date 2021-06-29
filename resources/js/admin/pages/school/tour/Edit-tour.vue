@@ -5,7 +5,8 @@ to submit the data we are using a function.
 
  -->
 <template>
-  <form-layout>
+<section>
+  <form-layout v-if="!loading">
     <template #formdata>
       <form
         role="form"
@@ -140,6 +141,11 @@ to submit the data we are using a function.
       </form>
     </template>
   </form-layout>
+  <div class="LoaderDiv" v-show="loading">
+    <img class="loaderLogo" src="/loader/logo_gif.gif">
+    <p style="padding-left: 33px; margin-top: 12px; font-weight: 500;">Loading..</p>
+  </div>
+</section>
 </template>
 
 <script>
@@ -174,6 +180,7 @@ export default {
         tour_end_date: "",
         tour_price: "",
       }),
+      loading: false
     };
   },
   mounted() {
@@ -232,11 +239,13 @@ export default {
       this.form
         .put(`/api/tour/${this.$route.params.id}`)
         .then((response) => {
+          this.loading = true
           // this.$router.push(`/tours/`);
           this.$toast.fire({
             icon: "success",
             title: "Successfully Updated",
           });
+          this.loading = false
         })
         .catch(() => {});
     },

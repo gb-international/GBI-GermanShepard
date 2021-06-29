@@ -71,7 +71,7 @@ class SendSms{
 
     public function feedbackLink($ph_no, $link, $name){
         $phone = '91'.$ph_no;
-        $message = "Dear ".$name." Thank you for choosing GBI. Please provide us your valuable feedback on your journey with GB International. Please click the following feedback link ".$link;
+        $message = "Dear ".$name.". Thank you for choosing GBI. Please provide us your valuable feedback on your journey with GB International .Please click the following feedback link <a href=".$link.">Give Feedback</a>";
         $template_id = 1007330159345850888;
         $ApiUrl = "https://www.businesssms.co.in/smsaspx?Id=".$this->id."&Pwd=".urlencode($this->pwd)."&PhNo=".$phone."&TemplateID=".$template_id."&TEXT=".urldecode($message);
         $client = new \GuzzleHttp\Client(['verify' => false ]);

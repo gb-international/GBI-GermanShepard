@@ -48,6 +48,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -65,7 +67,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         title: ""
-      })
+      }),
+      loading: false
     };
   },
   created: function created() {
@@ -86,6 +89,7 @@ __webpack_require__.r(__webpack_exports__);
     UpdateBus: function UpdateBus() {
       var _this2 = this;
 
+      this.loading = true;
       this.form.put("/api/tags/".concat(this.$route.params.id)).then(function (response) {
         console.log(response); //   this.$router.go(-1);
 
@@ -93,6 +97,8 @@ __webpack_require__.r(__webpack_exports__);
           icon: "success",
           title: "Successfully Updated"
         });
+
+        _this2.loading = false;
       })["catch"](function () {});
     },
     back: function back() {
@@ -118,76 +124,91 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form-layout", {
-    scopedSlots: _vm._u([
-      {
-        key: "formdata",
-        fn: function() {
-          return [
-            _c(
-              "form",
-              {
-                attrs: { role: "form", enctype: "multipart/form-data" },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.UpdateBus()
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-12" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "title" } }, [
-                          _vm._v("Title")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.title,
-                              expression: "form.title"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: { "is-invalid": _vm.form.errors.has("title") },
-                          attrs: { type: "text", placeholder: "Enter title" },
-                          domProps: { value: _vm.form.title },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+  return _c(
+    "section",
+    [
+      _c("form-layout", {
+        scopedSlots: _vm._u([
+          {
+            key: "formdata",
+            fn: function() {
+              return [
+                _c(
+                  "form",
+                  {
+                    attrs: { role: "form", enctype: "multipart/form-data" },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.UpdateBus()
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm-12" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "title" } }, [
+                              _vm._v("Title")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.title,
+                                  expression: "form.title"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.form.errors.has("title")
+                              },
+                              attrs: {
+                                type: "text",
+                                placeholder: "Enter title"
+                              },
+                              domProps: { value: _vm.form.title },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "title",
+                                    $event.target.value
+                                  )
+                                }
                               }
-                              _vm.$set(_vm.form, "title", $event.target.value)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "title" }
-                        })
-                      ],
-                      1
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("form-buttons")
-              ],
-              1
-            )
-          ]
-        },
-        proxy: true
-      }
-    ])
-  })
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "title" }
+                            })
+                          ],
+                          1
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("form-buttons")
+                  ],
+                  1
+                )
+              ]
+            },
+            proxy: true
+          }
+        ])
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

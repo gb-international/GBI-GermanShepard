@@ -154,14 +154,13 @@
 .tags-input-badge {
     position: relative;
     display: inline-block;
-    padding: 0.25em 0.4em;
-    font-size: 75%;
-    font-weight: 700;
+    padding: .85em .85em;
+    font-size: 15px;
+    font-weight: 400;
     line-height: 1;
     text-align: left;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: 0.25em;
     overflow: hidden;
     text-overflow: ellipsis;
     background-color: none !important;
@@ -170,7 +169,6 @@
 .tags-input-badge-pill {
     padding-right: 1.25em;
     padding-left: 0.6em;
-    border-radius: 10em;
 }
 .tags-input-badge-pill.disabled {
     padding-right: 0.6em;
@@ -185,14 +183,19 @@
 .typeahead-hide-btn {
     color: #999 !important;
     font-style: italic;
+    display: none;
 }
 
 .typeahead-badges{
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 100%;
   text-align: left;
-  background-color: black;
+  background-color: white;
+  font-size: 15px !important;
+  color: black;
+  position: absolute;
+  z-index: 999;
 }
 /* Typeahead - badges */
 .typeahead-badges > span {
@@ -221,12 +224,12 @@
 
 /* Typeahead elements style/theme */
 .tags-input-typeahead-item-default {
-    color: #fff;
+    color: #171f36;
 }
 
 .tags-input-typeahead-item-highlighted-default {
-    color: #fff;
-    background-color: #007bff !important;
+    color: white;
+    background-color: #171f36 !important;
 }
 li a{
     color: #333059 !important;

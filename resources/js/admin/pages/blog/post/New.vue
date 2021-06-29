@@ -1,3 +1,4 @@
+
 <!--************************************************
       Author:@Ajay 
       Edited by: @Manas
@@ -11,10 +12,16 @@ to submit the data we are using a function.
 <template>
   <form-layout>
     <template #formdata>
+    <section class="formSection">
+      <div class="LoaderDiv" v-show="loading">
+        <img class="loaderLogo" src="/loader/logo_gif.gif">
+        <p class="loadText">Loading..</p>
+      </div>
       <form
         role="form"
         enctype="multipart/form-data"
         @submit.prevent="AddPost()"
+        :style="!loading ? '' : 'opacity: 0.5' "
         >
         <div class="row">
           <div class="col-sm-12">
@@ -184,8 +191,9 @@ to submit the data we are using a function.
         </div>
         <form-buttons />
       </form>
+      </section>
     </template>
-  </form-layout>
+</form-layout>
 </template>
 
 <script>
@@ -243,6 +251,7 @@ export default {
         client_type:"",
         tags:[],
       }),
+      loading: false
     };
   },
   mounted(){
@@ -312,6 +321,7 @@ export default {
         this.clientTypeWarn = true
         return false;
       }
+      this.loading = true
       this.form.tags = this.form.meta_keyword
       //console.log(this.form.tags)
       this.form.category_id = this.form.category.id
@@ -323,6 +333,7 @@ export default {
             "Post Added successfully",
             "success"
           );
+          this.loading = false
           this.$router.push('/posts');
         })
         .catch(() => {});
@@ -353,4 +364,5 @@ export default {
     color: #dc3545;
   }
 </style>
+
 

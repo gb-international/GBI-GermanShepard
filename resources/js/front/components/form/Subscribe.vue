@@ -1,6 +1,10 @@
 <template>
     <div class="form-group subscribe-form">
         <form method="POST" @submit.prevent="subscribe()">
+            <div class="input-form mb-2 pb-1">
+                <input type="name" class="form-control" placeholder="Enter Name" v-model="form.name" :class="{ 'is-invalid': form.errors.has('name') }">
+                <has-error :form="form" field="name"></has-error>
+            </div>
             <div class="input-form mb-4">
                 <input type="email" class="form-control" placeholder="Enter Email ID" v-model="form.email" :class="{ 'is-invalid': form.errors.has('email') }">
                 <has-error :form="form" field="email"></has-error>
@@ -21,6 +25,7 @@ export default {
     data(){
         return{
             form:new Form({
+                name: '',
                 email:''
             })
         }

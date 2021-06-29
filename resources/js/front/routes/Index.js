@@ -13,6 +13,7 @@ import Feedback from '@/front/routes/Feedback.js';
 import ContactUs from '@/front/routes/ContactUs.js';
 import ExploreDestination from '@/front/routes/ExploreDestination.js';
 import ErrorPage from '@/front/routes/Error.js';
+import Notification from '@/front/routes/Notification.js';
 import PaymentLink from '@/front/routes/PaymentLink.js';
 import User from '@/front/routes/User.js';
 
@@ -28,8 +29,9 @@ export function createRouter() {
             ...AboutUs,
             ...ContactUs,
             ...ExploreDestination,
-            ...Feedback,
             ...ErrorPage,
+            ...Feedback,
+            ...Notification,
             ...PaymentLink,
             ...User,
         ]

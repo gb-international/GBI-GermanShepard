@@ -6,17 +6,23 @@
 
 <!-- 
 
-This template helps us to create a new hotel it takes the data from the form and sumbit with the help of the api
+This template helps us to edit a new blog it takes the data from the form and sumbit with the help of the api
 to submit the data we are using a function.
 
  -->
 <template>
   <form-layout>
     <template #formdata>
+    <section class="formSection">
+      <div class="LoaderDiv" v-show="loading">
+        <img class="loaderLogo" src="/loader/logo_gif.gif">
+        <p class="loadText">Loading..</p>
+      </div>
       <form
         role="form"
         enctype="multipart/form-data"
         @submit.prevent="UpdatePost()"
+        :style="!loading ? '' : 'opacity: 0.5' "
       >
         <div class="row" v-if="form.title">
           <div class="col-sm-12">
@@ -166,6 +172,7 @@ to submit the data we are using a function.
 
         <form-buttons />
       </form>
+      </section>
     </template>
   </form-layout>
 </template>
@@ -224,6 +231,7 @@ export default {
         category_id: "",
         client_type:"",
       }),
+      loading: false
     };
   },
   created() {},
@@ -338,7 +346,7 @@ export default {
         this.clientTypeWarn = true
         return false;
       }
-
+      this.loading = true
       if(this.titleWarn !== true && this.form.tags.length !== 0 ){
         this.form.tags = this.form.meta_keyword
         this.form
@@ -349,6 +357,7 @@ export default {
             "Item Updated successfully",
             "success"
           );
+          this.loading = false
         })
         .catch(() => {});
       }

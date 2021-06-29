@@ -10,6 +10,7 @@ import { filter } from "./filter";
 import { createStore } from './store'
 import EventBus from '@/front/store/EventBus';
 import VueSweetalert2 from 'vue-sweetalert2';
+import { BootstrapVue,TablePlugin } from 'bootstrap-vue';
 import swal from 'sweetalert2'
 import VueMeta from 'vue-meta';
 import vuecookies from 'vue-cookies';
@@ -26,6 +27,11 @@ Vue.use(vuecookies)
 Vue.prototype.$axios = axios
 Vue.prototype.$bus = EventBus
 Vue.directive("lazyload", LazyLoadDirective);
+
+// bootstrapvue
+Vue.use(BootstrapVue);
+Vue.use(TablePlugin);
+// end bootstrapvue
 
 
 // client side js
@@ -45,6 +51,7 @@ Vue.config.debug = false;
 Vue.config.silent = true;
 //console.log = function() {};
 // End
+
 
 Vue.component("vue-headful", vueHeadful);
 Vue.component("ImageSpinner", require("@/front/components/ImageSpinner.vue").default);

@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Helpers\SendSms;
 use App\Jobs\ChangePasswordJob;
 use App\Rules\EmailValidate;
+use App\Model\User\Subscriber;
+use App\Model\Notification\Notifier;
 
 
 class AuthController extends Controller{
@@ -92,6 +94,8 @@ class AuthController extends Controller{
             ], 422);
         }
 
+        $sub = Subscriber::where('user_id', $user->id)->first();
+
         // Get the data from the response
         $data = json_decode($response->getContent());
         $userData = [
@@ -110,7 +114,8 @@ class AuthController extends Controller{
             'school_id'=>$user->information->school_id,
             'company_id'=>$user->information->company_id,
             'client_type'=>$user->information->client_type,
-            'change_password' => $user->information->change_password
+            'change_password' => $user->information->change_password,
+            'subscription_id' => $sub->id
         ];
         // Format the final response in a desirable format
         return response()->json([

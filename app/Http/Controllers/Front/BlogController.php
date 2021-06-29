@@ -52,7 +52,6 @@ class BlogController extends Controller
             $data = Post::with('category','tags')
             ->where('title','like',"%$request->title%")
             ->orWhere('category_id',$request->category_id)
-            ->whereIn('meta_keyword', $request->tag_id)
             ->get();
         }else{
             $data = Post::with('category','tags')

@@ -87,7 +87,7 @@ window.VoerroTagsInput = _VoerroTagsInput_vue__WEBPACK_IMPORTED_MODULE_0__["defa
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-search-select/dist/VueSearchSelect.css?1912":
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-search-select/dist/VueSearchSelect.css":
 /*!*************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-search-select/dist/VueSearchSelect.css ***!
   \*************************************************************************************************************************************************/
@@ -1325,7 +1325,7 @@ render._withStripped = true
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./VueSearchSelect.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-search-select/dist/VueSearchSelect.css?1912");
+var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./VueSearchSelect.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-search-select/dist/VueSearchSelect.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 

@@ -54444,6 +54444,31 @@ bh=banner header |bp=banner para |ch=content header|cp=content para|cardh=card h
   opacity: 0;
 }
 
+#adminmain .formSection {
+  position: relative;
+  z-index: 99;
+}
+
+#adminmain .LoaderDiv {
+  right: 50%;
+  top: 20%;
+  margin: auto;
+  position: absolute;
+  z-index: 999;
+}
+
+#adminmain .loadText {
+  padding-left: 32px;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+#adminmain .loaderLogo {
+  height: auto;
+  width: 15vh;
+  z-index: 999;
+}
+
 #adminmain .radiolabel {
   margin-left: 0px;
 }
@@ -55329,7 +55354,7 @@ iframe {
 
 .pagination .page-item.active .page-link {
   background-color: #332f58;
-  color: white;
+  color: white !important;
 }
 
 .list-section th {

@@ -3,7 +3,8 @@
 This template helps us to create a new Tour.
  -->
 <template>
-  <form-layout>
+<section>
+  <form-layout v-if="!loading">
     <template #formdata>
       <form
         role="form"
@@ -140,11 +141,15 @@ This template helps us to create a new Tour.
             </div>
           </div>
         </div>
-
         <form-buttons />
       </form>
     </template>
   </form-layout>
+  <div class="LoaderDiv" v-show="loading">
+    <img class="loaderLogo" src="/loader/logo_gif.gif">
+    <p style="padding-left: 33px; margin-top: 12px; font-weight: 500;">Loading..</p>
+  </div>
+</section>
 </template>
 <script>
 import { Form, HasError } from "vform";
@@ -184,6 +189,7 @@ export default {
         tour_end_date: "",
         tour_price: "",
       }),
+      loading: false
     };
   },
   mounted() {
@@ -261,17 +267,17 @@ export default {
         }
       });
     },
-
     AddTour() {
-      //console.log(this.form.tour_start_date)
       this.form
         .post("/api/tour")
         .then((res) => {
+          this.loading = true
           this.$router.push(`/school/tours/`);
           this.$toast.fire({
             icon: "success",
             title: "Tour Added successfully",
           });
+        this.loading = false
         })
         .catch(() => {});
     },

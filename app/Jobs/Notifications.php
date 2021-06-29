@@ -36,8 +36,10 @@ class Notifications implements ShouldQueue
      */
     public function handle()
     {
-        $data = $this->data; 
-        event(new \App\Events\SendNotification($data));
+        $data = $this->data;
+        $data['title'] = strip_tags($data['title']);
+        $data['body'] = strip_tags($data['body']);
+
         if($data['notification_type'] == 'posts'){
             $subsribers = Subscriber::where('client_type', $data['client_type'])->where('posts_notification', '1')->get();
             if($subsribers->count() > 0){
@@ -53,6 +55,7 @@ class Notifications implements ShouldQueue
                 foreach ($subsribers as $sub) {
                     $notifier = Notifier::create([
                         'notification_id' => $notification->id, 
+                        'category' => $data['category'],
                         'subscription_id' => $sub->id, 
                         'status' => 0, 
                         'service' => 'email',
@@ -60,6 +63,7 @@ class Notifications implements ShouldQueue
                     //Mail::send(new postNotification($data));
                     $notifier->status = 1;
                     $notifier->save();
+                    event(new \App\Events\SendNotification($data));
                 }
             }
         }
@@ -77,7 +81,8 @@ class Notifications implements ShouldQueue
             
                 foreach ($subsribers as $sub) {
                     $notifier = Notifier::create([
-                        'notification_id' => $notification->id, 
+                        'notification_id' => $notification->id,
+                        'category' => $data['category'],
                         'subscription_id' => $sub->id, 
                         'status' => 0, 
                         'service' => 'email',
@@ -85,6 +90,7 @@ class Notifications implements ShouldQueue
                     //Mail::send(new promotionNotification($data));
                     $notifier->status = 1;
                     $notifier->save();
+                    event(new \App\Events\SendNotification($data));
                 }
             }
         }
@@ -102,7 +108,8 @@ class Notifications implements ShouldQueue
             
                 foreach ($subsribers as $sub) {
                     $notifier = Notifier::create([
-                        'notification_id' => $notification->id, 
+                        'notification_id' => $notification->id,
+                        'category' => $data['category'],
                         'subscription_id' => $sub->id, 
                         'status' => 0, 
                         'service' => 'email',
@@ -110,6 +117,7 @@ class Notifications implements ShouldQueue
                     //Mail::send(new postNotification($data));
                     $notifier->status = 1;
                     $notifier->save();
+                    event(new \App\Events\SendNotification($data));
                 }
             }
         }
@@ -127,7 +135,8 @@ class Notifications implements ShouldQueue
             
                 foreach ($subsribers as $sub) {
                     $notifier = Notifier::create([
-                        'notification_id' => $notification->id, 
+                        'notification_id' => $notification->id,
+                        'category' => $data['category'],
                         'subscription_id' => $sub->id, 
                         'status' => 0, 
                         'service' => 'email',
@@ -135,6 +144,7 @@ class Notifications implements ShouldQueue
                     Mail::send(new websiteNotification($data));
                     $notifier->status = 1;
                     $notifier->save();
+                    event(new \App\Events\SendNotification($data));
                 }
             }
         }

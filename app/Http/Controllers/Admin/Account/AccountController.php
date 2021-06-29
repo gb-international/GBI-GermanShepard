@@ -32,8 +32,7 @@ class AccountController extends Controller
                 ->where('accounts.status' ,'!=', 'confirm')
                 ->orderBy('accounts.id','desc')
                 ->paginate($size);
-
-                
+          
         return response()->json($data['data']);
     }
 

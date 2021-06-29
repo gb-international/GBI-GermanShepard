@@ -193,6 +193,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -246,7 +253,8 @@ __webpack_require__.r(__webpack_exports__);
         tags: [],
         category_id: "",
         client_type: ""
-      })
+      }),
+      loading: false
     };
   },
   created: function created() {},
@@ -378,10 +386,14 @@ __webpack_require__.r(__webpack_exports__);
         return false;
       }
 
+      this.loading = true;
+
       if (this.titleWarn !== true && this.form.tags.length !== 0) {
         this.form.tags = this.form.meta_keyword;
         this.form.put("/api/posts/".concat(this.$route.params.id)).then(function (response) {
           _this4.$swal.fire("Updated!", "Item Updated successfully", "success");
+
+          _this4.loading = false;
         })["catch"](function () {});
       }
     },
@@ -480,466 +492,503 @@ var render = function() {
         key: "formdata",
         fn: function() {
           return [
-            _c(
-              "form",
-              {
-                attrs: { role: "form", enctype: "multipart/form-data" },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.UpdatePost()
+            _c("section", { staticClass: "formSection" }, [
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.loading,
+                      expression: "loading"
+                    }
+                  ],
+                  staticClass: "LoaderDiv"
+                },
+                [
+                  _c("img", {
+                    staticClass: "loaderLogo",
+                    attrs: { src: "/loader/logo_gif.gif" }
+                  }),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "loadText" }, [_vm._v("Loading..")])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  style: !_vm.loading ? "" : "opacity: 0.5",
+                  attrs: { role: "form", enctype: "multipart/form-data" },
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.UpdatePost()
+                    }
                   }
-                }
-              },
-              [
-                _vm.form.title
-                  ? _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-sm-12" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "title" } }, [
-                              _vm._v("Title")
-                            ]),
-                            _vm._v(" "),
-                            _c("input", {
-                              staticClass: "form-control",
-                              class: {
-                                "is-invalid": _vm.form.errors.has("title")
-                              },
-                              attrs: {
-                                type: "text",
-                                placeholder: "Enter title"
-                              },
-                              domProps: { value: _vm.form.title },
-                              on: {
-                                input: function($event) {
-                                  return _vm.changeField(
-                                    "title",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "title" }
-                            }),
-                            _vm._v(" "),
-                            _vm.titleWarn
-                              ? _c("p", { staticClass: "warn-error" }, [
-                                  _vm._v(" Title can't be empty.")
-                                ])
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-12" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "description" } }, [
-                              _vm._v("Description")
-                            ]),
-                            _vm._v(" "),
-                            _c("vue-editor", {
-                              class: {
-                                "is-invalid": _vm.form.errors.has("description")
-                              },
-                              attrs: {
-                                customModules: _vm.customModulesForEditor,
-                                editorOptions: _vm.editorSettings,
-                                id: "editor",
-                                useCustomImageHandler: ""
-                              },
-                              on: {
-                                "image-added": _vm.handleImageAdded,
-                                "image-removed": _vm.handleImageRemoved
-                              },
-                              model: {
-                                value: _vm.form.description,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.form, "description", $$v)
+                },
+                [
+                  _vm.form.title
+                    ? _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-12" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "title" } }, [
+                                _vm._v("Title")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                staticClass: "form-control",
+                                class: {
+                                  "is-invalid": _vm.form.errors.has("title")
                                 },
-                                expression: "form.description"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "description" }
-                            }),
-                            _vm._v(" "),
-                            _vm.descriptionWarn
-                              ? _c("p", { staticClass: "warn-error" }, [
-                                  _vm._v(" Please input description.")
-                                ])
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-12" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "description" } }, [
-                              _vm._v("Summary")
-                            ]),
-                            _vm._v(" "),
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.summery,
-                                  expression: "form.summery"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              class: {
-                                "is-invalid": _vm.form.errors.has("summery")
-                              },
-                              attrs: {
-                                row: "3",
-                                type: "text",
-                                placeholder: "Enter summary"
-                              },
-                              domProps: { value: _vm.form.summery },
-                              on: {
-                                change: function($event) {
-                                  return _vm.changeField(
-                                    "summery",
-                                    $event.target.value
-                                  )
+                                attrs: {
+                                  type: "text",
+                                  placeholder: "Enter title"
                                 },
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
+                                domProps: { value: _vm.form.title },
+                                on: {
+                                  input: function($event) {
+                                    return _vm.changeField(
+                                      "title",
+                                      $event.target.value
+                                    )
                                   }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "summery",
-                                    $event.target.value
-                                  )
                                 }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "summery" }
-                            }),
-                            _vm._v(" "),
-                            _vm.summeryWarn
-                              ? _c("p", { staticClass: "warn-error" }, [
-                                  _vm._v(" Please input summary.")
-                                ])
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-6" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "meta_title" } }, [
-                              _vm._v("Meta Title")
-                            ]),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.meta_title,
-                                  expression: "form.meta_title"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              class: {
-                                "is-invalid": _vm.form.errors.has("meta_title")
-                              },
-                              attrs: {
-                                type: "text",
-                                placeholder: "Enter meta title"
-                              },
-                              domProps: { value: _vm.form.meta_title },
-                              on: {
-                                change: function($event) {
-                                  return _vm.changeField(
-                                    "meta_title",
-                                    $event.target.value
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "title" }
+                              }),
+                              _vm._v(" "),
+                              _vm.titleWarn
+                                ? _c("p", { staticClass: "warn-error" }, [
+                                    _vm._v(" Title can't be empty.")
+                                  ])
+                                : _vm._e()
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-12" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "description" } }, [
+                                _vm._v("Description")
+                              ]),
+                              _vm._v(" "),
+                              _c("vue-editor", {
+                                class: {
+                                  "is-invalid": _vm.form.errors.has(
+                                    "description"
                                   )
                                 },
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "meta_title",
-                                    $event.target.value
-                                  )
+                                attrs: {
+                                  customModules: _vm.customModulesForEditor,
+                                  editorOptions: _vm.editorSettings,
+                                  id: "editor",
+                                  useCustomImageHandler: ""
+                                },
+                                on: {
+                                  "image-added": _vm.handleImageAdded,
+                                  "image-removed": _vm.handleImageRemoved
+                                },
+                                model: {
+                                  value: _vm.form.description,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.form, "description", $$v)
+                                  },
+                                  expression: "form.description"
                                 }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "meta_title" }
-                            }),
-                            _vm._v(" "),
-                            _vm.meta_titleWarn
-                              ? _c("p", { staticClass: "warn-error" }, [
-                                  _vm._v(" Please input Meta Title.")
-                                ])
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-6" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "meta_keyword" } }, [
-                              _vm._v("Meta Keywords")
-                            ]),
-                            _vm._v(" "),
-                            _c("tags-input", {
-                              attrs: {
-                                "element-id": "tags",
-                                "existing-tags": _vm.tags,
-                                typeahead: true
-                              },
-                              on: { "tags-updated": _vm.updateTags },
-                              model: {
-                                value: _vm.meta_key,
-                                callback: function($$v) {
-                                  _vm.meta_key = $$v
-                                },
-                                expression: "meta_key"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "tags" }
-                            }),
-                            _vm._v(" "),
-                            _vm.tagsWarn && _vm.meta_key.length < 1
-                              ? _c("p", { staticClass: "warn-error" }, [
-                                  _vm._v("Please choose keywords.")
-                                ])
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-6" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "status" } }, [
-                              _vm._v("Status")
-                            ]),
-                            _vm._v(" "),
-                            _c("status-dd", {
-                              staticClass: "mb-2",
-                              attrs: { itemList: _vm.status_list },
-                              model: {
-                                value: _vm.form.status,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.form, "status", $$v)
-                                },
-                                expression: "form.status"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "status" }
-                            })
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-6" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "categories" } }, [
-                              _vm._v("Category")
-                            ]),
-                            _vm._v(" "),
-                            _c("dropdown-list", {
-                              staticClass: "mb-2",
-                              attrs: { itemList: _vm.categories },
-                              model: {
-                                value: _vm.form.category_id,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.form, "category_id", $$v)
-                                },
-                                expression: "form.category_id"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "categories" }
-                            })
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-6" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "client_type" } }, [
-                              _vm._v("Client Type")
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "select",
-                              {
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "description" }
+                              }),
+                              _vm._v(" "),
+                              _vm.descriptionWarn
+                                ? _c("p", { staticClass: "warn-error" }, [
+                                    _vm._v(" Please input description.")
+                                  ])
+                                : _vm._e()
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-12" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "description" } }, [
+                                _vm._v("Summary")
+                              ]),
+                              _vm._v(" "),
+                              _c("textarea", {
                                 directives: [
                                   {
                                     name: "model",
                                     rawName: "v-model",
-                                    value: _vm.form.client_type,
-                                    expression: "form.client_type"
+                                    value: _vm.form.summery,
+                                    expression: "form.summery"
                                   }
                                 ],
                                 staticClass: "form-control",
+                                class: {
+                                  "is-invalid": _vm.form.errors.has("summery")
+                                },
+                                attrs: {
+                                  row: "3",
+                                  type: "text",
+                                  placeholder: "Enter summary"
+                                },
+                                domProps: { value: _vm.form.summery },
                                 on: {
                                   change: function($event) {
-                                    var $$selectedVal = Array.prototype.filter
-                                      .call($event.target.options, function(o) {
-                                        return o.selected
-                                      })
-                                      .map(function(o) {
-                                        var val =
-                                          "_value" in o ? o._value : o.value
-                                        return val
-                                      })
+                                    return _vm.changeField(
+                                      "summery",
+                                      $event.target.value
+                                    )
+                                  },
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
                                     _vm.$set(
                                       _vm.form,
-                                      "client_type",
-                                      $event.target.multiple
-                                        ? $$selectedVal
-                                        : $$selectedVal[0]
+                                      "summery",
+                                      $event.target.value
                                     )
                                   }
                                 }
-                              },
-                              [
-                                _c(
-                                  "option",
-                                  { attrs: { value: "eduInstitute" } },
-                                  [_vm._v("Educational Institute")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "option",
-                                  { attrs: { value: "corporate" } },
-                                  [_vm._v("Corporate")]
-                                ),
-                                _vm._v(" "),
-                                _c("option", { attrs: { value: "general" } }, [
-                                  _vm._v("General")
-                                ])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "client_type" }
-                            }),
-                            _vm._v(" "),
-                            _vm.clientTypeWarn && _vm.form.client_type === ""
-                              ? _c("p", { staticClass: "warn-error" }, [
-                                  _vm._v(" Please choose a client type.")
-                                ])
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-4" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c(
-                              "label",
-                              { staticClass: "label", attrs: { for: "input" } },
-                              [_vm._v("Please upload a Banner image !")]
-                            ),
-                            _vm._v(" "),
-                            _c("br"),
-                            _vm._v(" "),
-                            _c("input", {
-                              staticClass: "mt-2",
-                              class: {
-                                "is-invalid": _vm.form.errors.has("image")
-                              },
-                              attrs: { type: "file" },
-                              on: {
-                                change: function($event) {
-                                  return _vm.changeDetailPhoto($event)
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "summery" }
+                              }),
+                              _vm._v(" "),
+                              _vm.summeryWarn
+                                ? _c("p", { staticClass: "warn-error" }, [
+                                    _vm._v(" Please input summary.")
+                                  ])
+                                : _vm._e()
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-6" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "meta_title" } }, [
+                                _vm._v("Meta Title")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.meta_title,
+                                    expression: "form.meta_title"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                class: {
+                                  "is-invalid": _vm.form.errors.has(
+                                    "meta_title"
+                                  )
+                                },
+                                attrs: {
+                                  type: "text",
+                                  placeholder: "Enter meta title"
+                                },
+                                domProps: { value: _vm.form.meta_title },
+                                on: {
+                                  change: function($event) {
+                                    return _vm.changeField(
+                                      "meta_title",
+                                      $event.target.value
+                                    )
+                                  },
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "meta_title",
+                                      $event.target.value
+                                    )
+                                  }
                                 }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "image" }
-                            })
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-2" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "image" } }),
-                            _vm._v(" "),
-                            _c("br"),
-                            _vm._v(" "),
-                            _c("img", {
-                              staticClass: "image w-100",
-                              attrs: { src: _vm.img_image, alt: "" }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "image" }
-                            })
-                          ],
-                          1
-                        )
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "meta_title" }
+                              }),
+                              _vm._v(" "),
+                              _vm.meta_titleWarn
+                                ? _c("p", { staticClass: "warn-error" }, [
+                                    _vm._v(" Please input Meta Title.")
+                                  ])
+                                : _vm._e()
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-6" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "meta_keyword" } }, [
+                                _vm._v("Meta Keywords")
+                              ]),
+                              _vm._v(" "),
+                              _c("tags-input", {
+                                attrs: {
+                                  "element-id": "tags",
+                                  "existing-tags": _vm.tags,
+                                  typeahead: true
+                                },
+                                on: { "tags-updated": _vm.updateTags },
+                                model: {
+                                  value: _vm.meta_key,
+                                  callback: function($$v) {
+                                    _vm.meta_key = $$v
+                                  },
+                                  expression: "meta_key"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "tags" }
+                              }),
+                              _vm._v(" "),
+                              _vm.tagsWarn && _vm.meta_key.length < 1
+                                ? _c("p", { staticClass: "warn-error" }, [
+                                    _vm._v("Please choose keywords.")
+                                  ])
+                                : _vm._e()
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-6" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "status" } }, [
+                                _vm._v("Status")
+                              ]),
+                              _vm._v(" "),
+                              _c("status-dd", {
+                                staticClass: "mb-2",
+                                attrs: { itemList: _vm.status_list },
+                                model: {
+                                  value: _vm.form.status,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.form, "status", $$v)
+                                  },
+                                  expression: "form.status"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "status" }
+                              })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-6" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "categories" } }, [
+                                _vm._v("Category")
+                              ]),
+                              _vm._v(" "),
+                              _c("dropdown-list", {
+                                staticClass: "mb-2",
+                                attrs: { itemList: _vm.categories },
+                                model: {
+                                  value: _vm.form.category_id,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.form, "category_id", $$v)
+                                  },
+                                  expression: "form.category_id"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "categories" }
+                              })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-6" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "client_type" } }, [
+                                _vm._v("Client Type")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.form.client_type,
+                                      expression: "form.client_type"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.form,
+                                        "client_type",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "option",
+                                    { attrs: { value: "eduInstitute" } },
+                                    [_vm._v("Educational Institute")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "option",
+                                    { attrs: { value: "corporate" } },
+                                    [_vm._v("Corporate")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "option",
+                                    { attrs: { value: "general" } },
+                                    [_vm._v("General")]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "client_type" }
+                              }),
+                              _vm._v(" "),
+                              _vm.clientTypeWarn && _vm.form.client_type === ""
+                                ? _c("p", { staticClass: "warn-error" }, [
+                                    _vm._v(" Please choose a client type.")
+                                  ])
+                                : _vm._e()
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-4" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "label",
+                                  attrs: { for: "input" }
+                                },
+                                [_vm._v("Please upload a Banner image !")]
+                              ),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("input", {
+                                staticClass: "mt-2",
+                                class: {
+                                  "is-invalid": _vm.form.errors.has("image")
+                                },
+                                attrs: { type: "file" },
+                                on: {
+                                  change: function($event) {
+                                    return _vm.changeDetailPhoto($event)
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "image" }
+                              })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-2" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "image" } }),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "image w-100",
+                                attrs: { src: _vm.img_image, alt: "" }
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "image" }
+                              })
+                            ],
+                            1
+                          )
+                        ])
                       ])
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("form-buttons")
-              ],
-              1
-            )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("form-buttons")
+                ],
+                1
+              )
+            ])
           ]
         },
         proxy: true

@@ -26,9 +26,14 @@ class FeedbackResource extends JsonResource
         $updatedAt = date('h:i A',strtotime($this->updated_at));
         $days = $itinerary->noofdays.' Days';
         $ph_no = 'NA';
+        $avgRate = (($this->trip_itenerary+$this->place_of_stay+$this->food_quality+$this->transport_arrangements+$this->escort_hospitality)/5);
+        $userImg = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
         if($user->information){
             $ph_no = $user->information->phone_no;
+            if($user->information->photo){
+                $userImg = "https://gbi-assets.s3.ap-south-1.amazonaws.com/images/user/".$user->information->photo;
+            }
         }
 
         if($today > (strtotime($this->updated_at) + 86400)){
@@ -59,7 +64,10 @@ class FeedbackResource extends JsonResource
                 'comments'=>$this->comments,
                 'time'=>$updatedAt,
                 'days'=>$days,
-                'fullDate'=> date('d M Y', strtotime($this->updated_at))
+                'fullDate'=> date('d M Y', strtotime($this->updated_at)),
+                'profession'=>$user->user_profession,
+                'avgRate'=> $avgRate,
+                'photo'=>$userImg
         ];
     }
 }

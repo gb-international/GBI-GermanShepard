@@ -44,12 +44,12 @@
           </form>
         </div>
 
-        <div class="search-blog-form col-lg-8 col-md-8 col-sm-12">
+        <div class="search-blog-form col-lg-12 col-md-12 col-sm-12">
           <form method="post" novalidate="novalidate">
             <div class="col-lg-12">
               <div class="row justify-content-between">
 
-                 <div class="col-lg-6 col-md-6 col-sm-12 p-2">
+                 <div class="col-lg-12 p-0 pb-2">
                   <div class="select-cat">
                     <select
                       class="form-control search-slt"
@@ -64,7 +64,7 @@
                 </div>
 
 
-                <div class="col-lg-6 col-md-6 col-sm-12 p-2">
+               <!-- <div class="col-lg-6 col-md-6 col-sm-12 p-2">
                   <div class="select-cat">
                     <select
                       class="form-control search-slt"
@@ -76,7 +76,7 @@
                     </select>
                     <i class="fas fa-caret-down"></i>
                   </div>
-                </div>
+                </div> -->
                 
 
               </div>

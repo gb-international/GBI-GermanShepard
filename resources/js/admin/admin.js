@@ -15,7 +15,6 @@ import DisableAutocomplete from 'vue-disable-autocomplete';
 import { BootstrapVue,TablePlugin } from 'bootstrap-vue';
 import vuecookies from 'vue-cookies';
 
-
 Vue.use(VueSession);
 Vue.mixin(Permissions);
 Vue.use(vuecookies);

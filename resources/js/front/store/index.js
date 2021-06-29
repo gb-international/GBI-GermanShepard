@@ -13,6 +13,7 @@ export function createStore() {
             token : '',
             user: {},
             paymentData:'',
+            notifCount: 0,
         },
         // Getters help to fetch the data from the templates 
         getters: {
@@ -25,6 +26,9 @@ export function createStore() {
             },
             getEditData(state) {
                 return state.editdata
+            },
+            notifCount(state) {
+                return state.notifCount
             },
             isLoggedIn: state => !!state.token,
             authStatus: state => state.status,
@@ -39,6 +43,12 @@ export function createStore() {
                         context.commit('alldata', response.data.data)
                     })
             },
+            getNotifCount(context, sub_id) {
+                axios.get("/api/notif-count/"+sub_id)
+                    .then((response) => {
+                        context.commit('notifCount', response.data)
+                    })
+            },
             login({ commit }, user) {
                 return new Promise((resolve, reject) => {
                     commit('auth_request')
@@ -49,6 +59,7 @@ export function createStore() {
                             Vue.$cookies.set('access_token',token);
                             Vue.$cookies.set('refresh_token',resp.data.refresh_token);
                             Vue.$cookies.set('user',user);
+                            //commit('notifCount' ,user.notifCount);
                             Vue.$cookies.set('login',2);
                             localStorage.setItem('token', token)
                             axios.defaults.headers.common['Authorization'] = token
@@ -158,6 +169,9 @@ export function createStore() {
             },
             PAYMENT_TOUR_DATA(state,payload){
                 state.paymentData = payload
+            },
+            notifCount(state, val){
+                state.notifCount = val
             }
         }
     })

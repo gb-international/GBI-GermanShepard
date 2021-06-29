@@ -146,7 +146,7 @@ iframe{ width: 100%;}
 	.page-item.active{
 		.page-link{
 			background-color: $admin-bg;
-			color: white
+			color: white !important;
 		}
 	}
 }

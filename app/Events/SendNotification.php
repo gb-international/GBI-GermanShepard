@@ -48,6 +48,6 @@ class SendNotification implements ShouldBroadcastNow
      */
     public function broadcastWith()
     {
-        return ['title' => $this->data['title']];
+        return [$this->data];
     }
 }

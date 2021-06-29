@@ -86,6 +86,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BlogCard",
   props: ['post']
@@ -415,6 +416,7 @@ var render = function() {
     _c("div", { staticClass: "container pt-3" }, [
       _c("img", {
         staticClass: "card-img-top border-radius-0",
+        staticStyle: { height: "200px !important", width: "320" },
         attrs: { src: _vm.post.image, alt: "Bologna" }
       })
     ]),
@@ -424,12 +426,12 @@ var render = function() {
       { staticClass: "card-body" },
       [
         _c("h4", { staticClass: "card-title text-left text-primary" }, [
-          _vm._v(_vm._s(_vm.post.category.title))
+          _vm._v(_vm._s(_vm.post.title))
         ]),
         _vm._v(" "),
         _c("router-link", { attrs: { to: "/blog/" + _vm.post.slug } }, [
           _c("h6", { staticClass: "card-subtitle mb-2" }, [
-            _vm._v(_vm._s(_vm.post.title))
+            _vm._v(_vm._s(_vm.post.category.title))
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "card-text" }, [
@@ -527,7 +529,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "search-blog-form col-lg-8 col-md-8 col-sm-12" },
+          { staticClass: "search-blog-form col-lg-12 col-md-12 col-sm-12" },
           [
             _c(
               "form",
@@ -535,129 +537,62 @@ var render = function() {
               [
                 _c("div", { staticClass: "col-lg-12" }, [
                   _c("div", { staticClass: "row justify-content-between" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-6 col-md-6 col-sm-12 p-2" },
-                      [
-                        _c("div", { staticClass: "select-cat" }, [
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.category_id,
-                                  expression: "form.category_id"
-                                }
-                              ],
-                              staticClass: "form-control search-slt",
-                              attrs: { id: "exampleFormControlSelect1" },
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.form,
-                                    "category_id",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                }
+                    _c("div", { staticClass: "col-lg-12 p-0 pb-2" }, [
+                      _c("div", { staticClass: "select-cat" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.category_id,
+                                expression: "form.category_id"
                               }
-                            },
-                            [
-                              _c(
-                                "option",
-                                { attrs: { value: "undefined", disabled: "" } },
-                                [_vm._v("Select category")]
-                              ),
-                              _vm._v(" "),
-                              _vm._l(_vm.category_list, function(cat) {
-                                return _c(
-                                  "option",
-                                  { key: cat.id, domProps: { value: cat.id } },
-                                  [_vm._v(_vm._s(cat.title))]
-                                )
-                              })
                             ],
-                            2
-                          ),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fas fa-caret-down" })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-6 col-md-6 col-sm-12 p-2" },
-                      [
-                        _c("div", { staticClass: "select-cat" }, [
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.tag_id,
-                                  expression: "form.tag_id"
-                                }
-                              ],
-                              staticClass: "form-control search-slt",
-                              attrs: { id: "exampleFormControlSelect1" },
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.form,
-                                    "tag_id",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                }
+                            staticClass: "form-control search-slt",
+                            attrs: { id: "exampleFormControlSelect1" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "category_id",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
                               }
-                            },
-                            [
-                              _c(
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "undefined", disabled: "" } },
+                              [_vm._v("Select category")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.category_list, function(cat) {
+                              return _c(
                                 "option",
-                                { attrs: { value: "undefined", disabled: "" } },
-                                [_vm._v("Select Keyword")]
-                              ),
-                              _vm._v(" "),
-                              _vm._l(_vm.keyword_list, function(cat) {
-                                return _c(
-                                  "option",
-                                  { key: cat.id, domProps: { value: cat.id } },
-                                  [_vm._v(_vm._s(cat.title))]
-                                )
-                              })
-                            ],
-                            2
-                          ),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fas fa-caret-down" })
-                        ])
-                      ]
-                    )
+                                { key: cat.id, domProps: { value: cat.id } },
+                                [_vm._v(_vm._s(cat.title))]
+                              )
+                            })
+                          ],
+                          2
+                        ),
+                        _vm._v(" "),
+                        _c("i", { staticClass: "fas fa-caret-down" })
+                      ])
+                    ])
                   ]),
                   _vm._v(" "),
                   _vm.error_message != ""

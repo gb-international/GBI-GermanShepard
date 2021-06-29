@@ -13,11 +13,17 @@ to submit the data we are using a function.
 <template>
   <form-layout>
     <template #formdata>
+      <section class="formSection">
+      <div class="LoaderDiv" v-show="loading">
+        <img class="loaderLogo" src="/loader/logo_gif.gif">
+        <p class="loadText">Loading..</p>
+      </div>
       <form
         v-if="allCreated"
         role="form"
         enctype="multipart/form-data"
         @submit.prevent="addItem()"
+        :style="!loading ? '' : 'opacity: 0.5' "
       >
         <div class="row" v-if="form.state_name">
           <div class="col-sm-3">
@@ -215,6 +221,7 @@ to submit the data we are using a function.
 
         <form-buttons />
       </form>
+    </section>
     </template>
   </form-layout>
 </template>
@@ -268,6 +275,7 @@ export default {
         images: [],
         files: [],
       }),
+      loading: false
     };
   },
   created() {
@@ -444,6 +452,7 @@ export default {
 
     addItem() {
       // Submit form
+      this.loading = true
       var api = `/api/encyclopedias/${this.$route.params.id}`;
       this.form
         .put(api)
@@ -453,6 +462,7 @@ export default {
             icon: "success",
             title: "Encyclopedia Updated successfully",
           });
+        this.loading = false
         })
         .catch(() => {});
     },

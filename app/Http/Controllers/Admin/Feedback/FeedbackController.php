@@ -24,7 +24,7 @@ use App\User;
 class FeedbackController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource (sorted New to Old).
      */
     public function index()
     {    
@@ -34,11 +34,29 @@ class FeedbackController extends Controller
 
     }
 
+    /**
+     * Display a listing of the resource (sorted Old to New).
+     */
+
     public function indexOld()
     {    
 
         $feedbacks = Feedback::orderBy('updated_at')->paginate(5);
         return FeedbackResource::collection($feedbacks);
+
+    }
+
+    /**
+     * Post feedback to the website.
+     */
+
+    public function postComment(Request $request)
+    {    
+
+        $feedback = Feedback::find($request->id);
+        $feedback->public = 1;
+        $feedback->save();
+        return FeedbackResource($feedback);
 
     }
 

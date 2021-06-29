@@ -9,6 +9,7 @@ import Home from '@/admin/routes/Home.js';
 import Hotel from '@/admin/routes/Hotel.js';
 import Itinerary from '@/admin/routes/Itinerary.js';
 import Location from '@/admin/routes/Location.js';
+import NotificationPanel from '@/admin/routes/NotificationPanel.js';
 import PaymentLink from '@/admin/routes/PaymentLink.js';
 import Role from '@/admin/routes/Role.js';
 import School from '@/admin/routes/School.js';
@@ -32,6 +33,7 @@ export const routes = [
     ...Hotel,
     ...Itinerary,
     ...Location,
+    ...NotificationPanel,
     ...PaymentLink,
     ...Role,
     ...School,

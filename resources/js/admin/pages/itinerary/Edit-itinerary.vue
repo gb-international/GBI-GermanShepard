@@ -2,11 +2,17 @@
 <template>
   <form-layout>
     <template #formdata>
+      <section class="formSection">
+      <div class="LoaderDiv" v-show="loading">
+        <img class="loaderLogo" src="/loader/logo_gif.gif">
+        <p class="loadText">Loading..</p>
+      </div>
       <div>
         <form
           role="form"
           enctype="multipart/form-data"
           @submit.prevent="updateItinerary()"
+          :style="!loading ? '' : 'opacity: 0.5' "
         >
           <div class="row mb-30" v-if="form.title">
             <div class="col-sm-4">
@@ -412,6 +418,7 @@
           <form-buttons />
         </form>
       </div>
+    </section>
     </template>
   </form-layout>
 </template>
@@ -471,6 +478,7 @@ export default {
           { day: 1, day_source: "", day_destination: "", day_description: "" },
         ],
       }),
+      loading: false
     };
   },
 
@@ -565,7 +573,7 @@ export default {
           });
           return false;
         }
-
+        this.loading = true
         this.form.itinerarydays[i]["day_source"] = this.itinerarydays[i][
           "day_source"
         ];
@@ -585,6 +593,7 @@ export default {
             icon: "success",
             title: "Itinerary Updated successfully",
           });
+          this.loading = false
         })
         .catch(() => {});
     },

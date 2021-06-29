@@ -1,4 +1,5 @@
 window._ = require('lodash');
+window.io = require('socket.io-client');
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -43,7 +44,7 @@ if (token) {
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from 'laravel-echo'
+import Echo from 'laravel-echo'
 
 // window.Pusher = require('pusher-js');
 

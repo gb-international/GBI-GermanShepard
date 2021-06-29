@@ -199,6 +199,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -244,7 +251,8 @@ __webpack_require__.r(__webpack_exports__);
         banner_image: [],
         images: [],
         files: []
-      })
+      }),
+      loading: false
     };
   },
   created: function created() {
@@ -331,11 +339,14 @@ __webpack_require__.r(__webpack_exports__);
     addData: function addData() {
       var _this3 = this;
 
+      this.loading = true;
       this.form.post("/api/encyclopedias").then(function (res) {
         _this3.$toast.fire({
           icon: "success",
           title: "Encyclopedia Added successfully"
         });
+
+        _this3.loading = false;
 
         _this3.$router.push('/encyclopedias');
       })["catch"](function () {});
@@ -431,367 +442,398 @@ var render = function() {
         key: "formdata",
         fn: function() {
           return [
-            _c(
-              "form",
-              {
-                attrs: { role: "form", enctype: "multipart/form-data" },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.addData()
+            _c("section", { staticClass: "formSection" }, [
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.loading,
+                      expression: "loading"
+                    }
+                  ],
+                  staticClass: "LoaderDiv"
+                },
+                [
+                  _c("img", {
+                    staticClass: "loaderLogo",
+                    attrs: { src: "/loader/logo_gif.gif" }
+                  }),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "loadText" }, [_vm._v("Loading..")])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  style: !_vm.loading ? "" : "opacity: 0.5",
+                  attrs: { role: "form", enctype: "multipart/form-data" },
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.addData()
+                    }
                   }
-                }
-              },
-              [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-3" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "state_name" } }, [
-                          _vm._v("Region Type")
-                        ]),
-                        _vm._v(" "),
-                        _c("status-dd", {
-                          staticClass: "mb-2",
-                          attrs: { itemList: _vm.region_type_list },
-                          on: { "update:option": _vm.UpdateRegion },
-                          model: {
-                            value: _vm.form.region_type,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "region_type", $$v)
-                            },
-                            expression: "form.region_type"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "region_type" }
-                        })
-                      ],
-                      1
-                    ),
+                },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "state_name" } }, [
+                            _vm._v("Region Type")
+                          ]),
+                          _vm._v(" "),
+                          _c("status-dd", {
+                            staticClass: "mb-2",
+                            attrs: { itemList: _vm.region_type_list },
+                            on: { "update:option": _vm.UpdateRegion },
+                            model: {
+                              value: _vm.form.region_type,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "region_type", $$v)
+                              },
+                              expression: "form.region_type"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "region_type" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "state_name" } }, [
+                            _vm._v("Country")
+                          ]),
+                          _vm._v(" "),
+                          _c("dropdown-filter", {
+                            staticClass: "mb-2",
+                            attrs: { itemList: _vm.country_list },
+                            on: { "update:option": _vm.UpdateCountry },
+                            model: {
+                              value: _vm.form.country,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "country", $$v)
+                              },
+                              expression: "form.country"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "country" }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "state_name" } }, [
-                          _vm._v("Country")
-                        ]),
-                        _vm._v(" "),
-                        _c("dropdown-filter", {
-                          staticClass: "mb-2",
-                          attrs: { itemList: _vm.country_list },
-                          on: { "update:option": _vm.UpdateCountry },
-                          model: {
-                            value: _vm.form.country,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "country", $$v)
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "state_name" } }, [
+                            _vm._v("State")
+                          ]),
+                          _vm._v(" "),
+                          _c("dropdown-filter", {
+                            staticClass: "mb-2",
+                            attrs: { itemList: _vm.state_list },
+                            on: { "update:option": _vm.UpdateState }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "state_name" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "slug" } }, [
+                            _vm._v("Slug")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.slug,
+                                expression: "form.slug"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("slug")
                             },
-                            expression: "form.country"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "country" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-3" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "state_name" } }, [
-                          _vm._v("State")
-                        ]),
-                        _vm._v(" "),
-                        _c("dropdown-filter", {
-                          staticClass: "mb-2",
-                          attrs: { itemList: _vm.state_list },
-                          on: { "update:option": _vm.UpdateState }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "state_name" }
-                        })
-                      ],
-                      1
-                    ),
+                            attrs: {
+                              type: "text",
+                              placeholder: "Enter Map Link",
+                              rows: "6",
+                              readonly: ""
+                            },
+                            domProps: { value: _vm.form.slug },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "slug", $event.target.value)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "slug" }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "slug" } }, [
-                          _vm._v("Slug")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.slug,
-                              expression: "form.slug"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: { "is-invalid": _vm.form.errors.has("slug") },
-                          attrs: {
-                            type: "text",
-                            placeholder: "Enter Map Link",
-                            rows: "6",
-                            readonly: ""
-                          },
-                          domProps: { value: _vm.form.slug },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "map_link" } }, [
+                            _vm._v("Map Link")
+                          ]),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.map_link,
+                                expression: "form.map_link"
                               }
-                              _vm.$set(_vm.form, "slug", $event.target.value)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "slug" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "map_link" } }, [
-                          _vm._v("Map Link")
-                        ]),
-                        _vm._v(" "),
-                        _c("textarea", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.map_link,
-                              expression: "form.map_link"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("map_link")
-                          },
-                          attrs: {
-                            placeholder: "Enter Map Link",
-                            rows: "6",
-                            required: ""
-                          },
-                          domProps: { value: _vm.form.map_link },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "map_link",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "map_link" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-12" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "descriptionId" } }, [
-                          _vm._v("Description")
-                        ]),
-                        _vm._v(" "),
-                        _c("vue-editor", {
-                          class: {
-                            "is-invalid": _vm.form.errors.has("description")
-                          },
-                          attrs: {
-                            customModules: _vm.customModulesForEditor,
-                            editorOptions: _vm.editorSettings,
-                            id: "editor",
-                            useCustomImageHandler: ""
-                          },
-                          on: {
-                            "image-added": _vm.handleImageAdded,
-                            "image-removed": _vm.handleImageRemoved
-                          },
-                          model: {
-                            value: _vm.form.description,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "description", $$v)
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("map_link")
                             },
-                            expression: "form.description"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "description" }
-                        })
-                      ],
-                      1
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group itinerary_image" },
-                      [
-                        _c(
-                          "label",
-                          { staticClass: "label", attrs: { for: "thumbnail" } },
-                          [_vm._v("Please upload thumbnail image !")]
-                        ),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass: "select_image",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("thumbnail")
-                          },
-                          attrs: {
-                            type: "file",
-                            accept: "jpeg, jpg, png, gif"
-                          },
-                          on: {
-                            change: function($event) {
-                              return _vm.changeImage($event, "thumbnail")
+                            attrs: {
+                              placeholder: "Enter Map Link",
+                              rows: "6",
+                              required: ""
+                            },
+                            domProps: { value: _vm.form.map_link },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "map_link",
+                                  $event.target.value
+                                )
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("img", {
-                          attrs: {
-                            src: _vm.images.thumbnail,
-                            alt: "",
-                            width: "80",
-                            height: "80"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "thumbnail" }
-                        })
-                      ],
-                      1
-                    )
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "map_link" }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-4" })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c(
-                          "label",
-                          { staticClass: "label", attrs: { for: "input" } },
-                          [_vm._v("Please upload a Banner image !")]
-                        ),
-                        _vm._v(" "),
-                        _c("br"),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-12" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "descriptionId" } }, [
+                            _vm._v("Description")
+                          ]),
+                          _vm._v(" "),
+                          _c("vue-editor", {
+                            class: {
+                              "is-invalid": _vm.form.errors.has("description")
+                            },
+                            attrs: {
+                              customModules: _vm.customModulesForEditor,
+                              editorOptions: _vm.editorSettings,
+                              id: "editor",
+                              useCustomImageHandler: ""
+                            },
+                            on: {
+                              "image-added": _vm.handleImageAdded,
+                              "image-removed": _vm.handleImageRemoved
+                            },
+                            model: {
+                              value: _vm.form.description,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "description", $$v)
+                              },
+                              expression: "form.description"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "description" }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group itinerary_image" },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "label",
+                              attrs: { for: "thumbnail" }
+                            },
+                            [_vm._v("Please upload thumbnail image !")]
+                          ),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("input", {
+                            staticClass: "select_image",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("thumbnail")
+                            },
+                            attrs: {
+                              type: "file",
+                              accept: "jpeg, jpg, png, gif"
+                            },
+                            on: {
+                              change: function($event) {
+                                return _vm.changeImage($event, "thumbnail")
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("img", {
+                            attrs: {
+                              src: _vm.images.thumbnail,
+                              alt: "",
+                              width: "80",
+                              height: "80"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "thumbnail" }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c(
+                            "label",
+                            { staticClass: "label", attrs: { for: "input" } },
+                            [_vm._v("Please upload a Banner image !")]
+                          ),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("input", {
+                            class: {
+                              "is-invalid": _vm.form.errors.has("banner_image")
+                            },
+                            attrs: { name: "banner_image", type: "file" },
+                            on: {
+                              change: function($event) {
+                                return _vm.changeImage($event, "banner")
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "banner_image width-140",
+                            attrs: { src: _vm.images.banner_image, alt: "" }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "banner_image" }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "images" } }, [
+                          _vm._v("Select Multiple Images")
+                        ]),
                         _vm._v(" "),
                         _c("input", {
-                          class: {
-                            "is-invalid": _vm.form.errors.has("banner_image")
-                          },
-                          attrs: { name: "banner_image", type: "file" },
-                          on: {
-                            change: function($event) {
-                              return _vm.changeImage($event, "banner")
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "banner_image width-140",
-                          attrs: { src: _vm.images.banner_image, alt: "" }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "banner_image" }
+                          ref: "attachments",
+                          staticClass: "form-control w-100",
+                          attrs: { type: "file", multiple: "multiple" },
+                          on: { change: _vm.changePhotos }
                         })
-                      ],
-                      1
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "images" } }, [
-                        _vm._v("Select Multiple Images")
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c("label", { attrs: { for: "pdfs" } }, [
+                        _vm._v("Upload Itinerary Pdf ( Multiple )")
                       ]),
                       _vm._v(" "),
                       _c("input", {
-                        ref: "attachments",
-                        staticClass: "form-control w-100",
-                        attrs: { type: "file", multiple: "multiple" },
-                        on: { change: _vm.changePhotos }
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "file",
+                          accept: ".pdf",
+                          multiple: "multiple"
+                        },
+                        on: { change: _vm.uploadFieldChange }
                       })
                     ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c("label", { attrs: { for: "pdfs" } }, [
-                      _vm._v("Upload Itinerary Pdf ( Multiple )")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "file",
-                        accept: ".pdf",
-                        multiple: "multiple"
-                      },
-                      on: { change: _vm.uploadFieldChange }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("form-buttons")
-              ],
-              1
-            )
+                  ]),
+                  _vm._v(" "),
+                  _c("form-buttons")
+                ],
+                1
+              )
+            ])
           ]
         },
         proxy: true

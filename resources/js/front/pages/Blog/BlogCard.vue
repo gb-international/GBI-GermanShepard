@@ -8,9 +8,9 @@
         />
         </div>
         <div class="card-body">
-        <h4 class="card-title text-left text-primary">{{ post.category.title }}</h4>
+        <h4 class="card-title text-left text-primary">{{ post.title }}</h4>
         <router-link :to="`/blog/${post.slug}`">
-            <h6 class="card-subtitle mb-2">{{ post.title }}</h6>
+            <h6 class="card-subtitle mb-2">{{ post.category.title }}</h6>
             <p class="card-text">{{ post.summery }}</p>
         </router-link>
         <div class="card-tags">

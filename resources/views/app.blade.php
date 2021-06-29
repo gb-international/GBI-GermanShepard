@@ -11,6 +11,9 @@
   
   <link rel="icon" type="image/png" href="{{ asset('assets/front/images/favicon.png') }}" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <!-- Font awesome Icons -->
+  <script src="https://kit.fontawesome.com/5810dc9d6a.js" crossorigin="anonymous"></script>
   
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -38,13 +41,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
-  {{-- <script>
+  <script src="{{ asset('js/app.js') }}" defer></script>
+
+
+<script>
     $("body").on("contextmenu", function () {  
       return false;  
     }); 
-  </script> --}}
-   {{--<script>
+  </script> 
+   <script>
             window.laravel_echo_port='{{env("LARAVEL_ECHO_PORT")}}';
     </script>
     <script src="//{{ Request::getHost() }}:{{env('LARAVEL_ECHO_PORT')}}/socket.io/socket.io.js"></script>
@@ -56,8 +61,9 @@
          .listen('.UserEvent', (data) => {
             i++;
             //$("#notification").append('<div class="alert alert-success">'+i+'.'+data.title+'</div>');
-            console.log(data.title);
+            //console.log(data.title);
+            
         });
-    </script> --}}
+    </script>
 </body>
 </html>

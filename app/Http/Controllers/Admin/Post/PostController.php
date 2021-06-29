@@ -93,7 +93,7 @@ class PostController extends Controller
         $notifData = [
             'notification_type' => 'posts',
             'client_type' => $post->client_type,
-            'category' => 'posts',
+            'category' => 'blog',
             'category_id' => $post->id,
             'title' => $post->title,
             'body' => $post->summery,
@@ -178,6 +178,16 @@ class PostController extends Controller
         $post->meta_keyword = $meta_keyword;
         $post->save();
         $post->tags()->sync($tag_id);
+
+        $notifData = [
+            'notification_type' => 'posts',
+            'client_type' => $post->client_type,
+            'category' => 'blog',
+            'category_id' => $post->id,
+            'title' => $post->title,
+            'body' => $post->summery,
+        ];
+        dispatch(new Notifications($notifData));
 
         return $data;
     }

@@ -82,5 +82,10 @@ class FeedbackController extends Controller
 
         return response()->json('Feedback Submitted');
     }
+     /* Fetch Fedback list. */
+    public function list()
+    {
+        return FeedbackResource::collection(Feedback::orderBy('created_at', 'desc')->where('public', 1)->get());
+    }
 
 }

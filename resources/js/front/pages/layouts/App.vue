@@ -143,9 +143,17 @@
                 </div>
               </div>
             </li>
-            <li class="nav-item mr-10">
+            <li class="nav-item mr-10" v-if="login !== '1'">
               <router-link class="nav-link" :to="`/contact-us`"
                 >Contact Us</router-link
+              >
+            </li>
+            <li class="nav-item mr-10" v-if="login != '1'">
+              <router-link class="nav-link" :to="`/notifications`"
+                >
+                  <i class="far fa-bell" style="font-size: 22px; z-index: -1;"></i>
+                  <div class="notifIcon"><p class="text-center px-1">{{ $store.getters.notifCount }}</p></div>
+                </router-link
               >
             </li>
             <li class="nav-item mr-10" v-if="login == '1'">
@@ -157,7 +165,7 @@
                 data-target="#LoginForm"
               >
                 login
-                <img src="/images/icons/profile.png" class="icon-width" />
+                <img src="/images/icons/profile.png" class="bell-icon-width" style="width: 20px;"/>
               </a>
             </li>
 
@@ -169,11 +177,11 @@
                 aria-expanded="false"
                 href="#" 
               >
-              {{ $store.getters.user.name }}
                 <img
                   :src="$store.getters.user.photo"
                   class="img img-circle nav_profile"
                 />
+                {{ $store.getters.user.name }}
                 </a>
               <div
                 class="dropdown-menu dropdown-menu-right pt-2"
@@ -225,20 +233,6 @@
                     </div>
                   </div>
                   </router-link>
-
-                <a class="dropdown-item pt-10"
-                  >
-                  <div class="profileDD">
-                    <div> <img
-                    src="/images/icons/notifs_dd.png"
-                    class="img mr-3 mb-3 dd_icons_2"/> </div>
-                    <div>
-                      <b>Notification</b>
-                      <p>Check your notifications here.</p>
-                    </div>
-                  </div>
-                </a
-                >
 
                 <a class="dropdown-item pt-10 "
                   >
@@ -299,12 +293,15 @@
 import login from "@/front/pages/user/Login.vue";
 import Intro from "@/front/components/Intro.vue";
 import Cookies from "@/front/components/Cookies.vue";
+import Review from "@/front/components/form/Reviews.vue";
+
 export default {
   name: "App",
   components: {
     login,
     Intro,
     Cookies,
+    Review
   },
   data() {
     return {
@@ -340,6 +337,17 @@ export default {
     // this.$cookies.remove('user');
     // this.$cookies.set('login',1);
     // check is cookies is accepted or not
+    var userData = this.$cookies.get("user")
+    //console.log(userData.subscription_id)
+
+    this.$store.dispatch('getNotifCount', userData.subscription_id) 
+
+    Echo.channel('gb_international_database_user-channel')
+         .listen('.UserEvent', (data) => {
+
+          setTimeout(() =>
+            this.$store.dispatch('getNotifCount', userData.subscription_id), 2000)
+        });
 
     this.loginCheck();
     this.login = this.$cookies.get("login");
@@ -447,6 +455,23 @@ export default {
   width: 35px !important; 
   height: auto !important;
 }
+
+.notifIcon{
+  background: red; 
+  border-radius: 100px; 
+  position: relative; 
+  margin-top: -30px; 
+  margin-left: 10px;
+  width: 20px;
+}
+
+.notifIcon p{
+  font-size: 11px; 
+  font-weight: 500;
+  padding: 1px 1px 1px 1px;
+  color: white;
+}
+
 @media only screen and (max-width: 720px) {
 
   .dd_icons_2 {

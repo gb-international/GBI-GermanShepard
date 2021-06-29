@@ -271,119 +271,131 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "fronthome" } }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "container" },
-      [
-        _c("heading", {
-          staticClass: "text-center",
-          attrs: { text: "Our Travel Programs" }
-        }),
-        _vm._v(" "),
-        _c("sub-heading", {
-          staticClass: "text-center",
-          attrs: { text: "Immerge in a Riveting Journey" }
-        }),
-        _vm._v(" "),
-        _vm.travel_programs
-          ? _c(
-              "div",
-              { staticClass: "row card-titles" },
-              _vm._l(_vm.travel_programs, function(program) {
-                return _c("div", { key: program.id, staticClass: "col-sm-4" }, [
-                  _c(
+  return _c(
+    "div",
+    { attrs: { id: "fronthome" } },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _c("heading", {
+            staticClass: "text-center",
+            attrs: { text: "Our Travel Programs" }
+          }),
+          _vm._v(" "),
+          _c("sub-heading", {
+            staticClass: "text-center",
+            attrs: { text: "Immerge in a Riveting Journey" }
+          }),
+          _vm._v(" "),
+          _vm.travel_programs
+            ? _c(
+                "div",
+                { staticClass: "row card-titles" },
+                _vm._l(_vm.travel_programs, function(program) {
+                  return _c(
                     "div",
-                    { staticClass: "card card-1 mb-15" },
+                    { key: program.id, staticClass: "col-sm-4" },
                     [
                       _c(
-                        "router-link",
-                        { attrs: { to: "/explore-destination" } },
+                        "div",
+                        { staticClass: "card card-1 mb-15" },
                         [
                           _c(
-                            "figure",
-                            {
-                              directives: [
-                                { name: "lazyload", rawName: "v-lazyload" }
-                              ],
-                              staticClass: "image__wrapper"
-                            },
+                            "router-link",
+                            { attrs: { to: "/explore-destination" } },
                             [
-                              _c("ImageSpinner", {
-                                staticClass: "image__spinner"
-                              }),
+                              _c(
+                                "figure",
+                                {
+                                  directives: [
+                                    { name: "lazyload", rawName: "v-lazyload" }
+                                  ],
+                                  staticClass: "image__wrapper"
+                                },
+                                [
+                                  _c("ImageSpinner", {
+                                    staticClass: "image__spinner"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("img", {
+                                    staticClass:
+                                      "image__item border-radius-travel",
+                                    attrs: {
+                                      "data-url": program.image,
+                                      alt: program.title
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
                               _vm._v(" "),
-                              _c("img", {
-                                staticClass: "image__item border-radius-travel",
-                                attrs: {
-                                  "data-url": program.image,
-                                  alt: program.title
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "card-body" }, [
-                            _c("h5", { staticClass: "card-title" }, [
-                              _vm._v(_vm._s(program.title))
-                            ]),
-                            _vm._v(" "),
-                            _c("p", {
-                              staticClass: "card-text",
-                              domProps: {
-                                innerHTML: _vm._s(program.description)
-                              }
-                            })
-                          ])
-                        ]
-                      )
-                    ],
-                    1
-                  )
-                ])
-              }),
-              0
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("sub-heading", {
-          staticClass: "text-center pb-2",
-          attrs: { text: "Join our adventures at GB International" }
-        }),
-        _vm._v(" "),
-        _c("section", { staticClass: "content-video" }, [
-          _vm.video_data.length > 0
-            ? _c("div", { staticClass: "content" }, [
-                _c("div", { staticClass: "rwd-media" }, [
-                  _c(
-                    "video",
-                    {
-                      attrs: {
-                        width: "400",
-                        controls: "",
-                        controlslist: "nodownload"
-                      }
-                    },
-                    [
-                      _c("source", {
-                        attrs: { src: _vm.video_path, type: "video/mp4" }
-                      }),
-                      _vm._v(
-                        "Your browser does not support HTML5 video.\n          "
+                              _c("div", { staticClass: "card-body" }, [
+                                _c("h5", { staticClass: "card-title" }, [
+                                  _vm._v(_vm._s(program.title))
+                                ]),
+                                _vm._v(" "),
+                                _c("p", {
+                                  staticClass: "card-text",
+                                  domProps: {
+                                    innerHTML: _vm._s(program.description)
+                                  }
+                                })
+                              ])
+                            ]
+                          )
+                        ],
+                        1
                       )
                     ]
                   )
+                }),
+                0
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("sub-heading", {
+            staticClass: "text-center pb-2",
+            attrs: { text: "Join our adventures at GB International" }
+          }),
+          _vm._v(" "),
+          _c("section", { staticClass: "content-video" }, [
+            _vm.video_data.length > 0
+              ? _c("div", { staticClass: "content" }, [
+                  _c("div", { staticClass: "rwd-media" }, [
+                    _c(
+                      "video",
+                      {
+                        attrs: {
+                          width: "400",
+                          controls: "",
+                          controlslist: "nodownload"
+                        }
+                      },
+                      [
+                        _c("source", {
+                          attrs: { src: _vm.video_path, type: "video/mp4" }
+                        }),
+                        _vm._v(
+                          "Your browser does not support HTML5 video.\n          "
+                        )
+                      ]
+                    )
+                  ])
                 ])
-              ])
-            : _vm._e()
-        ])
-      ],
-      1
-    )
-  ])
+              : _vm._e()
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("Review")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {

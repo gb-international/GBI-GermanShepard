@@ -30,6 +30,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BlogCard",
   props: ['post']
@@ -274,6 +275,7 @@ var render = function() {
     _c("div", { staticClass: "container pt-3" }, [
       _c("img", {
         staticClass: "card-img-top border-radius-0",
+        staticStyle: { height: "200px !important", width: "320" },
         attrs: { src: _vm.post.image, alt: "Bologna" }
       })
     ]),
@@ -283,12 +285,12 @@ var render = function() {
       { staticClass: "card-body" },
       [
         _c("h4", { staticClass: "card-title text-left text-primary" }, [
-          _vm._v(_vm._s(_vm.post.category.title))
+          _vm._v(_vm._s(_vm.post.title))
         ]),
         _vm._v(" "),
         _c("router-link", { attrs: { to: "/blog/" + _vm.post.slug } }, [
           _c("h6", { staticClass: "card-subtitle mb-2" }, [
-            _vm._v(_vm._s(_vm.post.title))
+            _vm._v(_vm._s(_vm.post.category.title))
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "card-text" }, [
@@ -369,7 +371,7 @@ var render = function() {
                           staticClass: "image__item card-img-top",
                           attrs: {
                             "data-url":
-                              "https://www.beachesnearme.in/wp-content/uploads/2019/09/Special-Offers-Holidays-Web.jpeg",
+                              "https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_960_720.jpg",
                             alt: "image"
                           }
                         })

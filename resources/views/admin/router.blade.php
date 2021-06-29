@@ -9,21 +9,33 @@
                 <p>Dashboard</p>
             </router-link>
         </li>
-
+        @can("feedbacks")
         <li class="nav-item">
             <router-link to="/feedbacks" class="nav-link nav-cols" title="Feedback">
                 <i class="nav-icon fas fa-envelope-open-text"></i>
                 <p>Feedback</p>
             </router-link>
         </li>
+        @endcan
 
+        @can("payment-link")
          <li class="nav-item">
-            <router-link to="/create-payment-link" class="nav-link nav-cols" title="Feedback">
+            <router-link to="/create-payment-link" class="nav-link nav-cols" title="Payment Link">
                 <i class="nav-icon fas fa-money-bill-wave"></i>
                 <p>Payment Link</p>
             </router-link>
         </li>
-        
+        @endcan
+
+        @can("notifications")
+        <li class="nav-item">
+            <router-link to="/notification-panel" class="nav-link nav-cols" title="Notification Panel">
+                <i class="nav-icon fas fa-bell"></i>
+                <p>Notification Panel</p>
+            </router-link>
+        </li>
+        @endcan
+
         @canany(['itineraries','account-itineraries','front-booking', 'tourtypes'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link nav-cols" title="Itinerary">

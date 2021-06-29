@@ -258,7 +258,7 @@ var render = function() {
                 _c("paragraph", {
                   attrs: {
                     text:
-                      "We curate and execute our programs in such a way that can enhance one’s living skills through the experience they gather while moving out of their comfort zone. We appreciate and understand the concern showed by parents and the institution towards the safety, security and comfort of the students during the proposed educational tour. We, therefore, intend to provide a worry-free experience. Our extensive experience, customized itineraries and risk management standards with safety protocols strive to deliver a hassle-free tour under the guidance of our trained escorts."
+                      "We are completely aware of your travel worries and equally concerned with the issues related to the safety of oneself and your fellow travelers.Thereby ensuring a complete well-planned itinerary where there are limited chances of any security lapses. Our extensive travel experience in handling practical scenarios and managing risks with safety protocols, we strive to deliver a hassle-free journey under the guidance of our thoroughly trained tour leaders."
                   }
                 })
               ],
@@ -298,7 +298,7 @@ var render = function() {
           _c("paragraph", {
             attrs: {
               text:
-                "Students are accompanied by experienced and friendly travel guide ensuring their safety and security. Our guides have been carefully selected for their sensitivity and knowledge of the destination. Besides their day-to-day responsibilities, they are also trained to deal with an unforeseen circumstance. They work with all efforts to transform every experience into effective learning."
+                "Every group oriented journey that is planned with GBI, an experienced and a friendly tour leader is assigned who ensures your personal safety and security and other travel needs. Our tour leaders are carefully assessed and selected for their sensitivity and knowledge of that very destination. Besides their day-to-day responsibilities, they are also trained to deal with the unforeseen circumstances."
             }
           })
         ],

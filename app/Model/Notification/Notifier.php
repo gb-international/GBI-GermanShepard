@@ -8,7 +8,7 @@ class Notifier extends Model
 {
     protected $table = 'notifier';
     
-    protected $fillable = ['notification_id', 'subscription_id', 'status', 'service', 'read_at'];
+    protected $fillable = ['notification_id', 'subscription_id', 'status', 'service', 'read_at', 'category'];
 
     public function subscriber(){
         return $this->belongsTo('App\Model\User\Subscriber');

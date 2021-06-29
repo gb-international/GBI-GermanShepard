@@ -160,7 +160,7 @@ class PaymentController extends Controller
       //$email_data['emailto'] = $response['billing_email'];
       // pass data to send the email here ($user is just dummy)
       $notifData = [
-        'category' => 'trackpayments',
+        'category' => 'payments',
         'category_id' => $track->id,
         'userId' => $track->user_id,
         'name' => $response['billing_name'],

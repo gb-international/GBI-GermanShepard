@@ -11,7 +11,7 @@
             <ImageSpinner class="image__spinner" />
             <img
               class="image__item card-img-top"
-              data-url="https://www.beachesnearme.in/wp-content/uploads/2019/09/Special-Offers-Holidays-Web.jpeg"
+              data-url="https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_960_720.jpg"
               alt="image"
             />
           </figure>

@@ -1,20 +1,24 @@
-'use strict';
-var app = require('express')();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-require('dotenv').config();
+var http = require('http').Server();
+var io = require('socket.io')(http);
+var Redis = require('ioredis');
 
-var redisPort = process.env.REDIS_PORT;
-var redisHost = process.env.REDIS_HOST;
-var ioRedis = require('ioredis');
-var redis = new ioRedis(redisPort, redisHost);
-redis.subscribe('action-channel-one');
-redis.on('message', function (channel, message) {
-  message  = JSON.parse(message);
+var redis = new Redis();
+redis.subscribe('notif-channel');
+redis.on('message', function(channel, message) {
+  console.log('Message recieved: ' + message);
+  console.log('Channel: ' + channel);
+  message = JSON.parse(message);
   io.emit(channel + ':' + message.event, message.data);
 });
-
-var broadcastPort = process.env.BROADCAST_PORT;
-server.listen(broadcastPort, function () {
-  console.log('Socket server is running.');
+http.listen(3000, function() {
+  console.log('Listening on Port: 3000');
+});
+var userCount = 0;
+io.sockets.on('connection', function (socket) {
+  userCount++;
+  io.sockets.emit('userCount', { userCount: userCount });
+  socket.on('disconnect', function() {
+    userCount--;
+    io.sockets.emit('userCount', { userCount: userCount });
+  });
 });

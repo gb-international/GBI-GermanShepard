@@ -90,7 +90,7 @@ This Template is for listing for the Feedbacks & sending Feedback Links .
               <br/>Ans: {{ currentItem.escort_hospitality | ratingFilter }}
             </p>
             <p style="margin-top: 25px;">
-             <b>Comment</b> <a href="#" style="float: right; font-weight: 500; text-decoration: underline;">Post Comment</a>
+             <b>Comment</b> <a href="#" style="float: right; font-weight: 500; text-decoration: underline;" @click="postComment(currentItem.id)">Post Comment</a>
               <br/>{{currentItem.comments}}
             </p>
           </div>
@@ -109,7 +109,7 @@ This Template is for listing for the Feedbacks & sending Feedback Links .
 </template>
 
 <script>
-//import pagination  from 'laravel-vue-pagination';
+import { Form, HasError } from "vform";
 import { mapState } from 'vuex';
 
 export default {
@@ -119,6 +119,9 @@ export default {
   },
   data() {
     return {
+      form: new Form({
+        id: "",
+      }),
       filter:'',
       perPage:'',
       options:[],
@@ -146,6 +149,19 @@ export default {
     },
     redirFeedbackLink(){
       this.$router.push('/send-feedback-link');
+    },
+    postComment(id){
+      this.form.id = id;
+      this.form
+        .post("/api/feedback/post-comment")
+        .then((res) => {
+          //this.Sending = false;
+        })
+        .catch(() => {});
+        this.$toast.fire({
+            icon: "success",
+            title: "Feedback published on website.",
+        });
     }
 
   },

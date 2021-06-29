@@ -9,7 +9,9 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -126,7 +128,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//import pagination  from 'laravel-vue-pagination';
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FeedbackList",
@@ -134,6 +136,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
+      form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
+        id: ""
+      }),
       filter: '',
       perPage: '',
       options: [],
@@ -144,7 +149,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.getitems(this.currentPage);
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['items'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(['items'])),
   methods: {
     getitems: function getitems(page) {
       this.$store.dispatch('getItems', '/feedbacks/all/?page=' + page);
@@ -159,6 +164,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     redirFeedbackLink: function redirFeedbackLink() {
       this.$router.push('/send-feedback-link');
+    },
+    postComment: function postComment(id) {
+      this.form.id = id;
+      this.form.post("/api/feedback/post-comment").then(function (res) {//this.Sending = false;
+      })["catch"](function () {});
+      this.$toast.fire({
+        icon: "success",
+        title: "Feedback published on website."
+      });
     }
   },
   filters: {
@@ -596,7 +610,12 @@ var render = function() {
                               "font-weight": "500",
                               "text-decoration": "underline"
                             },
-                            attrs: { href: "#" }
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                return _vm.postComment(_vm.currentItem.id)
+                              }
+                            }
                           },
                           [_vm._v("Post Comment")]
                         ),

@@ -243,12 +243,20 @@ Route::namespace('Admin')->group(function (){
 		Route::get('feedbacks/all','FeedbackController@index');
 		Route::get('feedbacks/old','FeedbackController@indexOld');
 		Route::post('feedback/send-link','FeedbackController@sendLink');
+		Route::post('feedback/post-comment','FeedbackController@postComment');
 		
 	});
 
 	//Payment Link
 	Route::namespace('Payment')->group(function(){
-		Route::post('payment-link/send','PaymentController@sendLink');
+		Route::post('payment-link/send','PaymentLinkController@sendLink');
+	});
+
+	//Notifications
+	Route::namespace('Notification')->group(function(){
+		Route::get('notification/all/{timeSpan}/{category}/{status}/{service}','NotificationController@index');
+		Route::get('notification/chart/{timeSpan}/{category}/{status}/{service}','NotificationController@chartIndex');
+		//Route::post('notification/store','NotificationController@store');
 	});
 
 });

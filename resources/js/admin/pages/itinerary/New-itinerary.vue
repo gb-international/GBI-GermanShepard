@@ -6,10 +6,16 @@ to submit the data we are using a function.
 <template>
   <form-layout>
     <template #formdata>
+    <section class="formSection">
+      <div class="LoaderDiv" v-show="loading">
+        <img class="loaderLogo" src="/loader/logo_gif.gif">
+        <p class="loadText">Loading..</p>
+      </div>
       <form
         role="form"
         enctype="multipart/form-data"
         @submit.prevent="addItinerary()"
+        :style="!loading ? '' : 'opacity: 0.5' "
       >
         <div class="row">
           <div class="col-sm-4">
@@ -438,6 +444,7 @@ to submit the data we are using a function.
 
         <form-buttons />
       </form>
+    </section>
     </template>
   </form-layout>
 </template>
@@ -498,6 +505,7 @@ export default {
           },
         ],
       }),
+      loading: false
     };
   },
   created() {
@@ -577,6 +585,7 @@ export default {
           return false;
         }
       }
+      this.loading = true
       this.form
         .post("/api/itinerary")
         .then((response) => {
@@ -585,6 +594,7 @@ export default {
             icon: "success",
             title: "Itinerary Added successfully",
           });
+          this.loading = false
         })
         .catch(() => {});
     },

@@ -11,6 +11,7 @@ to submit the data we are using a function.
 
  -->
 <template>
+<section>
   <form-layout>
     <template #formdata>
       <form
@@ -109,6 +110,7 @@ to submit the data we are using a function.
       </form>
     </template>
   </form-layout>
+</section>
 </template>
 
 <script>
@@ -137,6 +139,7 @@ export default {
         meta_title: "",
         meta_keyword: "",
       }),
+      loading: false
     };
   },
   created() {
@@ -155,7 +158,9 @@ export default {
     UpdateCategory() {
       if (!this.form.meta_keyword) {
         this.meta_keywordWarn = true
+        return false
       }
+      this.loading = true
       this.form
         .put(`/api/categories/${this.$route.params.id}`)
         .then((response) => {
@@ -164,6 +169,7 @@ export default {
             "Item Updated successfully",
             "success"
           );
+        this.loading = false
         })
         .catch(() => {});
     },

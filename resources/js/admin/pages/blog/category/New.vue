@@ -9,6 +9,7 @@ This template helps us to create a new Category it takes the data from the form 
 to submit the data we are using a function.
  -->
 <template>
+<section>
   <form-layout>
     <template #formdata>
       <form
@@ -106,6 +107,7 @@ to submit the data we are using a function.
       </form>
     </template>
   </form-layout>
+</section>
 </template>
 
 <script>
@@ -136,18 +138,22 @@ export default {
         meta_title: "",
         meta_keyword: "",
       }),
+      loading: false
     };
   },
   methods: {
     AddCategory() {
       if (!this.form.meta_keyword) {
         this.meta_keywordWarn = true
+        return false
       } else{
         this.meta_keywordWarn = false
       }
       if (!this.img_image) {
         this.imageWarn = true
+        return false
       }
+      this.loading = true
       this.form
         .post("/api/categories")
         .then((response) => {
@@ -158,6 +164,7 @@ export default {
             "Item Added successfully",
             "success"
           );
+          this.loading = false
           this.$router.push('/categories');
         })
         .catch(() => {});

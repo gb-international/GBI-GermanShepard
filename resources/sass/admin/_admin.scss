@@ -20,6 +20,27 @@
 			}
 			
 	}
+	.formSection {
+        position: relative; 
+        z-index: 99
+     }
+	.LoaderDiv{
+		right: 50%;
+		top: 20%;
+	    margin: auto;
+	    position: absolute;
+	    z-index: 999;
+	}
+	.loadText{
+		padding-left: 32px; 
+		margin-top: 12px; 
+		font-weight: 500;
+	}
+	.loaderLogo{
+	    height: auto; 
+	    width: 15vh;
+	    z-index: 999;
+	  }
 
 	.radiolabel{margin-left: 0px;}
 	.price_align{

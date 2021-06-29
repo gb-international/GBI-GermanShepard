@@ -331,12 +331,12 @@ var render = function() {
       { staticClass: "card-body" },
       [
         _c("h4", { staticClass: "card-title text-left text-primary" }, [
-          _vm._v(_vm._s(_vm.post.category.title))
+          _vm._v(_vm._s(_vm.post.title))
         ]),
         _vm._v(" "),
         _c("router-link", { attrs: { to: "/blog/" + _vm.post.slug } }, [
           _c("h6", { staticClass: "card-subtitle mb-2" }, [
-            _vm._v(_vm._s(_vm.post.title))
+            _vm._v(_vm._s(_vm.post.category.title))
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "card-text" }, [

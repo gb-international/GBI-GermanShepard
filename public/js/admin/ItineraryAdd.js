@@ -463,6 +463,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -513,7 +520,8 @@ __webpack_require__.r(__webpack_exports__);
           day_destination: '',
           day_description: ""
         }]
-      })
+      }),
+      loading: false
     };
   },
   created: function created() {
@@ -606,6 +614,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
 
+      this.loading = true;
       this.form.post("/api/itinerary").then(function (response) {
         _this5.$router.push("/itinerary-list");
 
@@ -613,6 +622,8 @@ __webpack_require__.r(__webpack_exports__);
           icon: "success",
           title: "Itinerary Added successfully"
         });
+
+        _this5.loading = false;
       })["catch"](function () {});
     },
     addRow: function addRow() {
@@ -712,906 +723,546 @@ var render = function() {
         key: "formdata",
         fn: function() {
           return [
-            _c(
-              "form",
-              {
-                attrs: { role: "form", enctype: "multipart/form-data" },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.addItinerary()
+            _c("section", { staticClass: "formSection" }, [
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.loading,
+                      expression: "loading"
+                    }
+                  ],
+                  staticClass: "LoaderDiv"
+                },
+                [
+                  _c("img", {
+                    staticClass: "loaderLogo",
+                    attrs: { src: "/loader/logo_gif.gif" }
+                  }),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "loadText" }, [_vm._v("Loading..")])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  style: !_vm.loading ? "" : "opacity: 0.5",
+                  attrs: { role: "form", enctype: "multipart/form-data" },
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.addItinerary()
+                    }
                   }
-                }
-              },
-              [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "sourceId" } }, [
-                          _vm._v("Source")
-                        ]),
-                        _vm._v(" "),
-                        _c("dropdown-list", {
-                          staticClass: "mb-2",
-                          attrs: { itemList: _vm.options, select: "name" },
-                          model: {
-                            value: _vm.form.source,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "source", $$v)
-                            },
-                            expression: "form.source"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "source" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "destinationId" } }, [
-                          _vm._v("Destination")
-                        ]),
-                        _vm._v(" "),
-                        _c("dropdown-list", {
-                          staticClass: "mb-2",
-                          attrs: { itemList: _vm.options, select: "name" },
-                          model: {
-                            value: _vm.form.destination,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "destination", $$v)
-                            },
-                            expression: "form.destination"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "destination" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-sm-3" }, [
-                        _c("label"),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn_plus text-white mt-35",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                return _vm.removeRow()
-                              }
+                },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "sourceId" } }, [
+                            _vm._v("Source")
+                          ]),
+                          _vm._v(" "),
+                          _c("dropdown-list", {
+                            staticClass: "mb-2",
+                            attrs: { itemList: _vm.options, select: "name" },
+                            model: {
+                              value: _vm.form.source,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "source", $$v)
+                              },
+                              expression: "form.source"
                             }
-                          },
-                          [_c("i", { staticClass: "fas fa-minus" })]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-6" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "noofdaysId" } }, [
-                              _vm._v("Number Of Days")
-                            ]),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.noofdays,
-                                  expression: "form.noofdays"
-                                }
-                              ],
-                              staticClass: "form-control text-center",
-                              class: {
-                                "is-invalid": _vm.form.errors.has("noofdays")
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "source" }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "destinationId" } }, [
+                            _vm._v("Destination")
+                          ]),
+                          _vm._v(" "),
+                          _c("dropdown-list", {
+                            staticClass: "mb-2",
+                            attrs: { itemList: _vm.options, select: "name" },
+                            model: {
+                              value: _vm.form.destination,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "destination", $$v)
                               },
-                              attrs: {
-                                type: "text",
-                                readonly: "readonly",
-                                placeholder: "Enter Number Of Days",
-                                name: "noofdays",
-                                min: "1"
-                              },
-                              domProps: { value: _vm.form.noofdays },
+                              expression: "form.destination"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "destination" }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-3" }, [
+                          _c("label"),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn_plus text-white mt-35",
+                              attrs: { type: "button" },
                               on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "noofdays",
-                                    $event.target.value
-                                  )
+                                click: function($event) {
+                                  return _vm.removeRow()
                                 }
                               }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "noofdays" }
-                            })
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-3" }, [
-                        _c("label"),
+                            },
+                            [_c("i", { staticClass: "fas fa-minus" })]
+                          )
+                        ]),
                         _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn_plus text-white mt-35",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                return _vm.addRow()
+                        _c("div", { staticClass: "col-sm-6" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "noofdaysId" } }, [
+                                _vm._v("Number Of Days")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.noofdays,
+                                    expression: "form.noofdays"
+                                  }
+                                ],
+                                staticClass: "form-control text-center",
+                                class: {
+                                  "is-invalid": _vm.form.errors.has("noofdays")
+                                },
+                                attrs: {
+                                  type: "text",
+                                  readonly: "readonly",
+                                  placeholder: "Enter Number Of Days",
+                                  name: "noofdays",
+                                  min: "1"
+                                },
+                                domProps: { value: _vm.form.noofdays },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "noofdays",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "noofdays" }
+                              })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-3" }, [
+                          _c("label"),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn_plus text-white mt-35",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.addRow()
+                                }
                               }
-                            }
-                          },
-                          [_c("i", { staticClass: "fas fa-plus" })]
-                        )
+                            },
+                            [_c("i", { staticClass: "fas fa-plus" })]
+                          )
+                        ])
                       ])
                     ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "tourtypeId" } }, [
-                        _vm._v("Tour Type")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "custom-control custom-radio custom-control-inline"
-                          },
-                          [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.tourtype,
-                                  expression: "form.tourtype"
-                                }
-                              ],
-                              staticClass: "custom-control-input",
-                              attrs: {
-                                type: "radio",
-                                id: "NationalId",
-                                value: "National",
-                                name: "tourtype"
-                              },
-                              domProps: {
-                                checked: _vm._q(_vm.form.tourtype, "National")
-                              },
-                              on: {
-                                change: function($event) {
-                                  return _vm.$set(
-                                    _vm.form,
-                                    "tourtype",
-                                    "National"
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "label",
-                              {
-                                staticClass: "custom-control-label",
-                                attrs: { for: "NationalId" }
-                              },
-                              [_vm._v("National")]
-                            )
-                          ]
-                        ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "tourtypeId" } }, [
+                          _vm._v("Tour Type")
+                        ]),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "custom-control custom-radio custom-control-inline"
-                          },
-                          [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.tourtype,
-                                  expression: "form.tourtype"
+                        _c("div", [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "custom-control custom-radio custom-control-inline"
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.tourtype,
+                                    expression: "form.tourtype"
+                                  }
+                                ],
+                                staticClass: "custom-control-input",
+                                attrs: {
+                                  type: "radio",
+                                  id: "NationalId",
+                                  value: "National",
+                                  name: "tourtype"
+                                },
+                                domProps: {
+                                  checked: _vm._q(_vm.form.tourtype, "National")
+                                },
+                                on: {
+                                  change: function($event) {
+                                    return _vm.$set(
+                                      _vm.form,
+                                      "tourtype",
+                                      "National"
+                                    )
+                                  }
                                 }
-                              ],
-                              staticClass: "custom-control-input",
-                              attrs: {
-                                type: "radio",
-                                value: "International",
-                                id: "InternationalId",
-                                name: "tourtype"
-                              },
-                              domProps: {
-                                checked: _vm._q(
-                                  _vm.form.tourtype,
-                                  "International"
-                                )
-                              },
-                              on: {
-                                change: function($event) {
-                                  return _vm.$set(
-                                    _vm.form,
-                                    "tourtype",
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "custom-control-label",
+                                  attrs: { for: "NationalId" }
+                                },
+                                [_vm._v("National")]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "custom-control custom-radio custom-control-inline"
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.tourtype,
+                                    expression: "form.tourtype"
+                                  }
+                                ],
+                                staticClass: "custom-control-input",
+                                attrs: {
+                                  type: "radio",
+                                  value: "International",
+                                  id: "InternationalId",
+                                  name: "tourtype"
+                                },
+                                domProps: {
+                                  checked: _vm._q(
+                                    _vm.form.tourtype,
                                     "International"
                                   )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "label",
-                              {
-                                staticClass: "custom-control-label",
-                                attrs: { for: "InternationalId" }
-                              },
-                              [_vm._v("International")]
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm.form.errors.has("tourtype")
-                        ? _c(
-                            "div",
-                            { staticClass: "error" },
-                            [
-                              _c(
-                                "lable",
-                                { staticClass: "danger text-danger" },
-                                [
-                                  _vm._v(
-                                    _vm._s(_vm.form.errors.get("tourtype"))
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        : _vm._e()
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-5" }, [
-                    _c("div", { staticClass: "form-group aligen_top_input" }, [
-                      _c("label", { attrs: { for: "hoteltype" } }, [
-                        _vm._v("Hotel Type")
-                      ]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "custom-control custom-radio custom-control-inline"
-                        },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.hoteltype,
-                                expression: "form.hoteltype"
-                              }
-                            ],
-                            staticClass: "custom-control-input",
-                            attrs: {
-                              type: "radio",
-                              id: "nohotelRadio",
-                              name: "hoteltype",
-                              value: "0"
-                            },
-                            domProps: {
-                              checked: _vm._q(_vm.form.hoteltype, "0")
-                            },
-                            on: {
-                              change: function($event) {
-                                return _vm.$set(_vm.form, "hoteltype", "0")
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "custom-control-label",
-                              attrs: { for: "nohotelRadio" }
-                            },
-                            [_vm._v("No Hotel")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "custom-control custom-radio custom-control-inline"
-                        },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.hoteltype,
-                                expression: "form.hoteltype"
-                              }
-                            ],
-                            staticClass: "custom-control-input",
-                            attrs: {
-                              type: "radio",
-                              id: "hotelRadio",
-                              name: "hoteltype",
-                              value: "3"
-                            },
-                            domProps: {
-                              checked: _vm._q(_vm.form.hoteltype, "3")
-                            },
-                            on: {
-                              change: function($event) {
-                                return _vm.$set(_vm.form, "hoteltype", "3")
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "custom-control-label",
-                              attrs: { for: "hotelRadio" }
-                            },
-                            [_vm._v("3 Star")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "custom-control custom-radio custom-control-inline"
-                        },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.hoteltype,
-                                expression: "form.hoteltype"
-                              }
-                            ],
-                            staticClass: "custom-control-input",
-                            attrs: {
-                              type: "radio",
-                              id: "hotelRadio1",
-                              name: "hoteltype",
-                              value: "4"
-                            },
-                            domProps: {
-                              checked: _vm._q(_vm.form.hoteltype, "4")
-                            },
-                            on: {
-                              change: function($event) {
-                                return _vm.$set(_vm.form, "hoteltype", "4")
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "custom-control-label",
-                              attrs: { for: "hotelRadio1" }
-                            },
-                            [_vm._v("4 Star")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "custom-control custom-radio custom-control-inline"
-                        },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.hoteltype,
-                                expression: "form.hoteltype"
-                              }
-                            ],
-                            staticClass: "custom-control-input",
-                            attrs: {
-                              type: "radio",
-                              id: "hotelRadio2",
-                              name: "hoteltype",
-                              value: "5"
-                            },
-                            domProps: {
-                              checked: _vm._q(_vm.form.hoteltype, "5")
-                            },
-                            on: {
-                              change: function($event) {
-                                return _vm.$set(_vm.form, "hoteltype", "5")
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "custom-control-label",
-                              attrs: { for: "hotelRadio2" }
-                            },
-                            [_vm._v("5 Star")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm.form.errors.has("hoteltype")
-                        ? _c(
-                            "div",
-                            { staticClass: "error" },
-                            [
-                              _c(
-                                "lable",
-                                { staticClass: "danger text-danger" },
-                                [
-                                  _vm._v(
-                                    _vm._s(_vm.form.errors.get("hoteltype"))
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        : _vm._e()
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-3" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "mode_of_transport" } }, [
-                        _vm._v("Mode of Transport")
-                      ]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "custom-control custom-checkbox custom-control-inline"
-                        },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.flight,
-                                expression: "form.flight"
-                              }
-                            ],
-                            staticClass: "custom-control-input",
-                            attrs: {
-                              type: "checkbox",
-                              id: "transport",
-                              name: "transport",
-                              "true-value": "1",
-                              "false-value": "0"
-                            },
-                            domProps: {
-                              checked: Array.isArray(_vm.form.flight)
-                                ? _vm._i(_vm.form.flight, null) > -1
-                                : _vm._q(_vm.form.flight, "1")
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$a = _vm.form.flight,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? "1" : "0"
-                                if (Array.isArray($$a)) {
-                                  var $$v = null,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      _vm.$set(
-                                        _vm.form,
-                                        "flight",
-                                        $$a.concat([$$v])
-                                      )
-                                  } else {
-                                    $$i > -1 &&
-                                      _vm.$set(
-                                        _vm.form,
-                                        "flight",
-                                        $$a
-                                          .slice(0, $$i)
-                                          .concat($$a.slice($$i + 1))
-                                      )
+                                },
+                                on: {
+                                  change: function($event) {
+                                    return _vm.$set(
+                                      _vm.form,
+                                      "tourtype",
+                                      "International"
+                                    )
                                   }
-                                } else {
-                                  _vm.$set(_vm.form, "flight", $$c)
                                 }
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "custom-control-label",
-                              attrs: { for: "transport" }
-                            },
-                            [_vm._v("Flight")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "custom-control custom-checkbox custom-control-inline"
-                        },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.bus,
-                                expression: "form.bus"
-                              }
-                            ],
-                            staticClass: "custom-control-input",
-                            attrs: {
-                              type: "checkbox",
-                              id: "transport1",
-                              name: "transport",
-                              "true-value": "1",
-                              "false-value": "0"
-                            },
-                            domProps: {
-                              checked: Array.isArray(_vm.form.bus)
-                                ? _vm._i(_vm.form.bus, null) > -1
-                                : _vm._q(_vm.form.bus, "1")
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$a = _vm.form.bus,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? "1" : "0"
-                                if (Array.isArray($$a)) {
-                                  var $$v = null,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      _vm.$set(
-                                        _vm.form,
-                                        "bus",
-                                        $$a.concat([$$v])
-                                      )
-                                  } else {
-                                    $$i > -1 &&
-                                      _vm.$set(
-                                        _vm.form,
-                                        "bus",
-                                        $$a
-                                          .slice(0, $$i)
-                                          .concat($$a.slice($$i + 1))
-                                      )
-                                  }
-                                } else {
-                                  _vm.$set(_vm.form, "bus", $$c)
-                                }
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "custom-control-label",
-                              attrs: { for: "transport1" }
-                            },
-                            [_vm._v("Bus")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "custom-control custom-checkbox custom-control-inline"
-                        },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.train,
-                                expression: "form.train"
-                              }
-                            ],
-                            staticClass: "custom-control-input",
-                            attrs: {
-                              type: "checkbox",
-                              id: "transport2",
-                              name: "transport",
-                              "true-value": "1",
-                              "false-value": "0"
-                            },
-                            domProps: {
-                              checked: Array.isArray(_vm.form.train)
-                                ? _vm._i(_vm.form.train, null) > -1
-                                : _vm._q(_vm.form.train, "1")
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$a = _vm.form.train,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? "1" : "0"
-                                if (Array.isArray($$a)) {
-                                  var $$v = null,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      _vm.$set(
-                                        _vm.form,
-                                        "train",
-                                        $$a.concat([$$v])
-                                      )
-                                  } else {
-                                    $$i > -1 &&
-                                      _vm.$set(
-                                        _vm.form,
-                                        "train",
-                                        $$a
-                                          .slice(0, $$i)
-                                          .concat($$a.slice($$i + 1))
-                                      )
-                                  }
-                                } else {
-                                  _vm.$set(_vm.form, "train", $$c)
-                                }
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "custom-control-label",
-                              attrs: { for: "transport2" }
-                            },
-                            [_vm._v("Train")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm.form.errors.has("transport")
-                        ? _c(
-                            "div",
-                            { staticClass: "error" },
-                            [
+                              }),
+                              _vm._v(" "),
                               _c(
-                                "lable",
-                                { staticClass: "danger text-danger" },
-                                [
-                                  _vm._v(
-                                    _vm._s(_vm.form.errors.get("transport"))
-                                  )
-                                ]
+                                "label",
+                                {
+                                  staticClass: "custom-control-label",
+                                  attrs: { for: "InternationalId" }
+                                },
+                                [_vm._v("International")]
                               )
-                            ],
-                            1
+                            ]
                           )
-                        : _vm._e()
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "mode_of_transport" } }, [
-                          _vm._v("Tour category")
                         ]),
                         _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("multiselect", {
-                          attrs: {
-                            options: _vm.tour_type_list,
-                            multiple: true,
-                            "close-on-select": true,
-                            placeholder: "Pick some",
-                            label: "name",
-                            "track-by": "name"
-                          },
-                          model: {
-                            value: _vm.form.tourtypes,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "tourtypes", $$v)
-                            },
-                            expression: "form.tourtypes"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "client_type" } }, [
-                          _vm._v("Client Type")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.client_type,
-                                expression: "form.client_type"
-                              }
-                            ],
-                            staticClass: "form-control customSelect",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "client_type",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
+                        _vm.form.errors.has("tourtype")
+                          ? _c(
+                              "div",
+                              { staticClass: "error" },
+                              [
+                                _c(
+                                  "lable",
+                                  { staticClass: "danger text-danger" },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.form.errors.get("tourtype"))
+                                    )
+                                  ]
                                 )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "eduInstitute" } }, [
-                              _vm._v("Educational Institute")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "corporate" } }, [
-                              _vm._v("Corporate")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "general" } }, [
-                              _vm._v("General")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "client_type" }
-                        })
-                      ],
-                      1
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-8" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "titleId" } }, [
-                          _vm._v("Title")
+                              ],
+                              1
+                            )
+                          : _vm._e()
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-5" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group aligen_top_input" },
+                        [
+                          _c("label", { attrs: { for: "hoteltype" } }, [
+                            _vm._v("Hotel Type")
+                          ]),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "custom-control custom-radio custom-control-inline"
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.hoteltype,
+                                    expression: "form.hoteltype"
+                                  }
+                                ],
+                                staticClass: "custom-control-input",
+                                attrs: {
+                                  type: "radio",
+                                  id: "nohotelRadio",
+                                  name: "hoteltype",
+                                  value: "0"
+                                },
+                                domProps: {
+                                  checked: _vm._q(_vm.form.hoteltype, "0")
+                                },
+                                on: {
+                                  change: function($event) {
+                                    return _vm.$set(_vm.form, "hoteltype", "0")
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "custom-control-label",
+                                  attrs: { for: "nohotelRadio" }
+                                },
+                                [_vm._v("No Hotel")]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "custom-control custom-radio custom-control-inline"
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.hoteltype,
+                                    expression: "form.hoteltype"
+                                  }
+                                ],
+                                staticClass: "custom-control-input",
+                                attrs: {
+                                  type: "radio",
+                                  id: "hotelRadio",
+                                  name: "hoteltype",
+                                  value: "3"
+                                },
+                                domProps: {
+                                  checked: _vm._q(_vm.form.hoteltype, "3")
+                                },
+                                on: {
+                                  change: function($event) {
+                                    return _vm.$set(_vm.form, "hoteltype", "3")
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "custom-control-label",
+                                  attrs: { for: "hotelRadio" }
+                                },
+                                [_vm._v("3 Star")]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "custom-control custom-radio custom-control-inline"
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.hoteltype,
+                                    expression: "form.hoteltype"
+                                  }
+                                ],
+                                staticClass: "custom-control-input",
+                                attrs: {
+                                  type: "radio",
+                                  id: "hotelRadio1",
+                                  name: "hoteltype",
+                                  value: "4"
+                                },
+                                domProps: {
+                                  checked: _vm._q(_vm.form.hoteltype, "4")
+                                },
+                                on: {
+                                  change: function($event) {
+                                    return _vm.$set(_vm.form, "hoteltype", "4")
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "custom-control-label",
+                                  attrs: { for: "hotelRadio1" }
+                                },
+                                [_vm._v("4 Star")]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "custom-control custom-radio custom-control-inline"
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.hoteltype,
+                                    expression: "form.hoteltype"
+                                  }
+                                ],
+                                staticClass: "custom-control-input",
+                                attrs: {
+                                  type: "radio",
+                                  id: "hotelRadio2",
+                                  name: "hoteltype",
+                                  value: "5"
+                                },
+                                domProps: {
+                                  checked: _vm._q(_vm.form.hoteltype, "5")
+                                },
+                                on: {
+                                  change: function($event) {
+                                    return _vm.$set(_vm.form, "hoteltype", "5")
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "custom-control-label",
+                                  attrs: { for: "hotelRadio2" }
+                                },
+                                [_vm._v("5 Star")]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm.form.errors.has("hoteltype")
+                            ? _c(
+                                "div",
+                                { staticClass: "error" },
+                                [
+                                  _c(
+                                    "lable",
+                                    { staticClass: "danger text-danger" },
+                                    [
+                                      _vm._v(
+                                        _vm._s(_vm.form.errors.get("hoteltype"))
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            : _vm._e()
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "mode_of_transport" } }, [
+                          _vm._v("Mode of Transport")
                         ]),
                         _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.title,
-                              expression: "form.title"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: { "is-invalid": _vm.form.errors.has("title") },
-                          attrs: {
-                            type: "text",
-                            placeholder: "Enter Title",
-                            name: "title"
-                          },
-                          domProps: { value: _vm.form.title },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "title", $event.target.value)
-                            }
-                          }
-                        }),
+                        _c("br"),
                         _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "title" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "tourtypeId" } }, [
-                        _vm._v("Food")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
                         _c(
                           "div",
                           {
                             staticClass:
-                              "custom-control custom-radio custom-control-inline"
+                              "custom-control custom-checkbox custom-control-inline"
                           },
                           [
                             _c("input", {
@@ -1619,21 +1270,51 @@ var render = function() {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.form.food,
-                                  expression: "form.food"
+                                  value: _vm.form.flight,
+                                  expression: "form.flight"
                                 }
                               ],
                               staticClass: "custom-control-input",
                               attrs: {
-                                type: "radio",
-                                id: "food_yes",
-                                value: "1",
-                                name: "food"
+                                type: "checkbox",
+                                id: "transport",
+                                name: "transport",
+                                "true-value": "1",
+                                "false-value": "0"
                               },
-                              domProps: { checked: _vm._q(_vm.form.food, "1") },
+                              domProps: {
+                                checked: Array.isArray(_vm.form.flight)
+                                  ? _vm._i(_vm.form.flight, null) > -1
+                                  : _vm._q(_vm.form.flight, "1")
+                              },
                               on: {
                                 change: function($event) {
-                                  return _vm.$set(_vm.form, "food", "1")
+                                  var $$a = _vm.form.flight,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? "1" : "0"
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          _vm.form,
+                                          "flight",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          _vm.form,
+                                          "flight",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(_vm.form, "flight", $$c)
+                                  }
                                 }
                               }
                             }),
@@ -1642,9 +1323,9 @@ var render = function() {
                               "label",
                               {
                                 staticClass: "custom-control-label",
-                                attrs: { for: "food_yes" }
+                                attrs: { for: "transport" }
                               },
-                              [_vm._v("Yes")]
+                              [_vm._v("Flight")]
                             )
                           ]
                         ),
@@ -1653,7 +1334,7 @@ var render = function() {
                           "div",
                           {
                             staticClass:
-                              "custom-control custom-radio custom-control-inline"
+                              "custom-control custom-checkbox custom-control-inline"
                           },
                           [
                             _c("input", {
@@ -1661,21 +1342,51 @@ var render = function() {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.form.food,
-                                  expression: "form.food"
+                                  value: _vm.form.bus,
+                                  expression: "form.bus"
                                 }
                               ],
                               staticClass: "custom-control-input",
                               attrs: {
-                                type: "radio",
-                                value: "0",
-                                id: "food_no",
-                                name: "food"
+                                type: "checkbox",
+                                id: "transport1",
+                                name: "transport",
+                                "true-value": "1",
+                                "false-value": "0"
                               },
-                              domProps: { checked: _vm._q(_vm.form.food, "0") },
+                              domProps: {
+                                checked: Array.isArray(_vm.form.bus)
+                                  ? _vm._i(_vm.form.bus, null) > -1
+                                  : _vm._q(_vm.form.bus, "1")
+                              },
                               on: {
                                 change: function($event) {
-                                  return _vm.$set(_vm.form, "food", "0")
+                                  var $$a = _vm.form.bus,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? "1" : "0"
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          _vm.form,
+                                          "bus",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          _vm.form,
+                                          "bus",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(_vm.form, "bus", $$c)
+                                  }
                                 }
                               }
                             }),
@@ -1684,261 +1395,610 @@ var render = function() {
                               "label",
                               {
                                 staticClass: "custom-control-label",
-                                attrs: { for: "food_no" }
+                                attrs: { for: "transport1" }
                               },
-                              [_vm._v("No")]
+                              [_vm._v("Bus")]
                             )
                           ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm.form.errors.has("food")
-                        ? _c(
-                            "div",
-                            { staticClass: "error" },
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "custom-control custom-checkbox custom-control-inline"
+                          },
+                          [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.train,
+                                  expression: "form.train"
+                                }
+                              ],
+                              staticClass: "custom-control-input",
+                              attrs: {
+                                type: "checkbox",
+                                id: "transport2",
+                                name: "transport",
+                                "true-value": "1",
+                                "false-value": "0"
+                              },
+                              domProps: {
+                                checked: Array.isArray(_vm.form.train)
+                                  ? _vm._i(_vm.form.train, null) > -1
+                                  : _vm._q(_vm.form.train, "1")
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a = _vm.form.train,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? "1" : "0"
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          _vm.form,
+                                          "train",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          _vm.form,
+                                          "train",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(_vm.form, "train", $$c)
+                                  }
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "transport2" }
+                              },
+                              [_vm._v("Train")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm.form.errors.has("transport")
+                          ? _c(
+                              "div",
+                              { staticClass: "error" },
+                              [
+                                _c(
+                                  "lable",
+                                  { staticClass: "danger text-danger" },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.form.errors.get("transport"))
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          : _vm._e()
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "mode_of_transport" } }, [
+                            _vm._v("Tour category")
+                          ]),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("multiselect", {
+                            attrs: {
+                              options: _vm.tour_type_list,
+                              multiple: true,
+                              "close-on-select": true,
+                              placeholder: "Pick some",
+                              label: "name",
+                              "track-by": "name"
+                            },
+                            model: {
+                              value: _vm.form.tourtypes,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "tourtypes", $$v)
+                              },
+                              expression: "form.tourtypes"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "client_type" } }, [
+                            _vm._v("Client Type")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.client_type,
+                                  expression: "form.client_type"
+                                }
+                              ],
+                              staticClass: "form-control customSelect",
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.form,
+                                    "client_type",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
                             [
                               _c(
-                                "lable",
-                                { staticClass: "danger text-danger" },
-                                [_vm._v(_vm._s(_vm.form.errors.get("food")))]
+                                "option",
+                                { attrs: { value: "eduInstitute" } },
+                                [_vm._v("Educational Institute")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "corporate" } }, [
+                                _vm._v("Corporate")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "general" } }, [
+                                _vm._v("General")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "client_type" }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-8" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "titleId" } }, [
+                            _vm._v("Title")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.title,
+                                expression: "form.title"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("title")
+                            },
+                            attrs: {
+                              type: "text",
+                              placeholder: "Enter Title",
+                              name: "title"
+                            },
+                            domProps: { value: _vm.form.title },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "title", $event.target.value)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "title" }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "tourtypeId" } }, [
+                          _vm._v("Food")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "custom-control custom-radio custom-control-inline"
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.food,
+                                    expression: "form.food"
+                                  }
+                                ],
+                                staticClass: "custom-control-input",
+                                attrs: {
+                                  type: "radio",
+                                  id: "food_yes",
+                                  value: "1",
+                                  name: "food"
+                                },
+                                domProps: {
+                                  checked: _vm._q(_vm.form.food, "1")
+                                },
+                                on: {
+                                  change: function($event) {
+                                    return _vm.$set(_vm.form, "food", "1")
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "custom-control-label",
+                                  attrs: { for: "food_yes" }
+                                },
+                                [_vm._v("Yes")]
                               )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "custom-control custom-radio custom-control-inline"
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.food,
+                                    expression: "form.food"
+                                  }
+                                ],
+                                staticClass: "custom-control-input",
+                                attrs: {
+                                  type: "radio",
+                                  value: "0",
+                                  id: "food_no",
+                                  name: "food"
+                                },
+                                domProps: {
+                                  checked: _vm._q(_vm.form.food, "0")
+                                },
+                                on: {
+                                  change: function($event) {
+                                    return _vm.$set(_vm.form, "food", "0")
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "custom-control-label",
+                                  attrs: { for: "food_no" }
+                                },
+                                [_vm._v("No")]
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm.form.errors.has("food")
+                          ? _c(
+                              "div",
+                              { staticClass: "error" },
+                              [
+                                _c(
+                                  "lable",
+                                  { staticClass: "danger text-danger" },
+                                  [_vm._v(_vm._s(_vm.form.errors.get("food")))]
+                                )
+                              ],
+                              1
+                            )
+                          : _vm._e()
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-12" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "descriptionId" } }, [
+                            _vm._v("Description")
+                          ]),
+                          _vm._v(" "),
+                          _c("vue-editor", {
+                            class: {
+                              "is-invalid": _vm.form.errors.has("description")
+                            },
+                            attrs: {
+                              customModules: _vm.customModulesForEditor,
+                              editorOptions: _vm.editorSettings,
+                              id: "editor",
+                              useCustomImageHandler: ""
+                            },
+                            on: {
+                              "image-added": _vm.handleImageAdded,
+                              "image-removed": _vm.handleImageRemoved
+                            },
+                            model: {
+                              value: _vm.form.description,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "description", $$v)
+                              },
+                              expression: "form.description"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "description" }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group itinerary_image" },
+                        [
+                          _c(
+                            "label",
+                            { staticClass: "label", attrs: { for: "input" } },
+                            [_vm._v("Please upload a thumbnail image !")]
+                          ),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("input", {
+                            staticClass: "select_image overflow-hidden",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("photo")
+                            },
+                            attrs: {
+                              name: "photo",
+                              type: "file",
+                              required: "",
+                              accept: "jpeg, jpg, png, gif"
+                            },
+                            on: {
+                              change: function($event) {
+                                return _vm.changePhoto($event)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.form.photo != ""
+                            ? _c("img", {
+                                attrs: {
+                                  src: _vm.form.photo,
+                                  alt: "",
+                                  width: "80",
+                                  height: "80"
+                                }
+                              })
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "photo" }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c(
+                            "label",
+                            { staticClass: "label", attrs: { for: "input" } },
+                            [_vm._v("Please upload a Banner image !")]
+                          ),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("input", {
+                            staticClass: "overflow-hiden",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("detail_photo")
+                            },
+                            attrs: {
+                              name: "detail_photo",
+                              type: "file",
+                              required: ""
+                            },
+                            on: {
+                              change: function($event) {
+                                return _vm.changeDetailPhoto($event)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.form.detail_photo != ""
+                            ? _c("img", {
+                                staticClass: "detail_photo",
+                                attrs: { src: _vm.form.detail_photo, alt: "" }
+                              })
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "detail_photo" }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _vm._l(_vm.form.itinerarydays, function(data) {
+                    return _c(
+                      "div",
+                      { key: data.id, staticClass: "card content" },
+                      [
+                        _c("h4", [_vm._v("Day " + _vm._s(data.day))]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c(
+                            "div",
+                            { staticClass: "col-sm-6" },
+                            [
+                              _c("label", [_vm._v("Source")]),
+                              _vm._v(" "),
+                              _c("dropdown-list", {
+                                staticClass: "mb-2",
+                                attrs: {
+                                  itemList: _vm.options,
+                                  select: "name"
+                                },
+                                model: {
+                                  value: data.day_source,
+                                  callback: function($$v) {
+                                    _vm.$set(data, "day_source", $$v)
+                                  },
+                                  expression: "data.day_source"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-sm-6" },
+                            [
+                              _c("label", [_vm._v("Destination")]),
+                              _vm._v(" "),
+                              _c("dropdown-list", {
+                                staticClass: "mb-2",
+                                attrs: {
+                                  itemList: _vm.options,
+                                  select: "name"
+                                },
+                                model: {
+                                  value: data.day_destination,
+                                  callback: function($$v) {
+                                    _vm.$set(data, "day_destination", $$v)
+                                  },
+                                  expression: "data.day_destination"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-sm-12" },
+                            [
+                              _c("label", [_vm._v("Description")]),
+                              _vm._v(" "),
+                              _c("vue-editor", {
+                                class: {
+                                  "is-invalid": _vm.form.errors.has(
+                                    "description"
+                                  )
+                                },
+                                attrs: {
+                                  customModules: _vm.customModulesForEditor,
+                                  editorOptions: _vm.editorSettings,
+                                  id: "editor",
+                                  useCustomImageHandler: ""
+                                },
+                                on: {
+                                  "image-added": _vm.handleImageAdded,
+                                  "image-removed": _vm.handleImageRemoved
+                                },
+                                model: {
+                                  value: data.day_description,
+                                  callback: function($$v) {
+                                    _vm.$set(data, "day_description", $$v)
+                                  },
+                                  expression: "data.day_description"
+                                }
+                              })
                             ],
                             1
                           )
-                        : _vm._e()
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-12" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "descriptionId" } }, [
-                          _vm._v("Description")
-                        ]),
-                        _vm._v(" "),
-                        _c("vue-editor", {
-                          class: {
-                            "is-invalid": _vm.form.errors.has("description")
-                          },
-                          attrs: {
-                            customModules: _vm.customModulesForEditor,
-                            editorOptions: _vm.editorSettings,
-                            id: "editor",
-                            useCustomImageHandler: ""
-                          },
-                          on: {
-                            "image-added": _vm.handleImageAdded,
-                            "image-removed": _vm.handleImageRemoved
-                          },
-                          model: {
-                            value: _vm.form.description,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "description", $$v)
-                            },
-                            expression: "form.description"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "description" }
-                        })
-                      ],
-                      1
+                        ])
+                      ]
                     )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group itinerary_image" },
-                      [
-                        _c(
-                          "label",
-                          { staticClass: "label", attrs: { for: "input" } },
-                          [_vm._v("Please upload a thumbnail image !")]
-                        ),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass: "select_image overflow-hidden",
-                          class: { "is-invalid": _vm.form.errors.has("photo") },
-                          attrs: {
-                            name: "photo",
-                            type: "file",
-                            required: "",
-                            accept: "jpeg, jpg, png, gif"
-                          },
-                          on: {
-                            change: function($event) {
-                              return _vm.changePhoto($event)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _vm.form.photo != ""
-                          ? _c("img", {
-                              attrs: {
-                                src: _vm.form.photo,
-                                alt: "",
-                                width: "80",
-                                height: "80"
-                              }
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "photo" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
+                  }),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c(
-                          "label",
-                          { staticClass: "label", attrs: { for: "input" } },
-                          [_vm._v("Please upload a Banner image !")]
-                        ),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass: "overflow-hiden",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("detail_photo")
-                          },
-                          attrs: {
-                            name: "detail_photo",
-                            type: "file",
-                            required: ""
-                          },
-                          on: {
-                            change: function($event) {
-                              return _vm.changeDetailPhoto($event)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _vm.form.detail_photo != ""
-                          ? _c("img", {
-                              staticClass: "detail_photo",
-                              attrs: { src: _vm.form.detail_photo, alt: "" }
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "detail_photo" }
-                        })
-                      ],
-                      1
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _vm._l(_vm.form.itinerarydays, function(data) {
-                  return _c(
-                    "div",
-                    { key: data.id, staticClass: "card content" },
-                    [
-                      _c("h4", [_vm._v("Day " + _vm._s(data.day))]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "row" }, [
-                        _c(
-                          "div",
-                          { staticClass: "col-sm-6" },
-                          [
-                            _c("label", [_vm._v("Source")]),
-                            _vm._v(" "),
-                            _c("dropdown-list", {
-                              staticClass: "mb-2",
-                              attrs: { itemList: _vm.options, select: "name" },
-                              model: {
-                                value: data.day_source,
-                                callback: function($$v) {
-                                  _vm.$set(data, "day_source", $$v)
-                                },
-                                expression: "data.day_source"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-sm-6" },
-                          [
-                            _c("label", [_vm._v("Destination")]),
-                            _vm._v(" "),
-                            _c("dropdown-list", {
-                              staticClass: "mb-2",
-                              attrs: { itemList: _vm.options, select: "name" },
-                              model: {
-                                value: data.day_destination,
-                                callback: function($$v) {
-                                  _vm.$set(data, "day_destination", $$v)
-                                },
-                                expression: "data.day_destination"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-sm-12" },
-                          [
-                            _c("label", [_vm._v("Description")]),
-                            _vm._v(" "),
-                            _c("vue-editor", {
-                              class: {
-                                "is-invalid": _vm.form.errors.has("description")
-                              },
-                              attrs: {
-                                customModules: _vm.customModulesForEditor,
-                                editorOptions: _vm.editorSettings,
-                                id: "editor",
-                                useCustomImageHandler: ""
-                              },
-                              on: {
-                                "image-added": _vm.handleImageAdded,
-                                "image-removed": _vm.handleImageRemoved
-                              },
-                              model: {
-                                value: data.day_description,
-                                callback: function($$v) {
-                                  _vm.$set(data, "day_description", $$v)
-                                },
-                                expression: "data.day_description"
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      ])
-                    ]
-                  )
-                }),
-                _vm._v(" "),
-                _c("form-buttons")
-              ],
-              2
-            )
+                  _c("form-buttons")
+                ],
+                2
+              )
+            ])
           ]
         },
         proxy: true

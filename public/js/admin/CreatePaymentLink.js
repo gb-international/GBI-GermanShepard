@@ -55,6 +55,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FromLayoutGBI",
   data: function data() {
@@ -362,7 +363,10 @@ var render = function() {
       _c("div", { staticClass: "row justify-content-around" }, [
         _c(
           "div",
-          { staticClass: "col-md-12 pl-4 pb-5" },
+          {
+            staticClass: "col-md-12 pl-4 pb-5",
+            staticStyle: { position: "relative" }
+          },
           [_vm._t("formdata")],
           2
         )

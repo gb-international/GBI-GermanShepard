@@ -72,7 +72,7 @@ Route::namespace('Front')->group(function(){
 
 		Route::post('/tour-travel-save', 'TourController@tourDetailSave');
 		Route::post('/payment-tour', 'TourController@paymentTour');
-		Route::post('/tour-bankdetail-student', ' SchoolbankdetailController@bankdetailsStudent');
+		Route::post('/tour-bankdetail-student', 'SchoolbankdetailController@bankdetailsStudent');
 		Route::post('/tour-bankdetail', 'SchoolbankdetailController@bankdetails');
 		Route::post('/tour-bankdetail-store', 'SchoolbankdetailController@store');
 		Route::post('/tour-submit-payment', 'UserpaymentController@store');
@@ -116,9 +116,18 @@ Route::namespace('Front')->group(function(){
 
 	// Feedback Submit
 	Route::post('/feedback-submit','FeedbackController@store');
+	Route::get('/feedback-list','FeedbackController@list');
 
 	//Tour Itinerary Detail
 	Route::get('/get-tour/{id}','TourController@tourItinerary');
+
+	//Notifications
+	Route::get('/user-notifs/{userId}/{sort}/all','NotifsController@index');
+	Route::get('/user-notifs/{userId}/{sort}/old','NotifsController@indexOld');
+	Route::get('/user-notifs/view/{id}','NotifsController@show');
+	Route::post('/notification/mark-read','NotifsController@markRead');
+	Route::get('/notif-count/{sub_id}','NotifsController@notifCount');
+	
 	
 });
 

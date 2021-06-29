@@ -85,13 +85,14 @@
         </div>
       </section>
     </div>
-    
+    <Review />
   </div>
 </template>
 
 <script>
 import Heading from '@/front/components/layout/Heading.vue';
 import SubHeading from '@/front/components/layout/SubHeading.vue';
+
 export default {
   name: "FrontHome",
   components:{

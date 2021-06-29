@@ -124,6 +124,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -148,7 +150,8 @@ __webpack_require__.r(__webpack_exports__);
         image: [],
         meta_title: "",
         meta_keyword: ""
-      })
+      }),
+      loading: false
     };
   },
   methods: {
@@ -157,20 +160,25 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!this.form.meta_keyword) {
         this.meta_keywordWarn = true;
+        return false;
       } else {
         this.meta_keywordWarn = false;
       }
 
       if (!this.img_image) {
         this.imageWarn = true;
+        return false;
       }
 
+      this.loading = true;
       this.form.post("/api/categories").then(function (response) {
         _this.form.reset();
 
         _this.img_image = false;
 
         _this.$swal.fire("Added!", "Item Added successfully", "success");
+
+        _this.loading = false;
 
         _this.$router.push('/categories');
       })["catch"](function () {});
@@ -262,279 +270,298 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form-layout", {
-    scopedSlots: _vm._u([
-      {
-        key: "formdata",
-        fn: function() {
-          return [
-            _c(
-              "form",
-              {
-                attrs: { role: "form", enctype: "multipart/form-data" },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.AddCategory()
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-12" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "title" } }, [
-                          _vm._v("Title")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.title,
-                              expression: "form.title"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: { "is-invalid": _vm.form.errors.has("title") },
-                          attrs: { type: "text", placeholder: "Enter title" },
-                          domProps: { value: _vm.form.title },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+  return _c(
+    "section",
+    [
+      _c("form-layout", {
+        scopedSlots: _vm._u([
+          {
+            key: "formdata",
+            fn: function() {
+              return [
+                _c(
+                  "form",
+                  {
+                    attrs: { role: "form", enctype: "multipart/form-data" },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.AddCategory()
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm-12" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "title" } }, [
+                              _vm._v("Title")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.title,
+                                  expression: "form.title"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.form.errors.has("title")
+                              },
+                              attrs: {
+                                type: "text",
+                                placeholder: "Enter title"
+                              },
+                              domProps: { value: _vm.form.title },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "title",
+                                    $event.target.value
+                                  )
+                                }
                               }
-                              _vm.$set(_vm.form, "title", $event.target.value)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "title" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-12" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "description" } }, [
-                          _vm._v("Description")
-                        ]),
-                        _vm._v(" "),
-                        _c("vue-editor", {
-                          class: {
-                            "is-invalid": _vm.form.errors.has("description")
-                          },
-                          attrs: {
-                            customModules: _vm.customModulesForEditor,
-                            editorOptions: _vm.editorSettings,
-                            id: "editor",
-                            useCustomImageHandler: ""
-                          },
-                          on: {
-                            "image-added": _vm.handleImageAdded,
-                            "image-removed": _vm.handleImageRemoved
-                          },
-                          model: {
-                            value: _vm.form.description,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "description", $$v)
-                            },
-                            expression: "form.description"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "description" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "meta_title" } }, [
-                          _vm._v("Meta Title")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.meta_title,
-                              expression: "form.meta_title"
-                            }
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "title" }
+                            })
                           ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("meta_title")
-                          },
-                          attrs: {
-                            type: "text",
-                            placeholder: "Enter meta title"
-                          },
-                          domProps: { value: _vm.form.meta_title },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-12" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "description" } }, [
+                              _vm._v("Description")
+                            ]),
+                            _vm._v(" "),
+                            _c("vue-editor", {
+                              class: {
+                                "is-invalid": _vm.form.errors.has("description")
+                              },
+                              attrs: {
+                                customModules: _vm.customModulesForEditor,
+                                editorOptions: _vm.editorSettings,
+                                id: "editor",
+                                useCustomImageHandler: ""
+                              },
+                              on: {
+                                "image-added": _vm.handleImageAdded,
+                                "image-removed": _vm.handleImageRemoved
+                              },
+                              model: {
+                                value: _vm.form.description,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "description", $$v)
+                                },
+                                expression: "form.description"
                               }
-                              _vm.$set(
-                                _vm.form,
-                                "meta_title",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "meta_title" }
-                        })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "meta_keyword" } }, [
-                          _vm._v("Meta Keywords")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.meta_keyword,
-                              expression: "form.meta_keyword"
-                            }
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "description" }
+                            })
                           ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("meta_keyword")
-                          },
-                          attrs: {
-                            type: "text",
-                            placeholder: "Enter meta keyword"
-                          },
-                          domProps: { value: _vm.form.meta_keyword },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "meta_title" } }, [
+                              _vm._v("Meta Title")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.meta_title,
+                                  expression: "form.meta_title"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.form.errors.has("meta_title")
+                              },
+                              attrs: {
+                                type: "text",
+                                placeholder: "Enter meta title"
+                              },
+                              domProps: { value: _vm.form.meta_title },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "meta_title",
+                                    $event.target.value
+                                  )
+                                }
                               }
-                              _vm.$set(
-                                _vm.form,
-                                "meta_keyword",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "meta_keyword" }
-                        }),
-                        _vm._v(" "),
-                        _vm.meta_keywordWarn
-                          ? _c("p", { staticClass: "warn-error" }, [
-                              _vm._v(" The meta keyword field is required.")
-                            ])
-                          : _vm._e()
-                      ],
-                      1
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-4" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "image" } }, [
-                          _vm._v("Please upload a Banner image !")
-                        ]),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("input", {
-                          class: { "is-invalid": _vm.form.errors.has("image") },
-                          attrs: { name: "image", type: "file" },
-                          on: {
-                            change: function($event) {
-                              return _vm.changeDetailPhoto($event)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "image" }
-                        }),
-                        _vm._v(" "),
-                        _vm.imageWarn
-                          ? _c("p", { staticClass: "warn-error" }, [
-                              _vm._v(" Please upload an image.")
-                            ])
-                          : _vm._e()
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-2" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "image" } }),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "image w-100",
-                          attrs: { src: _vm.img_image, alt: "" }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "image" }
-                        })
-                      ],
-                      1
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("form-buttons")
-              ],
-              1
-            )
-          ]
-        },
-        proxy: true
-      }
-    ])
-  })
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "meta_title" }
+                            })
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "meta_keyword" } }, [
+                              _vm._v("Meta Keywords")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.meta_keyword,
+                                  expression: "form.meta_keyword"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.form.errors.has(
+                                  "meta_keyword"
+                                )
+                              },
+                              attrs: {
+                                type: "text",
+                                placeholder: "Enter meta keyword"
+                              },
+                              domProps: { value: _vm.form.meta_keyword },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "meta_keyword",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "meta_keyword" }
+                            }),
+                            _vm._v(" "),
+                            _vm.meta_keywordWarn
+                              ? _c("p", { staticClass: "warn-error" }, [
+                                  _vm._v(" The meta keyword field is required.")
+                                ])
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm-4" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "image" } }, [
+                              _vm._v("Please upload a Banner image !")
+                            ]),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c("input", {
+                              class: {
+                                "is-invalid": _vm.form.errors.has("image")
+                              },
+                              attrs: { name: "image", type: "file" },
+                              on: {
+                                change: function($event) {
+                                  return _vm.changeDetailPhoto($event)
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "image" }
+                            }),
+                            _vm._v(" "),
+                            _vm.imageWarn
+                              ? _c("p", { staticClass: "warn-error" }, [
+                                  _vm._v(" Please upload an image.")
+                                ])
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-2" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "image" } }),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c("img", {
+                              staticClass: "image w-100",
+                              attrs: { src: _vm.img_image, alt: "" }
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "image" }
+                            })
+                          ],
+                          1
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("form-buttons")
+                  ],
+                  1
+                )
+              ]
+            },
+            proxy: true
+          }
+        ])
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
