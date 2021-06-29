@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
         // $this->call(EscortTableSeeder::class);
         // $this->call(SalesdpsTableSeeder::class);
         $this->call(CityTableSeeder::class);
+        $this->call(RoleTableSeeder::class);
+        $this->call(RoleCategoryTableSeeder::class);
+        $this->call(PermissionTableSeeder::class);
     }
 }
