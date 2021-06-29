@@ -68,8 +68,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="/js/admin/adminlte.js"></script>
 <script>
-  @auth
-    window.Permissions = {!! json_encode(Auth::user()->allPermissions, true) !!};
+   @auth
+    //window.Permissions = {!! json_encode(Auth::user()->allPermissions, true) !!};
+    window.Permissions = {!! json_encode(Auth::user()->userAllPermissions, true) !!};
+    window.AuthToken = {!! json_encode(base64_encode(serialize(['id'=>Auth::user()->id,'secret'=>'secret_key'])), true) !!};
   @else
     window.Permissions = [];
   @endauth

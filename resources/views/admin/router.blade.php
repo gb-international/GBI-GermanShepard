@@ -9,8 +9,21 @@
                 <p>Dashboard</p>
             </router-link>
         </li>
+        <li class="nav-item">
+            <router-link to="/feedbacks" class="nav-link" title="Feedback">
+                <i class="nav-icon fas fa-envelope-open-text"></i>
+                <p>Feedback</p>
+            </router-link>
+        </li>
+
+         <li class="nav-item">
+            <router-link to="/create-payment-link" class="nav-link" title="Feedback">
+                <i class="nav-icon fas fa-money-bill-wave"></i>
+                <p>Payment Link</p>
+            </router-link>
+        </li>
         
-        @canany(['itineraries','account-itineraries','front-booking'])
+        @canany(['itineraries','account-itineraries','front-booking', 'tourtypes'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="Itinerary">
                 <i class="nav-icon far fa-file-alt"></i>
@@ -20,7 +33,7 @@
                 </p>
             </a>
             <ul class="nav nav-treeview">
-                @can('itineraries')
+                @can('all-itinerary-itinerary')
                 <li class="nav-item">
                 <router-link to="/itinerary-list" class="nav-link" title="Itinerary">
                     <p> Itinerary List</p>
@@ -37,17 +50,25 @@
                 </li>
                 @endcan --}}
 
-                @can("front-booking")
+                @can("all-Tour-Frontbooking")
                     <li class="nav-item">
                     <router-link :to="`/front-booking`" class="nav-link" title="Website Query">
-                        <p> Website Query</p></router-link>
+                        <p> Website Query </p></router-link>
                     </li>
                 @endcan
                 
                 @can("itinerary-request")
                     <li class="nav-item">
-                    <router-link :to="`/itinerary-request`" class="nav-link" title="Website Query">
-                        <p> Itinerary Request</p></router-link>
+                    <router-link :to="`/itinerary-request`" class="nav-link" title="Itinerary Request">
+                        <p> Itinerary Request </p></router-link>
+                    </li>
+                @endcan
+
+                @can('tourtypes')
+                    <li class="nav-item">
+                        <router-link to="/tourtype" class="nav-link" title="Tour type">
+                        <p> Tour type </p>
+                        </router-link>
                     </li>
                 @endcan
 
@@ -58,7 +79,7 @@
 
         
 
-        @canany(['tours','tourtypes','userpayments'])
+        {{-- @canany(['tours','tourtypes','userpayments'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="Tour">
             <i class="nav-icon fas fa-bus"></i>
@@ -94,9 +115,9 @@
 
             </ul>
         </li>
-        @endcanany
+        @endcanany --}}
 
-        @canany(['hotels','restaurants'])
+        @canany(['all-hotel-hotel','all-restaurant-restaurant'])
         <li class="nav-item has-treeview" title="Hotel">
             <a href="#" class="nav-link">
             <i class="nav-icon fas fa-hotel"></i>
@@ -106,7 +127,7 @@
             </p>
             </a>
             <ul class="nav nav-treeview">
-            @can('hotels')
+            @can('all-hotel-hotel')
             <li class="nav-item">
                 <router-link to="/hotel-list" class="nav-link" title="Hotel List">
                 
@@ -114,7 +135,7 @@
                 </router-link>
             </li>
             @endcan
-            @can('restaurants')
+            @can('all-restaurant-restaurant')
             <li class="nav-item">
                 <router-link to="/restaurant-list" class="nav-link" title="Restaurant List">
                 
@@ -126,7 +147,7 @@
         </li>
         @endcanany
         
-        @canany(['buses','trains','flights'])
+        @canany(['all-transport-bus','all-transport-train','all-transport-flight'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="Transports">
             <i class="nav-icon fas fa-car"></i>
@@ -138,7 +159,7 @@
             <ul class="nav nav-treeview">
 
             
-            @can('buses')
+            @can('all-transport-bus')
             <li class="nav-item">
                 <router-link to="/bus-list" class="nav-link" title="Buses">
                 <p> Bus </p>
@@ -146,7 +167,7 @@
             </li>
             @endcan
 
-            @can('trains')
+            @can('all-transport-train')
             <li class="nav-item">
                 <router-link to="/train-list" class="nav-link" title="Trains">
                 <p> Train </p>
@@ -155,7 +176,7 @@
             @endcan
 
 
-            @can('flights')
+            @can('all-transport-flight')
             <li class="nav-item">
                 <router-link to="/flight-list" class="nav-link" title="Flights">
                 <p> Flight </p>
@@ -167,15 +188,84 @@
         </li>
         @endcanany
 
-        @can('schools')
+        @canany(['all-school-school', 'school-tour-tour', 'all-tour-userpayment'])
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link" title="School">
+            <i class="nav-icon fas fa-school"></i>
+            <p> School <i class="right fas fa-angle-right"></i>
+            </p>
+            </a>
+            <ul class="nav nav-treeview">
+            @can('all-school-school')
             <li class="nav-item">
-            <router-link :to="`/schools`" class="nav-link" title="School">
-                <i class="nav-icon fas fa-school"></i>
-                <p> Schools</p></router-link>
+                <router-link to="/schools" class="nav-link" title="School List">
+                <p> School List</p>
+                </router-link>
             </li>
-        @endcan
+            @endcan
 
-        @can("escorts")
+            @can('school-tour-tour')
+            <li class="nav-item">
+                <router-link to="/school/tours" class="nav-link" title="Tour List">
+                <p> Tour List </p>
+                </router-link>
+            </li>
+            @endcan
+
+            
+            @can('all-tour-userpayment')
+            <li class="nav-item">
+                <router-link to="/school/userpayments" class="nav-link" title="User payment">
+                <p> User Payments </p>
+                </router-link>
+            </li>
+            @endcan
+            
+
+            </ul>
+        </li>
+        @endcanany
+
+
+         @canany(['all-corporate-company', 'all-tour-tour', 'all-tour-corppayment'])
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link" title="Corporate">
+            <i class="nav-icon fas fa-building"></i>
+            <p> Corporate <i class="right fas fa-angle-right"></i>
+            </p>
+            </a>
+            <ul class="nav nav-treeview">
+            @can('all-corporate-company')
+            <li class="nav-item">
+                <router-link to="/companies" class="nav-link" title="School List">
+                <p> Company List </p>
+                </router-link>
+            </li>
+            @endcan
+
+            @can('all-tour-tour')
+            <li class="nav-item">
+                <router-link to="/corporate/tours" class="nav-link" title="Tour List">
+                <p> Tour List </p>
+                </router-link>
+            </li>
+            @endcan
+
+            
+            @can('all-tour-corppayment')
+            <li class="nav-item">
+                <router-link to="/corporate/userpayments" class="nav-link" title="User payment">
+                <p> User Payments </p>
+                </router-link>
+            </li>
+            @endcan
+            
+
+            </ul>
+        </li>
+        @endcanany
+
+        @can("all-escort-escort")
             <li class="nav-item">
             <router-link :to="`/escort-list`" class="nav-link" title="Escort">
                 <i class="nav-icon fas fa-male"></i>
@@ -240,7 +330,7 @@
 
          --}}
 
-        @canany(['city','state','country','sightseeing'])
+        @canany(['all-location-city','all-location-state','all-location-country','all-location-sightseeing'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="GBI Location">
             <i class="nav-icon fas fa-map-marker-alt"></i>
@@ -249,7 +339,7 @@
             </a>
             <ul class="nav nav-treeview">
 
-            @can('city')
+            @can('all-location-city')
             <li class="nav-item">
                 <router-link to="/list-city" class="nav-link" title="City">
                 <p> City </p>
@@ -257,7 +347,7 @@
             </li>
             @endcan
 
-            @can('state')
+            @can('all-location-state')
             <li class="nav-item">
                 <router-link to="/list-state" class="nav-link" title="State">
                 <p> State </p>
@@ -265,7 +355,7 @@
             </li>
             @endcan
             
-            @can('country')
+            @can('all-location-country')
             <li class="nav-item">
                 <router-link to="/country-list" class="nav-link" title="Country">
                 <p> Country</p>
@@ -274,7 +364,7 @@
             @endcan
 
             
-            @can('sightseeing')
+            @can('all-location-sightseeing')
             <li class="nav-item">
                 <router-link to="/sightseeing" class="nav-link" title="GBI Sightseeing">
                 <p> Sightseeing</p>
@@ -289,7 +379,7 @@
         @endcanany
 
 
-        @canany(['tourprogram','encyclopedia','customer','subscriber','bankdetail','gallery'])
+        @canany(['all-tour-tourprogram','all-encyclopedia-encyclopedia','all-website-user','all-website-subscriber','index-tour-schoolbankdetai','all-gallery-gallery'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="GBI Websites">
             <i class="nav-icon fas fa-file-alt"></i>
@@ -298,7 +388,7 @@
             </a>
             <ul class="nav nav-treeview">
 
-            @can('tourprogram')
+            @can('all-tour-tourprogram')
             <li class="nav-item">
                 <router-link to="/tourprogram" class="nav-link" title="GBI Travel Programs">
                 <p> Travel Programs </p>
@@ -306,7 +396,7 @@
             </li>
             @endcan
 
-            @can('encyclopedia')
+            @can('all-encyclopedia-encyclopedia')
             <li class="nav-item">
                 <router-link to="/encyclopedias" class="nav-link" title="Encyclopedias">
                 <p> Encyclopedia </p>
@@ -323,7 +413,7 @@
             @endcan --}}
 
 
-            @can('customer')
+            @can('all-website-user')
             <li class="nav-item">
                 <router-link to="/user" class="nav-link" title="GBI Customers">
                 <p>Customer</p>
@@ -331,7 +421,7 @@
             </li>
             @endcan
             
-            @can('subscriber')
+            @can('all-website-subscriber')
             <li class="nav-item">
                 <router-link to="/subscribers" class="nav-link" title="GBI Customers">
                 <p>Subscribers</p>
@@ -340,7 +430,7 @@
             @endcan
 
             
-            @can('bankdetail')
+            @can('index-tour-schoolbankdetail')
             <li class="nav-item">
                 <router-link to="/schoolbankdetails" class="nav-link" title="GBI Bankdetails">
                 <p>Bankdetail</p>
@@ -349,7 +439,7 @@
             @endcan
 
             
-            @can('gallery')
+            @can('all-gallery-gallery')
             <li class="nav-item">
                 <router-link to="/gallery" class="nav-link" title="GBI Gallery">
                 <p>Gallery</p>
@@ -364,7 +454,7 @@
         @endcanany
 
         
-        @canany(['posts','categories','tags'])
+        @canany(['all-post-post','all-post-category','all-post-tag'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="GBI Blogs">
                 <i class="nav-icon fas fa-file-alt"></i>
@@ -372,7 +462,7 @@
             </a>
             <ul class="nav nav-treeview">
 
-            @can('categories')
+            @can('all-post-category')
             <li class="nav-item">
                 <router-link to="/categories" class="nav-link" title="Post Category">
                 <p> Categories </p>
@@ -380,7 +470,7 @@
             </li>
             @endcan
 
-            @can('tags')
+            @can('all-post-tag')
             <li class="nav-item">
                 <router-link to="/tags" class="nav-link" title="Post Tags">
                 <p> Tags </p>
@@ -388,7 +478,7 @@
             </li>
             @endcan
             
-            @can('posts')
+            @can('all-post-post')
             <li class="nav-item">
                 <router-link to="/posts" class="nav-link" title="GBI Posts">
                 <p> Posts </p>
@@ -403,7 +493,7 @@
 
 
 
-        @canany(['setting','roles','permissions','gbimembers','departments'])
+        @canany(['all-roleandpermission-role','all-roleandpermission-permission','gbimembers','all-gbimember-department'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="Settings">
                 <i class="nav-icon fas fa-cog"></i>
@@ -411,7 +501,7 @@
             </a>
             <ul class="nav nav-treeview">                        
             
-            @can('departments')
+            @can('all-gbimember-department')
             <li class="nav-item">
                 <router-link to="/list-departments" class="nav-link" title="GBI Role">
                 <p> Departments</p>
@@ -419,7 +509,7 @@
             </li>
             @endcan
             
-            @can('roles')
+            @can('all-roleandpermission-role')
             <li class="nav-item">
                 <router-link to="/list-role" class="nav-link" title="GBI Role">
                 <p> Role</p>
@@ -428,7 +518,7 @@
             @endcan
 
 
-            @can('permissions')
+            @can('all-roleandpermission-permission')
             <li class="nav-item">
                 <router-link to="/list-permission" class="nav-link" title="GBI Permissions">
                 <p> Permission</p>
@@ -436,7 +526,7 @@
             </li>
             @endcan
 
-            @can('gbimembers')
+            @can('all-gbimember-gbimember')
             <li class="nav-item">
                 <router-link to="/list-member" class="nav-link" title="GBI Member List">
                 <p> GBI member</p>
