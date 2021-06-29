@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
+use App\Model\RoleAndPermission\Roles as Role;
+use DB;
 
 class LoginController extends Controller
 {
@@ -35,5 +40,24 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * The user has been authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function authenticated(Request $request, $user)
+    {  
+        $roles = ['student','teacher','corporate incharge','corporate employee'];
+        $roleIds = Role::whereIn(DB::raw("LOWER(name)"),$roles)->pluck('id');
+        $roleIdsArr = (count($roleIds) > 0) ? $roleIds->toArray() : [];
+        if(in_array($user->user_role, $roleIdsArr)){
+            $request->session()->invalidate();
+
+            return redirect()->route('login');
+        }
     }
 }
