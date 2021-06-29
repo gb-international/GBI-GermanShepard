@@ -26,6 +26,45 @@ to submit the data we are using a function.
               <has-error :form="form" field="name"></has-error>
             </div>
           </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="controller">Permission Controller</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Permission Controller"
+                v-model="form.controller"
+                :class="{ 'is-invalid': form.errors.has('controller') }"
+              />
+              <has-error :form="form" field="controller"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="method">Permission Method</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Permission Method"
+                v-model="form.method"
+                :class="{ 'is-invalid': form.errors.has('method') }"
+              />
+              <has-error :form="form" field="method"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="method">Permission Key</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Permission Key"
+                v-model="form.key"
+                :class="{ 'is-invalid': form.errors.has('key') }"
+              />
+              <has-error :form="form" field="key"></has-error>
+            </div>
+          </div>
         </div>
 
         <form-buttons />
@@ -50,6 +89,9 @@ export default {
     return {
       form: new Form({
         name: "",
+        controller:"",
+        method:"",
+        key:""
       }),
     };
   },
