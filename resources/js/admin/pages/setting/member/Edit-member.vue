@@ -74,13 +74,29 @@ to submit the data we are using a function.
 
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="role_name">Role Assign</label>
+              <label for="role_id">Role Assign</label>
               <dropdown-list class="mb-2" 
-                :itemList="role_list" 
-                v-model="form.role_name"
-                :class="{ 'is-invalid': form.errors.has('role_name') }"
+                :itemList="role_list"
+                :selectedId="form.role_id" 
+                v-model="form.role_id"
+                @update:option="updateRole"
+                :class="{ 'is-invalid': form.errors.has('role_id') }"
               />
-              <has-error :form="form" field="role_name"></has-error>
+              <has-error :form="form" field="role_id"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="parent_role_id">Parent Role Assign</label>
+              <dropdown-list class="mb-2" 
+                :itemList="role_list"
+                :selectedId="form.parent_role_id" 
+                v-model="form.parent_role_id"
+                @update:option="updateParentRole"
+                :class="{ 'is-invalid': form.errors.has('parent_role_id') }"
+              />
+              <has-error :form="form" field="parent_role_id"></has-error>
             </div>
           </div>
 
@@ -142,6 +158,8 @@ export default {
         phone_no: "",
         address: "",
         dob: "",
+        role_id: "",
+        parent_role_id: "",
         role_name: "",
         old_role:'',
         department_id:'',
@@ -153,6 +171,7 @@ export default {
     this.getData();
     this.getRoles();
     this.getDepartment();
+    console.log(this.form)
   },
 
   methods: {
@@ -162,7 +181,7 @@ export default {
           for(let i = 0;i<res.data.length;i++){
             this.role_list.push({
               name:res.data[i].name,
-              id:res.data[i].name
+              id:res.data[i].id
             });
           }
         }
@@ -181,8 +200,11 @@ export default {
         }
       });
     },
-
-    updateRole(v){ this.form.role_name = v.id },
+    updateRole(v){ 
+      console.log('hyyy'); 
+      this.form.role_id = v.id;
+    },
+    updateParentRole(v){ this.form.parent_role_id = v.id },
     updateDepartment(v){ this.form.department_id = v.id },
 
     getData(){
@@ -196,6 +218,8 @@ export default {
           this.form.role_name = res.data.user_role.role.name;
           this.form.old_role = this.form.role_name;
           this.form.department_id = res.data.department_id;
+          this.form.role_id = res.data.user_role.role.id;
+          this.form.parent_role_id = res.data.parent_role_id;
         });
     },
 
@@ -203,11 +227,13 @@ export default {
         this.form
         .put(`/api/members/${this.$route.params.id}`)
         .then((res) => {
-          this.$router.push(`/list-member`);
-          this.$toast.fire({
-            icon: "success",
-            title: "GBI Member Update Successfully",
-          });
+          if(res){
+              this.$router.push(`/list-member`);
+              this.$toast.fire({
+                icon: "success",
+                title: "GBI Member Update Successfully",
+              });
+          }
         })
         .catch(() => {});
     },
