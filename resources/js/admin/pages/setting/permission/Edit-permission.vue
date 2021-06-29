@@ -21,9 +21,48 @@ to submit the data we are using a function.
                 class="form-control"
                 v-model="form.name"
                 :class="{ 'is-invalid': form.errors.has('name') }"
-                placeholder="Enter School name"
+                placeholder="Enter Permission name"
               />
               <has-error :form="form" field="name"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="controller">Controller Name</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.controller"
+                :class="{ 'is-invalid': form.errors.has('controller') }"
+                placeholder="Enter Controller name"
+              />
+              <has-error :form="form" field="controller"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="method">Method Name</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.method"
+                :class="{ 'is-invalid': form.errors.has('method') }"
+                placeholder="Enter Method name"
+              />
+              <has-error :form="form" field="method"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="method">Key Name</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.key"
+                :class="{ 'is-invalid': form.errors.has('key') }"
+                placeholder="Enter Key name"
+              />
+              <has-error :form="form" field="key"></has-error>
             </div>
           </div>
         </div>
@@ -51,6 +90,9 @@ export default {
       // Create a new form instance
       form: new Form({
         name: "",
+        controller:"",
+        method:"",
+        key:""
       }),
     };
   },
