@@ -12,15 +12,32 @@ import  './filter'
 import swal from 'sweetalert2'
 import { Form, HasError, AlertError } from 'vform'
 import DisableAutocomplete from 'vue-disable-autocomplete';
-import { BootstrapVue,TablePlugin } from 'bootstrap-vue'
+import { BootstrapVue,TablePlugin } from 'bootstrap-vue';
+import vuecookies from 'vue-cookies';
+import axios from 'axios';
 
 
 Vue.use(VueSession);
 Vue.mixin(Permissions);
+Vue.use(vuecookies);
 Vue.config.productionTip = false;
+
+//Dsiabled Console messages
+Vue.config.devtools = false;
+Vue.config.debug = false;
+Vue.config.silent = true;
+//console.log = function() {};
+// End
+
 Vue.use(responsive)
 Vue.use(Vuex)
 window.$ = window.jQuery = require('jquery');
+Vue.prototype.$axios = axios;
+//Add token for authentication
+if(AuthToken){
+   Vue.prototype.$axios.defaults.headers.common['Authorization'] = AuthToken;
+}
+
 require('datatables.net');
 require('datatables.net-bs');
 Vue.use(DisableAutocomplete);
