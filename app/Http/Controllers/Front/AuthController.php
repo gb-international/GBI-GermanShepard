@@ -21,8 +21,8 @@ use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
 use App\Helpers\SendSms;
 use App\Jobs\ChangePasswordJob;
-use App\Rules\EmailValidate;
-
+use App\Rules\EmailValidate
+use App\Model\RoleAndPermission\Roles as Role;
 
 class AuthController extends Controller{
 
@@ -31,6 +31,7 @@ class AuthController extends Controller{
         
         // Check if a user with the specified email exists
         $user = User::whereEmail($request->email)->first();
+    
         if (!$user) {
             return response()->json([
                 'message' => 'Wrong email or password',
@@ -38,14 +39,22 @@ class AuthController extends Controller{
             ], 422);
         }
 
-        if ($user->user_role == 1) {
+        // if ($user->user_role == 1) {
+        //     return response()->json([
+        //         'message' => 'You are not allowed to login!!',
+        //         'status' => 422
+        //     ], 422);
+        // }
+        
+        $roles = ['student','teacher','corporate incharge','corporate employee'];
+        $roleIds = Role::whereIn(DB::raw("LOWER(name)"),$roles)->pluck('id');
+        $roleIdsArr = (count($roleIds) > 0) ? $roleIds->toArray() : [];
+        if(!in_array($user->user_role, $roleIdsArr)){
             return response()->json([
                 'message' => 'You are not allowed to login!!',
                 'status' => 422
             ], 422);
         }
-
-        
         
         
         
@@ -95,6 +104,7 @@ class AuthController extends Controller{
         // Get the data from the response
         $data = json_decode($response->getContent());
         $userData = [
+            'id' => $user->id,
             'name'=>$user->name,
             'email'=>$user->email,
             'photo'=>$user->information->photo,
@@ -107,6 +117,8 @@ class AuthController extends Controller{
             'status'=>$user->status,
             'is_incharge'=>$user->is_incharge,
             'school_id'=>$user->information->school_id,
+            'company_id'=>$user->information->company_id,
+            'client_type'=>$user->information->client_type,
             'change_password' => $user->information->change_password
         ];
         // Format the final response in a desirable format
