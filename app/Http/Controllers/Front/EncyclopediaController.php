@@ -1,5 +1,11 @@
 <?php
 
+/* ************************************************
+      Author: Ajay 
+      Edited by: Manas
+      **************************************************** */
+/* Edits: Added country field to json responses */
+
 namespace App\Http\Controllers\Front;
 use App\Model\Encyclopedia\Encyclopedia;
 use App\Model\Encyclopedia\Encyclopediacomment;
@@ -15,15 +21,15 @@ class EncyclopediaController extends Controller
 {
     public function index()
     {
-    	return response()->json(Encyclopedia::select('thumbnail','state_name','slug')->get());
+      return response()->json(Encyclopedia::select('thumbnail','state_name', 'country', 'slug')->get());
     }
     public function view($slug)
-    {    	
+    {     
 
 
         $data = Encyclopedia::with('comments','images','itinerarypdfs','comments.user','comments.user.information')->where('slug',$slug)->first();
         
-    	return response()->json($data);
+      return response()->json($data);
     }
 
     public function getComment($id){

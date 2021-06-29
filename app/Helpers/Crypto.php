@@ -44,5 +44,34 @@ class Crypto
             $count+=2; 
         } 
             return $binString; 
+    }
+
+    //-------------------------------------------------------------------------
+    
+    /**
+     * Encrypt user id and secret key
+     * 
+     **/
+    public function encyptUserId($userId)
+    {
+        if(isset($userId)){
+          return base64_encode(serialize(['id'=>$userId]));
+       }
+       return '';
+      
     } 
+
+    //-------------------------------------------------------------------------
+
+    /**
+     * Extract user id and secret key using decryption
+     * 
+     **/
+    public function decryptUserId($custom_token)
+    {
+       if(isset($custom_token)){
+         return unserialize(base64_decode($custom_token));
+       }
+       return [];
+    }
 }

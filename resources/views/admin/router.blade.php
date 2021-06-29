@@ -23,7 +23,7 @@
             </router-link>
         </li>
         
-        @canany(['itineraries','account-itineraries','front-booking', 'tourtypes'])
+        @canany(['all-itinerary-itinerary','all-itinerary-itineraryrequest','all-Tour-Frontbooking', 'tourtypes'])
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link" title="Itinerary">
                 <i class="nav-icon far fa-file-alt"></i>
@@ -57,7 +57,7 @@
                     </li>
                 @endcan
                 
-                @can("itinerary-request")
+                @can("all-itinerary-itineraryrequest")
                     <li class="nav-item">
                     <router-link :to="`/itinerary-request`" class="nav-link" title="Itinerary Request">
                         <p> Itinerary Request </p></router-link>

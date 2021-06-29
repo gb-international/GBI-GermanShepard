@@ -1,5 +1,11 @@
 <?php
 
+/* ************************************************
+      Author: Ajay 
+      Edited by: Manas
+      **************************************************** */
+/* Edits: Added country field to DB & made it fillable */
+
 namespace App\Model\Encyclopedia;
 
 use Illuminate\Database\Eloquent\Model;
@@ -8,6 +14,7 @@ class Encyclopedia extends Model
 {
     protected $fillable = [
         'state_name',
+        'country',
         'thumbnail',
         'banner_image',
         'description',

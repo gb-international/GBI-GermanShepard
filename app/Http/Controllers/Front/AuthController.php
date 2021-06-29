@@ -21,8 +21,9 @@ use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
 use App\Helpers\SendSms;
 use App\Jobs\ChangePasswordJob;
-use App\Rules\EmailValidate
+use App\Rules\EmailValidate;
 use App\Model\RoleAndPermission\Roles as Role;
+
 
 class AuthController extends Controller{
 

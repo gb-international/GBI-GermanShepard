@@ -15,7 +15,7 @@ class PermissionRoleTableSeeder extends Seeder
      */
     public function run()
     {
-    	 $admin = Role::create(['name' => 'administrator']);
+    	$admin = Role::create(['name' => 'administrator']);
         $moderator = Role::create(['name' => 'moderator']);
         $user = Role::create(['name' => 'user']);
 

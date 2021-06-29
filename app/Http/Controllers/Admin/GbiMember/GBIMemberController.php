@@ -35,10 +35,10 @@ class GBIMemberController extends Controller
             ->paginate($size));
     }
 
-    public function index()
-    {
-        return User::whereHas('role', function($query){$query->where('user_role',1);})->get();
-    }
+	public function index()
+	{
+		return User::whereHas('role', function($query){$query->where('user_role',1);})->get();
+	}
 
     public function register(Request $request){ 
         $this->validate($request, [ 

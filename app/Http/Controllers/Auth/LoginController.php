@@ -42,6 +42,23 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    //-------------------------------------------------------------------------
+
+    // public function login(Request $request)
+    // {
+    //        //  $user  = User::where([['email','=',request('email')],['name','=','GBI Admin']])->first();
+    //        //  if( $user){
+    //        //      Auth::login($user);
+    //        //      dd('hey');
+    //        //      //User::where('email','=',$request->email)->update(['otp' => null]);
+    //        //      //return view('home');
+    //        //  }
+    //        // dd('hyy');
+    // }
+
+
+    //-------------------------------------------------------------------------
+
     /**
      * The user has been authenticated.
      *

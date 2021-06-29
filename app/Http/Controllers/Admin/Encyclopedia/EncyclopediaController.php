@@ -1,5 +1,11 @@
 <?php
 
+/* ************************************************
+      Author: Ajay 
+      Edited by: Manas
+      **************************************************** */
+/* Edits: Added country field to json responses */
+
 namespace App\Http\Controllers\Admin\Encyclopedia;
 
 use App\Model\Encyclopedia\Encyclopedia;
@@ -30,7 +36,7 @@ class EncyclopediaController extends Controller
     public function all($size)
     {
         return response()->json(Encyclopedia::select([
-            'id','thumbnail','banner_image','state_name','updated_at'
+            'id','thumbnail','banner_image','state_name','country','updated_at'
             ])
             ->latest('updated_at')
             ->paginate($size));
@@ -39,7 +45,7 @@ class EncyclopediaController extends Controller
     public function index()
     {
         return response()->json(Encyclopedia::select([
-            'id','thumbnail','banner_image','state_name','updated_at'
+            'id','thumbnail','banner_image','state_name','country','updated_at'
             ])
             ->latest('updated_at')
             ->paginate(7));
@@ -181,6 +187,7 @@ class EncyclopediaController extends Controller
     {
       return $this->validate($request, [
             'state_name'=>'required',
+            'country'=>'required',
             'description'=>'required',
             'map_link'=>'required',
             'slug'=>'',

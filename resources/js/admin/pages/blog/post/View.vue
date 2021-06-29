@@ -33,24 +33,17 @@ to submit the data we are using a function.
 
       <div class="col-sm-4">
         <h5>Meta Keyword</h5>
-        <p>{{ posts.meta_keyword }}</p>
+        <span v-for="cat in posts.tags" :key="cat.id">{{ cat.title }}, </span>
       </div>
 
-      <div class="col-sm-4">
+      <div class="col-sm-4 mt-2">
         <h5>Created At</h5>
         <p>{{ posts.created_at }}</p>
       </div>
 
       <div class="col-sm-4">
         <h5>Category</h5>
-        <span v-for="cat in posts.categories" :key="cat.id"
-          >{{ cat.title }},</span
-        >
-      </div>
-
-      <div class="col-sm-4">
-        <h5>Tags</h5>
-        <span v-for="cat in posts.tags" :key="cat.id">{{ cat.title }},</span>
+        <p>{{ posts.category }}</p>
       </div>
     </template>
   </view-layout>

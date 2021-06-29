@@ -104,6 +104,7 @@ export default {
         {key:'start_date',label:'start date',sortable:true,thClass: 'table-head'},
         {key:'end_date',label:'end date',sortable:true,thClass: 'table-head'},
         {key:'status',label:'status',sortable:true,thClass: 'table-head'},
+        {key:'type',label:'type',sortable:true,thClass: 'table-head'},
         {key:'action',label:'action',thClass: 'table-head'}
       ],
       filter:'',

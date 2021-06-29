@@ -1,3 +1,9 @@
+<!--************************************************
+      Author:@Ajay 
+      Edited by: @Manas
+      ****************************************************-->
+<!-- Edits: Added Region field (static), Country Field (dynamic). Created the functions- UpdateRegion(), UpdateCountry(), countryList(), countryCheck(). Made edits to stateList(), EncyclopediaList() for segregation based on selected country. -->
+
 <!-- 
 
 This template helps us to create a new encyclopedia it takes the data from the form and sumbit with the help of the api
@@ -8,19 +14,46 @@ to submit the data we are using a function.
   <form-layout>
     <template #formdata>
       <form
+        v-if="allCreated"
         role="form"
         enctype="multipart/form-data"
         @submit.prevent="addItem()"
       >
         <div class="row" v-if="form.state_name">
           <div class="col-sm-3">
+             <div class="form-group">
+              <label for="state_name">Region Type</label>
+
+              <status-dd class="mb-2"
+                v-model="form.region_type"
+                :itemList="region_type_list" 
+                @input="UpdateRegion" 
+              />
+              <has-error :form="form" field="region_type"></has-error>
+            </div>
+
+            <div class="form-group">
+              <label for="state_name">Country</label>
+
+              <dropdown-list class="mb-2"
+                :itemList="country_list"
+                v-model="form.country" 
+                @input="UpdateCountry" 
+              />
+              <has-error :form="form" field="country"></has-error>
+            </div>
+
+          </div>
+          <div class="col-sm-3">
             <div class="form-group">
               <label for="state_name">State</label>
 
-              <dropdown-list class="mb-2"
-                :itemList="state_list" 
-                v-model="form.state_name" 
+              <dropdown-list class="mb-2" 
+                :itemList="state_list"
+                v-model="form.state_name"
+                @input="UpdateState" 
               />
+
               <has-error :form="form" field="state_name"></has-error>
             </div>
 
@@ -33,12 +66,12 @@ to submit the data we are using a function.
                 :class="{ 'is-invalid': form.errors.has('slug') }"
                 placeholder="Enter Map Link"
                 rows="6"
-                readonly
+                readonly=""
               />
               <has-error :form="form" field="slug"></has-error>
             </div>
           </div>
-          <div class="col-sm-9">
+          <div class="col-sm-6">
             <div class="form-group">
               <label for="map_link">Map Link</label>
               <textarea
@@ -195,6 +228,8 @@ import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import DropdownList from "@/admin/components/form/DropdownList.vue";
+import StatusDropdown from "@/admin/components/form/StatusDropdown2.vue";
+
 export default {
   name: "EditEncyclopedia",
   components: {
@@ -206,16 +241,25 @@ export default {
     "submit-button": SubmitButton,
     "form-layout": FormLayout,
     "dropdown-list": DropdownList,
+    "status-dd": StatusDropdown,
   },
   data() {
     return {
+      region_type_list: [
+        {name:"National",id:"National"},
+        {name:"International",id:"International"}
+      ],
+      allCreated: false,
       state_list: [],
+      country_list: [],
       list_data: [],
       pdf_list: [],
       images: [],
       list_images: [],
       form: new Form({
         state_name: "",
+        region_type: "",
+        country: "",
         map_link: "",
         slug: "",
         description: "",
@@ -228,29 +272,63 @@ export default {
   },
   created() {
     this.EncyclopediaList();
-    this.StateList();
   },
 
   methods: {
-    StateList() {
-      axios.get("/api/state").then((res) => {
+    countryList(val) {
+      axios.get("/api/country").then((res) => {
+        this.country_list = []
         if (res.data) {
+          //this.options = [];
           for (let i = 0; i < res.data.length; i++) {
-            this.state_list.push({
-              name: res.data[i].name,
-              id: res.data[i].name,
-            });
+            if(res.data[i].id === 2 && val === 'National' ){
+                this.country_list.push({
+                name: res.data[i].name,
+                id: res.data[i].name,
+              });
+            }
+            else if(res.data[i].id !== 2 && val === 'International' ) {
+              this.country_list.push({
+                name: res.data[i].name,
+                id: res.data[i].name,
+              });
+            }
           }
         }
       });
     },
-
-    UpdateState(v){ this.form.state_name = v.name; },
+    stateList(val) {
+      axios.get("/api/state").then((res) => {
+        this.state_list = []
+        if (res.data) {
+          this.options = [];
+          for (let i = 0; i < res.data.length; i++) {
+            if(res.data[i].country_id == val ){
+                this.state_list.push({
+                name: res.data[i].name,
+                id: res.data[i].name,
+              });
+            }
+          }
+        }
+      });
+    },
+    UpdateState(v){this.slugCreate(v);},
+    UpdateRegion(v){ this.countryList(v) },
+    UpdateCountry(v){ this.countryCheck(v) },
 
     EncyclopediaList() {
       var api = `/api/encyclopedias/${this.$route.params.id}/edit`;
       axios.get(api).then((response) => {
         this.form.fill(response.data);
+        if(response.data.country === 'India'){
+          this.form.region_type = 'National'
+        } else {
+          this.form.region_type = 'International'
+        }
+        //console.log(this.form);
+        this.countryCheck(this.form.country);
+        this.countryList(this.form.region_type);
         this.pdf_list = response.data.itinerarypdfs;
         this.images["thumbnail"] = response.data.thumbnail;
         this.images["banner_image"] = response.data.banner_image;
@@ -261,8 +339,23 @@ export default {
         this.form.banner_image = [];
         this.form.images = [];
         this.form.files = [];
+        this.form.region_type = this.form.region_type.trim();
         this.form.state_name = this.form.state_name.trim();
+        this.form.country = this.form.country.trim();
       });
+    },
+
+    countryCheck(val) {
+      axios.get("/api/country").then((res) => {
+        if (res.data) {
+          for (let i = 0; i < res.data.length; i++) {
+            if(res.data[i].name == val){
+              this.stateList(res.data[i].id)
+            }
+          }
+        }
+      });
+      this.allCreated = true;
     },
 
     // This function will be called every time you add a file

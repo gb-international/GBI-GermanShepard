@@ -1,3 +1,4 @@
+require('./bootstrap');
 import Vue from 'vue';
 import { sync } from 'vuex-router-sync';
 import { createRouter } from './routes/Index.js'
@@ -9,6 +10,7 @@ import { filter } from "./filter";
 import { createStore } from './store'
 import EventBus from '@/front/store/EventBus';
 import VueSweetalert2 from 'vue-sweetalert2';
+import swal from 'sweetalert2'
 import VueMeta from 'vue-meta';
 import vuecookies from 'vue-cookies';
 
@@ -36,6 +38,14 @@ if (process.window == 'undefined') {
 }
 
 Vue.config.productionTip = false;
+
+//Dsiabled Console messages
+Vue.config.devtools = false;
+Vue.config.debug = false;
+Vue.config.silent = true;
+//console.log = function() {};
+// End
+
 Vue.component("vue-headful", vueHeadful);
 Vue.component("ImageSpinner", require("@/front/components/ImageSpinner.vue").default);
 Vue.component("gbi-footer", require("@/front/pages/layouts/Footer.vue").default);
@@ -44,6 +54,15 @@ Vue.component("front", require("@/front/pages/layouts/App.vue").default);
 
 const router = createRouter();
 const store = createStore();
+// Sweet alert 2
+Vue.prototype.$swal = swal;
+const toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+});
+Vue.prototype.$toast = toast;
 sync(store, router);
 
 router.beforeEach((to, from, next) => {

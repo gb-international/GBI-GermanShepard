@@ -1,7 +1,15 @@
+<!--************************************************
+      Author:@Ajay
+      Edited By: @Manas
+  ****************************************************-->
+
+<!-- Edits: Commented Out Password Change Popup & made changes in the function userData(). -->
+
 <template>
   <div class="container">
     <div class="row text-right">
       <button
+        v-if="userinfo.is_incharge == false"
         class="btn btn-info float-right mt-2"
         data-toggle="modal"
         data-target="#codeModal"
@@ -70,18 +78,38 @@ export default {
 
   methods: {
     tourListData() {
-      var data = {'school_id':this.userinfo.school_id};
-      this.$api.POST("/api/tour-list", data).then((res) => {
-        console.log(res);
-        if (res.length == 0) {
-          this.formShow = true;
-        } else {
-          this.tours = res;
+
+      console.log(this.userinfo)
+
+      if(this.userinfo.client_type == 'teacher' || this.userinfo.client_type == 'student'){
+        var data = {'school_id':this.userinfo.school_id, 'travel_code': this.travel_code};
+        this.$api.POST("/api/tour-list", data).then((res) => {
+          console.log(res);
+          if (res.length == 0) {
+            this.formShow = true;
+          } else {
+            this.tours = res;
+          }
+        });
+        if (this.tours.length == 0) {
+          this.formShow = false;
         }
-      });
-      if (this.tours.length == 0) {
-        this.formShow = false;
       }
+      else if(this.userinfo.client_type == 'corporate'){
+        var data = {'company_id':this.userinfo.company_id, 'travel_code': this.travel_code};
+        this.$api.POST("/api/corp-tour-list", data).then((res) => {
+          console.log(res);
+          if (res.length == 0) {
+            this.formShow = true;
+          } else {
+            this.tours = res;
+          }
+        });
+        if (this.tours.length == 0) {
+          this.formShow = false;
+        }
+      }
+      
     },
 
     UserTourSave() {
@@ -115,13 +143,13 @@ export default {
         this.$router.push("/user-information");
         return false;
       }
-      if (this.userinfo.change_password == 0) {
+      /*if (this.userinfo.change_password == 0) {
         this.$swal.fire(
           "warning",
           "Please change your password for security purpose !!! <br>",
           "warning"
         );
-      }
+      }*/
     },
   },
 };

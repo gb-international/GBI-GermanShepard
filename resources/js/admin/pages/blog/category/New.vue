@@ -1,3 +1,9 @@
+<!--************************************************
+      Author:@Ajay 
+      Edited by: @Manas
+      ****************************************************-->
+<!-- Edits: Added custom error to meta keyword field & image field, the data elements imageWarn & meta_keywordWarn were added -->
+
 <!-- 
 This template helps us to create a new Category it takes the data from the form and sumbit with the help of the api
 to submit the data we are using a function.
@@ -64,9 +70,10 @@ to submit the data we are using a function.
                 class="form-control"
                 v-model="form.meta_keyword"
                 :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
-                placeholder="Enter meta title"
+                placeholder="Enter meta keyword"
               />
               <has-error :form="form" field="meta_keyword"></has-error>
+              <p v-if="meta_keywordWarn" class="warn-error"> The meta keyword field is required.</p>
             </div>
           </div>
         </div>
@@ -82,6 +89,8 @@ to submit the data we are using a function.
                 :class="{ 'is-invalid': form.errors.has('image') }"
               />
               <has-error :form="form" field="image"></has-error>
+              <p v-if="imageWarn" class="warn-error"> Please upload an image.</p>
+
             </div>
           </div>
           <div class="col-sm-2">
@@ -118,6 +127,8 @@ export default {
   data() {
     return {
       img_image: false,
+      imageWarn: false,
+      meta_keywordWarn: false,
       form: new Form({
         title: "",
         description: "",
@@ -129,6 +140,14 @@ export default {
   },
   methods: {
     AddCategory() {
+      if (!this.form.meta_keyword) {
+        this.meta_keywordWarn = true
+      } else{
+        this.meta_keywordWarn = false
+      }
+      if (!this.img_image) {
+        this.imageWarn = true
+      }
       this.form
         .post("/api/categories")
         .then((response) => {
@@ -139,6 +158,7 @@ export default {
             "Item Added successfully",
             "success"
           );
+          this.$router.push('/categories');
         })
         .catch(() => {});
     },
@@ -152,9 +172,19 @@ export default {
           file: event.target.result,
         });
         this.img_image = event.target.result;
+        this.imageWarn = false;
       };
       reader.readAsDataURL(file);
     },
   },
 };
 </script>
+
+<style scoped>
+  .warn-error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+  }
+</style>
