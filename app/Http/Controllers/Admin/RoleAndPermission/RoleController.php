@@ -10,7 +10,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
+//use Spatie\Permission\Models\Role;
+
+use App\Model\RoleAndPermission\Roles as Role;
 use DB;
 
 class RoleController extends Controller
@@ -22,17 +24,19 @@ class RoleController extends Controller
      */
 
     public function all($size)
-    {
+    { 
         return response()->json(Role::select([
-            'id','name','updated_at'
+            'id','name','updated_at','role_category_id'
             ])
+            ->with('roleCategory')
             ->latest('updated_at')
             ->paginate($size));
     }
 
     public function index()
     {
-        return \Spatie\Permission\Models\Role::all();
+        //return \Spatie\Permission\Models\Role::all();
+        return Role::with('roleCategory')->get();
     }
 
     /**
@@ -75,7 +79,8 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Role $role)
-    {
+    {   
+        $role->roleCategory;
         $role->permissions;
         return response()->json($role);
     }
@@ -88,8 +93,8 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Role $role)
-    {
-        $role->syncPermissions($request->permissions);
+    { 
+        $role->syncPermissions($request->permissions);     
         $role->update($this->validateRequest($request));        
         return response()->json(['message'=>'Successfully Updated']);
     }
@@ -110,6 +115,7 @@ class RoleController extends Controller
     {
       return $this->validate($request, [
         'name' => 'required',
+        'role_category_id'=>'required'
       ]);
     }
 
