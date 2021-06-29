@@ -19,7 +19,7 @@ use App\Rules\AlphaSpace;
 use App\Rules\PhoneNubmerValidate;
 use Illuminate\Validation\Rule;
 use App\Jobs\GbiNewMemberWelcomeMailJob;
-
+use App\Model\RoleAndPermission\Roles as Role;
 
 class GBIMemberController extends Controller
 {
@@ -27,21 +27,20 @@ class GBIMemberController extends Controller
     public function all($size)
     {
         return response()->json(User::select([
-            'id','name','email','updated_at'
+            'id','name','email','updated_at','user_role'
             ])
             ->where('user_role','1')
-            ->with(['UserRole:role_id,model_id','UserRole.role:id,name'])
+            ->with(['UserRole:role_id,model_id','UserRole.role:id,name','role:id,name,role_category_id','role.roleCategory:id,name'])
             ->latest('updated_at')
             ->paginate($size));
     }
 
-	public function index()
-	{
-		return User::where('user_role','1')->get();
-	}
+    public function index()
+    {
+        return User::whereHas('role', function($query){$query->where('user_role',1);})->get();
+    }
 
     public function register(Request $request){ 
-
         $this->validate($request, [ 
             'name' => ['required',new AlphaSpace],
             'address' => 'required|min:3',
@@ -49,25 +48,28 @@ class GBIMemberController extends Controller
             'phone_no' => ['required','numeric',new PhoneNubmerValidate],
             'password' => 'required', 
             'c_password' => 'required|same:password', 
-            'role_name' => 'required',
+            //'role_name' => 'required',
+            'role_id' => 'required',
+            'parent_role_id' => 'sometimes',
             'department_id' => 'required',
         ]);
 
         // if ($validator->fails()) { 
         //     return response()->json(['error'=>$validator->errors()], 401);            
         // }
-
+        $role_name = Role::where('id',$request->role_id)->value('name');
         $input = $request->all(); 
         $input['password'] = bcrypt($input['password']); 
         $user = User::create($input);
 
-        $user->user_role = '1';
+        $user->user_role = $request->role_id;
+        $user->parent_role_id = isset($request->parent_role_id) ? $request->parent_role_id : 0;
         $user->department_id = $request->department_id;
-        $user->user_type = $request->role_name;
+        $user->user_type = $role_name;
 
         $user->save();
 
-        $user->assignRole($request->role_name);
+        $user->assignRole($role_name);
 
         // Add more information to the informations table
         
@@ -83,25 +85,28 @@ class GBIMemberController extends Controller
         // send mail 
         $data = ['name'=>$user->name,'email'=>$user->email ];
             
-        GbiNewMemberWelcomeMailJob::dispatch($data);
+       // GbiNewMemberWelcomeMailJob::dispatch($data);
         // End more information 
         return response()->json('Successfully Registered !!!');
 
     }
 
     public function edit($id){
-        $user = User::select(['name','email','id','department_id'])
+        $user = User::select(['name','email','id','department_id','parent_role_id'])
             ->with([
                 'UserRole:role_id,model_id',
                 'UserRole.role:id,name',
+                'role:id,name,role_category_id',
+                'role.roleCategory:id,name',
                 'information:user_id,phone_no,address,dob',
             ])->where('id',$id)
             ->first();
         return response()->json($user);
     }
 
-   public function update(Request $request,$id){
+   public function update(Request $request,$id){ 
        $user = User::where('id',$id)->first();
+       $role_name = Role::where('id',$request->role_id)->value('name');
        $this->validate($request, [ 
             'name' => ['required',new AlphaSpace],
             'address' => 'required|min:3',
@@ -112,14 +117,19 @@ class GBIMemberController extends Controller
             'phone_no' => ['required','numeric',new PhoneNubmerValidate],
             'role_name' => 'required',
             'department_id' => 'required',
-            'dob'=> 'required'
+            'dob'=> 'required',
+            'role_id'=> 'required',
+            'parent_role_id'=> 'sometimes',
             ]);
         
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'department_id' => $request->department_id
+            'department_id' => $request->department_id,
+            'user_role'=>$request->role_id,
+            'parent_role_id'=>isset($request->parent_role_id) ? $request->parent_role_id : 0
         ]);
+
         $info = [
             'user_id' => $user->id,
             'phone_no' => $request->phone_no,
@@ -132,11 +142,12 @@ class GBIMemberController extends Controller
             Information::create($info);
         }
 
-        if($request->old_role != $request->role_name){
+        //if($request->old_role != $request->role_name){
+        if($request->old_role != $role_name){
             if($request->old_role != ''){
                 $user->removeRole($request->old_role);
             }
-            $user->assignRole($request->role_name);
+            $user->assignRole($role_name);
         }
 
         return $user;
