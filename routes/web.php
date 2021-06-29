@@ -8,10 +8,15 @@ use App\Mail\ForgetPasswordMail;
 use App\Mail\PasswordResetMail;
 use App\Mail\WelcomeMail;
 
-
 Route::post('/payment','Front\PaymentController@payment');
 Route::post('/response','Front\PaymentController@response');
 Route::post('/cancel','Front\PaymentController@cancel');
+
+// // Admin Net Banking
+// Route::post('admin/payment','Admin\Reservation\PaymentController@payment');
+// Route::post('admin/response','Admin\Reservation\PaymentController@response');
+// Route::post('admin/cancel','Admin\Reservation\PaymentController@cancel');
+
 // marketing
 Route::get('/marketings/{slug}','Front\MarketingController@index');
 Route::post('/marketings','Front\MarketingController@store');
@@ -30,7 +35,7 @@ Route::get('/check',function(){
     //      $message->from('xyz@gmail.com','Virat Gandhi');
     //   });
 
-        $data = ['name'=>'Ajay','email'=>'ajay_yadav@gbinternational.in','link'=>'https:sdjf.com'];
+        $data = ['name'=>'Ajay','email'=>'jackteny@gmail.com','link'=>'https:sdjf.com'];
         // Mail::to($data['email'])->send( new PasswordResetMail($data));
         Mail::to($data['email'])->send( new WelcomeMail($data));
 

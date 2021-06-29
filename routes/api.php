@@ -37,7 +37,9 @@ Route::namespace('Front')->group(function(){
 	Route::get('/travel-programs','WebsiteController@travel_programs');
 	// Blog 
 	Route::get('/blog-list/{count?}','BlogController@list');
+	Route::get('/blog-recents','BlogController@recents');
 	Route::get('/category-list','BlogController@categoryList');
+	Route::get('/keyword-list','BlogController@keywordList');
 	Route::get('/category/{slug}','BlogController@category');
 	Route::get('/getpost/{slug}','BlogController@view');
 	Route::get('/related-blog/{cat_id}','BlogController@relatedPost');
@@ -52,32 +54,43 @@ Route::namespace('Front')->group(function(){
 	Route::get('/related-cities/{id}','LocationController@relatedCities');
 	Route::get('/regional-cities/{region}','LocationController@regionalCities');
 
-	Route::group(['middleware' => 'auth:api'], function(){
-		Route::post('details', 'UserController@details');
-		Route::post('/user-show', 'UserController@show');
+	Route::group(['middleware' =>['auth:api']], function(){
 		Route::post('/logout-user','AuthController@logout');
-		Route::post('/user-info-update', 'UserController@infoUpdate');
-		Route::post('/user-update','UserController@update');
-		Route::post('/update-password','UserController@UpdatePassword');
-		Route::post('/update-user-image','UserController@UserImage');
-		Route::post('/tour-detail', 'TourController@tourDetail');
-		Route::post('/tour-list', 'TourController@tourList');
-		Route::post('/tour-travel-save', 'TourController@tourDetailSave');
-		Route::post('/payment-tour', 'TourController@paymentTour');
-		Route::post('/tour-bankdetail-student', 'SchoolbankdetailController@bankdetailsStudent');
-		Route::post('/tour-bankdetail', 'SchoolbankdetailController@bankdetails');
-		Route::post('/tour-bankdetail-store', 'SchoolbankdetailController@store');
-		Route::post('/tour-submit-payment', 'UserpaymentController@store');
-		Route::post('/tour-payment-status', 'UserpaymentController@tourPayStatus');
-		// payment by ccavenue
-		Route::post('/user-tour-payment','PaymentController@payment');
-		// Comments
-		Route::post('/encyclopedia-comments','EncyclopediaController@PostComment');
-		Route::post('/booking','FrontbookingController@booking');
-		Route::post('/group-member','GroupmemberController@index');
-		Route::post('/group-add','GroupmemberController@studentStore');
-		Route::post('/group-member-update','GroupmemberController@update');
-		Route::post('/destroy-member','GroupmemberController@destroy');
+		
+		Route::group(['middleware'=>'role.auth'],function(){
+            Route::post('details', 'UserController@details');
+			Route::post('/user-show', 'UserController@show');
+			Route::post('/user-info-update', 'UserController@infoUpdate');
+			Route::post('/user-update','UserController@update');
+			Route::post('/update-password','UserController@UpdatePassword');
+			Route::post('/update-user-image','UserController@UserImage');
+			Route::post('/tour-detail', 'TourController@tourDetail');
+
+			// School
+			Route::post('/tour-list', 'TourController@tourList');
+
+			// Corporate
+			Route::post('/corp-tour-list', 'TourController@corpTourList');
+
+			Route::post('/tour-travel-save', 'TourController@tourDetailSave');
+			Route::post('/payment-tour', 'TourController@paymentTour');
+			Route::post('/tour-bankdetail-student', 'SchoolbankdetailController@bankdetailsStudent');
+			Route::post('/tour-bankdetail', 'SchoolbankdetailController@bankdetails');
+			Route::post('/tour-bankdetail-store', 'SchoolbankdetailController@store');
+			Route::post('/tour-submit-payment', 'UserpaymentController@store');
+			Route::post('/tour-payment-status', 'UserpaymentController@tourPayStatus');
+			// payment by ccavenue
+			Route::post('/user-tour-payment','PaymentController@payment');
+			//Payment History - School
+			Route::post('/schoool/payment-history','PaymentController@viewPaymentDeails');
+			// Comments
+			Route::post('/encyclopedia-comments','EncyclopediaController@PostComment');
+			Route::post('/booking','FrontbookingController@booking');
+			Route::post('/group-member','GroupmemberController@index');
+			Route::post('/group-add','GroupmemberController@studentStore');
+			Route::post('/group-member-update','GroupmemberController@update');
+			Route::post('/destroy-member','GroupmemberController@destroy');
+		});		
 	});
 	Route::get('/flight-detail/{flightNumber}','WebsiteController@getFlightDetails');
 	Route::get('/current-weather/{city}','WebsiteController@getCurrentWeather');
@@ -103,6 +116,13 @@ Route::namespace('Front')->group(function(){
 
 	// requrest itinerary
 	Route::post('/request-itinerary','ItineraryController@requestItinerary');
+
+	// Feedback Submit
+	Route::post('/feedback-submit','FeedbackController@store');
+
+	//Tour Itinerary Detail
+	Route::get('/get-tour/{id}','TourController@tourItinerary');
+	
 });
 
 
