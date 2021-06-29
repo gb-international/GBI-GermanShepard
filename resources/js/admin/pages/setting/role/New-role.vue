@@ -26,6 +26,17 @@ to submit the data we are using a function.
               <has-error :form="form" field="name"></has-error>
             </div>
           </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+                  <label for="role_category_id">Select Role Category</label>
+                  <dropdown-filter class="mb-2" 
+                    :itemList="category_list" 
+                    @update:option="updateCategory" 
+                    :class="{ 'is-invalid': form.errors.has('role_category_id') }"
+                  />
+                  <has-error :form="form" field="role_category_id"></has-error>
+            </div>
+          </div>
         </div>
 
         <form-buttons />
@@ -39,6 +50,7 @@ to submit the data we are using a function.
 import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
+import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 export default {
   name: "NewRole",
   components: {
@@ -46,13 +58,19 @@ export default {
     "has-error": HasError,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
+    "dropdown-filter": DropdownFilter,
   },
   data() {
     return {
       form: new Form({
         name: "",
+        role_category_id:0
       }),
+      category_list: [],
     };
+  },
+  created(){
+     this.getCategories();
   },
   methods: {
     AddRole() {
@@ -72,6 +90,21 @@ export default {
           }
         });
     },
+    getCategories(){
+       axios.get("/api/rolecategory").then((res) => {
+        if (res) {
+          for(let i = 0;i<res.data.length;i++){
+            this.category_list.push({
+              name:res.data[i].name,
+              id:res.data[i].id
+            });
+          }
+        }
+      });
+    },
+    updateCategory(v){
+     this.form.role_category_id = v.id 
+    }
   },
 };
 </script>
