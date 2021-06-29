@@ -118,13 +118,24 @@ to submit the data we are using a function.
 
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="role_name">Role Assign</label>
+              <label for="role_id">Role Assign</label>
               <dropdown-filter class="mb-2" 
                 :itemList="role_list" 
                 @update:option="updateRole" 
-                :class="{ 'is-invalid': form.errors.has('role_name') }"
+                :class="{ 'is-invalid': form.errors.has('role_id') }"
               />
-              <has-error :form="form" field="role_name"></has-error>
+              <has-error :form="form" field="role_id"></has-error>
+            </div>
+          </div>
+           <div class="col-sm-4">
+            <div class="form-group">
+              <label for="parent_role_id">Parent Role Assign</label>
+              <dropdown-filter class="mb-2" 
+                :itemList="role_list" 
+                @update:option="updateParentRole" 
+                :class="{ 'is-invalid': form.errors.has('parent_role_id') }"
+              />
+              <has-error :form="form" field="parent_role_id"></has-error>
             </div>
           </div>
 
@@ -174,7 +185,8 @@ export default {
         phone_no: "",
         address: "",
         dob: "",
-        role_name: "",
+        role_id: "",
+        parent_role_id: "",
         department_id:'',
       }),
     };
@@ -192,7 +204,7 @@ export default {
           for(let i = 0;i<res.data.length;i++){
             this.role_list.push({
               name:res.data[i].name,
-              id:res.data[i].name
+              id:res.data[i].id
             });
           }
         }
@@ -212,7 +224,8 @@ export default {
       });
     },
 
-    updateRole(v){ this.form.role_name = v.id },
+    updateRole(v){ this.form.role_id = v.id },
+    updateParentRole(v){ this.form.parent_role_id = v.id },
     updateDepartment(v){ this.form.department_id = v.id },
 
     addMember() {
