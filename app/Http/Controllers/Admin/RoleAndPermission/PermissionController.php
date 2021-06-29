@@ -106,6 +106,31 @@ class PermissionController extends Controller
     {
       return $this->validate($request, [
         'name' => 'required|unique:permissions',
+        'controller' => 'required',
+        'method' => 'required',
+        'key' => 'required',
       ]);
+    }
+
+    //-------------------------------------------------------------------------
+    
+    /**
+     * Get the distinct permission keys
+     * 
+     * 
+     **/
+    public function getPermissionKeys(){
+       return Permission::distinct()->select('key')->get();
+    }
+
+    //-------------------------------------------------------------------------
+
+    /**
+     * Get the distinct permission keys
+     * 
+     * 
+     **/
+    public function getPermissionsByKey($key){
+       return Permission::where('key',$key)->get();
     }
 }
