@@ -21,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','department_id',
+        'name', 'email', 'user_role', 'password','department_id','parent_role_id'
     ];
 
     /**
@@ -64,8 +64,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\Reservation\Bookeduser','user_id')->orderBy('created_at','DESC');
     }
     public function frontbooking()
-	{
-		return $this->hasMany('App\Model\Tour\Frontbooking');
+    {
+        return $this->hasMany('App\Model\Tour\Frontbooking');
     }
     
     
@@ -90,6 +90,14 @@ class User extends Authenticatable
         return $this->hasOne('App\Model\User\Department');
     }
 
+    /**
+     * Map with roles table through one  to one relation
+     * 
+     */
+    public function role(){
+        return $this->belongsTo('App\Model\RoleAndPermission\Roles','user_role','id');
+    }
+
     public function getAllPermissionsAttribute() {
         $permissions = [];
         foreach (Permission::all() as $permission) {
@@ -100,4 +108,28 @@ class User extends Authenticatable
         return $permissions;
     }
 
+    //-------------------------------------------------------------------------
+
+    public function getUserAllPermissionsAttribute() {
+        $permissions = [];
+        foreach (Permission::all() as $permission) {
+            if (Auth::user()->can($permission->name)) {
+                $permissions[] = $permission->name;
+            }
+        }
+        //Assign child role permission
+        $childRoles = $this->distinct()->select('user_role')
+                         ->where('parent_role_id',(Auth::user()->user_role))
+                         ->get();
+        foreach($childRoles as $role){
+            if(isset($role->permissions)){
+                foreach($role->permissions as $permission){
+                    if(!in_array($permission->name, $permissions)){
+                       $permissions[] = $permission->name;
+                    }
+                }
+            }
+        }
+        return $permissions;
+    }
 }
