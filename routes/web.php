@@ -13,6 +13,8 @@ use App\Mail\WelcomeMail;
     dd('Event Run Successfully.');
 });*/
 
+Route::get('/sh/{shCode}','Front\ShortLinkController@index');
+
 Route::post('/payment','Front\PaymentController@payment');
 Route::post('/response','Front\PaymentController@response');
 Route::post('/cancel','Front\PaymentController@cancel');

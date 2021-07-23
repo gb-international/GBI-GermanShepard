@@ -7,7 +7,7 @@ This template helps us to edit company details.
     <template #formdata>
       <form
         role="form"
-        enctype="multipart/form-data"
+        enctype="multipart/form-data" 
         @submit.prevent="UpdateCompany()"
       >
         <div class="row">

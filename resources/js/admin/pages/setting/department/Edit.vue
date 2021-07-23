@@ -29,7 +29,7 @@ to submit the data we are using a function.
         </div>
 
         
-        <div class="row">
+       <!-- <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
               <label for="name">Department Description</label>
@@ -43,7 +43,7 @@ to submit the data we are using a function.
               <has-error :form="form" field="description"></has-error>
             </div>
           </div>
-        </div>
+        </div> -->
 
 
 
@@ -71,7 +71,7 @@ export default {
       // Create a new form instance
       form: new Form({
         name: "",
-        description: "",
+        //description: "",
       }),
     };
   },

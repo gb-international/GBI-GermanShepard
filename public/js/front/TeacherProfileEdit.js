@@ -1391,7 +1391,8 @@ __webpack_require__.r(__webpack_exports__);
         profession_address: "",
         user_profession: "",
         institution_code: "",
-        subscribe: false
+        subscribe: false,
+        idProof: "aadhar"
       })
     };
   },
@@ -1540,7 +1541,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this2.$swal.fire({
           icon: "success",
-          title: "Profile updated!!"
+          title: "Updated Successfully!!"
         });
       })["catch"](function (error) {
         _this2.handleError(error);

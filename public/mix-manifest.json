@@ -1,6 +1,7 @@
 {
-    "/js/app.js": "/js/app.js",
+    "/js/entry-client.js": "/js/entry-client.js",
     "/css/app.css": "/css/app.css",
+    "/js/entry-server.js": "/js/entry-server.js",
     "/js/laravel-echo-setup.js": "/js/laravel-echo-setup.js",
     "/js/front/BillingInformation.js": "/js/front/BillingInformation.js",
     "/js/front/BillingStudent.js": "/js/front/BillingStudent.js",
@@ -12,7 +13,6 @@
     "/js/front/Dashboard.js": "/js/front/Dashboard.js",
     "/js/front/DashboardCorp.js": "/js/front/DashboardCorp.js",
     "/js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeacher.js": "/js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeacher.js",
-    "/js/front/DashboardCorp~js/front/DashboardTeacher.js": "/js/front/DashboardCorp~js/front/DashboardTeacher.js",
     "/js/front/DashboardStudent.js": "/js/front/DashboardStudent.js",
     "/js/front/DashboardTeacher.js": "/js/front/DashboardTeacher.js",
     "/js/front/Domestic.js": "/js/front/Domestic.js",

@@ -13,6 +13,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _front_components_user_UserinfoCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/front/components/user/UserinfoCard */ "./resources/js/front/components/user/UserinfoCard.vue");
 /* harmony import */ var _front_components_user_BookedTourButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/front/components/user/BookedTourButton */ "./resources/js/front/components/user/BookedTourButton.vue");
 /* harmony import */ var _front_components_user_UpcomingCrasousel_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/front/components/user/UpcomingCrasousel.vue */ "./resources/js/front/components/user/UpcomingCrasousel.vue");
+/* harmony import */ var _front_components_user_OffersCrasousel_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/front/components/user/OffersCrasousel.vue */ "./resources/js/front/components/user/OffersCrasousel.vue");
+/* harmony import */ var _front_components_blog_BlogCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/front/components/blog//BlogCard */ "./resources/js/front/components/blog/BlogCard.vue");
+/* harmony import */ var _front_components_user_PopularDestination_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/front/components/user/PopularDestination.vue */ "./resources/js/front/components/user/PopularDestination.vue");
 //
 //
 //
@@ -76,6 +79,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 
 
 
@@ -85,9 +103,31 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     'user-info-card': _front_components_user_UserinfoCard__WEBPACK_IMPORTED_MODULE_1__["default"],
     'booked-tour-button': _front_components_user_BookedTourButton__WEBPACK_IMPORTED_MODULE_2__["default"],
-    'upcoming-tour-crasousel': _front_components_user_UpcomingCrasousel_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    'upcoming-tour-crasousel': _front_components_user_UpcomingCrasousel_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    'offers-crasousel': _front_components_user_OffersCrasousel_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    'blog-card': _front_components_blog_BlogCard__WEBPACK_IMPORTED_MODULE_5__["default"],
+    'popular-tour': _front_components_user_PopularDestination_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
-  mixins: [_front_mixins_user_Dashboard__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  data: function data() {
+    return {
+      posts: [],
+      posts_list: []
+    };
+  },
+  mixins: [_front_mixins_user_Dashboard__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  mounted: function mounted() {
+    this.blogList();
+  },
+  methods: {
+    blogList: function blogList() {
+      var _this = this;
+
+      this.$axios.get("/api/blog-recents").then(function (response) {
+        _this.posts = response.data;
+        _this.posts_list = _this.posts.data;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -108,68 +148,78 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.valid
-    ? _c(
-        "div",
-        [
-          _c("user-info-card", { attrs: { userinfo: _vm.userinfo } }),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "container" },
-            [
-              _c("booked-tour-button"),
-              _vm._v(" "),
-              _c("h5", { staticClass: "title_section" }, [
-                _vm._v("Upcoming Event")
-              ]),
-              _vm._v(" "),
-              _c("upcoming-tour-crasousel", {
-                attrs: { upcoming_list: _vm.upcoming_list }
+    ? _c("div", [
+        _c(
+          "div",
+          { staticClass: "container" },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("h5", { staticClass: "title_section" }, [
+              _vm._v("Special Offers")
+            ]),
+            _vm._v(" "),
+            _c("offers-crasousel", {
+              attrs: { upcoming_list: _vm.upcoming_list }
+            }),
+            _vm._v(" "),
+            _c(
+              "h5",
+              { staticClass: "title_section" },
+              [
+                _vm._v("\n      Recent Searches\n      "),
+                _c("upcoming-tour-crasousel", {
+                  attrs: { upcoming_list: _vm.upcoming_list }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("h5", { staticClass: "title_section" }, [
+              _vm._v("\n      Popular Tours\n    ")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "popular_destination" },
+              [
+                _c("popular-tour", {
+                  attrs: { upcoming_list: _vm.upcoming_list }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("h5", { staticClass: "title_section" }, [
+              _vm._v("\n      Travel Blogs\n      ")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row" },
+              _vm._l(_vm.posts_list, function(post, index) {
+                return _c(
+                  "div",
+                  {
+                    key: index,
+                    staticClass:
+                      "col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0"
+                  },
+                  [_c("blog-card", { attrs: { post: post } })],
+                  1
+                )
               }),
-              _vm._v(" "),
-              _c(
-                "h5",
-                { staticClass: "title_section" },
-                [
-                  _vm._v("\n      Popular Destination\n      "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "view_link",
-                      attrs: { to: "/explore-list" }
-                    },
-                    [_vm._v("View more")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _vm._m(3),
-              _vm._v(" "),
-              _vm._m(4)
-            ],
-            1
-          )
-        ],
-        1
-      )
+              0
+            )
+          ],
+          1
+        )
+      ])
     : _vm._e()
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "popular_destination" }, [
-      _c("div", { staticClass: "row" })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -178,76 +228,10 @@ var staticRenderFns = [
       _c("img", {
         attrs: {
           src:
-            "https://placeit-assets.s3-accelerate.amazonaws.com/landing-pages/make-a-twitch-banner2/Twitch-Banner-Blue-1024x324.png",
+            "https://cdn.pixabay.com/photo/2016/04/26/15/01/holiday-1354563_960_720.jpg",
           loading: "lazy"
         }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "booksection" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-2" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-8" }, [
-          _c("div", { staticClass: "row", attrs: { id: "data" } }, [
-            _c("div", { staticClass: "col" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  attrs: {
-                    src: "assets/front/images/ebook.png",
-                    loading: "lazy"
-                  }
-                }),
-                _vm._v(" "),
-                _c("p", [_vm._v("E-Book")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  attrs: {
-                    src: "assets/front/images/quiz.png",
-                    loading: "lazy"
-                  }
-                }),
-                _vm._v(" "),
-                _c("p", [_vm._v("Quiz")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  attrs: {
-                    src: "assets/front/images/feedback.png",
-                    loading: "lazy"
-                  }
-                }),
-                _vm._v(" "),
-                _c("p", [_vm._v("Feedback")])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-2" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h5", { staticClass: "title_section" }, [
-      _vm._v("\n      Recent Search\n      "),
-      _c("a", { staticClass: "view_link", attrs: { href: "#" } }, [
-        _vm._v("View More")
-      ])
     ])
   },
   function() {

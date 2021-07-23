@@ -24,21 +24,21 @@ const ItineraryRequestView = () => import(/* webpackChunkName: "js/admin/Itinera
 
 export default [
 
-    { path: '/itinerary-list', component: ItineraryList },
-    { path: '/add-itinerary', component: AddItinerary },
-    { path: '/account-itinerary', component: AccountItinerary },
-    { path: '/edit-itinerary/:itineraryid', component: EditItinerary },
-    { path: '/view-itinerary/:id', component: ItineraryView },
-    { path: '/send-itinerary/:id', component: SendItinerary },
-    { path: '/account-itinerary-view/:id', component: AccountItineraryView },
+    { meta: {permId: 57}, path: '/itinerary-list', component: ItineraryList },
+    { meta: {permId: 57}, path: '/add-itinerary', component: AddItinerary },
+    { meta: {permId: 57}, path: '/account-itinerary', component: AccountItinerary },
+    { meta: {permId: 57}, path: '/edit-itinerary/:itineraryid', component: EditItinerary },
+    { meta: {permId: 57}, path: '/view-itinerary/:id', component: ItineraryView },
+    { meta: {permId: 57}, path: '/send-itinerary/:id', component: SendItinerary },
+    { meta: {permId: 57}, path: '/account-itinerary-view/:id', component: AccountItineraryView },
+    { meta: {permId: 57}, path: '/calculator/:id', component: CalculatorItinerary },
 
-    { path: '/front-booking', component: FrontBooking },
-    { path: '/front-booking/:id', component: FrontBookingView },
-    { path: '/calculator/:id', component: CalculatorItinerary },
-    //Sales Department
-    { path: '/itinerary-from-account', component: ItineraryFromAccount },
-    { path: '/submit-details/:id', component: SendDetails },
+    { meta: {permId: 59}, path: '/front-booking', component: FrontBooking },
+    { meta: {permId: 59}, path: '/front-booking/:id', component: FrontBookingView },
+    //Sales Department - Doubts
+    { meta: {permId: 57}, path: '/itinerary-from-account', component: ItineraryFromAccount },
+    { meta: {permId: 57}, path: '/submit-details/:id', component: SendDetails },
 
-    { path: '/itinerary-request', component: ItineraryRequest},
-    { path: '/itinerary-request/:id', component: ItineraryRequestView},
+    { meta: {permId: 84}, path: '/itinerary-request', component: ItineraryRequest},
+    { meta: {permId: 84}, path: '/itinerary-request/:id', component: ItineraryRequestView},
 ]

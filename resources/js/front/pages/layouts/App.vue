@@ -187,6 +187,22 @@
                 class="dropdown-menu dropdown-menu-right pt-2"
                 aria-labelledby="navbarDropdownMenuLink"
               >
+              <router-link
+                  :to="`/dashboard`"
+                  class="dropdown-item pt-10"
+                  >
+                  <div class="profileDD">
+                    <div> <img
+                    src="/images/icons/dashboard.png"
+                    class="img mr-3 mb-3 dd_icons_2"/> </div>
+                    <div>
+                      <b>Dashboard</b>
+                      <p>Your dashboard to manage your account
+                      </br> and tours.</p>
+                    </div>
+                  </div>
+                </router-link>
+
                 <router-link
                   :to="`/tour-list`"
                   class="dropdown-item pt-10"
@@ -218,8 +234,9 @@
                   </div>
                   </a
                 >
+
                 <router-link
-                  :to="`/dashboard`"
+                  :to="`/profile-edit`"
                   class="dropdown-item pt-10"
                   >
                   <div class="profileDD">
@@ -293,7 +310,7 @@
 import login from "@/front/pages/user/Login.vue";
 import Intro from "@/front/components/Intro.vue";
 import Cookies from "@/front/components/Cookies.vue";
-import Review from "@/front/components/form/Reviews.vue";
+//import Review from "@/front/components/Reviews.vue";
 
 export default {
   name: "App",
@@ -301,7 +318,6 @@ export default {
     login,
     Intro,
     Cookies,
-    Review
   },
   data() {
     return {
@@ -350,10 +366,10 @@ export default {
         });
 
     this.loginCheck();
-    this.login = this.$cookies.get("login");
-    if (this.login == null) {
+    //this.login = this.$cookies.get("login");
+    /*if (this.login == null) {
       this.login = 1;
-    }
+    }*/
     // if(this.$cookies.get('user') && this.$cookies.get('access_token')){
     //   this.user = this.$cookies.get('user');
     // }
@@ -389,7 +405,7 @@ export default {
           return 2;
         });
       } else {
-        this.login = 2;
+        //this.login = 2;
         if (this.$cookies.get("login") == 1) {
           this.login = 1;
         }

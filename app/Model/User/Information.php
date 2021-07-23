@@ -15,7 +15,10 @@ class Information extends Model
         'phone_no',
         'dob',
         'address',
-        'user_id'
+        'user_id',
+        'docType',
+        'docFront',
+        'docBack',
     ];
 
     public function getPhotoAttribute($image)

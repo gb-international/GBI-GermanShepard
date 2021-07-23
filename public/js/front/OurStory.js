@@ -233,6 +233,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -257,6 +268,55 @@ __webpack_require__.r(__webpack_exports__);
     }]
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=style&index=0&id=27c575dc&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=style&index=0&id=27c575dc&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.widthControl[data-v-27c575dc]{\n  width: 70% !important\n}\n@media only screen and (max-width: 824px) {\n.widthControl[data-v-27c575dc]{\n  width: 90% !important\n}\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=style&index=0&id=27c575dc&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=style&index=0&id=27c575dc&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./OurStory.vue?vue&type=style&index=0&id=27c575dc&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=style&index=0&id=27c575dc&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 
@@ -338,10 +398,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=template&id=27c575dc&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=template&id=27c575dc& ***!
-  \********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=template&id=27c575dc&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=template&id=27c575dc&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -360,7 +420,10 @@ var render = function() {
       "div",
       { staticClass: "container" },
       [
-        _c("heading", { attrs: { text: "Our Story" } }),
+        _c("heading", {
+          staticStyle: { "margin-bottom": "10px !important" },
+          attrs: { text: "Our Story" }
+        }),
         _vm._v(" "),
         _c("sub-heading", {
           attrs: { text: "One’s action can inspire others to dream bigger" }
@@ -444,65 +507,139 @@ var render = function() {
         _vm._v(" "),
         _c("section", { staticClass: "bgcolor-section" }, [
           _c("div", { staticClass: "col-lg-12" }, [
-            _c("div", { staticClass: "col-md-12 col-lg-12 pt-5 mx-10" }, [
-              _c("div", { staticClass: "ourstory-content" }, [
+            _c(
+              "article",
+              { staticClass: "about-story" },
+              [
                 _c(
-                  "figure",
+                  "div",
                   {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
+                    staticClass:
+                      "d-flex flex-lg-row flex-column justify-content-between align-items-center"
                   },
                   [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
+                    _c(
+                      "div",
+                      { staticClass: "ourstory-content" },
+                      [
+                        _c("heading", { attrs: { text: "Mission" } }),
+                        _vm._v(" "),
+                        _c("sub-heading", {
+                          attrs: { text: "Learn from the diversity" }
+                        }),
+                        _vm._v(" "),
+                        _c("paragraph", {
+                          attrs: {
+                            text:
+                              "We are on a  mission to help young minds and  passionate travelers to travel to destinations that expose them to practical learning and cultural exploration.\n                      We truly understand how a place or a location can make you feel elated, and so with our customised itineraries and experienced team of travel professionals, we aim to deliver you with a great travel experience that best fits your needs and aspirations. \n                      We add our personal and professional touch to your journeys with our dedicated 24x7 personal support available anytime anywhere."
+                          }
+                        })
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item ic-cal-re",
-                      attrs: {
-                        id: "ourstoryimg1",
-                        "data-url": "/assets/front/images/mission.png",
-                        alt: "our story"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "about-story" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-12 col-lg-12" }, [
-                  _c(
-                    "div",
-                    { staticClass: "ourstory-content" },
-                    [
-                      _c("heading", { attrs: { text: "Mission" } }),
-                      _vm._v(" "),
-                      _c("sub-heading", {
-                        attrs: { text: "Learn from the diversity" }
-                      }),
-                      _vm._v(" "),
-                      _c("paragraph", {
-                        attrs: {
-                          text:
-                            "We are on a  mission to help young minds and  passionate travelers to travel to destinations that expose them to practical learning and cultural exploration.\n                      We truly understand how a place or a location can make you feel elated, and so with our customised itineraries and experienced team of travel professionals, we aim to deliver you with a great travel experience that best fits your needs and aspirations. \n                      We add our personal and professional touch to your journeys with our dedicated 24x7 personal support available anytime anywhere.\n                      We at GBI know how a traveler feels when he/she travels to a new place , and to overcome the fear of FOMO(Fear Of Missing Out), we make that extra effort to plan your journeys in a much more systematic and professional manner."
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ])
-              ])
-            ])
+                    _c("div", { staticClass: "ourstory-content" }, [
+                      _c(
+                        "figure",
+                        {
+                          directives: [
+                            { name: "lazyload", rawName: "v-lazyload" }
+                          ],
+                          staticClass: "image__wrapper"
+                        },
+                        [
+                          _c("ImageSpinner", { staticClass: "image__spinner" }),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "image__item ic-cal-re",
+                            attrs: {
+                              id: "ourstoryimg1",
+                              "data-url":
+                                "/assets/front/images/ourstory_image_.png",
+                              alt: "our story"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("paragraph", {
+                  staticClass: "mt-1",
+                  attrs: {
+                    text:
+                      "We at GBI know how a traveler feels when he/she travels to a new place , and to overcome the fear of FOMO(Fear Of Missing Out), we make that extra effort to plan your journeys in a much more systematic and professional manner."
+                  }
+                })
+              ],
+              1
+            )
           ])
         ]),
         _vm._v(" "),
-        _c("section", { staticClass: "whitebg-section" }, [
+        _c("section", { staticClass: "bgcolor-section" }, [
           _c("div", { staticClass: "col-lg-12" }, [
-            _c("article", { staticClass: "about-vision pa-t-15" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-12 col-lg-12" }, [
-                  _c("div", { staticClass: "ourstory-content" }, [
+            _c(
+              "article",
+              { staticClass: "about-story" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "d-flex flex-lg-row flex-column justify-content-between align-items-center"
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "ourstory-content" },
+                      [
+                        _c("heading", { attrs: { text: "Vision" } }),
+                        _vm._v(" "),
+                        _c("sub-heading", {
+                          attrs: {
+                            text: "The choice of journey shapes mundane reality"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("paragraph", {
+                          attrs: {
+                            text:
+                              "GBI’s aims to provide a travel platform whether online or offline for young minds and passionate travelers to expand their horizons and prepare them well, to face the day-to-day challenges of mundane reality. We aim to enhance their skills with a practical approach through excursions and help them connect with people, culture and mouth-watering cuisines of different continents across the globe."
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("paragraph", {
+                  staticClass: "mt-1",
+                  attrs: {
+                    text:
+                      "For business travellers, we aim to provide a more customer-centric approach with our team of innovative and experienced professionals and we ensure to make your meetings and conferences memorable and cherishable ones. Through continuous adaptation of new innovative technological advancements, we aim to achieve the client’s long term meeting objectives; thereby ensuring customer satisfaction."
+                  }
+                })
+              ],
+              1
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("section", { staticClass: "bgcolor-section" }, [
+          _c("div", { staticClass: "col-lg-12" }, [
+            _c("article", { staticClass: "about-story" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex flex-lg-row flex-column justify-content-between align-items-center"
+                },
+                [
+                  _c("div", { staticClass: "ourstory-content widthControl" }, [
                     _c(
                       "figure",
                       {
@@ -515,145 +652,42 @@ var render = function() {
                         _c("ImageSpinner", { staticClass: "image__spinner" }),
                         _vm._v(" "),
                         _c("img", {
-                          staticClass: "image__item",
+                          staticClass: "image__item ic-cal-re widthControl",
                           attrs: {
-                            id: "ourstoryimg2",
-                            "data-url": "/assets/front/images/vision.png",
+                            id: "ourstoryimg1",
+                            "data-url": "/assets/front/images/user-profile.png",
                             alt: "our story"
                           }
                         })
                       ],
                       1
                     )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-12 col-lg-12" }, [
+                  ]),
+                  _vm._v(" "),
                   _c(
                     "div",
                     { staticClass: "ourstory-content" },
                     [
-                      _c("heading", { attrs: { text: "Vision" } }),
+                      _c("heading", {
+                        attrs: { text: "CEO - Mr. Jasbir Singh Rikhi" }
+                      }),
                       _vm._v(" "),
                       _c("sub-heading", {
-                        attrs: {
-                          text: "The choice of journey shapes mundane reality"
-                        }
+                        attrs: { text: "From the desk of GBI" }
                       }),
                       _vm._v(" "),
                       _c("paragraph", {
                         attrs: {
                           text:
-                            "GBI’s aims to provide a travel platform whether online or offline for young minds and passionate travelers to expand their horizons and prepare them well, to face the day-to-day challenges of mundane reality. We aim to enhance their skills with a practical approach through excursions and help them connect with people, culture and mouth-watering cuisines of different continents across the globe."
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("paragraph", {
-                        attrs: {
-                          text:
-                            "For business travellers, we aim to provide a more customer-centric approach with our team of innovative and experienced professionals and we ensure to make your meetings and conferences memorable and cherishable ones. Through continuous adaptation of new innovative technological advancements, we aim to achieve the client’s long term meeting objectives; thereby ensuring customer satisfaction."
+                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
                         }
                       })
                     ],
                     1
                   )
-                ])
-              ])
+                ]
+              )
             ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "bgcolor-section mt-3" }, [
-          _c("div", { staticClass: "col-lg-12" }, [
-            _c(
-              "article",
-              { staticClass: "about-story-face" },
-              [
-                _c("heading", {
-                  staticClass: "text-center",
-                  attrs: { text: "Faces Behind Gbi" }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "our-experience" }, [
-                  _c(
-                    "figure",
-                    {
-                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                      staticClass: "image__wrapper"
-                    },
-                    [
-                      _c("ImageSpinner", { staticClass: "image__spinner" }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "image__item",
-                        attrs: {
-                          "data-url": "/assets/front/images/user.jpg",
-                          alt: "ceo"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("h2", [_vm._v("Mr. Jasbir Singh Rikhi")]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("CEO")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "our-experience" }, [
-                  _c(
-                    "figure",
-                    {
-                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                      staticClass: "image__wrapper"
-                    },
-                    [
-                      _c("ImageSpinner", { staticClass: "image__spinner" }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "image__item",
-                        attrs: {
-                          "data-url": "/assets/front/images/user.jpg",
-                          alt: "Director Operations"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("h2", [_vm._v("Mr. Chanpreet Rikhi")]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Director Operations")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "our-experience" }, [
-                  _c(
-                    "figure",
-                    {
-                      directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                      staticClass: "image__wrapper"
-                    },
-                    [
-                      _c("ImageSpinner", { staticClass: "image__spinner" }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "image__item",
-                        attrs: {
-                          "data-url": "/assets/front/images/user.jpg",
-                          alt: "Assistant Director"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("h2", [_vm._v("Mrs. Gurpreet Kaur Rikhi")]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Assistant Director")])
-                ])
-              ],
-              1
-            )
           ])
         ]),
         _vm._v(" "),
@@ -901,9 +935,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _OurStory_vue_vue_type_template_id_27c575dc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OurStory.vue?vue&type=template&id=27c575dc& */ "./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=template&id=27c575dc&");
+/* harmony import */ var _OurStory_vue_vue_type_template_id_27c575dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OurStory.vue?vue&type=template&id=27c575dc&scoped=true& */ "./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=template&id=27c575dc&scoped=true&");
 /* harmony import */ var _OurStory_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OurStory.vue?vue&type=script&lang=js& */ "./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _OurStory_vue_vue_type_style_index_0_id_27c575dc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OurStory.vue?vue&type=style&index=0&id=27c575dc&scoped=true&lang=css& */ "./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=style&index=0&id=27c575dc&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -911,13 +947,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _OurStory_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _OurStory_vue_vue_type_template_id_27c575dc___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _OurStory_vue_vue_type_template_id_27c575dc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _OurStory_vue_vue_type_template_id_27c575dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _OurStory_vue_vue_type_template_id_27c575dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "27c575dc",
   null
   
 )
@@ -943,19 +979,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=template&id=27c575dc&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=template&id=27c575dc& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=style&index=0&id=27c575dc&scoped=true&lang=css&":
+/*!****************************************************************************************************************!*\
+  !*** ./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=style&index=0&id=27c575dc&scoped=true&lang=css& ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_style_index_0_id_27c575dc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./OurStory.vue?vue&type=style&index=0&id=27c575dc&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=style&index=0&id=27c575dc&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_style_index_0_id_27c575dc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_style_index_0_id_27c575dc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_style_index_0_id_27c575dc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_style_index_0_id_27c575dc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=template&id=27c575dc&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=template&id=27c575dc&scoped=true& ***!
+  \**************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_template_id_27c575dc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./OurStory.vue?vue&type=template&id=27c575dc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=template&id=27c575dc&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_template_id_27c575dc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_template_id_27c575dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./OurStory.vue?vue&type=template&id=27c575dc&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=template&id=27c575dc&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_template_id_27c575dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_template_id_27c575dc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_template_id_27c575dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

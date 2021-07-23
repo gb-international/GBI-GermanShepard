@@ -53,6 +53,9 @@ Route::namespace('Front')->group(function(){
 	// Related Cities
 	Route::get('/related-cities/{id}','LocationController@relatedCities');
 	Route::get('/regional-cities/{region}','LocationController@regionalCities');
+	
+	Route::post('/user/save-social','UserController@socialAuth');
+	Route::post('/user/social/{userId}','UserController@socialIndex');
 
 	Route::group(['middleware' => 'auth:api'], function(){
 		Route::post('details', 'UserController@details');
@@ -62,6 +65,7 @@ Route::namespace('Front')->group(function(){
 		Route::post('/user-update','UserController@update');
 		Route::post('/update-password','UserController@UpdatePassword');
 		Route::post('/update-user-image','UserController@UserImage');
+		Route::post('/update-user-docs','UserController@UserDocs');
 		Route::post('/tour-detail', 'TourController@tourDetail');
 
 		// School

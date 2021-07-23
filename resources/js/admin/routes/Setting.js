@@ -15,15 +15,15 @@ const AddDepartment = () => import(/* webpackChunkName: "js/admin/DepartmentNew"
 const EditDepartment = () => import(/* webpackChunkName: "js/admin/DepartmentEdit" */ '@/admin/pages/setting/department/Edit.vue');
 
 export default [
-    { path: '/list-member', component: ListMember },
-    { path: '/add-member', component: AddMember },
-    { path: '/edit-member/:id', component: EditMember },
+    { meta: {permId: 82}, path: '/list-member', component: ListMember },
+    { meta: {permId: 82}, path: '/add-member', component: AddMember },
+    { meta: {permId: 82}, path: '/edit-member/:id', component: EditMember },
     
-    { path: '/user', component: User },
-    { path: '/user/:id', component: UserView }, 
+    { meta: {permId: 73}, path: '/user', component: User },
+    { meta: {permId: 73}, path: '/user/:id', component: UserView }, 
     
-    { path: '/list-departments', component: ListDepartment },
-    { path: '/edit-departments/:id', component: EditDepartment },
-    { path: '/add-departments', component: AddDepartment }, 
+    { meta: {permId: 83}, path: '/list-departments', component: ListDepartment },
+    { meta: {permId: 83}, path: '/edit-departments/:id', component: EditDepartment },
+    { meta: {permId: 83},  path: '/add-departments', component: AddDepartment }, 
 
 ]

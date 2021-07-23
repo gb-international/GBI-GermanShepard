@@ -26,7 +26,7 @@ export default {
         return{
             form:new Form({
                 name: '',
-                email:''
+                email: ''
             })
         }
     },
@@ -35,7 +35,7 @@ export default {
             this.form.post('/api/subscribe').then(res=>{
                 this.$swal.fire({
                     icon: "success",
-                    text: "Now you can receive our latest tour discounts !!"
+                    text: "Dear "+this.form.name+", thank you for Subscribing with us."
                 });
                 this.form.reset();
             }).catch(error => {

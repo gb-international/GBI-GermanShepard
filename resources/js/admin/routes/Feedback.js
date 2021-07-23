@@ -5,8 +5,7 @@ const Feedbacks = () => import(/* webpackChunkName: "js/admin/feedbacks" */ '@/a
 const SendFeedbackLink = () => import(/* webpackChunkName: "js/admin/sendfeedbacklink" */ '@/admin/pages/feedback/send-feedback-link.vue');
 
 export default[
-    { path: '/feedbacks', component: Feedbacks },
+    { meta: {permId: 76}, path: '/feedbacks', component: Feedbacks },
     //{ path: '/feedback-link/:userID/:tourID', component: FeedbackForm },
-    { path: '/send-feedback-link', component: SendFeedbackLink },
-
+    { meta: {permId: 76}, path: '/send-feedback-link', component: SendFeedbackLink },
 ]

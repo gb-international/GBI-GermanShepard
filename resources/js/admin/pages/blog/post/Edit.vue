@@ -110,12 +110,19 @@ to submit the data we are using a function.
           <div class="col-sm-6">
             <div class="form-group">
               <label for="status">Status</label>
-               <status-dd class="mb-2" 
+               <!-- <status-dd class="mb-2" 
                 :itemList="status_list" 
                 v-model="form.status"
               />
               
-              <has-error :form="form" field="status"></has-error>
+              <has-error :form="form" field="status"></has-error> -->
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                :value="form.status == 0 ? 'Draft' : 'Public'"
+                placeholder="Current status"
+              />
             </div>
           </div>
 
@@ -230,6 +237,7 @@ export default {
         tags: [],
         category_id: "",
         client_type:"",
+        user_id: window.userId
       }),
       loading: false
     };
@@ -349,6 +357,7 @@ export default {
       this.loading = true
       if(this.titleWarn !== true && this.form.tags.length !== 0 ){
         this.form.tags = this.form.meta_keyword
+        this.form.user_id = window.userId
         this.form
         .put(`/api/posts/${this.$route.params.id}`)
         .then((response) => {

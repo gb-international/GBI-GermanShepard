@@ -86,7 +86,7 @@ export default {
     return {
       fields: [
         {key:'name',label:'name',sortable:true,thClass: 'table-head'},
-        {key:'description',label:'description',sortable:true,thClass: 'table-head'},
+       // {key:'description',label:'description',sortable:true,thClass: 'table-head'},
         {key:'updated_at',label:'last update',sortable:true,thClass: 'table-head'},
         {key:'action',label:'action',thClass: 'table-head'}
       ],

@@ -9,34 +9,34 @@
                 <p>Dashboard</p>
             </router-link>
         </li>
-        @can("feedbacks")
+        @if(auth()->user()->hasPermissionTo(86) || auth()->user()->hasRole(1))
         <li class="nav-item">
             <router-link to="/feedbacks" class="nav-link nav-cols" title="Feedback">
                 <i class="nav-icon fas fa-envelope-open-text"></i>
                 <p>Feedback</p>
             </router-link>
         </li>
-        @endcan
+        @endif
 
-        @can("payment-link")
+        @if(auth()->user()->hasPermissionTo(87) || auth()->user()->hasRole(1))
          <li class="nav-item">
             <router-link to="/create-payment-link" class="nav-link nav-cols" title="Payment Link">
                 <i class="nav-icon fas fa-money-bill-wave"></i>
                 <p>Payment Link</p>
             </router-link>
         </li>
-        @endcan
+        @endif
 
-        @can("notifications")
+        @if(auth()->user()->hasPermissionTo(88) || auth()->user()->hasRole(1))
         <li class="nav-item">
             <router-link to="/notification-panel" class="nav-link nav-cols" title="Notification Panel">
                 <i class="nav-icon fas fa-bell"></i>
                 <p>Notification Panel</p>
             </router-link>
         </li>
-        @endcan
+        @endif
 
-        @canany(['itineraries','account-itineraries','front-booking', 'tourtypes'])
+        @if(auth()->user()->hasAnyPermission([57, /*58,*/ 59, 84, 55]) || auth()->user()->hasRole(1))
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link nav-cols" title="Itinerary">
                 <i class="nav-icon far fa-file-alt"></i>
@@ -46,13 +46,13 @@
                 </p>
             </a>
             <ul class="nav nav-treeview">
-                @can('itineraries')
-                <li class="nav-item">
-                <router-link to="/itinerary-list" class="nav-link nav-cols" title="Itinerary">
-                    <p> Itinerary List</p>
-                </router-link>
-                </li>
-                @endcan
+                @if(auth()->user()->hasPermissionTo(57) || auth()->user()->hasRole(1))
+                    <li class="nav-item">
+                    <router-link to="/itinerary-list" class="nav-link nav-cols" title="Itinerary">
+                        <p> Itinerary List</p>
+                    </router-link>
+                    </li>
+                 @endif
 
                 {{-- @can('account-itineraries')
                 <li class="nav-item">
@@ -63,32 +63,32 @@
                 </li>
                 @endcan --}}
 
-                @can("front-booking")
+                @if(auth()->user()->hasPermissionTo(59) || auth()->user()->hasRole(1))
                     <li class="nav-item">
                     <router-link :to="`/front-booking`" class="nav-link nav-cols" title="Website Query">
                         <p> Website Query </p></router-link>
                     </li>
-                @endcan
+                 @endif
                 
-                @can("itinerary-request")
+                @if(auth()->user()->hasPermissionTo(84) || auth()->user()->hasRole(1))
                     <li class="nav-item">
                     <router-link :to="`/itinerary-request`" class="nav-link nav-cols" title="Itinerary Request">
                         <p> Itinerary Request </p></router-link>
                     </li>
-                @endcan
+                @endif
 
-                @can('tourtypes')
+                @if(auth()->user()->hasPermissionTo(55) || auth()->user()->hasRole(1))
                     <li class="nav-item">
                         <router-link to="/tourtype" class="nav-link nav-cols" title="Tour type">
                         <p> Tour type </p>
                         </router-link>
                     </li>
-                @endcan
+                @endif
 
 
             </ul>
         </li>
-        @endcanany
+        @endif
 
         
 
@@ -130,7 +130,7 @@
         </li>
         @endcanany --}}
 
-        @canany(['hotels','restaurants'])
+        @if(auth()->user()->hasAnyPermission([60 , 61]) || auth()->user()->hasRole(1))
         <li class="nav-item has-treeview" title="Hotel">
             <a href="#" class="nav-link nav-cols">
             <i class="nav-icon fas fa-hotel"></i>
@@ -140,27 +140,27 @@
             </p>
             </a>
             <ul class="nav nav-treeview">
-            @can('hotels')
+            @if(auth()->user()->hasPermissionTo(60) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/hotel-list" class="nav-link nav-cols" title="Hotel List">
                 
                 <p> Hotel</p>
                 </router-link>
             </li>
-            @endcan
-            @can('restaurants')
+            @endif
+            @if(auth()->user()->hasPermissionTo(61) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/restaurant-list" class="nav-link nav-cols" title="Restaurant List">
                 
                 <p> Restaurant List</p>
                 </router-link>
             </li>
-            @endcan
+            @endif
             </ul>
         </li>
-        @endcanany
+        @endif
         
-        @canany(['buses','trains','flights'])
+        @if(auth()->user()->hasAnyPermission([62 , 63, 64]) || auth()->user()->hasRole(1))
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link nav-cols" title="Transports">
             <i class="nav-icon fas fa-car"></i>
@@ -172,36 +172,36 @@
             <ul class="nav nav-treeview">
 
             
-            @can('buses')
+            @if(auth()->user()->hasPermissionTo(62) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/bus-list" class="nav-link nav-cols" title="Buses">
                 <p> Bus </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
-            @can('trains')
+            @if(auth()->user()->hasPermissionTo(63) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/train-list" class="nav-link nav-cols" title="Trains">
                 <p> Train </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
 
-            @can('flights')
+            @if(auth()->user()->hasPermissionTo(64) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/flight-list" class="nav-link nav-cols" title="Flights">
                 <p> Flight </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
     
             </ul>
         </li>
-        @endcanany
+        @endif
 
-        @canany(['schools', 'schooltours', 'userpayment'])
+        @if(auth()->user()->hasAnyPermission([65 , 54, 56]) || auth()->user()->hasRole(1))
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link nav-cols" title="School">
             <i class="nav-icon fas fa-school"></i>
@@ -209,38 +209,38 @@
             </p>
             </a>
             <ul class="nav nav-treeview">
-            @can('schools')
+           @if(auth()->user()->hasPermissionTo(65) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/schools" class="nav-link nav-cols" title="School List">
                 <p> School List</p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
-            @can('schooltours')
+            @if(auth()->user()->hasPermissionTo(54) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/school/tours" class="nav-link nav-cols" title="Tour List">
                 <p> Tour List </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
             
-            @can('userpayment')
+            @if(auth()->user()->hasPermissionTo(56) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/school/userpayments" class="nav-link nav-cols" title="User payment">
                 <p> User Payments </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
             
 
             </ul>
         </li>
-        @endcanany
+        @endif
 
 
-         @canany(['companies', 'companytours', 'userpayment'])
+        @if(auth()->user()->hasAnyPermission([90 , 91, 92]) || auth()->user()->hasRole(1))
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link nav-cols" title="Corporate">
             <i class="nav-icon fas fa-building"></i>
@@ -248,43 +248,43 @@
             </p>
             </a>
             <ul class="nav nav-treeview">
-            @can('companies')
+            @if(auth()->user()->hasPermissionTo(90) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/companies" class="nav-link nav-cols" title="School List">
                 <p> Company List </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
-            @can('companytours')
+            @if(auth()->user()->hasPermissionTo(91) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/corporate/tours" class="nav-link nav-cols" title="Tour List">
                 <p> Tour List </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
             
-            @can('userpayment')
+            @if(auth()->user()->hasPermissionTo(92) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/corporate/userpayments" class="nav-link nav-cols" title="User payment">
                 <p> User Payments </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
             
 
             </ul>
         </li>
-        @endcanany
+        @endif
 
-        @can("escorts")
+        @if(auth()->user()->hasPermissionTo(66) || auth()->user()->hasRole(1))
             <li class="nav-item">
             <router-link :to="`/escort-list`" class="nav-link nav-cols" title="Escort">
                 <i class="nav-icon fas fa-male"></i>
                 <p> Escort</p></router-link>
             </li>
-        @endcan
+        @endif
 
         
         {{-- @canany(['add student','edit student','delete student'])
@@ -343,7 +343,7 @@
 
          --}}
 
-        @canany(['city','state','country','sightseeing'])
+        @if(auth()->user()->hasAnyPermission([67 , 68, 69, 70]) || auth()->user()->hasRole(1))
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link nav-cols" title="GBI Location">
             <i class="nav-icon fas fa-map-marker-alt"></i>
@@ -352,47 +352,47 @@
             </a>
             <ul class="nav nav-treeview">
 
-            @can('city')
+           @if(auth()->user()->hasPermissionTo(67) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/list-city" class="nav-link nav-cols" title="City">
                 <p> City </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
-            @can('state')
+            @if(auth()->user()->hasPermissionTo(68) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/list-state" class="nav-link nav-cols" title="State">
                 <p> State </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
             
-            @can('country')
+            @if(auth()->user()->hasPermissionTo(69) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/country-list" class="nav-link nav-cols" title="Country">
                 <p> Country</p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
             
-            @can('sightseeing')
+            @if(auth()->user()->hasPermissionTo(70) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/sightseeing" class="nav-link nav-cols" title="GBI Sightseeing">
                 <p> Sightseeing</p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
 
 
             </ul>
         </li>
-        @endcanany
+        @endif
 
 
-        @canany(['tourprogram','encyclopedia','customer','subscriber','bankdetail','gallery'])
+        @if(auth()->user()->hasAnyPermission([71 , 72, 73, 74, 75, 76]) || auth()->user()->hasRole(1))
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link nav-cols" title="GBI Websites">
             <i class="nav-icon fas fa-file-alt"></i>
@@ -401,21 +401,21 @@
             </a>
             <ul class="nav nav-treeview">
 
-            @can('tourprogram')
+            @if(auth()->user()->hasPermissionTo(71) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/tourprogram" class="nav-link nav-cols" title="GBI Travel Programs">
                 <p> Travel Programs </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
-            @can('encyclopedia')
+            @if(auth()->user()->hasPermissionTo(72) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/encyclopedias" class="nav-link nav-cols" title="Encyclopedias">
                 <p> Encyclopedia </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
             {{-- @can('encyclopediacomment')
             <li class="nav-item">
@@ -426,48 +426,48 @@
             @endcan --}}
 
 
-            @can('customer')
+            @if(auth()->user()->hasPermissionTo(73) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/user" class="nav-link nav-cols" title="GBI Customers">
                 <p>Customer</p>
                 </router-link>
             </li>
-            @endcan
+            @endif
             
-            @can('subscriber')
+           @if(auth()->user()->hasPermissionTo(74) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/subscribers" class="nav-link nav-cols" title="GBI Customers">
                 <p>Subscribers</p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
             
-            @can('bankdetail')
+            @if(auth()->user()->hasPermissionTo(75) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/schoolbankdetails" class="nav-link nav-cols" title="GBI Bankdetails">
                 <p>Bankdetail</p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
             
-            @can('gallery')
+            @if(auth()->user()->hasPermissionTo(76) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/gallery" class="nav-link nav-cols" title="GBI Gallery">
                 <p>Gallery</p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
 
             
             </ul>
         </li>
-        @endcanany
+        @endif
 
         
-        @canany(['posts','categories','tags'])
+        @if(auth()->user()->hasAnyPermission([78, 79, 77]) || auth()->user()->hasRole(1))
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link nav-cols" title="GBI Blogs">
                 <i class="nav-icon fas fa-file-alt"></i>
@@ -475,38 +475,38 @@
             </a>
             <ul class="nav nav-treeview">
 
-            @can('categories')
+            @if(auth()->user()->hasPermissionTo(78) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/categories" class="nav-link nav-cols" title="Post Category">
                 <p> Categories </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
-            @can('tags')
+            @if(auth()->user()->hasPermissionTo(79) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/tags" class="nav-link nav-cols" title="Post Tags">
                 <p> Tags </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
             
-            @can('posts')
+            @if(auth()->user()->hasPermissionTo(77) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/posts" class="nav-link nav-cols" title="GBI Posts">
                 <p> Posts </p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
 
             </ul>
         </li>
-        @endcanany
+        @endif
 
 
 
-        @canany(['setting','roles','permissions','gbimembers','departments'])
+        @if(auth()->user()->hasAnyPermission([ 80, 81, 82, 83]) || auth()->user()->hasRole(1))
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link nav-cols" title="Settings">
                 <i class="nav-icon fas fa-cog"></i>
@@ -514,42 +514,42 @@
             </a>
             <ul class="nav nav-treeview">                        
             
-            @can('departments')
+           @if(auth()->user()->hasPermissionTo(83) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/list-departments" class="nav-link nav-cols" title="GBI Role">
                 <p> Departments</p>
                 </router-link>
             </li>
-            @endcan
+            @endif
             
-            @can('roles')
+            @if(auth()->user()->hasPermissionTo(80) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/list-role" class="nav-link nav-cols" title="GBI Role">
                 <p> Role</p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
 
-            @can('permissions')
+            @if(auth()->user()->hasPermissionTo(81) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/list-permission" class="nav-link nav-cols" title="GBI Permissions">
                 <p> Permission</p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
-            @can('gbimembers')
+            @if(auth()->user()->hasPermissionTo(82) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/list-member" class="nav-link nav-cols" title="GBI Member List">
                 <p> GBI member</p>
                 </router-link>
             </li>
-            @endcan
+            @endif
 
             </ul>
         </li>
-        @endcanany
+        @endif
 
     </ul>
 </nav>

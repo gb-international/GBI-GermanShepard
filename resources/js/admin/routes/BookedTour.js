@@ -33,39 +33,39 @@ const UpdatePaymentMethodCorp = () => import(/* webpackChunkName: "js/admin/Upda
 const PaymentPage = () => import(/* webpackChunkName: "js/admin/AdminPaymentPage" */ '@/admin/pages/bookedtour/school/payment/PaymentPage.vue');
 
 export default[
-    { path: '/booked-tour/:id', component: BookedTours },
-    { path: '/booked-tour-manager/:id', component: BookedEscort },
-    { path: '/booked-tour-hotel/:id', component: BookedHotel },
-    { path: '/booked-tour-restaurant/:id/:tour_code', component: BookedRestaurant },
-    { path: '/booked-sightseen/:id/:tour_code/:itinerary_id', component: BookedSightseen },
-    { path: '/booked-tour-flight/:id', component: BookedFlight },
-    { path: '/booked-tour-train/:id', component: BookedTrain },
-    { path: '/booked-tour-bus/:id', component: BookedBus },
-    { path: '/booked-tour-pnr/:transport/:id/:tour_id', component: BookedPnr },
+    { meta: {permId: 93}, path: '/booked-tour/:id', component: BookedTours },
+    { meta: {permId: 93}, path: '/booked-tour-manager/:id', component: BookedEscort },
+    { meta: {permId: 93}, path: '/booked-tour-hotel/:id', component: BookedHotel },
+    { meta: {permId: 93}, path: '/booked-tour-restaurant/:id/:tour_code', component: BookedRestaurant },
+    { meta: {permId: 93}, path: '/booked-sightseen/:id/:tour_code/:itinerary_id', component: BookedSightseen },
+    { meta: {permId: 93}, path: '/booked-tour-flight/:id', component: BookedFlight },
+    { meta: {permId: 93}, path: '/booked-tour-train/:id', component: BookedTrain },
+    { meta: {permId: 93}, path: '/booked-tour-bus/:id', component: BookedBus },
+    { meta: {permId: 93}, path: '/booked-tour-pnr/:transport/:id/:tour_id', component: BookedPnr },
 
-    { path: '/pnr-users/:transport/:id/:tour_id', component: PnrUser },
+    { meta: {permId: 93}, path: '/pnr-users/:transport/:id/:tour_id', component: PnrUser },
 
     // Corporate Group
-    { path: '/booked-corp-group/:entity_id/:id', component: BookedCorp },
+    { meta: {permId: 93}, path: '/booked-corp-group/:entity_id/:id', component: BookedCorp },
 
     //School Group
-    { path: '/booked-tour-group/:school_id/:id', component: BookedStudent },
+    { meta: {permId: 93}, path: '/booked-tour-group/:school_id/:id', component: BookedStudent },
 
     //school payment
-    { path: '/payments-school/:school_id/:tour_code', component: SchoolPaymentList },
-    { path: '/add-paymentmethod-school/:school_id/:tour_code', component: addPaymentMethodSchool },
-    { path: '/update-paymentmethod-school/:id', component: UpdatePaymentMethodSchool },
+    { meta: {permId: 56}, path: '/payments-school/:school_id/:tour_code', component: SchoolPaymentList },
+    { meta: {permId: 56}, path: '/add-paymentmethod-school/:school_id/:tour_code', component: addPaymentMethodSchool },
+    { meta: {permId: 56}, path: '/update-paymentmethod-school/:id', component: UpdatePaymentMethodSchool },
 
     //corporate payment
-    { path: '/payments-corporate/:company_id/:tour_code', component: CorpPaymentList },
-    { path: '/add-paymentmethod-coporate/:company_id/:tour_code', component: addPaymentMethodCorp },
-    { path: '/update-paymentmethod-coporate/:id', component: UpdatePaymentMethodCorp },
+    { meta: {permId: 92}, path: '/payments-corporate/:company_id/:tour_code', component: CorpPaymentList },
+    { meta: {permId: 92}, path: '/add-paymentmethod-coporate/:company_id/:tour_code', component: addPaymentMethodCorp },
+    { meta: {permId: 92}, path: '/update-paymentmethod-coporate/:id', component: UpdatePaymentMethodCorp },
 
-    { path: '/escort-update/:id/:tour_code', component: EscortUpdate },
+    { meta: {permId: 93}, path: '/escort-update/:id/:tour_code', component: EscortUpdate },
 
-    { path: '/foods/:tour_id/:tour_code', component: BookedFood },
+    { meta: {permId: 93}, path: '/foods/:tour_id/:tour_code', component: BookedFood },
 
-    { path: '/payment-page', component: PaymentPage },
+    { meta: {permId: 93}, path: '/payment-page', component: PaymentPage },
    
 ]
 

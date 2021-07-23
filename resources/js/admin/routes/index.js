@@ -1,3 +1,4 @@
+import AssignUsers from '@/admin/routes/assignUsers.js'
 import Bank from '@/admin/routes/Bank.js';
 import Blog from '@/admin/routes/Blog.js';
 import BookedTour from '@/admin/routes/BookedTour.js';
@@ -22,6 +23,7 @@ import ErrorFile from '@/admin/routes/ErrorFile.js';
 
 
 export const routes = [
+    ...AssignUsers,
     ...Bank,
     ...Blog,
     ...BookedTour,

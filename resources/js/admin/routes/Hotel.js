@@ -17,16 +17,16 @@ const restaurantView = () => import(/* webpackChunkName: "js/admin/restaurantVie
 
 export default[
     //Hotel
-    { path: '/hotel-list', component: HotelList },
-    { path: '/add-hotel', component: HotelAdd },
-    { path: '/edit-hotel/:id', component: HotelEdit },
-    { path: '/hotel-view/:id', component: HotelView },
+    { meta: {permId: 60}, path: '/hotel-list', component: HotelList },
+    { meta: {permId: 60}, path: '/add-hotel', component: HotelAdd },
+    { meta: {permId: 60}, path: '/edit-hotel/:id', component: HotelEdit },
+    { meta: {permId: 60}, path: '/hotel-view/:id', component: HotelView },
 
 
     //Restaurant
-    { path: '/restaurant-list', component: restaurantList },
-    { path: '/add-restaurant', component: restaurantAdd },
-    { path: '/edit-restaurant/:id', component: restaurantEdit },
-    { path: '/restaurant-view/:id', component: restaurantView },
+    { meta: {permId: 61}, path: '/restaurant-list', component: restaurantList },
+    { meta: {permId: 61}, path: '/add-restaurant', component: restaurantAdd },
+    { meta: {permId: 61}, path: '/edit-restaurant/:id', component: restaurantEdit },
+    { meta: {permId: 61}, path: '/restaurant-view/:id', component: restaurantView },
 
 ]

@@ -236,7 +236,7 @@ export default {
       clientTypeWarn: false,
       status_list:[
         {name:"Draft",id:0},
-        {name:"Public",id:1}
+        //{name:"Public",id:1}
       ],
       form: new Form({
         title: "",
@@ -250,6 +250,7 @@ export default {
         category:"",
         client_type:"",
         tags:[],
+        user_id: window.userId
       }),
       loading: false
     };
@@ -325,6 +326,7 @@ export default {
       this.form.tags = this.form.meta_keyword
       //console.log(this.form.tags)
       this.form.category_id = this.form.category.id
+      this.form.user_id = window.userId
       this.form
         .post("/api/posts")
         .then((re) => {

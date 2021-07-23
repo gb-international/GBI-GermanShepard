@@ -259,7 +259,7 @@
 
 <script>
 import Subscribe from "@/front/components/form/Subscribe.vue";
-import Review from "@/front/components/form/Reviews.vue"
+import Review from "@/front/components/Reviews.vue"
 
 export default {
   name: "Footer",

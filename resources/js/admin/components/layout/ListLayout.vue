@@ -14,7 +14,7 @@ data from the api to display the data about the Category from the backend .
 
           <b-row class="mb-1 mt-1" align-h="between">
               <b-col md="3" cols="4"  class="top_btn p-0">
-                <div v-if="addurl">
+                <div v-if="addurl && hasPerms">
                   <add-button :url="addurl">{{ buttontext }}</add-button>
                 </div>
               </b-col>
@@ -50,5 +50,15 @@ export default {
     'add-button':AddButton
   },
   props:['addurl','buttontext'],
+  computed: {
+    hasPerms(){
+        if(window.userRole == 1){
+            return true;
+        }
+        const perms = window.createPerms;
+        const hasPerm = (perm) => perm.permission_id === this.$route.meta.permId;
+        return perms.some(hasPerm);
+    }
+  },
 }
 </script>

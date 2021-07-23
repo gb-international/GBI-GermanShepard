@@ -153,7 +153,9 @@ export default {
             .then((res) => {
               //this.Sending = false;
             })
-            .catch(() => {});
+            .catch((error) => {
+              console.log(error)
+            });
             this.$router.push(`/feedbacks/`);
             this.$toast.fire({
                 icon: "success",

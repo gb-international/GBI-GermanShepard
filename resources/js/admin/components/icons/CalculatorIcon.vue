@@ -3,7 +3,7 @@
         :to="url"
         class="edit_link"
         >
-        <span class="badge badge-primary" title="Calculate"
+        <span class="badge badge-primary incrIconSize" title="Calculate"
             ><i class="fas fa-calculator"></i
         ></span>
         </router-link>

@@ -83,7 +83,7 @@ class ItineraryController extends Controller
         $notifData = [
             'notification_type' => 'travel',
             'client_type' => $itinerary->client_type,
-            'category' => 'itineraries',
+            'category' => 'itinerary',
             'category_id' => $itinerary->id,
             'title' => $itinerary->title,
             'body' => $itinerary->description,

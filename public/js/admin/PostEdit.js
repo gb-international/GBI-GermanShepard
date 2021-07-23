@@ -200,6 +200,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -252,7 +259,8 @@ __webpack_require__.r(__webpack_exports__);
         status: "",
         tags: [],
         category_id: "",
-        client_type: ""
+        client_type: "",
+        user_id: window.userId
       }),
       loading: false
     };
@@ -390,6 +398,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.titleWarn !== true && this.form.tags.length !== 0) {
         this.form.tags = this.form.meta_keyword;
+        this.form.user_id = window.userId;
         this.form.put("/api/posts/".concat(this.$route.params.id)).then(function (response) {
           _this4.$swal.fire("Updated!", "Item Updated successfully", "success");
 
@@ -787,32 +796,23 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-6" }, [
-                          _c(
-                            "div",
-                            { staticClass: "form-group" },
-                            [
-                              _c("label", { attrs: { for: "status" } }, [
-                                _vm._v("Status")
-                              ]),
-                              _vm._v(" "),
-                              _c("status-dd", {
-                                staticClass: "mb-2",
-                                attrs: { itemList: _vm.status_list },
-                                model: {
-                                  value: _vm.form.status,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "status", $$v)
-                                  },
-                                  expression: "form.status"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("has-error", {
-                                attrs: { form: _vm.form, field: "status" }
-                              })
-                            ],
-                            1
-                          )
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { attrs: { for: "status" } }, [
+                              _vm._v("Status")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                readonly: "",
+                                placeholder: "Current status"
+                              },
+                              domProps: {
+                                value: _vm.form.status == 0 ? "Draft" : "Public"
+                              }
+                            })
+                          ])
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-6" }, [

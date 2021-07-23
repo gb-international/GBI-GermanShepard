@@ -32,10 +32,10 @@ const ViewPayment = () => import(/* webpackChunkName: "js/admin/ViewschoolPaymen
 export default[
 
     // School
-    { path: '/schools', component: Schools },
-    { path: '/schools/:id', component: SchoolEdit },
-    { path: '/add-school', component: SchoolAdd },
-    { path: '/view-school/:id', component: SchoolView },
+    { meta: {permId: 65}, path: '/schools', component: Schools },
+    { meta: {permId: 65}, path: '/schools/:id', component: SchoolEdit },
+    { meta: {permId: 65}, path: '/add-school', component: SchoolAdd },
+    { meta: {permId: 65}, path: '/view-school/:id', component: SchoolView },
 
     // { path: '/students', component: Students },
     // { path: '/students/:id', component: StudentEdit },
@@ -43,19 +43,19 @@ export default[
     // { path: '/view-student/:id', component: StudentView },
 
     // Tour
-    { path: '/school/tours', component: Tours },
-    { path: '/school/tours/:id', component: TourEdit },
-    { path: '/school/tour-add', component: TourAdd },
-    { path: '/school/view-tour/:id', component: TourView },
+    { meta: {permId: 54}, path: '/school/tours', component: Tours },
+    { meta: {permId: 54}, path: '/school/tours/:id', component: TourEdit },
+    { meta: {permId: 54}, path: '/school/tour-add', component: TourAdd },
+    { meta: {permId: 54}, path: '/school/view-tour/:id', component: TourView },
 
     // Payments
-    { path: '/school/userpayments', component: Userpayments },
-    { path: '/school/userpayments/:id', component: UserpaymentsEdit },
-    { path: '/school/userpayments-add', component: UserpaymentsAdd },
-    { path: '/school/userpayments-view/:id', component: UserpaymentsView },
+    { meta: {permId: 56}, path: '/school/userpayments', component: Userpayments },
+    { meta: {permId: 56}, path: '/school/userpayments/:id', component: UserpaymentsEdit },
+    { meta: {permId: 56}, path: '/school/userpayments-add', component: UserpaymentsAdd },
+    { meta: {permId: 56}, path: '/school/userpayments-view/:id', component: UserpaymentsView },
 
     // Booked users Payments
-    { path: '/school/bookedusers/:school_id/:tour_code',component: ListPayment},
-    { path: '/school/bookedusers/:id', component: EditPayment },
-    { path: '/school/bookedusers-view/:id', component: ViewPayment },
+    { meta: {permId: 54}, path: '/school/bookedusers/:school_id/:tour_code',component: ListPayment},
+    { meta: {permId: 54}, path: '/school/bookedusers/:id', component: EditPayment },
+    { meta: {permId: 54}, path: '/school/bookedusers-view/:id', component: ViewPayment },
 ]

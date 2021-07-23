@@ -68,16 +68,17 @@ class SendSms{
         $client = new \GuzzleHttp\Client(['verify' => false ]);
         $request = $client->get($ApiUrl);
     }
-
     public function feedbackLink($ph_no, $link, $name){
         $phone = '91'.$ph_no;
-        $message = "Dear ".$name.". Thank you for choosing GBI. Please provide us your valuable feedback on your journey with GB International .Please click the following feedback link <a href=".$link.">Give Feedback</a>";
+        $message =  "Dear ".$name.". Thank you for choosing GBI .Please provide us your valuable feedback on your journey with GB International .Please click the following feedback link ".$link;
+        
+        /*"Dear ".$name.". Thank you for choosing GBI. Please provide us your valuable feedback on your journey with GB International .Please click the following feedback link <a href=".$link.">Give Feedback</a>";*/
+
         $template_id = 1007330159345850888;
         $ApiUrl = "https://www.businesssms.co.in/smsaspx?Id=".$this->id."&Pwd=".urlencode($this->pwd)."&PhNo=".$phone."&TemplateID=".$template_id."&TEXT=".urldecode($message);
         $client = new \GuzzleHttp\Client(['verify' => false ]);
         $request = $client->get($ApiUrl);
     }
-
     public function feedbackReceived($user, $ph_no){
         $phone = '91'.$ph_no;
         $message = "Dear ".$user->name." Thank you for sharing your valuable feedback with GBI. We really appreciate your time. We are constantly working towards making your journey better. Regards GBI Team.";
@@ -86,7 +87,6 @@ class SendSms{
         $client = new \GuzzleHttp\Client(['verify' => false ]);
         $request = $client->get($ApiUrl);
     }
-
     public function accountRegistered($user, $ph_no){
         $phone = '91'.$ph_no;
         $message = "Dear ".$user->name.", you are now successfully registered with GB International. Let us be your guiding partner for your upcoming journeys. Email: ".$user->email." Password: ".$user->password;
@@ -95,7 +95,6 @@ class SendSms{
         $client = new \GuzzleHttp\Client(['verify' => false ]);
         $request = $client->get($ApiUrl);
     }
-
     public function paymentLink($ph_no, $link, $name){
         $phone = '91'.$ph_no;
         $message = "Dear ".$name.", in order to assist your payment with GB International, we have created a customised link for you, please click on it to make your payment. ".$link;
@@ -104,7 +103,6 @@ class SendSms{
         $client = new \GuzzleHttp\Client(['verify' => false ]);
         $request = $client->get($ApiUrl);
     }
-
 //https://www.businesssms.co.in/smsaspx?Id=csrikhi@gbinternational.in&Pwd=Roger224225g32@&PhNo=918920397458&TEXT=hello
 
 

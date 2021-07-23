@@ -846,6 +846,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     goBack: function goBack() {
       this.$router.push("/tours");
     }
+  },
+  computed: {
+    hasSchoolPaymentPerms: function hasSchoolPaymentPerms() {
+      if (window.userRole == 1) {
+        return true;
+      }
+
+      var perms = window.viewPerms;
+
+      var hasPerm = function hasPerm(perm) {
+        return perm.permission_id === 56;
+      };
+
+      return perms.some(hasPerm);
+    },
+    hasCorpPaymentPerms: function hasCorpPaymentPerms() {
+      if (window.userRole == 1) {
+        return true;
+      }
+
+      var perms = window.viewPerms;
+
+      var hasPerm = function hasPerm(perm) {
+        return perm.permission_id === 92;
+      };
+
+      return perms.some(hasPerm);
+    }
   }
 });
 
@@ -1085,7 +1113,7 @@ var render = function() {
                   1
                 ),
             _vm._v(" "),
-            _vm.tour.customer_type == "school"
+            _vm.tour.customer_type == "school" && _vm.hasSchoolPaymentPerms
               ? _c(
                   "div",
                   { staticClass: "col-sm-3 mb-3 m-30" },
@@ -1112,7 +1140,10 @@ var render = function() {
                   ],
                   1
                 )
-              : _c(
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.tour.customer_type == "corporate" && _vm.hasCorpPaymentPerms
+              ? _c(
                   "div",
                   { staticClass: "col-sm-3 mb-3 m-30" },
                   [
@@ -1137,7 +1168,8 @@ var render = function() {
                     )
                   ],
                   1
-                ),
+                )
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "div",

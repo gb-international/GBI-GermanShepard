@@ -153,7 +153,14 @@ Route::namespace('Admin')->group(function (){
 		Route::get('role/all/{size}','RoleController@all');
 		Route::resource('role','RoleController');
 		Route::get('permission/all/{size}','PermissionController@all');
+		Route::get('permission/all','PermissionController@index');
 		Route::resource('permission','PermissionController');
+		Route::post('permission/assign','UserRolePermissionController@store');//Assign user permissions
+		Route::get('permission/remove/{permission}','UserRolePermissionController@destroy');//Remove user permissions
+		Route::get('permissions/{userRoleId}/{size}','UserRolePermissionController@showUserPermissions'); //Check user permissions
+		Route::get('user-permissions/{userId}','UserRolePermissionController@showPermission');
+		Route::get('check/permission/{permId}/{userRoleId}','UserRolePermissionController@UserPerm');
+
 	});
 
 	Route::namespace('Reservation')->group(function(){
@@ -201,6 +208,10 @@ Route::namespace('Admin')->group(function (){
 		Route::get('/members/salesman',"GBIMemberController@memberType");
 		Route::get('/departments/all/{size}','DepartmentController@all');
 		Route::resource('/departments',"DepartmentController");
+		//Assign User
+		Route::get('assign-user/{user}/{parentId}','AssignParentController@assignParent');
+		Route::get('assign-users/remove/{user}','AssignParentController@removeParent');
+		Route::get('assign-users-list/{role}/{size}/{dep_id}','AssignParentController@index');
 	});
 	Route::namespace('Account')->group(function(){
 		Route::get('/accounts/all/{size}','AccountController@all');
@@ -236,6 +247,7 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('posts','PostController');
 		Route::get('tags/all/{size}','TagController@all');
 		Route::resource('tags','TagController');
+		Route::post('posts/{post}/{status}/{user_id}','PostController@publish');
 	});
 
 	//Feedbacks
@@ -257,6 +269,17 @@ Route::namespace('Admin')->group(function (){
 		Route::get('notification/all/{timeSpan}/{category}/{status}/{service}','NotificationController@index');
 		Route::get('notification/chart/{timeSpan}/{category}/{status}/{service}','NotificationController@chartIndex');
 		//Route::post('notification/store','NotificationController@store');
+	});
+
+	//User Details
+	Route::namespace('User')->group(function(){
+		Route::get('user/details','UserController@details');
+		//Route::post('notification/store','NotificationController@store');
+	});
+
+	// Team Tree
+	Route::namespace('TeamTree')->group(function(){
+		Route::get('team-tree/list','TeamTreeController@index');
 	});
 
 });

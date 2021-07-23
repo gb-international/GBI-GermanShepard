@@ -17,6 +17,7 @@ use App\Model\User\Information;
 use App\Mail\SendFeedbackLink;
 use App\Rules\EmailValidate;
 use Illuminate\Http\Request;
+use App\Helpers\ShortenLink;
 use App\Model\Tour\Tour;
 use App\Helpers\SendSms;
 use App\User;
@@ -93,7 +94,9 @@ class FeedbackController extends Controller
        }
 
        if($user !== null){
-        $link = env('APP_URL').'/feedback-form/'.$request->tour_id;
+        $shLink = new ShortenLink;
+        $link = env('APP_URL').'/sh/'.$shLink->shorten('feedback-form/'.$request->tour_id);
+
         Mail::send(new SendFeedbackLink($user, $link));
 
         $sendsms = new SendSms;
@@ -103,7 +106,8 @@ class FeedbackController extends Controller
        }
       
        if($user === null){
-        $link = env('APP_URL').'/feedback-link/'.$request->tour_id;
+        $shLink = new ShortenLink;
+        $link = env('APP_URL').'/sh/'.$shLink->shorten('feedback-link/'.$request->tour_id);
         
         if($request->email){
          Mail::send(new SendFeedbackLinkNonUsers($request->email, $link));

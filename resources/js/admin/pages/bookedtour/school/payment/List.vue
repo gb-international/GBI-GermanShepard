@@ -5,15 +5,15 @@ It takes id from the url and get the data from the api .-->
     <template #viewdata>
       <div class="row pl-4">
         <div class="col-sm-12 text-right top_btn">
-          <add-button 
+          <history-button 
             class="mr-3"
             :url="`/school/bookedusers/${$route.params.school_id}/${$route.params.tour_code}`"
-            >Payment History</add-button>
+            >Payment History</history-button>
 
-          <add-button 
+          <update-button 
             v-if="tour_view.tour_code"
             :url="`/update-paymentmethod-school/${tour_view.id}`"
-            >Update Payment Method</add-button>
+            >Update Payment Method</update-button>
 
           <add-button 
             v-else
@@ -415,12 +415,17 @@ It takes id from the url and get the data from the api .-->
 <script>
 import ViewLayout from "@/admin/components/layout/ViewLayout.vue";
 import AddButton from "@/admin/components/buttons/AddButton.vue";
+import HistoryButton from "@/admin/components/buttons/HistoryButton.vue";
+import UpdateButton from "@/admin/components/buttons/UpdateButton.vue";
 import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
+
 export default {
   name:"ListUserPyamentTour",
   components: {
     "view-layout": ViewLayout,
     "add-button": AddButton,
+    "update-button": UpdateButton,
+    "history-button": HistoryButton,
     "dropdown-filter": DropdownFilter,
   },
   data() {

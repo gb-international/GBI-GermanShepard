@@ -70,6 +70,17 @@
 <script>
   @auth
     window.Permissions = {!! json_encode(Auth::user()->allPermissions, true) !!};
+    window.userId = {!! json_encode(Auth::user()->id, true) !!};
+    window.userRole = {!! json_encode(Auth::user()->user_role, true) !!};
+    window.userRoleId = {!! json_encode(Auth::user()->user_role_id, true) !!};
+    //Permission Values
+    window.deletePerms = {!! json_encode(\App\Model\RoleAndPermission\UserRolePermission::where('user_roles_id', Auth::user()->user_role_id)->where('delete', 'true')->get(), true) !!};
+    window.createPerms = {!! json_encode(\App\Model\RoleAndPermission\UserRolePermission::where('user_roles_id', Auth::user()->user_role_id)->where('create', 'true')->get(), true) !!};
+    window.editPerms = {!! json_encode(\App\Model\RoleAndPermission\UserRolePermission::where('user_roles_id', Auth::user()->user_role_id)->where('edit', 'true')->get(), true) !!};
+    window.viewPerms = {!! json_encode(\App\Model\RoleAndPermission\UserRolePermission::where('user_roles_id', Auth::user()->user_role_id)->where('view', 'true')->get(), true) !!};
+    window.publishPerms = {!! json_encode(\App\Model\RoleAndPermission\UserRolePermission::where('user_roles_id', Auth::user()->user_role_id)->where('publish', 'true')->get(), true) !!};
+
+    //console.log(window.userPerms);
   @else
     window.Permissions = [];
   @endauth

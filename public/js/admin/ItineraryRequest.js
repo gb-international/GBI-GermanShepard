@@ -218,7 +218,10 @@ var render = function() {
     [
       _c(
         "span",
-        { staticClass: "badge badge-primary", attrs: { title: "View Item" } },
+        {
+          staticClass: "badge badge-primary incrIconSize",
+          attrs: { title: "View Item" }
+        },
         [_c("i", { staticClass: "fas fa-eye" })]
       )
     ]

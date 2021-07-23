@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1686,14 +1686,14 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!**************************************************!*\
   !*** multi ./resources/js/laravel-echo-setup.js ***!
   \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! I:\GBI Files\Project\GBI-Local_bk_03_06_2021\GBI-Local\resources\js\laravel-echo-setup.js */"./resources/js/laravel-echo-setup.js");
+module.exports = __webpack_require__(/*! I:\GBI Files\Project\GBI-GermanShepard\resources\js\laravel-echo-setup.js */"./resources/js/laravel-echo-setup.js");
 
 
 /***/ })

@@ -41,14 +41,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <script src="{{ asset('js/app.js') }}" defer></script>
+  {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+  {!! $ssr !!}
+  <script src="{{ asset('js/entry-client.js') }}" type="text/javascript"></script>
 
 
-<script>
+{{-- <script>
     $("body").on("contextmenu", function () {  
       return false;  
     }); 
-  </script> 
+  </script> --}}
    <script>
             window.laravel_echo_port='{{env("LARAVEL_ECHO_PORT")}}';
     </script>
@@ -56,10 +58,10 @@
     <script src="{{ url('/js/laravel-echo-setup.js') }}" type="text/javascript"></script>
       
      <script type="text/javascript">
-        var i = 0;
+        //var i = 0;
         window.Echo.channel('gb_international_database_user-channel')
          .listen('.UserEvent', (data) => {
-            i++;
+            //i++;
             //$("#notification").append('<div class="alert alert-success">'+i+'.'+data.title+'</div>');
             //console.log(data.title);
             

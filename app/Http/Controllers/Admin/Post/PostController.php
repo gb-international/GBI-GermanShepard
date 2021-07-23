@@ -87,8 +87,14 @@ class PostController extends Controller
         }
 
         $post = Post::create($data);
+
+        if($post->status == 1){
+            $post->published_by = $request->user_id;
+        }
+        $post->created_by = $request->user_id;
         $post->meta_keyword = $meta_keyword;
         $post->save();
+
         $post->tags()->sync($tag_id);
         $notifData = [
             'notification_type' => 'posts',
@@ -150,7 +156,6 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
 
-
         $data = $request->except('meta_keyword');
         $tag_id= [];
         $meta_keyword="";   
@@ -175,21 +180,24 @@ class PostController extends Controller
         }
 
         $post->update($data);
+        $post->last_editor = $request->user_id;
         $post->meta_keyword = $meta_keyword;
+        //$post->status = 0;
         $post->save();
         $post->tags()->sync($tag_id);
 
-        $notifData = [
-            'notification_type' => 'posts',
-            'client_type' => $post->client_type,
-            'category' => 'blog',
-            'category_id' => $post->id,
-            'title' => $post->title,
-            'body' => $post->summery,
-        ];
-        dispatch(new Notifications($notifData));
-
         return $data;
+    }
+
+    public function publish(Post $post, $status, $user_id){
+
+        $post->published_by = $user_id;
+        if($status == 'publish'){
+            $post->status = 1;    
+        } else {
+            $post->status = 0;
+        }
+        $post->save();
     }
 
     public function sendNotif($data){

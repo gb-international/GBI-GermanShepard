@@ -24,26 +24,26 @@ const ViewPayment = () => import(/* webpackChunkName: "js/admin/ViewcorpPayment"
 
 export default[
     // Corporate
-    { path: '/companies', component: Companies },
-    { path: '/add-company', component: CompanyAdd },
-    { path: '/company/:id', component: CompanyEdit },
-    { path: '/view-company/:id', component: CompanyView },
+    {  meta: {permId: 90}, path: '/companies', component: Companies },
+    {  meta: {permId: 90}, path: '/add-company', component: CompanyAdd },
+    {  meta: {permId: 90}, path: '/company/:id', component: CompanyEdit },
+    {  meta: {permId: 90}, path: '/view-company/:id', component: CompanyView },
 
     // Tour
-    { path: '/corporate/tours', component: Tours },
-    { path: '/corporate/tours/:id', component: TourEdit },
-    { path: '/corporate/tour-add', component: TourAdd },
-    { path: '/corporate/view-tour/:id', component: TourView },
+    { meta: {permId: 91}, path: '/corporate/tours', component: Tours },
+    { meta: {permId: 91}, path: '/corporate/tours/:id', component: TourEdit },
+    { meta: {permId: 91}, path: '/corporate/tour-add', component: TourAdd },
+    { meta: {permId: 91}, path: '/corporate/view-tour/:id', component: TourView },
 
     // Payments
-    { path: '/corporate/userpayments', component: Userpayments },
-    { path: '/corporate/userpayments/:id', component: UserpaymentsEdit },
-    { path: '/corporate/userpayments-add', component: UserpaymentsAdd },
-    { path: '/corporate/userpayments-view/:id', component: UserpaymentsView },
+    { meta: {permId: 92}, path: '/corporate/userpayments', component: Userpayments },
+    { meta: {permId: 92}, path: '/corporate/userpayments/:id', component: UserpaymentsEdit },
+    { meta: {permId: 92}, path: '/corporate/userpayments-add', component: UserpaymentsAdd },
+    { meta: {permId: 92}, path: '/corporate/userpayments-view/:id', component: UserpaymentsView },
 
     // Booked users Payments
-    { path: '/corporate/bookedusers/:company_id/:tour_code',component: ListPayment},
-    { path: '/corporate/bookedusers/:id', component: EditPayment },
-    { path: '/corporate/bookedusers-view/:id', component: ViewPayment },
+    { meta: {permId: 91}, path: '/corporate/bookedusers/:company_id/:tour_code',component: ListPayment},
+    { meta: {permId: 91}, path: '/corporate/bookedusers/:id', component: EditPayment },
+    { meta: {permId: 91}, path: '/corporate/bookedusers-view/:id', component: ViewPayment },
 
 ]

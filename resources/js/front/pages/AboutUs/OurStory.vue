@@ -21,8 +21,8 @@
     </div>
 
     <div class="container">
-      <heading text="Our Story" />
-      <sub-heading text="One’s action can inspire others to dream bigger" />
+      <heading text="Our Story" style="margin-bottom: 10px !important;"/>
+      <sub-heading text="One’s action can inspire others to dream bigger"/>
       <paragraph text="In ancient times, the offset of travel was only on the sole purpose of spiritual fulfillment and medicinal offerings. During the course of time, people began to explore different destinations for knowledge, cultural exploration, scenic beauty and other special interests. But much of our great historical monuments and culture are still unseen and unheard to many people."/>
 
       <paragraph text="So, with constant efforts of our CEO Mr. Jasbir Singh Rikhi to bring back our lost cultural and    architectural heritage of our country, he aims to bridge this gap and build a strong foundation in educating young minds and passionate travellers towards our rich history. He, being a passionate traveler himself from the hospitality sector, whenever used to hit the road on his Royal Enfield to explore new places, he realised that people who came to pay a visit to that particular destination would click a photo and move on without showing any interest in its rich history, culture and not even admiring the architectural and technological advancements. This made a huge impact on him and made him realise that there is a greater need to educate people(young minds and passionate travelers) about our rich cultural heritage through fun and innovative methods."/>
@@ -47,67 +47,78 @@
       <!-- Start Mission-->
       <section class="bgcolor-section">
         <div class="col-lg-12">
-          <div class="col-md-12 col-lg-12 pt-5 mx-10">
-            <div class="ourstory-content">
-              <figure v-lazyload class="image__wrapper">
-                <ImageSpinner class="image__spinner" />
-                <img
-                  id="ourstoryimg1"
-                  class="image__item ic-cal-re"
-                  :data-url="`/assets/front/images/mission.png`"
-                  alt="our story"
-                />
-              </figure>
-            </div>
-          </div>
+          
           <article class="about-story">
-            <div class="row">
-              <div class="col-md-12 col-lg-12">
+            <div class="d-flex flex-lg-row flex-column justify-content-between align-items-center">
                 <div class="ourstory-content">
                   <heading text="Mission" />
                   <sub-heading text="Learn from the diversity" />
                   <paragraph text="We are on a  mission to help young minds and  passionate travelers to travel to destinations that expose them to practical learning and cultural exploration.
                         We truly understand how a place or a location can make you feel elated, and so with our customised itineraries and experienced team of travel professionals, we aim to deliver you with a great travel experience that best fits your needs and aspirations. 
-                        We add our personal and professional touch to your journeys with our dedicated 24x7 personal support available anytime anywhere.
-                        We at GBI know how a traveler feels when he/she travels to a new place , and to overcome the fear of FOMO(Fear Of Missing Out), we make that extra effort to plan your journeys in a much more systematic and professional manner."/>
+                        We add our personal and professional touch to your journeys with our dedicated 24x7 personal support available anytime anywhere."/>
                 </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section class="whitebg-section">
-        <div class="col-lg-12">
-          <article class="about-vision pa-t-15">
-            <div class="row">
-              <div class="col-md-12 col-lg-12">
                 <div class="ourstory-content">
                   <figure v-lazyload class="image__wrapper">
                     <ImageSpinner class="image__spinner" />
                     <img
-                      id="ourstoryimg2"
-                      class="image__item"
-                      :data-url="`/assets/front/images/vision.png`"
+                      id="ourstoryimg1"
+                      class="image__item ic-cal-re"
+                      :data-url="`/assets/front/images/ourstory_image_.png`"
                       alt="our story"
                     />
                   </figure>
                 </div>
-              </div>
-              <div class="col-md-12 col-lg-12">
+            </div>
+            <paragraph class="mt-1" text="We at GBI know how a traveler feels when he/she travels to a new place , and to overcome the fear of FOMO(Fear Of Missing Out), we make that extra effort to plan your journeys in a much more systematic and professional manner." />
+          </article>
+        </div>
+      </section>
+
+      <section class="bgcolor-section">
+        <div class="col-lg-12">
+          
+          <article class="about-story">
+            <div class="d-flex flex-lg-row flex-column justify-content-between align-items-center">
                 <div class="ourstory-content">
                   <heading text="Vision" />
                   <sub-heading text="The choice of journey shapes mundane reality" />
                   <paragraph text="GBI’s aims to provide a travel platform whether online or offline for young minds and passionate travelers to expand their horizons and prepare them well, to face the day-to-day challenges of mundane reality. We aim to enhance their skills with a practical approach through excursions and help them connect with people, culture and mouth-watering cuisines of different continents across the globe."/>
-                  <paragraph text="For business travellers, we aim to provide a more customer-centric approach with our team of innovative and experienced professionals and we ensure to make your meetings and conferences memorable and cherishable ones. Through continuous adaptation of new innovative technological advancements, we aim to achieve the client’s long term meeting objectives; thereby ensuring customer satisfaction." />
                 </div>
-              </div>
+            </div>
+            <paragraph class="mt-1" text="For business travellers, we aim to provide a more customer-centric approach with our team of innovative and experienced professionals and we ensure to make your meetings and conferences memorable and cherishable ones. Through continuous adaptation of new innovative technological advancements, we aim to achieve the client’s long term meeting objectives; thereby ensuring customer satisfaction." />
+          </article>
+        </div>
+      </section>
+
+       <section class="bgcolor-section">
+        <div class="col-lg-12">
+          
+          <article class="about-story">
+            <div class="d-flex flex-lg-row flex-column justify-content-between align-items-center">
+                <div class="ourstory-content widthControl">
+                  <figure v-lazyload class="image__wrapper">
+                    <ImageSpinner class="image__spinner" />
+                    <img
+                      id="ourstoryimg1"
+                      class="image__item ic-cal-re widthControl"
+                      :data-url="`/assets/front/images/user-profile.png`"
+                      alt="our story"
+                    />
+                  </figure>
+                </div>
+                <div class="ourstory-content">
+                  <heading text="CEO - Mr. Jasbir Singh Rikhi" />
+                  <sub-heading text="From the desk of GBI" />
+                  <paragraph text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."/>
+                </div>
             </div>
           </article>
         </div>
       </section>
+
       <!-- End Mission -->
 
-      <!-- Start Behind Face GBI-->
+      <!-- Start Behind Face GBI
       <section class="bgcolor-section mt-3">
         <div class="col-lg-12">
           <article class="about-story-face">
@@ -147,7 +158,7 @@
             </div>
           </article>
         </div>
-      </section>
+      </section> -->
       <!-- End Behind Face GBI -->
       <div class="clear"></div>
     </div>
@@ -174,3 +185,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.widthControl{
+  width: 70% !important
+}
+@media only screen and (max-width: 824px) {
+.widthControl{
+  width: 90% !important
+}
+}
+</style>

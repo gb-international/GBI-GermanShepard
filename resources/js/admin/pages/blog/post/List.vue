@@ -50,6 +50,16 @@ data from the api to display the data about the Category from the backend .
           <span class="badge badge-default" v-else>Draft</span>
         </template>
         <template #cell(action)="data">
+          <publish-icon 
+            v-if="data.item.status == 0" 
+            @click.native="publishItem(data.item.id,user_id)"
+            >
+          </publish-icon>
+          <draft-icon
+            v-else
+            @click.native="draftItem(data.item.id,user_id)"
+            >
+          </draft-icon>
           <edit-icon :url="`/posts/${data.item.id}`"></edit-icon>
           <delete-icon 
             @click.native="deleteItem(data.item.id,data.index)"
@@ -74,8 +84,10 @@ data from the api to display the data about the Category from the backend .
 import listLayout from '@/admin/components/layout/ListLayout.vue';
 import pagination  from 'laravel-vue-pagination';
 import EditIcon from '@/admin/components/icons/EditIcon.vue';
+import PublishIcon from '@/admin/components/icons/PublishIcon.vue';
 import DeleteIcon from '@/admin/components/icons/DeleteIcon.vue';
 import ViewIcon from '@/admin/components/icons/ViewIcon.vue';
+import DraftIcon from '@/admin/components/icons/DraftIcon.vue';
 import TableLoader from '@/admin/components/TableLoader.vue';
 import { mapState } from 'vuex';
 
@@ -88,6 +100,8 @@ export default {
     'edit-icon':EditIcon,
     'delete-icon':DeleteIcon,
     'view-icon':ViewIcon,
+    'publish-icon':PublishIcon,
+    'draft-icon':DraftIcon
   },
   data() {
     return {
@@ -101,6 +115,7 @@ export default {
       filter:'',
       perPage:7,
       options:[7,25,50,100],
+      user_id: window.userId
     };
   },
   mounted() {
@@ -123,6 +138,14 @@ export default {
       let payload = {'api':"/posts/"+id,index,'index':index};
       this.$store.dispatch('deleteItem',payload);
     },
+    publishItem(id, user_id) {
+      axios.post("/api/posts/"+id+"/publish/"+user_id).then((res) => {});
+      this.getitems();
+    },
+    draftItem(id, user_id){
+      axios.post("/api/posts/"+id+"/draft/"+user_id).then((res) => {});
+      this.getitems();
+    }
   },
 };
 </script>

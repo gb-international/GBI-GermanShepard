@@ -3,26 +3,46 @@
       Author:@Ajay
       ****************************************************-->
   <div v-if="valid">
-    <user-info-card :userinfo="userinfo"/>
+    <!-- <user-info-card :userinfo="userinfo"/> -->
     <div class="container">
-      <booked-tour-button />
-      
-      <h5 class="title_section">Upcoming Event</h5>
-      <upcoming-tour-crasousel  :upcoming_list="upcoming_list"/>
-      <h5 class="title_section">
-        Popular Destination
-        <router-link class="view_link" :to="`/explore-list`">View more</router-link>
-      </h5>
-      <div class="popular_destination">
-        <div class="row"></div>
-      </div>
+      <!-- <booked-tour-button /> -->
+
       <div class="advertismentpart">
         <img
-          src="https://placeit-assets.s3-accelerate.amazonaws.com/landing-pages/make-a-twitch-banner2/Twitch-Banner-Blue-1024x324.png"
+          src="https://cdn.pixabay.com/photo/2016/04/26/15/01/holiday-1354563_960_720.jpg"
           loading="lazy"
         />
       </div>
-      <div class="booksection">
+      
+      <h5 class="title_section">Special Offers</h5>
+      <offers-crasousel  :upcoming_list="upcoming_list"/>
+
+      <h5 class="title_section">
+        Recent Searches
+        <upcoming-tour-crasousel  :upcoming_list="upcoming_list"/>
+      </h5>
+      <div class="resent_search">
+        <div class="row">
+        </div>
+      </div>
+
+      <h5 class="title_section">
+        Popular Tours
+      <!--   <router-link class="view_link" :to="`/explore-list`">View more</router-link> -->
+      </h5>
+      <div class="popular_destination">
+         <popular-tour  :upcoming_list="upcoming_list"/>
+      </div>
+       <h5 class="title_section">
+        Travel Blogs
+        </h5>
+       <div class="row">
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="(post,index) in posts_list" :key="index">
+            <blog-card :post="post" />
+          </div>
+        </div>
+
+      <!-- <div class="booksection">
         <div class="row">
           <div class="col-sm-2"></div>
           <div class="col-sm-8">
@@ -49,15 +69,7 @@
           </div>
           <div class="col-sm-2"></div>
         </div>
-      </div>
-      <h5 class="title_section">
-        Recent Search
-        <a href="#" class="view_link">View More</a>
-      </h5>
-      <div class="resent_search">
-        <div class="row">
-        </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -66,13 +78,39 @@ import Dashboard from '@/front/mixins/user/Dashboard';
 import UserinfoCard from '@/front/components/user/UserinfoCard';
 import BookedTourButton from '@/front/components/user/BookedTourButton';
 import UpcomingCrasousel from '@/front/components/user/UpcomingCrasousel.vue';
+import OffersCrasousel from '@/front/components/user/OffersCrasousel.vue';
+import BlogCard from '@/front/components/blog//BlogCard';
+import PopularDestination from '@/front/components/user/PopularDestination.vue'
+
 export default {
   name: "DashboardTeacher",
   components: {
     'user-info-card':UserinfoCard,
     'booked-tour-button':BookedTourButton,
     'upcoming-tour-crasousel':UpcomingCrasousel,
+    'offers-crasousel':OffersCrasousel,
+    'blog-card':BlogCard,
+    'popular-tour': PopularDestination,
   },
-  mixins:[Dashboard]
+  data() {
+    return {
+      posts:[],
+      posts_list:[],
+    };
+  },
+  mixins:[Dashboard],
+
+  mounted(){
+    this.blogList();
+  },
+
+  methods:{
+    blogList(){
+      this.$axios.get("/api/blog-recents").then(response => {
+        this.posts = response.data;
+        this.posts_list = this.posts.data;
+      });
+    },
+  }
 };
 </script>

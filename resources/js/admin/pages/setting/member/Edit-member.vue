@@ -45,7 +45,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="phone_no">Phone Number</label>
               <input
-                type="text"
+                type="number"
                 class="form-control"
                 v-model="form.phone_no"
                 :class="{ 'is-invalid': form.errors.has('phone_no') }"
@@ -74,25 +74,25 @@ to submit the data we are using a function.
 
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="role_name">Role Assign</label>
-              <dropdown-list class="mb-2" 
-                :itemList="role_list" 
-                v-model="form.role_name"
-                :class="{ 'is-invalid': form.errors.has('role_name') }"
-              />
-              <has-error :form="form" field="role_name"></has-error>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="role_name">Department</label>
+              <label for="role_id">Department</label>
               <dropdown-list class="mb-2" 
                 :itemList="departments" 
                 v-model="form.department_id"
                 :class="{ 'is-invalid': form.errors.has('department_id') }"
               />
               <has-error :form="form" field="department_id"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="role_id">Role Assign</label>
+              <dropdown-list class="mb-2" 
+                :itemList="role_list" 
+                v-model="form.role_id"
+                :class="{ 'is-invalid': form.errors.has('role_id') }"
+              />
+              <has-error :form="form" field="role_id"></has-error>
             </div>
           </div>
 
@@ -122,6 +122,8 @@ import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import DropdownList from "@/admin/components/form/DropdownList.vue";
+import { checkBday } from "@/admin/helpers/checkBday.js";
+
 export default {
   name: "NewMember",
   components: {
@@ -142,7 +144,7 @@ export default {
         phone_no: "",
         address: "",
         dob: "",
-        role_name: "",
+        role_id: "",
         old_role:'',
         department_id:'',
       }),
@@ -162,7 +164,7 @@ export default {
           for(let i = 0;i<res.data.length;i++){
             this.role_list.push({
               name:res.data[i].name,
-              id:res.data[i].name
+              id:res.data[i].id
             });
           }
         }
@@ -182,24 +184,38 @@ export default {
       });
     },
 
-    updateRole(v){ this.form.role_name = v.id },
+    updateRole(v){ this.form.role_id = v.id },
     updateDepartment(v){ this.form.department_id = v.id },
 
     getData(){
        axios
         .get(`/api/members/${this.$route.params.id}/edit`)
         .then((res) => {
-          this.form.fill(res.data);
-          this.form.phone_no = res.data.information.phone_no;
-          this.form.address = res.data.information.address;
-          this.form.dob = res.data.information.dob;
-          this.form.role_name = res.data.user_role.role.name;
-          this.form.old_role = this.form.role_name;
-          this.form.department_id = res.data.department_id;
+          this.form.fill(res.data.data);
+          //this.form.phone_no = res.data.information.phone_no;
+          //this.form.address = res.data.information.address;
+          //this.form.dob = res.data.information.dob;
+          this.form.role_id = res.data.data.role;
+          //this.form.old_role = this.form.role_id;
+          this.form.department_id = res.data.data.department;
         });
     },
 
     updateMember() {
+      if(checkBday(this.form.dob) == false){
+        this.$toast.fire({
+            icon: "warning",
+            title: "A GBI Member must be of age 20 or above.",
+          });
+        return false
+      }
+      if(this.form.phone_no.length !== 10){
+        this.$toast.fire({
+            icon: "warning",
+            title: "Please enter a valid phone number.",
+          });
+        return false
+      }
         this.form
         .put(`/api/members/${this.$route.params.id}`)
         .then((res) => {

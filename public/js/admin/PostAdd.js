@@ -258,10 +258,8 @@ __webpack_require__.r(__webpack_exports__);
       status_list: [{
         name: "Draft",
         id: 0
-      }, {
-        name: "Public",
-        id: 1
-      }],
+      } //{name:"Public",id:1}
+      ],
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         title: "",
         description: "",
@@ -273,7 +271,8 @@ __webpack_require__.r(__webpack_exports__);
         category_id: "",
         category: "",
         client_type: "",
-        tags: []
+        tags: [],
+        user_id: window.userId
       }),
       loading: false
     };
@@ -359,6 +358,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.tags = this.form.meta_keyword; //console.log(this.form.tags)
 
       this.form.category_id = this.form.category.id;
+      this.form.user_id = window.userId;
       this.form.post("/api/posts").then(function (re) {
         _this3.$swal.fire("Added!", "Post Added successfully", "success");
 

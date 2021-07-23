@@ -14,6 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
 /* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
+/* harmony import */ var _admin_helpers_checkBday_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/helpers/checkBday.js */ "./resources/js/admin/helpers/checkBday.js");
 //
 //
 //
@@ -133,6 +134,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -157,7 +159,7 @@ __webpack_require__.r(__webpack_exports__);
         phone_no: "",
         address: "",
         dob: "",
-        role_name: "",
+        role_id: "",
         old_role: '',
         department_id: ''
       })
@@ -177,7 +179,7 @@ __webpack_require__.r(__webpack_exports__);
           for (var i = 0; i < res.data.length; i++) {
             _this.role_list.push({
               name: res.data[i].name,
-              id: res.data[i].name
+              id: res.data[i].id
             });
           }
         }
@@ -198,7 +200,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     updateRole: function updateRole(v) {
-      this.form.role_name = v.id;
+      this.form.role_id = v.id;
     },
     updateDepartment: function updateDepartment(v) {
       this.form.department_id = v.id;
@@ -207,18 +209,34 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       axios.get("/api/members/".concat(this.$route.params.id, "/edit")).then(function (res) {
-        _this3.form.fill(res.data);
+        _this3.form.fill(res.data.data); //this.form.phone_no = res.data.information.phone_no;
+        //this.form.address = res.data.information.address;
+        //this.form.dob = res.data.information.dob;
 
-        _this3.form.phone_no = res.data.information.phone_no;
-        _this3.form.address = res.data.information.address;
-        _this3.form.dob = res.data.information.dob;
-        _this3.form.role_name = res.data.user_role.role.name;
-        _this3.form.old_role = _this3.form.role_name;
-        _this3.form.department_id = res.data.department_id;
+
+        _this3.form.role_id = res.data.data.role; //this.form.old_role = this.form.role_id;
+
+        _this3.form.department_id = res.data.data.department;
       });
     },
     updateMember: function updateMember() {
       var _this4 = this;
+
+      if (Object(_admin_helpers_checkBday_js__WEBPACK_IMPORTED_MODULE_4__["checkBday"])(this.form.dob) == false) {
+        this.$toast.fire({
+          icon: "warning",
+          title: "A GBI Member must be of age 20 or above."
+        });
+        return false;
+      }
+
+      if (this.form.phone_no.length !== 10) {
+        this.$toast.fire({
+          icon: "warning",
+          title: "Please enter a valid phone number."
+        });
+        return false;
+      }
 
       this.form.put("/api/members/".concat(this.$route.params.id)).then(function (res) {
         _this4.$router.push("/list-member");
@@ -392,7 +410,7 @@ var render = function() {
                                 "is-invalid": _vm.form.errors.has("phone_no")
                               },
                               attrs: {
-                                type: "text",
+                                type: "number",
                                 placeholder: "Enter Phone No",
                                 name: "phone_no"
                               },
@@ -470,39 +488,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group" },
                           [
-                            _c("label", { attrs: { for: "role_name" } }, [
-                              _vm._v("Role Assign")
-                            ]),
-                            _vm._v(" "),
-                            _c("dropdown-list", {
-                              staticClass: "mb-2",
-                              class: {
-                                "is-invalid": _vm.form.errors.has("role_name")
-                              },
-                              attrs: { itemList: _vm.role_list },
-                              model: {
-                                value: _vm.form.role_name,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.form, "role_name", $$v)
-                                },
-                                expression: "form.role_name"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("has-error", {
-                              attrs: { form: _vm.form, field: "role_name" }
-                            })
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-4" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", { attrs: { for: "role_name" } }, [
+                            _c("label", { attrs: { for: "role_id" } }, [
                               _vm._v("Department")
                             ]),
                             _vm._v(" "),
@@ -525,6 +511,38 @@ var render = function() {
                             _vm._v(" "),
                             _c("has-error", {
                               attrs: { form: _vm.form, field: "department_id" }
+                            })
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-4" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "role_id" } }, [
+                              _vm._v("Role Assign")
+                            ]),
+                            _vm._v(" "),
+                            _c("dropdown-list", {
+                              staticClass: "mb-2",
+                              class: {
+                                "is-invalid": _vm.form.errors.has("role_id")
+                              },
+                              attrs: { itemList: _vm.role_list },
+                              model: {
+                                value: _vm.form.role_id,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "role_id", $$v)
+                                },
+                                expression: "form.role_id"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "role_id" }
                             })
                           ],
                           1
@@ -597,6 +615,45 @@ var staticRenderFns = []
 render._withStripped = true
 
 
+
+/***/ }),
+
+/***/ "./resources/js/admin/helpers/checkBday.js":
+/*!*************************************************!*\
+  !*** ./resources/js/admin/helpers/checkBday.js ***!
+  \*************************************************/
+/*! exports provided: checkBday */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkBday", function() { return checkBday; });
+var checkBday = function create_UUID(bDay) {
+  var dateString = bDay;
+  var today = new Date();
+  var birthDate = new Date(dateString);
+  var age = today.getFullYear() - birthDate.getFullYear();
+  var m = today.getMonth() - birthDate.getMonth();
+  var da = today.getDate() - birthDate.getDate();
+
+  if (m < 0 || m === 0 && today.getDate() < birthDate.getDate()) {
+    age--;
+  }
+
+  if (m < 0) {
+    m += 12;
+  }
+
+  if (da < 0) {
+    da += 30;
+  }
+
+  if (age >= 20) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 /***/ }),
 

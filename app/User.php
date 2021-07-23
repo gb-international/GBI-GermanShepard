@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -77,8 +78,16 @@ class User extends Authenticatable
         return $this->hasOne('App\Model\User\Subscriber');
     }
 
-    public function UserRole(){
+    public function social(){
+        return $this->hasMany('App\Model\User\UserSocial');
+    }
+
+    /*public function UserRole(){
         return $this->hasOne('App\Model\RoleAndPermission\RoleUser','model_id','id');
+    }*/
+
+    public function userRole(){
+        return $this->hasOne('App\Model\RoleAndPermission\UserRole','user_id','id');
     }
 
     public function scopeIncharge($query)

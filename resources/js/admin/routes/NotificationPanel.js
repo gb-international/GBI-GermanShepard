@@ -5,6 +5,6 @@ const NotifView = () => import(/* webpackChunkName: "js/admin/NotifView" */ '@/a
 
 export default[
     // Notification
-    { path: '/notification-panel', component: NotifPanel },
-    { path: '/notification-view', component: NotifView },
+    { meta: {permId: 88}, path: '/notification-panel', component: NotifPanel },
+    { meta: {permId: 88}, path: '/notification-view', component: NotifView },
 ]

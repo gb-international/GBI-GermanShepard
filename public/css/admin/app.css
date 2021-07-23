@@ -55661,6 +55661,11 @@ table#table-transition .flip-list-move {
   vertical-align: middle;
 }
 
+.incrIconSize {
+  padding: 0.4em 0.54em !important;
+  font-size: 80% !important;
+}
+
 .dropdown-field {
   position: relative;
   width: 100%;

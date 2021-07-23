@@ -45,7 +45,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="phone_no">Phone Number</label>
               <input
-                type="text"
+                type="number"
                 class="form-control"
                 v-model="form.phone_no"
                 :class="{ 'is-invalid': form.errors.has('phone_no') }"
@@ -61,7 +61,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="password">Password</label>
               <input
-                type="text"
+                type="password"
                 class="form-control"
                 placeholder="Enter Password"
                 name="password"
@@ -75,7 +75,7 @@ to submit the data we are using a function.
             <div class="form-group">
               <label for="c_password">Confirm Password</label>
               <input
-                type="text"
+                type="password"
                 class="form-control"
                 placeholder="Enter Confirm Password"
                 name="c_password"
@@ -118,25 +118,25 @@ to submit the data we are using a function.
 
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="role_name">Role Assign</label>
-              <dropdown-filter class="mb-2" 
-                :itemList="role_list" 
-                @update:option="updateRole" 
-                :class="{ 'is-invalid': form.errors.has('role_name') }"
-              />
-              <has-error :form="form" field="role_name"></has-error>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="role_name">Department</label>
+              <label for="role_id">Department</label>
               <dropdown-filter class="mb-2" 
                 :itemList="departments" 
                 @update:option="updateDepartment" 
                 :class="{ 'is-invalid': form.errors.has('department_id') }"
               />
               <has-error :form="form" field="department_id"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="role_id">Role Assign</label>
+              <dropdown-filter class="mb-2" 
+                :itemList="role_list" 
+                @update:option="updateRole" 
+                :class="{ 'is-invalid': form.errors.has('role_id') }"
+              />
+              <has-error :form="form" field="role_id"></has-error>
             </div>
           </div>
             
@@ -152,6 +152,8 @@ import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
+import { checkBday } from "@/admin/helpers/checkBday.js";
+
 export default {
   name: "NewMember",
   components: {
@@ -174,7 +176,7 @@ export default {
         phone_no: "",
         address: "",
         dob: "",
-        role_name: "",
+        role_id: "",
         department_id:'',
       }),
     };
@@ -192,7 +194,7 @@ export default {
           for(let i = 0;i<res.data.length;i++){
             this.role_list.push({
               name:res.data[i].name,
-              id:res.data[i].name
+              id:res.data[i].id
             });
           }
         }
@@ -212,10 +214,24 @@ export default {
       });
     },
 
-    updateRole(v){ this.form.role_name = v.id },
+    updateRole(v){ this.form.role_id = v.id },
     updateDepartment(v){ this.form.department_id = v.id },
 
     addMember() {
+      if(checkBday(this.form.dob) == false){
+        this.$toast.fire({
+            icon: "warning",
+            title: "A GBI Member must be of age 20 or above.",
+          });
+        return false
+      }
+      if(this.form.phone_no.length !== 10){
+        this.$toast.fire({
+            icon: "warning",
+            title: "Please enter a valid phone number.",
+          });
+        return false
+      }
         this.form
         .post("/api/members/create")
         .then((res) => {
@@ -230,3 +246,17 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+input[type='password'] {
+    border: 0px;
+    font-size: 15px;
+    background-color: #fff;
+    color: #737879;
+    display: block;
+    width: 100%;
+    height: 53px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+</style>

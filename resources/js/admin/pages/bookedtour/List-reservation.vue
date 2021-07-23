@@ -92,13 +92,13 @@ This is template is for the viewing the booked tour details.
             </div>
 
 
-            <div v-if="tour.customer_type == 'school'" class="col-sm-3 mb-3 m-30">
+            <div v-if="tour.customer_type == 'school' && hasSchoolPaymentPerms" class="col-sm-3 mb-3 m-30">
               <router-link :to="`/payments-school/${entity['id']}/${tour.tour_id}`">
                 <img :src="`/assets/admin/default/icon/payment.png`" />
               </router-link>
             </div>
 
-            <div v-else class="col-sm-3 mb-3 m-30">
+            <div v-if="tour.customer_type == 'corporate' && hasCorpPaymentPerms" class="col-sm-3 mb-3 m-30">
               <router-link :to="`/payments-corporate/${entity['id']}/${tour.tour_id}`">
                 <img :src="`/assets/admin/default/icon/payment.png`" />
               </router-link>
@@ -838,6 +838,24 @@ export default {
     goBack() {
       this.$router.push("/tours");
     },
+  },
+  computed: {
+      hasSchoolPaymentPerms(){
+          if(window.userRole == 1){
+              return true;
+          }
+          const perms = window.viewPerms;
+          const hasPerm = (perm) => perm.permission_id === 56;
+          return perms.some(hasPerm);
+      },
+      hasCorpPaymentPerms(){
+          if(window.userRole == 1){
+              return true;
+          }
+          const perms = window.viewPerms;
+          const hasPerm = (perm) => perm.permission_id === 92;
+          return perms.some(hasPerm);
+      }
   },
 };
 </script>

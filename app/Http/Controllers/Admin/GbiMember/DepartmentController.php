@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\GbiMember;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\User\Department;
+use App\Model\RoleAndPermission\Department;
 
 class DepartmentController extends Controller
 {
@@ -16,7 +16,7 @@ class DepartmentController extends Controller
 
     public function all($size)
     {
-        return response()->json(Department::select('name','description','id','updated_at')
+        return response()->json(Department::select('name','id','updated_at')
             ->latest('updated_at')
             ->paginate($size));
     }
@@ -46,7 +46,7 @@ class DepartmentController extends Controller
     {
         $data = $this->validate($request,[
             'name'=>'required',
-            'description'=>'required',
+            //'description'=>'required',
         ]);
 
         Department::create($data);
@@ -88,7 +88,7 @@ class DepartmentController extends Controller
     {
         $data = $this->validate($request,[
             'name'=>'required',
-            'description'=>'required',
+            //'description'=>'required',
         ]);
 
         $Department->update($data);

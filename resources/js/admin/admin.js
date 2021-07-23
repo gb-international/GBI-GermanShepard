@@ -74,6 +74,20 @@ const router = new VueRouter({
     scrollBehavior() { return { x: 0, y: 0 }; },
 });
 
+// Check if user Has Route perms
+router.beforeEach((to, from, next) => {
+    const routePerms = window.viewPerms;
+    const hasRoutePerm = (perm) => perm.permission_id === to.meta.permId;
+
+    if(routePerms.some(hasRoutePerm) || window.userRole == 1 || !to.meta.permId)
+     {
+      next(); // allow to enter route
+     } 
+     else
+     {
+      next({ name: 'Dashboard' }); // go to dashboard;
+     }
+})
 const app = new Vue({
     el: '#app',
     router,

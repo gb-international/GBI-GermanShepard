@@ -11,9 +11,11 @@ import { createStore } from './store'
 import EventBus from '@/front/store/EventBus';
 import VueSweetalert2 from 'vue-sweetalert2';
 import { BootstrapVue,TablePlugin } from 'bootstrap-vue';
-import swal from 'sweetalert2'
+import swal from 'sweetalert2';
 import VueMeta from 'vue-meta';
 import vuecookies from 'vue-cookies';
+import UniversalSocialauth from 'universal-social-auth';
+
 
 
 import api from '@/front/helpers/api';
@@ -89,10 +91,39 @@ router.beforeEach((to, from, next) => {
     }
 });
 
+const options = {
+  providers: {
+    // github: {
+    //   clientId: '78bfc07e1f25b5e22c26',
+    //   redirectUri: 'https://diadal.com.ng/auth/github/callback'
+    // },
+    // google: {
+    //   clientId: '***************',
+    //   redirectUri: 'https://myapp.com/auth/google/callback'
+    // },
+    facebook: {
+      clientId: '926183941276141',
+      redirectUri: 'http://localhost:8000/auth/facebook/callback'
+    },
+    // twitter: {
+    //   url: 'https://myapp.com/auth/twitter',
+    //   clientId: '********',
+    //   redirectUri: 'https://myapp.com/auth/twitter/callback'
+    // }
+  }
+}
+
+const Oauth = new UniversalSocialauth(axios, options);
+Vue.prototype.$Oauth = Oauth
+
 const app = new Vue({
-    el:'#app',
+    //el:'#app',
     store,
-    router
+    router,
+    render: h => h(App)
 });
+
+export default app;
+//.$mount('#app')
 
 

@@ -1,5 +1,143 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["js/admin/MemberList"],{
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/AssignPermissionIcon.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/icons/AssignPermissionIcon.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "PlusButtonGBI",
+  props: ['url'],
+  data: function data() {
+    return {};
+  },
+  computed: {
+    hasPerms: function hasPerms() {
+      if (window.userRole == 1) {
+        return true;
+      }
+
+      var perms = window.createPerms;
+
+      var hasPerm = function hasPerm(perm) {
+        return perm.permission_id === 94;
+      };
+
+      return perms.some(hasPerm);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/AssignUserIcon.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/icons/AssignUserIcon.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "AssignUsersButtonGBI",
+  props: ['url'],
+  data: function data() {
+    return {};
+  },
+  computed: {
+    hasPerms: function hasPerms() {
+      if (window.userRole == 1) {
+        return true;
+      }
+
+      var perms = window.createPerms;
+
+      var hasPerm = function hasPerm(perm) {
+        return perm.permission_id === 95;
+      };
+
+      return perms.some(hasPerm);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/CheckPermissionsIcon.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/icons/CheckPermissionsIcon.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "CheckButtonGBI",
+  props: ['url'],
+  data: function data() {
+    return {};
+  },
+  computed: {
+    hasPerms: function hasPerms() {
+      if (window.userRole == 1) {
+        return true;
+      }
+
+      var perms = window.viewPerms;
+
+      var hasPerm = function hasPerm(perm) {
+        return perm.permission_id === 94;
+      };
+
+      return perms.some(hasPerm);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/EditIcon.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/icons/EditIcon.vue?vue&type=script&lang=js& ***!
@@ -21,6 +159,23 @@ __webpack_require__.r(__webpack_exports__);
   props: ['url'],
   data: function data() {
     return {};
+  },
+  computed: {
+    hasPerms: function hasPerms() {
+      var _this = this;
+
+      if (window.userRole == 1) {
+        return true;
+      }
+
+      var perms = window.editPerms;
+
+      var hasPerm = function hasPerm(perm) {
+        return perm.permission_id === _this.$route.meta.permId;
+      };
+
+      return perms.some(hasPerm);
+    }
   }
 });
 
@@ -68,10 +223,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js");
 /* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _admin_components_icons_EditIcon_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/icons/EditIcon.vue */ "./resources/js/admin/components/icons/EditIcon.vue");
-/* harmony import */ var _admin_components_icons_DeleteIcon_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/icons/DeleteIcon.vue */ "./resources/js/admin/components/icons/DeleteIcon.vue");
-/* harmony import */ var _admin_components_icons_ViewIcon_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/icons/ViewIcon.vue */ "./resources/js/admin/components/icons/ViewIcon.vue");
-/* harmony import */ var _admin_components_TableLoader_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/TableLoader.vue */ "./resources/js/admin/components/TableLoader.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _admin_components_icons_AssignPermissionIcon_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/icons/AssignPermissionIcon.vue */ "./resources/js/admin/components/icons/AssignPermissionIcon.vue");
+/* harmony import */ var _admin_components_icons_CheckPermissionsIcon_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/icons/CheckPermissionsIcon.vue */ "./resources/js/admin/components/icons/CheckPermissionsIcon.vue");
+/* harmony import */ var _admin_components_icons_DeleteIcon_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/icons/DeleteIcon.vue */ "./resources/js/admin/components/icons/DeleteIcon.vue");
+/* harmony import */ var _admin_components_icons_ViewIcon_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/icons/ViewIcon.vue */ "./resources/js/admin/components/icons/ViewIcon.vue");
+/* harmony import */ var _admin_components_icons_AssignUserIcon_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/admin/components/icons/AssignUserIcon.vue */ "./resources/js/admin/components/icons/AssignUserIcon.vue");
+/* harmony import */ var _admin_components_TableLoader_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/admin/components/TableLoader.vue */ "./resources/js/admin/components/TableLoader.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -144,6 +302,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+
+
+
 
 
 
@@ -155,22 +319,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   name: "ListMember",
   components: {
     'list-layout': _admin_components_layout_ListLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'table-loader': _admin_components_TableLoader_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    'table-loader': _admin_components_TableLoader_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
     'pagination': laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_1___default.a,
     'edit-icon': _admin_components_icons_EditIcon_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    'delete-icon': _admin_components_icons_DeleteIcon_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    'view-icon': _admin_components_icons_ViewIcon_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    'delete-icon': _admin_components_icons_DeleteIcon_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    'view-icon': _admin_components_icons_ViewIcon_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    'assign-icon': _admin_components_icons_AssignPermissionIcon_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    'check-icon': _admin_components_icons_CheckPermissionsIcon_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    'assignUser-icon': _admin_components_icons_AssignUserIcon_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   data: function data() {
     return {
       fields: [{
         key: 'name',
-        label: 'permission name',
+        label: 'Member name',
         sortable: true,
         thClass: 'table-head'
       }, {
-        key: 'user_role.role.name',
+        key: 'role_name',
         label: 'Role',
+        sortable: true,
+        thClass: 'table-head'
+      }, {
+        key: 'department_name',
+        label: 'Department',
         sortable: true,
         thClass: 'table-head'
       }, {
@@ -192,7 +364,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.getitems();
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_6__["mapState"])(['items'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_9__["mapState"])(['items'])),
   watch: {
     perPage: function perPage() {
       this.getitems(1, this.perPage);
@@ -380,6 +552,111 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/AssignPermissionIcon.vue?vue&type=template&id=5d0107f7&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/icons/AssignPermissionIcon.vue?vue&type=template&id=5d0107f7& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.hasPerms
+    ? _c("router-link", { staticClass: "edit_link", attrs: { to: _vm.url } }, [
+        _c(
+          "span",
+          {
+            staticClass: "badge badge-info incrIconSize",
+            attrs: { title: "Assign Permissions" }
+          },
+          [_c("i", { staticClass: "fas fa-plus-square" })]
+        )
+      ])
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/AssignUserIcon.vue?vue&type=template&id=6c7b5733&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/icons/AssignUserIcon.vue?vue&type=template&id=6c7b5733& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.hasPerms
+    ? _c("router-link", { staticClass: "edit_link", attrs: { to: _vm.url } }, [
+        _c(
+          "span",
+          {
+            staticClass: "badge badge-warning incrIconSize",
+            attrs: { title: "Assign Users" }
+          },
+          [_c("i", { staticClass: "fas fa-user-plus" })]
+        )
+      ])
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/CheckPermissionsIcon.vue?vue&type=template&id=5fffa835&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/icons/CheckPermissionsIcon.vue?vue&type=template&id=5fffa835& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.hasPerms
+    ? _c("router-link", { staticClass: "edit_link", attrs: { to: _vm.url } }, [
+        _c(
+          "span",
+          {
+            staticClass: "badge badge-success incrIconSize",
+            attrs: { title: "Check Permissions" }
+          },
+          [_c("i", { staticClass: "fas fa-check-square" })]
+        )
+      ])
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/EditIcon.vue?vue&type=template&id=788841e3&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/icons/EditIcon.vue?vue&type=template&id=788841e3& ***!
@@ -395,17 +672,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "router-link",
-    { staticClass: "edit_link", attrs: { to: _vm.url } },
-    [
-      _c(
-        "span",
-        { staticClass: "badge badge-primary", attrs: { title: "Edit Item" } },
-        [_c("i", { staticClass: "fas fa-pencil-alt" })]
-      )
-    ]
-  )
+  return _vm.hasPerms
+    ? _c("router-link", { staticClass: "edit_link", attrs: { to: _vm.url } }, [
+        _c(
+          "span",
+          {
+            staticClass: "badge badge-primary incrIconSize",
+            attrs: { title: "Edit Item" }
+          },
+          [_c("i", { staticClass: "fas fa-pencil-alt" })]
+        )
+      ])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -435,7 +713,10 @@ var render = function() {
     [
       _c(
         "span",
-        { staticClass: "badge badge-primary", attrs: { title: "View Item" } },
+        {
+          staticClass: "badge badge-primary incrIconSize",
+          attrs: { title: "View Item" }
+        },
         [_c("i", { staticClass: "fas fa-eye" })]
       )
     ]
@@ -553,6 +834,34 @@ var render = function() {
                     key: "cell(action)",
                     fn: function(data) {
                       return [
+                        _c("assignUser-icon", {
+                          attrs: {
+                            url:
+                              "/assign-users/" +
+                              data.item.role +
+                              "/" +
+                              data.item.id +
+                              "/" +
+                              data.item.department
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("check-icon", {
+                          attrs: {
+                            url: "/check-permissions/" + data.item.user_role_id
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("assign-icon", {
+                          attrs: {
+                            url:
+                              "/assign-permission/" +
+                              data.item.user_role_id +
+                              "/" +
+                              data.item.role
+                          }
+                        }),
+                        _vm._v(" "),
                         _c("view-icon", {
                           attrs: { url: "/user/" + data.item.id }
                         }),
@@ -803,6 +1112,213 @@ var render = function() {
 }
 var staticRenderFns = []
 render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/icons/AssignPermissionIcon.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/admin/components/icons/AssignPermissionIcon.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AssignPermissionIcon_vue_vue_type_template_id_5d0107f7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AssignPermissionIcon.vue?vue&type=template&id=5d0107f7& */ "./resources/js/admin/components/icons/AssignPermissionIcon.vue?vue&type=template&id=5d0107f7&");
+/* harmony import */ var _AssignPermissionIcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AssignPermissionIcon.vue?vue&type=script&lang=js& */ "./resources/js/admin/components/icons/AssignPermissionIcon.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AssignPermissionIcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AssignPermissionIcon_vue_vue_type_template_id_5d0107f7___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AssignPermissionIcon_vue_vue_type_template_id_5d0107f7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/components/icons/AssignPermissionIcon.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/icons/AssignPermissionIcon.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/admin/components/icons/AssignPermissionIcon.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AssignPermissionIcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AssignPermissionIcon.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/AssignPermissionIcon.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AssignPermissionIcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/icons/AssignPermissionIcon.vue?vue&type=template&id=5d0107f7&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/admin/components/icons/AssignPermissionIcon.vue?vue&type=template&id=5d0107f7& ***!
+  \*****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AssignPermissionIcon_vue_vue_type_template_id_5d0107f7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AssignPermissionIcon.vue?vue&type=template&id=5d0107f7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/AssignPermissionIcon.vue?vue&type=template&id=5d0107f7&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AssignPermissionIcon_vue_vue_type_template_id_5d0107f7___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AssignPermissionIcon_vue_vue_type_template_id_5d0107f7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/icons/AssignUserIcon.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/admin/components/icons/AssignUserIcon.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AssignUserIcon_vue_vue_type_template_id_6c7b5733___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AssignUserIcon.vue?vue&type=template&id=6c7b5733& */ "./resources/js/admin/components/icons/AssignUserIcon.vue?vue&type=template&id=6c7b5733&");
+/* harmony import */ var _AssignUserIcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AssignUserIcon.vue?vue&type=script&lang=js& */ "./resources/js/admin/components/icons/AssignUserIcon.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AssignUserIcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AssignUserIcon_vue_vue_type_template_id_6c7b5733___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AssignUserIcon_vue_vue_type_template_id_6c7b5733___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/components/icons/AssignUserIcon.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/icons/AssignUserIcon.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/admin/components/icons/AssignUserIcon.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AssignUserIcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AssignUserIcon.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/AssignUserIcon.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AssignUserIcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/icons/AssignUserIcon.vue?vue&type=template&id=6c7b5733&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/admin/components/icons/AssignUserIcon.vue?vue&type=template&id=6c7b5733& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AssignUserIcon_vue_vue_type_template_id_6c7b5733___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AssignUserIcon.vue?vue&type=template&id=6c7b5733& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/AssignUserIcon.vue?vue&type=template&id=6c7b5733&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AssignUserIcon_vue_vue_type_template_id_6c7b5733___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AssignUserIcon_vue_vue_type_template_id_6c7b5733___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/icons/CheckPermissionsIcon.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/admin/components/icons/CheckPermissionsIcon.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CheckPermissionsIcon_vue_vue_type_template_id_5fffa835___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckPermissionsIcon.vue?vue&type=template&id=5fffa835& */ "./resources/js/admin/components/icons/CheckPermissionsIcon.vue?vue&type=template&id=5fffa835&");
+/* harmony import */ var _CheckPermissionsIcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CheckPermissionsIcon.vue?vue&type=script&lang=js& */ "./resources/js/admin/components/icons/CheckPermissionsIcon.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CheckPermissionsIcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CheckPermissionsIcon_vue_vue_type_template_id_5fffa835___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CheckPermissionsIcon_vue_vue_type_template_id_5fffa835___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/components/icons/CheckPermissionsIcon.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/icons/CheckPermissionsIcon.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/admin/components/icons/CheckPermissionsIcon.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckPermissionsIcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CheckPermissionsIcon.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/CheckPermissionsIcon.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckPermissionsIcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/icons/CheckPermissionsIcon.vue?vue&type=template&id=5fffa835&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/admin/components/icons/CheckPermissionsIcon.vue?vue&type=template&id=5fffa835& ***!
+  \*****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckPermissionsIcon_vue_vue_type_template_id_5fffa835___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CheckPermissionsIcon.vue?vue&type=template&id=5fffa835& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/icons/CheckPermissionsIcon.vue?vue&type=template&id=5fffa835&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckPermissionsIcon_vue_vue_type_template_id_5fffa835___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckPermissionsIcon_vue_vue_type_template_id_5fffa835___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

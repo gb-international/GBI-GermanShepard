@@ -23,7 +23,10 @@
         "sass-loader": "7.*",
         "vue": "^2.6.12",
         "vue-loader": "^15.9.2",
-        "vue-template-compiler": "^2.6.12"
+        "vue-template-compiler": "^2.6.12",
+        "express": "^4.17.1",
+        "request": "latest",
+        "cheerio": "latest"
     },
     "dependencies": {
         "@babel/runtime": "^7.10.3",
@@ -37,7 +40,6 @@
         "datatables.net-bs": "^1.10.21",
         "datatables.net-dt": "^1.10.21",
         "dotenv": "^10.0.0",
-        "express": "^4.17.1",
         "html2canvas": "^1.0.0-rc.5",
         "idle-vue": "^2.0.5",
         "ioredis": "^4.27.6",
@@ -57,6 +59,7 @@
         "socket.io": "^4.1.2",
         "socket.io-client": "^4.1.2",
         "sweetalert2": "^9.14.3",
+        "universal-social-auth": "^0.2.5",
         "v-autocomplete": "^1.8.2",
         "v-markdown-editor": "^1.2.5",
         "v-viewer": "^1.5.1",
@@ -72,11 +75,13 @@
         "vue-html2pdf": "^1.8.0",
         "vue-meta": "^2.4.0",
         "vue-multiselect": "^2.1.6",
+        "vue-organization-chart": "^1.1.6",
         "vue-recaptcha": "^1.3.0",
         "vue-resource": "^1.5.3",
         "vue-responsive": "^1.1.0",
         "vue-router": "^3.3.2",
         "vue-search-select": "^2.9.3",
+        "vue-server-renderer": "^2.6.14",
         "vue-session": "^1.0.0",
         "vue-slick-carousel": "^1.0.6",
         "vue-socket.io": "^3.0.10",
@@ -85,6 +90,6 @@
         "vuex": "^3.4.0",
         "vuex-router-sync": "^5.0.0",
         "worker-loader": "^2.0.0",
-        "xlsx": "^0.16.2"
+        "xlsx": "^0.17.0"
     }
 }

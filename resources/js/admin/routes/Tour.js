@@ -32,9 +32,9 @@ export default [
    // { path: '/view-tour/:id', component: TourView },
 
     // Tour type
-    { path: '/tourtype', component: Tourtype },
-    { path: '/tourtype/:id', component: TourtypeEdit },
-    { path: '/tourtype-add', component: TourtypeAdd },
+    { meta: {permId: 55}, path: '/tourtype', component: Tourtype },
+    { meta: {permId: 55}, path: '/tourtype/:id', component: TourtypeEdit },
+    { meta: {permId: 55}, path: '/tourtype-add', component: TourtypeAdd },
 
     // user payment
    // { path: '/userpayments', component: Userpayments },
@@ -43,9 +43,9 @@ export default [
    // { path: '/userpayments-view/:id', component: UserpaymentsView },
     
     // Tour tourprogram
-    { path: '/tourprogram', component: Tourprogram },
-    { path: '/tourprogram/:id', component: TourprogramEdit },
-    { path: '/tourprogram-add', component: TourprogramAdd },
+    { meta: {permId: 71}, path: '/tourprogram', component: Tourprogram },
+    { meta: {permId: 71}, path: '/tourprogram/:id', component: TourprogramEdit },
+    { meta: {permId: 71}, path: '/tourprogram-add', component: TourprogramAdd },
 
     // bookeduser
    // { path: '/bookedusers/:school_id/:tour_code',component: ListStudentPayment},

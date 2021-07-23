@@ -21,6 +21,23 @@ __webpack_require__.r(__webpack_exports__);
   props: ['url'],
   data: function data() {
     return {};
+  },
+  computed: {
+    hasPerms: function hasPerms() {
+      var _this = this;
+
+      if (window.userRole == 1) {
+        return true;
+      }
+
+      var perms = window.editPerms;
+
+      var hasPerm = function hasPerm(perm) {
+        return perm.permission_id === _this.$route.meta.permId;
+      };
+
+      return perms.some(hasPerm);
+    }
   }
 });
 
@@ -254,17 +271,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "router-link",
-    { staticClass: "edit_link", attrs: { to: _vm.url } },
-    [
-      _c(
-        "span",
-        { staticClass: "badge badge-primary", attrs: { title: "Edit Item" } },
-        [_c("i", { staticClass: "fas fa-pencil-alt" })]
-      )
-    ]
-  )
+  return _vm.hasPerms
+    ? _c("router-link", { staticClass: "edit_link", attrs: { to: _vm.url } }, [
+        _c(
+          "span",
+          {
+            staticClass: "badge badge-primary incrIconSize",
+            attrs: { title: "Edit Item" }
+          },
+          [_c("i", { staticClass: "fas fa-pencil-alt" })]
+        )
+      ])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -294,7 +312,10 @@ var render = function() {
     [
       _c(
         "span",
-        { staticClass: "badge badge-primary", attrs: { title: "View Item" } },
+        {
+          staticClass: "badge badge-primary incrIconSize",
+          attrs: { title: "View Item" }
+        },
         [_c("i", { staticClass: "fas fa-eye" })]
       )
     ]

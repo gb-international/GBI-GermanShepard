@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 class Post extends Model
 {
-    protected $fillable = ['category_id','title','image','alt','slug','summery','description','meta_title','meta_keyword','status', 'client_type'];
+    protected $fillable = ['category_id','title','image','alt','slug','summery','description','meta_title','meta_keyword','status', 'client_type', 'created_by', 'last_editor', 'published_by'];
 
     public function getImageAttribute($image)
     {
