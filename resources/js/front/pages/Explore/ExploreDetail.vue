@@ -104,7 +104,7 @@ export default {
       login:false,
       loading:true,
     };
-  },
+  },   
   watch: {
     '$store.state.token': function() {
       if(this.$store.state.token){
@@ -117,8 +117,27 @@ export default {
       this.login = true;
     }
   },
+  beforeCreate(){
+      let metaInfo = {
+        title: 'GBI Explore Destination',
+        description: '@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button',
+        keywords: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs',
+        url: 'https://www.gowithgbi.com/resources/explore-destination',
+        type: 'website'
+      }
+      document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
+  },
   created(){
     this.getItinerary();
+    let metaInfo = {
+        title: this.itineraryData.title,
+        description: '@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button',
+        image: this.itineraryData.detail_photo,
+        keywords: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs',
+        url: 'https://www.gowithgbi.com/resources/explore-destination',
+        type: 'website'
+      }
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
   },
   methods: {
     getItinerary(){

@@ -282,6 +282,15 @@ Route::namespace('Admin')->group(function (){
 		Route::get('team-tree/list','TeamTreeController@index');
 	});
 
+	//Jobs
+	Route::namespace('Jobs')->group(function(){
+		Route::get('jobs/all/{size}','JobsController@all');
+		Route::resource('jobs','JobsController');
+		Route::get('job-applications/all','JobApplicationController@index');
+		Route::get('job-applications/old','JobApplicationController@indexOld');
+		Route::post('job-application/save-status', 'JobApplicationController@saveStatus');
+	});
+
 });
 
 

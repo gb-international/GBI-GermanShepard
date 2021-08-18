@@ -96,6 +96,16 @@ __webpack_require__.r(__webpack_exports__);
       searchQuery: null
     };
   },
+  beforeCreate: function beforeCreate() {
+    var metaInfo = {
+      title: 'GBI Travel Encyclopedia | Domestic States',
+      description: 'GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.',
+      keywords: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs',
+      url: 'https://www.gowithgbi.com/resources/travel-encyclopedia',
+      type: 'website'
+    };
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
+  },
   created: function created() {
     this.stateList();
     this.SelectBox();

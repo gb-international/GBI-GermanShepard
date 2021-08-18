@@ -22,6 +22,9 @@ class Encyclopedia extends Model
         'slug',
         'thumbnail_alt',
         'banner_image_alt',
+        'meta_title',
+        'meta_keyword',
+        'meta_description',
     ];
 
     public function getBannerImageAttribute($image)
@@ -46,7 +49,11 @@ class Encyclopedia extends Model
         return $this->hasMany('App\Model\Encyclopedia\EncyclopediaImage');
     }
     
-    
+    public function tags()
+    {
+        return $this->belongsToMany('App\Model\Post\Tag');
+    }
+
     public function comments(){
     	return $this->hasMany('App\Model\Encyclopedia\Encyclopediacomment');
     }

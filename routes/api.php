@@ -132,7 +132,10 @@ Route::namespace('Front')->group(function(){
 	Route::post('/notification/mark-read','NotifsController@markRead');
 	Route::get('/notif-count/{sub_id}','NotifsController@notifCount');
 	
-	
+	//Join our Team
+	Route::get('/join-our-team/search/{title}', 'JoinourteamController@sIndex');
+	Route::get('/join-our-team/jobs/{jobtype}', 'JoinourteamController@jobs');
+	Route::get('/join-our-team/job/{id}', 'JoinourteamController@show');
 });
 
 

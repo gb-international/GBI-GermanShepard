@@ -145,6 +145,16 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  beforeCreate: function beforeCreate() {
+    var metaInfo = {
+      title: 'GBI Feedback Form',
+      description: '@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button',
+      keywords: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs',
+      url: 'https://www.gowithgbi.com/feedback',
+      type: 'website'
+    };
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
+  },
   mounted: function mounted() {
     $(".feedback-slider").mousemove(function (e) {
       var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));

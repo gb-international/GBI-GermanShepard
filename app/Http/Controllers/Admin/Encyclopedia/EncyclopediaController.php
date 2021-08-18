@@ -4,7 +4,7 @@
       Author: Ajay 
       Edited by: Manas
       **************************************************** */
-/* Edits: Added country field to json responses */
+/* Edits: Added country field to json responses, Added Meta Properties and tags */
 
 namespace App\Http\Controllers\Admin\Encyclopedia;
 
@@ -17,6 +17,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\Traits\ImageTrait;
 use Illuminate\Support\Facades\File;
+use App\Model\Post\Tag;
 use Image;
 
 
@@ -71,11 +72,28 @@ class EncyclopediaController extends Controller
     {
         $this->data = $this->validateEncyclopedia($request);
 
+        $tag_id= array();
+        $meta_keyword="";   
+        foreach ($request->tags as $tag) {
+            if($tag['id'] == ''){
+                $tag = Tag::create($tag);
+            }
+            array_push($tag_id,$tag['id']);
+            if($meta_keyword ==""){
+                $meta_keyword = $meta_keyword . $tag['title'];
+            } else {
+                $meta_keyword = $meta_keyword .' '. $tag['title'];
+            }
+        }
+
         $this->uploadImages($request);
 
         $encyclopedia = Encyclopedia::create($this->data);
         $this->uploadMultipleImages($request,$encyclopedia->id);
-        
+
+        $encyclopedia->meta_keyword = $meta_keyword;
+        $encyclopedia->save();
+        $encyclopedia->tags()->sync($tag_id);
 
         if(count($request->input('files')) > 0){
             $pdf = [];
@@ -98,6 +116,7 @@ class EncyclopediaController extends Controller
     public function show($encyclopedia)
     {
         $encyclopedia = Encyclopedia::with(['itinerarypdfs','images'])->findOrFail($encyclopedia);
+        $encyclopedia->tags;
         return response()->json($encyclopedia);
     }
 
@@ -108,8 +127,10 @@ class EncyclopediaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($encyclopedia)
-    {
-        return response()->json(Encyclopedia::with(['itinerarypdfs','images'])->findOrFail($encyclopedia));
+    {   
+        $encyclopedia = Encyclopedia::with(['itinerarypdfs','images'])->findOrFail($encyclopedia);
+        $encyclopedia->tags;
+        return response()->json($encyclopedia);
     }
 
     /**
@@ -122,9 +143,26 @@ class EncyclopediaController extends Controller
     public function update(Request $request,Encyclopedia $encyclopedia)
     {
         $this->data = $this->validateEncyclopedia($request);
+        $tag_id= [];
+        $meta_keyword="";   
+        foreach ($request->tags as $tag) {
+            if($tag['id'] == ''){
+                $tag = Tag::create($tag);
+            }
+            array_push($tag_id,$tag['id']);
+            if($meta_keyword ==""){
+                $meta_keyword = $meta_keyword . $tag['title'];
+            } else {
+                $meta_keyword = $meta_keyword .' '. $tag['title'];
+            }
+        }
         $this->uploadImages($request);
         $encyclopedia->update($this->data);
         $this->uploadMultipleImages($request,$encyclopedia->id);
+
+        $encyclopedia->meta_keyword = $meta_keyword;
+        $encyclopedia->save();
+        $encyclopedia->tags()->sync($tag_id);
 
         if(count($request->input('files')) > 0){
             $pdf = [];
@@ -191,6 +229,8 @@ class EncyclopediaController extends Controller
             'description'=>'required',
             'map_link'=>'required',
             'slug'=>'',
+            'meta_title'=>'required',
+            'meta_description' => 'required'
       ]);
     }
 

@@ -19,6 +19,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
 /* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
 /* harmony import */ var _admin_components_form_StatusDropdown2_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/admin/components/form/StatusDropdown2.vue */ "./resources/js/admin/components/form/StatusDropdown2.vue");
+/* harmony import */ var _voerro_vue_tagsinput__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @voerro/vue-tagsinput */ "./node_modules/@voerro/vue-tagsinput/src/main.js");
 //
 //
 //
@@ -247,6 +248,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -266,7 +317,8 @@ __webpack_require__.r(__webpack_exports__);
     "submit-button": _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     "dropdown-list": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    "status-dd": _admin_components_form_StatusDropdown2_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+    "status-dd": _admin_components_form_StatusDropdown2_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    "tags-input": _voerro_vue_tagsinput__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   data: function data() {
     return {
@@ -284,6 +336,15 @@ __webpack_require__.r(__webpack_exports__);
       pdf_list: [],
       images: [],
       list_images: [],
+      tags: [],
+      meta_key: [],
+      titleWarn: false,
+      descriptionWarn: false,
+      summeryWarn: false,
+      meta_titleWarn: false,
+      meta_keywordWarn: false,
+      tagsWarn: false,
+      clientTypeWarn: false,
       form: new vform__WEBPACK_IMPORTED_MODULE_1__["Form"]({
         state_name: "",
         region_type: "",
@@ -294,15 +355,46 @@ __webpack_require__.r(__webpack_exports__);
         thumbnail: [],
         banner_image: [],
         images: [],
-        files: []
+        files: [],
+        meta_description: "",
+        meta_title: "",
+        meta_keyword: "",
+        tags: []
       }),
       loading: false
     };
   },
   created: function created() {
     this.EncyclopediaList();
+    this.getTags();
+    this.meta_key = this.form.tags;
   },
   methods: {
+    changeField: function changeField(field, input) {
+      if (field === 'meta_description') {
+        if (input === '') {
+          this.summeryWarn = true;
+        } else {
+          this.summeryWarn = false;
+        }
+      }
+
+      if (field === 'meta_title') {
+        if (input === '') {
+          this.meta_titleWarn = true;
+        } else {
+          this.meta_titleWarn = false;
+        }
+      }
+
+      if (field === 'meta_keyword') {
+        if (input === '') {
+          this.meta_keywordWarn = true;
+        } else {
+          this.meta_keywordWarn = false;
+        }
+      }
+    },
     countryList: function countryList(val) {
       var _this = this;
 
@@ -385,7 +477,24 @@ __webpack_require__.r(__webpack_exports__);
         _this3.form.region_type = _this3.form.region_type.trim();
         _this3.form.state_name = _this3.form.state_name.trim();
         _this3.form.country = _this3.form.country.trim();
+
+        for (var i = 0; i < response.data.tags.length; i++) {
+          _this3.meta_key.push({
+            value: response.data.tags[i].title,
+            key: response.data.tags[i].id
+          });
+        }
       });
+    },
+    updateTags: function updateTags() {
+      this.form.meta_keyword = [];
+
+      for (var i = 0; i < this.meta_key.length; i++) {
+        this.form.meta_keyword.push({
+          title: this.meta_key[i].value,
+          id: this.meta_key[i].key
+        });
+      }
     },
     countryCheck: function countryCheck(val) {
       var _this4 = this;
@@ -400,6 +509,22 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
       this.allCreated = true;
+    },
+    getTags: function getTags() {
+      var _this5 = this;
+
+      axios.get("/api/tags").then(function (res) {
+        //this.tags = response.data;
+        if (res) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this5.tags.push({
+              value: res.data[i].title,
+              key: res.data[i].id
+            });
+          } //console.log(this.form.tags)
+
+        }
+      });
     },
     // This function will be called every time you add a file
     uploadFieldChange: function uploadFieldChange(e) {
@@ -425,7 +550,7 @@ __webpack_require__.r(__webpack_exports__);
       reader.readAsDataURL(file);
     },
     changeImage: function changeImage(event, model) {
-      var _this5 = this;
+      var _this6 = this;
 
       var file = event.target.files[0];
       var reader = new FileReader();
@@ -433,21 +558,21 @@ __webpack_require__.r(__webpack_exports__);
       reader.onload = function (event) {
         switch (model) {
           case "thumbnail":
-            _this5.form.thumbnail.push({
+            _this6.form.thumbnail.push({
               name: file.name,
               file: event.target.result
             });
 
-            _this5.images["thumbnail"] = event.target.result;
+            _this6.images["thumbnail"] = event.target.result;
             break;
 
           case "banner":
-            _this5.form.banner_image.push({
+            _this6.form.banner_image.push({
               name: file.name,
               file: event.target.result
             });
 
-            _this5.images.banner_image = event.target.result;
+            _this6.images.banner_image = event.target.result;
             break;
 
           default:
@@ -458,14 +583,14 @@ __webpack_require__.r(__webpack_exports__);
       reader.readAsDataURL(file);
     },
     changePhotos: function changePhotos(event) {
-      var _this6 = this;
+      var _this7 = this;
 
       var _loop = function _loop() {
         var file = event.target.files[i];
         var reader = new FileReader();
 
         reader.onload = function (event) {
-          _this6.form.images.push({
+          _this7.form.images.push({
             name: file.name,
             file: event.target.result
           });
@@ -490,40 +615,46 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     deleteImage: function deleteImage(id) {
-      var _this7 = this;
-
-      var data = {
-        id: id
-      };
-      axios.post("/api/encyclopedia-img", data).then(function (response) {
-        _this7.EncyclopediaList();
-      });
-    },
-    deletePdf: function deletePdf(id) {
       var _this8 = this;
 
       var data = {
         id: id
       };
-      axios.post("/api/encyclopedia-pdf", data).then(function (response) {
+      axios.post("/api/encyclopedia-img", data).then(function (response) {
         _this8.EncyclopediaList();
       });
     },
-    addItem: function addItem() {
+    deletePdf: function deletePdf(id) {
       var _this9 = this;
 
-      // Submit form
+      var data = {
+        id: id
+      };
+      axios.post("/api/encyclopedia-pdf", data).then(function (response) {
+        _this9.EncyclopediaList();
+      });
+    },
+    addItem: function addItem() {
+      var _this10 = this;
+
+      if (this.form.meta_keyword.length < 1) {
+        this.meta_keywordWarn = true;
+        return false;
+      } // Submit form
+
+
       this.loading = true;
+      this.form.tags = this.form.meta_keyword;
       var api = "/api/encyclopedias/".concat(this.$route.params.id);
       this.form.put(api).then(function (response) {
-        _this9.EncyclopediaList();
+        _this10.EncyclopediaList();
 
-        _this9.$toast.fire({
+        _this10.$toast.fire({
           icon: "success",
           title: "Encyclopedia Updated successfully"
         });
 
-        _this9.loading = false;
+        _this10.loading = false;
       })["catch"](function () {});
     }
   }
@@ -531,10 +662,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=template&id=6113e01d&":
-/*!**********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=template&id=6113e01d& ***!
-  \**********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=style&index=0&id=6113e01d&scoped=true&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=style&index=0&id=6113e01d&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.warn-error[data-v-6113e01d] {\n  width: 100%;\n  margin-top: 0.25rem;\n  font-size: 80%;\n  color: #dc3545;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=style&index=0&id=6113e01d&scoped=true&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=style&index=0&id=6113e01d&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit-encyclopedia.vue?vue&type=style&index=0&id=6113e01d&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=style&index=0&id=6113e01d&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=template&id=6113e01d&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=template&id=6113e01d&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -592,6 +772,188 @@ var render = function() {
                     [
                       _vm.form.state_name
                         ? _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-sm-6" }, [
+                              _c(
+                                "div",
+                                { staticClass: "form-group" },
+                                [
+                                  _c(
+                                    "label",
+                                    { attrs: { for: "meta_title" } },
+                                    [_vm._v("Meta Title")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.meta_title,
+                                        expression: "form.meta_title"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    class: {
+                                      "is-invalid": _vm.form.errors.has(
+                                        "meta_title"
+                                      )
+                                    },
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Enter meta title"
+                                    },
+                                    domProps: { value: _vm.form.meta_title },
+                                    on: {
+                                      change: function($event) {
+                                        return _vm.changeField(
+                                          "meta_title",
+                                          $event.target.value
+                                        )
+                                      },
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "meta_title",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("has-error", {
+                                    attrs: {
+                                      form: _vm.form,
+                                      field: "meta_title"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.meta_titleWarn
+                                    ? _c("p", { staticClass: "warn-error" }, [
+                                        _vm._v(" Please input Meta Title.")
+                                      ])
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-sm-6" }, [
+                              _c(
+                                "div",
+                                { staticClass: "form-group" },
+                                [
+                                  _c(
+                                    "label",
+                                    { attrs: { for: "meta_keyword" } },
+                                    [_vm._v("Meta Keywords")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("tags-input", {
+                                    attrs: {
+                                      "element-id": "tags",
+                                      "existing-tags": _vm.tags,
+                                      typeahead: true
+                                    },
+                                    on: { "tags-updated": _vm.updateTags },
+                                    model: {
+                                      value: _vm.meta_key,
+                                      callback: function($$v) {
+                                        _vm.meta_key = $$v
+                                      },
+                                      expression: "meta_key"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("has-error", {
+                                    attrs: { form: _vm.form, field: "tags" }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.tagsWarn && _vm.meta_key.length < 1
+                                    ? _c("p", { staticClass: "warn-error" }, [
+                                        _vm._v("Please choose keywords.")
+                                      ])
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-sm-12" }, [
+                              _c(
+                                "div",
+                                { staticClass: "form-group" },
+                                [
+                                  _c(
+                                    "label",
+                                    { attrs: { for: "description" } },
+                                    [_vm._v("Meta Description")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("textarea", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.meta_description,
+                                        expression: "form.meta_description"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    class: {
+                                      "is-invalid": _vm.form.errors.has(
+                                        "meta_description"
+                                      )
+                                    },
+                                    attrs: {
+                                      row: "3",
+                                      type: "text",
+                                      placeholder: "Enter Meta Description"
+                                    },
+                                    domProps: {
+                                      value: _vm.form.meta_description
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        return _vm.changeField(
+                                          "meta_description",
+                                          $event.target.value
+                                        )
+                                      },
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "meta_description",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("has-error", {
+                                    attrs: {
+                                      form: _vm.form,
+                                      field: "meta_description"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.summeryWarn
+                                    ? _c("p", { staticClass: "warn-error" }, [
+                                        _vm._v(
+                                          " Please input meta description."
+                                        )
+                                      ])
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ]),
+                            _vm._v(" "),
                             _c("div", { staticClass: "col-sm-3" }, [
                               _c(
                                 "div",
@@ -1098,9 +1460,11 @@ render._withStripped = true
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Edit_encyclopedia_vue_vue_type_template_id_6113e01d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Edit-encyclopedia.vue?vue&type=template&id=6113e01d& */ "./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=template&id=6113e01d&");
+/* harmony import */ var _Edit_encyclopedia_vue_vue_type_template_id_6113e01d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Edit-encyclopedia.vue?vue&type=template&id=6113e01d&scoped=true& */ "./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=template&id=6113e01d&scoped=true&");
 /* harmony import */ var _Edit_encyclopedia_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Edit-encyclopedia.vue?vue&type=script&lang=js& */ "./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _Edit_encyclopedia_vue_vue_type_style_index_0_id_6113e01d_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Edit-encyclopedia.vue?vue&type=style&index=0&id=6113e01d&scoped=true&lang=css& */ "./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=style&index=0&id=6113e01d&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -1108,13 +1472,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Edit_encyclopedia_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Edit_encyclopedia_vue_vue_type_template_id_6113e01d___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Edit_encyclopedia_vue_vue_type_template_id_6113e01d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Edit_encyclopedia_vue_vue_type_template_id_6113e01d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Edit_encyclopedia_vue_vue_type_template_id_6113e01d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "6113e01d",
   null
   
 )
@@ -1140,19 +1504,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=template&id=6113e01d&":
-/*!****************************************************************************************************!*\
-  !*** ./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=template&id=6113e01d& ***!
-  \****************************************************************************************************/
+/***/ "./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=style&index=0&id=6113e01d&scoped=true&lang=css&":
+/*!******************************************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=style&index=0&id=6113e01d&scoped=true&lang=css& ***!
+  \******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_encyclopedia_vue_vue_type_style_index_0_id_6113e01d_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit-encyclopedia.vue?vue&type=style&index=0&id=6113e01d&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=style&index=0&id=6113e01d&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_encyclopedia_vue_vue_type_style_index_0_id_6113e01d_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_encyclopedia_vue_vue_type_style_index_0_id_6113e01d_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_encyclopedia_vue_vue_type_style_index_0_id_6113e01d_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_encyclopedia_vue_vue_type_style_index_0_id_6113e01d_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=template&id=6113e01d&scoped=true&":
+/*!****************************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=template&id=6113e01d&scoped=true& ***!
+  \****************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_encyclopedia_vue_vue_type_template_id_6113e01d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit-encyclopedia.vue?vue&type=template&id=6113e01d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=template&id=6113e01d&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_encyclopedia_vue_vue_type_template_id_6113e01d___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_encyclopedia_vue_vue_type_template_id_6113e01d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit-encyclopedia.vue?vue&type=template&id=6113e01d&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/encyclopedia/Edit-encyclopedia.vue?vue&type=template&id=6113e01d&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_encyclopedia_vue_vue_type_template_id_6113e01d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_encyclopedia_vue_vue_type_template_id_6113e01d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_encyclopedia_vue_vue_type_template_id_6113e01d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

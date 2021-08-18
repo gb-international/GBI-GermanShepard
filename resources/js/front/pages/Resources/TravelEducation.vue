@@ -129,7 +129,17 @@ export default {
       "heading":Heading,
       "sub-heading":SubHeading,
       "paragraph" : Paragraph
-    }, 
+    },
+  beforeCreate(){
+    let metaInfo = {
+        title: 'Travel and Education',
+        description: '@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one',
+        keywords: '@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs',
+        url: 'https://www.gowithgbi.com/resources/travel-education',
+        type: 'website'
+      }
+     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
+  },
   HeadingmetaInfo: {
     title: 'Travel and Education',
     meta:[

@@ -306,6 +306,16 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {};
+  },
+  beforeCreate: function beforeCreate() {
+    var metaInfo = {
+      title: 'How We Work',
+      description: '@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one',
+      keywords: '@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs',
+      url: 'https://www.gowithgbi.com/about-us/how-we-work',
+      type: 'website'
+    };
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
   }
 });
 

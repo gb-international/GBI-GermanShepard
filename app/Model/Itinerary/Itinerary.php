@@ -24,6 +24,9 @@ class Itinerary extends Model
 		'price',
 		'status',
 		'client_type',
+		'meta_title',
+        'meta_keyword',
+        'meta_description',
 	];
 
 	public function getPhotoAttribute($image)
@@ -65,5 +68,10 @@ class Itinerary extends Model
 	{
 		return $this->hasMany('App\Model\Tour\Frontbooking');
 	}
+
+	public function tags()
+    {
+        return $this->belongsToMany('App\Model\Post\Tag');
+    }
     
 }

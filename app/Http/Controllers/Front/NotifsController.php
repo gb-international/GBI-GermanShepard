@@ -25,21 +25,23 @@ class NotifsController extends Controller
     public function index($user_id, $sort)
     {
         $sub = Subscriber::where('user_id', $user_id)->first();
-
-        if($sort == 'read'){
-            $notifs = Notifier::where('subscription_id', $sub->id)
-                    ->where('read', 1)
-                    ->orderBy('created_at', 'desc')
-                    ->paginate(5);
-        } else if($sort == 'unread'){
-            $notifs = Notifier::where('subscription_id', $sub->id)
-                    ->where('read', 0)
-                    ->orderBy('created_at', 'desc')
-                    ->paginate(5);
-        } else {
-            $notifs = Notifier::where('subscription_id', $sub->id)
-                    ->orderBy('created_at', 'desc')
-                    ->paginate(5);
+        $notifs = [];
+        if($sub){
+            if($sort == 'read'){
+                $notifs = Notifier::where('subscription_id', $sub->id)
+                        ->where('read', 1)
+                        ->orderBy('created_at', 'desc')
+                        ->paginate(5);
+            } else if($sort == 'unread'){
+                $notifs = Notifier::where('subscription_id', $sub->id)
+                        ->where('read', 0)
+                        ->orderBy('created_at', 'desc')
+                        ->paginate(5);
+            } else {
+                $notifs = Notifier::where('subscription_id', $sub->id)
+                        ->orderBy('created_at', 'desc')
+                        ->paginate(5);
+            }
         }
         
         return NotificationResource::collection($notifs);

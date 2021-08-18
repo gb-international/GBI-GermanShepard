@@ -574,8 +574,27 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.login = true;
     }
   },
+  beforeCreate: function beforeCreate() {
+    var metaInfo = {
+      title: 'GBI Explore Destination',
+      description: '@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button',
+      keywords: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs',
+      url: 'https://www.gowithgbi.com/resources/explore-destination',
+      type: 'website'
+    };
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
+  },
   created: function created() {
     this.getItinerary();
+    var metaInfo = {
+      title: this.itineraryData.title,
+      description: '@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button',
+      image: this.itineraryData.detail_photo,
+      keywords: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs',
+      url: 'https://www.gowithgbi.com/resources/explore-destination',
+      type: 'website'
+    };
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
   },
   methods: {
     getItinerary: function getItinerary() {

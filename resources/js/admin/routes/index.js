@@ -9,6 +9,7 @@ import GalleryEncyclopedia from '@/admin/routes/GalleryEncyclopedia.js';
 import Home from '@/admin/routes/Home.js';
 import Hotel from '@/admin/routes/Hotel.js';
 import Itinerary from '@/admin/routes/Itinerary.js';
+import Jobs from '@/admin/routes/Jobs.js';
 import Location from '@/admin/routes/Location.js';
 import NotificationPanel from '@/admin/routes/NotificationPanel.js';
 import PaymentLink from '@/admin/routes/PaymentLink.js';
@@ -34,6 +35,7 @@ export const routes = [
     ...Home,
     ...Hotel,
     ...Itinerary,
+    ...Jobs,
     ...Location,
     ...NotificationPanel,
     ...PaymentLink,

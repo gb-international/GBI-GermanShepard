@@ -299,7 +299,7 @@ export default {
       }
       });
     },
-     updateTags(){
+    updateTags(){
       this.form.meta_keyword = []
       for(let i = 0;i<this.meta_key.length;i++){
           this.form.meta_keyword.push({

@@ -18,6 +18,70 @@ to submit the data we are using a function.
         :style="!loading ? '' : 'opacity: 0.5' "
       >
         <div class="row">
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="meta_title">Meta Title</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.meta_title"
+                :class="{ 'is-invalid': form.errors.has('meta_title') }"
+                placeholder="Enter meta title"
+              />
+              <has-error :form="form" field="meta_title"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="meta_keyword">Meta Keywords</label>
+              <!-- <input
+                type="text"
+                class="form-control"
+                v-model="form.meta_keyword"
+                :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
+                placeholder="Enter meta title"
+              />
+              <has-error :form="form" field="meta_keyword"></has-error> 
+               <multiselect
+                v-model="form.meta_keyword"
+                :options="tags"
+                :multiple="true"
+                :close-on-select="true"
+                placeholder="Choose keywords"
+                @input="checkKeyword(data)"
+                label="title"
+                track-by="title"
+              ></multiselect> -->
+
+                <tags-input element-id="tags"
+                  v-model="meta_key"
+                  :existing-tags="tags"
+                  :typeahead="true"
+                  @tags-updated="updateTags"
+                  >
+                </tags-input>
+
+              <has-error :form="form" field="tags"></has-error>
+              <p v-if="tagsWarn && meta_key.length < 1 " class="warn-error">Please choose keywords.</p>
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="description">Meta Description</label>
+              <textarea
+                row="3"
+                type="text"
+                class="form-control"
+                v-model="form.meta_description"
+                :class="{ 'is-invalid': form.errors.has('meta_description') }"
+                placeholder="Enter Meta Description"
+              ></textarea>
+              <has-error :form="form" field="meta_description"></has-error>
+            </div>
+          </div>
+
           <div class="col-sm-4">
             <!-- Source for the ititnerary  -->
             <div class="form-group">
@@ -450,7 +514,7 @@ to submit the data we are using a function.
 </template>
 
 <script>
-
+import TagsInput from '@voerro/vue-tagsinput';
 import { ModelSelect } from "vue-search-select";
 import Multiselect from "vue-multiselect";
 import { Form, HasError, AlertError } from "vform";
@@ -458,6 +522,7 @@ import Vue2EditorMixin from '@/admin/mixins/Vue2EditorMixin';
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import DropdownList from "@/admin/components/form/DropdownList.vue";
+
 export default {
   name: "NewItinerary",
   components: {
@@ -468,6 +533,7 @@ export default {
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
     "dropdown-list":DropdownList,
+    "tags-input": TagsInput,
   },
   mixins:[Vue2EditorMixin],
   data() {
@@ -476,6 +542,9 @@ export default {
       cities:[],
       tour_type_list: [],
       selected: null,
+      tags:[],
+      meta_key: [],
+      tagsWarn: false,
 
       form: new Form({
         source: '',
@@ -496,6 +565,10 @@ export default {
         transport: "",
         client_type:"general",
         tourtypes: [],
+        meta_description:"",
+        meta_title: "",
+        meta_keyword: [],
+        tags:[],
         itinerarydays: [
           {
             day: 1,
@@ -511,6 +584,7 @@ export default {
   created() {
     this.cityList();
     this.tourTypeData();
+    this.getTags();
   },
 
   methods: {
@@ -548,6 +622,29 @@ export default {
         reader.readAsDataURL(file);
       }
     },
+    getTags() {
+      axios.get("/api/tags").then((res) => {
+        //this.tags = response.data;
+        if (res) {
+          for(let i = 0;i<res.data.length;i++){
+            this.tags.push({
+              value:res.data[i].title,
+              key:res.data[i].id
+            });
+          }
+          //console.log(this.form.tags)
+        }
+      });
+    },
+    updateTags(){
+      this.form.meta_keyword = []
+      for(let i = 0;i<this.meta_key.length;i++){
+          this.form.meta_keyword.push({
+            title:this.meta_key[i].value,
+            id:this.meta_key[i].key
+          });
+      }
+    },
     changeDetailPhoto(event) {
       let file = event.target.files[0];
       if (file.size > 29048576) {
@@ -566,6 +663,10 @@ export default {
       }
     },
     addItinerary() {
+      if (this.form.meta_keyword.length < 1 ) {
+        this.tagsWarn = true
+        return false;
+      }
       localStorage.setItem("noofdays", this.form.noofdays);
       if (this.form.bus || this.form.train || this.form.flight) {
         this.form.transport = "1";
@@ -586,6 +687,7 @@ export default {
         }
       }
       this.loading = true
+      this.form.tags = this.form.meta_keyword
       this.form
         .post("/api/itinerary")
         .then((response) => {
@@ -635,6 +737,12 @@ export default {
     background: #fff !important;
     font-weight: 600;
 }
+.warn-error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+  }
 </style>
 
 

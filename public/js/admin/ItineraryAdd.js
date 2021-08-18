@@ -9,16 +9,17 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-search-select */ "./node_modules/vue-search-select/dist/VueSearchSelect.common.js");
-/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_search_select__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
-/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/mixins/Vue2EditorMixin */ "./resources/js/admin/mixins/Vue2EditorMixin.js");
-/* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
-/* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
-/* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
+/* harmony import */ var _voerro_vue_tagsinput__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @voerro/vue-tagsinput */ "./node_modules/@voerro/vue-tagsinput/src/main.js");
+/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-search-select */ "./node_modules/vue-search-select/dist/VueSearchSelect.common.js");
+/* harmony import */ var vue_search_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_search_select__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/mixins/Vue2EditorMixin */ "./resources/js/admin/mixins/Vue2EditorMixin.js");
+/* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
+/* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
+/* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
 //
 //
 //
@@ -470,6 +471,71 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -480,22 +546,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NewItinerary",
   components: {
-    ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_0__["ModelSelect"],
-    Multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_1___default.a,
-    Form: vform__WEBPACK_IMPORTED_MODULE_2__["Form"],
-    "has-error": vform__WEBPACK_IMPORTED_MODULE_2__["HasError"],
-    "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    "dropdown-list": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_1__["ModelSelect"],
+    Multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_2___default.a,
+    Form: vform__WEBPACK_IMPORTED_MODULE_3__["Form"],
+    "has-error": vform__WEBPACK_IMPORTED_MODULE_3__["HasError"],
+    "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    "dropdown-list": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    "tags-input": _voerro_vue_tagsinput__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_3__["default"]],
+  mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_4__["default"]],
   data: function data() {
     return {
       options: [],
       cities: [],
       tour_type_list: [],
       selected: null,
-      form: new vform__WEBPACK_IMPORTED_MODULE_2__["Form"]({
+      tags: [],
+      meta_key: [],
+      tagsWarn: false,
+      form: new vform__WEBPACK_IMPORTED_MODULE_3__["Form"]({
         source: '',
         destination: '',
         noofdays: 1,
@@ -514,6 +584,10 @@ __webpack_require__.r(__webpack_exports__);
         transport: "",
         client_type: "general",
         tourtypes: [],
+        meta_description: "",
+        meta_title: "",
+        meta_keyword: [],
+        tags: [],
         itinerarydays: [{
           day: 1,
           day_source: '',
@@ -527,6 +601,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.cityList();
     this.tourTypeData();
+    this.getTags();
   },
   methods: {
     cityList: function cityList() {
@@ -572,8 +647,34 @@ __webpack_require__.r(__webpack_exports__);
         reader.readAsDataURL(file);
       }
     },
-    changeDetailPhoto: function changeDetailPhoto(event) {
+    getTags: function getTags() {
       var _this4 = this;
+
+      axios.get("/api/tags").then(function (res) {
+        //this.tags = response.data;
+        if (res) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this4.tags.push({
+              value: res.data[i].title,
+              key: res.data[i].id
+            });
+          } //console.log(this.form.tags)
+
+        }
+      });
+    },
+    updateTags: function updateTags() {
+      this.form.meta_keyword = [];
+
+      for (var i = 0; i < this.meta_key.length; i++) {
+        this.form.meta_keyword.push({
+          title: this.meta_key[i].value,
+          id: this.meta_key[i].key
+        });
+      }
+    },
+    changeDetailPhoto: function changeDetailPhoto(event) {
+      var _this5 = this;
 
       var file = event.target.files[0];
 
@@ -587,15 +688,20 @@ __webpack_require__.r(__webpack_exports__);
         var reader = new FileReader();
 
         reader.onload = function (event) {
-          _this4.form.detail_photo = event.target.result;
-          _this4.form.detail_photo_alt = file.name;
+          _this5.form.detail_photo = event.target.result;
+          _this5.form.detail_photo_alt = file.name;
         };
 
         reader.readAsDataURL(file);
       }
     },
     addItinerary: function addItinerary() {
-      var _this5 = this;
+      var _this6 = this;
+
+      if (this.form.meta_keyword.length < 1) {
+        this.tagsWarn = true;
+        return false;
+      }
 
       localStorage.setItem("noofdays", this.form.noofdays);
 
@@ -615,15 +721,16 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.loading = true;
+      this.form.tags = this.form.meta_keyword;
       this.form.post("/api/itinerary").then(function (response) {
-        _this5.$router.push("/itinerary-list");
+        _this6.$router.push("/itinerary-list");
 
-        _this5.$toast.fire({
+        _this6.$toast.fire({
           icon: "success",
           title: "Itinerary Added successfully"
         });
 
-        _this5.loading = false;
+        _this6.loading = false;
       })["catch"](function () {});
     },
     addRow: function addRow() {
@@ -665,7 +772,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.customSelect[data-v-b62c933e]{\n    min-height: 53px !important;\n    font-size: 17px !important;\n    padding: 0px 40px 0 8px !important;\n    color: #737879 !important;\n    background: #fff !important;\n    font-weight: 600;\n}\n", ""]);
+exports.push([module.i, "\n.customSelect[data-v-b62c933e]{\n    min-height: 53px !important;\n    font-size: 17px !important;\n    padding: 0px 40px 0 8px !important;\n    color: #737879 !important;\n    background: #fff !important;\n    font-weight: 600;\n}\n.warn-error[data-v-b62c933e] {\n    width: 100%;\n    margin-top: 0.25rem;\n    font-size: 80%;\n    color: #dc3545;\n}\n", ""]);
 
 // exports
 
@@ -761,6 +868,146 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "meta_title" } }, [
+                            _vm._v("Meta Title")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.meta_title,
+                                expression: "form.meta_title"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("meta_title")
+                            },
+                            attrs: {
+                              type: "text",
+                              placeholder: "Enter meta title"
+                            },
+                            domProps: { value: _vm.form.meta_title },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "meta_title",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "meta_title" }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "meta_keyword" } }, [
+                            _vm._v("Meta Keywords")
+                          ]),
+                          _vm._v(" "),
+                          _c("tags-input", {
+                            attrs: {
+                              "element-id": "tags",
+                              "existing-tags": _vm.tags,
+                              typeahead: true
+                            },
+                            on: { "tags-updated": _vm.updateTags },
+                            model: {
+                              value: _vm.meta_key,
+                              callback: function($$v) {
+                                _vm.meta_key = $$v
+                              },
+                              expression: "meta_key"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "tags" }
+                          }),
+                          _vm._v(" "),
+                          _vm.tagsWarn && _vm.meta_key.length < 1
+                            ? _c("p", { staticClass: "warn-error" }, [
+                                _vm._v("Please choose keywords.")
+                              ])
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-12" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "description" } }, [
+                            _vm._v("Meta Description")
+                          ]),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.meta_description,
+                                expression: "form.meta_description"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has(
+                                "meta_description"
+                              )
+                            },
+                            attrs: {
+                              row: "3",
+                              type: "text",
+                              placeholder: "Enter Meta Description"
+                            },
+                            domProps: { value: _vm.form.meta_description },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "meta_description",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "meta_description" }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c(
                         "div",

@@ -142,6 +142,16 @@ export default {
   components:{
     ContactusForm,
     Heading,
-  }
+  },
+  beforeCreate(){
+    var metaInfo = {
+      title: 'GBI Contact Us',
+      description: 'Connect With GB International for organizing your educational travel plans any where any time',
+      keywords: '@GoWithGBI,GB International,Connect With GB International,Email Us,Talk To Us,Need a travel solution',
+      url: 'https://www.gowithgbi.com/contact-us',
+      type: 'website'
+    }
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
+  },
 };
 </script>

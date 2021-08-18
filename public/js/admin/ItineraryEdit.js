@@ -19,6 +19,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
 /* harmony import */ var _admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/mixins/Vue2EditorMixin */ "./resources/js/admin/mixins/Vue2EditorMixin.js");
 /* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
+/* harmony import */ var _voerro_vue_tagsinput__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @voerro/vue-tagsinput */ "./node_modules/@voerro/vue-tagsinput/src/main.js");
 //
 //
 //
@@ -444,6 +445,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -460,7 +511,8 @@ __webpack_require__.r(__webpack_exports__);
     "has-error": vform__WEBPACK_IMPORTED_MODULE_2__["HasError"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    "dropdown-list": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    "dropdown-list": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    "tags-input": _voerro_vue_tagsinput__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_5__["default"]],
   data: function data() {
@@ -470,10 +522,20 @@ __webpack_require__.r(__webpack_exports__);
       destinations: '',
       itinerarydays: [],
       tour_type_list: [],
+      tags: [],
+      meta_key: [],
       selected: null,
+      summeryWarn: false,
+      meta_titleWarn: false,
+      meta_keywordWarn: false,
+      tagsWarn: false,
       photo: "",
       detail_photo: "",
       form: new vform__WEBPACK_IMPORTED_MODULE_2__["Form"]({
+        meta_description: "",
+        meta_title: "",
+        meta_keyword: "",
+        tags: [],
         source: "",
         destination: "",
         noofdays: "",
@@ -506,8 +568,35 @@ __webpack_require__.r(__webpack_exports__);
     this.itineraryList();
     this.cityList();
     this.tourTypeData();
+    this.getTags();
+    this.meta_key = this.form.tags;
   },
   methods: {
+    changeField: function changeField(field, input) {
+      if (field === 'meta_description') {
+        if (input === '') {
+          this.summeryWarn = true;
+        } else {
+          this.summeryWarn = false;
+        }
+      }
+
+      if (field === 'meta_title') {
+        if (input === '') {
+          this.meta_titleWarn = true;
+        } else {
+          this.meta_titleWarn = false;
+        }
+      }
+
+      if (field === 'meta_keyword') {
+        if (input === '') {
+          this.meta_keywordWarn = true;
+        } else {
+          this.meta_keywordWarn = false;
+        }
+      }
+    },
     itineraryList: function itineraryList() {
       var _this = this;
 
@@ -533,17 +622,50 @@ __webpack_require__.r(__webpack_exports__);
           }
         }
 
+        for (var _i = 0; _i < response.data.tags.length; _i++) {
+          _this.meta_key.push({
+            value: response.data.tags[_i].title,
+            key: response.data.tags[_i].id
+          });
+        }
+
         _this.img_photo = _this.form.photo;
         _this.img_detail_photo = _this.form.detail_photo;
       });
     },
-    cityList: function cityList() {
+    updateTags: function updateTags() {
+      this.form.meta_keyword = [];
+
+      for (var i = 0; i < this.meta_key.length; i++) {
+        this.form.meta_keyword.push({
+          title: this.meta_key[i].value,
+          id: this.meta_key[i].key
+        });
+      }
+    },
+    getTags: function getTags() {
       var _this2 = this;
+
+      axios.get("/api/tags").then(function (res) {
+        //this.tags = response.data;
+        if (res) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this2.tags.push({
+              value: res.data[i].title,
+              key: res.data[i].id
+            });
+          } //console.log(this.form.tags)
+
+        }
+      });
+    },
+    cityList: function cityList() {
+      var _this3 = this;
 
       axios.get("/api/city").then(function (res) {
         if (res.data) {
           for (var i = 0; i < res.data.data.length; i++) {
-            _this2.cities.push({
+            _this3.cities.push({
               name: res.data.data[i].name,
               id: res.data.data[i].name
             });
@@ -552,44 +674,49 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     tourTypeData: function tourTypeData() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get("/api/tourtype").then(function (response) {
-        _this3.tour_type_list = response.data;
+        _this4.tour_type_list = response.data;
       });
     },
     changePhoto: function changePhoto(event) {
-      var _this4 = this;
-
-      var file = event.target.files[0];
-      var reader = new FileReader();
-
-      reader.onload = function (event) {
-        _this4.form.photo = event.target.result;
-        _this4.form.photo_alt = file.name;
-        _this4.photo = event.target.result;
-      };
-
-      reader.readAsDataURL(file);
-    },
-    changeDetailPhoto: function changeDetailPhoto(event) {
       var _this5 = this;
 
       var file = event.target.files[0];
       var reader = new FileReader();
 
       reader.onload = function (event) {
-        _this5.form.detail_photo = event.target.result;
-        _this5.form.detail_photo_alt = file.name;
-        _this5.detail_photo = event.target.result;
+        _this5.form.photo = event.target.result;
+        _this5.form.photo_alt = file.name;
+        _this5.photo = event.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+    changeDetailPhoto: function changeDetailPhoto(event) {
+      var _this6 = this;
+
+      var file = event.target.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function (event) {
+        _this6.form.detail_photo = event.target.result;
+        _this6.form.detail_photo_alt = file.name;
+        _this6.detail_photo = event.target.result;
       };
 
       reader.readAsDataURL(file);
     },
     updateItinerary: function updateItinerary() {
-      var _this6 = this;
+      var _this7 = this;
 
-      // Set noofdays in the local storage to make it avaliable to the daypage....
+      if (this.form.meta_keyword.length < 1) {
+        this.meta_keywordWarn = true;
+        return false;
+      } // Set noofdays in the local storage to make it avaliable to the daypage....
+
+
       console.log(this.form);
       localStorage.setItem("noofdays", this.form.noofdays);
 
@@ -611,16 +738,17 @@ __webpack_require__.r(__webpack_exports__);
         this.form.itinerarydays[i]["day_source"] = this.itinerarydays[i]["day_source"];
         this.form.itinerarydays[i]["day_destination"] = this.itinerarydays[i]["day_destination"];
         this.form.itinerarydays[i]["day_description"] = this.itinerarydays[i]["day_description"];
-      } // Submit the form via a itinerary request
+      }
 
+      this.form.tags = this.form.meta_keyword; // Submit the form via a itinerary request
 
       this.form.put("/api/itinerary/".concat(this.$route.params.itineraryid)).then(function (response) {
-        _this6.$toast.fire({
+        _this7.$toast.fire({
           icon: "success",
           title: "Itinerary Updated successfully"
         });
 
-        _this6.loading = false;
+        _this7.loading = false;
       })["catch"](function () {});
     },
     addRow: function addRow() {
@@ -665,7 +793,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.customSelect[data-v-0a775956]{\n    min-height: 53px !important;\n    font-size: 17px !important;\n    padding: 0px 40px 0 8px !important;\n    color: #737879 !important;\n    background: #fff !important;\n    font-weight: 600;\n}\n", ""]);
+exports.push([module.i, "\n.customSelect[data-v-0a775956]{\n    min-height: 53px !important;\n    font-size: 17px !important;\n    padding: 0px 40px 0 8px !important;\n    color: #737879 !important;\n    background: #fff !important;\n    font-weight: 600;\n}\n.warn-error[data-v-0a775956] {\n    width: 100%;\n    margin-top: 0.25rem;\n    font-size: 80%;\n    color: #dc3545;\n}\n", ""]);
 
 // exports
 
@@ -763,6 +891,179 @@ var render = function() {
                   [
                     _vm.form.title
                       ? _c("div", { staticClass: "row mb-30" }, [
+                          _c("div", { staticClass: "col-sm-6" }, [
+                            _c(
+                              "div",
+                              { staticClass: "form-group" },
+                              [
+                                _c("label", { attrs: { for: "meta_title" } }, [
+                                  _vm._v("Meta Title")
+                                ]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.form.meta_title,
+                                      expression: "form.meta_title"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: {
+                                    "is-invalid": _vm.form.errors.has(
+                                      "meta_title"
+                                    )
+                                  },
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "Enter meta title"
+                                  },
+                                  domProps: { value: _vm.form.meta_title },
+                                  on: {
+                                    change: function($event) {
+                                      return _vm.changeField(
+                                        "meta_title",
+                                        $event.target.value
+                                      )
+                                    },
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.form,
+                                        "meta_title",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("has-error", {
+                                  attrs: { form: _vm.form, field: "meta_title" }
+                                }),
+                                _vm._v(" "),
+                                _vm.meta_titleWarn
+                                  ? _c("p", { staticClass: "warn-error" }, [
+                                      _vm._v(" Please input Meta Title.")
+                                    ])
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-6" }, [
+                            _c(
+                              "div",
+                              { staticClass: "form-group" },
+                              [
+                                _c(
+                                  "label",
+                                  { attrs: { for: "meta_keyword" } },
+                                  [_vm._v("Meta Keywords")]
+                                ),
+                                _vm._v(" "),
+                                _c("tags-input", {
+                                  attrs: {
+                                    "element-id": "tags",
+                                    "existing-tags": _vm.tags,
+                                    typeahead: true
+                                  },
+                                  on: { "tags-updated": _vm.updateTags },
+                                  model: {
+                                    value: _vm.meta_key,
+                                    callback: function($$v) {
+                                      _vm.meta_key = $$v
+                                    },
+                                    expression: "meta_key"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("has-error", {
+                                  attrs: { form: _vm.form, field: "tags" }
+                                }),
+                                _vm._v(" "),
+                                _vm.tagsWarn && _vm.meta_key.length < 1
+                                  ? _c("p", { staticClass: "warn-error" }, [
+                                      _vm._v("Please choose keywords.")
+                                    ])
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-12" }, [
+                            _c(
+                              "div",
+                              { staticClass: "form-group" },
+                              [
+                                _c("label", { attrs: { for: "description" } }, [
+                                  _vm._v("Meta Description")
+                                ]),
+                                _vm._v(" "),
+                                _c("textarea", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.form.meta_description,
+                                      expression: "form.meta_description"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: {
+                                    "is-invalid": _vm.form.errors.has(
+                                      "meta_description"
+                                    )
+                                  },
+                                  attrs: {
+                                    row: "3",
+                                    type: "text",
+                                    placeholder: "Enter Meta Description"
+                                  },
+                                  domProps: {
+                                    value: _vm.form.meta_description
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      return _vm.changeField(
+                                        "meta_description",
+                                        $event.target.value
+                                      )
+                                    },
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.form,
+                                        "meta_description",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("has-error", {
+                                  attrs: {
+                                    form: _vm.form,
+                                    field: "meta_description"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _vm.summeryWarn
+                                  ? _c("p", { staticClass: "warn-error" }, [
+                                      _vm._v(" Please input meta description.")
+                                    ])
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          ]),
+                          _vm._v(" "),
                           _c("div", { staticClass: "col-sm-4" }, [
                             _c(
                               "div",

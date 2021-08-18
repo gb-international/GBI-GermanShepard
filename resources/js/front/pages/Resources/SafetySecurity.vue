@@ -48,6 +48,16 @@ export default {
       "sub-heading":SubHeading,
       "paragraph" : Paragraph
     },
+  beforeCreate(){
+    let metaInfo = {
+        title: 'Safety and Security',
+        description: '@GoWithGBI aims to provide complete safety of its travellers during the education programs,GBI team members assuers the safety of passengers and is known for it',
+        keywords: '@GoWithGBI,travel safety tips,our security policies,GBI strict policies,GBI terms and conditions,safe travel',
+        url: 'https://www.gowithgbi.com/about-us/safety-security',
+        type: 'website'
+      }
+     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
+  },
    metaInfo: {
     title: 'Safety and Security',
     meta:[

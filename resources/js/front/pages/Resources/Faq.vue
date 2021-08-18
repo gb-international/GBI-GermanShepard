@@ -70,6 +70,16 @@ export default {
       { name: 'url', content: 'https://www.gowithgbi.com/resources/faq' },
     ]
   },
+  beforeCreate(){
+    let metaInfo = {
+        title: 'GBI Frequently Asked Question',
+        description: '@GoWithGBI helps you answer all your queries  regarding your travel program by just one click of a button',
+        keywords: '@GoWithGBI,have a question,search for your answer,FAQ,Travel bookings queries,customer service,support helpdesk',
+        url: 'https://www.gowithgbi.com/resources/faq',
+        type: 'website'
+      }
+     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
+  },
   data(){
     return{
       searchQuery:null,

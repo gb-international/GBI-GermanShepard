@@ -291,6 +291,16 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     ContactusForm: _front_components_ContactusForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Heading: _front_components_layout_Heading_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  beforeCreate: function beforeCreate() {
+    var metaInfo = {
+      title: 'GBI Contact Us',
+      description: 'Connect With GB International for organizing your educational travel plans any where any time',
+      keywords: '@GoWithGBI,GB International,Connect With GB International,Email Us,Talk To Us,Need a travel solution',
+      url: 'https://www.gowithgbi.com/contact-us',
+      type: 'website'
+    };
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
   }
 });
 

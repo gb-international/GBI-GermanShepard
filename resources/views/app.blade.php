@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138734768-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-138734768-1');
+  </script>  -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Pragma" content="no-cache">
@@ -18,33 +27,41 @@
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+  
+  @if($meta)
+<meta property="og:title" content="{{$meta->title}}">
+  <meta property="og:description" content="{{$meta->description}}">
+  <meta property="og:keywords" content="{{$meta->keyword}}">
+  <meta property="og:image" content="{{$meta->image}}">
+  @else
   <meta property="og:title" content="G.B International is a travel educational specialist for young minds.">
-  <meta property="og:site_name" content="gowithgbi.com">
-  <meta property="og:url" content="https://www.gowithgbi.com/travel-and-education#/">
   <meta property="og:description" content="GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.">
-  <meta property="og:type" content="website">
   <meta property="og:image" content="https://www.gowithgbi.com/assets/front/images/banner2.jpg">
+  @endif
+<meta property="og:site_name" content="gowithgbi.com">
+  <meta property="og:url" content="{{Request::fullUrl()}}">
+  <meta property="og:type" content="website">
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
 </head>
 <body>
 <body>
 
   <div>
     <div id="app">
-      <front></front>
+      <App></App>
     </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
-  {!! $ssr !!}
-  <script src="{{ asset('js/entry-client.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('js/app.js') }}" defer></script> 
+ {{-- {!! $ssr !!}
+  <script src="{{ asset('js/app-client.js') }}" type="text/javascript"></script> 
 
+  {!! ssr('js/app-server.js')->render() !!}
+  <script src="{{ asset('js/app.js') }}" type="text/javascript"></script> --}}
 
 {{-- <script>
     $("body").on("contextmenu", function () {  

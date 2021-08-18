@@ -183,6 +183,16 @@ export default {
       { name: 'url', content: 'https://www.gowithgbi.com/about-us/our-story' },
     ]
   },
+  beforeCreate(){
+    let metaInfo = {
+      title: 'Our Story',
+      description: '@GoWithGBI Story On How GBI believes in its core values and implement the same  to make your educational travel program a successful one',
+      keywords: '@GoWithGBI,Our Story,about us,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs',
+      url: 'https://www.gowithgbi.com/about-us/our-story',
+      type: 'website'
+    }
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
+  },
 };
 </script>
 

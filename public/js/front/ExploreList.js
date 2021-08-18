@@ -404,6 +404,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     'alert-modals': _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   mixins: [_front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  beforeCreate: function beforeCreate() {
+    var metaInfo = {
+      title: 'GBI Explore Destination',
+      description: '@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button',
+      keywords: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs',
+      url: 'https://www.gowithgbi.com/resources/explore-destination',
+      type: 'website'
+    };
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
+  },
   methods: {
     intersected: function intersected() {
       var _this = this;

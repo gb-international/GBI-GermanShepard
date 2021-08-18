@@ -25,6 +25,70 @@ to submit the data we are using a function.
         :style="!loading ? '' : 'opacity: 0.5' "
       >
         <div class="row">
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="meta_title">Meta Title</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.meta_title"
+                :class="{ 'is-invalid': form.errors.has('meta_title') }"
+                placeholder="Enter meta title"
+              />
+              <has-error :form="form" field="meta_title"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="meta_keyword">Meta Keywords</label>
+              <!-- <input
+                type="text"
+                class="form-control"
+                v-model="form.meta_keyword"
+                :class="{ 'is-invalid': form.errors.has('meta_keyword') }"
+                placeholder="Enter meta title"
+              />
+              <has-error :form="form" field="meta_keyword"></has-error> 
+               <multiselect
+                v-model="form.meta_keyword"
+                :options="tags"
+                :multiple="true"
+                :close-on-select="true"
+                placeholder="Choose keywords"
+                @input="checkKeyword(data)"
+                label="title"
+                track-by="title"
+              ></multiselect> -->
+
+                <tags-input element-id="tags"
+                  v-model="meta_key"
+                  :existing-tags="tags"
+                  :typeahead="true"
+                  @tags-updated="updateTags"
+                  >
+                </tags-input>
+
+              <has-error :form="form" field="tags"></has-error>
+              <p v-if="tagsWarn && meta_key.length < 1 " class="warn-error">Please choose keywords.</p>
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="description">Meta Description</label>
+              <textarea
+                row="3"
+                type="text"
+                class="form-control"
+                v-model="form.meta_description"
+                :class="{ 'is-invalid': form.errors.has('meta_description') }"
+                placeholder="Enter Meta Description"
+              ></textarea>
+              <has-error :form="form" field="meta_description"></has-error>
+            </div>
+          </div>
+
           <div class="col-sm-3">
              <div class="form-group">
               <label for="state_name">Region Type</label>
@@ -191,6 +255,7 @@ to submit the data we are using a function.
 import { ModelSelect } from "vue-search-select";
 import { Form, HasError } from "vform";
 import Vue2EditorMixin from '@/admin/mixins/Vue2EditorMixin';
+import TagsInput from '@voerro/vue-tagsinput';
 
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
@@ -209,12 +274,16 @@ export default {
     "form-layout": FormLayout,
     "dropdown-filter": DropdownFilter,
     "status-dd": StatusDropdown,
+    "tags-input": TagsInput,
 
   },
   mixins:[Vue2EditorMixin],
   data() {
     return {
       state_list: [],
+      tags:[],
+      meta_key: [],
+      tagsWarn: false,
       region_type_list:[
         {name:"National",id:0},
         {name:"International",id:1}
@@ -233,12 +302,17 @@ export default {
         banner_image: [],
         images: [],
         files: [],
+        meta_description:"",
+        meta_title: "",
+        meta_keyword: [],
+        tags:[],
       }),
       loading: false
     };
   },
   created() {
     this.stateData();
+    this.getTags();
   },
 
   methods: {
@@ -263,6 +337,29 @@ export default {
           }
         }
       });
+    },
+    getTags() {
+      axios.get("/api/tags").then((res) => {
+        //this.tags = response.data;
+        if (res) {
+          for(let i = 0;i<res.data.length;i++){
+            this.tags.push({
+              value:res.data[i].title,
+              key:res.data[i].id
+            });
+          }
+          //console.log(this.form.tags)
+        }
+      });
+    },
+    updateTags(){
+      this.form.meta_keyword = []
+      for(let i = 0;i<this.meta_key.length;i++){
+          this.form.meta_keyword.push({
+            title:this.meta_key[i].value,
+            id:this.meta_key[i].key
+          });
+      }
     },
     stateData(val) {
       this.state_list = []
@@ -304,7 +401,12 @@ export default {
     },
 
     addData() {
+      if (this.form.meta_keyword.length < 1 ) {
+        this.tagsWarn = true
+        return false;
+      }
       this.loading = true
+      this.form.tags = this.form.meta_keyword
       this.form
         .post("/api/encyclopedias")
         .then((res) => {
@@ -371,3 +473,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .warn-error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+  }
+</style>

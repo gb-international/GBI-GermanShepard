@@ -292,9 +292,28 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       this.stateData(); //   this.scrollToTop();
     }
   },
+  beforeCreate: function beforeCreate() {
+    var metaInfo = {
+      title: 'GBI Travel Encyclopedia',
+      description: 'GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.',
+      keywords: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs',
+      url: 'https://www.gowithgbi.com/resources/travel-encyclopedia-international',
+      type: 'website'
+    };
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
+  },
   created: function created() {
     this.stateData();
-    this.states(); // this.scrollToTop();
+    this.states();
+    var metaInfo = {
+      title: "GBI Travel Encyclopedia | ".concat(this.state_data.state_name),
+      description: this.state_data.description.slice(0, 150),
+      image: this.state_data.banner_image,
+      keywords: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs',
+      url: "https://www.gowithgbi.com/encyclopedia/".concat(this.state_data.slug),
+      type: 'website'
+    };
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/"; // this.scrollToTop();
   },
   methods: {
     updateCurrent: function updateCurrent(page_num) {

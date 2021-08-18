@@ -4,7 +4,7 @@
       Edited by: @Manas
       ****************************************************-->
   <!-- Edits: Added dropdowns to Travel Encyclopedia, Added Dropdown to Profile  -->
-  <div>
+  <div id="app" class="relative">
     <nav
       class="navbar navbar-expand-md bg-white navbar-light fixed-top"
       id="navbar"
@@ -304,6 +304,7 @@
       <intro></intro>
     </div>
     <gbi-footer></gbi-footer>
+    <!-- <chat> </chat> -->
   </div>
 </template>
 <script>
@@ -311,6 +312,7 @@ import login from "@/front/pages/user/Login.vue";
 import Intro from "@/front/components/Intro.vue";
 import Cookies from "@/front/components/Cookies.vue";
 //import Review from "@/front/components/Reviews.vue";
+import chat from "@/front/components/chat.vue";
 
 export default {
   name: "App",
@@ -318,6 +320,7 @@ export default {
     login,
     Intro,
     Cookies,
+    chat
   },
   data() {
     return {
@@ -354,9 +357,12 @@ export default {
     // this.$cookies.set('login',1);
     // check is cookies is accepted or not
     var userData = this.$cookies.get("user")
+    document.cookie = "GBIMeta =" + localStorage.getItem('front_meta.jwt') +"; path=/";
     //console.log(userData.subscription_id)
 
     this.$store.dispatch('getNotifCount', userData.subscription_id) 
+
+    this.loginCheck();
 
     Echo.channel('gb_international_database_user-channel')
          .listen('.UserEvent', (data) => {
@@ -365,7 +371,6 @@ export default {
             this.$store.dispatch('getNotifCount', userData.subscription_id), 2000)
         });
 
-    this.loginCheck();
     //this.login = this.$cookies.get("login");
     /*if (this.login == null) {
       this.login = 1;

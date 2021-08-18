@@ -256,6 +256,16 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
+  beforeCreate: function beforeCreate() {
+    var metaInfo = {
+      title: 'GBI Blog',
+      description: '@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one',
+      keywords: '@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs',
+      url: 'https://www.gowithgbi.com/blog',
+      type: 'website'
+    };
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
+  },
   watch: {
     "$route.params.slug": function $routeParamsSlug(id) {
       this.getBlogDetail();
@@ -263,6 +273,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getBlogDetail();
+    var metaInfo = {
+      title: this.posts.title,
+      description: this.posts.summery,
+      image: this.posts.image,
+      keywords: this.posts.meta_keyword,
+      url: "https://www.gowithgbi.com/blog/".concat(this.posts.slug),
+      type: 'website'
+    };
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
   },
   methods: {
     getBlogDetail: function getBlogDetail() {

@@ -56,6 +56,19 @@ class ItineraryController extends Controller
     {
         
         $data = $this->validateItinerary($request);
+        $tag_id= array();
+        $meta_keyword="";   
+        foreach ($request->tags as $tag) {
+            if($tag['id'] == ''){
+                $tag = Tag::create($tag);
+            }
+            array_push($tag_id,$tag['id']);
+            if($meta_keyword ==""){
+                $meta_keyword = $meta_keyword . $tag['title'];
+            } else {
+                $meta_keyword = $meta_keyword .' '. $tag['title'];
+            }
+        }
         if($request->photo){
             $data['photo'] = $this->AwsFileUpload($request->photo,config('gbi.itinerary_image'),$request->photo_alt);
         }
@@ -79,6 +92,10 @@ class ItineraryController extends Controller
         }
         $dayModels = Tourtype::find($dayModels);
         $itinerary->tourtypes()->attach($dayModels);
+
+        $itinerary->meta_keyword = $meta_keyword;
+        $itinerary->save();
+        $itinerary->tags()->sync($tag_id);
 
         $notifData = [
             'notification_type' => 'travel',
@@ -104,6 +121,7 @@ class ItineraryController extends Controller
     public function show(Itinerary $itinerary)
     {
         $itinerary->itinerarydays;
+        $itinerary->tags;
         return response()->json($itinerary);
     }
 
@@ -117,6 +135,7 @@ class ItineraryController extends Controller
     {
         $itinerary->itinerarydays;
         $itinerary->tourtypes;
+        $itinerary->tags;
         return response()->json($itinerary);
     }
 
@@ -130,6 +149,19 @@ class ItineraryController extends Controller
     public function update(Request $request, Itinerary $itinerary)
     {
         $data = $this->validateItinerary($request);
+        $tag_id= [];
+        $meta_keyword="";   
+        foreach ($request->tags as $tag) {
+            if($tag['id'] == ''){
+                $tag = Tag::create($tag);
+            }
+            array_push($tag_id,$tag['id']);
+            if($meta_keyword ==""){
+                $meta_keyword = $meta_keyword . $tag['title'];
+            } else {
+                $meta_keyword = $meta_keyword .' '. $tag['title'];
+            }
+        }
         // thumbnail photo upload
         if($request->photo != $itinerary->photo){
             $data['photo'] = $this->AwsFileUpload($request->photo,config('gbi.itinerary_image'),$request->photo_alt);
@@ -154,6 +186,11 @@ class ItineraryController extends Controller
             $dayModels[] = new Itineraryday($data);
         }
         $itinerary->itinerarydays()->saveMany($dayModels);
+
+        $itinerary->meta_keyword = $meta_keyword;
+        $itinerary->save();
+        $itinerary->tags()->sync($tag_id);
+
        // Itinerary tour type
         $dayModels = [];
         foreach ($request->tourtypes as $data) {
@@ -196,7 +233,9 @@ class ItineraryController extends Controller
             'train'=>'',
             'flight'=>'',
             'price'=>'',
-            'client_type'=>'',        
+            'client_type'=>'',
+            'meta_title'=>'required',
+            'meta_description' => 'required'     
       ]);
     }
 

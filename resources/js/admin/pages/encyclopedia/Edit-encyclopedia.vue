@@ -26,6 +26,55 @@ to submit the data we are using a function.
         :style="!loading ? '' : 'opacity: 0.5' "
       >
         <div class="row" v-if="form.state_name">
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="meta_title">Meta Title</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.meta_title"
+                @change="changeField('meta_title', $event.target.value)"
+                :class="{ 'is-invalid': form.errors.has('meta_title') }"
+                placeholder="Enter meta title"
+              />
+              <has-error :form="form" field="meta_title"></has-error>
+              <p v-if="meta_titleWarn" class="warn-error"> Please input Meta Title.</p>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="meta_keyword">Meta Keywords</label>
+              <tags-input element-id="tags"
+                  v-model="meta_key"
+                  :existing-tags="tags"
+                  :typeahead="true"
+                  @tags-updated="updateTags"
+                  >
+                </tags-input>
+              <has-error :form="form" field="tags"></has-error>
+              <p v-if="tagsWarn && meta_key.length < 1 " class="warn-error">Please choose keywords.</p>
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="description">Meta Description</label>
+              <textarea
+                row="3"
+                type="text"
+                class="form-control"
+                v-model="form.meta_description"
+                @change="changeField('meta_description', $event.target.value)"
+                :class="{ 'is-invalid': form.errors.has('meta_description') }"
+                placeholder="Enter Meta Description"
+              ></textarea>
+              <has-error :form="form" field="meta_description"></has-error>
+              <p v-if="summeryWarn" class="warn-error"> Please input meta description.</p>
+            </div>
+          </div>
+
           <div class="col-sm-3">
              <div class="form-group">
               <label for="state_name">Region Type</label>
@@ -236,6 +285,7 @@ import SubmitButton from "@/admin/components/buttons/SubmitButton.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import DropdownList from "@/admin/components/form/DropdownList.vue";
 import StatusDropdown from "@/admin/components/form/StatusDropdown2.vue";
+import TagsInput from '@voerro/vue-tagsinput';
 
 export default {
   name: "EditEncyclopedia",
@@ -249,6 +299,7 @@ export default {
     "form-layout": FormLayout,
     "dropdown-list": DropdownList,
     "status-dd": StatusDropdown,
+    "tags-input": TagsInput,
   },
   data() {
     return {
@@ -263,6 +314,15 @@ export default {
       pdf_list: [],
       images: [],
       list_images: [],
+      tags:[],
+      meta_key: [],
+      titleWarn: false,
+      descriptionWarn: false,
+      summeryWarn: false,
+      meta_titleWarn: false,
+      meta_keywordWarn: false,
+      tagsWarn: false,
+      clientTypeWarn: false,
       form: new Form({
         state_name: "",
         region_type: "",
@@ -274,15 +334,47 @@ export default {
         banner_image: [],
         images: [],
         files: [],
+        meta_description: "",
+        meta_title: "",
+        meta_keyword: "",
+        tags: [],
       }),
       loading: false
     };
   },
   created() {
     this.EncyclopediaList();
+    this.getTags();
+    this.meta_key = this.form.tags;
   },
 
   methods: {
+    changeField (field, input) {
+
+      if(field === 'meta_description'){
+          if(input === ''){
+            this.summeryWarn = true;
+          } else {
+            this.summeryWarn = false;
+          }
+          
+      }
+      if(field === 'meta_title'){
+          if(input === ''){
+            this.meta_titleWarn = true;
+          } else {
+            this.meta_titleWarn = false;
+          }
+      }
+      if(field === 'meta_keyword'){
+          if(input === ''){
+            this.meta_keywordWarn = true;
+          } else {
+            this.meta_keywordWarn = false;
+          }
+          
+      }
+    },
     countryList(val) {
       axios.get("/api/country").then((res) => {
         this.country_list = []
@@ -350,7 +442,24 @@ export default {
         this.form.region_type = this.form.region_type.trim();
         this.form.state_name = this.form.state_name.trim();
         this.form.country = this.form.country.trim();
+
+        for(let i = 0;i< response.data.tags.length;i++){
+          this.meta_key.push({
+            value: response.data.tags[i].title,
+            key: response.data.tags[i].id
+          });
+        }
       });
+    },
+
+    updateTags(){
+      this.form.meta_keyword = []
+      for(let i = 0;i<this.meta_key.length;i++){
+          this.form.meta_keyword.push({
+            title:this.meta_key[i].value,
+            id:this.meta_key[i].key
+          });
+      }
     },
 
     countryCheck(val) {
@@ -364,6 +473,21 @@ export default {
         }
       });
       this.allCreated = true;
+    },
+
+    getTags() {
+      axios.get("/api/tags").then((res) => {
+        //this.tags = response.data;
+        if (res) {
+          for(let i = 0;i<res.data.length;i++){
+            this.tags.push({
+              value:res.data[i].title,
+              key:res.data[i].id
+            });
+          }
+          //console.log(this.form.tags)
+        }
+      });
     },
 
     // This function will be called every time you add a file
@@ -451,8 +575,13 @@ export default {
 
 
     addItem() {
+      if (this.form.meta_keyword.length < 1 ) {
+        this.meta_keywordWarn = true
+        return false;
+      }
       // Submit form
       this.loading = true
+      this.form.tags = this.form.meta_keyword
       var api = `/api/encyclopedias/${this.$route.params.id}`;
       this.form
         .put(api)
@@ -469,3 +598,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .warn-error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+  }
+</style>

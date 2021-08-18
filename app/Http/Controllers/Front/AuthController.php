@@ -32,7 +32,7 @@ class AuthController extends Controller{
         
         
         // Check if a user with the specified email exists
-        $user = User::whereEmail($request->email)->first();
+        $user = User::where('email', $request->email)->first();
         if (!$user) {
             return response()->json([
                 'message' => 'Wrong email or password',
@@ -40,16 +40,13 @@ class AuthController extends Controller{
             ], 422);
         }
 
-        if ($user->user_role == 1) {
+        if ($user->user_type == 'GBI Member') {
             return response()->json([
                 'message' => 'You are not allowed to login!!',
                 'status' => 422
             ], 422);
         }
 
-        
-        
-        
         
         // If a user with the email was found - check if the specified password
         
@@ -94,7 +91,11 @@ class AuthController extends Controller{
             ], 422);
         }
 
+        $sub_id = null;
         $sub = Subscriber::where('user_id', $user->id)->first();
+        if($sub){
+            $sub_id = $sub->id;
+        }
 
         // Get the data from the response
         $data = json_decode($response->getContent());
@@ -115,7 +116,7 @@ class AuthController extends Controller{
             'company_id'=>$user->information->company_id,
             'client_type'=>$user->information->client_type,
             'change_password' => $user->information->change_password,
-            'subscription_id' => $sub->id
+            'subscription_id' => $sub_id
         ];
         // Format the final response in a desirable format
         return response()->json([

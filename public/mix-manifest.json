@@ -1,7 +1,6 @@
 {
-    "/js/entry-client.js": "/js/entry-client.js",
+    "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/entry-server.js": "/js/entry-server.js",
     "/js/laravel-echo-setup.js": "/js/laravel-echo-setup.js",
     "/js/front/BillingInformation.js": "/js/front/BillingInformation.js",
     "/js/front/BillingStudent.js": "/js/front/BillingStudent.js",
@@ -29,6 +28,8 @@
     "/js/front/ImageList.js": "/js/front/ImageList.js",
     "/js/front/International.js": "/js/front/International.js",
     "/js/front/InternationalList.js": "/js/front/InternationalList.js",
+    "/js/front/JobPageGBI.js": "/js/front/JobPageGBI.js",
+    "/js/front/JobTypeGBI.js": "/js/front/JobTypeGBI.js",
     "/js/front/JoinOurTeam.js": "/js/front/JoinOurTeam.js",
     "/js/front/OurStory.js": "/js/front/OurStory.js",
     "/js/front/PaymentCancel.js": "/js/front/PaymentCancel.js",
@@ -40,6 +41,7 @@
     "/js/front/ProfileEdit.js": "/js/front/ProfileEdit.js",
     "/js/front/SafetySecurity.js": "/js/front/SafetySecurity.js",
     "/js/front/StudentProfileEdit.js": "/js/front/StudentProfileEdit.js",
+    "/js/front/StudentProfileEdit~js/front/TeacherProfileEdit.js": "/js/front/StudentProfileEdit~js/front/TeacherProfileEdit.js",
     "/js/front/TeacherProfileEdit.js": "/js/front/TeacherProfileEdit.js",
     "/js/front/TourDetail.js": "/js/front/TourDetail.js",
     "/js/front/TourList.js": "/js/front/TourList.js",
@@ -57,5 +59,6 @@
     "/vendors~js/front/EncyclopediaList~js/front/ExploreDestination~js/front/ExploreList~js/front/InternationalList.js": "/vendors~js/front/EncyclopediaList~js/front/ExploreDestination~js/front/ExploreList~js/front/InternationalList.js",
     "/vendors~js/front/ExploreDetail.js": "/vendors~js/front/ExploreDetail.js",
     "/vendors~js/front/GroupView~js/front/PaymentView.js": "/vendors~js/front/GroupView~js/front/PaymentView.js",
-    "/vendors~js/front/UserInformation.js": "/vendors~js/front/UserInformation.js"
+    "/vendors~js/front/UserInformation.js": "/vendors~js/front/UserInformation.js",
+    "/vendors~js/front/JobPageGBI.js": "/vendors~js/front/JobPageGBI.js"
 }

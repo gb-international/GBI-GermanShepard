@@ -272,9 +272,29 @@ export default {
     },
   },
 
+  beforeCreate(){
+    var metaInfo = {
+      title: 'GBI Travel Encyclopedia',
+      description: 'GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.',
+      keywords: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs',
+      url: 'https://www.gowithgbi.com/resources/travel-encyclopedia-international',
+      type: 'website'
+    }
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
+  },
+
   created: function () {
     this.stateData();
     this.states();
+    var metaInfo = {
+      title: `GBI Travel Encyclopedia | ${this.state_data.state_name}`,
+      description: this.state_data.description.slice(0,150),
+      image: this.state_data.banner_image,
+      keywords: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs',
+      url: `https://www.gowithgbi.com/encyclopedia/${this.state_data.slug}`,
+      type: 'website'
+    }
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
     // this.scrollToTop();
   },
   methods: {

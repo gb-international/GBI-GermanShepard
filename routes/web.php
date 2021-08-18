@@ -103,7 +103,63 @@ Route::group(['middleware' => ['web']], function () {
     }); 
 }); 
 
+// Route::get('/', function () {
+//   return File::get(public_path() . '/index.html');
+// });
 Route::get('escort/{any}', 'Escort\AppController@index')->where('any', '.*');
 Route::get('admin/{any}', 'HomeController@index')->where('any', '.*');
-Route::get('/{any}', 'Front\AppController@get')->where('any', '.*');
 
+//Home
+Route::get('/', 'Front\AppController@get');
+
+//About Us
+Route::get('/about-us/our-story', 'Front\AppController@get');
+Route::get('/about-us/how-we-work', 'Front\AppController@get');
+Route::get('/about-us/join-our-team', 'Front\AppController@get');
+Route::get('/image-gallery/domestic', 'Front\AppController@get');
+Route::get('/image-gallery/international', 'Front\AppController@get');
+Route::get('/image-gallery/images/{slug}', 'Front\AppController@get');
+
+//Contact Us
+Route::get('/contact-us', 'Front\AppController@get');
+
+//Explore Destination
+Route::get('/explore-destination', 'Front\AppController@get');
+Route::get('/explore-list', 'Front\AppController@get');
+Route::get('/explore-detail/{id}', 'Front\AppController@get');
+
+//Feedback Form (is needed?)
+//Route::get('/feedback-link/{tourID}', 'Front\AppController@get');
+//Route::get('/feedback-form/{tourID}', 'Front\AppController@get');
+
+//GBI Blog
+Route::get('/blog', 'Front\AppController@get');
+Route::get('/blog/{slug}', 'Front\AppController@get');
+//Route::get('/blog/category/{slug}', 'Front\AppController@get');
+
+//GBI Ntifications (is needed?)
+//Route::get('/notifications', 'Front\AppController@get');
+
+//Payment Link
+//Route::get('/payment-link/{tourID}/{amount}', 'Front\AppController@get');
+
+//Popular Tours
+//Route::get('/popular-tours/{userID}', 'Front\AppController@get');
+
+//Recent Searches
+//Route::get('/recent-search/{userID}', 'Front\AppController@get');
+
+//Resources
+Route::get('/resources/travel-education', 'Front\AppController@get');
+Route::get('/resources/faq', 'Front\AppController@get');
+Route::get('/resources/safety-security', 'Front\AppController@get');
+Route::get('/resources/travel-encyclopedia', 'Front\AppController@get');
+Route::get('/resources/travel-encyclopedia-international', 'Front\AppController@get');
+Route::get('/encyclopedia/{id}', 'Front\AppController@get');
+Route::get('/itinerary-pdf/{slug}', 'Front\AppController@get');
+
+//Support
+Route::get('/support', 'Front\AppController@get');
+
+//Any
+Route::get('/{any}', 'Front\AppController@get')->where('any', '.*');

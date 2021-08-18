@@ -15,8 +15,8 @@ import swal from 'sweetalert2';
 import VueMeta from 'vue-meta';
 import vuecookies from 'vue-cookies';
 import UniversalSocialauth from 'universal-social-auth';
-
-
+import App from '@/front/pages/layouts/App.vue';
+//import VueGtag from "vue-gtag";
 
 import api from '@/front/helpers/api';
 Object.defineProperty(Vue.prototype, '$api', { value: api })
@@ -48,9 +48,9 @@ if (process.window == 'undefined') {
 Vue.config.productionTip = false;
 
 //Dsiabled Console messages
-Vue.config.devtools = false;
-Vue.config.debug = false;
-Vue.config.silent = true;
+// Vue.config.devtools = false;
+// Vue.config.debug = false;
+// Vue.config.silent = true;
 //console.log = function() {};
 // End
 
@@ -116,14 +116,15 @@ const options = {
 const Oauth = new UniversalSocialauth(axios, options);
 Vue.prototype.$Oauth = Oauth
 
+/*Vue.use(VueGtag, {
+  config: { id: "UA-138734768-1" }
+}, router);*/
+
 const app = new Vue({
     //el:'#app',
     store,
     router,
     render: h => h(App)
-});
-
-export default app;
-//.$mount('#app')
+}).$mount('#app')
 
 

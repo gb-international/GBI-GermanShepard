@@ -15,6 +15,55 @@
           :style="!loading ? '' : 'opacity: 0.5' "
         >
           <div class="row mb-30" v-if="form.title">
+
+            <div class="col-sm-6">
+            <div class="form-group">
+              <label for="meta_title">Meta Title</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.meta_title"
+                @change="changeField('meta_title', $event.target.value)"
+                :class="{ 'is-invalid': form.errors.has('meta_title') }"
+                placeholder="Enter meta title"
+              />
+              <has-error :form="form" field="meta_title"></has-error>
+              <p v-if="meta_titleWarn" class="warn-error"> Please input Meta Title.</p>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="meta_keyword">Meta Keywords</label>
+              <tags-input element-id="tags"
+                  v-model="meta_key"
+                  :existing-tags="tags"
+                  :typeahead="true"
+                  @tags-updated="updateTags"
+                  >
+                </tags-input>
+              <has-error :form="form" field="tags"></has-error>
+              <p v-if="tagsWarn && meta_key.length < 1 " class="warn-error">Please choose keywords.</p>
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="description">Meta Description</label>
+              <textarea
+                row="3"
+                type="text"
+                class="form-control"
+                v-model="form.meta_description"
+                @change="changeField('meta_description', $event.target.value)"
+                :class="{ 'is-invalid': form.errors.has('meta_description') }"
+                placeholder="Enter Meta Description"
+              ></textarea>
+              <has-error :form="form" field="meta_description"></has-error>
+              <p v-if="summeryWarn" class="warn-error"> Please input meta description.</p>
+            </div>
+          </div>
+
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="sourceId">Source</label>
@@ -430,8 +479,9 @@ import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import Vue2EditorMixin from '@/admin/mixins/Vue2EditorMixin';
-
 import DropdownList from "@/admin/components/form/DropdownList.vue";
+import TagsInput from '@voerro/vue-tagsinput';
+
 export default {
   name: "EditItinerary",
   components: {
@@ -442,6 +492,7 @@ export default {
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
     "dropdown-list":DropdownList,
+    "tags-input": TagsInput,
   },
   mixins:[Vue2EditorMixin],
   data() {
@@ -451,11 +502,21 @@ export default {
       destinations: '',
       itinerarydays: [],
       tour_type_list: [],
+      tags:[],
+      meta_key: [],
 
       selected: null,
+      summeryWarn: false,
+      meta_titleWarn: false,
+      meta_keywordWarn: false,
+      tagsWarn: false,
       photo: "",
       detail_photo: "",
       form: new Form({
+        meta_description: "",
+        meta_title: "",
+        meta_keyword: "",
+        tags: [],
         source: "",
         destination: "",
         noofdays: "",
@@ -486,9 +547,37 @@ export default {
     this.itineraryList();
     this.cityList();
     this.tourTypeData();
+    this.getTags();
+    this.meta_key = this.form.tags;
   },
 
   methods: {
+    changeField (field, input) {
+
+      if(field === 'meta_description'){
+          if(input === ''){
+            this.summeryWarn = true;
+          } else {
+            this.summeryWarn = false;
+          }
+          
+      }
+      if(field === 'meta_title'){
+          if(input === ''){
+            this.meta_titleWarn = true;
+          } else {
+            this.meta_titleWarn = false;
+          }
+      }
+      if(field === 'meta_keyword'){
+          if(input === ''){
+            this.meta_keywordWarn = true;
+          } else {
+            this.meta_keywordWarn = false;
+          }
+          
+      }
+    },
     itineraryList() {
       axios
         .get(`/api/itinerary/${this.$route.params.itineraryid}/edit`)
@@ -508,9 +597,40 @@ export default {
               });
             }
           }
+            for(let i = 0;i< response.data.tags.length;i++){
+            this.meta_key.push({
+              value: response.data.tags[i].title,
+              key: response.data.tags[i].id
+            });
+          }
           this.img_photo = this.form.photo;
           this.img_detail_photo = this.form.detail_photo;
         });
+    },
+
+    updateTags(){
+      this.form.meta_keyword = []
+      for(let i = 0;i<this.meta_key.length;i++){
+          this.form.meta_keyword.push({
+            title:this.meta_key[i].value,
+            id:this.meta_key[i].key
+          });
+      }
+    },
+
+    getTags() {
+      axios.get("/api/tags").then((res) => {
+        //this.tags = response.data;
+        if (res) {
+          for(let i = 0;i<res.data.length;i++){
+            this.tags.push({
+              value:res.data[i].title,
+              key:res.data[i].id
+            });
+          }
+          //console.log(this.form.tags)
+        }
+      });
     },
 
     cityList() {
@@ -553,6 +673,10 @@ export default {
       reader.readAsDataURL(file);
     },
     updateItinerary() {
+      if (this.form.meta_keyword.length < 1 ) {
+        this.meta_keywordWarn = true
+        return false;
+      }
       // Set noofdays in the local storage to make it avaliable to the daypage....
       console.log(this.form);
       localStorage.setItem("noofdays", this.form.noofdays);
@@ -584,7 +708,7 @@ export default {
           "day_description"
         ];
       }
-
+      this.form.tags = this.form.meta_keyword
       // Submit the form via a itinerary request
       this.form
         .put(`/api/itinerary/${this.$route.params.itineraryid}`)
@@ -635,5 +759,10 @@ export default {
     background: #fff !important;
     font-weight: 600;
 }
+.warn-error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+  }
 </style>
-

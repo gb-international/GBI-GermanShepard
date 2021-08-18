@@ -36,6 +36,36 @@
         </li>
         @endif
 
+        @if(auth()->user()->hasAnyPermission([96]) || auth()->user()->hasRole(1))
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link nav-cols" title="Jobs">
+                <i class="nav-icon fas fa-user-tie"></i>
+                <p>
+                Jobs
+                <i class="right fas fa-angle-right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                @if(auth()->user()->hasPermissionTo(96) || auth()->user()->hasRole(1))
+                    <li class="nav-item">
+                    <router-link to="/jobs" class="nav-link nav-cols" title="Jobs List">
+                        <p> Jobs List</p>
+                    </router-link>
+                    </li>
+                 @endif
+
+                 @if(auth()->user()->hasPermissionTo(97) || auth()->user()->hasRole(1))
+                    <li class="nav-item">
+                    <router-link to="/job-applications" class="nav-link nav-cols" title="Job Applications">
+                        <p> Job Applications</p>
+                    </router-link>
+                    </li>
+                 @endif
+
+            </ul>
+        </li>
+        @endif
+
         @if(auth()->user()->hasAnyPermission([57, /*58,*/ 59, 84, 55]) || auth()->user()->hasRole(1))
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link nav-cols" title="Itinerary">
