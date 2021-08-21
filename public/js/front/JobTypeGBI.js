@@ -115,6 +115,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -211,7 +214,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.widthControl[data-v-d75f44d8]{\r\n  width: 70% !important\n}\n.profile_button[data-v-d75f44d8]{\r\n  margin-top: 5px;\r\n  background-color: #00c4c4;\n}\n@media only screen and (max-width: 824px) {\n.widthControl[data-v-d75f44d8]{\r\n  width: 90% !important\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.widthControl[data-v-d75f44d8]{\r\n  width: 70% !important\n}\n.profile_button[data-v-d75f44d8]{\r\n  margin-top: 5px;\r\n  background-color: #00c4c4;\n}\n.lDiv[data-v-d75f44d8]{\r\n  border: 1px solid grey;\r\n  padding: 15px;\r\n  margin-bottom: 2vh;\n}\n@media only screen and (max-width: 824px) {\n.widthControl[data-v-d75f44d8]{\r\n  width: 90% !important\n}\n}\r\n", ""]);
 
 // exports
 
@@ -363,24 +366,31 @@ var render = function() {
               _vm._l(_vm.jobList, function(job) {
                 return _c(
                   "div",
-                  { key: job.id },
+                  { key: job.id, staticClass: "lDiv shadow row mx-2" },
                   [
-                    _c("sub-heading", {
-                      staticStyle: {
-                        "margin-bottom": "10px !important",
-                        "font-weight": "600 !important"
-                      },
-                      attrs: { text: job.title }
-                    }),
-                    _vm._v(" "),
-                    _c("paragraph", {
-                      attrs: { text: job.description.slice(0, 100) }
-                    }),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-10 col-12" },
+                      [
+                        _c("sub-heading", {
+                          staticStyle: {
+                            "margin-bottom": "10px !important",
+                            "font-weight": "600 !important"
+                          },
+                          attrs: { text: job.title }
+                        }),
+                        _vm._v(" "),
+                        _c("paragraph", {
+                          attrs: { text: job.description.slice(0, 100) }
+                        })
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
                     _c(
                       "button",
                       {
-                        staticClass: "btn profile_button",
+                        staticClass: "col-md-2 col-8 btn profile_button",
                         on: {
                           click: function($event) {
                             $event.preventDefault()
@@ -392,8 +402,7 @@ var render = function() {
                       },
                       [_vm._v("\n          View\n        ")]
                     )
-                  ],
-                  1
+                  ]
                 )
               })
             ],

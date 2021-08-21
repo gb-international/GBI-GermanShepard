@@ -204,6 +204,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -327,7 +329,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.customdiv[data-v-068c2dbc]{\n  margin: 15px;\n}\n.customCard[data-v-068c2dbc]{\n  height: 75px;\n  width: 100%;\n  border-radius: 12px;\n}\n.customSearch[data-v-068c2dbc]{\n   margin-bottom: 15px;\n   height: 46px;\n   border-radius: 5px;\n   font-size: 12px;\n   font-weight: 400;\n   color: gray;\n}\n.btnCustom[data-v-068c2dbc]{\n  height: 42px;\n  width: 95px;\n  padding: 0px 15px 0px 15px;\n  border: 1px solid #00c4c4;\n  font-size: 14px !important;\n  font-weight: 400 !important;\n  color: #00c4c4;\n  display: block;\n  margin: 0 auto;\n}\n.customImgJ[data-v-068c2dbc]{\n  margin-top: -25px;\n  height: 50px;\n  width: auto;\n}\n.cardCText[data-v-068c2dbc]{\n  margin-top: 2px;\n  font-size: 10px;\n  font-weight: 500;\n}\n@media only screen and (min-width: 768px) {\n.customCard[data-v-068c2dbc]{\n    height: 150px;\n}\n.customdiv[data-v-068c2dbc]{\n    margin: 50px;\n}\n.btnCustom[data-v-068c2dbc]{\n    width: 120px;\n    margin-top: 1px;\n}\n.customSearch[data-v-068c2dbc]{\n   margin-bottom: 0px;\n}\n.cardCText[data-v-068c2dbc]{\n    font-size: 12px;\n    font-weight: 500;\n    margin-top: 8px;\n}\n.customImgJ[data-v-068c2dbc]{\n    margin-top: 5px;\n    height: 500%;\n    width: auto;\n}\n}\n@media only screen and (min-width: 992px) {\n.customCard[data-v-068c2dbc]{\n    height: 200px;\n}\n.btnCustom[data-v-068c2dbc]{\n    width: 120px;\n    margin-top: 1px;\n}\n.cardCText[data-v-068c2dbc]{\n    font-size: 18px;\n    font-weight: 500;\n    margin-top: 10px;\n}\n.customImgJ[data-v-068c2dbc]{\n    margin-top: 25px;\n    height: 120%;\n    width: auto;\n}\n}\n@media only screen and (min-width: 1200px) {\n.customCard[data-v-068c2dbc]{\n    height: 300px;\n}\n.btnCustom[data-v-068c2dbc]{\n    height: 45px;\n    width: 200px;\n    font-size: 17px !important;\n    font-weight: 400 !important;\n    margin-top: 0px;\n}\n.cardCText[data-v-068c2dbc]{\n    font-size: 20px;\n    font-weight: 500;\n    margin-top: 25px;\n}\n.customImgJ[data-v-068c2dbc]{\n    margin-top: 0px;\n    height: 400%;\n    width: auto;\n}\n}\n", ""]);
+exports.push([module.i, "\n.customdiv[data-v-068c2dbc]{\n  margin: 15px;\n}\n.customCard[data-v-068c2dbc]{\n  height: 75px;\n  width: 100%;\n  border-radius: 12px;\n}\n.customSearch[data-v-068c2dbc]{\n   margin-bottom: 15px;\n   height: 46px;\n   border-radius: 5px;\n   font-size: 12px;\n   font-weight: 400;\n   color: gray;\n}\n.btnCustom[data-v-068c2dbc]{\n  height: 42px;\n  width: 95px;\n  padding: 0px 15px 0px 15px;\n  border: 1px solid #00c4c4;\n  font-size: 14px !important;\n  font-weight: 400 !important;\n  color: #00c4c4;\n  display: block;\n  margin: 0 auto;\n}\n.customImgJ[data-v-068c2dbc]{\n  margin-top: -25px;\n  height: 50px;\n  width: auto;\n}\n.cardCText[data-v-068c2dbc]{\n  margin-top: 2px;\n  font-size: 10px;\n  font-weight: 500;\n}\n.lDiv[data-v-068c2dbc]{\n  border: 1px solid grey;\n  padding: 15px;\n  margin-bottom: 2vh;\n}\n@media only screen and (min-width: 768px) {\n.customCard[data-v-068c2dbc]{\n    height: 150px;\n}\n.customdiv[data-v-068c2dbc]{\n    margin: 50px;\n}\n.btnCustom[data-v-068c2dbc]{\n    width: 120px;\n    margin-top: 1px;\n}\n.customSearch[data-v-068c2dbc]{\n   margin-bottom: 0px;\n}\n.cardCText[data-v-068c2dbc]{\n    font-size: 12px;\n    font-weight: 500;\n    margin-top: 8px;\n}\n.customImgJ[data-v-068c2dbc]{\n    margin-top: 5px;\n    height: 500%;\n    width: auto;\n}\n}\n@media only screen and (min-width: 992px) {\n.customCard[data-v-068c2dbc]{\n    height: 200px;\n}\n.btnCustom[data-v-068c2dbc]{\n    width: 120px;\n    margin-top: 1px;\n}\n.cardCText[data-v-068c2dbc]{\n    font-size: 18px;\n    font-weight: 500;\n    margin-top: 10px;\n}\n.customImgJ[data-v-068c2dbc]{\n    margin-top: 25px;\n    height: 120%;\n    width: auto;\n}\n}\n@media only screen and (min-width: 1200px) {\n.customCard[data-v-068c2dbc]{\n    height: 300px;\n}\n.btnCustom[data-v-068c2dbc]{\n    height: 45px;\n    width: 200px;\n    font-size: 17px !important;\n    font-weight: 400 !important;\n    margin-top: 0px;\n}\n.cardCText[data-v-068c2dbc]{\n    font-size: 20px;\n    font-weight: 500;\n    margin-top: 25px;\n}\n.customImgJ[data-v-068c2dbc]{\n    margin-top: 0px;\n    height: 400%;\n    width: auto;\n}\n}\n", ""]);
 
 // exports
 
@@ -618,24 +620,31 @@ var render = function() {
               _vm._l(_vm.search_list, function(sjob) {
                 return _c(
                   "div",
-                  { key: sjob.id },
+                  { key: sjob.id, staticClass: "lDiv shadow row mx-2" },
                   [
-                    _c("sub-heading", {
-                      staticStyle: {
-                        "margin-bottom": "10px !important",
-                        "font-weight": "600 !important"
-                      },
-                      attrs: { text: sjob.title }
-                    }),
-                    _vm._v(" "),
-                    _c("paragraph", {
-                      attrs: { text: sjob.description.slice(0, 100) }
-                    }),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-10 col-12" },
+                      [
+                        _c("sub-heading", {
+                          staticStyle: {
+                            "margin-bottom": "10px !important",
+                            "font-weight": "600 !important"
+                          },
+                          attrs: { text: sjob.title }
+                        }),
+                        _vm._v(" "),
+                        _c("paragraph", {
+                          attrs: { text: sjob.description.slice(0, 100) }
+                        })
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
                     _c(
                       "button",
                       {
-                        staticClass: "btn profile_button",
+                        staticClass: "col-md-2 col-8 btn profile_button",
                         on: {
                           click: function($event) {
                             $event.preventDefault()
@@ -647,8 +656,7 @@ var render = function() {
                       },
                       [_vm._v("\n          View\n        ")]
                     )
-                  ],
-                  1
+                  ]
                 )
               })
             ],

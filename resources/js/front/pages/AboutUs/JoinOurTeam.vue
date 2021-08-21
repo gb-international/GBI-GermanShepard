@@ -107,10 +107,12 @@
       </section>
       <div v-else-if="search_list.length" class="container">
         <heading text="Jobs" style="margin-bottom: 35px !important; font-size: 26px !important"/>
-        <div v-for="sjob in search_list" v-bind:key="sjob.id">
-          <sub-heading :text="sjob.title" style="margin-bottom: 10px !important; font-weight: 600 !important"/>
-          <paragraph :text="sjob.description.slice(0, 100)"/>
-           <button class="btn profile_button" @click.prevent="$router.push('/about-us/join-our-team/job/'+sjob.id)">
+        <div class="lDiv shadow row mx-2" v-for="sjob in search_list" v-bind:key="sjob.id">
+          <div class="col-md-10 col-12">
+            <sub-heading :text="sjob.title" style="margin-bottom: 10px !important; font-weight: 600 !important"/>
+            <paragraph :text="sjob.description.slice(0, 100)"/>
+          </div>
+           <button class="col-md-2 col-8 btn profile_button" @click.prevent="$router.push('/about-us/join-our-team/job/'+sjob.id)">
             View
           </button>
         </div>
@@ -282,7 +284,11 @@ export default {
   font-size: 10px;
   font-weight: 500;
 }
-
+.lDiv{
+  border: 1px solid grey;
+  padding: 15px;
+  margin-bottom: 2vh;
+}
 @media only screen and (min-width: 768px) {
   .customCard{
     height: 150px;

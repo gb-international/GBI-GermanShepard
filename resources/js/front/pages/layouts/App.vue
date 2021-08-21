@@ -304,7 +304,7 @@
       <intro></intro>
     </div>
     <gbi-footer></gbi-footer>
-    <!-- <chat> </chat> -->
+    <chat> </chat>
   </div>
 </template>
 <script>

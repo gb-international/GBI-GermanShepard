@@ -24,14 +24,17 @@
 
     <div class="container" v-if="jobList.length">
       <heading text="Jobs" style="margin-bottom: 35px !important; font-size: 26px !important"/>
-        <div v-for="job in jobList" v-bind:key="job.id">
-          <sub-heading :text="job.title" style="margin-bottom: 10px !important; font-weight: 600 !important"/>
-          <paragraph :text="job.description.slice(0, 100)"/>
-           <button class="btn profile_button" @click.prevent="$router.push('/about-us/join-our-team/job/'+job.id)">
+        <div class="lDiv shadow row mx-2" v-for="job in jobList" v-bind:key="job.id">
+          <div class="col-md-10 col-12">
+            <sub-heading :text="job.title" style="margin-bottom: 10px !important; font-weight: 600 !important"/>
+            <paragraph :text="job.description.slice(0, 100)"/>
+          </div>
+          <button class="col-md-2 col-8 btn profile_button" @click.prevent="$router.push('/about-us/join-our-team/job/'+job.id)">
             View
           </button>
         </div>
     </div>
+
     <heading v-else text="No jobs found" style="margin-left: 12px; margin-bottom: 35px !important; font-size: 20px !important"/>
   </div>
 </template>
@@ -125,6 +128,11 @@ export default {
 .profile_button{
   margin-top: 5px;
   background-color: #00c4c4;
+}
+.lDiv{
+  border: 1px solid grey;
+  padding: 15px;
+  margin-bottom: 2vh;
 }
 @media only screen and (max-width: 824px) {
 .widthControl{

@@ -2,61 +2,90 @@
       <!--************************************************
       Author:@Manas
       ****************************************************-->
-  <section class="msger absolute" style="height: 40%; width: 20%; right: 0px; bottom: 0px; position: fixed;">
-    <header class="msger-header">
-      <div class="msger-header-title">
-        <i class="fas fa-comment-alt"></i> GBI Chat
-      </div>
-      <div class="msger-header-options">
-        <span><i class="fas fa-cog"></i></span>
-      </div>
-    </header>
-
-    <main class="msger-chat">
-      <div class="msg left-msg">
-        <div
-         class="msg-img"
-         style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
-        ></div>
-
-        <div class="msg-bubble">
-          <div class="msg-info">
-            <div class="msg-info-name">BOT</div>
-            <div class="msg-info-time">12:45</div>
-          </div>
-
-          <div class="msg-text">
-            Hi, welcome to SimpleChat! Go ahead and send me a message. 😄
-          </div>
-        </div>
-      </div>
-
-      <div class="msg right-msg">
-        <div
-         class="msg-img"
-         style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
-        ></div>
-
-        <div class="msg-bubble">
-          <div class="msg-info">
-            <div class="msg-info-name">Sajad</div>
-            <div class="msg-info-time">12:46</div>
-          </div>
-
-          <div class="msg-text">
-            You can change your name in JS section!
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <form class="msger-inputarea">
-      <input type="text" class="msger-input" placeholder="Enter your message...">
-      <button type="submit" class="msger-send-btn">Send</button>
-    </form>
-</section>
+  <section class="absolute" style="right: 0px; bottom: 0px; position: fixed; z-index: 999">
+   <VueBotUI
+    :messages="data"
+    :options="botOptions"
+    @msg-send="messageSendHandler"
+  />
+  </section>
 </template>
 <script>
+import { VueBotUI } from 'vue-bot-ui'
+
+export default {
+  components: {
+    VueBotUI,
+  },
+  data () {
+    return {
+      data: [
+        {
+          agent: 'bot',
+          type: 'button',
+          text: 'How may I help you today?',
+          disableInput: true,
+          options: [
+            {
+              text: 'Booking Enquiry',
+              value: 'callFunc',
+              action: 'postback'
+            },
+            {
+              text: 'Itinerary Queries',
+              value: 'callFunc',
+              action: 'postback'
+            },
+            {
+              text: 'Account Settings',
+              value: 'callFunc',
+              action: 'postback'
+            },
+            {
+              text: 'Customer Services',
+              value: 'callFunc',
+              action: 'postback',
+            },
+            {
+              text: 'Payment Queries',
+              value: 'callFunc',
+              action: 'postback'
+            },
+          ],
+        }
+      ],
+      botOptions: {
+        botTitle: 'GBI Chat',
+        colorScheme: '#2f2a52',
+        textColor: '#fff',
+        bubbleBtnSize: 56,
+        animation: true,
+        boardContentBg: '#fff',
+        botAvatarSize: 32,
+        botAvatarImg: '/assets/front/images/sheraFace.png',
+        msgBubbleBgBot: '#f0f0f0',
+        msgBubbleColorBot: '#000',
+        msgBubbleBgUser: '#4356e0',
+        msgBubbleColorUser: '#fff',
+        inputPlaceholder: 'Message',
+        inputDisableBg: '#fff',
+        inputDisablePlaceholder: null
+      }
+    }
+  },
+  methods: {
+    callFunc(){
+      alert('hi')
+    },
+    messageSendHandler(value){
+      this.data.push({
+        agent: 'user',
+        type: 'text',
+        text: value.text
+      })
+    }
+  }
+}
 </script>
 
 <style scoped>
