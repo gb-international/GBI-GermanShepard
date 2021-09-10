@@ -1,11 +1,5 @@
 <?php
-/* 
-Created by : Ajay yadav 
-Purpose : Manage Itinerary 
-
-*/
 namespace App\Http\Controllers\Front;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Itinerary\Itinerary;
@@ -14,7 +8,6 @@ use App\Model\Tour\Tourprogram;
 use App\Rules\EmailValidate;
 use DB;
 use App\Jobs\SendItineraryRequestToGbiMailJob;
-
 class ItineraryController extends Controller
 {
     public function search_post(){
@@ -44,6 +37,7 @@ class ItineraryController extends Controller
             'noofday' => 'required',
             'source' => 'required',
             'destination' => 'required',
+            'clientType' => ''
         ]);
 
         $data = [];

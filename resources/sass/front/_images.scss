@@ -1,6 +1,6 @@
 // Desktop version images
 .banner_img{ 
-	background-size: 100% 100%;
+	background-size: cover;
 	display: inline-block;
 		
 	.content{
@@ -8,9 +8,9 @@
 	}
 }
 .banner_bg{
-	background-size: cover;
+	background-size: cover !important;
 	background-repeat: no-repeat;
-	height: 507px;
+	height: 807px;
 	padding:0px;
 }
 @media only screen and (min-width: 766px) {
@@ -38,8 +38,10 @@
 	.contact_us_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/contact_us_mb.jpg'); }
 	.encyclopedia_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/encyclopedia_mb.jpg'); }
 	.explore_banner{
+		background-size: cover !important;
+		background-repeat: no-repeat !important;
 		background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/explore-dest_mb.gif');
-		background-size: 720px !important;
+		background-size: 820px !important;
 	}
 	.faq_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/faq_mb.jpg'); }
 	.howwework_banner{background-image:url('https://gbi-assets.s3.ap-south-1.amazonaws.com/how_we_work_mb.jpg'); }

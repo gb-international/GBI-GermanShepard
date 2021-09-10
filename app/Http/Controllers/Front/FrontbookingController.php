@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Front;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Tour\Frontbooking;
@@ -11,7 +9,6 @@ use Auth;
 use App\Jobs\FrontBookingAdminJob;
 use App\Jobs\FrontBookingUserJob;
 use App\Helpers\SendSms;
-
 class FrontbookingController extends Controller
 {
     public function booking(Request $request){

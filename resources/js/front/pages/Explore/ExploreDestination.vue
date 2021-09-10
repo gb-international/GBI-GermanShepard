@@ -1,13 +1,14 @@
 <template>
   <!--************************************************
   Author:@Ajay
+  Editor: @Manas
   ****************************************************-->
   <div id="exploreDestination">
     <div class="explore_banner text_on_image banner_bg explore_bg_img">
       <div class="content">
-        <div class="container-fluid">
+        <div class="container-custom">
           <div class="row">
-            <div class="col-sm-12 m-0 p-0">
+            <div class="col-12 m-0 p-0">
               <form role="form" autocomplete="off">
                 <div class="nav-sreach-explo">
                   <ul class="nav nav-tabs serch-explo-menu">
@@ -16,8 +17,8 @@
                         class="nav-link active border-none"
                         data-toggle="tab"
                         href="#home"
-                        v-on:click="multicity = !multicity"
-                        >Oneway</a
+                        v-on:click="panel = 'Itinerary'" 
+                        >Itinerary</a
                       >
                     </li>
                     <li class="nav-item">
@@ -25,14 +26,14 @@
                         class="nav-link border-none"
                         data-toggle="tab"
                         href="#menu1"
-                        v-on:click="multicity = !multicity"
-                        >Multicity</a
+                        v-on:click="panel = 'Hotels'"
+                        >Hotels</a
                       >
                     </li>
                   </ul>
                   <!-- start single location Tab panes serach bar for source and destination-->
-                  <div class="tab-content explor-content pb-1">
-                    <div id="home" class="container tab-pane active">
+                  <div class="explor-content pb-1" v-if="panel == 'Itinerary'">
+                    <div class="container" v-if="tripType == 'return'">
                       <div class="row search-radio">
                         <div class="col-sm-6">
                           <div class="row pt-3 pb-3">
@@ -42,14 +43,14 @@
                                   type="radio"
                                   id="national"
                                   name="customRadio"
-                                  value="national"
+                                  value="return"
                                   class="custom-control-input"
-                                  v-model="region"
+                                  v-model="tripType"
                                 />
                                 <label
                                   class="custom-control-label"
                                   for="national"
-                                  >National</label
+                                  >Return</label
                                 >
                               </div>
                             </div>
@@ -60,14 +61,14 @@
                                   type="radio"
                                   id="international"
                                   name="customRadio"
-                                  value="international"
+                                  value="multicity"
                                   class="custom-control-input"
-                                  v-model="region"
+                                  v-model="tripType"
                                 />
                                 <label
                                   class="custom-control-label"
                                   for="international"
-                                  >International</label
+                                  >Multicity</label
                                 >
                               </div>
                             </div>
@@ -75,7 +76,7 @@
                         </div>
                       </div>
                       <div class="row p-0 parent_padding">
-                        <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
                           <model-select
                             :options="options"
                             v-model="sources"
@@ -83,7 +84,7 @@
                             autocomplete="off"
                           ></model-select>
                         </div>
-                        <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
                           <model-select
                             :options="destinationCities"
                             v-model="destinations"
@@ -91,7 +92,7 @@
                           ></model-select>
                         </div>
 
-                        <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
                           <div class="select">
                             <select
                               class="placeholder_color ui fluid search selection dropdown"
@@ -109,7 +110,7 @@
                             </select>
                           </div>
                         </div>
-                        <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
                           <div class="select">
                             <select
                               class="selectpicker ui selection dropdown"
@@ -127,22 +128,156 @@
                             </select>
                           </div>
                         </div>
+                        <div class="col-12 col-sm-6 col-lg-6 ml-2">
+                          <div class="row search-radio">
+                            <div class="col-sm-12">
+                              <custLabel2 class="pt-3" style="font-size: 13px;">Customer type</custLabel2>
+                              <div class="row pb-3">
+                                <div class="col-md-4 col-6">
+                                  <div class="custom-control custom-radio">
+                                    <input
+                                      type="radio"
+                                      id="student"
+                                      name="customRadio2"
+                                      value="student"
+                                      class="custom-control-input"
+                                      v-model="searchForm.clientType"
+                                    />
+                                    <label
+                                      class="custom-control-label"
+                                      for="student"
+                                      >Student</label
+                                    >
+                                  </div>
+                                </div>
+
+                                <div class="col-md-4 col-6">
+                                  <div class="custom-control custom-radio">
+                                    <input
+                                      type="radio"
+                                      id="corporate"
+                                      name="customRadio2"
+                                      value="corporate"
+                                      class="custom-control-input"
+                                      v-model="searchForm.clientType"
+                                    />
+                                    <label
+                                      class="custom-control-label"
+                                      for="corporate"
+                                      >Corporate</label
+                                    >
+                                  </div>
+                                </div>
+
+                                <div class="col-md-4 col-6">
+                                  <div class="custom-control custom-radio">
+                                    <input
+                                      type="radio"
+                                      id="family"
+                                      name="customRadio2"
+                                      value="family"
+                                      class="custom-control-input"
+                                      v-model="searchForm.clientType"
+                                    />
+                                    <label
+                                      class="custom-control-label"
+                                      for="family"
+                                      >Family</label
+                                    >
+                                  </div>
+                                </div>
+
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-sm-5 col-lg-5">
+                            <div class="col-sm-12">
+                              <custLabel>Choose your transport</custLabel>
+                                <div class="row pb-2">
+                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'car'; getCities()">
+                                    <img :src=" portType == 'car' ? '/images/icons/car_onclick_icon.png' : '/images/icons/car_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'bus'; getCities()">
+                                   <img :src=" portType == 'bus' ? '/images/icons/bus_onclick_icon.png' : '/images/icons/bus_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'train'; getCities()">
+                                    <img :src=" portType == 'train' ? '/images/icons/train_onclick_icon.png' : '/images/icons/train_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'plane'; getCities()">
+                                    <img :src=" portType == 'plane' ? '/images/icons/flight_onclick_icon.png' : '/images/icons/flight_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                </div>
+                             </div>
+                        </div>
                       </div>
+                      <p class="text-center">
+                        <button
+                          class="btn btn-defalt btn-lg center-block explore_custom_button"
+                          @click.prevent="searchAll()"
+                          type="submit"
+                          @click="show = !show"
+                        >
+                          SEARCH
+                        </button>
+                      </p>
                     </div>
                     <!-- end single location Tab panes serach bar for source and destination-->
                     <!-- start multiple location Tab panes serach bar for source and destination-->
 
-                    <div id="menu1" class="container tab-pane">
-                      <br />
+                    <div v-else class="container">
+                    <div class="row search-radio">
+                        <div class="col-sm-6">
+                          <div class="row pt-3 pb-3">
+                            <div class="col">
+                              <div class="custom-control custom-radio">
+                                <input
+                                  type="radio"
+                                  id="national"
+                                  name="customRadio"
+                                  value="return"
+                                  class="custom-control-input"
+                                  v-model="tripType"
+                                />
+                                <label
+                                  class="custom-control-label"
+                                  for="national"
+                                  >Return</label
+                                >
+                              </div>
+                            </div>
+
+                            <div class="col">
+                              <div class="custom-control custom-radio">
+                                <input
+                                  type="radio"
+                                  id="international"
+                                  name="customRadio"
+                                  value="multicity"
+                                  class="custom-control-input"
+                                  v-model="tripType"
+                                />
+                                <label
+                                  class="custom-control-label"
+                                  for="international"
+                                  >Multicity</label
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       <div class="row p-0 parent_padding">
-                        <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
                           <model-select
                             :options="options"
                             v-model="multi_source"
                             placeholder="Leave from"
                           ></model-select>
                         </div>
-                        <div class="col-6 col-sm-4 col-lg-4 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
                           <model-select
                             :options="options"
                             v-model="multi_destination"
@@ -153,7 +288,7 @@
 
                       <div class="row p-0 parent_padding">
                         <div
-                          class="col-lg-8"
+                          class="col-sm-12 col-12"
                           v-for="(row, index) in rows"
                           :key="index"
                         >
@@ -174,33 +309,18 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-8 col-md-10 col-lg-10">
+                        </div>
+                        <div class="col-4 col-md-2 col-lg-2">
                           <div class="row button_group">
                             <div class="col-12">
                               <div
                                 class="buttons save_btn link"
-                                v-if="city_button == current_counter"
                               >
-                                <img
-                                  src="/images/icons/multiple_add.png"
-                                  v-if="city_button == current_counter"
-                                  class=""
-                                  v-bind:class="{ disable: save_disable_btn }"
-                                  @click="addRow"
-                                />
+                                <p v-if="current_counter < 2" @click="addRow" class="text-right addCity"> + Another City</p>
+                                <p v-else @click="deleteRow(current_counter - 1)" class="text-right removeCity">- Remove City</p>
                               </div>
-
-                              <div
-                                class="buttons remove_btn link"
-                                v-if="city_button == current_counter"
-                              >
-                                <img
-                                  src="/images/icons/multiple_minus.png"
-                                  class=""
-                                  v-bind:class="{ disable: remove_disable_btn }"
-                                  @click="deleteRow(current_counter - 1)"
-                                />
-                              </div>
+                             
                             </div>
                           </div>
                         </div>
@@ -208,7 +328,7 @@
 
                       <!-- tyype of tour and no of days -->
                       <div class="row parent_padding">
-                        <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
                           <div class="select">
                             <select
                               class="placeholder_color ui fluid search selection dropdown"
@@ -226,7 +346,7 @@
                             </select>
                           </div>
                         </div>
-                        <div class="col-6 col-sm-2 col-lg-2 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
                           <div class="select">
                             <select
                               class="selectpicker ui selection dropdown"
@@ -244,27 +364,321 @@
                             </select>
                           </div>
                         </div>
+
+                        <div class="col-12 col-sm-6 col-lg-6 ml-2">
+                          <div class="row search-radio">
+                            <div class="col-sm-12">
+                              <custLabel2 class="pt-3" style="font-size: 13px;">Customer type</custLabel2>
+                              <div class="row pb-3">
+
+                                <div class="col-md-4 col-6">
+                                  <div class="custom-control custom-radio">
+                                    <input
+                                      type="radio"
+                                      id="student"
+                                      name="customRadio2"
+                                      value="student"
+                                      class="custom-control-input"
+                                      v-model="searchForm.clientType"
+                                    />
+                                    <label
+                                      class="custom-control-label"
+                                      for="student"
+                                      >Student</label
+                                    >
+                                  </div>
+                                </div>
+
+                                <div class="col-md-4 col-6">
+                                  <div class="custom-control custom-radio">
+                                    <input
+                                      type="radio"
+                                      id="corporate"
+                                      name="customRadio2"
+                                      value="corporate"
+                                      class="custom-control-input"
+                                      v-model="searchForm.clientType"
+                                    />
+                                    <label
+                                      class="custom-control-label"
+                                      for="corporate"
+                                      >Corporate</label
+                                    >
+                                  </div>
+                                </div>
+
+                                <div class="col-md-4 col-6">
+                                  <div class="custom-control custom-radio">
+                                    <input
+                                      type="radio"
+                                      id="family"
+                                      name="customRadio2"
+                                      value="family"
+                                      class="custom-control-input"
+                                      v-model="searchForm.clientType"
+                                    />
+                                    <label
+                                      class="custom-control-label"
+                                      for="family"
+                                      >Family</label
+                                    >
+                                  </div>
+                                </div>
+
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-sm-5 col-lg-5">
+                            <div class="col-sm-12">
+                              <custLabel>Choose your transport</custLabel>
+                                <div class="row pb-2">
+                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'car'; getCities()">
+                                    <img :src=" portType == 'car' ? '/images/icons/car_onclick_icon.png' : '/images/icons/car_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'bus'; getCities()">
+                                   <img :src=" portType == 'bus' ? '/images/icons/bus_onclick_icon.png' : '/images/icons/bus_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'train'; getCities()">
+                                    <img :src=" portType == 'train' ? '/images/icons/train_onclick_icon.png' : '/images/icons/train_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'plane'; getCities()">
+                                    <img :src=" portType == 'plane' ? '/images/icons/flight_onclick_icon.png' : '/images/icons/flight_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                </div>
+                             </div>
+                        </div>
                       </div>
+                      <p class="text-center">
+                        <button
+                          class="btn btn-defalt btn-lg center-block explore_custom_button"
+                          @click.prevent="searchAll()"
+                          type="submit"
+                          @click="show = !show"
+                        >
+                          SEARCH
+                        </button>
+                      </p>
                     </div>
                     <!--End menu1-->
                     <!-- end multiple location Tab panes serach bar for source and destination-->
                   </div>
+                  <!--Start menu2 -->
+                  <!-- start single location Tab panes serach bar for source and destination-->                      
+
+                  <div class="explor-content pb-1" style="padding-top: 5.6vh !important;" v-else>
+                    <div class="container">
+                      <div class="row p-0 parent_padding">
+                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
+                          <model-select
+                            :options="options"
+                            v-model="sources"
+                            placeholder="Location"
+                            autocomplete="off"
+                          ></model-select>
+                        </div>
+
+                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="number_of_person"
+                              data-toggle="modal"
+                              data-target="#personsModal"
+                              @click="showPersonModal = true"
+                              v-model="people"
+                              placeholder="Guests"
+                              readonly
+                            />
+                            <has-error :form="form" field="start_date"></has-error>
+                            <div class="modal" tabindex="-1" role="dialog" id="personsModal" v-if="showPersonModal">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" style="color: black">Passengers</h5>
+                                  <button type="button" class="close" aria-label="Close" @click="showPersonModal = false">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="marginT">
+                                      <label for="number_of_adults" class="personLables">Adults(>12 years)</label>
+                                       <fieldset>
+                                          <input type="button" value="-" class="decrease" @click="decrVal('adults')"/>
+                                          <input type="passengers" id="incrdcr" v-model="adults" readonly/>
+                                          <input type="button" value="+" class="increase" @click="incrVal('adults')"/>
+                                       </fieldset>
+                                    </div>
+                                    <div class="marginT">
+                                      <label for="number_of_children" class="personLables">Children(2 to 12 years)</label>
+                                      <fieldset>
+                                          <input type="button" value="-" class="decrease" @click="decrVal('children')"/>
+                                          <input type="passengers" id="incrdcr" v-model="children" readonly/>
+                                          <input type="button" value="+" class="increase" @click="incrVal('children')"/>
+                                       </fieldset>
+                                    </div>
+                                    <div class="marginT">
+                                      <label for="number_of_infants" class="personLables">Infants(3 days to 2 years)</label>
+                                     <fieldset>
+                                          <input type="button" value="-" class="decrease" @click="decrVal('infants')"/>
+                                          <input type="passengers" id="incrdcr" v-model="infants" readonly/>
+                                          <input type="button" value="+" class="increase" @click="incrVal('infants')"/>
+                                       </fieldset>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-primary" @click="savePersons">Confirm</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 col-sm-3 col-lg-3 input-p nopadding">
+                          <div class="select">
+                            <select
+                              class="selectpicker ui selection dropdown"
+                              name="noofday"
+                              @change="noofdaysOnChange($event)"
+                            >
+                              <option selected>Room Category</option>
+                              <option
+                                v-for="index in room_types"
+                                :key="index.id"
+                                :value="index"
+                              >
+                                {{ index }}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-6 col-sm-3 col-lg-3 input-p nopadding">
+                          <input
+                              type="text"
+                              class="form-control"
+                              id="number_of_rooms"
+                              data-toggle="modal"
+                              data-target="#roomsModal"
+                              @click="showRoomModal = true"
+                              v-model="room_text"
+                              placeholder="No. of Rooms"
+                              readonly
+                            />
+                          <div class="modal" tabindex="-1" role="dialog" id="roomsModal" v-if="showRoomModal">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" style="color: black">No. of Rooms</h5>
+                                  <button type="button" class="close" aria-label="Close" @click="showRoomModal = false">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="marginT">
+                                      <label for="number_of_infants" class="personLables" style="color: gray">Number of rooms required?</label>
+                                     <fieldset>
+                                          <input type="button" value="-" class="decrease" @click="decrVal('rooms')"/>
+                                          <input type="passengers" id="incrdcr" v-model="rooms" readonly/>
+                                          <input type="button" value="+" class="increase" @click="incrVal('rooms')"/>
+                                       </fieldset>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-primary" @click="saveRooms">Confirm</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-lg-6 input-p nopadding">
+                         <HotelDatePicker />
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-6 ml-2">
+                          <div class="row search-radio">
+                            <div class="col-sm-12">
+                              <custLabel2 class="pt-3" style="font-size: 13px;">Customer type</custLabel2>
+                              <div class="row pb-3">
+                                <div class="col-md-4 col-6">
+                                  <div class="custom-control custom-radio">
+                                    <input
+                                      type="radio"
+                                      id="student"
+                                      name="customRadio2"
+                                      value="student"
+                                      class="custom-control-input"
+                                      v-model="searchForm.clientType"
+                                    />
+                                    <label
+                                      class="custom-control-label"
+                                      for="student"
+                                      >Student</label
+                                    >
+                                  </div>
+                                </div>
+
+                                <div class="col-md-4 col-6">
+                                  <div class="custom-control custom-radio">
+                                    <input
+                                      type="radio"
+                                      id="corporate"
+                                      name="customRadio2"
+                                      value="corporate"
+                                      class="custom-control-input"
+                                      v-model="searchForm.clientType"
+                                    />
+                                    <label
+                                      class="custom-control-label"
+                                      for="corporate"
+                                      >Corporate</label
+                                    >
+                                  </div>
+                                </div>
+
+                                <div class="col-md-4 col-6">
+                                  <div class="custom-control custom-radio">
+                                    <input
+                                      type="radio"
+                                      id="family"
+                                      name="customRadio2"
+                                      value="family"
+                                      class="custom-control-input"
+                                      v-model="searchForm.clientType"
+                                    />
+                                    <label
+                                      class="custom-control-label"
+                                      for="family"
+                                      >Family</label
+                                    >
+                                  </div>
+                                </div>
+
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>                           
+                      </div>
+                      <p class="text-center">
+                        <button
+                          class="btn btn-defalt btn-lg center-block explore_custom_button"
+                          @click.prevent="searchAll()"
+                          type="submit"
+                          @click="show = !show"
+                        >
+                          SEARCH
+                        </button>
+                      </p>
+                    </div>
+                    <!-- end single location Tab panes serach bar for source and destination-->
+                  </div>
                 </div>
-                <p class="text-center">
-                  <button
-                    class="btn btn-defalt btn-lg center-block profile_button"
-                    @click.prevent="searchAll()"
-                    type="submit"
-                    @click="show = !show"
-                  >
-                    Search
-                  </button>
-                </p>
               </form>
             </div>
           </div>
         </div>
       </div>
+
     </div>
 
     <main class="pl-2 pr-2">
@@ -307,6 +721,9 @@ import Heading from "@/front/components/layout/Heading.vue";
 import SubHeading from "@/front/components/layout/SubHeading.vue";
 import ExploreSearchMixin from "@/front/mixins/user/ExploreSearchMixin";
 import AlertModals from '@/front/components/Explore/AlertModals.vue';
+import HotelDatePicker from 'vue-hotel-datepicker'
+import 'vue-hotel-datepicker/dist/vueHotelDatepicker.css';
+
 export default {
   name: "exploreDestination",
   mixins: [ExploreSearchMixin],
@@ -333,12 +750,25 @@ export default {
   components: {
     Heading,
     SubHeading,
+    HotelDatePicker,
     'alert-modals':AlertModals
   },
   data() {
     return {
       upcoming_data: "",
       popular_data: "",
+      CheckInOut: [],
+      room_options: [],
+      room_types: ["Single", "Double", "Triple", "Quad"],
+      showPersonModal: false,
+      showRoomModal: false,
+      person: 2,
+      adults: 2,
+      children: 0,
+      infants: 0,
+      room: '',
+      room_text: '',
+      rooms: 1
     };
   },
 
@@ -358,6 +788,47 @@ export default {
     this.popularTour();
   },
   methods: {
+    incrVal(data){
+        if(data == 'adults'){
+          this.adults += 1
+        } else if(data == 'children'){
+          this.children +=1
+        } else if(data == 'infants'){
+          this.infants += 1
+        } else if(data == 'rooms'){
+          this.rooms += 1
+        }
+    },
+     decrVal(data){
+        if(data == 'adults' && this.adults > 0){
+          this.adults -= 1
+        } else if(data == 'children' && this.children > 0){
+          this.children -=1
+        } else if(data == 'infants' && this.infants > 0){
+          this.infants -= 1
+        } else if(data == 'rooms' && this.rooms > 0){
+          this.rooms -= 1
+        }
+    },
+    savePersons(){
+      this.person = parseInt(this.children) + parseInt(this.adults);
+      let guest = 'Guest'
+      if(this.person > 1){
+        guest = 'Guests'
+      }
+      if(this.infants > 0){
+        this.people =  this.person +' ' + guest + ' + '+ this.infants+' Infant(s)';
+        
+      } else {
+        this.people =  this.person +' ' + guest;
+      }
+      this.showPersonModal = false;
+    },
+    saveRooms(){
+      this.room = this.rooms ;
+      this.room_text = this.room + ' Rooms';
+      this.showRoomModal = false;
+    },
     popularTour() {
       this.$axios.get("/api/travel-program/popular-tour").then((response) => {
         this.popular_data = response.data;
@@ -377,7 +848,7 @@ export default {
       vm.searchForm.noofday = vm.noofday;
       vm.searchForm.tourtype = vm.tourtype;
       // if multicity search or simple search
-      if (vm.multicity) {
+      if (vm.tripType == 'multicity') {
         //Multiple city search
         destination = vm.multi_destination.text;
         source = vm.multi_source.text;
@@ -412,7 +883,8 @@ export default {
             }
           })
           .catch((error) => {
-            this.$swal.fire("Alert", "please select the fields", "error");
+            //console.log(error)
+            this.$swal.fire("Sorry", "No Itinerary found.", "info");
           });
       } else {
         this.$swal.fire("Alert", "please select locations", "error");
@@ -420,4 +892,60 @@ export default {
     },
   },
 };
-</script>         
+
+</script>
+
+<style scoped>
+.explor-content input[type="text"], .explor-content select, .explor-content textarea {
+    border: 0px solid #ccc !important;
+    width: 100%;
+    height: 46.2px;
+    border-radius: 4px;
+    padding-left: 15px;
+    font-size: 14px;
+
+}
+.marginT {
+  margin-top: 10px !important;
+}
+legend {
+    padding-bottom: 14px;
+    text-align: left;
+}
+fieldset {
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+}
+fieldset, input[type="button"] {
+    border: 0;
+}
+input[type="button"] {
+    background-color: #3490dc;
+    color: #fff;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    font-size: 17px;
+    border-radius: 20px;
+    padding-bottom: 5px;
+
+}
+input[type="passengers"] {
+    border: 1px solid #F4F3F3;
+    height: 40px;
+    width: 60%;
+    text-align: center;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+.personLables{
+  color: grey;
+  text-align: center;
+  font-weight: 600;
+}
+.btn-primary{
+  background-color: #3490dc !important;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+</style> 

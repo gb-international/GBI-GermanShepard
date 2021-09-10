@@ -53,7 +53,18 @@ Route::namespace('Front')->group(function(){
 	// Related Cities
 	Route::get('/related-cities/{id}','LocationController@relatedCities');
 	Route::get('/regional-cities/{region}','LocationController@regionalCities');
-	
+
+	// Airports
+	Route::get('/airports-national','LocationController@allAirportsNational');
+	Route::get('/airports-international','LocationController@allAirportsInt');
+
+	Route::get('/flight-national/{city}','LocationController@airports');
+	Route::get('/flight-international/{city}','LocationController@airportsInt');
+
+	//Railways
+	Route::get('/stations-national','LocationController@allRailways');
+
+
 	Route::post('/user/save-social','UserController@socialAuth');
 	Route::post('/user/social/{userId}','UserController@socialIndex');
 

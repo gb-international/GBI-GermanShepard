@@ -138,7 +138,7 @@ This Template is for listing for the Job Applications .
           </div>
           
           <div class="bottom-items">
-            <button class="cButton meetButton">Meeting Scheduler</button>
+            <button class="cButton meetButton" @click="redirMeet()">Meeting Scheduler</button>
             <!-- <button class="cButton feedbackButton">Feedback</button> -->
             <button class="cButton replyButton" @click="showShare">Share</button>
           </div>
@@ -184,6 +184,9 @@ export default {
     ...mapState(['items']),
   },
   methods:{
+    redirMeet(){
+      window.open('https://meet.google.com')
+    },
     redirPdf(link){
       window.open(link)
     },

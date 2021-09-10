@@ -90,26 +90,33 @@
 	
 }
 
-
+.newCardList{
+	width: 100%;
+	margin-bottom: 25px;
+}
 
 .cardlist{
 	width: 100%;
-	.image-col{
-		width: 38%;
-		float: left;
-		height: 128px;
+}
+
+.explore-icon-width {
+    width: 32px;
+}
+
+.image-col{
+		width: 100%;
+		height: 250px;
 		img{
-			height: 128px;
-			border-radius: 10px 0px 0px 10px;
+			height: 250px;
+			border-radius: 0px 0px 0px 0px;
 		}
 	}
 	.cardtext-col{
-		background-color: #f0f0f0;
+		background-color: #ffffff;
 		color: #666666;
 		border-radius: 0px 10px 10px 0px;
-		width: 62%;
-		height: 128px;
-		float: right;
+		width: 100%;
+		height: 205px;
 		padding-top: 5px;
 		.heading{ font-size: 13px;}
 		.day{ font-size: 14px;}
@@ -120,46 +127,24 @@
 			text-align: center;
 			font-size: 12px;
 		}
-		.card-icon{ width: 60px;}
+		.card-icon{ width: 40px;}
 	}
-}
 
 @media only screen and (max-width:510px){
 	.cardlist{
 		.cardtext-col{
-			.card-icon{ width: 43px;}			
+			.card-icon{ width: 35px;}			
 		}
+
 	}
 }
 @media only screen and (max-width:1205px) and (min-width:990px){
 	.cardlist{
 		.cardtext-col{
-			.card-icon{ width: 55px;}			
+			.card-icon{ width: 33px;}			
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #explore_detail_part{
 	.col-sm-4{
@@ -187,6 +172,116 @@
 	}
 }
 
+	.container-custom{
+	    width: 100%;
+	    padding-right: 15px;
+	    padding-left: 15px;
+	    margin-right: auto;
+	    margin-left: auto;
+	    margin-top: 1vh;
+	}	
+	.addCity{
+		font-size: 13px;
+		font-weight: 600;
+		text-align: left;
+		color: #00aeefa8; 
+	}
+	.removeCity{
+		font-size: 13px;
+		font-weight: 600;
+		text-align: left;
+		padding-left: 10px !important;
+		color: red; 
+	}
+
+	custLabel{
+		display: inline-block;
+		margin-bottom: .5rem;
+		margin-left: -4vw !important;
+	}
+
+	custLabel2{
+		display: inline-block;
+		margin-bottom: .2rem;
+		margin-left: -2vw !important;
+	}
+
+	.cardPadding{
+		padding-bottom: 28px;
+	}
+
+	.bookbtn-custom {
+	    color: white;
+	    background-color: #00c4c4;
+	    border-color: #00c4c4;
+	    padding: 4px 25px 4px 25px;
+	    width: 95px;
+	   	height: 38px;
+	    border-radius: 0px;
+	    font-size: 15px;
+	    font-weight: 500;
+	}
+
+	.explore_custom_button {
+	    background: #00000036;
+	    color: #ffffff;
+	    border: 2px #ffffff solid;
+	    padding: 10px 20px;
+	    font-weight: 400;
+	    height: 50px;
+	    width: 250px;
+	    font-size: 18px;
+	    border-radius: 0px;
+	    margin-top: 3.2vh;
+	}
+
+	 @media (min-width: 768px) {
+	 	custLabel{
+			margin-left: -1vw !important;
+		}
+		.explore_custom_button{
+			margin-top: 2vh;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.explore_custom_button{
+			margin-top: 3.5vh;
+		}
+		.cardPadding{
+			padding-bottom: 28px;
+		}
+		.container-custom{
+		    width: 70%;
+		    margin-top: -6vh;
+
+		}
+		.addCity{
+			font-size: 15px;
+		}
+		.removeCity{
+			font-size: 15px;
+		}
+		custLabel{
+			margin-left: -1vw !important;
+		}
+		custLabel2{
+			margin-left: -0.8vw !important;
+		}
+
+	}
+
+	@media (min-width: 1280px) {
+		.container-custom{
+		    width: 60%;
+		    margin-top: -8vh;
+
+		}
+		custLabel{
+			margin-left: -1vw !important;
+		}
+
+	}
 
 
 
@@ -210,15 +305,15 @@
 	.active
 	{
 		color: #ffffff !important;
-		background-color: rgba(43, 188, 255, 0.8) !important;
-		border-color: rgba(43, 188, 255, 0.8) !important;
+		background-color: #292548eb !important;
+		border-color: #292548eb !important;
 		border-radius: 0px 0px 0 0 !important;
 	}
 	a:hover
 	{
-		background-color: #00aeefa8 !important;
+		background-color: #292548eb !important;
 		color: #ffffff !important;
-		border-color: #00aeefa8 !important;
+		border-color: #292548eb !important;
 		border-radius: 0px !important;
 	}
 }
@@ -304,7 +399,7 @@
 .explor-content
 {
 	// padding: 0px 10px 10px;
-	background-color: rgba(43, 188, 255, 0.8);
+	background-color: #292548eb;
 	border-radius: 0px 0px 5px 5px;
 }
 .button-explo

@@ -1,9 +1,4 @@
 <?php
-/* 
-Created by : Ajay yadav 
-Purpose : Manage front carrer profile  
-
-*/
 namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller; 
 use Illuminate\Support\Facades\Hash;
@@ -23,13 +18,11 @@ use App\Jobs\ContactUsUserJob;
 use App\Jobs\JoinOurTeamJob;
 use App\Jobs\JoinOurTeamUserJob;
 use App\Model\Jobs\JobApplications;
-
 use App\Rules\EmailValidate;
 use App\Rules\PhoneNubmerValidate;
 use App\Rules\AlphaSpace;
 use App\Traits\ImageTrait;
 use App\Model\Jobs\JobPositions;
-
 class JoinourteamController extends Controller
 {
     use ImageTrait;

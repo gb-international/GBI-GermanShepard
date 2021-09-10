@@ -252,6 +252,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["list"],
   data: function data() {
@@ -622,18 +632,25 @@ var render = function() {
     _vm._l(_vm.list, function(itinerary, index) {
       return _c(
         "div",
-        { key: index, staticClass: "col-lg-6 col-sm-12 cardlist mb-10" },
+        { key: index, staticClass: "col-lg-4 col-md-6 col-12 newCardList" },
         [
           _c(
-            "router-link",
-            { attrs: { to: "/explore-detail/" + itinerary.id } },
+            "div",
+            {
+              staticClass: "shadow-lg",
+              on: {
+                click: function($event) {
+                  return _vm.$router.push("/explore-detail/" + itinerary.id)
+                }
+              }
+            },
             [
               _c("div", { staticClass: "image-col" }, [
                 _c(
                   "figure",
                   {
                     directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper m-0"
+                    staticClass: "image__wrapper"
                   },
                   [
                     _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -651,105 +668,191 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "cardtext-col text-left" }, [
+              _c("div", { staticClass: "cardtext-col text-left pl-2 pr-1" }, [
                 _c(
                   "p",
                   {
-                    staticClass:
-                      "m-0 font-13 pl-10 font-weight-bold text-capitalize"
+                    staticClass: "m-0 pl-10 font-weight-bold text-capitalize",
+                    class: itinerary.title.length <= 34 ? "cardPadding" : "",
+                    staticStyle: { "font-size": "18px" }
                   },
                   [
                     _vm._v(
                       _vm._s(
                         _vm._f("CapitalizeString")(
-                          _vm._f("sortlength")(itinerary.title, 35, "")
+                          _vm._f("sortlength")(itinerary.title, 50, "")
                         )
                       )
                     )
                   ]
                 ),
                 _vm._v(" "),
-                _c("p", { staticClass: "font-13 pl-10 mb-10" }, [
-                  _vm._v(_vm._s(itinerary.noofdays) + " Days Tour")
-                ]),
+                _c(
+                  "p",
+                  {
+                    staticClass: "pl-10 mb-1",
+                    class: itinerary.title.length <= 34 ? "-mt-2" : "",
+                    staticStyle: { "font-size": "16px" }
+                  },
+                  [_vm._v(_vm._s(itinerary.noofdays) + " Days Tour")]
+                ),
                 _vm._v(" "),
-                _c("div", { staticClass: "pt-1 pb-2 pl-10" }, [
-                  itinerary.hotel_type != "0"
-                    ? _c("div", { staticClass: "card-icon float-left p-0" }, [
-                        _c("img", {
-                          staticClass: "footer-icon-width",
-                          attrs: { src: "/images/icons/hotel.png" }
-                        }),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("Hotel")])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  itinerary.train == 1
-                    ? _c("div", { staticClass: "card-icon float-left p-0" }, [
-                        _c("img", {
-                          staticClass: "footer-icon-width",
-                          attrs: { src: "/images/icons/bus.png" }
-                        }),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("Train")])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  itinerary.bus == "1"
-                    ? _c("div", { staticClass: "card-icon float-left p-0" }, [
-                        _c("img", {
-                          staticClass: "footer-icon-width",
-                          attrs: { src: "/images/icons/bus.png" }
-                        }),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("Bus")])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  itinerary.flight == "1"
-                    ? _c("div", { staticClass: "card-icon float-left p-0" }, [
-                        _c("img", {
-                          staticClass: "footer-icon-width",
-                          attrs: { src: "/images/icons/flight.png" }
-                        }),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("Flight")])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  itinerary.food != "0"
-                    ? _c("div", { staticClass: "card-icon float-left p-0" }, [
-                        _c("img", {
-                          staticClass: "footer-icon-width",
-                          attrs: { src: "/images/icons/dish.png" }
-                        }),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("Food")])
-                      ])
-                    : _vm._e()
-                ])
+                _vm._m(0, true),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "d-flex flex-row justify-content-between pb-2 mt-1"
+                  },
+                  [
+                    _c("div", { staticClass: "pl-10" }, [
+                      itinerary.hotel_type != "0"
+                        ? _c(
+                            "div",
+                            { staticClass: "card-icon float-left p-0" },
+                            [
+                              _c("img", {
+                                staticClass: "explore-icon-width",
+                                attrs: {
+                                  src: "/images/icons/Itinerary_hotel_icon.png"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("br")
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      itinerary.train == 1
+                        ? _c(
+                            "div",
+                            { staticClass: "card-icon float-left p-0" },
+                            [
+                              _c("img", {
+                                staticClass: "explore-icon-width",
+                                attrs: {
+                                  src: "/images/icons/Itinerary_bus_icon.png"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("br")
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      itinerary.bus == "1"
+                        ? _c(
+                            "div",
+                            { staticClass: "card-icon float-left p-0" },
+                            [
+                              _c("img", {
+                                staticClass: "explore-icon-width",
+                                attrs: {
+                                  src: "/images/icons/Itinerary_bus_icon.png"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("br")
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      itinerary.flight == "1"
+                        ? _c(
+                            "div",
+                            { staticClass: "card-icon float-left p-0" },
+                            [
+                              _c("img", {
+                                staticClass: "explore-icon-width",
+                                attrs: {
+                                  src: "/images/icons/Itinerary_flight_icon.png"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("br")
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      itinerary.food != "0"
+                        ? _c(
+                            "div",
+                            { staticClass: "card-icon float-left p-0" },
+                            [
+                              _c("img", {
+                                staticClass: "explore-icon-width",
+                                attrs: {
+                                  src: "/images/icons/Itinerary_lunch_icon.png"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("br")
+                            ]
+                          )
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1, true)
+                  ]
+                )
               ])
             ]
           )
-        ],
-        1
+        ]
       )
     }),
     0
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-flex flex-column pl-10" }, [
+      _c(
+        "p",
+        {
+          staticClass: "priceText",
+          staticStyle: {
+            "font-size": "19.5px",
+            "font-weight": "550",
+            "margin-bottom": "0px !important",
+            color: "#4a4343"
+          }
+        },
+        [_vm._v("Rs. 10,000/-")]
+      ),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          staticClass: "personText",
+          staticStyle: {
+            "font-size": "15px",
+            "font-weight": "400",
+            color: "grey",
+            "margin-top": "-6px"
+          }
+        },
+        [_vm._v("per person")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mr-10" }, [
+      _c(
+        "button",
+        { staticClass: "btn bookbtn-custom", attrs: { type: "button" } },
+        [_vm._v("BOOK")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -1075,6 +1178,9 @@ var ExploreSearchMixin = {
       tourtype_option: [],
       options: [],
       destinationCities: [],
+      panel: "Itinerary",
+      tripType: 'return',
+      portType: 'car',
       sources: {
         value: "",
         text: ""
@@ -1126,7 +1232,8 @@ var ExploreSearchMixin = {
         source: [],
         destination: [],
         tourtype: [],
-        noofday: []
+        noofday: [],
+        clientType: 'student'
       })
     };
   },
@@ -1164,33 +1271,102 @@ var ExploreSearchMixin = {
     this.getCities();
   },
   methods: {
+    portChanged: function portChanged(port) {
+      this.portType = port;
+      this.getCities(port);
+      console.log(this.options);
+    },
     getCities: function getCities() {
       var _this4 = this;
 
-      this.$axios.get("/api/regional-cities/national").then(function (res) {
-        for (var i = 0; i < res.data.length; i++) {
-          _this4.options.push({
-            value: res.data[i].name,
-            text: res.data[i].name
-          });
-        }
+      this.options = [];
+      this.destinationCities = [];
 
-        _this4.destinationCities = _this4.options;
-      });
+      if (this.portType == 'plane') {
+        this.$axios.get("/api/airports-national").then(function (res) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this4.options.push({
+              value: res.data[i].city,
+              text: res.data[i].city,
+              code: res.data[i].iata_code
+            });
+          }
+
+          _this4.destinationCities = _this4.options;
+          console.log(_this4.options);
+        });
+      }
+
+      if (this.portType == 'train') {
+        //console.log('hi')
+        this.$axios.get("/api/stations-national").then(function (res) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this4.options.push({
+              value: res.data[i].name,
+              text: res.data[i].name,
+              code: res.data[i].code
+            });
+          }
+
+          _this4.destinationCities = _this4.options;
+          console.log(_this4.options);
+        });
+      } else {
+        this.$axios.get("/api/regional-cities/national").then(function (res) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this4.options.push({
+              value: res.data[i].name,
+              text: res.data[i].name
+            });
+          }
+
+          _this4.destinationCities = _this4.options;
+          console.log(_this4.options);
+        });
+      }
     },
     getInternationalCities: function getInternationalCities() {
       var _this5 = this;
 
-      this.$axios.get("/api/regional-cities/international").then(function (res) {
-        _this5.destinationCities = [];
+      this.options = [];
+      this.destinationCities = [];
 
-        for (var i = 0; i < res.data.length; i++) {
-          _this5.destinationCities.push({
-            value: res.data[i].name,
-            text: res.data[i].name
-          });
-        }
-      });
+      if (this.portType == 'plane') {
+        this.$axios.get("/api/airports-international").then(function (res) {
+          _this5.destinationCities = [];
+
+          for (var i = 0; i < res.data.length; i++) {
+            _this5.destinationCities.push({
+              value: res.data[i].city,
+              text: res.data[i].city,
+              code: res.data[i].iata_code
+            });
+          }
+        });
+      } else if (this.portType == 'train') {
+        this.$axios.get("/api/stations-national").then(function (res) {
+          _this5.destinationCities = [];
+
+          for (var i = 0; i < res.data.length; i++) {
+            _this5.destinationCities.push({
+              value: res.data[i].name,
+              text: res.data[i].name,
+              code: res.data[i].code
+            });
+          }
+        });
+      } else {
+        this.$axios.get("/api/regional-cities/international").then(function (res) {
+          _this5.destinationCities = [];
+
+          for (var i = 0; i < res.data.length; i++) {
+            _this5.destinationCities.push({
+              value: res.data[i].name,
+              text: res.data[i].name
+            });
+          }
+        });
+      }
     },
     intersected: function intersected() {
       var _this6 = this;

@@ -1,6 +1,5 @@
 <?php
 namespace App\Http\Controllers\Front;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Softon\Indipay\Facades\Indipay; 
@@ -13,7 +12,6 @@ use App\Helpers\SendSms;
 use App\Helpers\Crypto;
 use App\Jobs\PaymentSuccessJob;
 use App\Model\School\Groupmember;
-
 class PaymentController extends Controller
 {
   public $form;

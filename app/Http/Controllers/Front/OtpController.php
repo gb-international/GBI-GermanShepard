@@ -13,7 +13,6 @@ use App\Model\User\Information;
 use App\Otp;
 use Session,DB,Hash,Redirect,Mail;
 use App\Helpers\SendSms;
-
 class OtpController extends Controller
 {
 

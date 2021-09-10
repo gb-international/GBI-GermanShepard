@@ -1,16 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Front;
-
 use Illuminate\Support\Facades\File;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\Model\Post\Post;
 use App\Model\Itinerary\Itinerary;
 use App\Model\Encyclopedia\Encyclopedia;
-
 class AppController extends Controller
 {
 

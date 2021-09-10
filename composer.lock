@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a79c832ab0d903e4378f850f50e2fa51",
+    "content-hash": "7b97b7eab297d86578009389200a2ff3",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1210,6 +1210,63 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.8.2"
             },
             "time": "2021-04-26T09:17:50+00:00"
+        },
+        {
+            "name": "ijeffro/laravel-airports",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FLAIRUK/laravel-airports.git",
+                "reference": "0496dfedc18935336e0f828b3522c2ced6caf237"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FLAIRUK/laravel-airports/zipball/0496dfedc18935336e0f828b3522c2ced6caf237",
+                "reference": "0496dfedc18935336e0f828b3522c2ced6caf237",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "default-branch": true,
+            "type": "laravel-library",
+            "autoload": {
+                "psr-0": {
+                    "ijeffro\\Airports": "src/"
+                },
+                "classmap": [
+                    "src/commands"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phil Graham",
+                    "email": "phil@flairdesign.uk",
+                    "homepage": "https://www.flairdesign.uk",
+                    "role": "developer"
+                },
+                {
+                    "name": "ijeffro",
+                    "role": "developer"
+                }
+            ],
+            "description": "Laravel Airports is a bundle for Laravel, providing Iata Code ISO 3166 3 and country codes for all the airports.",
+            "homepage": "https://github.com/ijeffro/laravel-airports",
+            "keywords": [
+                "airports",
+                "country_code",
+                "iso_3166_3",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/ijeffro/laravel-airports/issues",
+                "source": "https://github.com/ijeffro/laravel-airports"
+            },
+            "time": "2019-05-29T09:07:19+00:00"
         },
         {
             "name": "intervention/image",
@@ -10663,7 +10720,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "ijeffro/laravel-airports": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

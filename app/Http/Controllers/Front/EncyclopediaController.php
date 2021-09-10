@@ -1,11 +1,4 @@
 <?php
-
-/* ************************************************
-      Author: Ajay 
-      Edited by: Manas
-      **************************************************** */
-/* Edits: Added country field to json responses */
-
 namespace App\Http\Controllers\Front;
 use App\Model\Encyclopedia\Encyclopedia;
 use App\Model\Encyclopedia\Encyclopediacomment;
@@ -15,8 +8,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-
-
 class EncyclopediaController extends Controller
 {
     public function index()

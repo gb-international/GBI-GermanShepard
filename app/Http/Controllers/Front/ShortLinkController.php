@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers\Front;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\LinkShortner\ShortLink;
-
 class ShortLinkController extends Controller
 {
 

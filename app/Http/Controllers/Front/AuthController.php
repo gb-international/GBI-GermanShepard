@@ -1,9 +1,4 @@
 <?php
-/* 
-Created by : Ajay yadav 
-Purpose : Manage front user login and register 
-
-*/
 namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; 
@@ -24,8 +19,6 @@ use App\Jobs\ChangePasswordJob;
 use App\Rules\EmailValidate;
 use App\Model\User\Subscriber;
 use App\Model\Notification\Notifier;
-
-
 class AuthController extends Controller{
 
     public function login(Request $request){ 

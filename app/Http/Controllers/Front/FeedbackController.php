@@ -1,12 +1,5 @@
 <?php
-
-/* ************************************************
-      Author: Manas
-      **************************************************** */
-/* Purpose: To Received Feeback from users */
-
 namespace App\Http\Controllers\Front;
-
 use App\Http\Resources\FeedbackResource;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
@@ -21,7 +14,6 @@ use Illuminate\Http\Request;
 use App\Model\Tour\Tour;
 use App\Helpers\SendSms;
 use App\User;
-
 class FeedbackController extends Controller
 {
    

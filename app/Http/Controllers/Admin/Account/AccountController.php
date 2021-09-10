@@ -4,7 +4,6 @@ Created by : Ajay yadav
 Purpose : Manage accountant itinerary which is sent to sales man 
 
 */
-
 namespace App\Http\Controllers\Admin\Account;
 use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
@@ -15,8 +14,6 @@ use App\Model\Tour\Tour;
 use Auth;
 use Notification;
 use App\Notifications\NewSalesAlertNotification;
-
-
 class AccountController extends Controller
 {
     /**

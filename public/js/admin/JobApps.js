@@ -199,6 +199,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(['items'])),
   methods: {
+    redirMeet: function redirMeet() {
+      window.open('https://meet.google.com');
+    },
     redirPdf: function redirPdf(link) {
       window.open(link);
     },
@@ -799,9 +802,18 @@ var render = function() {
                       : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "bottom-items" }, [
-                      _c("button", { staticClass: "cButton meetButton" }, [
-                        _vm._v("Meeting Scheduler")
-                      ]),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "cButton meetButton",
+                          on: {
+                            click: function($event) {
+                              return _vm.redirMeet()
+                            }
+                          }
+                        },
+                        [_vm._v("Meeting Scheduler")]
+                      ),
                       _vm._v(" "),
                       _c(
                         "button",

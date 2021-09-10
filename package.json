@@ -79,6 +79,7 @@
         "vue-form-wizard": "^0.8.4",
         "vue-gtag": "^1.16.1",
         "vue-headful": "^2.1.0",
+        "vue-hotel-datepicker": "^4.5.0",
         "vue-html-to-paper": "^1.3.1",
         "vue-html2pdf": "^1.8.0",
         "vue-meta": "^2.4.0",

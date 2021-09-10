@@ -24,7 +24,6 @@ use GuzzleHttp\Client;
 use App\Model\School\Groupmember;
 use App\Model\Corporate\CorpGroupmember;
 use Illuminate\Support\Facades\Hash;
-
 class TourController extends Controller{
 
      public function tourList(Request $request){

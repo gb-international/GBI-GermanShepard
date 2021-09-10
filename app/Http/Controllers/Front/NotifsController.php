@@ -5,7 +5,6 @@ Purpose : Get Notifications at Frontend
 
 */
 namespace App\Http\Controllers\Front;
-
 use DB;
 use App\User;
 use Carbon\Carbon;
@@ -15,8 +14,6 @@ use App\Model\Notification\Notifier;
 use App\Http\Controllers\Controller;
 use App\Model\Notification\Notification;
 use App\Http\Resources\NotificationResource;
-
-
 class NotifsController extends Controller
 {
     /**

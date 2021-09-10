@@ -381,6 +381,366 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -402,6 +762,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   components: {
     Observer: _front_components_Observer__WEBPACK_IMPORTED_MODULE_2__["default"],
     'alert-modals': _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  data: function data() {
+    return {};
   },
   mixins: [_front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
   beforeCreate: function beforeCreate() {
@@ -563,9 +926,9 @@ var render = function() {
         },
         [
           _c("div", { staticClass: "content" }, [
-            _c("div", { staticClass: "container-fluid" }, [
+            _c("div", { staticClass: "container-custom" }, [
               _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-sm-12 m-0 p-0" }, [
+                _c("div", { staticClass: "col-12 m-0 p-0" }, [
                   _c("form", { attrs: { role: "form", autocomplete: "off" } }, [
                     _c("div", { staticClass: "nav-sreach-explo" }, [
                       _c(
@@ -580,11 +943,11 @@ var render = function() {
                                 attrs: { "data-toggle": "tab", href: "#home" },
                                 on: {
                                   click: function($event) {
-                                    _vm.multicity = !_vm.multicity
+                                    _vm.panel = "Itinerary"
                                   }
                                 }
                               },
-                              [_vm._v("Oneway")]
+                              [_vm._v("Itinerary")]
                             )
                           ]),
                           _vm._v(" "),
@@ -596,238 +959,134 @@ var render = function() {
                                 attrs: { "data-toggle": "tab", href: "#menu1" },
                                 on: {
                                   click: function($event) {
-                                    _vm.multicity = !_vm.multicity
+                                    _vm.panel = "Hotels"
                                   }
                                 }
                               },
-                              [_vm._v("Multicity")]
+                              [_vm._v("Hotels")]
                             )
                           ])
                         ]
                       ),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "tab-content explor-content pb-1" },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass: "container tab-pane active",
-                              attrs: { id: "home" }
-                            },
-                            [
-                              _c("div", { staticClass: "row search-radio" }, [
-                                _c("div", { staticClass: "col-sm-6" }, [
-                                  _c("div", { staticClass: "row pt-3 pb-3" }, [
-                                    _c("div", { staticClass: "col" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "custom-control custom-radio"
-                                        },
-                                        [
-                                          _c("input", {
-                                            directives: [
-                                              {
-                                                name: "model",
-                                                rawName: "v-model",
-                                                value: _vm.region,
-                                                expression: "region"
-                                              }
-                                            ],
-                                            staticClass: "custom-control-input",
-                                            attrs: {
-                                              type: "radio",
-                                              id: "national",
-                                              name: "customRadio",
-                                              value: "national"
-                                            },
-                                            domProps: {
-                                              checked: _vm._q(
-                                                _vm.region,
-                                                "national"
-                                              )
-                                            },
-                                            on: {
-                                              change: function($event) {
-                                                _vm.region = "national"
-                                              }
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass:
-                                                "custom-control-label",
-                                              attrs: { for: "national" }
-                                            },
-                                            [_vm._v("National")]
-                                          )
-                                        ]
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "col" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "custom-control custom-radio"
-                                        },
-                                        [
-                                          _c("input", {
-                                            directives: [
-                                              {
-                                                name: "model",
-                                                rawName: "v-model",
-                                                value: _vm.region,
-                                                expression: "region"
-                                              }
-                                            ],
-                                            staticClass: "custom-control-input",
-                                            attrs: {
-                                              type: "radio",
-                                              id: "international",
-                                              name: "customRadio",
-                                              value: "international"
-                                            },
-                                            domProps: {
-                                              checked: _vm._q(
-                                                _vm.region,
-                                                "international"
-                                              )
-                                            },
-                                            on: {
-                                              change: function($event) {
-                                                _vm.region = "international"
-                                              }
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass:
-                                                "custom-control-label",
-                                              attrs: { for: "international" }
-                                            },
-                                            [_vm._v("International")]
-                                          )
-                                        ]
-                                      )
-                                    ])
-                                  ])
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "row p-0 parent_padding" },
-                                [
+                      _vm.panel == "Itinerary"
+                        ? _c("div", { staticClass: "explor-content pb-1" }, [
+                            _vm.tripType == "return"
+                              ? _c("div", { staticClass: "container" }, [
                                   _c(
                                     "div",
-                                    {
-                                      staticClass:
-                                        "col-6 col-sm-4 col-lg-4 input-p nopadding"
-                                    },
+                                    { staticClass: "row search-radio" },
                                     [
-                                      _c("model-select", {
-                                        attrs: {
-                                          options: _vm.options,
-                                          placeholder: "Leave from",
-                                          autocomplete: "off"
-                                        },
-                                        model: {
-                                          value: _vm.sources,
-                                          callback: function($$v) {
-                                            _vm.sources = $$v
-                                          },
-                                          expression: "sources"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "col-6 col-sm-4 col-lg-4 input-p nopadding"
-                                    },
-                                    [
-                                      _c("model-select", {
-                                        attrs: {
-                                          options: _vm.destinationCities,
-                                          placeholder: "Arrive at"
-                                        },
-                                        model: {
-                                          value: _vm.destinations,
-                                          callback: function($$v) {
-                                            _vm.destinations = $$v
-                                          },
-                                          expression: "destinations"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "col-6 col-sm-2 col-lg-2 input-p nopadding"
-                                    },
-                                    [
-                                      _c("div", { staticClass: "select" }, [
+                                      _c("div", { staticClass: "col-sm-6" }, [
                                         _c(
-                                          "select",
-                                          {
-                                            staticClass:
-                                              "placeholder_color ui fluid search selection dropdown",
-                                            attrs: { name: "typetour" },
-                                            on: {
-                                              change: function($event) {
-                                                return _vm.tourtypeOnChange(
-                                                  $event
-                                                )
-                                              }
-                                            }
-                                          },
+                                          "div",
+                                          { staticClass: "row pt-3 pb-3" },
                                           [
-                                            _c(
-                                              "option",
-                                              { attrs: { selected: "" } },
-                                              [_vm._v("In mood for")]
-                                            ),
-                                            _vm._v(" "),
-                                            _vm._l(
-                                              _vm.tourtype_option,
-                                              function(index) {
-                                                return _c(
-                                                  "option",
-                                                  {
-                                                    key: index.id,
+                                            _c("div", { staticClass: "col" }, [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "custom-control custom-radio"
+                                                },
+                                                [
+                                                  _c("input", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value: _vm.tripType,
+                                                        expression: "tripType"
+                                                      }
+                                                    ],
+                                                    staticClass:
+                                                      "custom-control-input",
+                                                    attrs: {
+                                                      type: "radio",
+                                                      id: "national",
+                                                      name: "customRadio",
+                                                      value: "return"
+                                                    },
                                                     domProps: {
-                                                      value: index.id
+                                                      checked: _vm._q(
+                                                        _vm.tripType,
+                                                        "return"
+                                                      )
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        _vm.tripType = "return"
+                                                      }
                                                     }
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                              " +
-                                                        _vm._s(index.name) +
-                                                        "\n                            "
-                                                    )
-                                                  ]
-                                                )
-                                              }
-                                            )
-                                          ],
-                                          2
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "custom-control-label",
+                                                      attrs: { for: "national" }
+                                                    },
+                                                    [_vm._v("Return")]
+                                                  )
+                                                ]
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("div", { staticClass: "col" }, [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "custom-control custom-radio"
+                                                },
+                                                [
+                                                  _c("input", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value: _vm.tripType,
+                                                        expression: "tripType"
+                                                      }
+                                                    ],
+                                                    staticClass:
+                                                      "custom-control-input",
+                                                    attrs: {
+                                                      type: "radio",
+                                                      id: "international",
+                                                      name: "customRadio",
+                                                      value: "multicity"
+                                                    },
+                                                    domProps: {
+                                                      checked: _vm._q(
+                                                        _vm.tripType,
+                                                        "multicity"
+                                                      )
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        _vm.tripType =
+                                                          "multicity"
+                                                      }
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "custom-control-label",
+                                                      attrs: {
+                                                        for: "international"
+                                                      }
+                                                    },
+                                                    [_vm._v("Multicity")]
+                                                  )
+                                                ]
+                                              )
+                                            ])
+                                          ]
                                         )
                                       ])
                                     ]
@@ -835,36 +1094,1636 @@ var render = function() {
                                   _vm._v(" "),
                                   _c(
                                     "div",
-                                    {
-                                      staticClass:
-                                        "col-6 col-sm-2 col-lg-2 input-p nopadding"
-                                    },
+                                    { staticClass: "row p-0 parent_padding" },
                                     [
-                                      _c("div", { staticClass: "select" }, [
-                                        _c(
-                                          "select",
-                                          {
-                                            staticClass:
-                                              "selectpicker ui selection dropdown",
-                                            attrs: { name: "noofday" },
-                                            on: {
-                                              change: function($event) {
-                                                return _vm.noofdaysOnChange(
-                                                  $event
-                                                )
-                                              }
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                        },
+                                        [
+                                          _c("model-select", {
+                                            attrs: {
+                                              options: _vm.options,
+                                              placeholder: "Leave from",
+                                              autocomplete: "off"
+                                            },
+                                            model: {
+                                              value: _vm.sources,
+                                              callback: function($$v) {
+                                                _vm.sources = $$v
+                                              },
+                                              expression: "sources"
                                             }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                        },
+                                        [
+                                          _c("model-select", {
+                                            attrs: {
+                                              options: _vm.destinationCities,
+                                              placeholder: "Arrive at"
+                                            },
+                                            model: {
+                                              value: _vm.destinations,
+                                              callback: function($$v) {
+                                                _vm.destinations = $$v
+                                              },
+                                              expression: "destinations"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                        },
+                                        [
+                                          _c("div", { staticClass: "select" }, [
+                                            _c(
+                                              "select",
+                                              {
+                                                staticClass:
+                                                  "placeholder_color ui fluid search selection dropdown",
+                                                attrs: { name: "typetour" },
+                                                on: {
+                                                  change: function($event) {
+                                                    return _vm.tourtypeOnChange(
+                                                      $event
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      selected: "",
+                                                      disabled: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("In mood for")]
+                                                ),
+                                                _vm._v(" "),
+                                                _vm._l(
+                                                  _vm.tourtype_option,
+                                                  function(index) {
+                                                    return _c(
+                                                      "option",
+                                                      {
+                                                        key: index.id,
+                                                        domProps: {
+                                                          value: index.id
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                              " +
+                                                            _vm._s(index.name) +
+                                                            "\n                            "
+                                                        )
+                                                      ]
+                                                    )
+                                                  }
+                                                )
+                                              ],
+                                              2
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                        },
+                                        [
+                                          _c("div", { staticClass: "select" }, [
+                                            _c(
+                                              "select",
+                                              {
+                                                staticClass:
+                                                  "selectpicker ui selection dropdown",
+                                                attrs: { name: "noofday" },
+                                                on: {
+                                                  change: function($event) {
+                                                    return _vm.noofdaysOnChange(
+                                                      $event
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  { attrs: { selected: "" } },
+                                                  [_vm._v("No. of days")]
+                                                ),
+                                                _vm._v(" "),
+                                                _vm._l(
+                                                  _vm.noofdays_option,
+                                                  function(index) {
+                                                    return _c(
+                                                      "option",
+                                                      {
+                                                        key: index.id,
+                                                        domProps: {
+                                                          value: index
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                              " +
+                                                            _vm._s(index) +
+                                                            "\n                            "
+                                                        )
+                                                      ]
+                                                    )
+                                                  }
+                                                )
+                                              ],
+                                              2
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-12 col-sm-6 col-lg-6 ml-2"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "row search-radio" },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "col-sm-12" },
+                                                [
+                                                  _c(
+                                                    "custLabel2",
+                                                    {
+                                                      staticClass: "pt-3",
+                                                      staticStyle: {
+                                                        "font-size": "13px"
+                                                      }
+                                                    },
+                                                    [_vm._v("Customer type")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    { staticClass: "row pb-3" },
+                                                    [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "col-md-4 col-6"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "custom-control custom-radio"
+                                                            },
+                                                            [
+                                                              _c("input", {
+                                                                directives: [
+                                                                  {
+                                                                    name:
+                                                                      "model",
+                                                                    rawName:
+                                                                      "v-model",
+                                                                    value:
+                                                                      _vm.clientType,
+                                                                    expression:
+                                                                      "clientType"
+                                                                  }
+                                                                ],
+                                                                staticClass:
+                                                                  "custom-control-input",
+                                                                attrs: {
+                                                                  type: "radio",
+                                                                  id: "student",
+                                                                  name:
+                                                                    "customRadio2",
+                                                                  value:
+                                                                    "student"
+                                                                },
+                                                                domProps: {
+                                                                  checked: _vm._q(
+                                                                    _vm.clientType,
+                                                                    "student"
+                                                                  )
+                                                                },
+                                                                on: {
+                                                                  change: function(
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.clientType =
+                                                                      "student"
+                                                                  }
+                                                                }
+                                                              }),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "label",
+                                                                {
+                                                                  staticClass:
+                                                                    "custom-control-label",
+                                                                  attrs: {
+                                                                    for:
+                                                                      "student"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Student"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "col-md-4 col-6"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "custom-control custom-radio"
+                                                            },
+                                                            [
+                                                              _c("input", {
+                                                                directives: [
+                                                                  {
+                                                                    name:
+                                                                      "model",
+                                                                    rawName:
+                                                                      "v-model",
+                                                                    value:
+                                                                      _vm.clientType,
+                                                                    expression:
+                                                                      "clientType"
+                                                                  }
+                                                                ],
+                                                                staticClass:
+                                                                  "custom-control-input",
+                                                                attrs: {
+                                                                  type: "radio",
+                                                                  id:
+                                                                    "corporate",
+                                                                  name:
+                                                                    "customRadio2",
+                                                                  value:
+                                                                    "corporate"
+                                                                },
+                                                                domProps: {
+                                                                  checked: _vm._q(
+                                                                    _vm.clientType,
+                                                                    "corporate"
+                                                                  )
+                                                                },
+                                                                on: {
+                                                                  change: function(
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.clientType =
+                                                                      "corporate"
+                                                                  }
+                                                                }
+                                                              }),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "label",
+                                                                {
+                                                                  staticClass:
+                                                                    "custom-control-label",
+                                                                  attrs: {
+                                                                    for:
+                                                                      "corporate"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Corporate"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "col-md-4 col-6"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "custom-control custom-radio"
+                                                            },
+                                                            [
+                                                              _c("input", {
+                                                                directives: [
+                                                                  {
+                                                                    name:
+                                                                      "model",
+                                                                    rawName:
+                                                                      "v-model",
+                                                                    value:
+                                                                      _vm.clientType,
+                                                                    expression:
+                                                                      "clientType"
+                                                                  }
+                                                                ],
+                                                                staticClass:
+                                                                  "custom-control-input",
+                                                                attrs: {
+                                                                  type: "radio",
+                                                                  id: "family",
+                                                                  name:
+                                                                    "customRadio2",
+                                                                  value:
+                                                                    "family"
+                                                                },
+                                                                domProps: {
+                                                                  checked: _vm._q(
+                                                                    _vm.clientType,
+                                                                    "family"
+                                                                  )
+                                                                },
+                                                                on: {
+                                                                  change: function(
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.clientType =
+                                                                      "family"
+                                                                  }
+                                                                }
+                                                              }),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "label",
+                                                                {
+                                                                  staticClass:
+                                                                    "custom-control-label",
+                                                                  attrs: {
+                                                                    for:
+                                                                      "family"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Family"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-12 col-sm-5 col-lg-5"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-sm-12" },
+                                            [
+                                              _c("custLabel", [
+                                                _vm._v("Choose your transport")
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "row pb-2" },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-2 mb-2",
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "car"
+                                                          _vm.getCities
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "car"
+                                                              ? "/images/icons/car_onclick_icon.png"
+                                                              : "/images/icons/car_icon_src.png"
+                                                        }
+                                                      })
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-2 mb-2",
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "bus"
+                                                          _vm.getCities
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "bus"
+                                                              ? "/images/icons/bus_onclick_icon.png"
+                                                              : "/images/icons/bus_icon_src.png"
+                                                        }
+                                                      })
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-2 mb-2",
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "train"
+                                                          _vm.getCities
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "train"
+                                                              ? "/images/icons/train_onclick_icon.png"
+                                                              : "/images/icons/train_icon_src.png"
+                                                        }
+                                                      })
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-2 mb-2",
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "plane"
+                                                          _vm.getCities()
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "plane"
+                                                              ? "/images/icons/flight_onclick_icon.png"
+                                                              : "/images/icons/flight_icon_src.png"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("p", { staticClass: "text-center" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn btn-defalt btn-lg center-block explore_custom_button",
+                                        attrs: { type: "submit" },
+                                        on: {
+                                          click: [
+                                            function($event) {
+                                              $event.preventDefault()
+                                              return _vm.searchAll()
+                                            },
+                                            function($event) {
+                                              _vm.show = !_vm.show
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                        SEARCH\n                      "
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              : _c("div", { staticClass: "container" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "row search-radio" },
+                                    [
+                                      _c("div", { staticClass: "col-sm-6" }, [
+                                        _c(
+                                          "div",
+                                          { staticClass: "row pt-3 pb-3" },
+                                          [
+                                            _c("div", { staticClass: "col" }, [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "custom-control custom-radio"
+                                                },
+                                                [
+                                                  _c("input", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value: _vm.tripType,
+                                                        expression: "tripType"
+                                                      }
+                                                    ],
+                                                    staticClass:
+                                                      "custom-control-input",
+                                                    attrs: {
+                                                      type: "radio",
+                                                      id: "national",
+                                                      name: "customRadio",
+                                                      value: "return"
+                                                    },
+                                                    domProps: {
+                                                      checked: _vm._q(
+                                                        _vm.tripType,
+                                                        "return"
+                                                      )
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        _vm.tripType = "return"
+                                                      }
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "custom-control-label",
+                                                      attrs: { for: "national" }
+                                                    },
+                                                    [_vm._v("Return")]
+                                                  )
+                                                ]
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("div", { staticClass: "col" }, [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "custom-control custom-radio"
+                                                },
+                                                [
+                                                  _c("input", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value: _vm.tripType,
+                                                        expression: "tripType"
+                                                      }
+                                                    ],
+                                                    staticClass:
+                                                      "custom-control-input",
+                                                    attrs: {
+                                                      type: "radio",
+                                                      id: "international",
+                                                      name: "customRadio",
+                                                      value: "multicity"
+                                                    },
+                                                    domProps: {
+                                                      checked: _vm._q(
+                                                        _vm.tripType,
+                                                        "multicity"
+                                                      )
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        _vm.tripType =
+                                                          "multicity"
+                                                      }
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "custom-control-label",
+                                                      attrs: {
+                                                        for: "international"
+                                                      }
+                                                    },
+                                                    [_vm._v("Multicity")]
+                                                  )
+                                                ]
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "row p-0 parent_padding" },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                        },
+                                        [
+                                          _c("model-select", {
+                                            attrs: {
+                                              options: _vm.options,
+                                              placeholder: "Leave from"
+                                            },
+                                            model: {
+                                              value: _vm.multi_source,
+                                              callback: function($$v) {
+                                                _vm.multi_source = $$v
+                                              },
+                                              expression: "multi_source"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                        },
+                                        [
+                                          _c("model-select", {
+                                            attrs: {
+                                              options: _vm.options,
+                                              placeholder: "Arrive at"
+                                            },
+                                            model: {
+                                              value: _vm.multi_destination,
+                                              callback: function($$v) {
+                                                _vm.multi_destination = $$v
+                                              },
+                                              expression: "multi_destination"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "row p-0 parent_padding" },
+                                    [
+                                      _vm._l(_vm.rows, function(row, index) {
+                                        return _c(
+                                          "div",
+                                          {
+                                            key: index,
+                                            staticClass: "col-sm-12 col-12"
                                           },
                                           [
+                                            _c("div", { staticClass: "row" }, [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-6 col-sm-6 input-p nopadding"
+                                                },
+                                                [
+                                                  _c("model-select", {
+                                                    attrs: {
+                                                      options: _vm.options,
+                                                      placeholder: "Leave from"
+                                                    },
+                                                    model: {
+                                                      value: row["source"],
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          row,
+                                                          "source",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "row['source']"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-6 col-sm-6 input-p nopadding"
+                                                },
+                                                [
+                                                  _c("model-select", {
+                                                    attrs: {
+                                                      options: _vm.options,
+                                                      placeholder: "Arrive at"
+                                                    },
+                                                    model: {
+                                                      value: row["destination"],
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          row,
+                                                          "destination",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "row['destination']"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                      }),
+                                      _vm._v(" "),
+                                      _c("div", {
+                                        staticClass: "col-8 col-md-10 col-lg-10"
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "col-4 col-md-2 col-lg-2"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "row button_group" },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "col-12" },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "buttons save_btn link"
+                                                    },
+                                                    [
+                                                      _vm.current_counter < 2
+                                                        ? _c(
+                                                            "p",
+                                                            {
+                                                              staticClass:
+                                                                "text-right addCity",
+                                                              on: {
+                                                                click:
+                                                                  _vm.addRow
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                " + Another City"
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _c(
+                                                            "p",
+                                                            {
+                                                              staticClass:
+                                                                "text-right removeCity",
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.deleteRow(
+                                                                    _vm.current_counter -
+                                                                      1
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "- Remove City"
+                                                              )
+                                                            ]
+                                                          )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    2
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "row parent_padding" },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                        },
+                                        [
+                                          _c("div", { staticClass: "select" }, [
                                             _c(
-                                              "option",
-                                              { attrs: { selected: "" } },
-                                              [_vm._v("No. of days")]
-                                            ),
-                                            _vm._v(" "),
-                                            _vm._l(
-                                              _vm.noofdays_option,
-                                              function(index) {
+                                              "select",
+                                              {
+                                                staticClass:
+                                                  "placeholder_color ui fluid search selection dropdown",
+                                                attrs: { name: "typetour" },
+                                                on: {
+                                                  change: function($event) {
+                                                    return _vm.tourtypeOnChange(
+                                                      $event
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  { attrs: { selected: "" } },
+                                                  [_vm._v("In mood for")]
+                                                ),
+                                                _vm._v(" "),
+                                                _vm._l(
+                                                  _vm.tourtype_option,
+                                                  function(index) {
+                                                    return _c(
+                                                      "option",
+                                                      {
+                                                        key: index.id,
+                                                        domProps: {
+                                                          value: index
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                              " +
+                                                            _vm._s(index.name) +
+                                                            "\n                            "
+                                                        )
+                                                      ]
+                                                    )
+                                                  }
+                                                )
+                                              ],
+                                              2
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                        },
+                                        [
+                                          _c("div", { staticClass: "select" }, [
+                                            _c(
+                                              "select",
+                                              {
+                                                staticClass:
+                                                  "selectpicker ui selection dropdown",
+                                                attrs: { name: "noofday" },
+                                                on: {
+                                                  change: function($event) {
+                                                    return _vm.noofdaysOnChange(
+                                                      $event
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  { attrs: { selected: "" } },
+                                                  [_vm._v("No. of days")]
+                                                ),
+                                                _vm._v(" "),
+                                                _vm._l(
+                                                  _vm.tourtype_option,
+                                                  function(index) {
+                                                    return _c(
+                                                      "option",
+                                                      {
+                                                        key: index.id,
+                                                        domProps: {
+                                                          value: index.id
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                              " +
+                                                            _vm._s(index.name) +
+                                                            "\n                            "
+                                                        )
+                                                      ]
+                                                    )
+                                                  }
+                                                )
+                                              ],
+                                              2
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-12 col-sm-6 col-lg-6 ml-2"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "row search-radio" },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "col-sm-12" },
+                                                [
+                                                  _c(
+                                                    "custLabel2",
+                                                    {
+                                                      staticClass: "pt-3",
+                                                      staticStyle: {
+                                                        "font-size": "13px"
+                                                      }
+                                                    },
+                                                    [_vm._v("Customer type")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    { staticClass: "row pb-3" },
+                                                    [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "col-md-4 col-6"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "custom-control custom-radio"
+                                                            },
+                                                            [
+                                                              _c("input", {
+                                                                directives: [
+                                                                  {
+                                                                    name:
+                                                                      "model",
+                                                                    rawName:
+                                                                      "v-model",
+                                                                    value:
+                                                                      _vm.clientType,
+                                                                    expression:
+                                                                      "clientType"
+                                                                  }
+                                                                ],
+                                                                staticClass:
+                                                                  "custom-control-input",
+                                                                attrs: {
+                                                                  type: "radio",
+                                                                  id: "student",
+                                                                  name:
+                                                                    "customRadio2",
+                                                                  value:
+                                                                    "student"
+                                                                },
+                                                                domProps: {
+                                                                  checked: _vm._q(
+                                                                    _vm.clientType,
+                                                                    "student"
+                                                                  )
+                                                                },
+                                                                on: {
+                                                                  change: function(
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.clientType =
+                                                                      "student"
+                                                                  }
+                                                                }
+                                                              }),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "label",
+                                                                {
+                                                                  staticClass:
+                                                                    "custom-control-label",
+                                                                  attrs: {
+                                                                    for:
+                                                                      "student"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Student"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "col-md-4 col-6"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "custom-control custom-radio"
+                                                            },
+                                                            [
+                                                              _c("input", {
+                                                                directives: [
+                                                                  {
+                                                                    name:
+                                                                      "model",
+                                                                    rawName:
+                                                                      "v-model",
+                                                                    value:
+                                                                      _vm.clientType,
+                                                                    expression:
+                                                                      "clientType"
+                                                                  }
+                                                                ],
+                                                                staticClass:
+                                                                  "custom-control-input",
+                                                                attrs: {
+                                                                  type: "radio",
+                                                                  id:
+                                                                    "corporate",
+                                                                  name:
+                                                                    "customRadio2",
+                                                                  value:
+                                                                    "corporate"
+                                                                },
+                                                                domProps: {
+                                                                  checked: _vm._q(
+                                                                    _vm.clientType,
+                                                                    "corporate"
+                                                                  )
+                                                                },
+                                                                on: {
+                                                                  change: function(
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.clientType =
+                                                                      "corporate"
+                                                                  }
+                                                                }
+                                                              }),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "label",
+                                                                {
+                                                                  staticClass:
+                                                                    "custom-control-label",
+                                                                  attrs: {
+                                                                    for:
+                                                                      "corporate"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Corporate"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "col-md-4 col-6"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "custom-control custom-radio"
+                                                            },
+                                                            [
+                                                              _c("input", {
+                                                                directives: [
+                                                                  {
+                                                                    name:
+                                                                      "model",
+                                                                    rawName:
+                                                                      "v-model",
+                                                                    value:
+                                                                      _vm.clientType,
+                                                                    expression:
+                                                                      "clientType"
+                                                                  }
+                                                                ],
+                                                                staticClass:
+                                                                  "custom-control-input",
+                                                                attrs: {
+                                                                  type: "radio",
+                                                                  id: "family",
+                                                                  name:
+                                                                    "customRadio2",
+                                                                  value:
+                                                                    "family"
+                                                                },
+                                                                domProps: {
+                                                                  checked: _vm._q(
+                                                                    _vm.clientType,
+                                                                    "family"
+                                                                  )
+                                                                },
+                                                                on: {
+                                                                  change: function(
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.clientType =
+                                                                      "family"
+                                                                  }
+                                                                }
+                                                              }),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "label",
+                                                                {
+                                                                  staticClass:
+                                                                    "custom-control-label",
+                                                                  attrs: {
+                                                                    for:
+                                                                      "family"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Family"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-12 col-sm-5 col-lg-5"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-sm-12" },
+                                            [
+                                              _c("custLabel", [
+                                                _vm._v("Choose your transport")
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "row pb-2" },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-2 mb-2",
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "car"
+                                                          _vm.getCities
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "car"
+                                                              ? "/images/icons/car_onclick_icon.png"
+                                                              : "/images/icons/car_icon_src.png"
+                                                        }
+                                                      })
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-2 mb-2",
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "bus"
+                                                          _vm.getCities
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "bus"
+                                                              ? "/images/icons/bus_onclick_icon.png"
+                                                              : "/images/icons/bus_icon_src.png"
+                                                        }
+                                                      })
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-2 mb-2",
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "train"
+                                                          _vm.getCities
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "train"
+                                                              ? "/images/icons/train_onclick_icon.png"
+                                                              : "/images/icons/train_icon_src.png"
+                                                        }
+                                                      })
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-2 mb-2",
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "plane"
+                                                          _vm.getCities()
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "plane"
+                                                              ? "/images/icons/flight_onclick_icon.png"
+                                                              : "/images/icons/flight_icon_src.png"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("p", { staticClass: "text-center" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn btn-defalt btn-lg center-block explore_custom_button",
+                                        attrs: { type: "submit" },
+                                        on: {
+                                          click: [
+                                            function($event) {
+                                              $event.preventDefault()
+                                              return _vm.searchAll()
+                                            },
+                                            function($event) {
+                                              _vm.show = !_vm.show
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                        SEARCH\n                      "
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ])
+                          ])
+                        : _c(
+                            "div",
+                            {
+                              staticClass: "explor-content pb-1",
+                              staticStyle: { "padding-top": "5.6vh !important" }
+                            },
+                            [
+                              _c("div", { staticClass: "container" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "row p-0 parent_padding" },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                      },
+                                      [
+                                        _c("model-select", {
+                                          attrs: {
+                                            options: _vm.options,
+                                            placeholder: "Location",
+                                            autocomplete: "off"
+                                          },
+                                          model: {
+                                            value: _vm.sources,
+                                            callback: function($$v) {
+                                              _vm.sources = $$v
+                                            },
+                                            expression: "sources"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                      },
+                                      [
+                                        _c("model-select", {
+                                          attrs: {
+                                            options: _vm.CheckInOut,
+                                            placeholder: "Check-In/Out"
+                                          },
+                                          model: {
+                                            value: _vm.destinations,
+                                            callback: function($$v) {
+                                              _vm.destinations = $$v
+                                            },
+                                            expression: "destinations"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                      },
+                                      [
+                                        _c("div", { staticClass: "select" }, [
+                                          _c(
+                                            "select",
+                                            {
+                                              staticClass:
+                                                "placeholder_color ui fluid search selection dropdown",
+                                              attrs: { name: "typetour" },
+                                              on: {
+                                                change: function($event) {
+                                                  return _vm.tourtypeOnChange(
+                                                    $event
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                { attrs: { selected: "" } },
+                                                [_vm._v("Guests")]
+                                              ),
+                                              _vm._v(" "),
+                                              _vm._l(
+                                                _vm.noofdays_option,
+                                                function(index) {
+                                                  return _c(
+                                                    "option",
+                                                    {
+                                                      key: index.id,
+                                                      domProps: {
+                                                        value: index.id
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                              " +
+                                                          _vm._s(index) +
+                                                          "\n                            "
+                                                      )
+                                                    ]
+                                                  )
+                                                }
+                                              )
+                                            ],
+                                            2
+                                          )
+                                        ])
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-6 col-sm-3 col-lg-3 input-p nopadding"
+                                      },
+                                      [
+                                        _c("div", { staticClass: "select" }, [
+                                          _c(
+                                            "select",
+                                            {
+                                              staticClass:
+                                                "selectpicker ui selection dropdown",
+                                              attrs: { name: "noofday" },
+                                              on: {
+                                                change: function($event) {
+                                                  return _vm.noofdaysOnChange(
+                                                    $event
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                { attrs: { selected: "" } },
+                                                [_vm._v("Room Category")]
+                                              ),
+                                              _vm._v(" "),
+                                              _vm._l(_vm.room_options, function(
+                                                index
+                                              ) {
                                                 return _c(
                                                   "option",
                                                   {
@@ -879,356 +2738,350 @@ var render = function() {
                                                     )
                                                   ]
                                                 )
-                                              }
-                                            )
-                                          ],
-                                          2
-                                        )
-                                      ])
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass: "container tab-pane",
-                              attrs: { id: "menu1" }
-                            },
-                            [
-                              _c("br"),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "row p-0 parent_padding" },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "col-6 col-sm-4 col-lg-4 input-p nopadding"
-                                    },
-                                    [
-                                      _c("model-select", {
-                                        attrs: {
-                                          options: _vm.options,
-                                          placeholder: "Leave from"
-                                        },
-                                        model: {
-                                          value: _vm.multi_source,
-                                          callback: function($$v) {
-                                            _vm.multi_source = $$v
-                                          },
-                                          expression: "multi_source"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "col-6 col-sm-4 col-lg-4 input-p nopadding"
-                                    },
-                                    [
-                                      _c("model-select", {
-                                        attrs: {
-                                          options: _vm.options,
-                                          placeholder: "Arrive at"
-                                        },
-                                        model: {
-                                          value: _vm.multi_destination,
-                                          callback: function($$v) {
-                                            _vm.multi_destination = $$v
-                                          },
-                                          expression: "multi_destination"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "row p-0 parent_padding" },
-                                [
-                                  _vm._l(_vm.rows, function(row, index) {
-                                    return _c(
-                                      "div",
-                                      { key: index, staticClass: "col-lg-8" },
-                                      [
-                                        _c("div", { staticClass: "row" }, [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "col-6 col-sm-6 input-p nopadding"
-                                            },
-                                            [
-                                              _c("model-select", {
-                                                attrs: {
-                                                  options: _vm.options,
-                                                  placeholder: "Leave from"
-                                                },
-                                                model: {
-                                                  value: row["source"],
-                                                  callback: function($$v) {
-                                                    _vm.$set(row, "source", $$v)
-                                                  },
-                                                  expression: "row['source']"
-                                                }
                                               })
                                             ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "col-6 col-sm-6 input-p nopadding"
-                                            },
-                                            [
-                                              _c("model-select", {
-                                                attrs: {
-                                                  options: _vm.options,
-                                                  placeholder: "Arrive at"
-                                                },
-                                                model: {
-                                                  value: row["destination"],
-                                                  callback: function($$v) {
-                                                    _vm.$set(
-                                                      row,
-                                                      "destination",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression:
-                                                    "row['destination']"
-                                                }
-                                              })
-                                            ],
-                                            1
+                                            2
                                           )
                                         ])
                                       ]
-                                    )
-                                  }),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "col-lg-2" }, [
+                                    ),
+                                    _vm._v(" "),
                                     _c(
                                       "div",
-                                      { staticClass: "row button_group" },
+                                      {
+                                        staticClass:
+                                          "col-6 col-sm-3 col-lg-3 input-p nopadding"
+                                      },
                                       [
-                                        _c("div", { staticClass: "col-12" }, [
-                                          _vm.city_button == _vm.current_counter
-                                            ? _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "buttons save_btn link"
-                                                },
-                                                [
-                                                  _vm.city_button ==
-                                                  _vm.current_counter
-                                                    ? _c("img", {
-                                                        class: {
-                                                          disable:
-                                                            _vm.save_disable_btn
-                                                        },
-                                                        attrs: {
-                                                          src:
-                                                            "/images/icons/multiple_add.png"
-                                                        },
-                                                        on: {
-                                                          click: _vm.addRow
-                                                        }
-                                                      })
-                                                    : _vm._e()
-                                                ]
-                                              )
-                                            : _vm._e(),
-                                          _vm._v(" "),
-                                          _vm.city_button == _vm.current_counter
-                                            ? _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "buttons remove_btn link"
-                                                },
-                                                [
-                                                  _c("img", {
-                                                    class: {
-                                                      disable:
-                                                        _vm.remove_disable_btn
+                                        _c("div", { staticClass: "select" }, [
+                                          _c(
+                                            "select",
+                                            {
+                                              staticClass:
+                                                "selectpicker ui selection dropdown",
+                                              attrs: { name: "noofday" },
+                                              on: {
+                                                change: function($event) {
+                                                  return _vm.noofdaysOnChange(
+                                                    $event
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                { attrs: { selected: "" } },
+                                                [_vm._v("No. of rooms")]
+                                              ),
+                                              _vm._v(" "),
+                                              _vm._l(
+                                                _vm.noofdays_option,
+                                                function(index) {
+                                                  return _c(
+                                                    "option",
+                                                    {
+                                                      key: index.id,
+                                                      domProps: { value: index }
                                                     },
-                                                    attrs: {
-                                                      src:
-                                                        "/images/icons/multiple_minus.png"
-                                                    },
-                                                    on: {
-                                                      click: function($event) {
-                                                        return _vm.deleteRow(
-                                                          _vm.current_counter -
-                                                            1
-                                                        )
-                                                      }
-                                                    }
-                                                  })
-                                                ]
+                                                    [
+                                                      _vm._v(
+                                                        "\n                              " +
+                                                          _vm._s(index) +
+                                                          "\n                            "
+                                                      )
+                                                    ]
+                                                  )
+                                                }
                                               )
-                                            : _vm._e()
+                                            ],
+                                            2
+                                          )
                                         ])
                                       ]
-                                    )
-                                  ])
-                                ],
-                                2
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "row parent_padding" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-6 col-sm-2 col-lg-2 input-p nopadding"
-                                  },
-                                  [
-                                    _c("div", { staticClass: "select" }, [
-                                      _c(
-                                        "select",
-                                        {
-                                          staticClass:
-                                            "placeholder_color ui fluid search selection dropdown",
-                                          attrs: { name: "typetour" },
-                                          on: {
-                                            change: function($event) {
-                                              return _vm.tourtypeOnChange(
-                                                $event
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "option",
-                                            { attrs: { selected: "" } },
-                                            [_vm._v("In mood for")]
-                                          ),
-                                          _vm._v(" "),
-                                          _vm._l(_vm.tourtype_option, function(
-                                            index
-                                          ) {
-                                            return _c(
-                                              "option",
-                                              {
-                                                key: index.id,
-                                                domProps: { value: index }
-                                              },
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-12 col-sm-6 col-lg-6 ml-2"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "row search-radio" },
+                                          [
+                                            _c(
+                                              "div",
+                                              { staticClass: "col-sm-12" },
                                               [
-                                                _vm._v(
-                                                  "\n                              " +
-                                                    _vm._s(index.name) +
-                                                    "\n                            "
+                                                _c(
+                                                  "custLabel2",
+                                                  {
+                                                    staticClass: "pt-3",
+                                                    staticStyle: {
+                                                      "font-size": "13px"
+                                                    }
+                                                  },
+                                                  [_vm._v("Customer type")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "row pb-3" },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-md-4 col-6"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "custom-control custom-radio"
+                                                          },
+                                                          [
+                                                            _c("input", {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.clientType,
+                                                                  expression:
+                                                                    "clientType"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "custom-control-input",
+                                                              attrs: {
+                                                                type: "radio",
+                                                                id: "student",
+                                                                name:
+                                                                  "customRadio2",
+                                                                value: "student"
+                                                              },
+                                                              domProps: {
+                                                                checked: _vm._q(
+                                                                  _vm.clientType,
+                                                                  "student"
+                                                                )
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  _vm.clientType =
+                                                                    "student"
+                                                                }
+                                                              }
+                                                            }),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "label",
+                                                              {
+                                                                staticClass:
+                                                                  "custom-control-label",
+                                                                attrs: {
+                                                                  for: "student"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Student"
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-md-4 col-6"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "custom-control custom-radio"
+                                                          },
+                                                          [
+                                                            _c("input", {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.clientType,
+                                                                  expression:
+                                                                    "clientType"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "custom-control-input",
+                                                              attrs: {
+                                                                type: "radio",
+                                                                id: "corporate",
+                                                                name:
+                                                                  "customRadio2",
+                                                                value:
+                                                                  "corporate"
+                                                              },
+                                                              domProps: {
+                                                                checked: _vm._q(
+                                                                  _vm.clientType,
+                                                                  "corporate"
+                                                                )
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  _vm.clientType =
+                                                                    "corporate"
+                                                                }
+                                                              }
+                                                            }),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "label",
+                                                              {
+                                                                staticClass:
+                                                                  "custom-control-label",
+                                                                attrs: {
+                                                                  for:
+                                                                    "corporate"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Corporate"
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-md-4 col-6"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "custom-control custom-radio"
+                                                          },
+                                                          [
+                                                            _c("input", {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.clientType,
+                                                                  expression:
+                                                                    "clientType"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "custom-control-input",
+                                                              attrs: {
+                                                                type: "radio",
+                                                                id: "family",
+                                                                name:
+                                                                  "customRadio2",
+                                                                value: "family"
+                                                              },
+                                                              domProps: {
+                                                                checked: _vm._q(
+                                                                  _vm.clientType,
+                                                                  "family"
+                                                                )
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  _vm.clientType =
+                                                                    "family"
+                                                                }
+                                                              }
+                                                            }),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "label",
+                                                              {
+                                                                staticClass:
+                                                                  "custom-control-label",
+                                                                attrs: {
+                                                                  for: "family"
+                                                                }
+                                                              },
+                                                              [_vm._v("Family")]
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
                                                 )
-                                              ]
+                                              ],
+                                              1
                                             )
-                                          })
-                                        ],
-                                        2
-                                      )
-                                    ])
+                                          ]
+                                        )
+                                      ]
+                                    )
                                   ]
                                 ),
                                 _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-6 col-sm-2 col-lg-2 input-p nopadding"
-                                  },
-                                  [
-                                    _c("div", { staticClass: "select" }, [
-                                      _c(
-                                        "select",
-                                        {
-                                          staticClass:
-                                            "selectpicker ui selection dropdown",
-                                          attrs: { name: "noofday" },
-                                          on: {
-                                            change: function($event) {
-                                              return _vm.noofdaysOnChange(
-                                                $event
-                                              )
-                                            }
+                                _c("p", { staticClass: "text-center" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-defalt btn-lg center-block explore_custom_button",
+                                      attrs: { type: "submit" },
+                                      on: {
+                                        click: [
+                                          function($event) {
+                                            $event.preventDefault()
+                                            return _vm.searchAll()
+                                          },
+                                          function($event) {
+                                            _vm.show = !_vm.show
                                           }
-                                        },
-                                        [
-                                          _c(
-                                            "option",
-                                            { attrs: { selected: "" } },
-                                            [_vm._v("No. of days")]
-                                          ),
-                                          _vm._v(" "),
-                                          _vm._l(_vm.tourtype_option, function(
-                                            index
-                                          ) {
-                                            return _c(
-                                              "option",
-                                              {
-                                                key: index.id,
-                                                domProps: { value: index.id }
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "\n                              " +
-                                                    _vm._s(index.name) +
-                                                    "\n                            "
-                                                )
-                                              ]
-                                            )
-                                          })
-                                        ],
-                                        2
+                                        ]
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                        SEARCH\n                      "
                                       )
-                                    ])
-                                  ]
-                                )
+                                    ]
+                                  )
+                                ])
                               ])
                             ]
                           )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "text-center" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "btn btn-defalt btn-lg center-block profile_button",
-                          attrs: { type: "submit" },
-                          on: {
-                            click: [
-                              function($event) {
-                                $event.preventDefault()
-                                return _vm.searchAll()
-                              },
-                              function($event) {
-                                _vm.show = !_vm.show
-                              }
-                            ]
-                          }
-                        },
-                        [_vm._v("\n                  Search\n                ")]
-                      )
                     ])
                   ])
                 ])

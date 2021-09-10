@@ -26,8 +26,6 @@ use App\Jobs\ChangePasswordJob;
 use App\Rules\EmailValidate;
 use App\Traits\ImageTrait;
 use App\Http\Resources\SocialResource;
-
-
 class UserController extends Controller{
     public $successStatus = 200;
     private $id = 'csrikhi@gbinternational.in';
@@ -143,9 +141,8 @@ class UserController extends Controller{
                 Subscriber::create($data);
             }
         }
-
+        
         return response()->json('Successuflly updated');
-
     }
 
     public function UserImage(Request $request){

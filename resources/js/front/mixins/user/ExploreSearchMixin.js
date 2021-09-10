@@ -21,6 +21,9 @@ const ExploreSearchMixin = {
             tourtype_option: [],
             options: [],
             destinationCities: [],
+            panel: "Itinerary",
+            tripType: 'return',
+            portType: 'car',
             sources: { value: "", text: "" },
             destinations: { value: "", text: "" },
             multi_source: { value: "", text: "" },
@@ -57,6 +60,7 @@ const ExploreSearchMixin = {
                 destination: [],
                 tourtype: [],
                 noofday: [],
+                clientType: 'student',
             }),
         };
     },
@@ -92,28 +96,92 @@ const ExploreSearchMixin = {
     },
 
     methods: {
-        getCities() {
-            this.$axios.get(`/api/regional-cities/national`).then((res) => {
-                for (var i = 0; i < res.data.length; i++) {
-                    this.options.push({
-                        value: res.data[i].name,
-                        text: res.data[i].name,
-                    });
-                }
-                this.destinationCities = this.options;
-            });
+        portChanged(port) {
+            this.portType = port
+            this.getCities(port)
+            console.log(this.options) 
         },
-
+        getCities() {
+          this.options = []
+          this.destinationCities = []
+          if(this.portType == 'plane'){
+              this.$axios.get(`/api/airports-national`).then((res) => {
+                  for (var i = 0; i < res.data.length; i++) {
+                      this.options.push({
+                          value: res.data[i].city,
+                          text: res.data[i].city,
+                          code: res.data[i].iata_code,
+                      });
+                  }
+                  this.destinationCities = this.options;
+                  console.log(this.options) 
+              });
+          }
+          if(this.portType == 'train'){
+                //console.log('hi')
+                this.$axios.get(`/api/stations-national`).then((res) => {
+                    for (var i = 0; i < res.data.length; i++) {
+                        this.options.push({
+                            value: res.data[i].name,
+                            text: res.data[i].name,
+                            code: res.data[i].code,
+                        });
+                    }
+                    this.destinationCities = this.options;
+                    console.log(this.options) 
+                });
+            }
+          else{
+              this.$axios.get(`/api/regional-cities/national`).then((res) => {
+                  for (var i = 0; i < res.data.length; i++) {
+                      this.options.push({
+                          value: res.data[i].name,
+                          text: res.data[i].name,
+                      });
+                  }
+                  this.destinationCities = this.options;
+                  console.log(this.options) 
+              });
+          }        
+        },
         getInternationalCities() {
-            this.$axios.get(`/api/regional-cities/international`).then((res) => {
-                this.destinationCities = [];
-                for (var i = 0; i < res.data.length; i++) {
-                    this.destinationCities.push({
-                        value: res.data[i].name,
-                        text: res.data[i].name,
-                    });
-                }
-            });
+            this.options = []
+            this.destinationCities = []
+            if(this.portType == 'plane'){
+                this.$axios.get(`/api/airports-international`).then((res) => {
+                    this.destinationCities = [];
+                    for (var i = 0; i < res.data.length; i++) {
+                        this.destinationCities.push({
+                            value: res.data[i].city,
+                            text: res.data[i].city,
+                            code: res.data[i].iata_code,
+                        });
+                    }
+                });
+            }
+            else if(this.portType == 'train'){
+                this.$axios.get(`/api/stations-national`).then((res) => {
+                    this.destinationCities = [];
+                    for (var i = 0; i < res.data.length; i++) {
+                        this.destinationCities.push({
+                            value: res.data[i].name,
+                            text: res.data[i].name,
+                            code: res.data[i].code,
+                        });
+                    }
+                });
+            }
+            else{
+                this.$axios.get(`/api/regional-cities/international`).then((res) => {
+                    this.destinationCities = [];
+                    for (var i = 0; i < res.data.length; i++) {
+                        this.destinationCities.push({
+                            value: res.data[i].name,
+                            text: res.data[i].name,
+                        });
+                    }
+                });
+            }
         },
         async intersected() {
             if (this.loading == false) {

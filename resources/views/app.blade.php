@@ -44,12 +44,11 @@
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-<body>
+<body style="background: white !important">
 
-  <div>
-    <div id="app">
-      <App></App>
+  <div style="background: white !important">
+    <div id="app" style="background: white !important">
+      <App style="background: white !important;"></App>
     </div>
   </div>
 

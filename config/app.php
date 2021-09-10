@@ -180,6 +180,8 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Softon\Indipay\IndipayServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        ijeffro\Airports\AirportsServiceProvider::class,
+
 
     ],
 
@@ -195,7 +197,7 @@ return [
     */
 
     'aliases' => [
-
+        'Airports' => ijeffro\Airports\AirportsFacade::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,

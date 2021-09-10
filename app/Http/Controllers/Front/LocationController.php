@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Http\Controllers\Front;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Location\City;
 use App\Model\Location\Country;
-
 class LocationController extends Controller
 {
     public function cityList(){
@@ -49,6 +46,74 @@ class LocationController extends Controller
             }
         }
         return response()->json($cities);
+    }
+
+    public function airportsInt($city){
+
+        $portArray = array();
+
+        $json = file_get_contents('https://gbi-api-data.s3.ap-south-1.amazonaws.com/airplane-api/airports.json');
+        $json_data = json_decode($json, true);
+        foreach ($json_data as $port){
+            if($port['city'] == $city){
+                 array_push($portArray, $port);
+            }
+        }
+        return response()->json($portArray);
+        
+    }
+
+     public function airports($city){
+
+        $portArray = array();
+
+        $json = file_get_contents('https://gbi-api-data.s3.ap-south-1.amazonaws.com/airplane-api/airports.json');
+        $json_data = json_decode($json, true);
+        foreach ($json_data as $port){
+            if(strtolower($port['city']) == strtolower($city) && $port['country'] == 'India'){
+                 array_push($portArray, $port);
+            }
+        }
+        return response()->json($portArray);
+        
+    }
+
+
+    public function allAirportsNational(){
+
+        $portArray = array();
+
+        $file = \Storage::disk('APIs3')->files('airplane-api/airports.json');
+        $json = file_get_contents($file);
+
+        $json_data = json_decode($json, true);
+        foreach ($json_data as $port){
+            if($port['country'] == 'India'){
+                 array_push($portArray, $port);
+            }
+        }
+        return response()->json($portArray);
+        
+    }
+
+    public function allAirportsInt(){
+
+        $portArray = array();
+        $file = \Storage::disk('APIs3')->files('airplane-api/airports.json');
+        $json = file_get_contents($file);
+        $json_data = json_decode($json, true);
+        foreach ($json_data as $port){
+            array_push($portArray, $port);
+        }
+        return response()->json($portArray);
+        
+    }
+
+    public function allRailways(){
+        $portArray = array();
+        $file = \Storage::disk('APIs3')->files('Train-api/train-api.json');
+        $json = json_decode(file_get_contents('https://gbi-api-data.s3.ap-south-1.amazonaws.com/Train-api/train-api.json'));
+        return response()->json($json->data);
     }
 
 }

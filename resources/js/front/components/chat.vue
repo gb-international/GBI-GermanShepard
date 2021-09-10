@@ -27,27 +27,27 @@ export default {
           disableInput: true,
           options: [
             {
-              text: 'Booking Enquiry',
-              value: 'callFunc',
-              action: 'postback'
+              text: 'Explore Itineraries',
+              value: '/explore-destination',
+              action: 'url'
             },
             {
-              text: 'Itinerary Queries',
-              value: 'callFunc',
-              action: 'postback'
+              text: 'Travel Encyclopedia',
+              value: '/resources/travel-encyclopedia',
+              action: 'url'
             },
             {
-              text: 'Account Settings',
-              value: 'callFunc',
-              action: 'postback'
+              text: 'Customer Support',
+              value: '/contact-us',
+              action: 'url'
             },
             {
-              text: 'Customer Services',
-              value: 'callFunc',
-              action: 'postback',
+              text: 'Frequently Asked Questions',
+              value: '/resources/faq',
+              action: 'url'
             },
             {
-              text: 'Payment Queries',
+              text: 'Chat with us',
               value: 'callFunc',
               action: 'postback'
             },
@@ -83,6 +83,41 @@ export default {
         type: 'text',
         text: value.text
       })
+      if(value.text == 'Hello' || value.text == 'Hi' || value.text == 'hello' || value.text == 'hi' || value.text == 'hey' || value.text == 'Hey'){
+        this.data.push({
+          agent: 'bot',
+          type: 'button',
+          text: 'How may I help you today?',
+          disableInput: true,
+          options: [
+            {
+              text: 'Explore Itineraries',
+              value: '/explore-destination',
+              action: 'url'
+            },
+            {
+              text: 'Travel Encyclopedia',
+              value: '/resources/travel-encyclopedia',
+              action: 'url'
+            },
+            {
+              text: 'Customer Support',
+              value: '/contact-us',
+              action: 'url'
+            },
+            {
+              text: 'Frequently Asked Questions',
+              value: '/resources/faq',
+              action: 'url'
+            },
+            {
+              text: 'Chat with us',
+              value: 'callFunc',
+              action: 'postback'
+            },
+          ],
+        })
+      }
     }
   }
 }

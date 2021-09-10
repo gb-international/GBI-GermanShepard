@@ -1,13 +1,10 @@
 <?php
-
 namespace App\Http\Controllers\Front;
-
 use App\Http\Controllers\Controller;
 use App\Model\User\Subscriber;
 use App\User;
 use Illuminate\Http\Request;
 use App\Jobs\SubscribeJob;
-
 class SubscriberController extends Controller
 {
 

@@ -4416,61 +4416,68 @@ article {
   padding-top: 4PX;
 }
 
+.newCardList {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
 .cardlist {
   width: 100%;
 }
 
-.cardlist .image-col {
-  width: 38%;
-  float: left;
-  height: 128px;
+.explore-icon-width {
+  width: 32px;
 }
 
-.cardlist .image-col img {
-  height: 128px;
-  border-radius: 10px 0px 0px 10px;
+.image-col {
+  width: 100%;
+  height: 250px;
 }
 
-.cardlist .cardtext-col {
-  background-color: #f0f0f0;
+.image-col img {
+  height: 250px;
+  border-radius: 0px 0px 0px 0px;
+}
+
+.cardtext-col {
+  background-color: #ffffff;
   color: #666666;
   border-radius: 0px 10px 10px 0px;
-  width: 62%;
-  height: 128px;
-  float: right;
+  width: 100%;
+  height: 205px;
   padding-top: 5px;
 }
 
-.cardlist .cardtext-col .heading {
+.cardtext-col .heading {
   font-size: 13px;
 }
 
-.cardlist .cardtext-col .day {
+.cardtext-col .day {
   font-size: 14px;
 }
 
-.cardlist .cardtext-col .fas {
+.cardtext-col .fas {
   font-size: 20px;
 }
 
-.cardlist .cardtext-col span {
+.cardtext-col span {
   text-align: center;
   font-size: 12px;
 }
 
-.cardlist .cardtext-col .card-icon {
-  width: 60px;
+.cardtext-col .card-icon {
+  width: 40px;
 }
 
 @media only screen and (max-width: 510px) {
   .cardlist .cardtext-col .card-icon {
-    width: 43px;
+    width: 35px;
   }
 }
 
 @media only screen and (max-width: 1205px) and (min-width: 990px) {
   .cardlist .cardtext-col .card-icon {
-    width: 55px;
+    width: 33px;
   }
 }
 
@@ -4498,6 +4505,123 @@ article {
   font-size: 16px;
 }
 
+.container-custom {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 1vh;
+}
+
+.addCity {
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  color: #00aeefa8;
+}
+
+.removeCity {
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  padding-left: 10px !important;
+  color: red;
+}
+
+custLabel {
+  display: inline-block;
+  margin-bottom: .5rem;
+  margin-left: -4vw !important;
+}
+
+custLabel2 {
+  display: inline-block;
+  margin-bottom: .2rem;
+  margin-left: -2vw !important;
+}
+
+.cardPadding {
+  padding-bottom: 28px;
+}
+
+.bookbtn-custom {
+  color: white;
+  background-color: #00c4c4;
+  border-color: #00c4c4;
+  padding: 4px 25px 4px 25px;
+  width: 95px;
+  height: 38px;
+  border-radius: 0px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.explore_custom_button {
+  background: #00000036;
+  color: #ffffff;
+  border: 2px #ffffff solid;
+  padding: 10px 20px;
+  font-weight: 400;
+  height: 50px;
+  width: 250px;
+  font-size: 18px;
+  border-radius: 0px;
+  margin-top: 3.2vh;
+}
+
+@media (min-width: 768px) {
+  custLabel {
+    margin-left: -1vw !important;
+  }
+
+  .explore_custom_button {
+    margin-top: 2vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .explore_custom_button {
+    margin-top: 3.5vh;
+  }
+
+  .cardPadding {
+    padding-bottom: 28px;
+  }
+
+  .container-custom {
+    width: 70%;
+    margin-top: -6vh;
+  }
+
+  .addCity {
+    font-size: 15px;
+  }
+
+  .removeCity {
+    font-size: 15px;
+  }
+
+  custLabel {
+    margin-left: -1vw !important;
+  }
+
+  custLabel2 {
+    margin-left: -0.8vw !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-custom {
+    width: 60%;
+    margin-top: -8vh;
+  }
+
+  custLabel {
+    margin-left: -1vw !important;
+  }
+}
+
 .top-m-7 {
   margin-top: 7px;
 }
@@ -4514,15 +4638,15 @@ article {
 
 .serch-explo-menu .active {
   color: #ffffff !important;
-  background-color: rgba(43, 188, 255, 0.8) !important;
-  border-color: rgba(43, 188, 255, 0.8) !important;
+  background-color: #292548eb !important;
+  border-color: #292548eb !important;
   border-radius: 0px 0px 0 0 !important;
 }
 
 .serch-explo-menu a:hover {
-  background-color: #00aeefa8 !important;
+  background-color: #292548eb !important;
   color: #ffffff !important;
-  border-color: #00aeefa8 !important;
+  border-color: #292548eb !important;
   border-radius: 0px !important;
 }
 
@@ -4590,7 +4714,7 @@ article {
 }
 
 .explor-content {
-  background-color: rgba(43, 188, 255, 0.8);
+  background-color: #292548eb;
   border-radius: 0px 0px 5px 5px;
 }
 
@@ -6070,7 +6194,7 @@ a:hover {
 }
 
 .banner_img {
-  background-size: 100% 100%;
+  background-size: cover;
   display: inline-block;
 }
 
@@ -6079,9 +6203,9 @@ a:hover {
 }
 
 .banner_bg {
-  background-size: cover;
+  background-size: cover !important;
   background-repeat: no-repeat;
-  height: 507px;
+  height: 807px;
   padding: 0px;
 }
 
@@ -6163,8 +6287,10 @@ a:hover {
   }
 
   .explore_banner {
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
     background-image: url("https://gbi-assets.s3.ap-south-1.amazonaws.com/explore-dest_mb.gif");
-    background-size: 720px !important;
+    background-size: 820px !important;
   }
 
   .faq_banner {
@@ -6286,7 +6412,8 @@ a:hover {
 
 @media only screen and (max-width: 680px) {
   #exploreDestination .explore_banner {
-    height: 480px;
+    height: 820px;
+    background-size: cover !important;
   }
 
   #exploreDestination .content {

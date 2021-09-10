@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Escort;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,7 +15,6 @@ use App\Model\Restaurant\Restaurant;
 use App\Model\Tour\Tour;
 use App\Model\Tour\TourUser;
 use App\Model\Tour\Food;
-
 class TourController extends Controller 
 {
     public function tourList($id){

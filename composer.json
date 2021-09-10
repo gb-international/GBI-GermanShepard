@@ -14,6 +14,7 @@
         "codebar-ag/laravel-prerender": "^3.1",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "ijeffro/laravel-airports": "dev-master",
         "intervention/image": "^2.5",
         "laravel/framework": "^8.0",
         "laravel/legacy-factories": "^1.1",

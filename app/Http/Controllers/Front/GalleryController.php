@@ -1,14 +1,10 @@
 <?php
-
 namespace App\Http\Controllers\Front;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Gallery\Gallery;
-
 use App\Model\Encyclopedia\Encyclopedia;
 use App\Model\Encyclopedia\EncyclopediaImage;
-
 class GalleryController extends Controller
 {
 
