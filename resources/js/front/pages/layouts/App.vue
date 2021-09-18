@@ -6,7 +6,7 @@
   <!-- Edits: Added dropdowns to Travel Encyclopedia, Added Dropdown to Profile  -->
   <div id="app" class="relative">
     <nav
-      class="navbar navbar-expand-md bg-white navbar-light fixed-top"
+      class="navbar navbar-expand-md bg-white navbar-light fixed-top z-index: 999"
       id="navbar"
     >
       <div class="container">
@@ -360,16 +360,18 @@ export default {
     document.cookie = "GBIMeta =" + localStorage.getItem('front_meta.jwt') +"; path=/";
     //console.log(userData.subscription_id)
 
-    this.$store.dispatch('getNotifCount', userData.subscription_id) 
-
     this.loginCheck();
 
-    Echo.channel('gb_international_database_user-channel')
+    if(this.login != '1'){
+      this.$store.dispatch('getNotifCount', userData.subscription_id) 
+
+      Echo.channel('gb_international_database_user-channel')
          .listen('.UserEvent', (data) => {
 
           setTimeout(() =>
             this.$store.dispatch('getNotifCount', userData.subscription_id), 2000)
         });
+    }    
 
     //this.login = this.$cookies.get("login");
     /*if (this.login == null) {

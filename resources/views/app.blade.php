@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics
+<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138734768-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -9,7 +9,7 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-138734768-1');
-  </script>  -->
+  </script>  
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Pragma" content="no-cache">
@@ -17,8 +17,8 @@
   <!-- CSRF Token -->
   <title>{{ config('app.name', 'GBI') }}</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  
   <link rel="icon" type="image/png" href="{{ asset('assets/front/images/favicon.png') }}" />
+  {{-- <link rel="icon" type="image/png" href="{{ secure_asset('assets/front/images/favicon.png') }}" /> --}}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
   <!-- Font awesome Icons -->
@@ -43,6 +43,7 @@
   <meta property="og:type" content="website">
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  {{-- <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet"> --}}
 </head>
 <body style="background: white !important">
 
@@ -55,7 +56,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <script src="{{ asset('js/app.js') }}" defer></script> 
+  <script src="{{ asset('js/app.js') }}" defer></script>
+  {{-- <script src="{{ secure_asset('js/app.js') }}" defer></script> --}}
  {{-- {!! $ssr !!}
   <script src="{{ asset('js/app-client.js') }}" type="text/javascript"></script> 
 

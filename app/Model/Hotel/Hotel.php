@@ -21,8 +21,8 @@ class Hotel extends Model
         return $this->attributes['email'] = strtolower($value);
     }
 
-    public function bookedhotels()
+    public function bookedrooms()
     {
-    	return $this->hasMany('App\Model\Reservation\Bookedhotel');
+    	return $this->hasMany('App\Model\Hotel\BookedRooms');
     }
 }

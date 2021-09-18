@@ -70,6 +70,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/front/mixins/user/ExploreSearchMixin */ "./resources/js/front/mixins/user/ExploreSearchMixin.js");
 /* harmony import */ var _front_components_Observer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/front/components/Observer */ "./resources/js/front/components/Observer.vue");
 /* harmony import */ var _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/front/components/Explore/AlertModals.vue */ "./resources/js/front/components/Explore/AlertModals.vue");
+/* harmony import */ var vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-hotel-datepicker */ "./node_modules/vue-hotel-datepicker/dist/vueHotelDatepicker.common.js");
+/* harmony import */ var vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var vue_hotel_datepicker_dist_vueHotelDatepicker_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-hotel-datepicker/dist/vueHotelDatepicker.css */ "./node_modules/vue-hotel-datepicker/dist/vueHotelDatepicker.css");
+/* harmony import */ var vue_hotel_datepicker_dist_vueHotelDatepicker_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_hotel_datepicker_dist_vueHotelDatepicker_css__WEBPACK_IMPORTED_MODULE_5__);
 
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -741,11 +745,67 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "exploreDestinationList",
+  mixins: [_front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
   metaInfo: {
     title: "GBI Explore Destination",
     meta: [{
@@ -761,12 +821,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   components: {
     Observer: _front_components_Observer__WEBPACK_IMPORTED_MODULE_2__["default"],
+    HotelDatePicker: vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_4___default.a,
     'alert-modals': _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
-    return {};
+    return {
+      upcoming_data: "",
+      popular_data: "",
+      CheckInOut: [],
+      room_options: [],
+      room_types: ["Single", "Double", "Triple", "Quad"],
+      showPersonModal: false,
+      showRoomModal: false,
+      person: 2,
+      adults: 2,
+      children: 0,
+      infants: 0,
+      room: '',
+      room_text: '',
+      rooms: 1
+    };
   },
-  mixins: [_front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
   beforeCreate: function beforeCreate() {
     var metaInfo = {
       title: 'GBI Explore Destination',
@@ -778,6 +853,49 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
   },
   methods: {
+    incrVal: function incrVal(data) {
+      if (data == 'adults') {
+        this.adults += 1;
+      } else if (data == 'children') {
+        this.children += 1;
+      } else if (data == 'infants') {
+        this.infants += 1;
+      } else if (data == 'rooms') {
+        this.rooms += 1;
+      }
+    },
+    decrVal: function decrVal(data) {
+      if (data == 'adults' && this.adults > 0) {
+        this.adults -= 1;
+      } else if (data == 'children' && this.children > 0) {
+        this.children -= 1;
+      } else if (data == 'infants' && this.infants > 0) {
+        this.infants -= 1;
+      } else if (data == 'rooms' && this.rooms > 0) {
+        this.rooms -= 1;
+      }
+    },
+    savePersons: function savePersons() {
+      this.person = parseInt(this.children) + parseInt(this.adults);
+      var guest = 'Guest';
+
+      if (this.person > 1) {
+        guest = 'Guests';
+      }
+
+      if (this.infants > 0) {
+        this.people = this.person + ' ' + guest + ' + ' + this.infants + ' Infant(s)';
+      } else {
+        this.people = this.person + ' ' + guest;
+      }
+
+      this.showPersonModal = false;
+    },
+    saveRooms: function saveRooms() {
+      this.room = this.rooms;
+      this.room_text = this.room + ' Rooms';
+      this.showRoomModal = false;
+    },
     intersected: function intersected() {
       var _this = this;
 
@@ -826,16 +944,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       // Submit form
       var vm = this;
+
+      if (vm.noofday == '' || vm.tourtype == '' || vm.noofday == 'No. of days' || vm.tourtype == 'In mood for') {
+        return this.$swal.fire("Error", "Please select all the fields", "warning");
+      }
+
       vm.searchForm.reset();
       var source = [];
       var destination = [];
       vm.searchForm.noofday = vm.noofday;
       vm.searchForm.tourtype = vm.tourtype; // if multicity search or simple search
 
-      if (vm.multicity) {
+      if (vm.tripType == 'multicity') {
         //Multiple city search
-        destination = vm.multi_destination.text;
-        source = vm.multi_source.text;
+        destination = vm.multi_destination.value;
+        source = vm.multi_source.value;
 
         if (source.length > 1 && destination.length > 1) {
           vm.searchForm.source.push(source);
@@ -847,13 +970,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         var rows_length = vm.rows.length;
 
         for (var i = 0; i <= rows_length - 1; i++) {
-          vm.searchForm.source.push(vm.rows[i].source.text);
-          vm.searchForm.destination.push(vm.rows[i].destination.text);
+          vm.searchForm.source.push(vm.rows[i].source.value);
+          vm.searchForm.destination.push(vm.rows[i].destination.value);
         }
       } else {
         //Simple search
-        vm.searchForm.source.push(vm.sources.text);
-        vm.searchForm.destination.push(vm.destinations.text);
+        vm.searchForm.source.push(vm.sources.value);
+        vm.searchForm.destination.push(vm.destinations.value);
       }
 
       if (vm.searchForm.destination[0] != "" && vm.searchForm.destination[0] != "") {
@@ -865,7 +988,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             $("#AlertModalForExplore").modal('show');
           }
         })["catch"](function (error) {
-          _this2.$swal.fire("Alert", "please select the fields", "error");
+          //console.log(error)
+          _this2.$swal.fire("Sorry", "No Itinerary found.", "info");
         });
       } else {
         this.$swal.fire("Alert", "please select locations", "error");
@@ -873,6 +997,55 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/Explore/ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/pages/Explore/ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.explor-content input[type=\"text\"][data-v-0f4046d6], .explor-content select[data-v-0f4046d6], .explor-content textarea[data-v-0f4046d6] {\n    border: 0px solid #ccc !important;\n    width: 100%;\n    height: 46.2px;\n    border-radius: 4px;\n    padding-left: 15px;\n    font-size: 14px;\n}\n.marginT[data-v-0f4046d6] {\n  margin-top: 10px !important;\n}\nlegend[data-v-0f4046d6] {\n    padding-bottom: 14px;\n    text-align: left;\n}\nfieldset[data-v-0f4046d6] {\n    margin-bottom: 14px;\n    padding-bottom: 14px;\n}\nfieldset[data-v-0f4046d6], input[type=\"button\"][data-v-0f4046d6] {\n    border: 0;\n}\ninput[type=\"button\"][data-v-0f4046d6] {\n    background-color: #3490dc;\n    color: #fff;\n    cursor: pointer;\n    width: 35px;\n    height: 35px;\n    font-size: 17px;\n    border-radius: 20px;\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-0f4046d6] {\n    border: 1px solid #F4F3F3;\n    height: 40px;\n    width: 60%;\n    text-align: center;\n    outline: 2px solid transparent;\n    outline-offset: 2px;\n}\n.personLables[data-v-0f4046d6]{\n  color: grey;\n  text-align: center;\n  font-weight: 600;\n}\n.btn-primary[data-v-0f4046d6]{\n  background-color: #3490dc !important;\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/Explore/ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/pages/Explore/ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/Explore/ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 
@@ -900,10 +1073,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/Explore/ExploreList.vue?vue&type=template&id=0f4046d6&":
-/*!***********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/pages/Explore/ExploreList.vue?vue&type=template&id=0f4046d6& ***!
-  \***********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/Explore/ExploreList.vue?vue&type=template&id=0f4046d6&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/pages/Explore/ExploreList.vue?vue&type=template&id=0f4046d6&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -922,7 +1095,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "explore_banner text_on_image banner_bg explore_bg_img"
+          staticClass: "explore_banner text_on_image banner_bg2 explore_bg_img"
         },
         [
           _c("div", { staticClass: "content" }, [
@@ -1316,9 +1489,11 @@ var render = function() {
                                                                     rawName:
                                                                       "v-model",
                                                                     value:
-                                                                      _vm.clientType,
+                                                                      _vm
+                                                                        .searchForm
+                                                                        .clientType,
                                                                     expression:
-                                                                      "clientType"
+                                                                      "searchForm.clientType"
                                                                   }
                                                                 ],
                                                                 staticClass:
@@ -1333,7 +1508,9 @@ var render = function() {
                                                                 },
                                                                 domProps: {
                                                                   checked: _vm._q(
-                                                                    _vm.clientType,
+                                                                    _vm
+                                                                      .searchForm
+                                                                      .clientType,
                                                                     "student"
                                                                   )
                                                                 },
@@ -1341,8 +1518,11 @@ var render = function() {
                                                                   change: function(
                                                                     $event
                                                                   ) {
-                                                                    _vm.clientType =
+                                                                    return _vm.$set(
+                                                                      _vm.searchForm,
+                                                                      "clientType",
                                                                       "student"
+                                                                    )
                                                                   }
                                                                 }
                                                               }),
@@ -1390,9 +1570,11 @@ var render = function() {
                                                                     rawName:
                                                                       "v-model",
                                                                     value:
-                                                                      _vm.clientType,
+                                                                      _vm
+                                                                        .searchForm
+                                                                        .clientType,
                                                                     expression:
-                                                                      "clientType"
+                                                                      "searchForm.clientType"
                                                                   }
                                                                 ],
                                                                 staticClass:
@@ -1408,7 +1590,9 @@ var render = function() {
                                                                 },
                                                                 domProps: {
                                                                   checked: _vm._q(
-                                                                    _vm.clientType,
+                                                                    _vm
+                                                                      .searchForm
+                                                                      .clientType,
                                                                     "corporate"
                                                                   )
                                                                 },
@@ -1416,8 +1600,11 @@ var render = function() {
                                                                   change: function(
                                                                     $event
                                                                   ) {
-                                                                    _vm.clientType =
+                                                                    return _vm.$set(
+                                                                      _vm.searchForm,
+                                                                      "clientType",
                                                                       "corporate"
+                                                                    )
                                                                   }
                                                                 }
                                                               }),
@@ -1465,9 +1652,11 @@ var render = function() {
                                                                     rawName:
                                                                       "v-model",
                                                                     value:
-                                                                      _vm.clientType,
+                                                                      _vm
+                                                                        .searchForm
+                                                                        .clientType,
                                                                     expression:
-                                                                      "clientType"
+                                                                      "searchForm.clientType"
                                                                   }
                                                                 ],
                                                                 staticClass:
@@ -1482,7 +1671,9 @@ var render = function() {
                                                                 },
                                                                 domProps: {
                                                                   checked: _vm._q(
-                                                                    _vm.clientType,
+                                                                    _vm
+                                                                      .searchForm
+                                                                      .clientType,
                                                                     "family"
                                                                   )
                                                                 },
@@ -1490,8 +1681,11 @@ var render = function() {
                                                                   change: function(
                                                                     $event
                                                                   ) {
-                                                                    _vm.clientType =
+                                                                    return _vm.$set(
+                                                                      _vm.searchForm,
+                                                                      "clientType",
                                                                       "family"
+                                                                    )
                                                                   }
                                                                 }
                                                               }),
@@ -1555,7 +1749,7 @@ var render = function() {
                                                           $event
                                                         ) {
                                                           _vm.portType = "car"
-                                                          _vm.getCities
+                                                          _vm.getCities()
                                                         }
                                                       }
                                                     },
@@ -1567,8 +1761,10 @@ var render = function() {
                                                           src:
                                                             _vm.portType ==
                                                             "car"
-                                                              ? "/images/icons/car_onclick_icon.png"
-                                                              : "/images/icons/car_icon_src.png"
+                                                              ? _vm.$gbiAssets +
+                                                                "/car_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/car_icon_src.png"
                                                         }
                                                       })
                                                     ]
@@ -1584,7 +1780,7 @@ var render = function() {
                                                           $event
                                                         ) {
                                                           _vm.portType = "bus"
-                                                          _vm.getCities
+                                                          _vm.getCities()
                                                         }
                                                       }
                                                     },
@@ -1596,8 +1792,10 @@ var render = function() {
                                                           src:
                                                             _vm.portType ==
                                                             "bus"
-                                                              ? "/images/icons/bus_onclick_icon.png"
-                                                              : "/images/icons/bus_icon_src.png"
+                                                              ? _vm.$gbiAssets +
+                                                                "/bus_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/bus_icon_src.png"
                                                         }
                                                       })
                                                     ]
@@ -1613,7 +1811,7 @@ var render = function() {
                                                           $event
                                                         ) {
                                                           _vm.portType = "train"
-                                                          _vm.getCities
+                                                          _vm.getCities()
                                                         }
                                                       }
                                                     },
@@ -1625,8 +1823,10 @@ var render = function() {
                                                           src:
                                                             _vm.portType ==
                                                             "train"
-                                                              ? "/images/icons/train_onclick_icon.png"
-                                                              : "/images/icons/train_icon_src.png"
+                                                              ? _vm.$gbiAssets +
+                                                                "/train_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/train_icon_src.png"
                                                         }
                                                       })
                                                     ]
@@ -1654,8 +1854,10 @@ var render = function() {
                                                           src:
                                                             _vm.portType ==
                                                             "plane"
-                                                              ? "/images/icons/flight_onclick_icon.png"
-                                                              : "/images/icons/flight_icon_src.png"
+                                                              ? _vm.$gbiAssets +
+                                                                "/flight_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/flight_icon_src.png"
                                                         }
                                                       })
                                                     ]
@@ -1675,7 +1877,7 @@ var render = function() {
                                       "button",
                                       {
                                         staticClass:
-                                          "btn btn-defalt btn-lg center-block explore_custom_button",
+                                          "btn-defalt btn-lg center-block explore_custom_button",
                                         attrs: { type: "submit" },
                                         on: {
                                           click: [
@@ -2113,7 +2315,7 @@ var render = function() {
                                                 ),
                                                 _vm._v(" "),
                                                 _vm._l(
-                                                  _vm.tourtype_option,
+                                                  _vm.noofdays_option,
                                                   function(index) {
                                                     return _c(
                                                       "option",
@@ -2192,9 +2394,11 @@ var render = function() {
                                                                     rawName:
                                                                       "v-model",
                                                                     value:
-                                                                      _vm.clientType,
+                                                                      _vm
+                                                                        .searchForm
+                                                                        .clientType,
                                                                     expression:
-                                                                      "clientType"
+                                                                      "searchForm.clientType"
                                                                   }
                                                                 ],
                                                                 staticClass:
@@ -2209,7 +2413,9 @@ var render = function() {
                                                                 },
                                                                 domProps: {
                                                                   checked: _vm._q(
-                                                                    _vm.clientType,
+                                                                    _vm
+                                                                      .searchForm
+                                                                      .clientType,
                                                                     "student"
                                                                   )
                                                                 },
@@ -2217,8 +2423,11 @@ var render = function() {
                                                                   change: function(
                                                                     $event
                                                                   ) {
-                                                                    _vm.clientType =
+                                                                    return _vm.$set(
+                                                                      _vm.searchForm,
+                                                                      "clientType",
                                                                       "student"
+                                                                    )
                                                                   }
                                                                 }
                                                               }),
@@ -2266,9 +2475,11 @@ var render = function() {
                                                                     rawName:
                                                                       "v-model",
                                                                     value:
-                                                                      _vm.clientType,
+                                                                      _vm
+                                                                        .searchForm
+                                                                        .clientType,
                                                                     expression:
-                                                                      "clientType"
+                                                                      "searchForm.clientType"
                                                                   }
                                                                 ],
                                                                 staticClass:
@@ -2284,7 +2495,9 @@ var render = function() {
                                                                 },
                                                                 domProps: {
                                                                   checked: _vm._q(
-                                                                    _vm.clientType,
+                                                                    _vm
+                                                                      .searchForm
+                                                                      .clientType,
                                                                     "corporate"
                                                                   )
                                                                 },
@@ -2292,8 +2505,11 @@ var render = function() {
                                                                   change: function(
                                                                     $event
                                                                   ) {
-                                                                    _vm.clientType =
+                                                                    return _vm.$set(
+                                                                      _vm.searchForm,
+                                                                      "clientType",
                                                                       "corporate"
+                                                                    )
                                                                   }
                                                                 }
                                                               }),
@@ -2341,9 +2557,11 @@ var render = function() {
                                                                     rawName:
                                                                       "v-model",
                                                                     value:
-                                                                      _vm.clientType,
+                                                                      _vm
+                                                                        .searchForm
+                                                                        .clientType,
                                                                     expression:
-                                                                      "clientType"
+                                                                      "searchForm.clientType"
                                                                   }
                                                                 ],
                                                                 staticClass:
@@ -2358,7 +2576,9 @@ var render = function() {
                                                                 },
                                                                 domProps: {
                                                                   checked: _vm._q(
-                                                                    _vm.clientType,
+                                                                    _vm
+                                                                      .searchForm
+                                                                      .clientType,
                                                                     "family"
                                                                   )
                                                                 },
@@ -2366,8 +2586,11 @@ var render = function() {
                                                                   change: function(
                                                                     $event
                                                                   ) {
-                                                                    _vm.clientType =
+                                                                    return _vm.$set(
+                                                                      _vm.searchForm,
+                                                                      "clientType",
                                                                       "family"
+                                                                    )
                                                                   }
                                                                 }
                                                               }),
@@ -2431,7 +2654,7 @@ var render = function() {
                                                           $event
                                                         ) {
                                                           _vm.portType = "car"
-                                                          _vm.getCities
+                                                          _vm.getCities()
                                                         }
                                                       }
                                                     },
@@ -2443,8 +2666,10 @@ var render = function() {
                                                           src:
                                                             _vm.portType ==
                                                             "car"
-                                                              ? "/images/icons/car_onclick_icon.png"
-                                                              : "/images/icons/car_icon_src.png"
+                                                              ? _vm.$gbiAssets +
+                                                                "/car_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/car_icon_src.png"
                                                         }
                                                       })
                                                     ]
@@ -2460,7 +2685,7 @@ var render = function() {
                                                           $event
                                                         ) {
                                                           _vm.portType = "bus"
-                                                          _vm.getCities
+                                                          _vm.getCities()
                                                         }
                                                       }
                                                     },
@@ -2472,8 +2697,10 @@ var render = function() {
                                                           src:
                                                             _vm.portType ==
                                                             "bus"
-                                                              ? "/images/icons/bus_onclick_icon.png"
-                                                              : "/images/icons/bus_icon_src.png"
+                                                              ? _vm.$gbiAssets +
+                                                                "/bus_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/bus_icon_src.png"
                                                         }
                                                       })
                                                     ]
@@ -2489,7 +2716,7 @@ var render = function() {
                                                           $event
                                                         ) {
                                                           _vm.portType = "train"
-                                                          _vm.getCities
+                                                          _vm.getCities()
                                                         }
                                                       }
                                                     },
@@ -2501,8 +2728,10 @@ var render = function() {
                                                           src:
                                                             _vm.portType ==
                                                             "train"
-                                                              ? "/images/icons/train_onclick_icon.png"
-                                                              : "/images/icons/train_icon_src.png"
+                                                              ? _vm.$gbiAssets +
+                                                                "/train_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/train_icon_src.png"
                                                         }
                                                       })
                                                     ]
@@ -2530,8 +2759,10 @@ var render = function() {
                                                           src:
                                                             _vm.portType ==
                                                             "plane"
-                                                              ? "/images/icons/flight_onclick_icon.png"
-                                                              : "/images/icons/flight_icon_src.png"
+                                                              ? _vm.$gbiAssets +
+                                                                "/flight_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/flight_icon_src.png"
                                                         }
                                                       })
                                                     ]
@@ -2551,7 +2782,7 @@ var render = function() {
                                       "button",
                                       {
                                         staticClass:
-                                          "btn btn-defalt btn-lg center-block explore_custom_button",
+                                          "btn-defalt btn-lg center-block explore_custom_button",
                                         attrs: { type: "submit" },
                                         on: {
                                           click: [
@@ -2595,7 +2826,7 @@ var render = function() {
                                       [
                                         _c("model-select", {
                                           attrs: {
-                                            options: _vm.options,
+                                            options: _vm.optionsHotel,
                                             placeholder: "Location",
                                             autocomplete: "off"
                                           },
@@ -2618,19 +2849,497 @@ var render = function() {
                                           "col-6 col-sm-6 col-lg-6 input-p nopadding"
                                       },
                                       [
-                                        _c("model-select", {
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.people,
+                                              expression: "people"
+                                            }
+                                          ],
+                                          staticClass: "form-control",
                                           attrs: {
-                                            options: _vm.CheckInOut,
-                                            placeholder: "Check-In/Out"
+                                            type: "text",
+                                            id: "number_of_person",
+                                            "data-toggle": "modal",
+                                            "data-target": "#personsModal",
+                                            placeholder: "Guests",
+                                            readonly: ""
                                           },
-                                          model: {
-                                            value: _vm.destinations,
-                                            callback: function($$v) {
-                                              _vm.destinations = $$v
+                                          domProps: { value: _vm.people },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.showPersonModal = true
                                             },
-                                            expression: "destinations"
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.people = $event.target.value
+                                            }
                                           }
-                                        })
+                                        }),
+                                        _vm._v(" "),
+                                        _c("has-error", {
+                                          attrs: {
+                                            form: _vm.form,
+                                            field: "start_date"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _vm.showPersonModal
+                                          ? _c(
+                                              "div",
+                                              {
+                                                staticClass: "modal",
+                                                attrs: {
+                                                  tabindex: "-1",
+                                                  role: "dialog",
+                                                  id: "personsModal"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "modal-dialog",
+                                                    attrs: { role: "document" }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "modal-content"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "modal-header"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "h5",
+                                                              {
+                                                                staticClass:
+                                                                  "modal-title",
+                                                                staticStyle: {
+                                                                  color: "black"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Passengers"
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "button",
+                                                              {
+                                                                staticClass:
+                                                                  "close",
+                                                                attrs: {
+                                                                  type:
+                                                                    "button",
+                                                                  "aria-label":
+                                                                    "Close"
+                                                                },
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.showPersonModal = false
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "span",
+                                                                  {
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [_vm._v("×")]
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "modal-body"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "marginT"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "label",
+                                                                  {
+                                                                    staticClass:
+                                                                      "personLables",
+                                                                    attrs: {
+                                                                      for:
+                                                                        "number_of_adults"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "Adults(>12 years)"
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c("fieldset", [
+                                                                  _c("input", {
+                                                                    staticClass:
+                                                                      "decrease",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "button",
+                                                                      value: "-"
+                                                                    },
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.decrVal(
+                                                                          "adults"
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
+                                                                  _c("input", {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          _vm.adults,
+                                                                        expression:
+                                                                          "adults"
+                                                                      }
+                                                                    ],
+                                                                    attrs: {
+                                                                      type:
+                                                                        "passengers",
+                                                                      id:
+                                                                        "incrdcr",
+                                                                      readonly:
+                                                                        ""
+                                                                    },
+                                                                    domProps: {
+                                                                      value:
+                                                                        _vm.adults
+                                                                    },
+                                                                    on: {
+                                                                      input: function(
+                                                                        $event
+                                                                      ) {
+                                                                        if (
+                                                                          $event
+                                                                            .target
+                                                                            .composing
+                                                                        ) {
+                                                                          return
+                                                                        }
+                                                                        _vm.adults =
+                                                                          $event.target.value
+                                                                      }
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
+                                                                  _c("input", {
+                                                                    staticClass:
+                                                                      "increase",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "button",
+                                                                      value: "+"
+                                                                    },
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.incrVal(
+                                                                          "adults"
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  })
+                                                                ])
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "marginT"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "label",
+                                                                  {
+                                                                    staticClass:
+                                                                      "personLables",
+                                                                    attrs: {
+                                                                      for:
+                                                                        "number_of_children"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "Children(2 to 12 years)"
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c("fieldset", [
+                                                                  _c("input", {
+                                                                    staticClass:
+                                                                      "decrease",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "button",
+                                                                      value: "-"
+                                                                    },
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.decrVal(
+                                                                          "children"
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
+                                                                  _c("input", {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          _vm.children,
+                                                                        expression:
+                                                                          "children"
+                                                                      }
+                                                                    ],
+                                                                    attrs: {
+                                                                      type:
+                                                                        "passengers",
+                                                                      id:
+                                                                        "incrdcr",
+                                                                      readonly:
+                                                                        ""
+                                                                    },
+                                                                    domProps: {
+                                                                      value:
+                                                                        _vm.children
+                                                                    },
+                                                                    on: {
+                                                                      input: function(
+                                                                        $event
+                                                                      ) {
+                                                                        if (
+                                                                          $event
+                                                                            .target
+                                                                            .composing
+                                                                        ) {
+                                                                          return
+                                                                        }
+                                                                        _vm.children =
+                                                                          $event.target.value
+                                                                      }
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
+                                                                  _c("input", {
+                                                                    staticClass:
+                                                                      "increase",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "button",
+                                                                      value: "+"
+                                                                    },
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.incrVal(
+                                                                          "children"
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  })
+                                                                ])
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "marginT"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "label",
+                                                                  {
+                                                                    staticClass:
+                                                                      "personLables",
+                                                                    attrs: {
+                                                                      for:
+                                                                        "number_of_infants"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "Infants(3 days to 2 years)"
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c("fieldset", [
+                                                                  _c("input", {
+                                                                    staticClass:
+                                                                      "decrease",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "button",
+                                                                      value: "-"
+                                                                    },
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.decrVal(
+                                                                          "infants"
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
+                                                                  _c("input", {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          _vm.infants,
+                                                                        expression:
+                                                                          "infants"
+                                                                      }
+                                                                    ],
+                                                                    attrs: {
+                                                                      type:
+                                                                        "passengers",
+                                                                      id:
+                                                                        "incrdcr",
+                                                                      readonly:
+                                                                        ""
+                                                                    },
+                                                                    domProps: {
+                                                                      value:
+                                                                        _vm.infants
+                                                                    },
+                                                                    on: {
+                                                                      input: function(
+                                                                        $event
+                                                                      ) {
+                                                                        if (
+                                                                          $event
+                                                                            .target
+                                                                            .composing
+                                                                        ) {
+                                                                          return
+                                                                        }
+                                                                        _vm.infants =
+                                                                          $event.target.value
+                                                                      }
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
+                                                                  _c("input", {
+                                                                    staticClass:
+                                                                      "increase",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "button",
+                                                                      value: "+"
+                                                                    },
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.incrVal(
+                                                                          "infants"
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  })
+                                                                ])
+                                                              ]
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "modal-footer"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "button",
+                                                              {
+                                                                staticClass:
+                                                                  "btn btn-primary",
+                                                                attrs: {
+                                                                  type: "button"
+                                                                },
+                                                                on: {
+                                                                  click:
+                                                                    _vm.savePersons
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Confirm"
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          : _vm._e()
                                       ],
                                       1
                                     ),
@@ -2639,64 +3348,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "col-6 col-sm-6 col-lg-6 input-p nopadding"
-                                      },
-                                      [
-                                        _c("div", { staticClass: "select" }, [
-                                          _c(
-                                            "select",
-                                            {
-                                              staticClass:
-                                                "placeholder_color ui fluid search selection dropdown",
-                                              attrs: { name: "typetour" },
-                                              on: {
-                                                change: function($event) {
-                                                  return _vm.tourtypeOnChange(
-                                                    $event
-                                                  )
-                                                }
-                                              }
-                                            },
-                                            [
-                                              _c(
-                                                "option",
-                                                { attrs: { selected: "" } },
-                                                [_vm._v("Guests")]
-                                              ),
-                                              _vm._v(" "),
-                                              _vm._l(
-                                                _vm.noofdays_option,
-                                                function(index) {
-                                                  return _c(
-                                                    "option",
-                                                    {
-                                                      key: index.id,
-                                                      domProps: {
-                                                        value: index.id
-                                                      }
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                              " +
-                                                          _vm._s(index) +
-                                                          "\n                            "
-                                                      )
-                                                    ]
-                                                  )
-                                                }
-                                              )
-                                            ],
-                                            2
-                                          )
-                                        ])
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "col-6 col-sm-3 col-lg-3 input-p nopadding"
+                                          "col-6 col-sm-6 col-lg-3 input-p nopadding"
                                       },
                                       [
                                         _c("div", { staticClass: "select" }, [
@@ -2721,7 +3373,7 @@ var render = function() {
                                                 [_vm._v("Room Category")]
                                               ),
                                               _vm._v(" "),
-                                              _vm._l(_vm.room_options, function(
+                                              _vm._l(_vm.room_types, function(
                                                 index
                                               ) {
                                                 return _c(
@@ -2750,55 +3402,293 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "col-6 col-sm-3 col-lg-3 input-p nopadding"
+                                          "col-6 col-sm-6 col-lg-3 input-p nopadding"
                                       },
                                       [
-                                        _c("div", { staticClass: "select" }, [
-                                          _c(
-                                            "select",
+                                        _c("input", {
+                                          directives: [
                                             {
-                                              staticClass:
-                                                "selectpicker ui selection dropdown",
-                                              attrs: { name: "noofday" },
-                                              on: {
-                                                change: function($event) {
-                                                  return _vm.noofdaysOnChange(
-                                                    $event
-                                                  )
-                                                }
-                                              }
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.room_text,
+                                              expression: "room_text"
+                                            }
+                                          ],
+                                          staticClass: "form-control",
+                                          attrs: {
+                                            type: "text",
+                                            id: "number_of_rooms",
+                                            "data-toggle": "modal",
+                                            "data-target": "#roomsModal",
+                                            placeholder: "No. of Rooms",
+                                            readonly: ""
+                                          },
+                                          domProps: { value: _vm.room_text },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.showRoomModal = true
                                             },
-                                            [
-                                              _c(
-                                                "option",
-                                                { attrs: { selected: "" } },
-                                                [_vm._v("No. of rooms")]
-                                              ),
-                                              _vm._v(" "),
-                                              _vm._l(
-                                                _vm.noofdays_option,
-                                                function(index) {
-                                                  return _c(
-                                                    "option",
-                                                    {
-                                                      key: index.id,
-                                                      domProps: { value: index }
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                              " +
-                                                          _vm._s(index) +
-                                                          "\n                            "
-                                                      )
-                                                    ]
-                                                  )
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.room_text =
+                                                $event.target.value
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _vm.showRoomModal
+                                          ? _c(
+                                              "div",
+                                              {
+                                                staticClass: "modal",
+                                                attrs: {
+                                                  tabindex: "-1",
+                                                  role: "dialog",
+                                                  id: "roomsModal"
                                                 }
-                                              )
-                                            ],
-                                            2
-                                          )
-                                        ])
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "modal-dialog",
+                                                    attrs: { role: "document" }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "modal-content"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "modal-header"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "h5",
+                                                              {
+                                                                staticClass:
+                                                                  "modal-title",
+                                                                staticStyle: {
+                                                                  color: "black"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "No. of Rooms"
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "button",
+                                                              {
+                                                                staticClass:
+                                                                  "close",
+                                                                attrs: {
+                                                                  type:
+                                                                    "button",
+                                                                  "aria-label":
+                                                                    "Close"
+                                                                },
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.showRoomModal = false
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "span",
+                                                                  {
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [_vm._v("×")]
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "modal-body"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "marginT"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "label",
+                                                                  {
+                                                                    staticClass:
+                                                                      "personLables",
+                                                                    staticStyle: {
+                                                                      color:
+                                                                        "gray"
+                                                                    },
+                                                                    attrs: {
+                                                                      for:
+                                                                        "number_of_infants"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "Number of rooms required?"
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c("fieldset", [
+                                                                  _c("input", {
+                                                                    staticClass:
+                                                                      "decrease",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "button",
+                                                                      value: "-"
+                                                                    },
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.decrVal(
+                                                                          "rooms"
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
+                                                                  _c("input", {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          _vm.rooms,
+                                                                        expression:
+                                                                          "rooms"
+                                                                      }
+                                                                    ],
+                                                                    attrs: {
+                                                                      type:
+                                                                        "passengers",
+                                                                      id:
+                                                                        "incrdcr",
+                                                                      readonly:
+                                                                        ""
+                                                                    },
+                                                                    domProps: {
+                                                                      value:
+                                                                        _vm.rooms
+                                                                    },
+                                                                    on: {
+                                                                      input: function(
+                                                                        $event
+                                                                      ) {
+                                                                        if (
+                                                                          $event
+                                                                            .target
+                                                                            .composing
+                                                                        ) {
+                                                                          return
+                                                                        }
+                                                                        _vm.rooms =
+                                                                          $event.target.value
+                                                                      }
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
+                                                                  _c("input", {
+                                                                    staticClass:
+                                                                      "increase",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "button",
+                                                                      value: "+"
+                                                                    },
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.incrVal(
+                                                                          "rooms"
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  })
+                                                                ])
+                                                              ]
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "modal-footer"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "button",
+                                                              {
+                                                                staticClass:
+                                                                  "btn btn-primary",
+                                                                attrs: {
+                                                                  type: "button"
+                                                                },
+                                                                on: {
+                                                                  click:
+                                                                    _vm.saveRooms
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Confirm"
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          : _vm._e()
                                       ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-12 col-sm-12 col-lg-6 input-p nopadding"
+                                      },
+                                      [_c("HotelDatePicker")],
+                                      1
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -2852,9 +3742,11 @@ var render = function() {
                                                                   rawName:
                                                                     "v-model",
                                                                   value:
-                                                                    _vm.clientType,
+                                                                    _vm
+                                                                      .searchForm
+                                                                      .clientType,
                                                                   expression:
-                                                                    "clientType"
+                                                                    "searchForm.clientType"
                                                                 }
                                                               ],
                                                               staticClass:
@@ -2868,7 +3760,8 @@ var render = function() {
                                                               },
                                                               domProps: {
                                                                 checked: _vm._q(
-                                                                  _vm.clientType,
+                                                                  _vm.searchForm
+                                                                    .clientType,
                                                                   "student"
                                                                 )
                                                               },
@@ -2876,8 +3769,11 @@ var render = function() {
                                                                 change: function(
                                                                   $event
                                                                 ) {
-                                                                  _vm.clientType =
+                                                                  return _vm.$set(
+                                                                    _vm.searchForm,
+                                                                    "clientType",
                                                                     "student"
+                                                                  )
                                                                 }
                                                               }
                                                             }),
@@ -2923,9 +3819,11 @@ var render = function() {
                                                                   rawName:
                                                                     "v-model",
                                                                   value:
-                                                                    _vm.clientType,
+                                                                    _vm
+                                                                      .searchForm
+                                                                      .clientType,
                                                                   expression:
-                                                                    "clientType"
+                                                                    "searchForm.clientType"
                                                                 }
                                                               ],
                                                               staticClass:
@@ -2940,7 +3838,8 @@ var render = function() {
                                                               },
                                                               domProps: {
                                                                 checked: _vm._q(
-                                                                  _vm.clientType,
+                                                                  _vm.searchForm
+                                                                    .clientType,
                                                                   "corporate"
                                                                 )
                                                               },
@@ -2948,8 +3847,11 @@ var render = function() {
                                                                 change: function(
                                                                   $event
                                                                 ) {
-                                                                  _vm.clientType =
+                                                                  return _vm.$set(
+                                                                    _vm.searchForm,
+                                                                    "clientType",
                                                                     "corporate"
+                                                                  )
                                                                 }
                                                               }
                                                             }),
@@ -2996,9 +3898,11 @@ var render = function() {
                                                                   rawName:
                                                                     "v-model",
                                                                   value:
-                                                                    _vm.clientType,
+                                                                    _vm
+                                                                      .searchForm
+                                                                      .clientType,
                                                                   expression:
-                                                                    "clientType"
+                                                                    "searchForm.clientType"
                                                                 }
                                                               ],
                                                               staticClass:
@@ -3012,7 +3916,8 @@ var render = function() {
                                                               },
                                                               domProps: {
                                                                 checked: _vm._q(
-                                                                  _vm.clientType,
+                                                                  _vm.searchForm
+                                                                    .clientType,
                                                                   "family"
                                                                 )
                                                               },
@@ -3020,8 +3925,11 @@ var render = function() {
                                                                 change: function(
                                                                   $event
                                                                 ) {
-                                                                  _vm.clientType =
+                                                                  return _vm.$set(
+                                                                    _vm.searchForm,
+                                                                    "clientType",
                                                                     "family"
+                                                                  )
                                                                 }
                                                               }
                                                             }),
@@ -3058,7 +3966,7 @@ var render = function() {
                                     "button",
                                     {
                                       staticClass:
-                                        "btn btn-defalt btn-lg center-block explore_custom_button",
+                                        "btn-defalt btn-lg center-block explore_custom_button",
                                       attrs: { type: "submit" },
                                       on: {
                                         click: [
@@ -3224,9 +4132,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ExploreList_vue_vue_type_template_id_0f4046d6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ExploreList.vue?vue&type=template&id=0f4046d6& */ "./resources/js/front/pages/Explore/ExploreList.vue?vue&type=template&id=0f4046d6&");
+/* harmony import */ var _ExploreList_vue_vue_type_template_id_0f4046d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ExploreList.vue?vue&type=template&id=0f4046d6&scoped=true& */ "./resources/js/front/pages/Explore/ExploreList.vue?vue&type=template&id=0f4046d6&scoped=true&");
 /* harmony import */ var _ExploreList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ExploreList.vue?vue&type=script&lang=js& */ "./resources/js/front/pages/Explore/ExploreList.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _ExploreList_vue_vue_type_style_index_0_id_0f4046d6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css& */ "./resources/js/front/pages/Explore/ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -3234,13 +4144,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _ExploreList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ExploreList_vue_vue_type_template_id_0f4046d6___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ExploreList_vue_vue_type_template_id_0f4046d6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ExploreList_vue_vue_type_template_id_0f4046d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ExploreList_vue_vue_type_template_id_0f4046d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "0f4046d6",
   null
   
 )
@@ -3266,19 +4176,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/front/pages/Explore/ExploreList.vue?vue&type=template&id=0f4046d6&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/front/pages/Explore/ExploreList.vue?vue&type=template&id=0f4046d6& ***!
-  \*****************************************************************************************/
+/***/ "./resources/js/front/pages/Explore/ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css&":
+/*!*******************************************************************************************************************!*\
+  !*** ./resources/js/front/pages/Explore/ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreList_vue_vue_type_style_index_0_id_0f4046d6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/Explore/ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreList_vue_vue_type_style_index_0_id_0f4046d6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreList_vue_vue_type_style_index_0_id_0f4046d6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreList_vue_vue_type_style_index_0_id_0f4046d6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreList_vue_vue_type_style_index_0_id_0f4046d6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/front/pages/Explore/ExploreList.vue?vue&type=template&id=0f4046d6&scoped=true&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/front/pages/Explore/ExploreList.vue?vue&type=template&id=0f4046d6&scoped=true& ***!
+  \*****************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreList_vue_vue_type_template_id_0f4046d6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ExploreList.vue?vue&type=template&id=0f4046d6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/Explore/ExploreList.vue?vue&type=template&id=0f4046d6&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreList_vue_vue_type_template_id_0f4046d6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreList_vue_vue_type_template_id_0f4046d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ExploreList.vue?vue&type=template&id=0f4046d6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/Explore/ExploreList.vue?vue&type=template&id=0f4046d6&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreList_vue_vue_type_template_id_0f4046d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreList_vue_vue_type_template_id_0f4046d6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreList_vue_vue_type_template_id_0f4046d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

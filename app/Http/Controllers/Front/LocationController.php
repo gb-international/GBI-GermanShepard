@@ -83,8 +83,8 @@ class LocationController extends Controller
 
         $portArray = array();
 
-        $file = \Storage::disk('APIs3')->files('airplane-api/airports.json');
-        $json = file_get_contents($file);
+        //$file = \Storage::disk('APIs3')->files('airplane-api/airports.json');
+        $json = file_get_contents('https://gbi-api-data.s3.ap-south-1.amazonaws.com/airplane-api/airports.json');
 
         $json_data = json_decode($json, true);
         foreach ($json_data as $port){
@@ -99,8 +99,8 @@ class LocationController extends Controller
     public function allAirportsInt(){
 
         $portArray = array();
-        $file = \Storage::disk('APIs3')->files('airplane-api/airports.json');
-        $json = file_get_contents($file);
+        //$file = \Storage::disk('APIs3')->files('airplane-api/airports.json');
+        $json = file_get_contents('https://gbi-api-data.s3.ap-south-1.amazonaws.com/airplane-api/airports.json');
         $json_data = json_decode($json, true);
         foreach ($json_data as $port){
             array_push($portArray, $port);
@@ -111,7 +111,7 @@ class LocationController extends Controller
 
     public function allRailways(){
         $portArray = array();
-        $file = \Storage::disk('APIs3')->files('Train-api/train-api.json');
+        //$file = \Storage::disk('APIs3')->files('Train-api/train-api.json');
         $json = json_decode(file_get_contents('https://gbi-api-data.s3.ap-south-1.amazonaws.com/Train-api/train-api.json'));
         return response()->json($json->data);
     }

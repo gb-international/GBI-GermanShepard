@@ -8,8 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">    
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
-    <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
-    {{-- <link href="{{ secure_asset('css/admin/app.css') }}" rel="stylesheet"> --}}
+     <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
+     {{-- <link href="{{ secure_asset('css/admin/app.css') }}" rel="stylesheet"> --}}
      
 </head>
 <body class="hold-transition sidebar-mini">
@@ -88,7 +88,7 @@
 </script>
 
 
-<script src="{{ asset('js/admin/admin.js') }}"></script>
+ <script src="{{ asset('js/admin/admin.js') }}"></script> 
 {{-- <script src="{{ secure_asset('js/admin/admin.js') }}"></script> --}}
 
 <style>

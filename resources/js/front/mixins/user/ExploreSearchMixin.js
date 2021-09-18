@@ -20,6 +20,7 @@ const ExploreSearchMixin = {
             noofdays_option: 10,
             tourtype_option: [],
             options: [],
+            optionsHotel: [],
             destinationCities: [],
             panel: "Itinerary",
             tripType: 'return',
@@ -58,8 +59,8 @@ const ExploreSearchMixin = {
             searchForm: new Form({
                 source: [],
                 destination: [],
-                tourtype: [],
-                noofday: [],
+                tourtype: "",
+                noofday: "",
                 clientType: 'student',
             }),
         };
@@ -93,6 +94,7 @@ const ExploreSearchMixin = {
         this.tourTypeData();
         this.intersected();
         this.getCities();
+        this.getHotelCities();
     },
 
     methods: {
@@ -101,30 +103,39 @@ const ExploreSearchMixin = {
             this.getCities(port)
             console.log(this.options) 
         },
+        getHotelCities(){
+            this.$axios.get(`/api/regional-cities/national`).then((res) => {
+                  for (var i = 0; i < res.data.length; i++) {
+                      this.optionsHotel.push({
+                          value: res.data[i].name,
+                          text: res.data[i].name,
+                      });
+                  }
+              });
+        },
         getCities() {
-          this.options = []
-          this.destinationCities = []
+          this.options.length = 0
+          this.destinationCities.length = 0
+
           if(this.portType == 'plane'){
               this.$axios.get(`/api/airports-national`).then((res) => {
                   for (var i = 0; i < res.data.length; i++) {
                       this.options.push({
+                          text: res.data[i].city + ' ('+ res.data[i].code +')',
                           value: res.data[i].city,
-                          text: res.data[i].city,
-                          code: res.data[i].iata_code,
                       });
                   }
                   this.destinationCities = this.options;
                   console.log(this.options) 
               });
           }
-          if(this.portType == 'train'){
+          else if(this.portType == 'train'){
                 //console.log('hi')
                 this.$axios.get(`/api/stations-national`).then((res) => {
                     for (var i = 0; i < res.data.length; i++) {
                         this.options.push({
+                            text: res.data[i].name + ' ('+ res.data[i].code +')',
                             value: res.data[i].name,
-                            text: res.data[i].name,
-                            code: res.data[i].code,
                         });
                     }
                     this.destinationCities = this.options;
@@ -135,8 +146,8 @@ const ExploreSearchMixin = {
               this.$axios.get(`/api/regional-cities/national`).then((res) => {
                   for (var i = 0; i < res.data.length; i++) {
                       this.options.push({
-                          value: res.data[i].name,
                           text: res.data[i].name,
+                          value: res.data[i].name,
                       });
                   }
                   this.destinationCities = this.options;

@@ -1639,13 +1639,17 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "section",
-    { staticClass: "d-flex flex-column justify-content-center" },
+    {
+      staticClass: "d-flex flex-column justify-content-center",
+      staticStyle: { background: "white !important" }
+    },
     [
       _c(
         "div",
         {
           staticClass:
-            "d-flex justify-content-center align-items-center mainRow1 container"
+            "d-flex justify-content-center align-items-center mainRow1 container",
+          staticStyle: { background: "white !important" }
         },
         [
           _c("div", { staticClass: "p-2 d-flex flex-column expDetCol1" }, [
@@ -1829,7 +1833,73 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _vm._m(2),
+      _c("div", { staticClass: "mainRow2 container" }, [
+        _c("p", { staticClass: "rowheadings" }, [
+          _vm._v("Your Experience Includes")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "iconMainDiv" }, [
+          _c("div", { staticClass: "iconClass" }, [
+            _c("img", { attrs: { src: _vm.$gbiAssets + "/hotel_icon.png" } }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Hotel")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "iconClass" }, [
+            _c("img", { attrs: { src: _vm.$gbiAssets + "/flight_icon.png" } }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Flight")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "iconClass" }, [
+            _c("img", {
+              attrs: { src: _vm.$gbiAssets + "/passport_icon.png" }
+            }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Passport/Visa")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "iconClass" }, [
+            _c("img", {
+              attrs: { src: _vm.$gbiAssets + "/transport_icon.png" }
+            }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Transfers")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "iconClass" }, [
+            _c("img", { attrs: { src: _vm.$gbiAssets + "/dinner_icon.png" } }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Dinner")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "iconClass" }, [
+            _c("img", {
+              attrs: { src: _vm.$gbiAssets + "/citytour_icon.png" }
+            }),
+            _vm._v(" "),
+            _c("p", [_vm._v("City Tour")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "iconClass" }, [
+            _c("img", { attrs: { src: _vm.$gbiAssets + "/taxes_icon.png" } }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Taxes")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "iconClass" }, [
+            _c("img", { attrs: { src: _vm.$gbiAssets + "/sightseeing.png" } }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Sightseeing")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "iconClass" }, [
+            _c("img", { attrs: { src: _vm.$gbiAssets + "/breakfast.png" } }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Breakfast")])
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "mainRow3 container" }, [
         _c("p", { staticClass: "rowheadings" }, [_vm._v("ITINERARY")]),
@@ -1932,72 +2002,6 @@ var staticRenderFns = [
         _c("span", { staticClass: "smallP" }, [_vm._v("(Incl. all taxes)")])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mainRow2 container" }, [
-      _c("p", { staticClass: "rowheadings" }, [
-        _vm._v("Your Experience Includes")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "iconMainDiv" }, [
-        _c("div", { staticClass: "iconClass" }, [
-          _c("img", { attrs: { src: "/images/icons/hotel_icon.png" } }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Hotel")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "iconClass" }, [
-          _c("img", { attrs: { src: "/images/icons/flight_icon.png" } }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Flight")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "iconClass" }, [
-          _c("img", { attrs: { src: "/images/icons/passport_icon.png" } }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Passport/Visa")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "iconClass" }, [
-          _c("img", { attrs: { src: "/images/icons/transport_icon.png" } }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Transfers")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "iconClass" }, [
-          _c("img", { attrs: { src: "/images/icons/dinner_icon.png" } }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Dinner")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "iconClass" }, [
-          _c("img", { attrs: { src: "/images/icons/citytour_icon.png" } }),
-          _vm._v(" "),
-          _c("p", [_vm._v("City Tour")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "iconClass" }, [
-          _c("img", { attrs: { src: "/images/icons/taxes_icon.png" } }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Taxes")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "iconClass" }, [
-          _c("img", { attrs: { src: "/images/icons/sightseeing.png" } }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Sightseeing")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "iconClass" }, [
-          _c("img", { attrs: { src: "/images/icons/breakfast.png" } }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Breakfast")])
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true

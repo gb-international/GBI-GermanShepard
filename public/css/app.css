@@ -4427,6 +4427,7 @@ article {
 
 .explore-icon-width {
   width: 32px;
+  cursor: pointer;
 }
 
 .image-col {
@@ -4533,12 +4534,14 @@ custLabel {
   display: inline-block;
   margin-bottom: .5rem;
   margin-left: -4vw !important;
+  font-size: 15px;
 }
 
 custLabel2 {
   display: inline-block;
   margin-bottom: .2rem;
   margin-left: -2vw !important;
+  font-size: 15px;
 }
 
 .cardPadding {
@@ -4911,6 +4914,12 @@ select {
   background-color: #f0f0f0 !important;
   border: 0px solid rgba(0, 0, 0, 0.125) !important;
   box-shadow: 0 0 0px rgba(0, 0, 0, 0.125), 0 0px 0px rgba(0, 0, 0, 0.2) !important;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: #ffffff !important;
+  opacity: 100 !important;
 }
 
 .card-horizontal {
@@ -6203,6 +6212,13 @@ a:hover {
 }
 
 .banner_bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 507px;
+  padding: 0px;
+}
+
+.banner_bg2 {
   background-size: cover !important;
   background-repeat: no-repeat;
   height: 807px;

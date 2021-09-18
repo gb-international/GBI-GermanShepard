@@ -4,7 +4,7 @@
   ****************************************************-->
   <div class="row mt-35">
     <div class="col-lg-4 col-md-6 col-12 newCardList" v-for="(itinerary,index) in list" :key="index">
-      <div @click="$router.push(`/explore-detail/${itinerary.id}`)" class="shadow-lg">
+      <div @click="$router.push(`/explore-detail/${itinerary.id}`)" class="card-1" style="cursor: pointer">
         <div class="image-col">
           <figure v-lazyload class="image__wrapper">
             <ImageSpinner class="image__spinner" />
@@ -16,7 +16,7 @@
             />
           </figure>
         </div>
-        <div class="cardtext-col text-left pl-2 pr-1">
+        <div class="cardtext-col text-left pl-1 pr-1">
           <p class="m-0 pl-10 font-weight-bold text-capitalize" style="font-size: 18px" :class="itinerary.title.length<=34 ? 'cardPadding' : ''" >{{itinerary.title | sortlength(50,"") | CapitalizeString }}</p>
           <p class="pl-10 mb-1" style="font-size: 16px" :class="itinerary.title.length<=34 ? '-mt-2' : ''">{{itinerary.noofdays}} Days Tour</p>
           <div class="d-flex flex-column pl-10">

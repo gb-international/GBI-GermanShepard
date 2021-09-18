@@ -25,5 +25,6 @@ return [
     'encyclopedia_pdf' => 'images/encyclopedia/pdf/',   
     'user_image' => 'images/user/',
     'resume_pdf' => 'images/resume/',
+    'gbi_api_data' => 'https://gbi-api-data.s3.ap-south-1.amazonaws.com',
 ];
 

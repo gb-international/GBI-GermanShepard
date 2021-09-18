@@ -637,7 +637,8 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "shadow-lg",
+              staticClass: "card-1",
+              staticStyle: { cursor: "pointer" },
               on: {
                 click: function($event) {
                   return _vm.$router.push("/explore-detail/" + itinerary.id)
@@ -668,7 +669,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "cardtext-col text-left pl-2 pr-1" }, [
+              _c("div", { staticClass: "cardtext-col text-left pl-1 pr-1" }, [
                 _c(
                   "p",
                   {
@@ -1177,6 +1178,7 @@ var ExploreSearchMixin = {
       noofdays_option: 10,
       tourtype_option: [],
       options: [],
+      optionsHotel: [],
       destinationCities: [],
       panel: "Itinerary",
       tripType: 'return',
@@ -1231,8 +1233,8 @@ var ExploreSearchMixin = {
       searchForm: new vform__WEBPACK_IMPORTED_MODULE_2__["Form"]({
         source: [],
         destination: [],
-        tourtype: [],
-        noofday: [],
+        tourtype: "",
+        noofday: "",
         clientType: 'student'
       })
     };
@@ -1269,6 +1271,7 @@ var ExploreSearchMixin = {
     this.tourTypeData();
     this.intersected();
     this.getCities();
+    this.getHotelCities();
   },
   methods: {
     portChanged: function portChanged(port) {
@@ -1276,67 +1279,75 @@ var ExploreSearchMixin = {
       this.getCities(port);
       console.log(this.options);
     },
-    getCities: function getCities() {
+    getHotelCities: function getHotelCities() {
       var _this4 = this;
 
-      this.options = [];
-      this.destinationCities = [];
+      this.$axios.get("/api/regional-cities/national").then(function (res) {
+        for (var i = 0; i < res.data.length; i++) {
+          _this4.optionsHotel.push({
+            value: res.data[i].name,
+            text: res.data[i].name
+          });
+        }
+      });
+    },
+    getCities: function getCities() {
+      var _this5 = this;
+
+      this.options.length = 0;
+      this.destinationCities.length = 0;
 
       if (this.portType == 'plane') {
         this.$axios.get("/api/airports-national").then(function (res) {
           for (var i = 0; i < res.data.length; i++) {
-            _this4.options.push({
-              value: res.data[i].city,
-              text: res.data[i].city,
-              code: res.data[i].iata_code
+            _this5.options.push({
+              text: res.data[i].city + ' (' + res.data[i].code + ')',
+              value: res.data[i].city
             });
           }
 
-          _this4.destinationCities = _this4.options;
-          console.log(_this4.options);
+          _this5.destinationCities = _this5.options;
+          console.log(_this5.options);
         });
-      }
-
-      if (this.portType == 'train') {
+      } else if (this.portType == 'train') {
         //console.log('hi')
         this.$axios.get("/api/stations-national").then(function (res) {
           for (var i = 0; i < res.data.length; i++) {
-            _this4.options.push({
-              value: res.data[i].name,
-              text: res.data[i].name,
-              code: res.data[i].code
+            _this5.options.push({
+              text: res.data[i].name + ' (' + res.data[i].code + ')',
+              value: res.data[i].name
             });
           }
 
-          _this4.destinationCities = _this4.options;
-          console.log(_this4.options);
+          _this5.destinationCities = _this5.options;
+          console.log(_this5.options);
         });
       } else {
         this.$axios.get("/api/regional-cities/national").then(function (res) {
           for (var i = 0; i < res.data.length; i++) {
-            _this4.options.push({
-              value: res.data[i].name,
-              text: res.data[i].name
+            _this5.options.push({
+              text: res.data[i].name,
+              value: res.data[i].name
             });
           }
 
-          _this4.destinationCities = _this4.options;
-          console.log(_this4.options);
+          _this5.destinationCities = _this5.options;
+          console.log(_this5.options);
         });
       }
     },
     getInternationalCities: function getInternationalCities() {
-      var _this5 = this;
+      var _this6 = this;
 
       this.options = [];
       this.destinationCities = [];
 
       if (this.portType == 'plane') {
         this.$axios.get("/api/airports-international").then(function (res) {
-          _this5.destinationCities = [];
+          _this6.destinationCities = [];
 
           for (var i = 0; i < res.data.length; i++) {
-            _this5.destinationCities.push({
+            _this6.destinationCities.push({
               value: res.data[i].city,
               text: res.data[i].city,
               code: res.data[i].iata_code
@@ -1345,10 +1356,10 @@ var ExploreSearchMixin = {
         });
       } else if (this.portType == 'train') {
         this.$axios.get("/api/stations-national").then(function (res) {
-          _this5.destinationCities = [];
+          _this6.destinationCities = [];
 
           for (var i = 0; i < res.data.length; i++) {
-            _this5.destinationCities.push({
+            _this6.destinationCities.push({
               value: res.data[i].name,
               text: res.data[i].name,
               code: res.data[i].code
@@ -1357,10 +1368,10 @@ var ExploreSearchMixin = {
         });
       } else {
         this.$axios.get("/api/regional-cities/international").then(function (res) {
-          _this5.destinationCities = [];
+          _this6.destinationCities = [];
 
           for (var i = 0; i < res.data.length; i++) {
-            _this5.destinationCities.push({
+            _this6.destinationCities.push({
               value: res.data[i].name,
               text: res.data[i].name
             });
@@ -1369,7 +1380,7 @@ var ExploreSearchMixin = {
       }
     },
     intersected: function intersected() {
-      var _this6 = this;
+      var _this7 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var url, res, items;
@@ -1377,19 +1388,19 @@ var ExploreSearchMixin = {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!(_this6.loading == false)) {
+                if (!(_this7.loading == false)) {
                   _context.next = 13;
                   break;
                 }
 
-                _this6.loading = true;
-                url = "/api/itinerary-list?page=" + _this6.page;
+                _this7.loading = true;
+                url = "/api/itinerary-list?page=" + _this7.page;
                 _context.next = 5;
                 return fetch(url);
 
               case 5:
                 res = _context.sent;
-                _this6.page++;
+                _this7.page++;
                 _context.next = 9;
                 return res.json();
 
@@ -1397,11 +1408,11 @@ var ExploreSearchMixin = {
                 items = _context.sent;
 
                 if (items.data.length > 0) {
-                  _this6.items_list = [].concat(_toConsumableArray(_this6.items_list), _toConsumableArray(items.data));
+                  _this7.items_list = [].concat(_toConsumableArray(_this7.items_list), _toConsumableArray(items.data));
                 }
 
                 items = [];
-                _this6.loading = false;
+                _this7.loading = false;
 
               case 13:
               case "end":
@@ -1415,10 +1426,10 @@ var ExploreSearchMixin = {
       this.$store.dispatch("SearchPost", this.keyword);
     }, 1000),
     tourTypeData: function tourTypeData() {
-      var _this7 = this;
+      var _this8 = this;
 
       this.$axios.get("/api/tourtype").then(function (res) {
-        _this7.tourtype_option = res.data;
+        _this8.tourtype_option = res.data;
       });
     },
     reset: function reset() {

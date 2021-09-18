@@ -4,7 +4,7 @@
   Editor: @Manas
   ****************************************************-->
   <div id="exploreDestination">
-    <div class="explore_banner text_on_image banner_bg explore_bg_img">
+    <div class="explore_banner text_on_image banner_bg2 explore_bg_img">
       <div class="content">
         <div class="container-custom">
           <div class="row">
@@ -131,7 +131,7 @@
                         <div class="col-12 col-sm-6 col-lg-6 ml-2">
                           <div class="row search-radio">
                             <div class="col-sm-12">
-                              <custLabel2 class="pt-3" style="font-size: 13px;">Customer type</custLabel2>
+                              <custLabel2 class="pt-3">Customer type</custLabel2>
                               <div class="row pb-3">
                                 <div class="col-md-4 col-6">
                                   <div class="custom-control custom-radio">
@@ -198,16 +198,16 @@
                               <custLabel>Choose your transport</custLabel>
                                 <div class="row pb-2">
                                   <div class="col-6 col-md-2 mb-2" @click="portType = 'car'; getCities()">
-                                    <img :src=" portType == 'car' ? '/images/icons/car_onclick_icon.png' : '/images/icons/car_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                    <img :src=" portType == 'car' ? $gbiAssets + '/car_onclick_icon.png' : $gbiAssets + '/car_icon_src.png' " class="cursor-pointer explore-icon-width">
                                   </div>
                                   <div class="col-6 col-md-2 mb-2" @click="portType = 'bus'; getCities()">
-                                   <img :src=" portType == 'bus' ? '/images/icons/bus_onclick_icon.png' : '/images/icons/bus_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                   <img :src=" portType == 'bus' ? $gbiAssets + '/bus_onclick_icon.png' : $gbiAssets + '/bus_icon_src.png' " class="cursor-pointer explore-icon-width">
                                   </div>
                                   <div class="col-6 col-md-2 mb-2" @click="portType = 'train'; getCities()">
-                                    <img :src=" portType == 'train' ? '/images/icons/train_onclick_icon.png' : '/images/icons/train_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                    <img :src=" portType == 'train' ? $gbiAssets + '/train_onclick_icon.png' : $gbiAssets + '/train_icon_src.png' " class="cursor-pointer explore-icon-width">
                                   </div>
                                   <div class="col-6 col-md-2 mb-2" @click="portType = 'plane'; getCities()">
-                                    <img :src=" portType == 'plane' ? '/images/icons/flight_onclick_icon.png' : '/images/icons/flight_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                    <img :src=" portType == 'plane' ? $gbiAssets + '/flight_onclick_icon.png' : $gbiAssets + '/flight_icon_src.png' " class="cursor-pointer explore-icon-width">
                                   </div>
                                 </div>
                              </div>
@@ -215,7 +215,7 @@
                       </div>
                       <p class="text-center">
                         <button
-                          class="btn btn-defalt btn-lg center-block explore_custom_button"
+                          class="btn-defalt btn-lg center-block explore_custom_button"
                           @click.prevent="searchAll()"
                           type="submit"
                           @click="show = !show"
@@ -355,7 +355,7 @@
                             >
                               <option selected>No. of days</option>
                               <option
-                                v-for="index in tourtype_option"
+                                v-for="index in noofdays_option"
                                 :key="index.id"
                                 :value="index.id"
                               >
@@ -368,7 +368,7 @@
                         <div class="col-12 col-sm-6 col-lg-6 ml-2">
                           <div class="row search-radio">
                             <div class="col-sm-12">
-                              <custLabel2 class="pt-3" style="font-size: 13px;">Customer type</custLabel2>
+                              <custLabel2 class="pt-3">Customer type</custLabel2>
                               <div class="row pb-3">
 
                                 <div class="col-md-4 col-6">
@@ -436,16 +436,16 @@
                               <custLabel>Choose your transport</custLabel>
                                 <div class="row pb-2">
                                   <div class="col-6 col-md-2 mb-2" @click="portType = 'car'; getCities()">
-                                    <img :src=" portType == 'car' ? '/images/icons/car_onclick_icon.png' : '/images/icons/car_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                    <img :src=" portType == 'car' ? $gbiAssets + '/car_onclick_icon.png' : $gbiAssets + '/car_icon_src.png' " class="cursor-pointer explore-icon-width">
                                   </div>
                                   <div class="col-6 col-md-2 mb-2" @click="portType = 'bus'; getCities()">
-                                   <img :src=" portType == 'bus' ? '/images/icons/bus_onclick_icon.png' : '/images/icons/bus_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                   <img :src=" portType == 'bus' ? $gbiAssets + '/bus_onclick_icon.png' : $gbiAssets + '/bus_icon_src.png' " class="cursor-pointer explore-icon-width">
                                   </div>
                                   <div class="col-6 col-md-2 mb-2" @click="portType = 'train'; getCities()">
-                                    <img :src=" portType == 'train' ? '/images/icons/train_onclick_icon.png' : '/images/icons/train_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                    <img :src=" portType == 'train' ? $gbiAssets + '/train_onclick_icon.png' : $gbiAssets + '/train_icon_src.png' " class="cursor-pointer explore-icon-width">
                                   </div>
                                   <div class="col-6 col-md-2 mb-2" @click="portType = 'plane'; getCities()">
-                                    <img :src=" portType == 'plane' ? '/images/icons/flight_onclick_icon.png' : '/images/icons/flight_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                    <img :src=" portType == 'plane' ? $gbiAssets + '/flight_onclick_icon.png' : $gbiAssets + '/flight_icon_src.png' " class="cursor-pointer explore-icon-width">
                                   </div>
                                 </div>
                              </div>
@@ -453,7 +453,7 @@
                       </div>
                       <p class="text-center">
                         <button
-                          class="btn btn-defalt btn-lg center-block explore_custom_button"
+                          class="btn-defalt btn-lg center-block explore_custom_button"
                           @click.prevent="searchAll()"
                           type="submit"
                           @click="show = !show"
@@ -473,7 +473,7 @@
                       <div class="row p-0 parent_padding">
                         <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
                           <model-select
-                            :options="options"
+                            :options="optionsHotel"
                             v-model="sources"
                             placeholder="Location"
                             autocomplete="off"
@@ -535,7 +535,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-6 col-sm-3 col-lg-3 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-3 input-p nopadding">
                           <div class="select">
                             <select
                               class="selectpicker ui selection dropdown"
@@ -553,7 +553,7 @@
                             </select>
                           </div>
                         </div>
-                        <div class="col-6 col-sm-3 col-lg-3 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-3 input-p nopadding">
                           <input
                               type="text"
                               class="form-control"
@@ -597,7 +597,7 @@
                         <div class="col-12 col-sm-6 col-lg-6 ml-2">
                           <div class="row search-radio">
                             <div class="col-sm-12">
-                              <custLabel2 class="pt-3" style="font-size: 13px;">Customer type</custLabel2>
+                              <custLabel2 class="pt-3">Customer type</custLabel2>
                               <div class="row pb-3">
                                 <div class="col-md-4 col-6">
                                   <div class="custom-control custom-radio">
@@ -661,7 +661,7 @@
                       </div>
                       <p class="text-center">
                         <button
-                          class="btn btn-defalt btn-lg center-block explore_custom_button"
+                          class="btn-defalt btn-lg center-block explore_custom_button"
                           @click.prevent="searchAll()"
                           type="submit"
                           @click="show = !show"
@@ -842,6 +842,9 @@ export default {
     searchAll() {
       // Submit form
       let vm = this;
+      if(vm.noofday == '' || vm.tourtype == '' || vm.noofday == 'No. of days' || vm.tourtype == 'In mood for'){
+        return this.$swal.fire("Error", "Please select all the fields", "warning");
+      }
       vm.searchForm.reset();
       let source = [];
       let destination = [];
@@ -850,8 +853,8 @@ export default {
       // if multicity search or simple search
       if (vm.tripType == 'multicity') {
         //Multiple city search
-        destination = vm.multi_destination.text;
-        source = vm.multi_source.text;
+        destination = vm.multi_destination.value;
+        source = vm.multi_source.value;
         if (source.length > 1 && destination.length > 1) {
           vm.searchForm.source.push(source);
           vm.searchForm.destination.push(destination);
@@ -860,13 +863,13 @@ export default {
         }
         var rows_length = vm.rows.length;
         for (var i = 0; i <= rows_length - 1; i++) {
-          vm.searchForm.source.push(vm.rows[i].source.text);
-          vm.searchForm.destination.push(vm.rows[i].destination.text);
+          vm.searchForm.source.push(vm.rows[i].source.value);
+          vm.searchForm.destination.push(vm.rows[i].destination.value);
         }
       } else {
         //Simple search
-        vm.searchForm.source.push(vm.sources.text);
-        vm.searchForm.destination.push(vm.destinations.text);
+        vm.searchForm.source.push(vm.sources.value);
+        vm.searchForm.destination.push(vm.destinations.value);
       }
 
       if (
@@ -902,7 +905,7 @@ export default {
     height: 46.2px;
     border-radius: 4px;
     padding-left: 15px;
-    font-size: 14px;
+    font-size: 15px;
 
 }
 .marginT {

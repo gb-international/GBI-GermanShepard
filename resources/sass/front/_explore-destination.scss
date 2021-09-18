@@ -101,6 +101,7 @@
 
 .explore-icon-width {
     width: 32px;
+    cursor: pointer;
 }
 
 .image-col{
@@ -198,12 +199,14 @@
 		display: inline-block;
 		margin-bottom: .5rem;
 		margin-left: -4vw !important;
+		font-size: 15px;
 	}
 
 	custLabel2{
 		display: inline-block;
 		margin-bottom: .2rem;
 		margin-left: -2vw !important;
+		font-size: 15px;
 	}
 
 	.cardPadding{
@@ -268,6 +271,11 @@
 		custLabel2{
 			margin-left: -0.8vw !important;
 		}
+
+	}
+
+	@media screen and (min-width: 975px) and (max-width: 1182px) {
+		
 
 	}
 
@@ -569,6 +577,10 @@ select {
 	box-shadow: 0 0 0px rgba(0, 0, 0, 0.125), 0 0px 0px rgba(0, 0, 0, 0.2) !important;
 }
 
+.form-control:disabled, .form-control[readonly] {
+    background-color: #ffffff !important;
+    opacity: 100 !important;
+}
 
 .card-horizontal {
     display: flex;

@@ -16,7 +16,7 @@ import VueMeta from 'vue-meta';
 import vuecookies from 'vue-cookies';
 import UniversalSocialauth from 'universal-social-auth';
 import App from '@/front/pages/layouts/App.vue';
-//import VueGtag from "vue-gtag";
+import VueGtag from "vue-gtag";
 
 import api from '@/front/helpers/api';
 Object.defineProperty(Vue.prototype, '$api', { value: api })
@@ -48,10 +48,10 @@ if (process.window == 'undefined') {
 Vue.config.productionTip = false;
 
 //Dsiabled Console messages
-// Vue.config.devtools = false;
-// Vue.config.debug = false;
-// Vue.config.silent = true;
-//console.log = function() {};
+Vue.config.devtools = false;
+Vue.config.debug = false;
+Vue.config.silent = true;
+console.log = function() {};
 // End
 
 
@@ -72,6 +72,7 @@ const toast = swal.mixin({
     timer: 3000
 });
 Vue.prototype.$toast = toast;
+Vue.prototype.$gbiAssets = 'https://gbi-assets.s3.ap-south-1.amazonaws.com';
 sync(store, router);
 
 router.beforeEach((to, from, next) => {
@@ -116,9 +117,9 @@ const options = {
 const Oauth = new UniversalSocialauth(axios, options);
 Vue.prototype.$Oauth = Oauth
 
-/*Vue.use(VueGtag, {
+Vue.use(VueGtag, {
   config: { id: "UA-138734768-1" }
-}, router);*/
+}, router);
 
 const app = new Vue({
     //el:'#app',

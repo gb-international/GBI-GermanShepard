@@ -904,6 +904,11 @@ __webpack_require__.r(__webpack_exports__);
 
       // Submit form
       var vm = this;
+
+      if (vm.noofday == '' || vm.tourtype == '' || vm.noofday == 'No. of days' || vm.tourtype == 'In mood for') {
+        return this.$swal.fire("Error", "Please select all the fields", "warning");
+      }
+
       vm.searchForm.reset();
       var source = [];
       var destination = [];
@@ -912,8 +917,8 @@ __webpack_require__.r(__webpack_exports__);
 
       if (vm.tripType == 'multicity') {
         //Multiple city search
-        destination = vm.multi_destination.text;
-        source = vm.multi_source.text;
+        destination = vm.multi_destination.value;
+        source = vm.multi_source.value;
 
         if (source.length > 1 && destination.length > 1) {
           vm.searchForm.source.push(source);
@@ -925,13 +930,13 @@ __webpack_require__.r(__webpack_exports__);
         var rows_length = vm.rows.length;
 
         for (var i = 0; i <= rows_length - 1; i++) {
-          vm.searchForm.source.push(vm.rows[i].source.text);
-          vm.searchForm.destination.push(vm.rows[i].destination.text);
+          vm.searchForm.source.push(vm.rows[i].source.value);
+          vm.searchForm.destination.push(vm.rows[i].destination.value);
         }
       } else {
         //Simple search
-        vm.searchForm.source.push(vm.sources.text);
-        vm.searchForm.destination.push(vm.destinations.text);
+        vm.searchForm.source.push(vm.sources.value);
+        vm.searchForm.destination.push(vm.destinations.value);
       }
 
       if (vm.searchForm.destination[0] != "" && vm.searchForm.destination[0] != "") {
@@ -967,7 +972,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.explor-content input[type=\"text\"][data-v-002da906], .explor-content select[data-v-002da906], .explor-content textarea[data-v-002da906] {\n    border: 0px solid #ccc !important;\n    width: 100%;\n    height: 46.2px;\n    border-radius: 4px;\n    padding-left: 15px;\n    font-size: 14px;\n}\n.marginT[data-v-002da906] {\n  margin-top: 10px !important;\n}\nlegend[data-v-002da906] {\n    padding-bottom: 14px;\n    text-align: left;\n}\nfieldset[data-v-002da906] {\n    margin-bottom: 14px;\n    padding-bottom: 14px;\n}\nfieldset[data-v-002da906], input[type=\"button\"][data-v-002da906] {\n    border: 0;\n}\ninput[type=\"button\"][data-v-002da906] {\n    background-color: #3490dc;\n    color: #fff;\n    cursor: pointer;\n    width: 35px;\n    height: 35px;\n    font-size: 17px;\n    border-radius: 20px;\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-002da906] {\n    border: 1px solid #F4F3F3;\n    height: 40px;\n    width: 60%;\n    text-align: center;\n    outline: 2px solid transparent;\n    outline-offset: 2px;\n}\n.personLables[data-v-002da906]{\n  color: grey;\n  text-align: center;\n  font-weight: 600;\n}\n.btn-primary[data-v-002da906]{\n  background-color: #3490dc !important;\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n", ""]);
+exports.push([module.i, "\n.explor-content input[type=\"text\"][data-v-002da906], .explor-content select[data-v-002da906], .explor-content textarea[data-v-002da906] {\n    border: 0px solid #ccc !important;\n    width: 100%;\n    height: 46.2px;\n    border-radius: 4px;\n    padding-left: 15px;\n    font-size: 15px;\n}\n.marginT[data-v-002da906] {\n  margin-top: 10px !important;\n}\nlegend[data-v-002da906] {\n    padding-bottom: 14px;\n    text-align: left;\n}\nfieldset[data-v-002da906] {\n    margin-bottom: 14px;\n    padding-bottom: 14px;\n}\nfieldset[data-v-002da906], input[type=\"button\"][data-v-002da906] {\n    border: 0;\n}\ninput[type=\"button\"][data-v-002da906] {\n    background-color: #3490dc;\n    color: #fff;\n    cursor: pointer;\n    width: 35px;\n    height: 35px;\n    font-size: 17px;\n    border-radius: 20px;\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-002da906] {\n    border: 1px solid #F4F3F3;\n    height: 40px;\n    width: 60%;\n    text-align: center;\n    outline: 2px solid transparent;\n    outline-offset: 2px;\n}\n.personLables[data-v-002da906]{\n  color: grey;\n  text-align: center;\n  font-weight: 600;\n}\n.btn-primary[data-v-002da906]{\n  background-color: #3490dc !important;\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n", ""]);
 
 // exports
 
@@ -1074,7 +1079,7 @@ var render = function() {
   return _c("div", { attrs: { id: "exploreDestination" } }, [
     _c(
       "div",
-      { staticClass: "explore_banner text_on_image banner_bg explore_bg_img" },
+      { staticClass: "explore_banner text_on_image banner_bg2 explore_bg_img" },
       [
         _c("div", { staticClass: "content" }, [
           _c("div", { staticClass: "container-custom" }, [
@@ -1421,12 +1426,7 @@ var render = function() {
                                               [
                                                 _c(
                                                   "custLabel2",
-                                                  {
-                                                    staticClass: "pt-3",
-                                                    staticStyle: {
-                                                      "font-size": "13px"
-                                                    }
-                                                  },
+                                                  { staticClass: "pt-3" },
                                                   [_vm._v("Customer type")]
                                                 ),
                                                 _vm._v(" "),
@@ -1709,8 +1709,10 @@ var render = function() {
                                                       attrs: {
                                                         src:
                                                           _vm.portType == "car"
-                                                            ? "/images/icons/car_onclick_icon.png"
-                                                            : "/images/icons/car_icon_src.png"
+                                                            ? _vm.$gbiAssets +
+                                                              "/car_onclick_icon.png"
+                                                            : _vm.$gbiAssets +
+                                                              "/car_icon_src.png"
                                                       }
                                                     })
                                                   ]
@@ -1735,8 +1737,10 @@ var render = function() {
                                                       attrs: {
                                                         src:
                                                           _vm.portType == "bus"
-                                                            ? "/images/icons/bus_onclick_icon.png"
-                                                            : "/images/icons/bus_icon_src.png"
+                                                            ? _vm.$gbiAssets +
+                                                              "/bus_onclick_icon.png"
+                                                            : _vm.$gbiAssets +
+                                                              "/bus_icon_src.png"
                                                       }
                                                     })
                                                   ]
@@ -1762,8 +1766,10 @@ var render = function() {
                                                         src:
                                                           _vm.portType ==
                                                           "train"
-                                                            ? "/images/icons/train_onclick_icon.png"
-                                                            : "/images/icons/train_icon_src.png"
+                                                            ? _vm.$gbiAssets +
+                                                              "/train_onclick_icon.png"
+                                                            : _vm.$gbiAssets +
+                                                              "/train_icon_src.png"
                                                       }
                                                     })
                                                   ]
@@ -1789,8 +1795,10 @@ var render = function() {
                                                         src:
                                                           _vm.portType ==
                                                           "plane"
-                                                            ? "/images/icons/flight_onclick_icon.png"
-                                                            : "/images/icons/flight_icon_src.png"
+                                                            ? _vm.$gbiAssets +
+                                                              "/flight_onclick_icon.png"
+                                                            : _vm.$gbiAssets +
+                                                              "/flight_icon_src.png"
                                                       }
                                                     })
                                                   ]
@@ -1810,7 +1818,7 @@ var render = function() {
                                     "button",
                                     {
                                       staticClass:
-                                        "btn btn-defalt btn-lg center-block explore_custom_button",
+                                        "btn-defalt btn-lg center-block explore_custom_button",
                                       attrs: { type: "submit" },
                                       on: {
                                         click: [
@@ -2239,7 +2247,7 @@ var render = function() {
                                               ),
                                               _vm._v(" "),
                                               _vm._l(
-                                                _vm.tourtype_option,
+                                                _vm.noofdays_option,
                                                 function(index) {
                                                   return _c(
                                                     "option",
@@ -2283,12 +2291,7 @@ var render = function() {
                                               [
                                                 _c(
                                                   "custLabel2",
-                                                  {
-                                                    staticClass: "pt-3",
-                                                    staticStyle: {
-                                                      "font-size": "13px"
-                                                    }
-                                                  },
+                                                  { staticClass: "pt-3" },
                                                   [_vm._v("Customer type")]
                                                 ),
                                                 _vm._v(" "),
@@ -2571,8 +2574,10 @@ var render = function() {
                                                       attrs: {
                                                         src:
                                                           _vm.portType == "car"
-                                                            ? "/images/icons/car_onclick_icon.png"
-                                                            : "/images/icons/car_icon_src.png"
+                                                            ? _vm.$gbiAssets +
+                                                              "/car_onclick_icon.png"
+                                                            : _vm.$gbiAssets +
+                                                              "/car_icon_src.png"
                                                       }
                                                     })
                                                   ]
@@ -2597,8 +2602,10 @@ var render = function() {
                                                       attrs: {
                                                         src:
                                                           _vm.portType == "bus"
-                                                            ? "/images/icons/bus_onclick_icon.png"
-                                                            : "/images/icons/bus_icon_src.png"
+                                                            ? _vm.$gbiAssets +
+                                                              "/bus_onclick_icon.png"
+                                                            : _vm.$gbiAssets +
+                                                              "/bus_icon_src.png"
                                                       }
                                                     })
                                                   ]
@@ -2624,8 +2631,10 @@ var render = function() {
                                                         src:
                                                           _vm.portType ==
                                                           "train"
-                                                            ? "/images/icons/train_onclick_icon.png"
-                                                            : "/images/icons/train_icon_src.png"
+                                                            ? _vm.$gbiAssets +
+                                                              "/train_onclick_icon.png"
+                                                            : _vm.$gbiAssets +
+                                                              "/train_icon_src.png"
                                                       }
                                                     })
                                                   ]
@@ -2651,8 +2660,10 @@ var render = function() {
                                                         src:
                                                           _vm.portType ==
                                                           "plane"
-                                                            ? "/images/icons/flight_onclick_icon.png"
-                                                            : "/images/icons/flight_icon_src.png"
+                                                            ? _vm.$gbiAssets +
+                                                              "/flight_onclick_icon.png"
+                                                            : _vm.$gbiAssets +
+                                                              "/flight_icon_src.png"
                                                       }
                                                     })
                                                   ]
@@ -2672,7 +2683,7 @@ var render = function() {
                                     "button",
                                     {
                                       staticClass:
-                                        "btn btn-defalt btn-lg center-block explore_custom_button",
+                                        "btn-defalt btn-lg center-block explore_custom_button",
                                       attrs: { type: "submit" },
                                       on: {
                                         click: [
@@ -2716,7 +2727,7 @@ var render = function() {
                                     [
                                       _c("model-select", {
                                         attrs: {
-                                          options: _vm.options,
+                                          options: _vm.optionsHotel,
                                           placeholder: "Location",
                                           autocomplete: "off"
                                         },
@@ -3230,7 +3241,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "col-6 col-sm-3 col-lg-3 input-p nopadding"
+                                        "col-6 col-sm-6 col-lg-3 input-p nopadding"
                                     },
                                     [
                                       _c("div", { staticClass: "select" }, [
@@ -3284,7 +3295,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "col-6 col-sm-3 col-lg-3 input-p nopadding"
+                                        "col-6 col-sm-6 col-lg-3 input-p nopadding"
                                     },
                                     [
                                       _c("input", {
@@ -3583,12 +3594,7 @@ var render = function() {
                                             [
                                               _c(
                                                 "custLabel2",
-                                                {
-                                                  staticClass: "pt-3",
-                                                  staticStyle: {
-                                                    "font-size": "13px"
-                                                  }
-                                                },
+                                                { staticClass: "pt-3" },
                                                 [_vm._v("Customer type")]
                                               ),
                                               _vm._v(" "),
@@ -3832,7 +3838,7 @@ var render = function() {
                                   "button",
                                   {
                                     staticClass:
-                                      "btn btn-defalt btn-lg center-block explore_custom_button",
+                                      "btn-defalt btn-lg center-block explore_custom_button",
                                     attrs: { type: "submit" },
                                     on: {
                                       click: [

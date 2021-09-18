@@ -2,9 +2,9 @@
   <!--************************************************
       Author: @Manas
   ****************************************************-->
-<section class="d-flex flex-column justify-content-center">
+<section class="d-flex flex-column justify-content-center" style="background: white !important">
   <!-- Row 1 -->
-  <div class="d-flex justify-content-center align-items-center mainRow1 container">
+  <div class="d-flex justify-content-center align-items-center mainRow1 container" style="background: white !important">
     <div class="p-2 d-flex flex-column expDetCol1">
         <img 
           :src="selectedPhoto"
@@ -82,39 +82,39 @@
     <p class="rowheadings">Your Experience Includes</p>
     <div class="iconMainDiv">
       <div class="iconClass">
-        <img src="/images/icons/hotel_icon.png">
+        <img :src="$gbiAssets + '/hotel_icon.png'">
         <p>Hotel</p>
       </div>
       <div class="iconClass">
-        <img src="/images/icons/flight_icon.png">
+        <img :src="$gbiAssets + '/flight_icon.png'">
         <p>Flight</p>
       </div>
       <div class="iconClass">
-        <img src="/images/icons/passport_icon.png">
+        <img :src="$gbiAssets + '/passport_icon.png'">
         <p>Passport/Visa</p>
       </div>
       <div class="iconClass">
-        <img src="/images/icons/transport_icon.png">
+        <img :src="$gbiAssets + '/transport_icon.png'">
         <p>Transfers</p>
       </div>
       <div class="iconClass">
-        <img src="/images/icons/dinner_icon.png">
+        <img :src="$gbiAssets + '/dinner_icon.png'">
         <p>Dinner</p>
       </div>
       <div class="iconClass">
-        <img src="/images/icons/citytour_icon.png">
+        <img :src="$gbiAssets + '/citytour_icon.png'">
         <p>City Tour</p>
       </div>
       <div class="iconClass">
-        <img src="/images/icons/taxes_icon.png">
+        <img :src="$gbiAssets + '/taxes_icon.png'">
         <p>Taxes</p>
       </div>
       <div class="iconClass">
-        <img src="/images/icons/sightseeing.png">
+        <img :src="$gbiAssets + '/sightseeing.png'">
         <p>Sightseeing</p>
       </div>
       <div class="iconClass">
-        <img src="/images/icons/breakfast.png">
+        <img :src="$gbiAssets + '/breakfast.png'">
         <p>Breakfast</p>
       </div>
     </div>
