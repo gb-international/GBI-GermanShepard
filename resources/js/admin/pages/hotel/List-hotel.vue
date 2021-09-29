@@ -43,12 +43,9 @@ data from the api to display the data about the Category from the backend .
         <template #table-busy>
           <table-loader />
         </template>
-        <template #cell(address)="data">
-          {{ data.item.address | readMore(50) }}
-        </template>
         <template #cell(action)="data">
-          <view-icon :url="`/hotel-view/${data.item.id}`"></view-icon>
-          <edit-icon :url="`/edit-hotel/${data.item.id}`"></edit-icon>
+          <view-icon :url="`/`"></view-icon>
+          <edit-icon :url="`/`"></edit-icon>
           <delete-icon 
             @click.native="deleteItem(data.item.id,data.index)"
             >
@@ -89,10 +86,10 @@ export default {
   data() {
     return {
       fields: [
-        {key:'name',label:'name',sortable:true,thClass: 'table-head'},
-        {key:'address',label:'address',sortable:true,thClass: 'table-head'},
+        {key:'name',label:'hotel name',sortable:true,thClass: 'table-head'},
+        {key:'city',label:'location',sortable:true,thClass: 'table-head'},
         {key:'type',label:'star',sortable:true,thClass: 'table-head'},
-        {key:'phoneno',label:'contact no',sortable:true,thClass: 'table-head'},
+        {key:'phoneno',label:'phone no',sortable:true,thClass: 'table-head'},
         {key:'action',label:'action',thClass: 'table-head'}
       ],
       filter:'',

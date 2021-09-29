@@ -160,7 +160,7 @@
         </li>
         @endcanany --}}
 
-        @if(auth()->user()->hasAnyPermission([60 , 61]) || auth()->user()->hasRole(1))
+        @if(auth()->user()->hasAnyPermission([60 , 61, 98, 99]) || auth()->user()->hasRole(1))
         <li class="nav-item has-treeview" title="Hotel">
             <a href="#" class="nav-link nav-cols">
             <i class="nav-icon fas fa-hotel"></i>
@@ -175,6 +175,22 @@
                 <router-link to="/hotel-list" class="nav-link nav-cols" title="Hotel List">
                 
                 <p> Hotel</p>
+                </router-link>
+            </li>
+            @endif
+            @if(auth()->user()->hasPermissionTo(98) || auth()->user()->hasRole(1))
+            <li class="nav-item">
+                <router-link to="/room-categories" class="nav-link nav-cols" title="Room Category">
+                
+                <p> Room Category</p>
+                </router-link>
+            </li>
+            @endif
+             @if(auth()->user()->hasPermissionTo(99) || auth()->user()->hasRole(1))
+            <li class="nav-item">
+                <router-link to="/banquet-categories" class="nav-link nav-cols" title="Banquet Category">
+                
+                <p> Banquet Category</p>
                 </router-link>
             </li>
             @endif

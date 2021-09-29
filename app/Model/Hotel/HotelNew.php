@@ -32,8 +32,12 @@ class HotelNew extends Model
         return $this->hasMany('App\Model\Hotel\HotelRooms');
     }
 
-    public function category(){
+    public function roomCategory(){
         return $this->hasMany('App\Model\Hotel\RoomCategory');
+    }
+
+    public function banquetCategory(){
+        return $this->hasMany('App\Model\Hotel\BanquetCategory');
     }
 
     public function amenities(){

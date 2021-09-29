@@ -161,9 +161,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 
 
@@ -185,12 +182,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       fields: [{
         key: 'name',
-        label: 'name',
+        label: 'hotel name',
         sortable: true,
         thClass: 'table-head'
       }, {
-        key: 'address',
-        label: 'address',
+        key: 'city',
+        label: 'location',
         sortable: true,
         thClass: 'table-head'
       }, {
@@ -200,7 +197,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         thClass: 'table-head'
       }, {
         key: 'phoneno',
-        label: 'contact no',
+        label: 'phone no',
         sortable: true,
         thClass: 'table-head'
       }, {
@@ -417,28 +414,12 @@ var render = function() {
                     proxy: true
                   },
                   {
-                    key: "cell(address)",
-                    fn: function(data) {
-                      return [
-                        _vm._v(
-                          "\n        " +
-                            _vm._s(_vm._f("readMore")(data.item.address, 50)) +
-                            "\n      "
-                        )
-                      ]
-                    }
-                  },
-                  {
                     key: "cell(action)",
                     fn: function(data) {
                       return [
-                        _c("view-icon", {
-                          attrs: { url: "/hotel-view/" + data.item.id }
-                        }),
+                        _c("view-icon", { attrs: { url: "/" } }),
                         _vm._v(" "),
-                        _c("edit-icon", {
-                          attrs: { url: "/edit-hotel/" + data.item.id }
-                        }),
+                        _c("edit-icon", { attrs: { url: "/" } }),
                         _vm._v(" "),
                         _c("delete-icon", {
                           nativeOn: {

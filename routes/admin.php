@@ -40,6 +40,7 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('state','StateController');
 		Route::get('sightseeings/all/{size}','SightseeingController@all');
 		Route::resource('sightseeings','SightseeingController');
+		Route::post('maps/get-location','MapsController@getLocation');
 	});
 
 	Route::namespace('Itinerary')->group(function(){
@@ -106,6 +107,10 @@ Route::namespace('Admin')->group(function (){
 	Route::namespace('Hotel')->group(function(){
 		Route::get('hotel/all/{size}','HotelController@all');
 		Route::resource('hotel','HotelController');
+		Route::get('room-categories/all/{size}','RoomCategoryController@all');
+		Route::resource('room-categories','RoomCategoryController');
+		Route::get('banquet-categories/all/{size}','BanquetCategoryController@all');
+		Route::resource('banquet-categories','BanquetCategoryController');
 	});
 	Route::namespace('School')->group(function(){
 		Route::get('school/all/{size}','SchoolController@all');
@@ -289,7 +294,7 @@ Route::namespace('Admin')->group(function (){
 		Route::get('job-applications/all','JobApplicationController@index');
 		Route::get('job-applications/old','JobApplicationController@indexOld');
 		Route::post('job-application/save-status', 'JobApplicationController@saveStatus');
-	});
+	});	
 
 });
 

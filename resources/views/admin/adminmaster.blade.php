@@ -8,8 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">    
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
-     <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
-     {{-- <link href="{{ secure_asset('css/admin/app.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ secure_asset('css/admin/app.css') }}" rel="stylesheet"> --}}
      
 </head>
 <body class="hold-transition sidebar-mini">
@@ -42,7 +42,9 @@
     </nav>
     <aside class="main-sidebar elevation-4" id="admin_top_logo">
       <a href="/"  class="brand-link logo_link">
-        <img src="{{asset('assets/admin/default/icon/admin_logo.png')}}"
+        {{-- <img src="{{secure_asset('assets/admin/default/icon/admin_logo.png')}}"
+              alt="GBI Logo" class="brand-image"> --}}
+         <img src="{{asset('assets/admin/default/icon/admin_logo.png')}}"
               alt="GBI Logo" class="brand-image">
         <span class="brand-text font-weight-light">.</span>
       </a>
@@ -59,7 +61,7 @@
       <div class="float-right d-none d-sm-block">
           <b>Term & Condition</b>
       </div>
-      <strong> &copy; 2019 <a href="#">admin</a>.</strong> All rights
+      <strong> &copy; 2021 <a href="#">admin</a>.</strong> All rights
       reserved.
     </footer>
 </div>
@@ -88,8 +90,8 @@
 </script>
 
 
- <script src="{{ asset('js/admin/admin.js') }}"></script> 
-{{-- <script src="{{ secure_asset('js/admin/admin.js') }}"></script> --}}
+<script src="{{ asset('js/admin/admin.js') }}"></script>
+{{-- <script src="{{ secure_asset('js/admin/admin.js') }}"></script>  --}}
 
 <style>
   .tags-input {

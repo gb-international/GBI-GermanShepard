@@ -8,17 +8,11 @@ namespace App\Http\Controllers\Admin\Hotel;
 use App\Http\Controllers\Controller;
 use App\Model\Hotel\RoomCategory;
 use Illuminate\Http\Request;
-use App\Traits\ImageTrait;
+//use App\Traits\ImageTrait;
 
 class RoomCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    use ImageTrait;
-
+    
     public function all($size)
     {
         return response()->json(RoomCategory::select([
@@ -37,88 +31,56 @@ class RoomCategoryController extends Controller
             ->get());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $data = $request->all();
 
-        if($request->image){
+        /*if($request->image){
             $imagename = explode('.',$request->image[0]['name'])[0];
             //$data['image'] = $this->AwsFileUpload($request->image[0]['file'],config('gbi.hotel_image'),$imagename);
             $data['alt'] = $imagename;
-        }
+        }*/
         RoomCategory::create($data);
         return response()->json('succesfull created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Model\Post\RoomCategory  $rcat
-     * @return \Illuminate\Http\Response
-     */
-    public function show(RoomCategory $rcat)
+    public function show($id)
     {
-        return response()->json($rcat);
+        $roomcategory = RoomCategory::find($id);
+        return response()->json($roomcategory);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Model\Post\RoomCategory  $rcat
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(RoomCategory $rcat)
+    public function edit($id)
     {
-        return response()->json($rcat);
+        $roomcategory = RoomCategory::find($id);
+        return response()->json($roomcategory);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Post\RoomCategory  $rcat
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, RoomCategory $rcat)
+    public function update(Request $request, $id)
     {
+        $roomcategory = RoomCategory::find($id);
         $data = $request->all();        
-        if($request->image){
+        /*if($request->image){
             $imagename = explode('.',$request->image[0]['name'])[0];
             //$data['image'] = $this->AwsFileUpload($request->image[0]['file'],config('gbi.hotel_image'),$imagename);
-            $this->AwsDeleteImage($rcat->image);
+            $this->AwsDeleteImage($roomcategory->image);
         }else{
             unset($data['image']);
-        }
-        $rcat->update($data);
+        }*/
+        $roomcategory->update($data);
         return response()->json('succesfull created');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Model\Post\RoomCategory  $rcat
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(RoomCategory $rcat)
+    public function destroy($id)
     {
-        $this->AwsDeleteImage($rcat->image);
-        $rcat->delete();
+        $roomcategory = RoomCategory::find($id);
+        //$this->AwsDeleteImage($roomcategory->image);
+        $roomcategory->delete();
         return response()->json('successfully deleted');
     }
 }
