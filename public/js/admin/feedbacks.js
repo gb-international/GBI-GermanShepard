@@ -219,7 +219,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n*[data-v-9fb58476] {\r\n  box-sizing: border-box;\r\n  outline: none;\n}\nbody[data-v-9fb58476] {\r\n  margin: 0;\r\n  font-family: Sans-serif;\n}\n.feedback-full[data-v-9fb58476] {\r\n  background-color: #f2f3f7;\r\n  width: 100%;\r\n  padding: 8px 30px;\r\n  display: flex;\r\n  flex-direction: column;\n}\n.feedback-body[data-v-9fb58476] {\r\n  flex: 1;\r\n  display: flex;\n}\n.feedback-container[data-v-9fb58476] {\r\n  height: 100%;\r\n  display: flex;\n}\n.mail-left-side[data-v-9fb58476] {\r\n  width: 40%;\r\n  height: 100%;\r\n  overflow: auto;\r\n  padding: 20px 0px 5px 0px;\n}\n.mail-card[data-v-9fb58476] {\r\n  background-color: #dad7d79c;\r\n  border-radius: 21px;\r\n  margin-top: 5px;\r\n  margin-bottom: 15px;\r\n  padding: 15px 15px 15px 15px;\r\n  transition: 0.3s;\r\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n}\n.mail-card[data-v-9fb58476]:hover {\r\n  box-shadow: none;\n}\n.mail-names[data-v-9fb58476] {\r\n  color: #000000b8;\r\n  font-size: 16px;\r\n  font-weight: 500;\n}\n.mails[data-v-9fb58476] {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\n}\n.mail-info[data-v-9fb58476] {\r\n  margin: 2px 65px;\r\n  margin-left: 0px;\r\n  font-weight: 500;\r\n  font-size: 12.5px;\r\n  color: grey;\n}\n.mail-info p[data-v-9fb58476] {\r\n margin-top: -2.5px;\r\n margin-bottom: 6px;\r\n font-size: 15px;\r\n font-weight: 600;\n}\n.date[data-v-9fb58476] {\r\n  color: grey;\r\n  float: right;\r\n  font-size: 12px;\r\n  font-weight: 500;\n}\n.mail-right-side[data-v-9fb58476] {\r\n  margin-left: 35px;\r\n  flex: 1;\n}\n.mail-right-body[data-v-9fb58476]{\r\n  background-color: #e1e1e1e1;\r\n  position: relative;\r\n  padding: 22px 20px 20px 20px;\r\n  border-radius: 18px;\r\n  font-size: 16px;\r\n  padding-bottom: 150px;\r\n  margin: 20px 10px;\r\n  color: #000000b8;\n}\n.message-body[data-v-9fb58476] {\r\n  overflow: auto;\r\n  height: 600px;\r\n  width: 100%;\r\n  margin-top: 18px;\r\n  color: black;\n}\n.message-title[data-v-9fb58476] {\r\n  display: flex;\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  color: grey;\n}\n.message-title b[data-v-9fb58476]{\r\n  font-size: 14px;\r\n  padding-left: 5px;\r\n  color: #000000b8;\r\n  font-weight: 700;\n}\n.message-tour-info[data-v-9fb58476]{\r\n  font-size: 18px;\r\n  font-weight: 700;\r\n  color: #7f7a7a;\r\n  margin-bottom: 21px;\n}\n.mail-right-top[data-v-9fb58476]{\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: flex-end;\r\n  margin-left: 10px;\n}\n.cButton[data-v-9fb58476] {\r\n  border-radius: 3px;\r\n  border: 1px;\r\n  border-radius: 100px;\r\n  outline: none;\n}\n.replyButton[data-v-9fb58476] {\r\n  padding: 12px 38px;\r\n  margin-top: 20px;\r\n  color: white;\r\n  font-size: 19px !important;\r\n  font-weight: 600;\r\n  font-family: Hawaii 5-0, sans-serif;\r\n  background-color: #3ebee4;\n}\n.sendLinkButton[data-v-9fb58476]{\r\n  padding: 7px 38px;\r\n  margin-top: 12px;\r\n  color: #3ebee4;\r\n  font-size: 17px !important;\r\n  font-weight: 600;\r\n  font-family: Hawaii 5-0, sans-serif;\r\n  background-color: #f4f6f9;\r\n  border: solid 2px #3ebee4;\n}\n.attachIcon[data-v-9fb58476]{\r\n  font-size: 32px; \r\n  padding-right: 10px; \r\n  font-weight: 300; \r\n  color: grey;\n}\n.filter-dd[data-v-9fb58476]{\r\n  border-radius: 10px; \r\n  margin-left: 30px;\n}\n.filter-dd2[data-v-9fb58476]{\r\n  border-radius: 10px;\n}\n.arrow-buttons[data-v-9fb58476]{\r\n  padding: 5px 20px;\r\n  border: none;\r\n  background-color: #dad7d79c;\r\n  margin-left: 10px;\n}\n.mail-left-top[data-v-9fb58476]{\r\n  display: flex; \r\n  flex-direction: row; \r\n  justify-content: space-between;\r\n  margin-top: 7px;\r\n  margin-left: 4px;\r\n  margin-right: 4px;\r\n  margin-bottom: 15px;\n}\n.bottom-items[data-v-9fb58476]{\r\n  position: absolute;\r\n  bottom: 0;\r\n  right: 0;\r\n  margin: 20px;\n}\n[data-v-9fb58476]::-webkit-scrollbar {\r\n  width: 10px;\n}\r\n\r\n/* Track */\n[data-v-9fb58476]::-webkit-scrollbar-track {\r\n  background: #f1f1f1;\n}\r\n\r\n/* Handle */\n[data-v-9fb58476]::-webkit-scrollbar-thumb {\r\n  background: #888;\n}\r\n\r\n/* Handle on hover */\n[data-v-9fb58476]::-webkit-scrollbar-thumb:hover {\r\n  background: #555;\n}\r\n", ""]);
+exports.push([module.i, "\n*[data-v-9fb58476] {\n  box-sizing: border-box;\n  outline: none;\n}\nbody[data-v-9fb58476] {\n  margin: 0;\n  font-family: Sans-serif;\n}\n.feedback-full[data-v-9fb58476] {\n  background-color: #f2f3f7;\n  width: 100%;\n  padding: 8px 30px;\n  display: flex;\n  flex-direction: column;\n}\n.feedback-body[data-v-9fb58476] {\n  flex: 1;\n  display: flex;\n}\n.feedback-container[data-v-9fb58476] {\n  height: 100%;\n  display: flex;\n}\n.mail-left-side[data-v-9fb58476] {\n  width: 40%;\n  height: 100%;\n  overflow: auto;\n  padding: 20px 0px 5px 0px;\n}\n.mail-card[data-v-9fb58476] {\n  background-color: #dad7d79c;\n  border-radius: 21px;\n  margin-top: 5px;\n  margin-bottom: 15px;\n  padding: 15px 15px 15px 15px;\n  transition: 0.3s;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n}\n.mail-card[data-v-9fb58476]:hover {\n  box-shadow: none;\n}\n.mail-names[data-v-9fb58476] {\n  color: #000000b8;\n  font-size: 16px;\n  font-weight: 500;\n}\n.mails[data-v-9fb58476] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.mail-info[data-v-9fb58476] {\n  margin: 2px 65px;\n  margin-left: 0px;\n  font-weight: 500;\n  font-size: 12.5px;\n  color: grey;\n}\n.mail-info p[data-v-9fb58476] {\n margin-top: -2.5px;\n margin-bottom: 6px;\n font-size: 15px;\n font-weight: 600;\n}\n.date[data-v-9fb58476] {\n  color: grey;\n  float: right;\n  font-size: 12px;\n  font-weight: 500;\n}\n.mail-right-side[data-v-9fb58476] {\n  margin-left: 35px;\n  flex: 1;\n}\n.mail-right-body[data-v-9fb58476]{\n  background-color: #e1e1e1e1;\n  position: relative;\n  padding: 22px 20px 20px 20px;\n  border-radius: 18px;\n  font-size: 16px;\n  padding-bottom: 150px;\n  margin: 20px 10px;\n  color: #000000b8;\n}\n.message-body[data-v-9fb58476] {\n  overflow: auto;\n  height: 600px;\n  width: 100%;\n  margin-top: 18px;\n  color: black;\n}\n.message-title[data-v-9fb58476] {\n  display: flex;\n  font-size: 14px;\n  font-weight: 500;\n  color: grey;\n}\n.message-title b[data-v-9fb58476]{\n  font-size: 14px;\n  padding-left: 5px;\n  color: #000000b8;\n  font-weight: 700;\n}\n.message-tour-info[data-v-9fb58476]{\n  font-size: 18px;\n  font-weight: 700;\n  color: #7f7a7a;\n  margin-bottom: 21px;\n}\n.mail-right-top[data-v-9fb58476]{\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  margin-left: 10px;\n}\n.cButton[data-v-9fb58476] {\n  border-radius: 3px;\n  border: 1px;\n  border-radius: 100px;\n  outline: none;\n}\n.replyButton[data-v-9fb58476] {\n  padding: 12px 38px;\n  margin-top: 20px;\n  color: white;\n  font-size: 19px !important;\n  font-weight: 600;\n  font-family: Hawaii 5-0, sans-serif;\n  background-color: #3ebee4;\n}\n.sendLinkButton[data-v-9fb58476]{\n  padding: 7px 38px;\n  margin-top: 12px;\n  color: #3ebee4;\n  font-size: 17px !important;\n  font-weight: 600;\n  font-family: Hawaii 5-0, sans-serif;\n  background-color: #f4f6f9;\n  border: solid 2px #3ebee4;\n}\n.attachIcon[data-v-9fb58476]{\n  font-size: 32px; \n  padding-right: 10px; \n  font-weight: 300; \n  color: grey;\n}\n.filter-dd[data-v-9fb58476]{\n  border-radius: 10px; \n  margin-left: 30px;\n}\n.filter-dd2[data-v-9fb58476]{\n  border-radius: 10px;\n}\n.arrow-buttons[data-v-9fb58476]{\n  padding: 5px 20px;\n  border: none;\n  background-color: #dad7d79c;\n  margin-left: 10px;\n}\n.mail-left-top[data-v-9fb58476]{\n  display: flex; \n  flex-direction: row; \n  justify-content: space-between;\n  margin-top: 7px;\n  margin-left: 4px;\n  margin-right: 4px;\n  margin-bottom: 15px;\n}\n.bottom-items[data-v-9fb58476]{\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  margin: 20px;\n}\n[data-v-9fb58476]::-webkit-scrollbar {\n  width: 10px;\n}\n\n/* Track */\n[data-v-9fb58476]::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n\n/* Handle */\n[data-v-9fb58476]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-9fb58476]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n", ""]);
 
 // exports
 
@@ -381,7 +381,7 @@ var render = function() {
                           [
                             _c("b", [_vm._v(_vm._s(item.name))]),
                             _vm._v(
-                              ", +91" + _vm._s(item.ph_no) + "\r\n            "
+                              ", +91" + _vm._s(item.ph_no) + "\n            "
                             )
                           ]
                         ),
@@ -482,7 +482,7 @@ var render = function() {
                                   _vm.currentItem.trip_itenerary
                                 )
                               ) +
-                              "\r\n            "
+                              "\n            "
                           )
                         ]
                       ),
@@ -500,7 +500,7 @@ var render = function() {
                                 _vm.currentItem.place_of_stay
                               )
                             ) +
-                            "\r\n            "
+                            "\n            "
                         )
                       ]),
                       _vm._v(" "),
@@ -519,7 +519,7 @@ var render = function() {
                                 _vm.currentItem.food_quality
                               )
                             ) +
-                            "\r\n            "
+                            "\n            "
                         )
                       ]),
                       _vm._v(" "),
@@ -538,7 +538,7 @@ var render = function() {
                                 _vm.currentItem.transport_arrangements
                               )
                             ) +
-                            "\r\n            "
+                            "\n            "
                         )
                       ]),
                       _vm._v(" "),
@@ -557,7 +557,7 @@ var render = function() {
                                 _vm.currentItem.recommend_to_others
                               )
                             ) +
-                            "\r\n            "
+                            "\n            "
                         )
                       ]),
                       _vm._v(" "),
@@ -576,7 +576,7 @@ var render = function() {
                                 _vm.currentItem.travel_again
                               )
                             ) +
-                            "\r\n            "
+                            "\n            "
                         )
                       ]),
                       _vm._v(" "),
@@ -595,7 +595,7 @@ var render = function() {
                                 _vm.currentItem.escort_hospitality
                               )
                             ) +
-                            "\r\n            "
+                            "\n            "
                         )
                       ]),
                       _vm._v(" "),
@@ -622,7 +622,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("br"),
                         _vm._v(
-                          _vm._s(_vm.currentItem.comments) + "\r\n            "
+                          _vm._s(_vm.currentItem.comments) + "\n            "
                         )
                       ])
                     ])
@@ -643,13 +643,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [
-      _vm._v("\r\n              From: \r\n              "),
+      _vm._v("\n              From: \n              "),
       _c("br"),
-      _vm._v("To:\r\n              "),
+      _vm._v("To:\n              "),
       _c("br"),
-      _vm._v("Date:\r\n              "),
+      _vm._v("Date:\n              "),
       _c("br"),
-      _vm._v("Mobile:\r\n             ")
+      _vm._v("Mobile:\n             ")
     ])
   }
 ]

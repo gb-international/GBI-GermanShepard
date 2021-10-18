@@ -819,7 +819,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.sideBarStg[data-v-725fc1f2]{\r\n  border-top: 1px solid grey; \r\n  border-right: 1px solid grey;\n}\n.container[data-v-725fc1f2] {\r\n    width: 125%;\r\n    padding-right: 15px;\r\n    padding-left: 15px;\r\n    margin-right: auto;\r\n    margin-left: auto;\n}\nselect[data-v-725fc1f2]{\r\n  border: 1px solid #ced4da !important;\n}\n.backBtn[data-v-725fc1f2]{\r\n  display: none !important;\n}\n@media only screen and (max-width: 824px) {\n.profile_button[data-v-725fc1f2] {\r\n      padding: 11px 35px !important;\n}\n.backBtn[data-v-725fc1f2]{\r\n    display: inline !important;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.sideBarStg[data-v-725fc1f2]{\n  border-top: 1px solid grey; \n  border-right: 1px solid grey;\n}\n.container[data-v-725fc1f2] {\n    width: 125%;\n    padding-right: 15px;\n    padding-left: 15px;\n    margin-right: auto;\n    margin-left: auto;\n}\nselect[data-v-725fc1f2]{\n  border: 1px solid #ced4da !important;\n}\n.backBtn[data-v-725fc1f2]{\n  display: none !important;\n}\n@media only screen and (max-width: 824px) {\n.profile_button[data-v-725fc1f2] {\n      padding: 11px 35px !important;\n}\n.backBtn[data-v-725fc1f2]{\n    display: inline !important;\n}\n}\n", ""]);
 
 // exports
 
@@ -838,7 +838,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.uploadIcons[data-v-3691aa72]{\r\n  font-size: 25px;\n}\n.note[data-v-3691aa72]{\r\n  margin-top: 10px;\r\n  font-size: 12px;\n}\n.note2[data-v-3691aa72]{\r\n  margin-top: 10px;\r\n  font-size: 14px;\r\n  font-weight: 500;\n}\nselect[data-v-3691aa72]{\r\n  border: 1px solid #ced4da !important;\n}\n.backBtn[data-v-3691aa72]{\r\n  display: none !important;\n}\n@media only screen and (max-width: 824px) {\n.profile_button[data-v-3691aa72] {\r\n      padding: 11px 35px !important;\n}\n.mobBtn[data-v-3691aa72]{\r\n    display: inline !important;\n}\n.backBtn[data-v-3691aa72]{\r\n    display: inline !important;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.uploadIcons[data-v-3691aa72]{\n  font-size: 25px;\n}\n.note[data-v-3691aa72]{\n  margin-top: 10px;\n  font-size: 12px;\n}\n.note2[data-v-3691aa72]{\n  margin-top: 10px;\n  font-size: 14px;\n  font-weight: 500;\n}\nselect[data-v-3691aa72]{\n  border: 1px solid #ced4da !important;\n}\n.backBtn[data-v-3691aa72]{\n  display: none !important;\n}\n@media only screen and (max-width: 824px) {\n.profile_button[data-v-3691aa72] {\n      padding: 11px 35px !important;\n}\n.mobBtn[data-v-3691aa72]{\n    display: inline !important;\n}\n.backBtn[data-v-3691aa72]{\n    display: inline !important;\n}\n}\n", ""]);
 
 // exports
 
@@ -857,7 +857,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.uploadIcons[data-v-49b75d94]{\r\n  font-size: 25px;\n}\n.note[data-v-49b75d94]{\r\n  margin-top: 10px;\r\n  font-size: 12px;\n}\n.note2[data-v-49b75d94]{\r\n  margin-top: 10px;\r\n  font-size: 14px;\r\n  font-weight: 500;\n}\nselect[data-v-49b75d94]{\r\n  border: 1px solid #ced4da !important;\n}\n.backBtn[data-v-49b75d94]{\r\n  display: none !important;\n}\n@media only screen and (max-width: 824px) {\n.profile_button[data-v-49b75d94] {\r\n      padding: 11px 35px !important;\n}\n.mobBtn[data-v-49b75d94]{\r\n    display: inline !important;\n}\n.backBtn[data-v-49b75d94]{\r\n    display: inline !important;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.uploadIcons[data-v-49b75d94]{\n  font-size: 25px;\n}\n.note[data-v-49b75d94]{\n  margin-top: 10px;\n  font-size: 12px;\n}\n.note2[data-v-49b75d94]{\n  margin-top: 10px;\n  font-size: 14px;\n  font-weight: 500;\n}\nselect[data-v-49b75d94]{\n  border: 1px solid #ced4da !important;\n}\n.backBtn[data-v-49b75d94]{\n  display: none !important;\n}\n@media only screen and (max-width: 824px) {\n.profile_button[data-v-49b75d94] {\n      padding: 11px 35px !important;\n}\n.mobBtn[data-v-49b75d94]{\n    display: inline !important;\n}\n.backBtn[data-v-49b75d94]{\n    display: inline !important;\n}\n}\n", ""]);
 
 // exports
 

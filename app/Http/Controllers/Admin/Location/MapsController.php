@@ -24,6 +24,15 @@ class MapsController extends Controller
         return $data;
     }
 
+    public function getMap(Request $request) {
+        $latlng = $request->lat.','.$request->lng;
+        $data = \GoogleMaps::load('geocoding')
+                ->setParamByKey('latlng', $latlng)
+                 ->get('results');
+
+        return $data;
+    }
+
     public function getDirection(Request $request) {
 
         $data = \GoogleMaps::load('directions')
@@ -34,49 +43,5 @@ class MapsController extends Controller
            ->isLocationOnEdge($request->lat, $request->lng);
 
         return $data;
-    }
-
-    public function store(Request $request)
-    {
-        Map::create($this->validateMap($request));
-       return response()->json(['Message'=> 'Successfully Added...']);
-    }
-
-
-    public function show(Map $map)
-    {
-
-    }
-
-    public function edit(Map $map)
-    {
-      return response()->json($map);
-    }
-
-    public function update(Request $request, Map $map)
-    {   
-        $validated =  $this->validate($request, [
-            'name' => ['required',new AlphaSpace],
-            'country_id' => 'required',
-            'state_id' => 'required',
-        ]);
-        $map->update($validated);
-        return response()->json(['message'=>'Successfully Updated']);
-    }
-
-    public function destroy(Map $map)
-    {
-        $map->delete();
-        return response()->json('successfully deleted');
-    }
-
-    public function validateMap($request)
-    {
-      return $this->validate($request, [
-        'name' => ['required','unique:location',new AlphaSpace],
-        'country' => 'required',
-        'state' => 'required',
-        'city' => 'required'
-      ]);
     }
 }

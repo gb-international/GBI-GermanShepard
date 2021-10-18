@@ -293,7 +293,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "\n*[data-v-e017aa0c] {\r\n  box-sizing: border-box;\r\n  outline: none;\n}\nbody[data-v-e017aa0c] {\r\n  margin: 0;\r\n  font-family: Sans-serif;\n}\n.feedback-full[data-v-e017aa0c] {\r\n  background-color: #f2f3f7;\r\n  width: 100%;\r\n  padding: 8px 30px;\r\n  display: flex;\r\n  flex-direction: column;\n}\n.feedback-body[data-v-e017aa0c] {\r\n  flex: 1;\r\n  display: flex;\n}\n.feedback-container[data-v-e017aa0c] {\r\n  height: 100%;\r\n  display: flex;\n}\n.mail-left-side[data-v-e017aa0c] {\r\n  width: 40%;\r\n  height: 100%;\r\n  overflow: auto;\r\n  padding: 20px 0px 5px 0px;\n}\n.mail-card[data-v-e017aa0c] {\r\n  background-color: #dad7d79c;\r\n  border-radius: 21px;\r\n  margin-top: 5px;\r\n  margin-bottom: 15px;\r\n  padding: 15px 15px 15px 15px;\r\n  transition: 0.3s;\r\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n}\n.mail-card[data-v-e017aa0c]:hover {\r\n  box-shadow: none;\n}\n.customCard[data-v-e017aa0c]{\r\n  height: 12vh;\r\n  width: 12vh;\n}\n.customImg[data-v-e017aa0c]{\r\n  height: 100%;\r\n  width: 100%;\n}\n.cardTitle[data-v-e017aa0c]{\r\n  color: #1d1f21;\r\n  margin: 4vh 0vh -0.06vh 0vh;\r\n  font-size: 14px;\r\n  font-weight: 500;\n}\n.cardCText[data-v-e017aa0c]{\r\n  width: 100%;\r\n  font-size: 12px;\r\n  font-weight: 500;\r\n  background-color: grey;\n}\n.mail-names[data-v-e017aa0c] {\r\n  color: #000000b8;\r\n  font-size: 16px;\r\n  font-weight: 500;\n}\n.mails[data-v-e017aa0c] {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\n}\n.userInfo[data-v-e017aa0c] {\r\n  margin: 2px 20px;\r\n  margin-left: 0px;\r\n  font-size: 15px;\r\n  color: #1d1f21;\n}\n.details_1[data-v-e017aa0c]{\r\n  font-weight: 500;\n}\n.details_2[data-v-e017aa0c]{\r\n  font-weight: 700;\n}\ninput[type='text'][data-v-e017aa0c], input[type='email'][data-v-e017aa0c]{\r\n  border: 0px;\r\n  font-size: 14px;\r\n  background-color: #f6f6f6 !important;\r\n  color: #737879;\r\n  width: 105%;\r\n  height: 3.7vh;\n}\n.mail-info[data-v-e017aa0c] {\r\n  margin: 2px 65px;\r\n  margin-left: 0px;\r\n  font-weight: 500;\r\n  font-size: 12.5px;\r\n  color: grey;\n}\n.mail-info p[data-v-e017aa0c] {\r\n margin-top: -2.5px;\r\n margin-bottom: 6px;\r\n font-size: 15px;\r\n font-weight: 600;\n}\n.date[data-v-e017aa0c] {\r\n  color: grey;\r\n  float: right;\r\n  font-size: 12px;\r\n  font-weight: 500;\n}\n.mail-right-side[data-v-e017aa0c] {\r\n  margin-left: 35px;\r\n  flex: 1;\n}\n.mail-right-body[data-v-e017aa0c]{\r\n  background-color: #e1e1e1e1;\r\n  position: relative;\r\n  padding: 22px 20px 20px 20px;\r\n  border-radius: 18px;\r\n  font-size: 16px;\r\n  padding-bottom: 100px;\r\n  margin: 20px 10px;\r\n  color: #000000b8;\n}\n.topDiv[data-v-e017aa0c] {\r\n  margin-top: -0.5vh;\n}\n.message-body[data-v-e017aa0c] {\r\n  overflow: auto;\r\n  height: 450px;\r\n  width: 100%;\r\n  margin-top: 18px;\r\n  color: black;\n}\n.messages-Details[data-v-e017aa0c]{\r\n    display: flex;\r\n    color: grey;\n}\n.message-title[data-v-e017aa0c] {\r\n  display: flex;\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  color: grey;\n}\n.message-title b[data-v-e017aa0c]{\r\n  font-size: 14px;\r\n  padding-left: 5px;\r\n  color: #000000b8;\r\n  font-weight: 700;\n}\n.message-tour-info[data-v-e017aa0c]{\r\n  font-size: 18px;\r\n  font-weight: 700;\r\n  color: #7f7a7a;\r\n  margin-bottom: 21px;\n}\n.mail-right-top[data-v-e017aa0c]{\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: flex-end;\r\n  margin-left: 10px;\n}\n.cButton[data-v-e017aa0c] {\r\n  border-radius: 3px;\r\n  border: 1px;\r\n  border-radius: 100px;\r\n  outline: none;\n}\n.replyButton[data-v-e017aa0c] {\r\n  padding: 6px 32px;\r\n  margin-top: 20px;\r\n  margin-right: 15px;\r\n  color: white;\r\n  font-size: 15px !important;\r\n  font-weight: 600;\r\n  font-family: Hawaii 5-0, sans-serif;\r\n  background-color: #3ebee4;\n}\n.sendButton[data-v-e017aa0c]{\r\n  padding: 6px 20px;\r\n  margin-right: 7px;\r\n  color: white;\r\n  font-size: 14px !important;\r\n  font-weight: 500;\r\n  font-family: Hawaii 5-0, sans-serif;\r\n  background-color: #3ebee4;\n}\n.meetButton[data-v-e017aa0c]{\r\n  padding: 6px 20px;\r\n  margin-top: 20px;\r\n  margin-right: 15px;\r\n  color: #3ebee4;\r\n  border: 2px solid #3ebee4;\r\n  font-size: 15px !important;\r\n  font-weight: 700;\r\n  font-family: Hawaii 5-0, sans-serif;\r\n  background-color: white;\n}\n.feedbackButton[data-v-e017aa0c]{\r\n  padding: 6px 20px;\r\n  margin-top: 20px;\r\n  margin-right: 15px;\r\n  color: #3ebee4;\r\n  border: 2px solid #3ebee4;\r\n  font-size: 15px !important;\r\n  font-weight: 700;\r\n  font-family: Hawaii 5-0, sans-serif;\r\n  background-color: white;\n}\n.sendLinkButton[data-v-e017aa0c]{\r\n  padding: 7px 38px;\r\n  margin-top: 12px;\r\n  color: #3ebee4;\r\n  font-size: 17px !important;\r\n  font-weight: 600;\r\n  font-family: Hawaii 5-0, sans-serif;\r\n  background-color: #f4f6f9;\r\n  border: solid 2px #3ebee4;\n}\n.attachIcon[data-v-e017aa0c]{\r\n  font-size: 32px; \r\n  padding-right: 10px; \r\n  font-weight: 300; \r\n  color: grey;\n}\n.filter-dd[data-v-e017aa0c]{\r\n  border-radius: 10px; \r\n  margin-left: 30px;\n}\n.filter-dd2[data-v-e017aa0c]{\r\n  border-radius: 10px;\n}\n.arrow-buttons[data-v-e017aa0c]{\r\n  padding: 5px 20px;\r\n  border: none;\r\n  background-color: #dad7d79c;\r\n  margin-left: 10px;\n}\n.mail-left-top[data-v-e017aa0c]{\r\n  display: flex; \r\n  flex-direction: row; \r\n  justify-content: space-between;\r\n  margin-top: 7px;\r\n  margin-left: 4px;\r\n  margin-right: 4px;\r\n  margin-bottom: 15px;\n}\n.bottom-items[data-v-e017aa0c]{\r\n  position: absolute;\r\n  bottom: 0;\r\n  right: 0;\r\n  margin: 20px;\n}\n.customSelButton[data-v-e017aa0c] {\r\n  border: 1px solid grey;\r\n  padding: 2px;\r\n  border-radius: 25px;\r\n  padding-left: 7px;\r\n  font-size: 14px;\n}\n.PendingColor[data-v-e017aa0c]{\r\n  color: grey !important;\n}\n.SelectionColor[data-v-e017aa0c]{\r\n  color: orange !important;\n}\n.HiredColor[data-v-e017aa0c]{\r\n  color: green !important;\n}\n.RejectedColor[data-v-e017aa0c]{\r\n  color: red !important;\n}\n.customDiv[data-v-e017aa0c]{\r\n  background: #e5e5e5;\r\n  border: 1px solid #e5e5e5;\r\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\r\n  border-radius: 15px;\r\n  padding-bottom: 45px !important;\r\n  padding-top: 35px !important;\r\n  margin-top: -5vh;\n}\n.customDiv input[type='text'][data-v-e017aa0c], input[type='email'][data-v-e017aa0c]{\r\n  border: 1px solid #d2d2d2;\r\n  background-color: white;\r\n  border-radius: 25px;\n}\n[data-v-e017aa0c]::-webkit-scrollbar {\r\n  width: 10px;\n}\r\n\r\n/* Track */\n[data-v-e017aa0c]::-webkit-scrollbar-track {\r\n  background: #f1f1f1;\n}\r\n\r\n/* Handle */\n[data-v-e017aa0c]::-webkit-scrollbar-thumb {\r\n  background: #888;\n}\r\n\r\n/* Handle on hover */\n[data-v-e017aa0c]::-webkit-scrollbar-thumb:hover {\r\n  background: #555;\n}\r\n", ""]);
+exports.push([module.i, "\n*[data-v-e017aa0c] {\n  box-sizing: border-box;\n  outline: none;\n}\nbody[data-v-e017aa0c] {\n  margin: 0;\n  font-family: Sans-serif;\n}\n.feedback-full[data-v-e017aa0c] {\n  background-color: #f2f3f7;\n  width: 100%;\n  padding: 8px 30px;\n  display: flex;\n  flex-direction: column;\n}\n.feedback-body[data-v-e017aa0c] {\n  flex: 1;\n  display: flex;\n}\n.feedback-container[data-v-e017aa0c] {\n  height: 100%;\n  display: flex;\n}\n.mail-left-side[data-v-e017aa0c] {\n  width: 40%;\n  height: 100%;\n  overflow: auto;\n  padding: 20px 0px 5px 0px;\n}\n.mail-card[data-v-e017aa0c] {\n  background-color: #dad7d79c;\n  border-radius: 21px;\n  margin-top: 5px;\n  margin-bottom: 15px;\n  padding: 15px 15px 15px 15px;\n  transition: 0.3s;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n}\n.mail-card[data-v-e017aa0c]:hover {\n  box-shadow: none;\n}\n.customCard[data-v-e017aa0c]{\n  height: 12vh;\n  width: 12vh;\n}\n.customImg[data-v-e017aa0c]{\n  height: 100%;\n  width: 100%;\n}\n.cardTitle[data-v-e017aa0c]{\n  color: #1d1f21;\n  margin: 4vh 0vh -0.06vh 0vh;\n  font-size: 14px;\n  font-weight: 500;\n}\n.cardCText[data-v-e017aa0c]{\n  width: 100%;\n  font-size: 12px;\n  font-weight: 500;\n  background-color: grey;\n}\n.mail-names[data-v-e017aa0c] {\n  color: #000000b8;\n  font-size: 16px;\n  font-weight: 500;\n}\n.mails[data-v-e017aa0c] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.userInfo[data-v-e017aa0c] {\n  margin: 2px 20px;\n  margin-left: 0px;\n  font-size: 15px;\n  color: #1d1f21;\n}\n.details_1[data-v-e017aa0c]{\n  font-weight: 500;\n}\n.details_2[data-v-e017aa0c]{\n  font-weight: 700;\n}\ninput[type='text'][data-v-e017aa0c], input[type='email'][data-v-e017aa0c]{\n  border: 0px;\n  font-size: 14px;\n  background-color: #f6f6f6 !important;\n  color: #737879;\n  width: 105%;\n  height: 3.7vh;\n}\n.mail-info[data-v-e017aa0c] {\n  margin: 2px 65px;\n  margin-left: 0px;\n  font-weight: 500;\n  font-size: 12.5px;\n  color: grey;\n}\n.mail-info p[data-v-e017aa0c] {\n margin-top: -2.5px;\n margin-bottom: 6px;\n font-size: 15px;\n font-weight: 600;\n}\n.date[data-v-e017aa0c] {\n  color: grey;\n  float: right;\n  font-size: 12px;\n  font-weight: 500;\n}\n.mail-right-side[data-v-e017aa0c] {\n  margin-left: 35px;\n  flex: 1;\n}\n.mail-right-body[data-v-e017aa0c]{\n  background-color: #e1e1e1e1;\n  position: relative;\n  padding: 22px 20px 20px 20px;\n  border-radius: 18px;\n  font-size: 16px;\n  padding-bottom: 100px;\n  margin: 20px 10px;\n  color: #000000b8;\n}\n.topDiv[data-v-e017aa0c] {\n  margin-top: -0.5vh;\n}\n.message-body[data-v-e017aa0c] {\n  overflow: auto;\n  height: 450px;\n  width: 100%;\n  margin-top: 18px;\n  color: black;\n}\n.messages-Details[data-v-e017aa0c]{\n    display: flex;\n    color: grey;\n}\n.message-title[data-v-e017aa0c] {\n  display: flex;\n  font-size: 14px;\n  font-weight: 500;\n  color: grey;\n}\n.message-title b[data-v-e017aa0c]{\n  font-size: 14px;\n  padding-left: 5px;\n  color: #000000b8;\n  font-weight: 700;\n}\n.message-tour-info[data-v-e017aa0c]{\n  font-size: 18px;\n  font-weight: 700;\n  color: #7f7a7a;\n  margin-bottom: 21px;\n}\n.mail-right-top[data-v-e017aa0c]{\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  margin-left: 10px;\n}\n.cButton[data-v-e017aa0c] {\n  border-radius: 3px;\n  border: 1px;\n  border-radius: 100px;\n  outline: none;\n}\n.replyButton[data-v-e017aa0c] {\n  padding: 6px 32px;\n  margin-top: 20px;\n  margin-right: 15px;\n  color: white;\n  font-size: 15px !important;\n  font-weight: 600;\n  font-family: Hawaii 5-0, sans-serif;\n  background-color: #3ebee4;\n}\n.sendButton[data-v-e017aa0c]{\n  padding: 6px 20px;\n  margin-right: 7px;\n  color: white;\n  font-size: 14px !important;\n  font-weight: 500;\n  font-family: Hawaii 5-0, sans-serif;\n  background-color: #3ebee4;\n}\n.meetButton[data-v-e017aa0c]{\n  padding: 6px 20px;\n  margin-top: 20px;\n  margin-right: 15px;\n  color: #3ebee4;\n  border: 2px solid #3ebee4;\n  font-size: 15px !important;\n  font-weight: 700;\n  font-family: Hawaii 5-0, sans-serif;\n  background-color: white;\n}\n.feedbackButton[data-v-e017aa0c]{\n  padding: 6px 20px;\n  margin-top: 20px;\n  margin-right: 15px;\n  color: #3ebee4;\n  border: 2px solid #3ebee4;\n  font-size: 15px !important;\n  font-weight: 700;\n  font-family: Hawaii 5-0, sans-serif;\n  background-color: white;\n}\n.sendLinkButton[data-v-e017aa0c]{\n  padding: 7px 38px;\n  margin-top: 12px;\n  color: #3ebee4;\n  font-size: 17px !important;\n  font-weight: 600;\n  font-family: Hawaii 5-0, sans-serif;\n  background-color: #f4f6f9;\n  border: solid 2px #3ebee4;\n}\n.attachIcon[data-v-e017aa0c]{\n  font-size: 32px; \n  padding-right: 10px; \n  font-weight: 300; \n  color: grey;\n}\n.filter-dd[data-v-e017aa0c]{\n  border-radius: 10px; \n  margin-left: 30px;\n}\n.filter-dd2[data-v-e017aa0c]{\n  border-radius: 10px;\n}\n.arrow-buttons[data-v-e017aa0c]{\n  padding: 5px 20px;\n  border: none;\n  background-color: #dad7d79c;\n  margin-left: 10px;\n}\n.mail-left-top[data-v-e017aa0c]{\n  display: flex; \n  flex-direction: row; \n  justify-content: space-between;\n  margin-top: 7px;\n  margin-left: 4px;\n  margin-right: 4px;\n  margin-bottom: 15px;\n}\n.bottom-items[data-v-e017aa0c]{\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  margin: 20px;\n}\n.customSelButton[data-v-e017aa0c] {\n  border: 1px solid grey;\n  padding: 2px;\n  border-radius: 25px;\n  padding-left: 7px;\n  font-size: 14px;\n}\n.PendingColor[data-v-e017aa0c]{\n  color: grey !important;\n}\n.SelectionColor[data-v-e017aa0c]{\n  color: orange !important;\n}\n.HiredColor[data-v-e017aa0c]{\n  color: green !important;\n}\n.RejectedColor[data-v-e017aa0c]{\n  color: red !important;\n}\n.customDiv[data-v-e017aa0c]{\n  background: #e5e5e5;\n  border: 1px solid #e5e5e5;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n  border-radius: 15px;\n  padding-bottom: 45px !important;\n  padding-top: 35px !important;\n  margin-top: -5vh;\n}\n.customDiv input[type='text'][data-v-e017aa0c], input[type='email'][data-v-e017aa0c]{\n  border: 1px solid #d2d2d2;\n  background-color: white;\n  border-radius: 25px;\n}\n[data-v-e017aa0c]::-webkit-scrollbar {\n  width: 10px;\n}\n\n/* Track */\n[data-v-e017aa0c]::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n\n/* Handle */\n[data-v-e017aa0c]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-e017aa0c]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n", ""]);
 
 // exports
 
@@ -463,7 +463,7 @@ var render = function() {
                             _vm._v(
                               ", +91" +
                                 _vm._s(item.contactno) +
-                                "\r\n            "
+                                "\n            "
                             )
                           ]
                         ),
@@ -636,43 +636,43 @@ var render = function() {
                         _c("div", { staticClass: "details_2" }, [
                           _c("p", { staticClass: "userInfo" }, [
                             _vm._v(
-                              "\r\n                  " +
+                              "\n                  " +
                                 _vm._s(_vm.currentItem.email) +
-                                "\r\n                "
+                                "\n                "
                             )
                           ]),
                           _vm._v(" "),
                           _c("p", { staticClass: "userInfo" }, [
                             _vm._v(
-                              "\r\n                  " +
+                              "\n                  " +
                                 _vm._s(_vm.currentItem.firstname) +
                                 " " +
                                 _vm._s(_vm.currentItem.lastname) +
-                                "\r\n                "
+                                "\n                "
                             )
                           ]),
                           _vm._v(" "),
                           _c("p", { staticClass: "userInfo" }, [
                             _vm._v(
-                              "\r\n                  +91 " +
+                              "\n                  +91 " +
                                 _vm._s(_vm.currentItem.contactno) +
-                                "\r\n                "
+                                "\n                "
                             )
                           ]),
                           _vm._v(" "),
                           _c("p", { staticClass: "userInfo" }, [
                             _vm._v(
-                              "\r\n                  " +
+                              "\n                  " +
                                 _vm._s(_vm.currentItem.current_company) +
-                                "\r\n                "
+                                "\n                "
                             )
                           ]),
                           _vm._v(" "),
                           _c("p", { staticClass: "userInfo" }, [
                             _vm._v(
-                              "\r\n                  " +
+                              "\n                  " +
                                 _vm._s(_vm.currentItem.job_exp) +
-                                "\r\n                "
+                                "\n                "
                             )
                           ])
                         ])
@@ -841,13 +841,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [
-      _vm._v("\r\n                From: \r\n                "),
+      _vm._v("\n                From: \n                "),
       _c("br"),
-      _vm._v("To:\r\n                "),
+      _vm._v("To:\n                "),
       _c("br"),
-      _vm._v("Date:\r\n                "),
+      _vm._v("Date:\n                "),
       _c("br"),
-      _vm._v("Mobile:\r\n               ")
+      _vm._v("Mobile:\n               ")
     ])
   },
   function() {
@@ -856,23 +856,23 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "details_1" }, [
       _c("p", { staticClass: "userInfo" }, [
-        _vm._v("\r\n                  Email Id:\r\n                ")
+        _vm._v("\n                  Email Id:\n                ")
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "userInfo" }, [
-        _vm._v("\r\n                  Applicant Name:\r\n                ")
+        _vm._v("\n                  Applicant Name:\n                ")
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "userInfo" }, [
-        _vm._v("\r\n                  Mobile Number:\r\n                ")
+        _vm._v("\n                  Mobile Number:\n                ")
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "userInfo" }, [
-        _vm._v("\r\n                  Current Company:\r\n                ")
+        _vm._v("\n                  Current Company:\n                ")
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "userInfo" }, [
-        _vm._v("\r\n                  Work Experience:\r\n                ")
+        _vm._v("\n                  Work Experience:\n                ")
       ])
     ])
   }

@@ -520,7 +520,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.widthControl[data-v-204b032e]{\r\n  width: 70% !important\n}\n.profile_button[data-v-204b032e]{\r\n  margin-top: 5px;\r\n  background-color: #00c4c4;\n}\n@media (min-width: 1024px) {\n.appDiv[data-v-204b032e]{\r\n    width: 45vw;\n}\n}\n@media only screen and (max-width: 824px) {\n.widthControl[data-v-204b032e]{\r\n    width: 90% !important\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.widthControl[data-v-204b032e]{\n  width: 70% !important\n}\n.profile_button[data-v-204b032e]{\n  margin-top: 5px;\n  background-color: #00c4c4;\n}\n@media (min-width: 1024px) {\n.appDiv[data-v-204b032e]{\n    width: 45vw;\n}\n}\n@media only screen and (max-width: 824px) {\n.widthControl[data-v-204b032e]{\n    width: 90% !important\n}\n}\n", ""]);
 
 // exports
 

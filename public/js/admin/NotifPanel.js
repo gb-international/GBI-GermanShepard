@@ -565,7 +565,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.customButton[data-v-97b51496] {\r\n    width: 200px;\r\n    height: 45px;\r\n    color: white;\r\n    background-color: #332f58;\r\n    border-color: #332f58;\r\n    padding-left: 7px;\n}\r\n", ""]);
+exports.push([module.i, "\n.customButton[data-v-97b51496] {\n    width: 200px;\n    height: 45px;\n    color: white;\n    background-color: #332f58;\n    border-color: #332f58;\n    padding-left: 7px;\n}\n", ""]);
 
 // exports
 
