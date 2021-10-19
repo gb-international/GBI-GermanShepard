@@ -75,6 +75,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -120,7 +139,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.expDetailImg[data-v-afd2bd6a]{\r\n  width: 230px;\r\n  height: 170px;\r\n  margin-bottom: 10px;\n}\n.expDetailImgSmall[data-v-afd2bd6a]{\r\n  width:  50px;\r\n  height: 50px;\n}\n.customCard[data-v-afd2bd6a]{\r\n  border: 1px solid gray;\r\n  width: 890px;\r\n  height: 250px;\r\n  padding: 10px;\n}\n.mainRow1 .p[data-v-afd2bd6a] {\r\n    -webkit-margin-before: 0em !important;\r\n            margin-block-start: 0em !important;\r\n    -webkit-margin-after: 0em !important;\r\n            margin-block-end: 0em !important;\r\n    -webkit-margin-start: 0px !important;\r\n            margin-inline-start: 0px !important;\r\n    -webkit-margin-end: 0px !important;\r\n            margin-inline-end: 0px !important;\n}\r\n", ""]);
+exports.push([module.i, "\n.MainRow[data-v-afd2bd6a] {\r\n  display: flex;\r\n  justify-content: space-between !important;\r\n  width: 100%;\r\n  align-items: center;\n}\n.expDetailImg[data-v-afd2bd6a]{\r\n  width: 230px;\r\n  height: 170px;\r\n  margin-bottom: 10px;\n}\n.expDetailImgSmall[data-v-afd2bd6a]{\r\n  width:  50px;\r\n  height: 50px;\n}\n.customCard[data-v-afd2bd6a]{\r\n  border: 1px solid #8080804d !important;\r\n  border-radius: 0px;\r\n  width: 890px;\r\n  height: 270px;\r\n  padding: 10px;\r\n  margin-bottom: 20px;\n}\n.detailsRow[data-v-afd2bd6a]{\r\n  padding: 0px 20px;\r\n  text-align: right;\n}\np[data-v-afd2bd6a] {\r\n  font-family: Calibri (Body) !important;\n}\n.mainRow1 p[data-v-afd2bd6a] {\r\n    margin-bottom: 5px !important;\n}\n.detailsRow p[data-v-afd2bd6a]{\r\n  margin-bottom: 0px !important;\n}\n.hotelName[data-v-afd2bd6a]{\r\n  font-weight: 600;\r\n  font-size: 18px;\n}\n.locName[data-v-afd2bd6a]{\r\n  font-weight: 400;\r\n  font-size: 18px;\r\n  color: gray;\n}\n.stars[data-v-afd2bd6a]{\r\n  margin-bottom: 20px;\n}\n.stars i[data-v-afd2bd6a]{\r\n  font-size: 18px;\r\n  color: #ffa500;\n}\n.amenP[data-v-afd2bd6a]{\r\n  font-size: 14px;\r\n  font-weight: 400;\r\n  color: #767676;\n}\n.bookBtn[data-v-afd2bd6a]{\r\n    margin: 5px 0px;\r\n    color: white;\r\n    background-color: #00c4c4;\r\n    border-color: #00c4c4;\r\n    padding: 6px 25px 6px 25px;\r\n    width: 95px;\r\n    height: 35px;\r\n    border: 0px;\r\n    font-size: 15px;\r\n    font-weight: 500;\n}\n.bookBtn[data-v-afd2bd6a]:hover{\r\n  box-shadow: 2px 2px grey;\n}\n.amenity[data-v-afd2bd6a]{\r\n  margin: 5px 0px;\r\n  color: #00c4c4;\r\n  text-decoration: underline;\r\n  font-weight: 500;\r\n  font-size: 14px;\r\n  cursor: pointer;\n}\n.guests[data-v-afd2bd6a]{\r\n  font-size: 14px;\r\n  font-weight: 500;\n}\n.price[data-v-afd2bd6a]{\r\n  margin-top: 20px;\r\n  font-size: 25px;\r\n  font-weight: 500;\n}\n.taxes[data-v-afd2bd6a]{\r\n  font-size: 14px;\r\n  font-weight: 400;\r\n  color: #2c2929;\n}\n.perRoom[data-v-afd2bd6a]{\r\n  font-size: 13px;\r\n  font-weight: 400;\r\n  color: #2c2929;\n}\r\n", ""]);
 
 // exports
 
@@ -172,118 +191,167 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "section",
+    { staticStyle: { background: "white !important", "padding-top": "20px" } },
+    _vm._l(5, function(index) {
+      return _c(
+        "section",
+        {
+          key: index,
+          staticClass:
+            "d-flex flex-row justify-content-between customCard card card-1",
+          staticStyle: { background: "white !important" }
+        },
+        [_vm._m(0, true), _vm._v(" "), _vm._m(1, true)]
+      )
+    }),
+    0
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "MainRow" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "d-flex flex-column justify-content-start align-items-start mainRow1"
+        },
+        [
+          _c("p", { staticClass: "hotelName" }, [
+            _vm._v("Hotel Aman Continental")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "locName" }, [_vm._v("Kerala")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "d-flex stars" }, [
+            _c("i", { staticClass: "fas fa-star" }),
+            _vm._v(" "),
+            _c("i", { staticClass: "fas fa-star" }),
+            _vm._v(" "),
+            _c("i", { staticClass: "fas fa-star" }),
+            _vm._v(" "),
+            _c("i", { staticClass: "far fa-star" }),
+            _vm._v(" "),
+            _c("i", { staticClass: "far fa-star" })
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "amenP" }, [
+            _c("i", { staticClass: "fas fa-bed mr-2" }),
+            _vm._v(" Superior Room Twin Beds")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "amenP" }, [
+            _c("i", { staticClass: "fas fa-wind mr-2" }),
+            _vm._v(" Air Condition")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "amenP" }, [
+            _c("i", { staticClass: "fas fa-warehouse mr-2" }),
+            _vm._v(" Banquet Hall")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "amenity" }, [_vm._v("Amenities")]),
+          _vm._v(" "),
+          _c("button", { staticClass: "bookBtn" }, [_vm._v("BOOK")])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "detailsRow" }, [
+        _c("p", { staticClass: "guests" }, [_vm._v("8 Guests 2 Rooms")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "price" }, [_vm._v("Rs. 2450/-")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "taxes" }, [_vm._v("+ Rs.537 Taxes & Fees")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "perRoom" }, [_vm._v("per room / night")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
-      "section",
+      "div",
       {
-        staticClass: "d-flex flex-row justify-content-between customCard",
+        staticClass:
+          "d-flex justify-content-center align-items-center mainRow2",
         staticStyle: { background: "white !important" }
       },
       [
-        _c(
-          "div",
-          {
-            staticClass:
-              "d-flex flex-column justify-content-start align-items-start mainRow1"
-          },
-          [
-            _c("p", [_vm._v("Hotel Aman Continental")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Kerala")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Superior Room Twin Beds")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Banquet Hall")])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "d-flex justify-content-center align-items-center mainRow2",
-            staticStyle: { background: "white !important" }
-          },
-          [
-            _c("div", { staticClass: "d-flex flex-column expDetCol1" }, [
-              _c("img", {
-                staticClass: "expDetailImg",
-                attrs: {
-                  src:
-                    "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
-                  loading: "lazy",
-                  alt: "itinerary"
-                }
-              }),
+        _c("div", { staticClass: "d-flex flex-column expDetCol1" }, [
+          _c("img", {
+            staticClass: "expDetailImg",
+            attrs: {
+              src:
+                "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+              loading: "lazy",
+              alt: "itinerary"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "d-flex justify-content-center align-items-center" },
+            [
+              _c("div", [
+                _c("img", {
+                  staticClass: "expDetailImgSmall",
+                  staticStyle: { "margin-right": "10px" },
+                  attrs: {
+                    src:
+                      "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+                    loading: "lazy",
+                    alt: "itinerary"
+                  }
+                })
+              ]),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "d-flex justify-content-center align-items-center"
-                },
-                [
-                  _c("div", [
-                    _c("img", {
-                      staticClass: "expDetailImgSmall",
-                      staticStyle: { "margin-right": "10px" },
-                      attrs: {
-                        src:
-                          "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
-                        loading: "lazy",
-                        alt: "itinerary"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("img", {
-                      staticClass: "expDetailImgSmall",
-                      staticStyle: { "margin-right": "10px" },
-                      attrs: {
-                        src:
-                          "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
-                        loading: "lazy",
-                        alt: "itinerary"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("img", {
-                      staticClass: "expDetailImgSmall",
-                      staticStyle: { "margin-right": "10px" },
-                      attrs: {
-                        src:
-                          "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
-                        loading: "lazy",
-                        alt: "itinerary"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("img", {
-                      staticClass: "expDetailImgSmall",
-                      attrs: {
-                        src:
-                          "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
-                        loading: "lazy",
-                        alt: "itinerary"
-                      }
-                    })
-                  ])
-                ]
-              )
-            ])
-          ]
-        )
+              _c("div", [
+                _c("img", {
+                  staticClass: "expDetailImgSmall",
+                  staticStyle: { "margin-right": "10px" },
+                  attrs: {
+                    src:
+                      "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+                    loading: "lazy",
+                    alt: "itinerary"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("img", {
+                  staticClass: "expDetailImgSmall",
+                  staticStyle: { "margin-right": "10px" },
+                  attrs: {
+                    src:
+                      "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+                    loading: "lazy",
+                    alt: "itinerary"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("img", {
+                  staticClass: "expDetailImgSmall",
+                  attrs: {
+                    src:
+                      "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+                    loading: "lazy",
+                    alt: "itinerary"
+                  }
+                })
+              ])
+            ]
+          )
+        ])
       ]
     )
   }

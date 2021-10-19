@@ -42,6 +42,8 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('sightseeings','SightseeingController');
 		Route::post('maps/get-location','MapsController@getLocation');
 		Route::post('maps/get-map','MapsController@getMap');
+		Route::post('maps/get-direction','MapsController@getDirection');
+		Route::post('maps/get-matrix','MapsController@getDistMatrix');
 	});
 
 	Route::namespace('Itinerary')->group(function(){
