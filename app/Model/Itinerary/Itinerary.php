@@ -57,6 +57,11 @@ class Itinerary extends Model
 		return $this->hasMany('App\Model\Tour\Tour');
 	}
 
+	public function events()
+	{
+		return $this->hasMany('App\Model\Event\Event');
+	}
+
 	public function tourtypes(){
     	return $this->belongsToMany('App\Model\Tour\Tourtype');
     }

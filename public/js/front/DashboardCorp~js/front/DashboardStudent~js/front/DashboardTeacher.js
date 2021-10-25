@@ -411,7 +411,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.card-body[data-v-0061f184] {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n}\n.card-title[data-v-0061f184] {\n  font-size: 15px !important;\n}\n.card-text[data-v-0061f184]{\n  font-size: 12px !important;\n}\n.btn-div[data-v-0061f184]{\n  align-self: center;\n}\n", ""]);
+exports.push([module.i, "\n.card-body[data-v-0061f184] {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n}\n.card-title[data-v-0061f184] {\n    font-size: 15px !important;\n}\n.card-text[data-v-0061f184]{\n    font-size: 12px !important;\n}\n.btn-div[data-v-0061f184]{\n    align-self: center;\n}\n.card[data-v-0061f184] {\n    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\n}\n.card[data-v-0061f184]:hover{\n    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);\n}\n.bookBtn[data-v-0061f184]{\n    margin: 5px 0px;\n    color: white;\n    background-color: #00c4c4;\n    border-color: #00c4c4;\n    padding: 6px 25px 6px 25px;\n    width: 95px;\n    height: 35px;\n    border: 0px;\n    font-size: 15px;\n    font-weight: 500;\n}\n.bookBtn[data-v-0061f184]:hover{\n  box-shadow: 2px 2px grey;\n}\n", ""]);
 
 // exports
 
@@ -709,10 +709,16 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("p", { staticClass: "card-text" }, [
-                            _vm._v("\n            5 Days"),
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(state.noofdays) +
+                                " Days"
+                            ),
                             _c("br"),
                             _vm._v(
-                              "\n            Rs. 10,000 /Person\n            "
+                              "\n            Rs. " +
+                                _vm._s(state.price) +
+                                " /Person\n            "
                             )
                           ])
                         ]),
@@ -721,10 +727,16 @@ var render = function() {
                           _c(
                             "button",
                             {
-                              staticClass: "btn btn-primary",
-                              attrs: { type: "button" }
+                              staticClass: "bookBtn",
+                              on: {
+                                click: function($event) {
+                                  return _vm.$router.push(
+                                    "/explore-detail/" + state.id
+                                  )
+                                }
+                              }
                             },
-                            [_vm._v("Book")]
+                            [_vm._v("BOOK")]
                           )
                         ])
                       ])
@@ -1422,6 +1434,7 @@ var Dashboard = {
     return {
       itineraryData: {},
       upcoming_list: [],
+      events_list: [],
       userinfo: {},
       valid: false
     };
@@ -1436,6 +1449,7 @@ var Dashboard = {
   mounted: function mounted() {
     this.checkLogin();
     this.upComingData();
+    this.upComingEvents();
   },
   methods: {
     checkLogin: function checkLogin() {
@@ -1458,6 +1472,20 @@ var Dashboard = {
 
       this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
         _this.upcoming_list = response.data;
+      });
+    },
+    upComingEvents: function upComingEvents() {
+      var _this2 = this;
+
+      this.$axios.get("/api/upcoming-events").then(function (response) {
+        _this2.events_list = response.data;
+      });
+    },
+    eventsList: function eventsList() {
+      var _this3 = this;
+
+      this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
+        _this3.upcoming_list = response.data;
       });
     },
     getImgUrl: function getImgUrl(img) {

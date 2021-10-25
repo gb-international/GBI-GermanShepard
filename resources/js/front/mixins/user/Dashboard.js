@@ -4,6 +4,7 @@ const Dashboard = {
         return {
             itineraryData: {},
             upcoming_list: [],
+            events_list: [],
             userinfo: {},
             valid: false
         };
@@ -18,6 +19,7 @@ const Dashboard = {
     mounted() {
         this.checkLogin();
         this.upComingData();
+        this.upComingEvents();
     },
     methods: {
         checkLogin() {
@@ -39,6 +41,16 @@ const Dashboard = {
             }
         },
         upComingData() {
+            this.$axios.get("/api/travel-program/upcoming-tour").then(response => {
+                this.upcoming_list = response.data;
+            });
+        },
+        upComingEvents() {
+            this.$axios.get("/api/upcoming-events").then(response => {
+                this.events_list = response.data;
+            });
+        },
+        eventsList() {
             this.$axios.get("/api/travel-program/upcoming-tour").then(response => {
                 this.upcoming_list = response.data;
             });

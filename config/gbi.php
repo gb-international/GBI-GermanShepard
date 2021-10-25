@@ -18,6 +18,7 @@ return [
     'post_image' => 'images/post/',
     'tourprogram_image' => 'images/tourprogram/',
     'itinerary_image' => 'images/itinerary/',
+    'event_image' => 'images/events/',
     'hotel_image' => 'images/hotel/',
     'sightseeing_image' => 'images/sightseeing/',
     'gallery_image' => 'images/gallery/',

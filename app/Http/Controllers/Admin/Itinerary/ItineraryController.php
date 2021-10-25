@@ -179,7 +179,7 @@ class ItineraryController extends Controller
             unset($data['detail_photo_alt']);
         }
         $itinerary->update($data);
-        // Itinerary Day
+        // Itinerary Day 
         $itinerary->itinerarydays()->delete();
         $dayModels = [];
         foreach ($request->itinerarydays as $data) {

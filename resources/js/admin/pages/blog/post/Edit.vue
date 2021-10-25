@@ -1,14 +1,6 @@
-<!--************************************************
-      Author:@Ajay 
-      Edited by: @Manas
-      ****************************************************-->
-<!-- Edits: Added custom error texts, the function changeField() was added, edits were made to UpdatePost() funtion for custom error on submission -->
-
 <!-- 
-
-This template helps us to edit a new blog it takes the data from the form and sumbit with the help of the api
+This template helps us to edit events it takes the data from the form and sumbit with the help of the api
 to submit the data we are using a function.
-
  -->
 <template>
   <form-layout>
@@ -56,9 +48,9 @@ to submit the data we are using a function.
               ></vue-editor>
               <has-error :form="form" field="description"></has-error>
               <p v-if="descriptionWarn" class="warn-error"> Please input description.</p>
-
             </div>
           </div>
+
           <div class="col-sm-12">
             <div class="form-group">
               <label for="description">Summary</label>

@@ -1,6 +1,6 @@
 <template>
-      <!--************************************************
-      Author:@Ajay
+    <!--************************************************
+      Author:@Manas
       ****************************************************-->
   <div v-if="valid">
     <!-- <user-info-card :userinfo="userinfo"/> -->
@@ -14,21 +14,30 @@
         />
       </div>
       
-      <h5 class="title_section">Special Offers</h5>
+      <h5 class="title_section pt-4">Special Offers</h5>
       <offers-crasousel  :upcoming_list="upcoming_list"/>
 
-      <h5 class="title_section">
-        Recent Searches
-        <upcoming-tour-crasousel  :upcoming_list="upcoming_list"/>
+      <h5 class="title_section pt-4">
+        Upcoming Events
       </h5>
-      <div class="resent_search">
-        <div class="row">
-        </div>
+      <div class="popular_destination">
+         <popular-tour  :upcoming_list="events_list"/>
       </div>
 
+      <div class="pb-5">
+        <h5 class="title_section">
+          Recent Searches </h5>
+          <!-- <upcoming-tour-crasousel  :upcoming_list="upcoming_list"/>
+        
+        <div class="resent_search">
+          <div class="row">
+          </div>
+        </div> -->
+        <p>You have no recent searches.</p>
+      </div>
       <h5 class="title_section">
         Popular Tours
-      <!--   <router-link class="view_link" :to="`/explore-list`">View more</router-link> -->
+      <!-- <router-link class="view_link" :to="`/explore-list`">View more</router-link> -->
       </h5>
       <div class="popular_destination">
          <popular-tour  :upcoming_list="upcoming_list"/>
@@ -37,7 +46,7 @@
         Travel Blogs
         </h5>
        <div class="row">
-          <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="(post,index) in posts_list" :key="index">
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0 blog-list" v-for="(post,index) in posts_list" :key="index">
             <blog-card :post="post" />
           </div>
         </div>

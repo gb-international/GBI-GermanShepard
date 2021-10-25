@@ -6,7 +6,10 @@ use App\Model\Itinerary\Itinerary;
 use App\Model\Itinerary\Itineraryrequest;
 use App\Model\Tour\Tourprogram;
 use App\Rules\EmailValidate;
+use App\Model\Tour\Tour;
+use App\Model\Event\Event;
 use DB;
+use Carbon\Carbon;
 use App\Jobs\SendItineraryRequestToGbiMailJob;
 class ItineraryController extends Controller
 {
@@ -25,7 +28,6 @@ class ItineraryController extends Controller
         }else{
            return $data;
         }
-
     }
 
      // explore destination searchbar get data 
@@ -99,9 +101,48 @@ class ItineraryController extends Controller
             $data['flight'] = $itinerary->flight;
             $data['food'] = $itinerary->food;
             $data['photo'] = $itinerary->photo;
+            $data['price'] = $itinerary->price;
             array_push($tour_data,$data);
         }
         
+        return response()->json($tour_data);
+    }
+
+    public function upcomingEvents(){
+        $today = (Carbon::now())->toDateTimeString();
+        $tours = Tour::where('tour_start_date', '>', $today)->get();
+        $events = Event::where('date', '>', $today)->get();
+        $tour_data = [];
+        foreach($events as $evt){
+            $itinerary = Itinerary::where('id', $evt->itinerary_id)->first();
+            $data = [];
+            $data['id'] = $itinerary->id;
+            $data['title'] = $evt->name;
+            $data['noofdays'] = $itinerary->noofdays;
+            $data['hotel_type'] = $itinerary->hotel_type;
+            $data['train'] = $itinerary->train;
+            $data['bus'] = $itinerary->bus;
+            $data['flight'] = $itinerary->flight;
+            $data['food'] = $itinerary->food;
+            $data['photo'] = $evt->photo;
+            $data['price'] = $itinerary->price;
+            array_push($tour_data, $data);
+        }
+        foreach($tours as $tour){
+            $itinerary = $tour->itinerary;
+            $data = [];
+            $data['id'] = $itinerary->id;
+            $data['title'] = $itinerary->title;
+            $data['noofdays'] = $itinerary->noofdays;
+            $data['hotel_type'] = $itinerary->hotel_type;
+            $data['train'] = $itinerary->train;
+            $data['bus'] = $itinerary->bus;
+            $data['flight'] = $itinerary->flight;
+            $data['food'] = $itinerary->food;
+            $data['photo'] = $itinerary->photo;
+            $data['price'] = $itinerary->price;
+            array_push($tour_data, $data);
+        }
         return response()->json($tour_data);
     }
     

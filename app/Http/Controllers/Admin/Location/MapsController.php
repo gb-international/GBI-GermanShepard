@@ -28,7 +28,7 @@ class MapsController extends Controller
         $latlng = $request->lat.','.$request->lng;
         $data = \GoogleMaps::load('geocoding')
                 ->setParamByKey('latlng', $latlng)
-                 ->get('results.formatted_address');
+                 ->get('results');
 
         return $data;
     }

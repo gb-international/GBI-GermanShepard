@@ -4,6 +4,7 @@ import Blog from '@/admin/routes/Blog.js';
 import BookedTour from '@/admin/routes/BookedTour.js';
 import Corporate from '@/admin/routes/Corporate.js';
 import Escort from '@/admin/routes/Escort.js';
+import Events from '@/admin/routes/Events.js';
 import Feedback from '@/admin/routes/Feedback.js';
 import GalleryEncyclopedia from '@/admin/routes/GalleryEncyclopedia.js';
 import Home from '@/admin/routes/Home.js';
@@ -30,6 +31,7 @@ export const routes = [
     ...BookedTour,
     ...Corporate,
     ...Escort,
+    ...Events,
     ...Feedback,
     ...GalleryEncyclopedia,
     ...Home,

@@ -17,10 +17,19 @@ import vuecookies from 'vue-cookies';
 import UniversalSocialauth from 'universal-social-auth';
 import App from '@/front/pages/layouts/App.vue';
 import VueGtag from "vue-gtag";
+import * as VueGoogleMaps from 'vue2-google-maps'
 
 import api from '@/front/helpers/api';
 Object.defineProperty(Vue.prototype, '$api', { value: api })
 
+
+Vue.use(VueGoogleMaps, {
+    installComponents: true,
+    load: {
+      key: 'AIzaSyCICqzS1WZeFsCtOpwfEHWvcCXCPNHcEN0',
+      libraries: 'places'
+    }
+  })
 
 Vue.use(VueMeta)
 Vue.use(VueSweetalert2);
@@ -51,7 +60,7 @@ Vue.config.productionTip = false;
 Vue.config.devtools = false;
 Vue.config.debug = false;
 Vue.config.silent = true;
-console.log = function() {};
+//console.log = function() {};
 // End
 
 

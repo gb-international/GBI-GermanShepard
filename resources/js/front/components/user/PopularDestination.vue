@@ -12,12 +12,12 @@
             <div>
               <h5 class="card-text">{{state.title}}</h5>
               <p class="card-text">
-              5 Days<br/>
-              Rs. 10,000 /Person
+              {{state.noofdays}} Days<br/>
+              Rs. {{state.price}} /Person
               </p>
             </div>
             <div class="btn-div">
-              <button type="button" class="btn btn-primary">Book</button>
+              <button class="bookBtn" @click="$router.push(`/explore-detail/${state.id}`)">BOOK</button>
             </div>
           </div>
         </div>
@@ -91,4 +91,26 @@ export default {
   .btn-div{
     align-self: center;
   }
+  .card {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  .card:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  .bookBtn{
+    margin: 5px 0px;
+    color: white;
+    background-color: #00c4c4;
+    border-color: #00c4c4;
+    padding: 6px 25px 6px 25px;
+    width: 95px;
+    height: 35px;
+    border: 0px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.bookBtn:hover{
+  box-shadow: 2px 2px grey;
+}
 </style>

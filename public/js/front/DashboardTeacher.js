@@ -91,6 +91,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -155,7 +164,7 @@ var render = function() {
           [
             _vm._m(0),
             _vm._v(" "),
-            _c("h5", { staticClass: "title_section" }, [
+            _c("h5", { staticClass: "title_section pt-4" }, [
               _vm._v("Special Offers")
             ]),
             _vm._v(" "),
@@ -163,13 +172,16 @@ var render = function() {
               attrs: { upcoming_list: _vm.upcoming_list }
             }),
             _vm._v(" "),
+            _c("h5", { staticClass: "title_section pt-4" }, [
+              _vm._v("\n      Upcoming Events\n    ")
+            ]),
+            _vm._v(" "),
             _c(
-              "h5",
-              { staticClass: "title_section" },
+              "div",
+              { staticClass: "popular_destination" },
               [
-                _vm._v("\n      Recent Searches\n      "),
-                _c("upcoming-tour-crasousel", {
-                  attrs: { upcoming_list: _vm.upcoming_list }
+                _c("popular-tour", {
+                  attrs: { upcoming_list: _vm.events_list }
                 })
               ],
               1
@@ -205,7 +217,7 @@ var render = function() {
                   {
                     key: index,
                     staticClass:
-                      "col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0"
+                      "col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0 blog-list"
                   },
                   [_c("blog-card", { attrs: { post: post } })],
                   1
@@ -238,8 +250,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "resent_search" }, [
-      _c("div", { staticClass: "row" })
+    return _c("div", { staticClass: "pb-5" }, [
+      _c("h5", { staticClass: "title_section" }, [
+        _vm._v("\n        Recent Searches ")
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v("You have no recent searches.")])
     ])
   }
 ]

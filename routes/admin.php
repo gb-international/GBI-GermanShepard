@@ -299,6 +299,12 @@ Route::namespace('Admin')->group(function (){
 		Route::post('job-application/save-status', 'JobApplicationController@saveStatus');
 	});	
 
+	//Event
+	Route::namespace('Event')->group(function(){
+		Route::get('events/all/{size}','EventController@all');
+		Route::resource('events','EventController');
+	});
+
 });
 
 

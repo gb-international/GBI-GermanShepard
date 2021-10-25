@@ -178,7 +178,7 @@ class TourController extends Controller{
     public function tourDetail(Request $request){
         $user = Auth::user();
         $tour = Tour::with(
-            'itinerary:id,title',
+            'itinerary:id,title,destination,source',
             'itinerary.itinerarydays',
             'bookedhotels:id,check_in,check_out,hotel_id,tour_id',
             'bookedhotels.hotel:id,name,type,image',
@@ -188,6 +188,21 @@ class TourController extends Controller{
         ->where("tour_id",$request->travel_id)
         ->first();
         $tour['user_id'] = $user->id;
+        $locations = [];
+
+        $locSource = \GoogleMaps::load('geocoding')
+        ->setParam (['address' => $tour['itinerary']->source])
+        ->get('results.geometry.location');
+
+        array_push($locations,$locSource);
+
+        $locDestination = \GoogleMaps::load('geocoding')
+        ->setParam (['address' => $tour['itinerary']->destination])
+        ->get('results.geometry.location');
+        
+        array_push($locations,$locDestination);
+
+        $tour['locations'] = $locations;
         return response()->json($tour);
     }
 

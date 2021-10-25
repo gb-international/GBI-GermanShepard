@@ -66,6 +66,15 @@
         </li>
         @endif
 
+        @if(auth()->user()->hasPermissionTo(100) || auth()->user()->hasRole(1))
+        <li class="nav-item">
+            <router-link to="/event-list" class="nav-link nav-cols" title="Events">
+                <i class="nav-icon fas fa-calendar-day"></i>
+                <p>Events</p>
+            </router-link>
+        </li>
+        @endif
+
         @if(auth()->user()->hasAnyPermission([57, /*58,*/ 59, 84, 55]) || auth()->user()->hasRole(1))
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link nav-cols" title="Itinerary">

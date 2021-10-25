@@ -94,14 +94,7 @@
           <div class="row">
             <div class="col-sm-3 card"></div>
             <div class="col-sm-9">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448183.73907005717!2d76.81307299667618!3d28.646677259922765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1590745497079!5m2!1sen!2sin"
-                frameborder="0"
-                style="border: 0"
-                allowfullscreen
-                aria-hidden="false"
-                tabindex="0"
-              ></iframe>
+              <live-map :markers="alldata.locations" />
             </div>
           </div>
         </div>
@@ -118,6 +111,7 @@
 import ItineraryDay from "@/front/components/tour/ItineraryDay";
 import WeatherApp from "@/front/components/tour/WeatherApp";
 import FlightApp from "@/front/components/tour/FlightApp";
+import Maps from "@/front/pages/user/tour/maps";
 import HotelCard from "@/front/components/tour/HotelCard";
 import { Form, HasError, AlertError } from "vform";
 export default {
@@ -128,6 +122,7 @@ export default {
     "flight-app": FlightApp,
     "hotel-card": HotelCard,
     "itinerary-day": ItineraryDay,
+    "live-map": Maps
   },
   data() {
     return {
