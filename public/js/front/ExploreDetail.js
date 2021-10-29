@@ -257,7 +257,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       var _this = this;
 
       this.$axios.get("/api/itinerary-view/".concat(this.$route.params.id)).then(function (res) {
-        _this.itineraryData = res.data;
+        _this.itineraryData = res.data; //Save search
+
+        var searches = JSON.parse(localStorage.getItem("itSearches"));
+        searches.push(_this.itineraryData);
+        localStorage.setItem("itSearches", JSON.stringify(searches));
         _this.selectedPhoto = _this.itineraryData.photo;
 
         if (_this.itineraryData.itinerarydays) {

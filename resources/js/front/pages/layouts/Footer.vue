@@ -71,39 +71,39 @@
               <p class="text-white m-0 p-0 pb-2">Accreditaion & Recognitions</p>
               <div class="icons">
                 <div class="three-icons">
-                  <img src="/images/icons/lato.png" />
-                  <img src="/images/icons/box.png" />
-                  <img src="/images/icons/elephant.png" />
+                  <img :src="$gbiAssets+'/images/icons/lato.png'" />
+                  <img :src="$gbiAssets+'/images/icons/box.png'" />
+                  <img :src="$gbiAssets+'/images/icons/elephant.png'" />
                 </div>
                 <hr class="mt-2 mb-2" />
                 <div class="social">
                   <a href="https://www.facebook.com/gowithgbi/" target="blank">
-                    <img src="/images/icons/fb.png" />
+                    <img :src="$gbiAssets+'/images/icons/fb.png'" />
                   </a>
                   <a href="https://www.instagram.com/gowithgbi/" target="blan"
-                    ><img src="/images/icons/insta.png"
+                    ><img :src="$gbiAssets+'/images/icons/insta.png'"
                   /></a>
                   <a href="https://twitter.com/gowithgbi" target="blan"
-                    ><img src="/images/icons/twitt.png"
+                    ><img :src="$gbiAssets+'/images/icons/twitt.png'"
                   /></a>
                   <a
                     href="https://www.youtube.com/channel/UCYaTBxhqqXaMOUNZiAqvI_A"
                     target="blan"
-                    ><img src="/images/icons/youtube.png"
+                    ><img :src="$gbiAssets+'/images/icons/youtube.png'"
                   /></a>
                   <a
                     href="https://www.linkedin.com/company/gowithgbi"
                     target="blan"
-                    ><img src="/images/icons/linked-in.png"
+                    ><img :src="$gbiAssets+'/images/icons/linked-in.png'"
                   /></a>
                   <a href="https://api.whatsapp.com/send?phone=919717922240"
-                    ><img src="/images/icons/whatsapp.png"
+                    ><img :src="$gbiAssets+'/images/icons/whatsapp.png'"
                   /></a>
                 </div>
                 <hr class="mt-2 mb-2" />
                 <div class="ssl-icon">
-                  <img src="/images/icons/ssl_certificate.png" class="w-45" />
-                  <img src="/images/icons/indiaicon.png" class="w-20" />
+                  <img :src="$gbiAssets+'/images/icons/ssl_certificate.png'" class="w-45" />
+                  <img :src="$gbiAssets+'/images/icons/indiaicon.png'" class="w-20" />
                 </div>
               </div>
             </div>
@@ -154,26 +154,26 @@
           <Subscribe />
           <div class="m-social-icon mb-3 mt-2">
             <a href="https://www.facebook.com/gowithgbi/" target="blank">
-              <img src="/images/icons/fb.png" />
+              <img :src="$gbiAssets+'/images/icons/fb.png'" />
             </a>
             <a href="https://www.instagram.com/gbirikhi/" target="blan"
-              ><img src="/images/icons/insta.png"
+              ><img :src="$gbiAssets+'/images/icons/insta.png'"
             /></a>
             <a href="https://twitter.com/gowithgbi" target="blan"
-              ><img src="/images/icons/twitt.png"
+              ><img :src="$gbiAssets+'/images/icons/twitt.png'"
             /></a>
             <a
               href="https://www.youtube.com/channel/UCYaTBxhqqXaMOUNZiAqvI_A"
               target="blan"
-              ><img src="/images/icons/youtube.png"
+              ><img :src="$gbiAssets+'/images/icons/youtube.png'"
             /></a>
             <a
               href="https://www.linkedin.com/company/gowithgbi/about/"
               target="blan"
-              ><img src="/images/icons/linked-in.png"
+              ><img :src="$gbiAssets+'/images/icons/linked-in.png'"
             /></a>
             <a href="tel:+9717922240"
-              ><img src="/images/icons/whatsapp.png"
+              ><img :src="$gbiAssets+'/images/icons/whatsapp.png'"
             /></a>
           </div>
         </div>
@@ -187,8 +187,8 @@
           >
             <router-link :to="`/`">
               <div class="nav-font">
-                <img v-show="active_element == 0" src="/images/icons/white-home.png" class="w-20" />
-                <img v-show="active_element != 0" src="/images/icons/home.png" class="w-20" />
+                <img v-show="active_element == 0" :src="$gbiAssets+'/images/icons/white-home.png'" class="w-20" />
+                <img v-show="active_element != 0" :src="$gbiAssets+'/images/icons/home.png'" class="w-20" />
               </div>
               <div class="nav-font">home</div>
             </router-link>
@@ -201,8 +201,8 @@
           >
             <router-link :to="`/explore-destination`">
               <div class="nav-font">
-                <img v-show="active_element == 1" src="/images/icons/white-explore.png" class="w-20" />
-                <img v-show="active_element != 1" src="/images/icons/explore.png" class="w-20" />
+                <img v-show="active_element == 1" :src="$gbiAssets+'/images/icons/white-explore.png'" class="w-20" />
+                <img v-show="active_element != 1" :src="$gbiAssets+'/images/icons/explore.png'" class="w-20" />
               </div>
               <div class="nav-font">explore</div>
             </router-link>
@@ -215,8 +215,8 @@
           >
             <router-link :to="`/contact-us`">
               <div class="nav-font">
-                <img v-show="active_element == 3" src="/images/icons/white-phone-call.png" class="w-20" />
-                <img v-show="active_element != 3" src="/images/icons/phone-call.png" class="w-20" />
+                <img v-show="active_element == 3" :src="$gbiAssets+'/images/icons/white-phone-call.png'" class="w-20" />
+                <img v-show="active_element != 3" :src="$gbiAssets+'/images/icons/phone-call.png'" class="w-20" />
               </div>
               <div class="nav-font">call</div>
             </router-link>
@@ -237,16 +237,16 @@
               data-target="#LoginForm"
             >
               <div class="nav-font">
-                <img v-show="active_element == 2" src="/images/icons/white-user.png" class="w-20" />
-                <img v-show="active_element != 2" src="/images/icons/user.png" class="w-20" />
+                <img v-show="active_element == 2" :src="$gbiAssets+'/images/icons/white-user.png'" class="w-20" />
+                <img v-show="active_element != 2" :src="$gbiAssets+'/images/icons/user.png'" class="w-20" />
               </div>
               <div class="nav-font text-jquery">profile</div>
             </a>
             <!-- if not looged in -->
             <router-link :to="`/dashboard`" v-else>
               <div class="nav-font">
-                <img v-show="active_element == 2" src="/images/icons/white-user.png" class="w-20" />
-                <img v-show="active_element != 2" src="/images/icons/user.png" class="w-20" />
+                <img v-show="active_element == 2" :src="$gbiAssets+'/images/icons/white-user.png'" class="w-20" />
+                <img v-show="active_element != 2" :src="$gbiAssets+'/images/icons/user.png'" class="w-20" />
               </div>
               <div class="nav-font">Profile</div>
             </router-link>

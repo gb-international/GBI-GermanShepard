@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <img class="img w-20 mr-2 link mb-2" src="/images/icons/back.png" @click="$router.go(-1)"/>
+        <img class="img w-20 mr-2 link mb-2" :src="$gbiAssets+'/images/icons/back.png'" @click="$router.go(-1)"/>
         <div v-if="pdf">
             <iframe id="fraDisabled"  :src="`/encyclopedia/pdf/${pdf.name}#toolbar=0&navpanes=0`" class="w-100 h-400" />
         </div>

@@ -238,6 +238,11 @@ export default {
     getItinerary(){
       this.$axios.get(`/api/itinerary-view/${this.$route.params.id}`).then((res)=>{
         this.itineraryData = res.data;
+        //Save search
+        let searches = JSON.parse(localStorage.getItem("itSearches"));
+        searches.push(this.itineraryData)
+        localStorage.setItem("itSearches", JSON.stringify(searches));
+
         this.selectedPhoto = this.itineraryData.photo;
         if(this.itineraryData.itinerarydays){
           var data = this.itineraryData.itinerarydays;

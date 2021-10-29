@@ -18,7 +18,7 @@
                   @change="onChange"
                 />
                 <label for="imageUpload"
-                  ><img src="/images/icons/edit.png" class="icon-width"
+                  ><img :src="$gbiAssets+'/images/icons/edit.png'" class="icon-width"
                 /></label>
               </div>
               <div class="avatar-preview">

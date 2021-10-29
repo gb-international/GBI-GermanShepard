@@ -716,7 +716,9 @@ var render = function() {
                               _c("img", {
                                 staticClass: "explore-icon-width",
                                 attrs: {
-                                  src: "/images/icons/Itinerary_hotel_icon.png"
+                                  src:
+                                    _vm.$gbiAssets +
+                                    "/images/icons/Itinerary_hotel_icon.png"
                                 }
                               }),
                               _vm._v(" "),
@@ -733,7 +735,9 @@ var render = function() {
                               _c("img", {
                                 staticClass: "explore-icon-width",
                                 attrs: {
-                                  src: "/images/icons/Itinerary_bus_icon.png"
+                                  src:
+                                    _vm.$gbiAssets +
+                                    "/images/icons/Itinerary_bus_icon.png"
                                 }
                               }),
                               _vm._v(" "),
@@ -750,7 +754,9 @@ var render = function() {
                               _c("img", {
                                 staticClass: "explore-icon-width",
                                 attrs: {
-                                  src: "/images/icons/Itinerary_bus_icon.png"
+                                  src:
+                                    _vm.$gbiAssets +
+                                    "/images/icons/Itinerary_bus_icon.png"
                                 }
                               }),
                               _vm._v(" "),
@@ -767,7 +773,9 @@ var render = function() {
                               _c("img", {
                                 staticClass: "explore-icon-width",
                                 attrs: {
-                                  src: "/images/icons/Itinerary_flight_icon.png"
+                                  src:
+                                    _vm.$gbiAssets +
+                                    "/images/icons/Itinerary_flight_icon.png"
                                 }
                               }),
                               _vm._v(" "),
@@ -784,7 +792,9 @@ var render = function() {
                               _c("img", {
                                 staticClass: "explore-icon-width",
                                 attrs: {
-                                  src: "/images/icons/Itinerary_lunch_icon.png"
+                                  src:
+                                    _vm.$gbiAssets +
+                                    "/images/icons/Itinerary_lunch_icon.png"
                                 }
                               }),
                               _vm._v(" "),

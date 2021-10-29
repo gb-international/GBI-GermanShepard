@@ -24,7 +24,7 @@
 
         <div class="text-left mb-2 author-blog">
           <img
-            src="/assets/front/images/logo-avatar.png"
+            :src="$gbiAssets+'/assets/front/images/logo-avatar.png'"
             class="img-rounded avatar-author mr-2"
           />
           <p class="m-0 font-14 text-muted">

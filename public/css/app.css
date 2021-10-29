@@ -5734,14 +5734,14 @@ a:hover {
 }
 
 .resent_search {
-  margin: 15px 0px 40px;
+  margin: 12px 0px 40px 0px;
   border-radius: 6px;
   padding: 5px;
 }
 
 .resent_search .card-img-overlay {
   top: 50%;
-  background-color: #6d6d6d69;
+  background-color: white;
 }
 
 .resent_search .heading,

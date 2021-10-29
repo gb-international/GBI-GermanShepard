@@ -38,20 +38,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", {}, [
-      _c("div", { staticClass: "errorpage" }, [
-        _c("img", { attrs: { src: "/assets/front/images/404error.png" } })
-      ])
+  return _c("div", {}, [
+    _c("div", { staticClass: "errorpage" }, [
+      _c("img", {
+        attrs: { src: _vm.$gbiAssets + "/assets/front/images/404error.png" }
+      })
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

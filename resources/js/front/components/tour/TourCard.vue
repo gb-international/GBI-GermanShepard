@@ -31,7 +31,7 @@
             <img
               v-if="tour.payment == 'success'"
               class="w-45"
-              src="/images/icons/paid.png"
+              :src="$gbiAssets+'/images/icons/paid.png'"
             />
           </div>
         </div>
@@ -43,7 +43,7 @@
               v-if="tour.payment == 'success'"
               @click="showTourDetail(tour.tour_code)"
             >
-              <img src="/images/icons/viewitinerary.png" class="w-20 mr-1" />
+              <img :src="$gbiAssets+'/images/icons/viewitinerary.png'" class="w-20 mr-1" />
               View Itinerary
             </div>
 
@@ -52,7 +52,7 @@
               class="text-center bg-transparent-card p-t-15 pb-15 text-white"
             >
               <img
-                src="/images/icons/viewitinerary.png"
+                :src="$gbiAssets+'/images/icons/viewitinerary.png'"
                 class="w-20 mr-1"
               />View Itinerary
             </div>

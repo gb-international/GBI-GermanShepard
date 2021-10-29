@@ -432,7 +432,7 @@ var render = function() {
               _vm.tour.payment == "success" && _vm.tour.paid_button == ""
                 ? _c("img", {
                     staticClass: "w-45",
-                    attrs: { src: "/images/icons/paid.png" }
+                    attrs: { src: _vm.$gbiAssets + "/images/icons/paid.png" }
                   })
                 : _vm._e()
             ])
@@ -454,7 +454,9 @@ var render = function() {
                 [
                   _c("img", {
                     staticClass: "w-20 mr-1",
-                    attrs: { src: "/images/icons/viewitinerary.png" }
+                    attrs: {
+                      src: _vm.$gbiAssets + "/images/icons/viewitinerary.png"
+                    }
                   }),
                   _vm._v(" View Itinerary\n            ")
                 ]
@@ -476,7 +478,9 @@ var render = function() {
                 [
                   _c("img", {
                     staticClass: "w-20 mr-1",
-                    attrs: { src: "/images/icons/viewmemberlist.png" }
+                    attrs: {
+                      src: _vm.$gbiAssets + "/images/icons/viewmemberlist.png"
+                    }
                   }),
                   _vm._v(" Group Members\n          ")
                 ]
@@ -498,7 +502,9 @@ var render = function() {
                 [
                   _c("img", {
                     staticClass: "w-20 mr-1",
-                    attrs: { src: "/images/icons/paymentList.png" }
+                    attrs: {
+                      src: _vm.$gbiAssets + "/images/icons/paymentList.png"
+                    }
                   }),
                   _vm._v(" Payment History\n          ")
                 ]
@@ -589,7 +595,7 @@ var render = function() {
               _vm.tour.payment == "success"
                 ? _c("img", {
                     staticClass: "w-45",
-                    attrs: { src: "/images/icons/paid.png" }
+                    attrs: { src: _vm.$gbiAssets + "/images/icons/paid.png" }
                   })
                 : _vm._e()
             ])
@@ -612,7 +618,10 @@ var render = function() {
                     [
                       _c("img", {
                         staticClass: "w-20 mr-1",
-                        attrs: { src: "/images/icons/viewitinerary.png" }
+                        attrs: {
+                          src:
+                            _vm.$gbiAssets + "/images/icons/viewitinerary.png"
+                        }
                       }),
                       _vm._v("\n            View Itinerary\n          ")
                     ]
@@ -626,7 +635,10 @@ var render = function() {
                     [
                       _c("img", {
                         staticClass: "w-20 mr-1",
-                        attrs: { src: "/images/icons/viewitinerary.png" }
+                        attrs: {
+                          src:
+                            _vm.$gbiAssets + "/images/icons/viewitinerary.png"
+                        }
                       }),
                       _vm._v("View Itinerary\n          ")
                     ]

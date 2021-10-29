@@ -126,18 +126,18 @@
                       <img
                         v-if="index != edit_index"
                         class="edit mr-1"
-                        :src="`/assets/front/icons/edit.png`"
+                        :src="$gbiAssets+'/assets/front/icons/edit.png'"
                         @click="edit_row(index)"
                       />
                       <img
                         v-else
                         class="edit mr-1"
-                        :src="`/assets/front/icons/update.png`"
+                        :src="$gbiAssets+'/assets/front/icons/update.png'"
                         @click="checkAndUpdateRow(data, index)"
                       />
                       <img
                         class="delete"
-                        :src="`/assets/front/icons/delete.png`"
+                        :src="$gbiAssets+'/assets/front/icons/delete.png'"
                         @click="delete_row(index,data.id)"
                       />
                     </div>
@@ -175,7 +175,7 @@
                   <div class="col-sm-4 text-left pt-2">
                     <img
                       class="delete w-16"
-                      :src="`/assets/front/icons/delete.png`"
+                      :src="$gbiAssets+'/assets/front/icons/delete.png'"
                       @click="delete_new_row(index); lastSr-=1"
                     />
                   </div>

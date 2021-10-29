@@ -26,14 +26,11 @@
 
       <div class="pb-5">
         <h5 class="title_section">
-          Recent Searches </h5>
-          <!-- <upcoming-tour-crasousel  :upcoming_list="upcoming_list"/>
-        
-        <div class="resent_search">
-          <div class="row">
-          </div>
-        </div> -->
-        <p>You have no recent searches.</p>
+          Recent Searches </h5>        
+        <div class="resent_search" v-if="rSearches.length>=1">
+          <popular-tour  :upcoming_list="rSearches"/>
+        </div>
+        <p v-else>You have no recent searches.</p>
       </div>
       <h5 class="title_section">
         Popular Tours
@@ -105,12 +102,15 @@ export default {
     return {
       posts:[],
       posts_list:[],
+      rSearches: []
     };
   },
   mixins:[Dashboard],
 
   mounted(){
     this.blogList();
+    this.rSearches = JSON.parse(localStorage.getItem("itSearches"));
+    console.log(this.rSearches)
   },
 
   methods:{

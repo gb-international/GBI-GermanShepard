@@ -54,7 +54,7 @@
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <img src="/images/icons/email.png" class="icon-width" />
+                    <img :src="$gbiAssets+'/images/icons/email.png'" class="icon-width" />
                   </span>
                 </div>
 
@@ -71,7 +71,7 @@
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <img src="/images/icons/key.png" class="icon-width" />
+                    <img :src="$gbiAssets+'/images/icons/key.png'" class="icon-width" />
                   </span>
                 </div>
                 <input

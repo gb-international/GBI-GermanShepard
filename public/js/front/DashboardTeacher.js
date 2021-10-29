@@ -97,9 +97,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -120,12 +117,15 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       posts: [],
-      posts_list: []
+      posts_list: [],
+      rSearches: []
     };
   },
   mixins: [_front_mixins_user_Dashboard__WEBPACK_IMPORTED_MODULE_0__["default"]],
   mounted: function mounted() {
     this.blogList();
+    this.rSearches = JSON.parse(localStorage.getItem("itSearches"));
+    console.log(this.rSearches);
   },
   methods: {
     blogList: function blogList() {
@@ -187,7 +187,24 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _vm._m(1),
+            _c("div", { staticClass: "pb-5" }, [
+              _c("h5", { staticClass: "title_section" }, [
+                _vm._v("\n        Recent Searches ")
+              ]),
+              _vm._v(" "),
+              _vm.rSearches.length >= 1
+                ? _c(
+                    "div",
+                    { staticClass: "resent_search" },
+                    [
+                      _c("popular-tour", {
+                        attrs: { upcoming_list: _vm.rSearches }
+                      })
+                    ],
+                    1
+                  )
+                : _c("p", [_vm._v("You have no recent searches.")])
+            ]),
             _vm._v(" "),
             _c("h5", { staticClass: "title_section" }, [
               _vm._v("\n      Popular Tours\n    ")
@@ -244,18 +261,6 @@ var staticRenderFns = [
           loading: "lazy"
         }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pb-5" }, [
-      _c("h5", { staticClass: "title_section" }, [
-        _vm._v("\n        Recent Searches ")
-      ]),
-      _vm._v(" "),
-      _c("p", [_vm._v("You have no recent searches.")])
     ])
   }
 ]

@@ -687,7 +687,7 @@
           <itinerary-list :list="items_list"></itinerary-list>
           <Observer @intersect="intersected" />
           <div class="loading-img-parent text-center mt-5 w-100 mb-4" v-if="loading">
-            <img class="loading-img" src="/images/icons/loader.gif" />
+            <img class="loading-img" :src="$gbiAssets+'/images/icons/loader.gif'" />
           </div>
         </div>
         <div v-else>

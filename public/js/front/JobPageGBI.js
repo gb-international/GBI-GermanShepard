@@ -1279,7 +1279,15 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "ourstory" } }, [
-    _vm._m(0),
+    _c("div", { staticClass: "advertismentpart" }, [
+      _c("img", {
+        staticStyle: { height: "100%", width: "100%" },
+        attrs: {
+          src: _vm.$gbiAssets + "/assets/front/images/job-banner.png",
+          loading: "lazy"
+        }
+      })
+    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -1352,19 +1360,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "advertismentpart" }, [
-      _c("img", {
-        staticStyle: { height: "100%", width: "100%" },
-        attrs: { src: "/assets/front/images/job-banner.png", loading: "lazy" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -19,7 +19,7 @@
         <p class="amenP"><i class="fas fa-wind mr-2"></i> Air Condition</p>
         <p class="amenP"><i class="fas fa-warehouse mr-2"></i> Banquet Hall</p>
         <p class="amenity">Amenities</p>
-        <button class="bookBtn">BOOK</button>
+        <button class="bookBtn" @click="$router.push('/hotel-detail')">BOOK</button>
       </div>
       <div class="detailsRow">
         <p class="guests">8 Guests 2 Rooms</p>

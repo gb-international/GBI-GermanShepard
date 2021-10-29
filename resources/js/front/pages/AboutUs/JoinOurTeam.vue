@@ -6,7 +6,7 @@
   <div id="joinOurteam">
      <div class="advertismentpart">
         <img
-          src="/assets/front/images/job-banner.png"
+          :src="$gbiAssets+'/assets/front/images/job-banner.png'"
           style="height: 100%; width: 100%"
           loading="lazy"
         />
@@ -30,7 +30,7 @@
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
-                    src="/assets/front/images/Technology-&-Design.png"
+                    :src="$gbiAssets+'/assets/front/images/Technology-&-Design.png'"
                     loading="lazy"
                   />
                   <p class="cardCText text-center">Technology & Design</p>    
@@ -43,7 +43,7 @@
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
-                    src="/assets/front/images/Operation.png"
+                    :src="$gbiAssets+'/assets/front/images/Operation.png'"
                     loading="lazy"
                   />
                   <p class="cardCText text-center">Operation</p>    
@@ -56,7 +56,7 @@
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
-                    src="/assets/front/images/Reservations.png"
+                    :src="$gbiAssets+'/assets/front/images/Reservations.png'"
                     loading="lazy"
                   />
                   <p class="cardCText text-center">Reservations</p>    
@@ -69,7 +69,7 @@
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
-                    src="/assets/front/images/Sales-&-Marketing.png"
+                    :src="$gbiAssets+'/assets/front/images/Sales-&-Marketing.png'"
                     loading="lazy"
                   />
                   <p class="cardCText text-center">Sales & Marketing</p>    
@@ -82,7 +82,7 @@
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
-                    src="/assets/front/images/Finance.png"
+                    :src="$gbiAssets+'/assets/front/images/Finance.png'"
                     loading="lazy"
                   />
                   <p class="cardCText text-center">Finance</p>    
@@ -95,7 +95,7 @@
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
-                    src="/assets/front/images/Product-&-Project-Management.png"
+                    :src="$gbiAssets+'/assets/front/images/Product-&-Project-Management.png'"
                     loading="lazy"
                   />
                   <p class="cardCText text-center">Product & Project Management</p>    

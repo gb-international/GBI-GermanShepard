@@ -24,7 +24,7 @@
               class="col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom"
             >
               <div class="item">
-                <img src="/images/tour/bottel.png" class="bottel" />
+                <img :src="$gbiAssets+'/images/tour/bottel.png'" class="bottel" />
                 <p>Water Bottel</p>
               </div>
             </div>
@@ -32,7 +32,7 @@
               class="col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom"
             >
               <div class="item text-center">
-                <img src="/images/tour/shoes.png" class="common shoes" />
+                <img :src="$gbiAssets+'/images/tour/shoes.png'" class="common shoes" />
                 <p>Light Shoes</p>
               </div>
             </div>
@@ -41,26 +41,26 @@
               class="col-md-4 col-sm-6 col-6 bottom-border mb-bottom mb-right"
             >
               <div class="item">
-                <img src="/images/tour/tourch.png" class="common" />
+                <img :src="$gbiAssets+'/images/tour/tourch.png'" class="common" />
                 <p>Tourch</p>
               </div>
             </div>
 
             <div class="col-md-4 col-sm-6 col-6 border-right mb-bottom">
               <div class="item text-center">
-                <img src="/images/tour/towel.png" class="common" />
+                <img :src="$gbiAssets+'/images/tour/towel.png'" class="common" />
                 <p>Towel</p>
               </div>
             </div>
             <div class="col-md-4 col-sm-6 col-6 border-right">
               <div class="item">
-                <img src="/images/tour/umbrelaa.png" class="common" />
+                <img :src="$gbiAssets+'/images/tour/umbrelaa.png'" class="common" />
                 <p>Umbrelaa</p>
               </div>
             </div>
             <div class="col-md-4 col-sm-6 col-6">
               <div class="item">
-                <img src="/images/tour/jacket.png" class="common" />
+                <img :src="$gbiAssets+'/images/tour/jacket.png'" class="common" />
                 <p>Jacket</p>
               </div>
             </div>

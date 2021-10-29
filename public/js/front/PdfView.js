@@ -59,7 +59,7 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("img", {
       staticClass: "img w-20 mr-2 link mb-2",
-      attrs: { src: "/images/icons/back.png" },
+      attrs: { src: _vm.$gbiAssets + "/images/icons/back.png" },
       on: {
         click: function($event) {
           return _vm.$router.go(-1)

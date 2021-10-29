@@ -529,7 +529,9 @@ var render = function() {
                             ),
                             _c("img", {
                               staticClass: "encylopedia-pdf",
-                              attrs: { src: "/images/icons/pdf.png" }
+                              attrs: {
+                                src: _vm.$gbiAssets + "/images/icons/pdf.png"
+                              }
                             })
                           ]
                         )

@@ -603,7 +603,10 @@ var render = function() {
                             _c("img", {
                               attrs: {
                                 src:
-                                  "/assets/front/icons/" + item.badge + ".png"
+                                  _vm.$gbiAssets +
+                                  "/assets/front/icons/" +
+                                  item.badge +
+                                  ".png"
                               }
                             }),
                             _vm._v(" "),
@@ -843,7 +846,10 @@ var render = function() {
                             _c("img", {
                               attrs: {
                                 src:
-                                  "/assets/front/icons/" + item.badge + ".png"
+                                  _vm.$gbiAssets +
+                                  "/assets/front/icons/" +
+                                  item.badge +
+                                  ".png"
                               }
                             }),
                             _vm._v(" "),
@@ -915,7 +921,9 @@ var render = function() {
                           _c("img", {
                             staticClass: "logo-img",
                             attrs: {
-                              src: "/assets/admin/default/icon/admin_logo.png"
+                              src:
+                                _vm.$gbiAssets +
+                                "/assets/admin/default/icon/admin_logo.png"
                             }
                           })
                         ]),

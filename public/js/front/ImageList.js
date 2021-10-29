@@ -237,7 +237,9 @@ var render = function() {
                       _c("div", { staticClass: "col" }, [
                         _c("img", {
                           staticClass: "w-35",
-                          attrs: { src: "/images/icons/back.png" },
+                          attrs: {
+                            src: _vm.$gbiAssets + "/images/icons/back.png"
+                          },
                           on: {
                             click: function($event) {
                               return _vm.LeftImage()
@@ -249,7 +251,9 @@ var render = function() {
                       _c("div", { staticClass: "col" }, [
                         _c("img", {
                           staticClass: "w-20",
-                          attrs: { src: "/images/icons/zoom-out.png" },
+                          attrs: {
+                            src: _vm.$gbiAssets + "/images/icons/zoom-out.png"
+                          },
                           on: {
                             click: function($event) {
                               return _vm.zoomOut()
@@ -261,7 +265,9 @@ var render = function() {
                       _c("div", { staticClass: "col" }, [
                         _c("img", {
                           staticClass: "w-20",
-                          attrs: { src: "/images/icons/zoom-in.png" },
+                          attrs: {
+                            src: _vm.$gbiAssets + "/images/icons/zoom-in.png"
+                          },
                           on: {
                             click: function($event) {
                               return _vm.zoomIn()
@@ -273,7 +279,9 @@ var render = function() {
                       _c("div", { staticClass: "col" }, [
                         _c("img", {
                           staticClass: "w-35",
-                          attrs: { src: "/images/icons/forward.png" },
+                          attrs: {
+                            src: _vm.$gbiAssets + "/images/icons/forward.png"
+                          },
                           on: {
                             click: function($event) {
                               return _vm.RightImage()

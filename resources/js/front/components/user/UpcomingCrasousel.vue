@@ -80,3 +80,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.text-white{
+  color: black !important;
+}
+</style>

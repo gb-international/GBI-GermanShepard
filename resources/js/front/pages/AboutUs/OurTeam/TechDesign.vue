@@ -16,7 +16,7 @@
 
       <div class="advertismentpart">
         <img
-          src="/assets/front/images/job-banner.png"
+          :src="$gbiAssets+'/assets/front/images/job-banner.png'"
           style="height: 100%; width: 100%"
           loading="lazy"
         />

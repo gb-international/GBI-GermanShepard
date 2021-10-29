@@ -11,7 +11,7 @@
     >
       <div class="container">
         <router-link class="navbar-brand" :to="`/`">
-          <img src="/assets/front/images/logo.png" />
+          <img :src="$gbiAssets+'/assets/front/images/logo.png'" />
         </router-link>
 
         <button
@@ -165,7 +165,7 @@
                 data-target="#LoginForm"
               >
                 login
-                <img src="/images/icons/profile.png" class="bell-icon-width" style="width: 20px;"/>
+                <img :src="$gbiAssets+'/images/icons/profile.png'" class="bell-icon-width" style="width: 20px;"/>
               </a>
             </li>
 
@@ -193,7 +193,7 @@
                   >
                   <div class="profileDD">
                     <div> <img
-                    src="/images/icons/dashboard.png"
+                    :src="$gbiAssets+'/images/icons/dashboard.png'"
                     class="img mr-3 mb-3 dd_icons_2"/> </div>
                     <div>
                       <b>Dashboard</b>
@@ -209,7 +209,7 @@
                   >
                   <div class="profileDD">
                     <div> <img
-                    src="/images/icons/trip_dd.png"
+                    :src="$gbiAssets+'/images/icons/trip_dd.png'"
                     class="img mr-3 mb-3 dd_icons_1"/> </div>
                     <div>
                       <b>My Trip</b>
@@ -224,7 +224,7 @@
                   >
                   <div class="profileDD">
                     <div> <img
-                    src="/images/icons/payment_dd.png"
+                    :src="$gbiAssets+'/images/icons/payment_dd.png'"
                     class="img mr-3 mb-3 dd_icons_1"/> </div>
                     <div>
                       <b>Make Payment</b> 
@@ -241,7 +241,7 @@
                   >
                   <div class="profileDD">
                     <div> <img
-                    src="/images/icons/profile_dd.png"
+                    :src="$gbiAssets+'/images/icons/profile_dd.png'"
                     class="img mr-3 mb-3 dd_icons_2"/> </div>
                     <div>
                       <b>Profile</b>
@@ -259,7 +259,7 @@
                     style="cursor: pointer;"
                   >
                     <img
-                    src="/images/icons/logout_dd.png"
+                    :src="$gbiAssets+'/images/icons/logout_dd.png'"
                     class="img mr-3 dd_icons_2"
                   /><b>Logout</b>
                 </div>

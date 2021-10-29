@@ -203,7 +203,51 @@ var render = function() {
             "d-flex flex-row justify-content-between customCard card card-1",
           staticStyle: { background: "white !important" }
         },
-        [_vm._m(0, true), _vm._v(" "), _vm._m(1, true)]
+        [
+          _c("div", { staticClass: "MainRow" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "d-flex flex-column justify-content-start align-items-start mainRow1"
+              },
+              [
+                _c("p", { staticClass: "hotelName" }, [
+                  _vm._v("Hotel Aman Continental")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "locName" }, [_vm._v("Kerala")]),
+                _vm._v(" "),
+                _vm._m(0, true),
+                _vm._v(" "),
+                _vm._m(1, true),
+                _vm._v(" "),
+                _vm._m(2, true),
+                _vm._v(" "),
+                _vm._m(3, true),
+                _vm._v(" "),
+                _c("p", { staticClass: "amenity" }, [_vm._v("Amenities")]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "bookBtn",
+                    on: {
+                      click: function($event) {
+                        return _vm.$router.push("/hotel-detail")
+                      }
+                    }
+                  },
+                  [_vm._v("BOOK")]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(4, true)
+          ]),
+          _vm._v(" "),
+          _vm._m(5, true)
+        ]
       )
     }),
     0
@@ -214,62 +258,57 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "MainRow" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "d-flex flex-column justify-content-start align-items-start mainRow1"
-        },
-        [
-          _c("p", { staticClass: "hotelName" }, [
-            _vm._v("Hotel Aman Continental")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "locName" }, [_vm._v("Kerala")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "d-flex stars" }, [
-            _c("i", { staticClass: "fas fa-star" }),
-            _vm._v(" "),
-            _c("i", { staticClass: "fas fa-star" }),
-            _vm._v(" "),
-            _c("i", { staticClass: "fas fa-star" }),
-            _vm._v(" "),
-            _c("i", { staticClass: "far fa-star" }),
-            _vm._v(" "),
-            _c("i", { staticClass: "far fa-star" })
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "amenP" }, [
-            _c("i", { staticClass: "fas fa-bed mr-2" }),
-            _vm._v(" Superior Room Twin Beds")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "amenP" }, [
-            _c("i", { staticClass: "fas fa-wind mr-2" }),
-            _vm._v(" Air Condition")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "amenP" }, [
-            _c("i", { staticClass: "fas fa-warehouse mr-2" }),
-            _vm._v(" Banquet Hall")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "amenity" }, [_vm._v("Amenities")]),
-          _vm._v(" "),
-          _c("button", { staticClass: "bookBtn" }, [_vm._v("BOOK")])
-        ]
-      ),
+    return _c("div", { staticClass: "d-flex stars" }, [
+      _c("i", { staticClass: "fas fa-star" }),
       _vm._v(" "),
-      _c("div", { staticClass: "detailsRow" }, [
-        _c("p", { staticClass: "guests" }, [_vm._v("8 Guests 2 Rooms")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "price" }, [_vm._v("Rs. 2450/-")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "taxes" }, [_vm._v("+ Rs.537 Taxes & Fees")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "perRoom" }, [_vm._v("per room / night")])
-      ])
+      _c("i", { staticClass: "fas fa-star" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fas fa-star" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "far fa-star" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "far fa-star" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "amenP" }, [
+      _c("i", { staticClass: "fas fa-bed mr-2" }),
+      _vm._v(" Superior Room Twin Beds")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "amenP" }, [
+      _c("i", { staticClass: "fas fa-wind mr-2" }),
+      _vm._v(" Air Condition")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "amenP" }, [
+      _c("i", { staticClass: "fas fa-warehouse mr-2" }),
+      _vm._v(" Banquet Hall")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "detailsRow" }, [
+      _c("p", { staticClass: "guests" }, [_vm._v("8 Guests 2 Rooms")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "price" }, [_vm._v("Rs. 2450/-")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "taxes" }, [_vm._v("+ Rs.537 Taxes & Fees")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "perRoom" }, [_vm._v("per room / night")])
     ])
   },
   function() {

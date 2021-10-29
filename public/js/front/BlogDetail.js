@@ -443,7 +443,9 @@ var render = function() {
         _c("div", { staticClass: "text-left mb-2 author-blog" }, [
           _c("img", {
             staticClass: "img-rounded avatar-author mr-2",
-            attrs: { src: "/assets/front/images/logo-avatar.png" }
+            attrs: {
+              src: _vm.$gbiAssets + "/assets/front/images/logo-avatar.png"
+            }
           }),
           _vm._v(" "),
           _c("p", { staticClass: "m-0 font-14 text-muted" }, [

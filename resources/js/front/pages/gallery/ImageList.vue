@@ -34,10 +34,10 @@
               <div class="shera-img shera-img-modal"></div>
               <div class="img-preview-bottom">
                 <div class="row text-center">
-                  <div class="col"><img src="/images/icons/back.png" @click="LeftImage()" class="w-35"/></div>
-                  <div class="col"><img src="/images/icons/zoom-out.png" @click="zoomOut()" class="w-20"/></div>
-                  <div class="col"><img src="/images/icons/zoom-in.png" @click="zoomIn()" class="w-20"/></div>
-                  <div class="col"><img src="/images/icons/forward.png" @click="RightImage()" class="w-35"/></div>
+                  <div class="col"><img :src="$gbiAssets+'/images/icons/back.png'" @click="LeftImage()" class="w-35"/></div>
+                  <div class="col"><img :src="$gbiAssets+'/images/icons/zoom-out.png'" @click="zoomOut()" class="w-20"/></div>
+                  <div class="col"><img :src="$gbiAssets+'/images/icons/zoom-in.png'" @click="zoomIn()" class="w-20"/></div>
+                  <div class="col"><img :src="$gbiAssets+'/images/icons/forward.png'" @click="RightImage()" class="w-35"/></div>
                 </div>
               </div>
             </div>

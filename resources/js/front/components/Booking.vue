@@ -181,7 +181,7 @@
             <div class="row align-content-center">
               <div class="col">
                 <img
-                  src="/images/icons/minus.png"
+                  :src="$gbiAssets+'/images/icons/minus.png'"
                   @click="down()"
                   class="w-40 link"
                 />
@@ -193,7 +193,7 @@
 
               <div class="col">
                 <img
-                  src="/images/icons/add.png"
+                  :src="$gbiAssets+'/images/icons/add.png'"
                   @click="up()"
                   class="w-40 link"
                 />

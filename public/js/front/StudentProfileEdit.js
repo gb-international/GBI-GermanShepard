@@ -254,7 +254,14 @@ var render = function() {
                         on: { change: _vm.onChange }
                       }),
                       _vm._v(" "),
-                      _vm._m(0)
+                      _c("label", { attrs: { for: "imageUpload" } }, [
+                        _c("img", {
+                          staticClass: "icon-width",
+                          attrs: {
+                            src: _vm.$gbiAssets + "/images/icons/edit.png"
+                          }
+                        })
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "avatar-preview" }, [
@@ -463,19 +470,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "imageUpload" } }, [
-      _c("img", {
-        staticClass: "icon-width",
-        attrs: { src: "/images/icons/edit.png" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

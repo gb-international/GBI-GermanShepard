@@ -2,6 +2,12 @@ import Vue from 'vue';
 import axios from 'axios';
 import Vuex from 'vuex';
 Vue.use(Vuex)
+
+let userSch = JSON.parse(localStorage.getItem("itSearches"));
+if(!userSch){
+    localStorage.setItem("itSearches", JSON.stringify([]));
+}
+
 export function createStore() {
     return new Vuex.Store({
         state: {

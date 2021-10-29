@@ -460,7 +460,15 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "joinOurteam" } }, [
-    _vm._m(0),
+    _c("div", { staticClass: "advertismentpart" }, [
+      _c("img", {
+        staticStyle: { height: "100%", width: "100%" },
+        attrs: {
+          src: _vm.$gbiAssets + "/assets/front/images/job-banner.png",
+          loading: "lazy"
+        }
+      })
+    ]),
     _vm._v(" "),
     _c("main", [
       _c("div", { staticClass: "row customdiv" }, [
@@ -524,7 +532,30 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._m(1)]
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "card-body d-flex justify-content-center align-items-center flex-column"
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "customImgJ",
+                          attrs: {
+                            src:
+                              _vm.$gbiAssets +
+                              "/assets/front/images/Technology-&-Design.png",
+                            loading: "lazy"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "cardCText text-center" }, [
+                          _vm._v("Technology & Design")
+                        ])
+                      ]
+                    )
+                  ]
                 )
               ]),
               _vm._v(" "),
@@ -539,7 +570,30 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._m(2)]
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "card-body d-flex justify-content-center align-items-center flex-column"
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "customImgJ",
+                          attrs: {
+                            src:
+                              _vm.$gbiAssets +
+                              "/assets/front/images/Operation.png",
+                            loading: "lazy"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "cardCText text-center" }, [
+                          _vm._v("Operation")
+                        ])
+                      ]
+                    )
+                  ]
                 )
               ]),
               _vm._v(" "),
@@ -554,7 +608,30 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._m(3)]
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "card-body d-flex justify-content-center align-items-center flex-column"
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "customImgJ",
+                          attrs: {
+                            src:
+                              _vm.$gbiAssets +
+                              "/assets/front/images/Reservations.png",
+                            loading: "lazy"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "cardCText text-center" }, [
+                          _vm._v("Reservations")
+                        ])
+                      ]
+                    )
+                  ]
                 )
               ]),
               _vm._v(" "),
@@ -569,7 +646,30 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._m(4)]
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "card-body d-flex justify-content-center align-items-center flex-column"
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "customImgJ",
+                          attrs: {
+                            src:
+                              _vm.$gbiAssets +
+                              "/assets/front/images/Sales-&-Marketing.png",
+                            loading: "lazy"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "cardCText text-center" }, [
+                          _vm._v("Sales & Marketing")
+                        ])
+                      ]
+                    )
+                  ]
                 )
               ]),
               _vm._v(" "),
@@ -584,7 +684,30 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._m(5)]
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "card-body d-flex justify-content-center align-items-center flex-column"
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "customImgJ",
+                          attrs: {
+                            src:
+                              _vm.$gbiAssets +
+                              "/assets/front/images/Finance.png",
+                            loading: "lazy"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "cardCText text-center" }, [
+                          _vm._v("Finance")
+                        ])
+                      ]
+                    )
+                  ]
                 )
               ]),
               _vm._v(" "),
@@ -599,7 +722,30 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._m(6)]
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "card-body d-flex justify-content-center align-items-center flex-column"
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "customImgJ",
+                          attrs: {
+                            src:
+                              _vm.$gbiAssets +
+                              "/assets/front/images/Product-&-Project-Management.png",
+                            loading: "lazy"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "cardCText text-center" }, [
+                          _vm._v("Product & Project Management")
+                        ])
+                      ]
+                    )
+                  ]
                 )
               ])
             ])
@@ -680,159 +826,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "advertismentpart" }, [
-      _c("img", {
-        staticStyle: { height: "100%", width: "100%" },
-        attrs: { src: "/assets/front/images/job-banner.png", loading: "lazy" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "card-body d-flex justify-content-center align-items-center flex-column"
-      },
-      [
-        _c("img", {
-          staticClass: "customImgJ",
-          attrs: {
-            src: "/assets/front/images/Technology-&-Design.png",
-            loading: "lazy"
-          }
-        }),
-        _vm._v(" "),
-        _c("p", { staticClass: "cardCText text-center" }, [
-          _vm._v("Technology & Design")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "card-body d-flex justify-content-center align-items-center flex-column"
-      },
-      [
-        _c("img", {
-          staticClass: "customImgJ",
-          attrs: { src: "/assets/front/images/Operation.png", loading: "lazy" }
-        }),
-        _vm._v(" "),
-        _c("p", { staticClass: "cardCText text-center" }, [_vm._v("Operation")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "card-body d-flex justify-content-center align-items-center flex-column"
-      },
-      [
-        _c("img", {
-          staticClass: "customImgJ",
-          attrs: {
-            src: "/assets/front/images/Reservations.png",
-            loading: "lazy"
-          }
-        }),
-        _vm._v(" "),
-        _c("p", { staticClass: "cardCText text-center" }, [
-          _vm._v("Reservations")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "card-body d-flex justify-content-center align-items-center flex-column"
-      },
-      [
-        _c("img", {
-          staticClass: "customImgJ",
-          attrs: {
-            src: "/assets/front/images/Sales-&-Marketing.png",
-            loading: "lazy"
-          }
-        }),
-        _vm._v(" "),
-        _c("p", { staticClass: "cardCText text-center" }, [
-          _vm._v("Sales & Marketing")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "card-body d-flex justify-content-center align-items-center flex-column"
-      },
-      [
-        _c("img", {
-          staticClass: "customImgJ",
-          attrs: { src: "/assets/front/images/Finance.png", loading: "lazy" }
-        }),
-        _vm._v(" "),
-        _c("p", { staticClass: "cardCText text-center" }, [_vm._v("Finance")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "card-body d-flex justify-content-center align-items-center flex-column"
-      },
-      [
-        _c("img", {
-          staticClass: "customImgJ",
-          attrs: {
-            src: "/assets/front/images/Product-&-Project-Management.png",
-            loading: "lazy"
-          }
-        }),
-        _vm._v(" "),
-        _c("p", { staticClass: "cardCText text-center" }, [
-          _vm._v("Product & Project Management")
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

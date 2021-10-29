@@ -409,7 +409,7 @@ var render = function() {
               [
                 _c("img", {
                   staticClass: "loading-img",
-                  attrs: { src: "/icons/loader.gif" }
+                  attrs: { src: _vm.$gbiAssets + "/icons/loader.gif" }
                 })
               ]
             )

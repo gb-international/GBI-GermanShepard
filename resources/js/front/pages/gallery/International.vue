@@ -30,7 +30,7 @@
       <Observer @intersect="intersected" />
 
       <div class="loading-img-parent text-center w-100 mb-4" v-if="loading">
-          <img class="loading-img" src="/icons/loader.gif">
+          <img class="loading-img" :src="$gbiAssets+'/icons/loader.gif'">
       </div>
 
     </div>

@@ -20,11 +20,12 @@
     "/js/front/ExploreDestination.js": "/js/front/ExploreDestination.js",
     "/js/front/ExploreDestination~js/front/ExploreList.js": "/js/front/ExploreDestination~js/front/ExploreList.js",
     "/js/front/ExploreDetail.js": "/js/front/ExploreDetail.js",
-    "/js/front/ExploreDetail~js/front/HotelSearch.js": "/js/front/ExploreDetail~js/front/HotelSearch.js",
+    "/js/front/ExploreDetail~js/front/HotelDetail~js/front/HotelSearch.js": "/js/front/ExploreDetail~js/front/HotelDetail~js/front/HotelSearch.js",
     "/js/front/ExploreList.js": "/js/front/ExploreList.js",
     "/js/front/FeedbackForm.js": "/js/front/FeedbackForm.js",
     "/js/front/GroupView.js": "/js/front/GroupView.js",
     "/js/front/Home.js": "/js/front/Home.js",
+    "/js/front/HotelDetail.js": "/js/front/HotelDetail.js",
     "/js/front/HotelSearch.js": "/js/front/HotelSearch.js",
     "/js/front/HowWework.js": "/js/front/HowWework.js",
     "/js/front/ImageList.js": "/js/front/ImageList.js",
@@ -60,7 +61,7 @@
     "/vendors~js/front/BlogsList~js/front/Domestic~js/front/ExploreDestination~js/front/ExploreList~js/fro~675ac5f5.js": "/vendors~js/front/BlogsList~js/front/Domestic~js/front/ExploreDestination~js/front/ExploreList~js/fro~675ac5f5.js",
     "/vendors~js/front/EncyclopediaList~js/front/ExploreDestination~js/front/ExploreList~js/front/InternationalList.js": "/vendors~js/front/EncyclopediaList~js/front/ExploreDestination~js/front/ExploreList~js/front/InternationalList.js",
     "/vendors~js/front/ExploreDestination~js/front/ExploreList.js": "/vendors~js/front/ExploreDestination~js/front/ExploreList.js",
-    "/vendors~js/front/ExploreDetail~js/front/HotelSearch.js": "/vendors~js/front/ExploreDetail~js/front/HotelSearch.js",
+    "/vendors~js/front/ExploreDetail~js/front/HotelDetail~js/front/HotelSearch.js": "/vendors~js/front/ExploreDetail~js/front/HotelDetail~js/front/HotelSearch.js",
     "/vendors~js/front/GroupView~js/front/PaymentView.js": "/vendors~js/front/GroupView~js/front/PaymentView.js",
     "/vendors~js/front/UserInformation.js": "/vendors~js/front/UserInformation.js"
 }

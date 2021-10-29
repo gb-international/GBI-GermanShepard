@@ -43,7 +43,7 @@
             >
               <router-link :to="`/itinerary-pdf/${pdf.slug}`"
                 >{{ pdf.slug | pdfFilter }}
-                <img class="encylopedia-pdf" src="/images/icons/pdf.png"
+                <img class="encylopedia-pdf" :src="$gbiAssets+'/images/icons/pdf.png'"
               /></router-link>
             </p>
           </div>

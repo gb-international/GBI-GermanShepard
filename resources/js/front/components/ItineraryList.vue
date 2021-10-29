@@ -27,23 +27,23 @@
             <!-- Price & Icons -->
               <div class="pl-10">
                   <div class="card-icon float-left p-0" v-if="itinerary.hotel_type != '0'">
-                    <img src="/images/icons/Itinerary_hotel_icon.png" class="explore-icon-width">
+                    <img :src="$gbiAssets+'/images/icons/Itinerary_hotel_icon.png'" class="explore-icon-width">
                     <br />
                   </div>
                   <div class="card-icon float-left p-0" v-if="itinerary.train == 1">
-                    <img src="/images/icons/Itinerary_bus_icon.png" class="explore-icon-width">
+                    <img :src="$gbiAssets+'/images/icons/Itinerary_bus_icon.png'" class="explore-icon-width">
                     <br />
                   </div>
                   <div class="card-icon float-left p-0"  v-if="itinerary.bus =='1'">
-                    <img src="/images/icons/Itinerary_bus_icon.png" class="explore-icon-width">
+                    <img :src="$gbiAssets+'/images/icons/Itinerary_bus_icon.png'" class="explore-icon-width">
                     <br />
                   </div>
                   <div class="card-icon float-left p-0" v-if="itinerary.flight== '1'">
-                    <img src="/images/icons/Itinerary_flight_icon.png" class="explore-icon-width">
+                    <img :src="$gbiAssets+'/images/icons/Itinerary_flight_icon.png'" class="explore-icon-width">
                     <br />
                   </div>
                   <div class="card-icon float-left p-0" v-if="itinerary.food != '0'">
-                    <img src="/images/icons/Itinerary_lunch_icon.png" class="explore-icon-width">
+                    <img :src="$gbiAssets+'/images/icons/Itinerary_lunch_icon.png'" class="explore-icon-width">
                     <br />
                   </div>
               </div>

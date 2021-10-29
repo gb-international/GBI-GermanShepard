@@ -58,7 +58,7 @@ contentFilter() - Filter categories into content starting lines.
               <p2>Dear {{userData.name}}, please check out {{item.category | contentFilter}}...</p2>
             </div>
             <div>
-              <img :src="'/assets/front/icons/'+item.badge+'.png'" />
+              <img :src="$gbiAssets+'/assets/front/icons/'+item.badge+'.png'" />
               <p class="ReadStatus" :style="item.read == 0 ? 'border-color: black; color: black' : `border-color: ${item.color}; color: ${item.color}`">{{item.read == 0 ? 'Unread' : 'Read'}}</p>
             </div>
           </div>
@@ -97,7 +97,7 @@ contentFilter() - Filter categories into content starting lines.
               <p2>Dear {{userData.name}}, please check out {{item.category | contentFilter}}...</p2>
             </div>
             <div>
-              <img :src="'/assets/front/icons/'+item.badge+'.png'" />
+              <img :src="$gbiAssets+'/assets/front/icons/'+item.badge+'.png'" />
               <p class="ReadStatus" :style="item.read == 0 ? 'border-color: black; color: black' : `border-color: ${item.color}; color: ${item.color}`">{{item.read == 0 ? 'Unread' : 'Read'}}</p>
             </div>
           </div>
@@ -125,7 +125,7 @@ contentFilter() - Filter categories into content starting lines.
                   <!-- <br/><b>+91 {{currentItem.ph_no}}</b> -->
                 </p>
               </div>
-              <img src="/assets/admin/default/icon/admin_logo.png" class="logo-img">
+              <img :src="$gbiAssets+'/assets/admin/default/icon/admin_logo.png'" class="logo-img">
           </div>
           <!-- Message Body -->
           <div class="message-body">

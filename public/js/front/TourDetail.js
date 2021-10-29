@@ -1340,7 +1340,123 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(0),
+            _c("div", { staticClass: "things-to-carrry mb-35" }, [
+              _c("h3", { staticClass: "text-center mb-35" }, [
+                _vm._v("THINGS TO CARRY")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row align-items-center" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom"
+                  },
+                  [
+                    _c("div", { staticClass: "item" }, [
+                      _c("img", {
+                        staticClass: "bottel",
+                        attrs: {
+                          src: _vm.$gbiAssets + "/images/tour/bottel.png"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Water Bottel")])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom"
+                  },
+                  [
+                    _c("div", { staticClass: "item text-center" }, [
+                      _c("img", {
+                        staticClass: "common shoes",
+                        attrs: {
+                          src: _vm.$gbiAssets + "/images/tour/shoes.png"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Light Shoes")])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-md-4 col-sm-6 col-6 bottom-border mb-bottom mb-right"
+                  },
+                  [
+                    _c("div", { staticClass: "item" }, [
+                      _c("img", {
+                        staticClass: "common",
+                        attrs: {
+                          src: _vm.$gbiAssets + "/images/tour/tourch.png"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Tourch")])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-md-4 col-sm-6 col-6 border-right mb-bottom"
+                  },
+                  [
+                    _c("div", { staticClass: "item text-center" }, [
+                      _c("img", {
+                        staticClass: "common",
+                        attrs: {
+                          src: _vm.$gbiAssets + "/images/tour/towel.png"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Towel")])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-md-4 col-sm-6 col-6 border-right" },
+                  [
+                    _c("div", { staticClass: "item" }, [
+                      _c("img", {
+                        staticClass: "common",
+                        attrs: {
+                          src: _vm.$gbiAssets + "/images/tour/umbrelaa.png"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Umbrelaa")])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-4 col-sm-6 col-6" }, [
+                  _c("div", { staticClass: "item" }, [
+                    _c("img", {
+                      staticClass: "common",
+                      attrs: { src: _vm.$gbiAssets + "/images/tour/jacket.png" }
+                    }),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Jacket")])
+                  ])
+                ])
+              ])
+            ]),
             _vm._v(" "),
             _vm.hotelData
               ? _c("div", { staticClass: "hotel-section mb-35" }, [
@@ -1427,113 +1543,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "things-to-carrry mb-35" }, [
-      _c("h3", { staticClass: "text-center mb-35" }, [
-        _vm._v("THINGS TO CARRY")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row align-items-center" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom"
-          },
-          [
-            _c("div", { staticClass: "item" }, [
-              _c("img", {
-                staticClass: "bottel",
-                attrs: { src: "/images/tour/bottel.png" }
-              }),
-              _vm._v(" "),
-              _c("p", [_vm._v("Water Bottel")])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom"
-          },
-          [
-            _c("div", { staticClass: "item text-center" }, [
-              _c("img", {
-                staticClass: "common shoes",
-                attrs: { src: "/images/tour/shoes.png" }
-              }),
-              _vm._v(" "),
-              _c("p", [_vm._v("Light Shoes")])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("hr"),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "col-md-4 col-sm-6 col-6 bottom-border mb-bottom mb-right"
-          },
-          [
-            _c("div", { staticClass: "item" }, [
-              _c("img", {
-                staticClass: "common",
-                attrs: { src: "/images/tour/tourch.png" }
-              }),
-              _vm._v(" "),
-              _c("p", [_vm._v("Tourch")])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-md-4 col-sm-6 col-6 border-right mb-bottom" },
-          [
-            _c("div", { staticClass: "item text-center" }, [
-              _c("img", {
-                staticClass: "common",
-                attrs: { src: "/images/tour/towel.png" }
-              }),
-              _vm._v(" "),
-              _c("p", [_vm._v("Towel")])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4 col-sm-6 col-6 border-right" }, [
-          _c("div", { staticClass: "item" }, [
-            _c("img", {
-              staticClass: "common",
-              attrs: { src: "/images/tour/umbrelaa.png" }
-            }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Umbrelaa")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4 col-sm-6 col-6" }, [
-          _c("div", { staticClass: "item" }, [
-            _c("img", {
-              staticClass: "common",
-              attrs: { src: "/images/tour/jacket.png" }
-            }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Jacket")])
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

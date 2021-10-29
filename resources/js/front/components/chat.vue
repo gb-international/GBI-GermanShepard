@@ -9,7 +9,7 @@
     @msg-send="messageSendHandler"
   >
     <template #bubbleButton>
-      <img src="/assets/front/images/sheraFace.png" style="background: transparent !important;" />
+      <img :src="$gbiAssets+'/assets/front/images/sheraFace.png'" style="background: transparent !important;" />
     </template>
   </VueBotUI>
   </section>
