@@ -111,7 +111,7 @@
                   <div class="form-group action_item margin-top-11">
                     <img
                         class="viewPHistory"
-                        :src="`/assets/front/icons/view.png`"
+                        :src="$gbiAssets+'/assets/front/icons/view.png'"
                         @click="viewDetails(data)"
                         data-toggle="modal"
                         data-target="#paymentModal"

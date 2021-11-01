@@ -41,12 +41,12 @@ This is template is for the viewing the booked tour details.
           <div class="row m-30 tour_list_block">
             <div class="col-sm-3 mb-3">
               <router-link :to="`/booked-tour-manager/${tour.id}`">
-                <img :src="`/assets/admin/default/icon/tour-manager.png`" />
+                <img :src="$gbiAssets+'/assets/admin/default/icon/tour-manager.png'" />
               </router-link>
             </div>
             <div class="col-sm-3 mb-3">
               <router-link :to="`/booked-tour-hotel/${tour.id}`">
-                <img :src="`/assets/admin/default/icon/hotel.png`" />
+                <img :src="$gbiAssets+'/assets/admin/default/icon/hotel.png'" />
               </router-link>
             </div>
 
@@ -54,32 +54,32 @@ This is template is for the viewing the booked tour details.
               <router-link
                 :to="`/booked-tour-restaurant/${tour.id}/${tour.tour_id}`"
               >
-                <img :src="`/assets/admin/default/icon/restaurant.png`" />
+                <img :src="$gbiAssets+'/assets/admin/default/icon/restaurant.png'" />
               </router-link>
             </div>
 
             <div class="col-sm-3 mb-3 m-30">
               <router-link :to="`/booked-tour-flight/${tour.id}`">
-                <img :src="`/assets/admin/default/icon/airlines.png`" />
+                <img :src="$gbiAssets+'/assets/admin/default/icon/airlines.png'" />
               </router-link>
             </div>
 
             <div class="col-sm-3 mb-3 m-30">
               <router-link :to="`/booked-tour-train/${tour.id}`">
-                <img :src="`/assets/admin/default/icon/train-icon.png`" />
+                <img :src="$gbiAssets+'/assets/admin/default/icon/train-icon.png'" />
               </router-link>
             </div>
 
             <div class="col-sm-3 mb-3 m-30">
               <router-link :to="`/booked-tour-bus/${tour.id}`">
-                <img :src="`/assets/admin/default/icon/bus-icon.png`" />
+                <img :src="$gbiAssets+'/assets/admin/default/icon/bus-icon.png'" />
               </router-link>
             </div>
             <div v-if="tour.customer_type == 'school'" class="col-sm-3 mb-3 m-30">
               <router-link
                 :to="`/booked-tour-group/${entity['id']}/${tour.tour_id}`"
               >
-                <img :src="`/assets/admin/default/icon/student.png`" />
+                <img :src="$gbiAssets+'/assets/admin/default/icon/student.png'" />
               </router-link>
             </div>
 
@@ -87,26 +87,26 @@ This is template is for the viewing the booked tour details.
               <router-link
                 :to="`/booked-corp-group/${entity['id']}/${tour.tour_id}`"
               >
-                <img :src="`/assets/admin/default/icon/groupList.png`" />
+                <img :src="$gbiAssets+'/assets/admin/default/icon/groupList.png'" />
               </router-link>
             </div>
 
 
             <div v-if="tour.customer_type == 'school' && hasSchoolPaymentPerms" class="col-sm-3 mb-3 m-30">
               <router-link :to="`/payments-school/${entity['id']}/${tour.tour_id}`">
-                <img :src="`/assets/admin/default/icon/payment.png`" />
+                <img :src="$gbiAssets+'/assets/admin/default/icon/payment.png'" />
               </router-link>
             </div>
 
             <div v-if="tour.customer_type == 'corporate' && hasCorpPaymentPerms" class="col-sm-3 mb-3 m-30">
               <router-link :to="`/payments-corporate/${entity['id']}/${tour.tour_id}`">
-                <img :src="`/assets/admin/default/icon/payment.png`" />
+                <img :src="$gbiAssets+'/assets/admin/default/icon/payment.png'" />
               </router-link>
             </div>
 
             <div class="col-sm-3 mb-3 m-30">
               <router-link :to="`/foods/${tour.id}/${tour.tour_id}`">
-                <img :src="`/assets/admin/default/icon/snacks.png`" />
+                <img :src="$gbiAssets+'/assets/admin/default/icon/snacks.png'" />
               </router-link>
             </div>
 
@@ -114,7 +114,7 @@ This is template is for the viewing the booked tour details.
               <router-link
                 :to="`/booked-sightseen/${tour.id}/${tour.tour_id}/${itinerary.id}`"
               >
-                <img :src="`/assets/admin/default/icon/sightseeing.png`" />
+                <img :src="$gbiAssets+'/assets/admin/default/icon/sightseeing.png'" />
               </router-link>
             </div>
             
@@ -122,7 +122,7 @@ This is template is for the viewing the booked tour details.
               <router-link
                 :to="`/escort-update/${tour.id}/${tour.tour_id}`"
               >
-                <img :src="`/assets/admin/default/icon/escort_Update.png`" />
+                <img :src="$gbiAssets+'/assets/admin/default/icon/escort_Update.png'" />
               </router-link>
             </div>
 

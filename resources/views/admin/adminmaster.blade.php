@@ -42,9 +42,9 @@
     </nav>
     <aside class="main-sidebar elevation-4" id="admin_top_logo">
       <a href="/"  class="brand-link logo_link">
-        {{-- <img src="{{secure_asset('assets/admin/default/icon/admin_logo.png')}}"
+        {{-- <img src="{{secure_asset('admin_logo.png')}}"
               alt="GBI Logo" class="brand-image"> --}}
-         <img src="{{asset('assets/admin/default/icon/admin_logo.png')}}"
+         <img src="{{asset('admin_logo.png')}}"
               alt="GBI Logo" class="brand-image">
         <span class="brand-text font-weight-light">.</span>
       </a>

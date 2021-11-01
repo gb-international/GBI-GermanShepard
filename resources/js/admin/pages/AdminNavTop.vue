@@ -3,7 +3,7 @@
     <img
       class="back-icon cursor-pointer pl-4"
       @click="back()"
-      src="/assets/front/icons/back.png"
+      :src="$gbiAssets+'/assets/front/icons/back.png'"
       title="Go Back"
     />
   </div>

@@ -3,7 +3,7 @@
     <div class="row justify-content-center mt-5 pt-5">
       <div class="col-sm-4">
         <p class="text-center">
-          <img src="/assets/admin/default/icon/logo.png" />
+          <img :src="$gbiAssets+'/assets/admin/default/icon/logo.png'" />
         </p>
         <form class="mt-5">
           <div class="form-group relative">

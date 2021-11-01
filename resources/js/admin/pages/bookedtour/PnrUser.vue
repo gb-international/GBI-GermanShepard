@@ -65,7 +65,7 @@
                 <img
                 v-if="update_task == true"
                 class="edit"
-                :src="`/assets/front/icons/update.png`"
+                :src="$gbiAssets+'/assets/front/icons/update.png'"
                 @click="update_row(user.pnr_id,user.id)"
               />
             </div>
