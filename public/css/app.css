@@ -4560,6 +4560,11 @@ custLabel2 {
   font-weight: 500;
 }
 
+.bookbtn-custom:hover {
+  box-shadow: 2px 2px grey;
+  color: #212529;
+}
+
 .explore_custom_button {
   background: #00000036;
   color: #ffffff;
@@ -4571,6 +4576,13 @@ custLabel2 {
   font-size: 18px;
   border-radius: 0px;
   margin-top: 3.2vh;
+}
+
+.explore_custom_button:hover {
+  color: #292548eb;
+  border: 2px #292548eb solid;
+  background: white;
+  font-weight: 500;
 }
 
 @media (min-width: 768px) {
@@ -6961,9 +6973,9 @@ a:hover {
 .text_on_image .content-blog-banner {
   position: absolute;
   top: 25% !important;
-  left: 15%;
+  left: 25%;
   color: white;
-  width: 65%;
+  width: 50%;
   background: transparent;
   padding: 0px 25px;
 }
@@ -6989,7 +7001,7 @@ a:hover {
 
 .search-blog-form {
   padding: 15px 13px 9px;
-  background: rgba(18, 18, 19, 0.8);
+  background: #292548eb;
 }
 
 .search-blog-form select,
@@ -7677,6 +7689,10 @@ a:hover {
   width: 10px;
   height: 10px;
   margin: 3px;
+}
+
+.custom-control-label {
+  cursor: pointer !important;
 }
 
 .border-radius-0 {

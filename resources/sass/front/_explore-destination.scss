@@ -225,6 +225,11 @@
 	    font-weight: 500;
 	}
 
+	.bookbtn-custom:hover {
+	    box-shadow: 2px 2px grey;
+		color: #212529;
+	}
+
 	.explore_custom_button {
 	    background: #00000036;
 	    color: #ffffff;
@@ -236,6 +241,13 @@
 	    font-size: 18px;
 	    border-radius: 0px;
 	    margin-top: 3.2vh;
+	}
+
+	.explore_custom_button:hover {
+		color: #292548eb;
+		border: 2px #292548eb solid;
+		background: white;
+		font-weight: 500;
 	}
 
 	 @media (min-width: 768px) {

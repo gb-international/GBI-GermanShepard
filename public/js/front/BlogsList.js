@@ -241,6 +241,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -495,47 +502,61 @@ var render = function() {
           _vm._v("Travel Blog")
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "search-blog-form" }, [
-          _c("form", { attrs: { method: "post", novalidate: "novalidate" } }, [
-            _c("div", { staticClass: "col-lg-12" }, [
-              _c("div", { staticClass: "row justify-content-center" }, [
-                _c(
-                  "div",
-                  { staticClass: "col-lg-12 col-md-12 col-sm-12 p-0" },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.title,
-                          expression: "form.title"
-                        }
-                      ],
-                      staticClass: "form-control search-slt",
-                      attrs: { type: "text", placeholder: "Enter the title" },
-                      domProps: { value: _vm.form.title },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+        _c(
+          "div",
+          {
+            staticClass: "search-blog-form",
+            staticStyle: { "padding-top": "35px !important" }
+          },
+          [
+            _c(
+              "form",
+              { attrs: { method: "post", novalidate: "novalidate" } },
+              [
+                _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "row justify-content-center" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-12 col-md-12 col-sm-12 p-0" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.title,
+                              expression: "form.title"
+                            }
+                          ],
+                          staticClass: "form-control search-slt",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Enter the title"
+                          },
+                          domProps: { value: _vm.form.title },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "title", $event.target.value)
+                            }
                           }
-                          _vm.$set(_vm.form, "title", $event.target.value)
-                        }
-                      }
-                    })
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _vm.error_message != ""
-                ? _c("span", { staticClass: "text-danger" }, [
-                    _vm._v(_vm._s(_vm.error_message))
-                  ])
-                : _vm._e()
-            ])
-          ])
-        ]),
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm.error_message != ""
+                    ? _c("span", { staticClass: "text-danger" }, [
+                        _vm._v(_vm._s(_vm.error_message))
+                      ])
+                    : _vm._e()
+                ])
+              ]
+            )
+          ]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -612,25 +633,26 @@ var render = function() {
                     : _vm._e()
                 ])
               ]
-            )
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-center" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "btn-defalt btn-lg center-block explore_custom_button",
+                  attrs: { type: "submit" },
+                  on: {
+                    click: function($event) {
+                      return _vm.SearchBlog()
+                    }
+                  }
+                },
+                [_vm._v("\n          SEARCH\n          ")]
+              )
+            ])
           ]
-        ),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-center search-blog-btn" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-defalt btn-lg center-block profile_button",
-              attrs: { type: "submit" },
-              on: {
-                click: function($event) {
-                  return _vm.SearchBlog()
-                }
-              }
-            },
-            [_vm._v("Search")]
-          )
-        ])
+        )
       ])
     ]),
     _vm._v(" "),

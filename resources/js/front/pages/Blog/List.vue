@@ -4,7 +4,7 @@
     <div class="howwework_banner text_on_image banner_bg">
       <div class="content-blog-banner">
         <h1 class="text-center blog-heading">Travel Blog</h1>
-        <div class="search-blog-form">
+        <div class="search-blog-form" style="padding-top: 35px !important;">
           <form method="post" novalidate="novalidate">
             <div class="col-lg-12">
               <div class="row justify-content-center">
@@ -83,9 +83,16 @@
               <span v-if="error_message != ''" class="text-danger">{{ error_message }}</span>
             </div>
           </form>
+           <p class="text-center">
+            <button
+              class="btn-defalt btn-lg center-block explore_custom_button"
+              @click="SearchBlog()"
+              type="submit"
+            >
+            SEARCH
+            </button>
+          </p>
         </div>
-
-        <p class="text-center search-blog-btn"><button type="submit" class="btn btn-defalt btn-lg center-block profile_button" @click="SearchBlog()">Search</button></p>
       </div>
     </div>
 

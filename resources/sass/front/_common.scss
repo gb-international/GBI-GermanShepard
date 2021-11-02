@@ -156,7 +156,9 @@
 		margin: 3px;
 	}
 }
-
+.custom-control-label{
+	cursor: pointer !important;
+}
 
 
 
@@ -246,9 +248,7 @@ a{
 	  color: black;
 	}
 }
-
 .card_image_ency{ height: 154px; }
-
 .loadingspinner {
 	pointer-events: none;
 	width: 2.5em;
@@ -269,21 +269,16 @@ a{
 	margin-top: 5px;
     width: 120px;
 }
-
-
-
 @keyframes loadingspin {
 	100% {
 			transform: rotate(360deg)
 	}
 }
 
-
 .modal {
   text-align: center;
   padding: 0!important;
 }
-
 .modal:before {
   content: '';
   display: inline-block;
@@ -291,21 +286,16 @@ a{
   vertical-align: middle;
   margin-right: -4px;
 }
-
 .modal-dialog {
   display: inline-block;
   text-align: left;
   vertical-align: middle;
 }
-
-
 .modal-color{
 	background-color: #fbfbfb;
 	border-radius: 0px;
     border: 0px;
 }
-
-
 .profile_button{
 	background: $primary;
 	color: white;
@@ -321,7 +311,6 @@ a{
 			color: white;
         }
 }
-
 .multiselect__tag{
 	background-color: #6d6b6bc7;
 }
@@ -337,7 +326,6 @@ a{
 .multiselect__option--highlight{
 	background:grey;
 }
-
 .circle-btn{ 
 	border-radius: 42px;
 	padding: 7px 11px 8px;

@@ -3,9 +3,9 @@
     .content-blog-banner{
         position: absolute;
         top: 25% !important;
-        left: 15%;
+        left: 25%;
         color: white;
-        width: 65%;
+        width: 50%;
         background: transparent;
         padding: 0px 25px;
     }
@@ -32,7 +32,7 @@
 }
 .search-blog-form{
     padding: 15px 13px 9px;
-    background: rgba(18, 18, 19, 0.8);
+    background: #292548eb;
     select,input{
         height: 47px;
     }

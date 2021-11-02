@@ -198,6 +198,7 @@ p {
 }
 .bookBtn:hover{
   box-shadow: 2px 2px grey;
+  color: #212529;
 }
 .amenity{
   margin: 5px 0px;
