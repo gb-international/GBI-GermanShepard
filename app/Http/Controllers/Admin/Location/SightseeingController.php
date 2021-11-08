@@ -59,6 +59,15 @@ class SightseeingController extends Controller
             unset($data['alt']);
         }
         $sightseeing = Sightseeing::create($data);
+
+        $mapData = \GoogleMaps::load('geocoding')
+        ->setParam (['address' => $sightseeing->address])
+        ->get('results.geometry.location');
+
+        $sightseeing->latitude = $mapData['results'][0]['geometry']['location']['lat'];
+        $sightseeing->longitude = $mapData['results'][0]['geometry']['location']['lng'];
+
+        $sightseeing->save();
         return response()->json(['Message'=> 'Successfully Added...']);
     }
 
@@ -102,6 +111,15 @@ class SightseeingController extends Controller
             unset($data['alt']);
         }
         $sightseeing->update($data);
+
+        $mapData = \GoogleMaps::load('geocoding')
+        ->setParam (['address' => $sightseeing->address])
+        ->get('results.geometry.location');
+
+        $sightseeing->latitude = $mapData['results'][0]['geometry']['location']['lat'];
+        $sightseeing->longitude = $mapData['results'][0]['geometry']['location']['lng'];
+
+        $sightseeing->save();
         return response()->json(['success'=>'Successfully update']);
     }
 

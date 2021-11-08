@@ -6129,6 +6129,7 @@ a:hover {
 .encyclopedia .ui.selection.dropdown {
   min-height: 47px;
   font-weight: 600;
+  padding-top: 15px;
 }
 
 .encyclopedia .ui.search.dropdown > input.search,
@@ -7195,7 +7196,7 @@ a:hover {
 #imagegallery .gallery-search .outer {
   padding: 5px;
   padding: 9px;
-  background: rgba(43, 188, 255, 0.8);
+  background: #292548eb;
 }
 
 #imagegallery .gallery-search .outer .search-field {

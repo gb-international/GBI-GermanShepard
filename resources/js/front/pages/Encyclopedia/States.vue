@@ -21,7 +21,7 @@
             <div class="col-sm-8 search_filter">
               <!--  serach itinerary list in serach bar-->
               <div class="search-p-top">
-                <div class="input-group p-2 bg-skyblue">
+                <div class="input-group p-2 bg-blue">
                   <model-select
                     :options="options"
                     v-model="searchQuery"

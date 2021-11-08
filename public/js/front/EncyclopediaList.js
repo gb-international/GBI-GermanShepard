@@ -195,7 +195,7 @@ var render = function() {
                 _c("div", { staticClass: "search-p-top" }, [
                   _c(
                     "div",
-                    { staticClass: "input-group p-2 bg-skyblue" },
+                    { staticClass: "input-group p-2 bg-blue" },
                     [
                       _c("model-select", {
                         attrs: {
