@@ -11,7 +11,7 @@ to submit the data we are using a function.
         @submit.prevent="AddEvent()"
       >
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-md-6">
             <div class="form-group">
               <label for="name">Event Name</label>
               <input
@@ -24,6 +24,18 @@ to submit the data we are using a function.
               <has-error :form="form" field="name"></has-error>
             </div>
           </div>
+
+           <div class="col-md-6">
+              <div class="form-group">
+                <label for="itinerary_id">Select Itinerary</label>
+                <dropdown-filter class="mb-2" :itemList="itinerary_list" @update:option="itineraryUpdate"/>
+                <div class="error" v-if="form.errors.has('itinerary_id')">
+                  <label class="danger text-danger">{{
+                    form.errors.get("itinerary_id")
+                  }}</label>
+                </div>
+              </div>
+            </div>
         
           <div class="col-sm-12">
             <div class="form-group">
@@ -128,6 +140,7 @@ to submit the data we are using a function.
 import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
+import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 import Vue2EditorMixin from '@/admin/mixins/Vue2EditorMixin';
 export default {
   name: "NewEvent",
@@ -136,22 +149,48 @@ export default {
     "has-error": HasError,
     "form-buttons": FormButtons,
     "form-layout": FormLayout,
+    "dropdown-filter": DropdownFilter,
   },
   mixins:[Vue2EditorMixin],
   data() {
     return {
       // Create a new form instance
+      itinerary_list: [],
       form: new Form({
         name: "",
         description: "",
         date: "",
         time: "",
         photo: "",
-        detail_photo: ""
+        detail_photo: "",
+        itinerary_id: ""
       }),
     };
   },
+
+  mounted(){
+    this.itineraryData();
+  },
   methods: {
+
+    itineraryData() {
+      axios.get(`/api/itinerary`).then((res) => {
+        if (res.data) {
+          for(let i = 0;i<res.data.length;i++){
+            this.itinerary_list.push({
+              name:res.data[i].title + ` (${res.data[i].id})`,
+              id:res.data[i].id
+            });
+          }
+        }
+      });
+    },
+
+    itineraryUpdate(value){
+      //console.log(this.form)
+      this.form.itinerary_id = value.id;
+    },
+
     AddEvent() {
       var path = `/api/events`;
       this.form

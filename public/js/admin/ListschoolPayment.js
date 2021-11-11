@@ -1449,7 +1449,8 @@ var render = function() {
                           _c("img", {
                             staticClass: "viewPHistory",
                             attrs: {
-                              src: "/assets/front/icons/view.png",
+                              src:
+                                _vm.$gbiAssets + "/assets/front/icons/view.png",
                               "data-toggle": "modal",
                               "data-target": "#paymentModal"
                             },
@@ -2622,7 +2623,8 @@ var render = function() {
                           _c("img", {
                             staticClass: "viewPHistory",
                             attrs: {
-                              src: "/assets/front/icons/view.png",
+                              src:
+                                _vm.$gbiAssets + "/assets/front/icons/view.png",
                               "data-toggle": "modal",
                               "data-target": "#paymentModal"
                             },

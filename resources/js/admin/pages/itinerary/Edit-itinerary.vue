@@ -569,14 +569,14 @@ export default {
             this.meta_titleWarn = false;
           }
       }
-      if(field === 'meta_keyword'){
+      /*if(field === 'meta_keyword'){
           if(input === ''){
             this.meta_keywordWarn = true;
           } else {
             this.meta_keywordWarn = false;
           }
           
-      }
+      }*/
     },
     itineraryList() {
       axios
@@ -673,12 +673,30 @@ export default {
       reader.readAsDataURL(file);
     },
     updateItinerary() {
-      if (this.form.meta_keyword.length < 1 ) {
+      if (!this.form.meta_keyword.length) {
         this.meta_keywordWarn = true
+        this.$toast.fire({
+            icon: "error",
+            title: "Meta Keywords Required",
+        });
         return false;
       }
+      else if(this.form.meta_description == ''){
+          this.$toast.fire({
+            icon: "error",
+            title: "Meta Description Required",
+          });
+          return false;
+      }
+      else if(this.form.meta_title == ''){
+          this.$toast.fire({
+            icon: "error",
+            title: "Meta Title Required",
+          });
+          return false;
+      }
       // Set noofdays in the local storage to make it avaliable to the daypage....
-      console.log(this.form);
+      //console.log(this.form);
       localStorage.setItem("noofdays", this.form.noofdays);
       if (this.form.bus == 1 || this.form.train == 1 || this.form.flight == 1) {
           this.form.transport = "1";

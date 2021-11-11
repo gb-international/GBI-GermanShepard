@@ -27,6 +27,8 @@ class Itinerary extends Model
 		'meta_title',
         'meta_keyword',
         'meta_description',
+		'startLoc',
+		'endLoc'
 	];
 
 	public function getPhotoAttribute($image)

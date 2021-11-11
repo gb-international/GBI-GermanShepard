@@ -66,6 +66,8 @@ const toast = swal.mixin({
     timer: 3000
 });
 Vue.prototype.$toast = toast;
+Vue.prototype.$gbiAssets = 'https://gbi-assets.s3.ap-south-1.amazonaws.com';
+
 const router = new VueRouter({
     // mode : 'history',
     base:'/admin',

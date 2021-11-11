@@ -133,7 +133,8 @@ class EventController extends Controller
             'date'=>'required',
             'time'=>'required',
             'photo'=>'required',
-            'detail_photo'=>'required'
+            'detail_photo'=>'required',
+            'itinerary_id'=>'required'
         ]);
     }
 }

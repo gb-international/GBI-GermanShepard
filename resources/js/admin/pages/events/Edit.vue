@@ -2,12 +2,13 @@
   <form-layout>
     <template #formdata>
       <form
+        v-if="allCreated"
         role="form"
         enctype="multipart/form-data"
         @submit.prevent="updateEvent()"
       >
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-6">
             <div class="form-group">
               <label for="name">Event Name</label>
               <input
@@ -19,6 +20,17 @@
               />
               <has-error :form="form" field="name"></has-error>
             </div>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                <label for="itinerary_id">Select Itinerary</label>
+                <dropdown-filter class="mb-2" :itemList="itinerary_list" @update:option="itineraryUpdate" v-model="form.itinerary_id"/>
+                <div class="error" v-if="form.errors.has('itinerary_id')">
+                  <label class="danger text-danger">{{
+                    form.errors.get("itinerary_id")
+                  }}</label>
+                </div>
+              </div>
           </div>
         
           <div class="col-sm-12">
@@ -120,29 +132,35 @@ import { Form, HasError } from "vform";
 import FormButtons from "@/admin/components/buttons/FormButtons.vue";
 import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import Vue2EditorMixin from '@/admin/mixins/Vue2EditorMixin';
+import DropdownFilter from "@/admin/components/form/DropdownList.vue";
 
 export default {
   name: "EditEvent",
   components: { 
     Form,
-   "has-error": HasError,
-   "form-buttons": FormButtons,
+    "has-error": HasError,
+    "form-buttons": FormButtons,
     "form-layout": FormLayout,
+    "dropdown-filter": DropdownFilter,
   },
   data() {
     return {
+      itinerary_list: [],
       form: new Form({
         name: "",
         description: "",
         date: "",
         time: "",
         photo: "",
-        detail_photo: ""
+        detail_photo: "",
+        itinerary_id: ""
       }),
+      allCreated: false
     };
   },
   mixins:[Vue2EditorMixin],
   created() {
+    this.itineraryData();
     this.EvtData();
   },
   methods: {
@@ -151,7 +169,26 @@ export default {
         .get(`/api/events/${this.$route.params.id}/edit`)
         .then((response) => {
           this.form.fill(response.data);
+          this.allCreated = true
         });
+    },
+
+    itineraryData() {
+      axios.get(`/api/itinerary`).then((response) => {
+        if (response.data) {
+          for(let i = 0;i<response.data.length;i++){
+            this.itinerary_list.push({
+              name:response.data[i].title,
+              id:response.data[i].id
+            });
+          }
+        }
+      });
+    },
+
+    itineraryUpdate(value){
+      //console.log(this.form)
+      this.form.itinerary_id = value.id;
     },
 
     changePhoto(event) {

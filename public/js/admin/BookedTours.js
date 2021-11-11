@@ -953,7 +953,9 @@ var render = function() {
                   [
                     _c("img", {
                       attrs: {
-                        src: "/assets/admin/default/icon/tour-manager.png"
+                        src:
+                          _vm.$gbiAssets +
+                          "/assets/admin/default/icon/tour-manager.png"
                       }
                     })
                   ]
@@ -971,7 +973,11 @@ var render = function() {
                   { attrs: { to: "/booked-tour-hotel/" + _vm.tour.id } },
                   [
                     _c("img", {
-                      attrs: { src: "/assets/admin/default/icon/hotel.png" }
+                      attrs: {
+                        src:
+                          _vm.$gbiAssets +
+                          "/assets/admin/default/icon/hotel.png"
+                      }
                     })
                   ]
                 )
@@ -997,7 +1003,9 @@ var render = function() {
                   [
                     _c("img", {
                       attrs: {
-                        src: "/assets/admin/default/icon/restaurant.png"
+                        src:
+                          _vm.$gbiAssets +
+                          "/assets/admin/default/icon/restaurant.png"
                       }
                     })
                   ]
@@ -1015,7 +1023,11 @@ var render = function() {
                   { attrs: { to: "/booked-tour-flight/" + _vm.tour.id } },
                   [
                     _c("img", {
-                      attrs: { src: "/assets/admin/default/icon/airlines.png" }
+                      attrs: {
+                        src:
+                          _vm.$gbiAssets +
+                          "/assets/admin/default/icon/airlines.png"
+                      }
                     })
                   ]
                 )
@@ -1033,7 +1045,9 @@ var render = function() {
                   [
                     _c("img", {
                       attrs: {
-                        src: "/assets/admin/default/icon/train-icon.png"
+                        src:
+                          _vm.$gbiAssets +
+                          "/assets/admin/default/icon/train-icon.png"
                       }
                     })
                   ]
@@ -1051,7 +1065,11 @@ var render = function() {
                   { attrs: { to: "/booked-tour-bus/" + _vm.tour.id } },
                   [
                     _c("img", {
-                      attrs: { src: "/assets/admin/default/icon/bus-icon.png" }
+                      attrs: {
+                        src:
+                          _vm.$gbiAssets +
+                          "/assets/admin/default/icon/bus-icon.png"
+                      }
                     })
                   ]
                 )
@@ -1078,7 +1096,9 @@ var render = function() {
                       [
                         _c("img", {
                           attrs: {
-                            src: "/assets/admin/default/icon/student.png"
+                            src:
+                              _vm.$gbiAssets +
+                              "/assets/admin/default/icon/student.png"
                           }
                         })
                       ]
@@ -1104,7 +1124,9 @@ var render = function() {
                       [
                         _c("img", {
                           attrs: {
-                            src: "/assets/admin/default/icon/groupList.png"
+                            src:
+                              _vm.$gbiAssets +
+                              "/assets/admin/default/icon/groupList.png"
                           }
                         })
                       ]
@@ -1132,7 +1154,9 @@ var render = function() {
                       [
                         _c("img", {
                           attrs: {
-                            src: "/assets/admin/default/icon/payment.png"
+                            src:
+                              _vm.$gbiAssets +
+                              "/assets/admin/default/icon/payment.png"
                           }
                         })
                       ]
@@ -1161,7 +1185,9 @@ var render = function() {
                       [
                         _c("img", {
                           attrs: {
-                            src: "/assets/admin/default/icon/payment.png"
+                            src:
+                              _vm.$gbiAssets +
+                              "/assets/admin/default/icon/payment.png"
                           }
                         })
                       ]
@@ -1184,7 +1210,11 @@ var render = function() {
                   },
                   [
                     _c("img", {
-                      attrs: { src: "/assets/admin/default/icon/snacks.png" }
+                      attrs: {
+                        src:
+                          _vm.$gbiAssets +
+                          "/assets/admin/default/icon/snacks.png"
+                      }
                     })
                   ]
                 )
@@ -1213,7 +1243,9 @@ var render = function() {
                       [
                         _c("img", {
                           attrs: {
-                            src: "/assets/admin/default/icon/sightseeing.png"
+                            src:
+                              _vm.$gbiAssets +
+                              "/assets/admin/default/icon/sightseeing.png"
                           }
                         })
                       ]
@@ -1238,7 +1270,9 @@ var render = function() {
                   [
                     _c("img", {
                       attrs: {
-                        src: "/assets/admin/default/icon/escort_Update.png"
+                        src:
+                          _vm.$gbiAssets +
+                          "/assets/admin/default/icon/escort_Update.png"
                       }
                     })
                   ]

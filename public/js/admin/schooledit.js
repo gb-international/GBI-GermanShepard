@@ -356,11 +356,15 @@ var render = function() {
       [
         _vm.text
           ? _c("span", [
-              _c("img", { attrs: { src: "/images/icons/send_icon.png" } }),
+              _c("img", {
+                attrs: { src: _vm.$gbiAssets + "/images/icons/send_icon.png" }
+              }),
               _vm._v(" " + _vm._s(_vm.text))
             ])
           : _c("span", [
-              _c("img", { attrs: { src: "/images/icons/send_icon.png" } }),
+              _c("img", {
+                attrs: { src: _vm.$gbiAssets + "/images/icons/send_icon.png" }
+              }),
               _vm._v(" Send Login Details")
             ])
       ]

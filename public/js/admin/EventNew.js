@@ -13,7 +13,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
-/* harmony import */ var _admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/mixins/Vue2EditorMixin */ "./resources/js/admin/mixins/Vue2EditorMixin.js");
+/* harmony import */ var _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/form/DropdownFilter.vue */ "./resources/js/admin/components/form/DropdownFilter.vue");
+/* harmony import */ var _admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/mixins/Vue2EditorMixin */ "./resources/js/admin/mixins/Vue2EditorMixin.js");
 //
 //
 //
@@ -140,6 +141,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -150,44 +164,68 @@ __webpack_require__.r(__webpack_exports__);
     Form: vform__WEBPACK_IMPORTED_MODULE_0__["Form"],
     "has-error": vform__WEBPACK_IMPORTED_MODULE_0__["HasError"],
     "form-buttons": _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    "form-layout": _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    "dropdown-filter": _admin_components_form_DropdownFilter_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_3__["default"]],
+  mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_4__["default"]],
   data: function data() {
     return {
       // Create a new form instance
+      itinerary_list: [],
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
         name: "",
         description: "",
         date: "",
         time: "",
         photo: "",
-        detail_photo: ""
+        detail_photo: "",
+        itinerary_id: ""
       })
     };
   },
+  mounted: function mounted() {
+    this.itineraryData();
+  },
   methods: {
-    AddEvent: function AddEvent() {
+    itineraryData: function itineraryData() {
       var _this = this;
+
+      axios.get("/api/itinerary").then(function (res) {
+        if (res.data) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this.itinerary_list.push({
+              name: res.data[i].title + " (".concat(res.data[i].id, ")"),
+              id: res.data[i].id
+            });
+          }
+        }
+      });
+    },
+    itineraryUpdate: function itineraryUpdate(value) {
+      //console.log(this.form)
+      this.form.itinerary_id = value.id;
+    },
+    AddEvent: function AddEvent() {
+      var _this2 = this;
 
       var path = "/api/events";
       this.form.post(path).then(function (response) {
-        _this.form.reset();
+        _this2.form.reset();
 
-        _this.$toast.fire({
+        _this2.$toast.fire({
           icon: "success",
           title: "Successfully Saved !!!"
         });
 
-        _this.$router.push("/event-list");
+        _this2.$router.push("/event-list");
       })["catch"](function (error) {
         if (error.response.status === 422) {
-          _this.errors = error.response.data.errors || {};
+          _this2.errors = error.response.data.errors || {};
         }
       });
     },
     changePhoto: function changePhoto(event) {
-      var _this2 = this;
+      var _this3 = this;
 
       var file = event.target.files[0];
 
@@ -201,14 +239,14 @@ __webpack_require__.r(__webpack_exports__);
         var reader = new FileReader();
 
         reader.onload = function (event) {
-          _this2.form.photo = event.target.result;
+          _this3.form.photo = event.target.result;
         };
 
         reader.readAsDataURL(file);
       }
     },
     changeDetailPhoto: function changeDetailPhoto(event) {
-      var _this3 = this;
+      var _this4 = this;
 
       var file = event.target.files[0];
 
@@ -222,8 +260,8 @@ __webpack_require__.r(__webpack_exports__);
         var reader = new FileReader();
 
         reader.onload = function (event) {
-          _this3.form.detail_photo = event.target.result;
-          _this3.form.detail_photo_alt = file.name;
+          _this4.form.detail_photo = event.target.result;
+          _this4.form.detail_photo_alt = file.name;
         };
 
         reader.readAsDataURL(file);
@@ -271,7 +309,7 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-12" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
                     _c(
                       "div",
                       { staticClass: "form-group" },
@@ -309,6 +347,39 @@ var render = function() {
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "name" }
                         })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "itinerary_id" } }, [
+                          _vm._v("Select Itinerary")
+                        ]),
+                        _vm._v(" "),
+                        _c("dropdown-filter", {
+                          staticClass: "mb-2",
+                          attrs: { itemList: _vm.itinerary_list },
+                          on: { "update:option": _vm.itineraryUpdate }
+                        }),
+                        _vm._v(" "),
+                        _vm.form.errors.has("itinerary_id")
+                          ? _c("div", { staticClass: "error" }, [
+                              _c(
+                                "label",
+                                { staticClass: "danger text-danger" },
+                                [
+                                  _vm._v(
+                                    _vm._s(_vm.form.errors.get("itinerary_id"))
+                                  )
+                                ]
+                              )
+                            ])
+                          : _vm._e()
                       ],
                       1
                     )

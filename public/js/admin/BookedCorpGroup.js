@@ -1054,7 +1054,9 @@ var render = function() {
                                   ? _c("img", {
                                       staticClass: "edit mr-1",
                                       attrs: {
-                                        src: "/assets/front/icons/edit.png"
+                                        src:
+                                          _vm.$gbiAssets +
+                                          "/assets/front/icons/edit.png"
                                       },
                                       on: {
                                         click: function($event) {
@@ -1065,7 +1067,9 @@ var render = function() {
                                   : _c("img", {
                                       staticClass: "edit mr-1",
                                       attrs: {
-                                        src: "/assets/front/icons/update.png"
+                                        src:
+                                          _vm.$gbiAssets +
+                                          "/assets/front/icons/update.png"
                                       },
                                       on: {
                                         click: function($event) {
@@ -1080,7 +1084,9 @@ var render = function() {
                                 _c("img", {
                                   staticClass: "delete",
                                   attrs: {
-                                    src: "/assets/front/icons/delete.png"
+                                    src:
+                                      _vm.$gbiAssets +
+                                      "/assets/front/icons/delete.png"
                                   },
                                   on: {
                                     click: function($event) {
@@ -1320,7 +1326,11 @@ var render = function() {
                         _c("div", { staticClass: "col-sm-4 text-right pt-2" }, [
                           _c("img", {
                             staticClass: "delete w-16",
-                            attrs: { src: "/assets/front/icons/delete.png" },
+                            attrs: {
+                              src:
+                                _vm.$gbiAssets +
+                                "/assets/front/icons/delete.png"
+                            },
                             on: {
                               click: function($event) {
                                 _vm.delete_new_row(index)

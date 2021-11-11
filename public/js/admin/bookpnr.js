@@ -272,7 +272,9 @@ var render = function() {
                     index != _vm.edit_index
                       ? _c("img", {
                           staticClass: "edit",
-                          attrs: { src: "/assets/front/icons/edit.png" },
+                          attrs: {
+                            src: _vm.$gbiAssets + "/assets/front/icons/edit.png"
+                          },
                           on: {
                             click: function($event) {
                               return _vm.edit_row(index)
@@ -281,7 +283,10 @@ var render = function() {
                         })
                       : _c("img", {
                           staticClass: "edit",
-                          attrs: { src: "/assets/front/icons/update.png" },
+                          attrs: {
+                            src:
+                              _vm.$gbiAssets + "/assets/front/icons/update.png"
+                          },
                           on: {
                             click: function($event) {
                               return _vm.update_row("flight", index)
@@ -291,7 +296,9 @@ var render = function() {
                     _vm._v(" "),
                     _c("img", {
                       staticClass: "delete",
-                      attrs: { src: "/assets/front/icons/delete.png" },
+                      attrs: {
+                        src: _vm.$gbiAssets + "/assets/front/icons/delete.png"
+                      },
                       on: {
                         click: function($event) {
                           return _vm.delete_row("flight", index, flight.id)

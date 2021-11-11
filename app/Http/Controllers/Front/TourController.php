@@ -178,31 +178,30 @@ class TourController extends Controller{
     public function tourDetail(Request $request){
         $user = Auth::user();
         $tour = Tour::with(
-            'itinerary:id,title,destination,source',
+            'itinerary:id,title,destination,source,startLoc,endLoc',
             'itinerary.itinerarydays',
             'bookedhotels:id,check_in,check_out,hotel_id,tour_id',
             'bookedhotels.hotel:id,name,type,image',
             'bookedflights:id,arrival,departure,destination,flight_id,flight_number,source,tour_id,tour_code',
-            'bookedflights.flight:id,code,name'
+            'bookedflights.flight:id,code,name',
         )
         ->where("tour_id",$request->travel_id)
         ->first();
         $tour['user_id'] = $user->id;
         $locations = [];
 
-        $locSource = \GoogleMaps::load('geocoding')
+        /*$locSource = \GoogleMaps::load('geocoding')
         ->setParam (['address' => $tour['itinerary']->source])
         ->get('results.geometry.location');
 
-        array_push($locations,$locSource);
+        //array_push($locations,$locSource);
 
         $locDestination = \GoogleMaps::load('geocoding')
         ->setParam (['address' => $tour['itinerary']->destination])
-        ->get('results.geometry.location');
+        ->get('results.geometry.location');*/
         
-        array_push($locations,$locDestination);
-
-        $tour['locations'] = $locations;
+        $tour['startLoc'] = json_decode($tour['itinerary']['startLoc']);
+        $tour['endLoc'] = json_decode($tour['itinerary']['endLoc']);
         return response()->json($tour);
     }
 

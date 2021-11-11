@@ -107,6 +107,19 @@ class ItineraryController extends Controller
         ];
 
         dispatch(new Notifications($notifData));
+
+        $locSource = \GoogleMaps::load('geocoding')
+        ->setParam (['address' => $itinerary->source])
+        ->get('results.geometry.location');
+
+        $locDestination = \GoogleMaps::load('geocoding')
+        ->setParam (['address' => $itinerary->destination])
+        ->get('results.geometry.location');
+
+        $itinerary->startLoc = $locSource['results'][0]['geometry']['location'];
+        $itinerary->endLoc = $locDestination['results'][0]['geometry']['location'];
+
+        $itinerary->save();
         //event(new \App\Events\SendNotification($notifData));
 
         return response()->json(['success'=>'Successfully added']);
@@ -190,6 +203,7 @@ class ItineraryController extends Controller
         $itinerary->meta_keyword = $meta_keyword;
         $itinerary->save();
         $itinerary->tags()->sync($tag_id);
+        
 
        // Itinerary tour type
         $dayModels = [];
@@ -198,6 +212,19 @@ class ItineraryController extends Controller
         }
         $dayModels = Tourtype::find($dayModels);
         $itinerary->tourtypes()->sync($dayModels);
+
+        $locSource = \GoogleMaps::load('geocoding')
+        ->setParam (['address' => $itinerary->source])
+        ->get('results.geometry.location');
+
+        $locDestination = \GoogleMaps::load('geocoding')
+        ->setParam (['address' => $itinerary->destination])
+        ->get('results.geometry.location');
+
+        $itinerary->startLoc = $locSource['results'][0]['geometry']['location'];
+        $itinerary->endLoc = $locDestination['results'][0]['geometry']['location'];
+
+        $itinerary->save();
 
         return response()->json(['message'=>'Successfully Updated']);
     }

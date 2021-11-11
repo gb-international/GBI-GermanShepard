@@ -90,15 +90,19 @@
         </div>
 
         <div class="map-section mb-35">
-          <h3 class="text-center mb-35">LIVE LOCATION</h3>
+          <h3 class="text-center mb-35">TOUR LOCATION</h3>
           <div class="row">
-            <div class="col-sm-3 card"></div>
-            <div class="col-sm-9">
-              <live-map :markers="alldata.locations" />
+            <div class="col-sm-12">
+              <live-map 
+              :start="{ latLng: alldata.startLoc }" 
+              :end="{ latLng: alldata.endLoc }" 
+              :end2="{ latLng: { lat: (alldata.endLoc.lat + 0.25), lng:  (alldata.endLoc.lng - 0.21)} }"
+              :end3="{ latLng: { lat: (alldata.endLoc.lat - 0.5), lng:  (alldata.endLoc.lng - 0.5)} }"
+              :end4="{ latLng: { lat: (alldata.endLoc.lat - 0.75), lng:  (alldata.endLoc.lng + 0.35)} }"
+              />
             </div>
           </div>
         </div>
-
         <div class="weather-section mb-35">
           <weather-app :cityList="cityList"></weather-app>
         </div>

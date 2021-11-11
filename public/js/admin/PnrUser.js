@@ -487,7 +487,9 @@ var render = function() {
             _vm.update_task == true
               ? _c("img", {
                   staticClass: "edit",
-                  attrs: { src: "/assets/front/icons/update.png" },
+                  attrs: {
+                    src: _vm.$gbiAssets + "/assets/front/icons/update.png"
+                  },
                   on: {
                     click: function($event) {
                       return _vm.update_row(user.pnr_id, user.id)
