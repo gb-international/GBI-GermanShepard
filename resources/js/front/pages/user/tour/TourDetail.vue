@@ -90,18 +90,11 @@
         </div>
 
         <div class="map-section mb-35">
-          <h3 class="text-center mb-35">TOUR LOCATION</h3>
-          <div class="row">
-            <div class="col-sm-12">
-              <live-map 
-              :start="{ latLng: alldata.startLoc }" 
-              :end="{ latLng: alldata.endLoc }" 
-              :end2="{ latLng: { lat: (alldata.endLoc.lat + 0.25), lng:  (alldata.endLoc.lng - 0.21)} }"
-              :end3="{ latLng: { lat: (alldata.endLoc.lat - 0.5), lng:  (alldata.endLoc.lng - 0.5)} }"
-              :end4="{ latLng: { lat: (alldata.endLoc.lat - 0.75), lng:  (alldata.endLoc.lng + 0.35)} }"
-              />
-            </div>
-          </div>
+          <live-map 
+            :start="{ latLng: alldata.startLoc }" 
+            :end="{ latLng: alldata.endLoc }" 
+            :aSights ="alldata.sights"
+          />
         </div>
         <div class="weather-section mb-35">
           <weather-app :cityList="cityList"></weather-app>
@@ -173,6 +166,11 @@ export default {
         .POST("/api/tour-detail", data)
         .then((response) => {
           this.alldata = response;
+          this.alldata.sights = [
+            { latLng: { lat: (this.alldata.endLoc.lat + 0.025), lng:  (this.alldata.endLoc.lng + 0.021)} },
+            { latLng: { lat: (this.alldata.endLoc.lat + 0.05), lng:  (this.alldata.endLoc.lng + 0.05)} },
+            { latLng: { lat: (this.alldata.endLoc.lat + 0.075), lng:  (this.alldata.endLoc.lng + 0.035)} }
+          ];
           console.log(response);
           this.itineraryData = response.itinerary;
           this.flightData = response.bookedflights;

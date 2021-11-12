@@ -622,13 +622,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -688,6 +681,22 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       };
       this.$api.POST("/api/tour-detail", data).then(function (response) {
         _this.alldata = response;
+        _this.alldata.sights = [{
+          latLng: {
+            lat: _this.alldata.endLoc.lat + 0.025,
+            lng: _this.alldata.endLoc.lng + 0.021
+          }
+        }, {
+          latLng: {
+            lat: _this.alldata.endLoc.lat + 0.05,
+            lng: _this.alldata.endLoc.lng + 0.05
+          }
+        }, {
+          latLng: {
+            lat: _this.alldata.endLoc.lat + 0.075,
+            lng: _this.alldata.endLoc.lng + 0.035
+          }
+        }];
         console.log(response);
         _this.itineraryData = response.itinerary;
         _this.flightData = response.bookedflights;
@@ -723,6 +732,29 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
 //
 //
 //
@@ -745,11 +777,73 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       //markers: [],
-      place: null
+      place: null,
+      cStart: null,
+      cEnd: null,
+      sights: null,
+      mapZoom: 8,
+      next: 1,
+      center: null,
+      showSights: false
     };
   },
-  props: ['start', 'end', 'end2', 'end3', 'end4'],
-  mounted: function mounted() {//console.log(this.end);
+  props: ['start', 'end', 'aSights'],
+  mounted: function mounted() {
+    this.cStart = _objectSpread({}, this.start);
+    this.cEnd = _objectSpread({}, this.end);
+    this.center = {
+      lat: this.end.latLng.lat,
+      lng: this.end.latLng.lng
+    };
+    this.sights = [this.start, this.end]; //console.log(this.next);
+  },
+  methods: {
+    resetMap: function resetMap() {
+      this.cStart = _objectSpread({}, this.start);
+      this.cEnd = _objectSpread({}, this.end);
+      this.center = {
+        lat: this.end.latLng.lat,
+        lng: this.end.latLng.lng
+      };
+      this.sights = [this.start, this.end];
+      this.mapZoom = 8;
+      this.showSights = false;
+    },
+    changeZoom: function changeZoom() {
+      if (this.showSights) {
+        this.mapZoom = 12;
+      } else {
+        this.mapZoom = 8;
+      }
+    },
+    zoomSight: function zoomSight(index, item) {
+      this.next = index;
+      this.mapZoom = 16;
+      this.center = {
+        lat: item.latLng.lat,
+        lng: item.latLng.lng
+      };
+    },
+    allSights: function allSights() {
+      this.showSights = true;
+      this.center = {
+        lat: this.aSights[0].latLng.lat,
+        lng: this.aSights[0].latLng.lng
+      };
+      this.sights = _toConsumableArray(this.aSights);
+      this.mapZoom = 12;
+      this.next = 0;
+    },
+    unShowSights: function unShowSights() {
+      if (this.next > 0) {
+        this.next--;
+        this.cStart = _objectSpread({}, this.sights[this.next]);
+        this.cEnd = _objectSpread({}, this.sights[this.next + 1]);
+        this.mapZoom = 10;
+      } else {
+        this.mapZoom = 8;
+      }
+    }
   },
   computed: {
     curvedPath: function curvedPath() {
@@ -760,13 +854,13 @@ __webpack_require__.r(__webpack_exports__);
           the poles. It will not work once the curvature of the earth is
           too great
       */
-      if (this.start && this.end) {
+      if (this.cStart && this.cEnd) {
         return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["range"])(100).map(function (i) {
           var tick = i / 99;
           /* Bezier curve -- set up the control points */
 
-          var dlat = _this.end.latLng.lat - _this.start.latLng.lat;
-          var dlng = _this.end.latLng.lng - _this.start.latLng.lng;
+          var dlat = _this.cEnd.latLng.lat - _this.cStart.latLng.lat;
+          var dlng = _this.cEnd.latLng.lng - _this.cStart.latLng.lng;
           /*const cp1 = {
             lat: this.start.latLng.lat + 0.33 * dlat + 0.33 * dlng,
             lng: this.start.latLng.lng - 0.33 * dlat + 0.33 * dlng,
@@ -777,22 +871,18 @@ __webpack_require__.r(__webpack_exports__);
           }*/
 
           var cp1 = {
-            lat: _this.start.latLng.lat,
-            lng: _this.start.latLng.lng
+            lat: _this.cStart.latLng.lat,
+            lng: _this.cStart.latLng.lng
           };
           var cp2 = {
-            lat: _this.end.latLng.lat,
-            lng: _this.end.latLng.lng
-          };
-          var cp3 = {
-            lat: _this.end2.latLng.lat,
-            lng: _this.end2.latLng.lng
+            lat: _this.cEnd.latLng.lat,
+            lng: _this.cEnd.latLng.lng
           };
           /* Bezier curve formula */
 
           return {
-            lat: tick * tick * tick * _this.start.latLng.lat + 3 * ((1 - tick) * tick * tick) * cp1.lat + 3 * ((1 - tick) * (1 - tick) * tick) * cp2.lat + (1 - tick) * (1 - tick) * (1 - tick) * _this.end.latLng.lat,
-            lng: tick * tick * tick * _this.start.latLng.lng + 3 * ((1 - tick) * tick * tick) * cp1.lng + 3 * ((1 - tick) * (1 - tick) * tick) * cp2.lng + (1 - tick) * (1 - tick) * (1 - tick) * _this.end.latLng.lng
+            lat: tick * tick * tick * _this.cStart.latLng.lat + 3 * ((1 - tick) * tick * tick) * cp1.lat + 3 * ((1 - tick) * (1 - tick) * tick) * cp2.lat + (1 - tick) * (1 - tick) * (1 - tick) * _this.cEnd.latLng.lat,
+            lng: tick * tick * tick * _this.cStart.latLng.lng + 3 * ((1 - tick) * tick * tick) * cp1.lng + 3 * ((1 - tick) * (1 - tick) * tick) * cp2.lng + (1 - tick) * (1 - tick) * (1 - tick) * _this.cEnd.latLng.lng
             /*lat:
               this.start.latLng.lat +
               3 * ((1 - tick) * tick * tick) +
@@ -1528,45 +1618,20 @@ var render = function() {
                 )
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "map-section mb-35" }, [
-              _c("h3", { staticClass: "text-center mb-35" }, [
-                _vm._v("TOUR LOCATION")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  { staticClass: "col-sm-12" },
-                  [
-                    _c("live-map", {
-                      attrs: {
-                        start: { latLng: _vm.alldata.startLoc },
-                        end: { latLng: _vm.alldata.endLoc },
-                        end2: {
-                          latLng: {
-                            lat: _vm.alldata.endLoc.lat + 0.25,
-                            lng: _vm.alldata.endLoc.lng - 0.21
-                          }
-                        },
-                        end3: {
-                          latLng: {
-                            lat: _vm.alldata.endLoc.lat - 0.5,
-                            lng: _vm.alldata.endLoc.lng - 0.5
-                          }
-                        },
-                        end4: {
-                          latLng: {
-                            lat: _vm.alldata.endLoc.lat - 0.75,
-                            lng: _vm.alldata.endLoc.lng + 0.35
-                          }
-                        }
-                      }
-                    })
-                  ],
-                  1
-                )
-              ])
-            ]),
+            _c(
+              "div",
+              { staticClass: "map-section mb-35" },
+              [
+                _c("live-map", {
+                  attrs: {
+                    start: { latLng: _vm.alldata.startLoc },
+                    end: { latLng: _vm.alldata.endLoc },
+                    aSights: _vm.alldata.sights
+                  }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
             _c(
               "div",
@@ -1601,51 +1666,75 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm.end
-        ? _c(
-            "GmapMap",
-            {
-              ref: "map",
-              staticStyle: { width: "100%", height: "500px" },
-              attrs: {
-                zoom: 8,
-                center: { lat: _vm.end.latLng.lat, lng: _vm.end.latLng.lng }
-              }
-            },
-            [
-              _vm.start
-                ? _c("GmapMarker", { attrs: { position: _vm.start.latLng } })
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.end
-                ? _c("GmapMarker", { attrs: { position: _vm.end.latLng } })
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.end2
-                ? _c("GmapMarker", { attrs: { position: _vm.end2.latLng } })
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.end3
-                ? _c("GmapMarker", { attrs: { position: _vm.end3.latLng } })
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.end4
-                ? _c("GmapMarker", { attrs: { position: _vm.end4.latLng } })
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.curvedPath
-                ? _c("GmapPolyline", { attrs: { path: _vm.curvedPath } })
-                : _vm._e()
-            ],
-            1
-          )
-        : _vm._e()
-    ],
-    1
-  )
+  return _c("div", [
+    _c("div", { staticClass: "mb-35 d-flex justify-content-center" }, [
+      _c("h3", { staticClass: "text-center mr-4" }, [_vm._v("TOUR LOCATION")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-reset", on: { click: _vm.resetMap } },
+        [_vm._v("Reset")]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col-sm-12" },
+        [
+          _vm.center
+            ? _c(
+                "GmapMap",
+                {
+                  ref: "map",
+                  staticStyle: { width: "100%", height: "500px" },
+                  attrs: { zoom: _vm.mapZoom, center: this.center },
+                  on: { click: _vm.changeZoom }
+                },
+                [
+                  _vm.cStart && !_vm.showSights
+                    ? _c("GmapMarker", {
+                        attrs: { position: _vm.cStart.latLng }
+                      })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.cEnd && !_vm.showSights
+                    ? _c("GmapMarker", {
+                        attrs: { position: _vm.cEnd.latLng },
+                        on: {
+                          click: function($event) {
+                            return _vm.allSights()
+                          }
+                        }
+                      })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm._l(_vm.sights, function(item, index) {
+                    return _vm.showSights
+                      ? _c("GmapMarker", {
+                          key: item.latLng.lat,
+                          attrs: { position: item.latLng },
+                          on: {
+                            click: function($event) {
+                              return _vm.zoomSight(index, item)
+                            }
+                          }
+                        })
+                      : _vm._e()
+                  }),
+                  _vm._v(" "),
+                  _vm.curvedPath && !_vm.showSights
+                    ? _c("GmapPolyline", { attrs: { path: _vm.curvedPath } })
+                    : _vm._e()
+                ],
+                2
+              )
+            : _vm._e()
+        ],
+        1
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

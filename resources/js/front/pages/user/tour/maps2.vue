@@ -1,21 +1,16 @@
 <template>
   <div>
-    <div class="mb-35 d-flex justify-content-center">
-      <h3 class="text-center mr-4">TOUR LOCATION</h3>
-        <button class="btn btn-reset" @click="resetMap">Reset</button>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <!-- <button @click="generate">Generate and Bound to Lat Lngs</button> -->
-        <GmapMap v-if="center" style="width: 100%; height: 500px;" :zoom="mapZoom" :center="this.center" @click="changeZoom"
-            ref="map">
-          <GmapMarker v-if="cStart && !showSights" :position="cStart.latLng"/>
-          <GmapMarker v-if="cEnd && !showSights" :position="cEnd.latLng" @click="allSights()" />
-          <GmapMarker v-if="showSights" v-for="(item, index) in sights" :key="item.latLng.lat" :position="item.latLng" @click="zoomSight(index, item)"/>
-          <GmapPolyline v-if="curvedPath && !showSights" :path="curvedPath" />
-        </GmapMap>
-      </div>
-    </div>
+    <!-- <button @click="generate">Generate and Bound to Lat Lngs</button> -->
+
+    <GmapMap v-if="cEnd" style="width: 100%; height: 500px;" :zoom="mapZoom" :center="{ lat: sights[this.next+1].latLng.lat, lng: sights[this.next+1].latLng.lng }"
+        ref="map">
+      <GmapMarker v-if="cStart" :position="cStart.latLng" @click="unShowSights()" label="H"/>
+      <GmapMarker v-if="cEnd" :position="cEnd.latLng" @click="showSights()" label="D"/>
+      <!-- <GmapMarker v-if="end2" :position="end2.latLng"/>
+      <GmapMarker v-if="end3" :position="end3.latLng"/>
+      <GmapMarker v-if="end4" :position="end4.latLng"/> -->
+      <GmapPolyline v-if="curvedPath" :path="curvedPath" />
+    </GmapMap>
   </div>
 </template>
 
@@ -32,46 +27,24 @@ export default {
       cEnd: null,
       sights: null,
       mapZoom: 8,
-      next: 1,
-      center: null,
-      showSights: false,
+      next: 0
     }
   },
-  props: [ 'start', 'end', 'aSights'],
+  props: [ 'start', 'end', 'end2', 'end3', 'end4' ],
   mounted() {
     this.cStart = { ...this.start };
     this.cEnd = { ...this.end };
-    this.center = { lat: this.end.latLng.lat, lng: this.end.latLng.lng };
-    this.sights = [ this.start, this.end]
+    this.sights = [ this.start, this.end, this.end2, this.end3, this.end4]
     //console.log(this.next);
   },
   methods: {
-    resetMap(){
-      this.cStart = { ...this.start };
-      this.cEnd = { ...this.end };
-      this.center = { lat: this.end.latLng.lat, lng: this.end.latLng.lng };
-      this.sights = [ this.start, this.end];
-      this.mapZoom = 8;
-      this.showSights = false
-    },
-    changeZoom(){
-      if(this.showSights){
-        this.mapZoom = 12
-      } else {
-        this.mapZoom = 8
-      } 
-    },
-    zoomSight(index, item){
-      this.next = index;  
-      this.mapZoom = 16; 
-      this.center = { lat: item.latLng.lat, lng: item.latLng.lng };
-    },
-    allSights(){
-        this.showSights = true
-        this.center = { lat: this.aSights[0].latLng.lat, lng: this.aSights[0].latLng.lng };
-        this.sights = [ ...this.aSights ];
-        this.mapZoom = 12;
-        this.next = 0
+    showSights(){
+      if(this.next+1 < this.sights.length-1){
+        this.next++
+        this.cStart = { ...this.sights[this.next] }
+        this.cEnd = { ...this.sights[this.next+1] }
+        this.mapZoom = 10
+      }
     },
     unShowSights(){
       if(this.next > 0){
