@@ -53,8 +53,8 @@ mix.webpackConfig(webpack => {
 
 
 //escort
-// mix.js('resources/js/escort/app.js', 'public/js/escort')
-//    .sass('resources/sass/escort/app.scss', 'public/css/escort')
+   //mix.js('resources/js/escort/app.js', 'public/js/escort')
+    //.sass('resources/sass/escort/app.scss', 'public/css/escort')
 
 mix.js('resources/js/laravel-echo-setup.js', 'public/js');
 

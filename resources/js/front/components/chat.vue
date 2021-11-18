@@ -7,9 +7,10 @@
     :messages="data"
     :options="botOptions"
     @msg-send="messageSendHandler"
+    @destroy="toggleImg"
   >
     <template #bubbleButton>
-      <img :src="$gbiAssets+'/assets/front/images/sheraFace.png'" style="background: transparent !important;" />
+      <img v-if="!botActive" @click="toggleImg" :src="botImg" style="background: transparent !important;" />
     </template>
   </VueBotUI>
   </section>
@@ -74,12 +75,22 @@ export default {
         inputPlaceholder: 'Message',
         inputDisableBg: '#fff',
         inputDisablePlaceholder: null
-      }
+      },
+      botImg: this.$gbiAssets + '/sheraFace.png',
+      botActive: false
     }
   },
   methods: {
     callFunc(){
       alert('hi')
+    },
+    toggleImg(){
+      this.botActive = !this.botActive;
+      if(!this.botActive){
+        this.botImg = this.$gbiAssets+'/sheraFace.png'
+      } else {
+        this.botImg = ""
+      }
     },
     messageSendHandler(value){
       this.data.push({
@@ -128,7 +139,5 @@ export default {
 </script>
 
 <style scoped>
-.qkb-bubble-btn{
-  display: none !important;
-}
+
 </style>

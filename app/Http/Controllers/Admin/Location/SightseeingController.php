@@ -64,8 +64,7 @@ class SightseeingController extends Controller
         ->setParam (['address' => $sightseeing->address])
         ->get('results.geometry.location');
 
-        $sightseeing->latitude = $mapData['results'][0]['geometry']['location']['lat'];
-        $sightseeing->longitude = $mapData['results'][0]['geometry']['location']['lng'];
+        $sightseeing->latlng = $mapData['results'][0]['geometry']['location'];
 
         $sightseeing->save();
         return response()->json(['Message'=> 'Successfully Added...']);
@@ -116,8 +115,7 @@ class SightseeingController extends Controller
         ->setParam (['address' => $sightseeing->address])
         ->get('results.geometry.location');
 
-        $sightseeing->latitude = $mapData['results'][0]['geometry']['location']['lat'];
-        $sightseeing->longitude = $mapData['results'][0]['geometry']['location']['lng'];
+        $sightseeing->latlng = $mapData['results'][0]['geometry']['location'];
 
         $sightseeing->save();
         return response()->json(['success'=>'Successfully update']);

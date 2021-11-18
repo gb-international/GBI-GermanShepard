@@ -24,6 +24,9 @@ use GuzzleHttp\Client;
 use App\Model\School\Groupmember;
 use App\Model\Corporate\CorpGroupmember;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Resources\SightsResource;
+use App\Model\Reservation\Bookedsightseeing;
+
 class TourController extends Controller{
 
      public function tourList(Request $request){
@@ -202,6 +205,9 @@ class TourController extends Controller{
         
         $tour['startLoc'] = json_decode($tour['itinerary']['startLoc']);
         $tour['endLoc'] = json_decode($tour['itinerary']['endLoc']);
+        $tour['sights'] = SightsResource::collection(
+            Bookedsightseeing::where('tour_code',$request->travel_id)->get()
+        );
         return response()->json($tour);
     }
 

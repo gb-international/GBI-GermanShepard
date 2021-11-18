@@ -8,11 +8,18 @@ import { createStore } from "@/escort/store/index"
 import swal from 'sweetalert2'
 import { Form, HasError, AlertError } from 'vform'
 import IdleVue from "idle-vue";
-
+import * as VueGoogleMaps from 'vue2-google-maps'
 
 Vue.config.productionTip = false;
 Vue.use(Vuex)
 Vue.use(vuecookies)
+Vue.use(VueGoogleMaps, {
+    installComponents: true,
+    load: {
+      key: 'AIzaSyCICqzS1WZeFsCtOpwfEHWvcCXCPNHcEN0',
+      libraries: 'places'
+    }
+})
 window.$ = window.jQuery = require('jquery');
 Vue.use(VueRouter)
 const store = new createStore();
@@ -26,7 +33,7 @@ Vue.prototype.$swal = swal;
 Vue.config.devtools = false;
 Vue.config.debug = false;
 Vue.config.silent = true;
-console.log = function() {};
+//console.log = function() {};
 
 // End
 
@@ -36,7 +43,9 @@ const toast = swal.mixin({
     showConfirmButton: false,
     timer: 3000
 });
+
 Vue.prototype.$toast = toast
+Vue.prototype.$gbiAssets = 'https://gbi-assets.s3.ap-south-1.amazonaws.com';
 
 const eventsHub = new Vue();
 //600000, // 10 Mint Auto logout,

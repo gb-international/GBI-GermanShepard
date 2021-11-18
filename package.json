@@ -69,7 +69,7 @@
         "v-markdown-editor": "^1.2.5",
         "v-viewer": "^1.5.1",
         "vform": "^1.0.1",
-        "vue-bot-ui": "^0.2.6",
+        "vue-bot-ui": "^0.2.8",
         "vue-chartjs": "3.4.2",
         "vue-chat-bot": "github:ManasGBI/vue-chat-bot",
         "vue-client-only": "^2.0.0",

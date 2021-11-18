@@ -7,6 +7,7 @@ Purpose : Manage Itinerary
 namespace App\Http\Controllers\Admin\Itinerary;
 
 use App\Model\Itinerary\Itinerary;
+use App\Model\Post\Tag;
 use App\Model\Itinerary\Itineraryday;
 use App\Model\Tour\Tourtype;
 use Illuminate\Http\Request;

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="mb-35 d-flex justify-content-center">
-      <h3 class="text-center mr-4">TOUR LOCATION</h3>
+    <div class="mb-4 d-flex justify-content-center">
+      <h3 class="text-center mr-4">TOUR MAP</h3>
         <button class="btn btn-reset" @click="resetMap">Reset</button>
     </div>
     <div class="row">
@@ -9,10 +9,10 @@
         <!-- <button @click="generate">Generate and Bound to Lat Lngs</button> -->
         <GmapMap v-if="center" style="width: 100%; height: 500px;" :zoom="mapZoom" :center="this.center" @click="changeZoom"
             ref="map">
-          <GmapMarker v-if="cStart && !showSights" :position="cStart.latLng"/>
-          <GmapMarker v-if="cEnd && !showSights" :position="cEnd.latLng" @click="allSights()" />
-          <GmapMarker v-if="showSights" v-for="(item, index) in sights" :key="item.latLng.lat" :position="item.latLng" @click="zoomSight(index, item)"/>
-          <GmapPolyline v-if="curvedPath && !showSights" :path="curvedPath" />
+          <GmapMarker v-if="cStart && !completed" :position="cStart.latLng" label="◉" @click="zoomSight(index, cStart)"/>
+          <GmapMarker v-if="cEnd && !completed && !cEnd.mark_arrive" :position="cEnd.latLng" :label="cEnd.mark_arrive ? '✔' : '🏳️' " @click="zoomSight(index, cEnd)"/>
+          <GmapMarker v-if="item.mark_arrive" v-for="(item, index) in sights" :key="item.latLng.lat" :position="item.latLng" @click="zoomSight(index, item)" :label="item.mark_arrive ? '✔' : '🏳️' "/>
+          <GmapPolyline v-if="curvedPath && !completed" :path="curvedPath" />
         </GmapMap>
       </div>
     </div>
@@ -31,28 +31,39 @@ export default {
       cStart: null,
       cEnd: null,
       sights: null,
-      mapZoom: 8,
+      mapZoom: 5,
       next: 1,
       center: null,
       showSights: false,
+      completed: false,
     }
   },
   props: [ 'start', 'end', 'aSights'],
   mounted() {
-    this.cStart = { ...this.start };
-    this.cEnd = { ...this.end };
-    this.center = { lat: this.end.latLng.lat, lng: this.end.latLng.lng };
-    this.sights = [ this.start, this.end]
-    //console.log(this.next);
+     if(this.aSights[0].stR){
+      this.cStart = { ...this.aSights[0].stR };
+    } else {
+      this.cStart = { ...this.start };
+    }
+    
+    if(this.aSights[0].onG){
+      this.cEnd = { ...this.aSights[0].onG };
+    } else {
+      this.cEnd = { ...this.end };
+    }
+
+    this.center = { ...this.cEnd.latLng };
+    this.sights = [ ...this.aSights ];
+
+    if(this.aSights[0].completed){
+      this.completed = true;
+      this.mapZoom = 5;
+      this.center = { ...this.aSights[0].stR.latLng };
+    }
   },
   methods: {
     resetMap(){
-      this.cStart = { ...this.start };
-      this.cEnd = { ...this.end };
-      this.center = { lat: this.end.latLng.lat, lng: this.end.latLng.lng };
-      this.sights = [ this.start, this.end];
-      this.mapZoom = 8;
-      this.showSights = false
+      this.mapZoom = 5;
     },
     changeZoom(){
       if(this.showSights){
@@ -63,12 +74,12 @@ export default {
     },
     zoomSight(index, item){
       this.next = index;  
-      this.mapZoom = 16; 
+      this.mapZoom = 14; 
       this.center = { lat: item.latLng.lat, lng: item.latLng.lng };
     },
     allSights(){
         this.showSights = true
-        this.center = { lat: this.aSights[0].latLng.lat, lng: this.aSights[0].latLng.lng };
+        this.center = { lat: this.aSights[0].onG.lat, lng: this.aSights[0].onG.lng };
         this.sights = [ ...this.aSights ];
         this.mapZoom = 12;
         this.next = 0
@@ -146,3 +157,20 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.btn-reset{
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border-radius: 25px;
+    border: solid 2px;
+    padding: 3px 22px;
+    margin-top: -6px;
+}
+.btn-reset:hover{
+	color: #fff;
+    background-color: #c12a38;
+    border-color: #c12a38;
+}
+</style>

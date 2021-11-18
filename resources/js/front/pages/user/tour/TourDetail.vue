@@ -166,12 +166,7 @@ export default {
         .POST("/api/tour-detail", data)
         .then((response) => {
           this.alldata = response;
-          this.alldata.sights = [
-            { latLng: { lat: (this.alldata.endLoc.lat + 0.025), lng:  (this.alldata.endLoc.lng + 0.021)} },
-            { latLng: { lat: (this.alldata.endLoc.lat + 0.05), lng:  (this.alldata.endLoc.lng + 0.05)} },
-            { latLng: { lat: (this.alldata.endLoc.lat + 0.075), lng:  (this.alldata.endLoc.lng + 0.035)} }
-          ];
-          console.log(response);
+          //console.log(response);
           this.itineraryData = response.itinerary;
           this.flightData = response.bookedflights;
           this.hotelData = response.bookedhotels;
