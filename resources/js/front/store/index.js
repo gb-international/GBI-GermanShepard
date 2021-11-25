@@ -109,6 +109,7 @@ export function createStore() {
                     Vue.$cookies.set('login',1);
                     delete axios.defaults.headers.common['Authorization']
                     resolve()
+                    window.location.replace("/")
                 })
             },
             getEditData(context, api) {

@@ -6,7 +6,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Carbon\Carbon;
 use App\User;
 
-
 class UserRoleResource extends JsonResource
 {
 

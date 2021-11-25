@@ -2273,7 +2273,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       cStart: null,
       cEnd: null,
       sights: null,
-      mapZoom: 5,
+      mapZoom: 8,
       next: 1,
       center: null,
       showSights: false,
@@ -2299,13 +2299,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     if (this.aSights[0].completed) {
       this.completed = true;
-      this.mapZoom = 5;
+      this.mapZoom = 8;
       this.center = _objectSpread({}, this.aSights[0].stR.latLng);
     }
   },
   methods: {
     resetMap: function resetMap() {
-      this.mapZoom = 5;
+      this.mapZoom = 8;
     },
     changeZoom: function changeZoom() {
       if (this.showSights) {
@@ -65732,7 +65732,7 @@ var render = function() {
                         attrs: { position: _vm.cStart.latLng, label: "◉" },
                         on: {
                           click: function($event) {
-                            return _vm.zoomSight(_vm.index, _vm.item)
+                            return _vm.zoomSight(_vm.index, _vm.cStart)
                           }
                         }
                       })
@@ -65746,7 +65746,7 @@ var render = function() {
                         },
                         on: {
                           click: function($event) {
-                            return _vm.zoomSight(_vm.index, _vm.item)
+                            return _vm.zoomSight(_vm.index, _vm.cEnd)
                           }
                         }
                       })

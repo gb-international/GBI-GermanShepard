@@ -139,6 +139,8 @@ __webpack_require__.r(__webpack_exports__);
           icon: "success",
           title: "Successfully Updated !!!"
         });
+
+        _this3.$router.push("/list-city/");
       })["catch"](function (error) {
         if (error.response.status === 422) {
           _this3.errors = error.response.data.errors || {};

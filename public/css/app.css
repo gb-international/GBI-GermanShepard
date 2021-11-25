@@ -6155,13 +6155,13 @@ a:hover {
 }
 
 .states_card .card {
-  border-radius: 13px;
+  border-radius: 0px;
 }
 
 .states_card img {
   width: 100%;
   height: 170px;
-  border-radius: 13px;
+  border-radius: 0px;
 }
 
 .encylopedia-pdf {

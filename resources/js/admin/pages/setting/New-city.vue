@@ -120,6 +120,7 @@ export default {
             icon: "success",
             title: "Successfully Updated !!!",
           });
+          this.$router.push(`/list-city/`);
         })
         .catch((error) => {
           if (error.response.status === 422) {

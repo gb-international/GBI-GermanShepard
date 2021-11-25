@@ -31,7 +31,7 @@ export default {
       cStart: null,
       cEnd: null,
       sights: null,
-      mapZoom: 5,
+      mapZoom: 8,
       next: 1,
       center: null,
       showSights: false,
@@ -57,13 +57,13 @@ export default {
 
     if(this.aSights[0].completed){
       this.completed = true;
-      this.mapZoom = 5;
+      this.mapZoom = 8;
       this.center = { ...this.aSights[0].stR.latLng };
     }
   },
   methods: {
     resetMap(){
-      this.mapZoom = 5;
+      this.mapZoom = 8;
     },
     changeZoom(){
       if(this.showSights){
