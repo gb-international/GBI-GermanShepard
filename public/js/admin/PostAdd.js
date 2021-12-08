@@ -229,6 +229,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ //import io from 'socket.io-client';
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NewPost",
@@ -274,7 +275,8 @@ __webpack_require__.r(__webpack_exports__);
         tags: [],
         user_id: window.userId
       }),
-      loading: false
+      loading: false //socket : io('localhost:3000')
+
     };
   },
   mounted: function mounted() {
@@ -326,6 +328,11 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+
+    /*emitSock(){
+          //console.log('Emit')
+          this.socket.emit('sendToServer', 'NA');
+    },*/
     AddPost: function AddPost() {
       var _this3 = this;
 
@@ -363,6 +370,8 @@ __webpack_require__.r(__webpack_exports__);
         _this3.$swal.fire("Added!", "Post Added successfully", "success");
 
         _this3.loading = false;
+
+        _this3.emitSock();
 
         _this3.$router.push('/posts');
       })["catch"](function () {});

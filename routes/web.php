@@ -13,6 +13,11 @@ use App\Mail\WelcomeMail;
     dd('Event Run Successfully.');
 });*/
 
+Route::get('/event-test', function () {
+    event(new App\Events\SendNotification('Guest'));
+    return "Notif has been sent!";
+});
+
 Route::get('/sh/{shCode}','Front\ShortLinkController@index');
 
 Route::post('/payment','Front\PaymentController@payment');

@@ -8,6 +8,9 @@ use App\Model\Tour\Tourprogram;
 use App\Rules\EmailValidate;
 use App\Model\Tour\Tour;
 use App\Model\Event\Event;
+use App\Model\Itinerary\Popular;
+use App\Model\Season\Season;
+use App\Model\DefaultSet\DefaultSet;
 use DB;
 use Carbon\Carbon;
 use App\Jobs\SendItineraryRequestToGbiMailJob;
@@ -145,6 +148,49 @@ class ItineraryController extends Controller
         }
         return response()->json($tour_data);
     }
+
+    public function popularTours(){
+        $today = (Carbon::now())->toDateTimeString();
+        $cSeason = DefaultSet::where('id', '1')
+        ->first();
+        $season = Season::where('name', $cSeason->current)->first();
+        $popular = Popular::where('season_id', $season->id)->get();
+        $itineraries = Itinerary::where('count', '>', 10)->orderBy('count')->get();
+        $tour_data = [];
+        foreach($popular as $plr){
+            $itinerary = Itinerary::where('id', $plr->itinerary_id)->first();
+            $data = [];
+            $data['id'] = $itinerary->id;
+            $data['title'] = $itinerary->title;
+            $data['noofdays'] = $itinerary->noofdays;
+            $data['hotel_type'] = $itinerary->hotel_type;
+            $data['train'] = $itinerary->train;
+            $data['bus'] = $itinerary->bus;
+            $data['flight'] = $itinerary->flight;
+            $data['food'] = $itinerary->food;
+            $data['photo'] = $itinerary->photo;
+            $data['price'] = $itinerary->price;
+            array_push($tour_data, $data);
+        }
+        foreach($itineraries as $itinerary){
+            $seasonsIt = $itinerary->seasons->toArray();
+            if(in_array($season, $seasonsIt)){
+                $data = [];
+                $data['id'] = $itinerary->id;
+                $data['title'] = $itinerary->title;
+                $data['noofdays'] = $itinerary->noofdays;
+                $data['hotel_type'] = $itinerary->hotel_type;
+                $data['train'] = $itinerary->train;
+                $data['bus'] = $itinerary->bus;
+                $data['flight'] = $itinerary->flight;
+                $data['food'] = $itinerary->food;
+                $data['photo'] = $itinerary->photo;
+                $data['price'] = $itinerary->price;
+                array_push($tour_data, $data);
+            }
+        }
+        return response()->json($tour_data);
+    }
     
     public function list($count=8)
     {
@@ -172,6 +218,8 @@ class ItineraryController extends Controller
             'tourtypes',
             'itinerarydays'
         ])->first();
+        $data->count += 1;
+        $data->save();
         return response()->json($data);
     }
 }

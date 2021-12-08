@@ -215,7 +215,7 @@ var render = function() {
               { staticClass: "popular_destination" },
               [
                 _c("popular-tour", {
-                  attrs: { upcoming_list: _vm.upcoming_list }
+                  attrs: { upcoming_list: _vm.popular_list }
                 })
               ],
               1

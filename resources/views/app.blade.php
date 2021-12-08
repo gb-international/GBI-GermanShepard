@@ -56,6 +56,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.socket.io/4.0.1/socket.io.min.js" integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU" crossorigin="anonymous"></script>
+
   <script src="{{ asset('js/app.js') }}" defer></script>
   {{-- <script src="{{ secure_asset('js/app.js') }}" defer></script> --}}
  {{-- {!! $ssr !!}
@@ -68,7 +70,7 @@
     $("body").on("contextmenu", function () {  
       return false;  
     }); 
-  </script> --}}
+  </script> 
    <script>
             window.laravel_echo_port='{{env("LARAVEL_ECHO_PORT")}}';
     </script>
@@ -84,6 +86,6 @@
             //console.log(data.title);
             
         });
-    </script>
+    </script> --}}
 </body>
 </html>

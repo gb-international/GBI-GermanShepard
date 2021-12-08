@@ -288,9 +288,9 @@
           </div>
 
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <div class="form-group">
-                <label for="mode_of_transport">Tour category</label>
+                <label for="category">Category</label>
                 <br />
 
                 <multiselect
@@ -299,14 +299,14 @@
                   :multiple="true"
                   :close-on-select="true"
                   :show-labels="false"
-                  placeholder="Pick some"
+                  placeholder="Pick categories"
                   label="name"
                   track-by="name"
                 ></multiselect>
               </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <div class="form-group">
                 <label for="client_type">Client Type</label>
                 <select class="form-control customSelect" v-model="form.client_type">
@@ -315,6 +315,24 @@
                   <option value="general">General</option>
                 </select>
                 <has-error :form="form" field="client_type"></has-error>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="season">Season</label>
+                <br />
+
+                <multiselect
+                  v-model="form.seasons"
+                  :options="season_list"
+                  :multiple="true"
+                  :close-on-select="true"
+                  :show-labels="false"
+                  placeholder="Pick seasons"
+                  label="name"
+                  track-by="name"
+                ></multiselect>
               </div>
             </div>
             
@@ -502,6 +520,7 @@ export default {
       destinations: '',
       itinerarydays: [],
       tour_type_list: [],
+      season_list: [],
       tags:[],
       meta_key: [],
 
@@ -535,6 +554,7 @@ export default {
         transport: "",
         client_type:"",
         tourtypes: [],
+        seasons: [],
         itinerarydays: [
           { day: 1, day_source: "", day_destination: "", day_description: "" },
         ],
@@ -547,6 +567,7 @@ export default {
     this.itineraryList();
     this.cityList();
     this.tourTypeData();
+    this.seasonsData();
     this.getTags();
     this.meta_key = this.form.tags;
   },
@@ -652,6 +673,12 @@ export default {
       });
     },
 
+    seasonsData() {
+      axios.get("/api/season").then((response) => {
+        this.season_list = response.data;
+      });
+    },
+
     changePhoto(event) {
       let file = event.target.files[0];
       let reader = new FileReader();
@@ -694,6 +721,13 @@ export default {
             title: "Meta Title Required",
           });
           return false;
+      }
+      else if (!this.form.seasons || this.form.seasons<=0) {
+        this.$toast.fire({
+            icon: "error",
+            title: "Season field is required",
+        });
+        return false;
       }
       // Set noofdays in the local storage to make it avaliable to the daypage....
       //console.log(this.form);

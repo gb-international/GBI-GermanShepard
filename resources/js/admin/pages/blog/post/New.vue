@@ -207,7 +207,8 @@ import SubmitButton from '@/admin/components/buttons/SubmitButton.vue';
 import FormLayout from '@/admin/components/layout/FormLayout.vue';
 import DropdownFilter from "@/admin/components/form/DropdownFilter.vue";
 import StatusDropdown from "@/admin/components/form/StatusDropdown.vue";
-import TagsInput from '@voerro/vue-tagsinput'
+import TagsInput from '@voerro/vue-tagsinput';
+//import io from 'socket.io-client';
 
 export default {
   name: "NewPost",
@@ -252,7 +253,8 @@ export default {
         tags:[],
         user_id: window.userId
       }),
-      loading: false
+      loading: false,
+      //socket : io('localhost:3000')
     };
   },
   mounted(){
@@ -301,6 +303,11 @@ export default {
       });
     },
 
+    /*emitSock(){
+          //console.log('Emit')
+          this.socket.emit('sendToServer', 'NA');
+    },*/
+
     AddPost() {
       if (!this.img_image) {
         this.imageWarn = true
@@ -336,6 +343,7 @@ export default {
             "success"
           );
           this.loading = false
+          this.emitSock();
           this.$router.push('/posts');
         })
         .catch(() => {});

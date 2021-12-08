@@ -1495,6 +1495,7 @@ var Dashboard = {
       itineraryData: {},
       upcoming_list: [],
       events_list: [],
+      popular_list: [],
       userinfo: {},
       valid: false
     };
@@ -1510,6 +1511,7 @@ var Dashboard = {
     this.checkLogin();
     this.upComingData();
     this.upComingEvents();
+    this.popularList();
   },
   methods: {
     checkLogin: function checkLogin() {
@@ -1546,6 +1548,13 @@ var Dashboard = {
 
       this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
         _this3.upcoming_list = response.data;
+      });
+    },
+    popularList: function popularList() {
+      var _this4 = this;
+
+      this.$axios.get("/api/popular-tours").then(function (response) {
+        _this4.popular_list = response.data;
       });
     },
     getImgUrl: function getImgUrl(img) {

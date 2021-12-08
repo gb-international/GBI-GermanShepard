@@ -14,15 +14,16 @@ import Jobs from '@/admin/routes/Jobs.js';
 import Location from '@/admin/routes/Location.js';
 import NotificationPanel from '@/admin/routes/NotificationPanel.js';
 import PaymentLink from '@/admin/routes/PaymentLink.js';
+import Popular from '@/admin/routes/PopularItinerary.js';
 import Role from '@/admin/routes/Role.js';
 import School from '@/admin/routes/School.js';
+import Seasons from '@/admin/routes/Seasons.js';
 import Setting from '@/admin/routes/Setting.js';
 import Sightseeing from '@/admin/routes/Sightseeing.js';
 import Tour from '@/admin/routes/Tour.js';
 import Transport from '@/admin/routes/Transport.js';
 import Website from '@/admin/routes/Website.js';
 import ErrorFile from '@/admin/routes/ErrorFile.js';
-
 
 export const routes = [
     ...AssignUsers,
@@ -41,8 +42,10 @@ export const routes = [
     ...Location,
     ...NotificationPanel,
     ...PaymentLink,
+    ...Popular,
     ...Role,
     ...School,
+    ...Seasons,
     ...Setting,
     ...Sightseeing,
     ...Tour,

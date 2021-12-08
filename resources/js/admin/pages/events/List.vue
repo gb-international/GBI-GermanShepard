@@ -1,6 +1,6 @@
 <!--
-This Template is for listing for the Category profile using function to get the 
-data from the api to display the data about the Category from the backend .
+This Template is for listing for the Events profile using function to get the 
+data from the api to display the data about the Events from the backend .
 -->
 <template>
   <list-layout addurl="/add-event" buttontext="add event">

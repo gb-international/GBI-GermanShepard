@@ -186,7 +186,7 @@ import FormLayout from "@/admin/components/layout/FormLayout.vue";
 import DropdownList from "@/admin/components/form/DropdownList.vue";
 import StatusDropdown from "@/admin/components/form/StatusDropdown2.vue";
 import TagsInput from '@voerro/vue-tagsinput';
-
+import io from 'socket.io-client';
 
 export default {
   name: "NewPost",
@@ -231,7 +231,8 @@ export default {
         client_type:"",
         user_id: window.userId
       }),
-      loading: false
+      loading: false,
+      socket : io('localhost:3000')
     };
   },
   created() {},
@@ -358,11 +359,15 @@ export default {
             "Item Updated successfully",
             "success"
           );
+          this.emitSock()
           this.loading = false
         })
         .catch(() => {});
       }
-      
+    },
+    emitSock(){
+          //console.log('Emit')
+          this.socket.emit('sendToServer', 'NA');
     },
     changeDetailPhoto(event) {
       let file = event.target.files[0];

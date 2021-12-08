@@ -52,7 +52,9 @@
     <div class="container">
       <heading class="text-center" text="Our Travel Programs" />
       <sub-heading class="text-center" text="Immerge in a Riveting Journey" />
-      <div class="row card-titles" v-if="travel_programs">
+      
+      <!-- If Loaded -->
+      <div class="row card-titles" v-if="travel_Loaded">
         <div class="col-sm-4" v-for="program in travel_programs" :key="program.id">
           <div class="card card-1 mb-15">
             <router-link :to="`/explore-destination`">
@@ -71,6 +73,12 @@
               </div>
             </router-link>
           </div>
+        </div>
+      </div>
+      <!-- If Loading -->
+      <div class="row card-titles" my-2 mb-4 v-else>
+        <div class="col-sm-4"  v-for="(index) in 6" :key="index">
+         <cardLoader />
         </div>
       </div>
 
@@ -92,18 +100,21 @@
 <script>
 import Heading from '@/front/components/layout/Heading.vue';
 import SubHeading from '@/front/components/layout/SubHeading.vue';
+import cardLoader from '@/front/components/loaders/cardHome.vue';
 
 export default {
   name: "FrontHome",
   components:{
     Heading,
-    SubHeading
+    SubHeading,
+    cardLoader
   },
   data() {
     return {
       travel_programs: [],
       video_data: "",
-      video_path: "video/video.mp4"
+      video_path: "video/video.mp4",
+      travel_Loaded: false
     };
   },
   metaInfo: {
@@ -125,6 +136,7 @@ export default {
     TravelPorgrams() {
       this.$axios.get("/api/travel-programs").then(response => {
         this.travel_programs = response.data;
+        this.travel_Loaded = true;
       });
 
       this.$axios.get("/api/website").then(response => {

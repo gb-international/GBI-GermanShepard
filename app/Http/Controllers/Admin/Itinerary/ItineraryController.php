@@ -10,6 +10,7 @@ use App\Model\Itinerary\Itinerary;
 use App\Model\Post\Tag;
 use App\Model\Itinerary\Itineraryday;
 use App\Model\Tour\Tourtype;
+use App\Model\Season\Season;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Traits\ImageTrait;
@@ -86,13 +87,22 @@ class ItineraryController extends Controller
             $dayModels[] = new Itineraryday($data);
         }
         $itinerary->itinerarydays()->saveMany($dayModels);
+
         // Tour Type
-        $dayModels = [];
+        $tourtypeModels = [];
         foreach ($request->tourtypes as $data) {
-            $dayModels[] = $data['id'];
+            $tourtypeModels[] = $data['id'];
         }
-        $dayModels = Tourtype::find($dayModels);
-        $itinerary->tourtypes()->attach($dayModels);
+        $tourtypeModels = Tourtype::find($tourtypeModels);
+        $itinerary->tourtypes()->attach($tourtypeModels);
+
+        // Tour Season
+        $seasonModels = [];
+        foreach ($request->seasons as $data) {
+            $seasonModels[] = $data['id'];
+        }
+        $seasonModels = Season::find($seasonModels);
+        $itinerary->seasons()->attach($seasonModels);
 
         $itinerary->meta_keyword = $meta_keyword;
         $itinerary->save();
@@ -135,6 +145,8 @@ class ItineraryController extends Controller
     public function show(Itinerary $itinerary)
     {
         $itinerary->itinerarydays;
+        $itinerary->tourtypes;
+        $itinerary->seasons;
         $itinerary->tags;
         return response()->json($itinerary);
     }
@@ -149,6 +161,7 @@ class ItineraryController extends Controller
     {
         $itinerary->itinerarydays;
         $itinerary->tourtypes;
+        $itinerary->seasons;
         $itinerary->tags;
         return response()->json($itinerary);
     }
@@ -193,6 +206,7 @@ class ItineraryController extends Controller
             unset($data['detail_photo_alt']);
         }
         $itinerary->update($data);
+        
         // Itinerary Day 
         $itinerary->itinerarydays()->delete();
         $dayModels = [];
@@ -207,12 +221,20 @@ class ItineraryController extends Controller
         
 
        // Itinerary tour type
-        $dayModels = [];
+        $tourtypeModels = [];
         foreach ($request->tourtypes as $data) {
-            $dayModels[] = $data['id'];
+            $tourtypeModels[] = $data['id'];
         }
-        $dayModels = Tourtype::find($dayModels);
-        $itinerary->tourtypes()->sync($dayModels);
+        $tourtypeModels = Tourtype::find($tourtypeModels);
+        $itinerary->tourtypes()->sync($tourtypeModels);
+
+        // Itinerary season type
+        $seasonModels = [];
+        foreach ($request->seasons as $data) {
+            $seasonModels[] = $data['id'];
+        }
+        $seasonModels = Season::find($seasonModels);
+        $itinerary->seasons()->sync($seasonModels);
 
         $locSource = \GoogleMaps::load('geocoding')
         ->setParam (['address' => $itinerary->source])

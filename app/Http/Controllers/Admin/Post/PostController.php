@@ -96,14 +96,14 @@ class PostController extends Controller
         $post->save();
 
         $post->tags()->sync($tag_id);
-        $notifData = [
+        /*$notifData = [
             'notification_type' => 'posts',
             'client_type' => $post->client_type,
             'category' => 'blog',
             'category_id' => $post->id,
             'title' => $post->title,
             'body' => $post->summery,
-        ];
+        ];*/
         //return redirect()->route('notifRoute', $data);
         //return response()->json('succesfull created');
         /*setcookie('gbi_notification_type', 'posts', time() + 3600, "/");
@@ -114,7 +114,7 @@ class PostController extends Controller
         setcookie('gbi_notif_description', $post->summery, time() + 3600, "/");*/
 
         //$notif = (new NotificationController)->store();
-        dispatch(new Notifications($notifData));
+        //dispatch(new Notifications($notifData));
         //event(new \App\Events\SendNotification($notifData));
         return response()->json('succesfull created');
     }
@@ -186,6 +186,16 @@ class PostController extends Controller
         $post->save();
         $post->tags()->sync($tag_id);
 
+        $notifData = [
+            'notification_type' => 'posts',
+            'client_type' => $post->client_type,
+            'category' => 'blog',
+            'category_id' => $post->id,
+            'title' => $post->title,
+            'body' => $post->summery,
+        ];
+        dispatch(new Notifications($notifData));
+
         return $data;
     }
 
@@ -193,11 +203,21 @@ class PostController extends Controller
 
         $post->published_by = $user_id;
         if($status == 'publish'){
-            $post->status = 1;    
+            $post->status = 1;
+            $post->save();
+            $notifData = [
+                'notification_type' => 'posts',
+                'client_type' => $post->client_type,
+                'category' => 'blog',
+                'category_id' => $post->id,
+                'title' => $post->title,
+                'body' => $post->summery,
+            ];
+            dispatch(new Notifications($notifData));
         } else {
             $post->status = 0;
+            $post->save();
         }
-        $post->save();
     }
 
     public function sendNotif($data){

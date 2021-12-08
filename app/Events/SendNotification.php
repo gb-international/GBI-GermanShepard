@@ -13,7 +13,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
   
 class SendNotification implements ShouldBroadcastNow
 {
-    use InteractsWithSockets, SerializesModels;
+    use Dispatchable, InteractsWithSockets, SerializesModels;
   
     public $data;
     
@@ -29,7 +29,7 @@ class SendNotification implements ShouldBroadcastNow
      */
     public function broadcastOn()
     {
-        return new Channel('user-channel');
+        return ['send-notification'];
     }
   
     /**
@@ -37,17 +37,17 @@ class SendNotification implements ShouldBroadcastNow
      *
      * @return string
      */
-    public function broadcastAs()
+    /*public function broadcastAs()
     {
         return 'UserEvent';
-    }
+    }*/
     /**
      * The event's broadcast name.
      *
      * @return string
      */
-    public function broadcastWith()
+    /*public function broadcastWith()
     {
         return [$this->data];
-    }
+    }*/
 }

@@ -24,8 +24,8 @@ mix.webpackConfig({
 //    });
 // }
 //front
- mix.js('resources/js/front/app.js', 'public/js')
-   .sass('resources/sass/front/app.scss', 'public/css')
+ //mix.js('resources/js/front/app.js', 'public/js')
+   //.sass('resources/sass/front/app.scss', 'public/css')
 
 //Front with SSR
 // mix
@@ -48,15 +48,15 @@ mix.webpackConfig(webpack => {
 
 
 //admin
- //mix.js('resources/js/admin/admin.js', 'public/js/admin')
-   //.sass('resources/sass/admin/app.scss', 'public/css/admin')
+ mix.js('resources/js/admin/admin.js', 'public/js/admin')
+   .sass('resources/sass/admin/app.scss', 'public/css/admin')
 
 
 //escort
    //mix.js('resources/js/escort/app.js', 'public/js/escort')
     //.sass('resources/sass/escort/app.scss', 'public/css/escort')
 
-mix.js('resources/js/laravel-echo-setup.js', 'public/js');
+//mix.js('resources/js/laravel-echo-setup.js', 'public/js');
 
 
 

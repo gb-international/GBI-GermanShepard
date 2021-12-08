@@ -494,6 +494,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -522,6 +540,7 @@ __webpack_require__.r(__webpack_exports__);
       destinations: '',
       itinerarydays: [],
       tour_type_list: [],
+      season_list: [],
       tags: [],
       meta_key: [],
       selected: null,
@@ -554,6 +573,7 @@ __webpack_require__.r(__webpack_exports__);
         transport: "",
         client_type: "",
         tourtypes: [],
+        seasons: [],
         itinerarydays: [{
           day: 1,
           day_source: "",
@@ -568,6 +588,7 @@ __webpack_require__.r(__webpack_exports__);
     this.itineraryList();
     this.cityList();
     this.tourTypeData();
+    this.seasonsData();
     this.getTags();
     this.meta_key = this.form.tags;
   },
@@ -681,36 +702,43 @@ __webpack_require__.r(__webpack_exports__);
         _this4.tour_type_list = response.data;
       });
     },
-    changePhoto: function changePhoto(event) {
+    seasonsData: function seasonsData() {
       var _this5 = this;
 
-      var file = event.target.files[0];
-      var reader = new FileReader();
-
-      reader.onload = function (event) {
-        _this5.form.photo = event.target.result;
-        _this5.form.photo_alt = file.name;
-        _this5.photo = event.target.result;
-      };
-
-      reader.readAsDataURL(file);
+      axios.get("/api/season").then(function (response) {
+        _this5.season_list = response.data;
+      });
     },
-    changeDetailPhoto: function changeDetailPhoto(event) {
+    changePhoto: function changePhoto(event) {
       var _this6 = this;
 
       var file = event.target.files[0];
       var reader = new FileReader();
 
       reader.onload = function (event) {
-        _this6.form.detail_photo = event.target.result;
-        _this6.form.detail_photo_alt = file.name;
-        _this6.detail_photo = event.target.result;
+        _this6.form.photo = event.target.result;
+        _this6.form.photo_alt = file.name;
+        _this6.photo = event.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+    changeDetailPhoto: function changeDetailPhoto(event) {
+      var _this7 = this;
+
+      var file = event.target.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function (event) {
+        _this7.form.detail_photo = event.target.result;
+        _this7.form.detail_photo_alt = file.name;
+        _this7.detail_photo = event.target.result;
       };
 
       reader.readAsDataURL(file);
     },
     updateItinerary: function updateItinerary() {
-      var _this7 = this;
+      var _this8 = this;
 
       if (!this.form.meta_keyword.length) {
         this.meta_keywordWarn = true;
@@ -729,6 +757,12 @@ __webpack_require__.r(__webpack_exports__);
         this.$toast.fire({
           icon: "error",
           title: "Meta Title Required"
+        });
+        return false;
+      } else if (!this.form.seasons || this.form.seasons <= 0) {
+        this.$toast.fire({
+          icon: "error",
+          title: "Season field is required"
         });
         return false;
       } // Set noofdays in the local storage to make it avaliable to the daypage....
@@ -760,12 +794,12 @@ __webpack_require__.r(__webpack_exports__);
       this.form.tags = this.form.meta_keyword; // Submit the form via a itinerary request
 
       this.form.put("/api/itinerary/".concat(this.$route.params.itineraryid)).then(function (response) {
-        _this7.$toast.fire({
+        _this8.$toast.fire({
           icon: "success",
           title: "Itinerary Updated successfully"
         });
 
-        _this7.loading = false;
+        _this8.loading = false;
       })["catch"](function () {});
     },
     addRow: function addRow() {
@@ -1847,16 +1881,14 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-sm-6" }, [
+                      _c("div", { staticClass: "col-sm-4" }, [
                         _c(
                           "div",
                           { staticClass: "form-group" },
                           [
-                            _c(
-                              "label",
-                              { attrs: { for: "mode_of_transport" } },
-                              [_vm._v("Tour category")]
-                            ),
+                            _c("label", { attrs: { for: "category" } }, [
+                              _vm._v("Category")
+                            ]),
                             _vm._v(" "),
                             _c("br"),
                             _vm._v(" "),
@@ -1866,7 +1898,7 @@ var render = function() {
                                 multiple: true,
                                 "close-on-select": true,
                                 "show-labels": false,
-                                placeholder: "Pick some",
+                                placeholder: "Pick categories",
                                 label: "name",
                                 "track-by": "name"
                               },
@@ -1883,7 +1915,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-6" }, [
+                      _c("div", { staticClass: "col-sm-4" }, [
                         _c(
                           "div",
                           { staticClass: "form-group" },
@@ -1946,6 +1978,40 @@ var render = function() {
                             _vm._v(" "),
                             _c("has-error", {
                               attrs: { form: _vm.form, field: "client_type" }
+                            })
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-4" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "season" } }, [
+                              _vm._v("Season")
+                            ]),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c("multiselect", {
+                              attrs: {
+                                options: _vm.season_list,
+                                multiple: true,
+                                "close-on-select": true,
+                                "show-labels": false,
+                                placeholder: "Pick seasons",
+                                label: "name",
+                                "track-by": "name"
+                              },
+                              model: {
+                                value: _vm.form.seasons,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "seasons", $$v)
+                                },
+                                expression: "form.seasons"
+                              }
                             })
                           ],
                           1

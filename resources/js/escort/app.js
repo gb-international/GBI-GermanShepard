@@ -37,6 +37,17 @@ Vue.config.silent = true;
 
 // End
 
+Vue.use(new VueSocketIO({
+    debug: true,
+    connection: 'http://127.0.0.1:3000',
+    vuex: {
+        store,
+        actionPrefix: 'SOCKET_',
+        mutationPrefix: 'SOCKET_'
+    },
+    //options: { path: "/my-app/" } //Optional options
+}))
+
 const toast = swal.mixin({
     toast: true,
     position: 'top-end',

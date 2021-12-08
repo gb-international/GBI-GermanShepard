@@ -23,6 +23,7 @@ Route::namespace('Front')->group(function(){
 
 	Route::get('/travel-program/{slug}','ItineraryController@travelProgram');
 	Route::get('/upcoming-events','ItineraryController@upcomingEvents');
+	Route::get('/popular-tours','ItineraryController@popularTours');
 	Route::post('/search-itinerary','ItineraryController@searchItinerary');
 	Route::get('/search','ItineraryController@search_post');
 	Route::get('/itinerary-list/{count?}','ItineraryController@list');

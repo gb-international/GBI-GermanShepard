@@ -5,6 +5,7 @@ const Dashboard = {
             itineraryData: {},
             upcoming_list: [],
             events_list: [],
+            popular_list: [],
             userinfo: {},
             valid: false
         };
@@ -20,6 +21,7 @@ const Dashboard = {
         this.checkLogin();
         this.upComingData();
         this.upComingEvents();
+        this.popularList();
     },
     methods: {
         checkLogin() {
@@ -53,6 +55,11 @@ const Dashboard = {
         eventsList() {
             this.$axios.get("/api/travel-program/upcoming-tour").then(response => {
                 this.upcoming_list = response.data;
+            });
+        },
+        popularList(){
+            this.$axios.get("/api/popular-tours").then(response => {
+                this.popular_list = response.data;
             });
         },
         getImgUrl(img) {

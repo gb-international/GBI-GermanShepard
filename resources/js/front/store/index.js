@@ -92,6 +92,7 @@ export function createStore() {
                             axios.defaults.headers.common['Authorization'] = token
                             commit('auth_success', token, user)
                             resolve(resp)
+                            window.location.replace("/")
                         })
                         .catch(err => {
                             commit('auth_error', err)

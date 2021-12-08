@@ -63,7 +63,7 @@ class Notifications implements ShouldQueue
                     //Mail::send(new postNotification($data));
                     $notifier->status = 1;
                     $notifier->save();
-                    event(new \App\Events\SendNotification($data));
+                    //event(new \App\Events\SendNotification($data));
                 }
             }
         }
@@ -90,7 +90,7 @@ class Notifications implements ShouldQueue
                     //Mail::send(new promotionNotification($data));
                     $notifier->status = 1;
                     $notifier->save();
-                    event(new \App\Events\SendNotification($data));
+                    //event(new \App\Events\SendNotification($data));
                 }
             }
         }
@@ -117,7 +117,7 @@ class Notifications implements ShouldQueue
                     //Mail::send(new postNotification($data));
                     $notifier->status = 1;
                     $notifier->save();
-                    event(new \App\Events\SendNotification($data));
+                    //event(new \App\Events\SendNotification($data));
                 }
             }
         }
@@ -141,10 +141,10 @@ class Notifications implements ShouldQueue
                         'status' => 0, 
                         'service' => 'email',
                     ]);
-                    Mail::send(new websiteNotification($data));
+                    //Mail::send(new websiteNotification($data));
                     $notifier->status = 1;
                     $notifier->save();
-                    event(new \App\Events\SendNotification($data));
+                    //event(new \App\Events\SendNotification($data));
                 }
             }
         }

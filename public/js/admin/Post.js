@@ -181,6 +181,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_icons_DraftIcon_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/icons/DraftIcon.vue */ "./resources/js/admin/components/icons/DraftIcon.vue");
 /* harmony import */ var _admin_components_TableLoader_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/admin/components/TableLoader.vue */ "./resources/js/admin/components/TableLoader.vue");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/build/esm/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -278,6 +279,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ListPost",
   components: {
@@ -316,7 +318,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       filter: '',
       perPage: 7,
       options: [7, 25, 50, 100],
-      user_id: window.userId
+      user_id: window.userId,
+      socket: Object(socket_io_client__WEBPACK_IMPORTED_MODULE_9__["default"])('localhost:3000')
     };
   },
   mounted: function mounted() {
@@ -345,7 +348,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$store.dispatch('deleteItem', payload);
     },
     publishItem: function publishItem(id, user_id) {
+      var _this = this;
+
       axios.post("/api/posts/" + id + "/publish/" + user_id).then(function (res) {});
+      setTimeout(function () {
+        return _this.socket.emit('sendToServer', 'NA');
+      }, 3000);
       this.getitems();
     },
     draftItem: function draftItem(id, user_id) {

@@ -90,6 +90,7 @@ import ViewIcon from '@/admin/components/icons/ViewIcon.vue';
 import DraftIcon from '@/admin/components/icons/DraftIcon.vue';
 import TableLoader from '@/admin/components/TableLoader.vue';
 import { mapState } from 'vuex';
+import io from 'socket.io-client';
 
 export default {
   name: "ListPost",
@@ -115,7 +116,8 @@ export default {
       filter:'',
       perPage:7,
       options:[7,25,50,100],
-      user_id: window.userId
+      user_id: window.userId,
+      socket : io('localhost:3000')
     };
   },
   mounted() {
@@ -140,6 +142,9 @@ export default {
     },
     publishItem(id, user_id) {
       axios.post("/api/posts/"+id+"/publish/"+user_id).then((res) => {});
+      setTimeout(() =>
+        this.socket.emit('sendToServer', 'NA'), 
+      3000);
       this.getitems();
     },
     draftItem(id, user_id){

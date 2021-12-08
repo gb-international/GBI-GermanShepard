@@ -534,7 +534,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -1744,13 +1743,13 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-sm-6" }, [
+                    _c("div", { staticClass: "col-sm-4" }, [
                       _c(
                         "div",
                         { staticClass: "form-group" },
                         [
-                          _c("label", { attrs: { for: "mode_of_transport" } }, [
-                            _vm._v("Tour category")
+                          _c("label", { attrs: { for: "category" } }, [
+                            _vm._v("Category")
                           ]),
                           _vm._v(" "),
                           _c("br"),
@@ -1777,7 +1776,7 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-6" }, [
+                    _c("div", { staticClass: "col-sm-4" }, [
                       _c(
                         "div",
                         { staticClass: "form-group" },

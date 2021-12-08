@@ -313,6 +313,7 @@ import Intro from "@/front/components/Intro.vue";
 import Cookies from "@/front/components/Cookies.vue";
 //import Review from "@/front/components/Reviews.vue";
 import chat from "@/front/components/chat.vue";
+import io from 'socket.io-client';
 
 export default {
   name: "App",
@@ -333,6 +334,7 @@ export default {
       isnav_active: false,
       user: { name: "", photo: "" },
       cookies_alert: false,
+      socket : io('localhost:3000')
     };
   },
 
@@ -362,15 +364,21 @@ export default {
 
     this.loginCheck();
 
-    if(this.login != '1'){
+    if(userData.subscription_id){
       this.$store.dispatch('getNotifCount', userData.subscription_id) 
 
-      Echo.channel('gb_international_database_user-channel')
-         .listen('.UserEvent', (data) => {
-
+      /*Echo.channel('notifications')
+         .listen('UserEvent', (data) => {
           setTimeout(() =>
             this.$store.dispatch('getNotifCount', userData.subscription_id), 2000)
+        });*/
+
+        this.socket.on('sendToClient', (message) => {
+            //alert(message)
+            setTimeout(() =>
+            this.$store.dispatch('getNotifCount', userData.subscription_id), 2000)
         });
+      
     }    
 
     //this.login = this.$cookies.get("login");

@@ -1,7 +1,27 @@
-var express = require('express');
-var app     = express();
-app.listen('8001');
+const express = require('express');
 
-console.log('Your node server start....');
+const app = express();
 
-exports = module.exports = app;
+const server = require('http').createServer(app);
+
+const io = require('socket.io')(server, {
+    cors: { origin: "*"}
+});
+
+io.on('connection', (socket) => {
+    console.log('connection');
+
+    socket.on('sendToServer', (message) => {
+        console.log('Event Emitted');
+        // io.sockets.emit('sendChatToClient', message); 
+        socket.broadcast.emit('sendToClient', message); 
+    });
+
+    socket.on('disconnect', (socket) => {
+        console.log('Disconnect');
+    });
+});
+
+server.listen(3000, () => {
+    console.log('Server is running');
+});

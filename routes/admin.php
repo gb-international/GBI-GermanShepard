@@ -51,11 +51,12 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('itinerary','ItineraryController');
 		Route::get('itinerarydayget/{id}','ItinerarydayController@index');
 
-
 		Route::get('itineraryrequst/all/{size}','ItineraryrequestController@all');
 		Route::get('itineraryrequst/{id}','ItineraryrequestController@show');
 		Route::delete('itineraryrequst/{id}','ItineraryrequestController@Destroy');
-		
+
+		Route::get('popular-itineraries/all/{size}','PopularItineraryController@all');
+		Route::resource('popular-itineraries','PopularItineraryController');
 	});
 
 	Route::namespace('Tour')->group(function(){
@@ -303,6 +304,14 @@ Route::namespace('Admin')->group(function (){
 	Route::namespace('Event')->group(function(){
 		Route::get('events/all/{size}','EventController@all');
 		Route::resource('events','EventController');
+	});
+
+	//Season
+	Route::namespace('Season')->group(function(){
+		Route::get('season/all/{size}','SeasonController@all');
+		Route::resource('season','SeasonController');
+		Route::put('current-season/set', 'SeasonController@setSeason');
+		Route::get('current-season', 'SeasonController@currentSeason');
 	});
 
 });

@@ -21,6 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
 /* harmony import */ var _admin_components_form_StatusDropdown2_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/admin/components/form/StatusDropdown2.vue */ "./resources/js/admin/components/form/StatusDropdown2.vue");
 /* harmony import */ var _voerro_vue_tagsinput__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @voerro/vue-tagsinput */ "./node_modules/@voerro/vue-tagsinput/src/main.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/build/esm/index.js");
 //
 //
 //
@@ -199,6 +200,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -254,7 +256,8 @@ __webpack_require__.r(__webpack_exports__);
         client_type: "",
         user_id: window.userId
       }),
-      loading: false
+      loading: false,
+      socket: Object(socket_io_client__WEBPACK_IMPORTED_MODULE_9__["default"])('localhost:3000')
     };
   },
   created: function created() {},
@@ -394,9 +397,15 @@ __webpack_require__.r(__webpack_exports__);
         this.form.put("/api/posts/".concat(this.$route.params.id)).then(function (response) {
           _this4.$swal.fire("Updated!", "Item Updated successfully", "success");
 
+          _this4.emitSock();
+
           _this4.loading = false;
         })["catch"](function () {});
       }
+    },
+    emitSock: function emitSock() {
+      //console.log('Emit')
+      this.socket.emit('sendToServer', 'NA');
     },
     changeDetailPhoto: function changeDetailPhoto(event) {
       var _this5 = this;

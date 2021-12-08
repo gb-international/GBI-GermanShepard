@@ -320,11 +320,10 @@ to submit the data we are using a function.
         </div>
 
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-4">
             <div class="form-group">
-              <label for="mode_of_transport">Tour category</label>
+              <label for="category">Category</label>
               <br />
-
               <multiselect
                 v-model="form.tourtypes"
                 :options="tour_type_list"
@@ -336,7 +335,7 @@ to submit the data we are using a function.
               ></multiselect>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-4">
             <div class="form-group">
               <label for="client_type">Client Type</label>
               <select class="form-control customSelect" v-model="form.client_type">

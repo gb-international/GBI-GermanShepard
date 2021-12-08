@@ -37,7 +37,7 @@
       <!-- <router-link class="view_link" :to="`/explore-list`">View more</router-link> -->
       </h5>
       <div class="popular_destination">
-         <popular-tour  :upcoming_list="upcoming_list"/>
+         <popular-tour  :upcoming_list="popular_list"/>
       </div>
        <h5 class="title_section">
         Travel Blogs
