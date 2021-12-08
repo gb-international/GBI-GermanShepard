@@ -359,7 +359,7 @@ export default {
             "Item Updated successfully",
             "success"
           );
-          this.emitSock()
+          //this.emitSock()
           this.loading = false
         })
         .catch(() => {});

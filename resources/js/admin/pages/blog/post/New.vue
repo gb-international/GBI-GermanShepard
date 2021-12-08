@@ -343,7 +343,7 @@ export default {
             "success"
           );
           this.loading = false
-          this.emitSock();
+          //this.emitSock();
           this.$router.push('/posts');
         })
         .catch(() => {});

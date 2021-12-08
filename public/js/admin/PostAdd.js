@@ -369,9 +369,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.post("/api/posts").then(function (re) {
         _this3.$swal.fire("Added!", "Post Added successfully", "success");
 
-        _this3.loading = false;
-
-        _this3.emitSock();
+        _this3.loading = false; //this.emitSock();
 
         _this3.$router.push('/posts');
       })["catch"](function () {});

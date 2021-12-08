@@ -395,9 +395,8 @@ __webpack_require__.r(__webpack_exports__);
         this.form.tags = this.form.meta_keyword;
         this.form.user_id = window.userId;
         this.form.put("/api/posts/".concat(this.$route.params.id)).then(function (response) {
-          _this4.$swal.fire("Updated!", "Item Updated successfully", "success");
+          _this4.$swal.fire("Updated!", "Item Updated successfully", "success"); //this.emitSock()
 
-          _this4.emitSock();
 
           _this4.loading = false;
         })["catch"](function () {});
