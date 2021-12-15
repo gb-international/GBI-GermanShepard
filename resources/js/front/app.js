@@ -18,7 +18,7 @@ import UniversalSocialauth from 'universal-social-auth';
 import App from '@/front/pages/layouts/App.vue';
 import VueGtag from "vue-gtag";
 import * as VueGoogleMaps from 'vue2-google-maps'
-
+//import errorState from '@/front/components/errorState.vue';
 import api from '@/front/helpers/api';
 Object.defineProperty(Vue.prototype, '$api', { value: api })
 
@@ -68,7 +68,7 @@ Vue.component("vue-headful", vueHeadful);
 Vue.component("ImageSpinner", require("@/front/components/ImageSpinner.vue").default);
 Vue.component("gbi-footer", require("@/front/pages/layouts/Footer.vue").default);
 Vue.component("front", require("@/front/pages/layouts/App.vue").default);
-
+Vue.component("errorState", require("@/front/components/errorState.vue").default);
 
 const router = createRouter();
 const store = createStore();

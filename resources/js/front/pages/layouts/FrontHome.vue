@@ -101,13 +101,15 @@
 import Heading from '@/front/components/layout/Heading.vue';
 import SubHeading from '@/front/components/layout/SubHeading.vue';
 import cardLoader from '@/front/components/loaders/cardHome.vue';
+import Review from "@/front/components/Reviews.vue"
 
 export default {
   name: "FrontHome",
   components:{
     Heading,
     SubHeading,
-    cardLoader
+    cardLoader,
+    Review
   },
   data() {
     return {

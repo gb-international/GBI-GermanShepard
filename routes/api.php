@@ -124,6 +124,7 @@ Route::namespace('Front')->group(function(){
 	// Gallery
 	Route::get('/galleries/{slug}','GalleryController@index');
 	Route::get('/get-gallery/{slug}','GalleryController@show');
+	Route::get('/search-gallery/{qry}/{type}','GalleryController@search');
 
 	// Subscriber
 	Route::post('subscribe','SubscriberController@store');

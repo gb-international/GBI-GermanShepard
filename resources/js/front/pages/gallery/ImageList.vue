@@ -7,7 +7,7 @@
 
     <div class="mt-3">
       <div class="images">
-        <div class="row">
+        <div class="row" v-if="gallery.images">
           <div class="col-sm-4 mb-4 pb-1 blog-list" v-for="(data,index) in gallery.images" :key="data.id">
             <div class="card p-3 border-radius-0" @click="show(index)" data-toggle="modal"
             data-target="#ImagePreviewModal">
@@ -21,6 +21,13 @@
             </div>
           </div>
         </div>
+
+        <div class="row card-titles" v-else>
+          <div class="col-sm-4"  v-for="(index) in 6" :key="index">
+            <cardLoader />
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -51,8 +58,13 @@
   </div>
 </template>
 <script>
+import cardLoader from '@/front/components/loaders/cardImgLoader.vue';
 
 export default {
+
+  components:{
+    cardLoader
+  },
 
   data() {
     return {

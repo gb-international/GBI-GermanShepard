@@ -3,8 +3,8 @@
       Author: @Ajay, @Manas
       ****************************************************-->
   <!-- Edits: Edits were made to functions - stateList(), SelectBox(), resultQuery(), to make international country searches. Custom text was added for error message on no data searches. -->
-
-  <div class="States">
+  <errorState :imgName="'encyclopedia_500x500.png'" v-if="apiFailed"/>
+  <div class="States" v-else>
     <div class="encyclopedia_banner text_on_image banner_bg explore_bg_img">
       <div class="content encyclopedia">
         <div class="container-fluid">
@@ -59,8 +59,16 @@
               </div>
             </router-link>
           </div>
+
           <p v-show="resultQuery.length < 1" style="color: black; margin-top: 10vh; font-size: 20px;">Information about this State/Region is current not available, we will update it soon.</p>
         </div>
+        <!-- If Loading -->
+        <div class="row" v-else>
+          <div class="col-sm-4 states_card" v-for="(index) in 12" :key="index">
+              <cardLoader />
+          </div>
+        </div>
+
       </div>
       <br />
     </div>
@@ -71,16 +79,19 @@
 
 <script>
 import { ModelSelect } from "vue-search-select";
+import cardLoader from '@/front/components/loaders/CardLoaderEncy';
 export default {
   name: "InternationalStates",
   components: {
-    ModelSelect
+    ModelSelect,
+    cardLoader
   },
   data() {
     return {
       state_list: [],
       options: [],
-      searchQuery: null
+      searchQuery: null,
+      apiFailed: false
     };
   },
   beforeCreate(){
@@ -98,14 +109,20 @@ export default {
     this.SelectBox();
   },
   watch: {
-    searchQuery: function() {
-      console.log(this.searchQuery);
+    resultQuery: function() {
+      //console.log(this.searchQuery);
+      if(this.resultQuery.length <= 0){
+      // return this.$swal.fire("No Results!", "Information about this State/Region is current not available.", "info"); 
+      }
     }
   },
   methods: {
     stateList() {
       this.$axios.get("/api/encyclopedia-list").then(response => {
         //this.state_list = response.data;
+        if(!response.data){
+          this.apiFailed = true
+        }
         for (let i = 0; i < response.data.length; i++) {
               if(response.data[i].country !== 'India' ){
                   this.state_list.push(response.data[i]);

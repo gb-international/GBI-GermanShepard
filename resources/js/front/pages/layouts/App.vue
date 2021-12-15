@@ -294,7 +294,7 @@
       </div>
     </div>
 
-    <div class="body-content mt-85 pb-50">
+    <div class="body-content mt-85 pb-5">
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>

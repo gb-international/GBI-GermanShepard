@@ -82,6 +82,13 @@ export default {
   },
   methods: {
     sendmail() {
+      if(this.form.name == '' || this.form.email == '' || this.form.mobile == '' || this.form.messagecon == ''){
+        /*this.$swal.fire({
+            text: "Please fillup all the fields!",
+            icon: "info",
+            animation: true,
+          });*/
+      }
       this.form
         .post("/api/contact-us/send")
         .then((response) => {

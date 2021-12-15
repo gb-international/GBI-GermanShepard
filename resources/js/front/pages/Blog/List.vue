@@ -1,6 +1,7 @@
 <template>
   <!--*****    Author:@Ajay  **********-->
-  <div id="BlogList">
+  <errorState :imgName="'blog_500x500.png'" v-if="apiFailed"/>
+  <div id="BlogList" v-else>
     <div class="howwework_banner text_on_image banner_bg">
       <div class="content-blog-banner">
         <h1 class="text-center blog-heading">Travel Blog</h1>
@@ -98,13 +99,12 @@
 
     <div class="blog-list mt-3">
       <div class="container">
-
+                
         <div class="row" v-if="search==false">
           <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="(post,index) in posts_list" :key="index">
             <blog-card :post="post" />
           </div>
         </div>
-
         
         <div class="row" v-else>
           <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="post in search_list" :key="post.id">
@@ -112,21 +112,30 @@
           </div>
         </div>
 
-        <Observer @intersect="intersected" />
+        <div v-if="loading" class="row card-titles">
+          <div class="col-sm-4"  v-for="(index) in 6" :key="index">
+            <cardLoader />
+          </div>
+        </div>
 
+        <Observer @intersect="intersected" />
 
       </div>
     </div>
-      <div class="loadingspinner" v-if="loading"></div>
+      <!-- <div class="loadingspinner" v-if="loading"></div> -->
+
   </div>
 </template>
 
 <script>
 import Observer from "@/front/components/Observer";
 import BlogCard from '@/front/components/blog//BlogCard';
+import cardLoader from '@/front/components/loaders/cardLoaderBlog.vue';
+//import errorState from '@/front/components/errorState.vue';
+
 export default {
   name: "BlogList",
-  components:{ BlogCard,Observer },
+  components:{ BlogCard,Observer,cardLoader },
 
   data() {
     return {
@@ -136,6 +145,7 @@ export default {
       searchQuery:'',
       category_list:[],
       loading: false,
+      travel_Loaded: false,
       form:{
         category_id:undefined,
         title : '',
@@ -144,7 +154,8 @@ export default {
       error_message:'',
       search:false,
       page:1,
-      keyword_list:[]
+      keyword_list:[],
+      apiFailed: false,
     };
   },
   watch:{
@@ -206,8 +217,11 @@ export default {
     },
     blogList(){
       this.$axios.get("/api/blog-list").then(response => {
-        this.posts = response.data;
-        this.posts_list = this.posts.data;
+        if(!response.data){
+          this.apiFailed = true
+        }
+          this.posts = response.data;
+          this.posts_list = this.posts.data;
       });
     },
     
@@ -225,14 +239,17 @@ export default {
 
     SearchBlog(){
       if((this.form.category_id == undefined ) && (this.form.title == '') && (this.form.tag_id == undefined)){
-        this.error_message = 'Try again!!!';
-        return false;
+        this.error_message = 'Fields Empty!';
+        //return this.$swal.fire("Error", "Fields Empty!", "warning");
       }
       
       this.error_message = '';
       this.$axios.post("/api/search-post",this.form).then(response => {
         this.search_list = response.data;
-        console.log(response);
+        /*if(this.search_list.length <= 0){
+         //return this.$swal.fire("No Results.", "No Blogs Found!", "info");
+        }*/
+        //console.log(response);
         this.search = true;
       });
     }

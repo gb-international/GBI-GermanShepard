@@ -3,7 +3,6 @@
       Author:@Ajay
       ****************************************************-->
   <div class="">
-    <Review />
     <footer id="footer">
       <div class="footer-content">
         <div class="container">
@@ -259,13 +258,11 @@
 
 <script>
 import Subscribe from "@/front/components/form/Subscribe.vue";
-import Review from "@/front/components/Reviews.vue"
 
 export default {
   name: "Footer",
   components: {
     Subscribe,
-    Review
   },
   data() {
     return {

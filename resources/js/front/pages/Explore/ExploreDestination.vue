@@ -3,7 +3,8 @@
   Author:@Ajay
   Editor: @Manas
   ****************************************************-->
-  <div id="exploreDestination">
+  <errorState :imgName="'explore_destination_500x500.png'" v-if="apiFailed"/>
+  <div id="exploreDestination" v-else>
     <div class="explore_banner text_on_image banner_bg2 explore_bg_img">
       <div class="content">
         <div class="container-custom">
@@ -683,7 +684,24 @@
 
     <main class="pl-2 pr-2">
       <div class="container">
-        <div class="p-0" v-if="allSearchdata == ''">
+        <div v-if="!upcoming_data && !popular_data">
+
+          <heading class="text-center mt-5" text="Upcoming Tour" />
+          <div class="row card-titles">
+            <div class="col-sm-4"  v-for="(index) in 6" :key="index">
+              <cardLoader />
+            </div>
+          </div>
+
+          <heading class="text-center mt-5" text="Popular Tour" />
+          <div class="row card-titles">
+            <div class="col-sm-4"  v-for="(index) in 6" :key="index">
+              <cardLoader />
+            </div>
+          </div>
+
+        </div>
+        <div class="p-0" v-else-if="allSearchdata == ''">
           <heading class="text-center" text="Upcoming Tour" />
           <itinerary-list :list="upcoming_data" />
           <div class="nopadding m-b-15">
@@ -723,6 +741,7 @@ import ExploreSearchMixin from "@/front/mixins/user/ExploreSearchMixin";
 import AlertModals from '@/front/components/Explore/AlertModals.vue';
 import HotelDatePicker from 'vue-hotel-datepicker'
 import 'vue-hotel-datepicker/dist/vueHotelDatepicker.css';
+import cardLoader from '@/front/components/loaders/cardLoaderExplore.vue';
 
 export default {
   name: "exploreDestination",
@@ -751,12 +770,13 @@ export default {
     Heading,
     SubHeading,
     HotelDatePicker,
+    cardLoader,
     'alert-modals':AlertModals
   },
   data() {
     return {
-      upcoming_data: "",
-      popular_data: "",
+      upcoming_data: null,
+      popular_data: null,
       CheckInOut: [],
       room_options: [],
       room_types: ["Single", "Double", "Triple", "Quad"],
@@ -768,7 +788,9 @@ export default {
       infants: 0,
       room: '',
       room_text: '',
-      rooms: 1
+      rooms: 1,
+      apiFailed: false,
+      //travel_Loaded: false
     };
   },
 
@@ -831,11 +853,17 @@ export default {
     },
     popularTour() {
       this.$axios.get("/api/travel-program/popular-tour").then((response) => {
+        if(!response.data){
+          this.apiFailed = true
+        }
         this.popular_data = response.data;
       });
     },
     UpcomingData() {
       this.$axios.get("/api/travel-program/upcoming-tour").then((response) => {
+        if(!response.data){
+          this.apiFailed = true
+        }
         this.upcoming_data = response.data;
       });
     },

@@ -2,8 +2,8 @@
   <!--************************************************
       Author:@Manas
       ****************************************************-->
-
-  <div id="joinOurteam">
+  <errorState :imgName="'career_1_500x500.png'" v-if="apiFailed"/>
+  <div id="joinOurteam" v-else>
      <div class="advertismentpart">
         <img
           :src="$gbiAssets+'/assets/front/images/job-banner.png'"
@@ -22,7 +22,12 @@
           </div>
          </div>
       <!-- End banner area -->
-      <section v-if="!search">
+      <div v-if="dataLoading" class="row card-titles py-2 customdiv">
+        <div class="col-sm-4"  v-for="(index) in 6" :key="index">
+          <cardLoader />
+        </div>
+      </div>
+      <section v-else-if="!search && !dataLoading">
 
          <div class="row py-2 customdiv">
             <div class="col-md-4 col-6">
@@ -129,6 +134,7 @@ import { Form, HasError } from "vform";
 import Heading from '@/front/components/layout/Heading.vue';
 import SubHeading from '@/front/components/layout/SubHeading.vue';
 import Paragraph from '@/front/components/layout/Paragraph.vue';
+import cardLoader from '@/front/components/loaders/cardLoaderJobs.vue';
 
 export default {
   name: "JoinOurTeam",
@@ -155,7 +161,8 @@ export default {
     HasError,
     Heading,
     "sub-heading":SubHeading,
-    "paragraph" : Paragraph
+    "paragraph" : Paragraph,
+    cardLoader
   },
   data() {
     return {
@@ -176,7 +183,9 @@ export default {
       positions:["Business Development Executive (Delhi)","Business Development Executive (Punjab)", "Business Development Executive (Hyderabad)", "Software Developer", "Business Lead Generation Executive"],
       search_list: [],
       search: false,
-      sField: ''
+      sField: '',
+      dataLoading: true,
+      apiFailed: false,
     };
   },
   beforeCreate(){
@@ -189,11 +198,22 @@ export default {
     }
     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
   },
+  mounted(){
+    setTimeout(() =>
+        this.dataLoading = false, 
+    2000);
+  },
   methods: {
     SearchJobs(){
+      if(this.sField == ''){
+        return this.$swal.fire("Empty Search!", "No search value, please input your search.", "warning"); 
+      }
       this.$axios.get("/api/join-our-team/search/"+this.sField).then(response => {
         this.search_list = response.data;
-        console.log(response);
+        if(this.search_list.length <=0 ){
+          return this.$swal.fire("No Jobs found!", "There are no jobs matching your search.", "info"); 
+        }
+        //console.log(response);
         this.search = true;
       });
     },
@@ -253,7 +273,7 @@ export default {
 .customCard{
   height: 75px;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 0px;
 }
 .customSearch{
    margin-bottom: 15px;

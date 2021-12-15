@@ -1,7 +1,7 @@
 <template>
-  <div class="dashboard-body-part-two-2 reviewBody" v-if="review_list.length > 0">
+  <div class="dashboard-body-part-two-2 reviewBody">
     <h5 class="title_section pb-4">CLIENT APPRECIATION</h5>
-    <VueSlickCarousel :dots="true" v-bind="settings">
+    <VueSlickCarousel :dots="true" v-bind="settings" v-if="review_list.length > 0">
       <div
         class="reviewContainer mb-5 card_scroll"
         v-for="state in review_list"
@@ -36,13 +36,22 @@
         </div>
       </div>
     </VueSlickCarousel>
+    <div v-else class="row card-titles reviewContainer mb-5">
+      <div class="col-sm-4"  v-for="(index) in 3" :key="index">
+        <cardLoader />
+      </div>
+    </div>
   </div>
+  
+
 </template>
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
+import cardLoader from '@/front/components/loaders/cardReviewLoader.vue';
+
 export default {
   name: "ReviewCarousel",
-  components: { VueSlickCarousel },
+  components: { VueSlickCarousel, cardLoader },
   data() {
     return {
       review_list: [],

@@ -1,5 +1,25 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["js/front/ImageList"],{
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/loaders/cardImgLoader.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/components/loaders/cardImgLoader.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    VueContentLoading: vue_content_loading__WEBPACK_IMPORTED_MODULE_0___default.a
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/gallery/ImageList.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/pages/gallery/ImageList.vue?vue&type=script&lang=js& ***!
@@ -9,6 +29,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _front_components_loaders_cardImgLoader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/front/components/loaders/cardImgLoader.vue */ "./resources/js/front/components/loaders/cardImgLoader.vue");
 //
 //
 //
@@ -61,7 +82,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    cardLoader: _front_components_loaders_cardImgLoader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       gallery: '',
@@ -137,6 +169,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/loaders/cardImgLoader.vue?vue&type=template&id=2a03c662&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/components/loaders/cardImgLoader.vue?vue&type=template&id=2a03c662& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("vue-content-loading", { attrs: { width: 300, height: 350 } }, [
+    _c("rect", { attrs: { y: "30", r: "30", width: "300", height: "350" } })
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/gallery/ImageList.vue?vue&type=template&id=07ce1106&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/front/pages/gallery/ImageList.vue?vue&type=template&id=07ce1106& ***!
@@ -167,42 +225,60 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "mt-3" }, [
       _c("div", { staticClass: "images" }, [
-        _c(
-          "div",
-          { staticClass: "row" },
-          _vm._l(_vm.gallery.images, function(data, index) {
-            return _c(
+        _vm.gallery.images
+          ? _c(
               "div",
-              { key: data.id, staticClass: "col-sm-4 mb-4 pb-1 blog-list" },
-              [
-                _c(
+              { staticClass: "row" },
+              _vm._l(_vm.gallery.images, function(data, index) {
+                return _c(
                   "div",
-                  {
-                    staticClass: "card p-3 border-radius-0",
-                    attrs: {
-                      "data-toggle": "modal",
-                      "data-target": "#ImagePreviewModal"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.show(index)
-                      }
-                    }
-                  },
+                  { key: data.id, staticClass: "col-sm-4 mb-4 pb-1 blog-list" },
                   [
-                    _c("img", {
-                      staticClass: "card-img border-radius-0 cardimage",
-                      attrs: { src: data.path, alt: data.alt, title: data.alt }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "shera-img" })
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card p-3 border-radius-0",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": "#ImagePreviewModal"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.show(index)
+                          }
+                        }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "card-img border-radius-0 cardimage",
+                          attrs: {
+                            src: data.path,
+                            alt: data.alt,
+                            title: data.alt
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "shera-img" })
+                      ]
+                    )
                   ]
                 )
-              ]
+              }),
+              0
             )
-          }),
-          0
-        )
+          : _c(
+              "div",
+              { staticClass: "row card-titles" },
+              _vm._l(6, function(index) {
+                return _c(
+                  "div",
+                  { key: index, staticClass: "col-sm-4" },
+                  [_c("cardLoader")],
+                  1
+                )
+              }),
+              0
+            )
       ])
     ]),
     _vm._v(" "),
@@ -302,6 +378,75 @@ var render = function() {
 }
 var staticRenderFns = []
 render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/front/components/loaders/cardImgLoader.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/front/components/loaders/cardImgLoader.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _cardImgLoader_vue_vue_type_template_id_2a03c662___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cardImgLoader.vue?vue&type=template&id=2a03c662& */ "./resources/js/front/components/loaders/cardImgLoader.vue?vue&type=template&id=2a03c662&");
+/* harmony import */ var _cardImgLoader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cardImgLoader.vue?vue&type=script&lang=js& */ "./resources/js/front/components/loaders/cardImgLoader.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _cardImgLoader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _cardImgLoader_vue_vue_type_template_id_2a03c662___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _cardImgLoader_vue_vue_type_template_id_2a03c662___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/front/components/loaders/cardImgLoader.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/front/components/loaders/cardImgLoader.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/front/components/loaders/cardImgLoader.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cardImgLoader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./cardImgLoader.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/loaders/cardImgLoader.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cardImgLoader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/front/components/loaders/cardImgLoader.vue?vue&type=template&id=2a03c662&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/front/components/loaders/cardImgLoader.vue?vue&type=template&id=2a03c662& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cardImgLoader_vue_vue_type_template_id_2a03c662___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./cardImgLoader.vue?vue&type=template&id=2a03c662& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/loaders/cardImgLoader.vue?vue&type=template&id=2a03c662&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cardImgLoader_vue_vue_type_template_id_2a03c662___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cardImgLoader_vue_vue_type_template_id_2a03c662___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -25,4 +25,11 @@ class GalleryController extends Controller
             ->first();
         return response()->json($data);
     }
+
+    public function search($qry, $type){
+        $data = Gallery::where('title','like',"%$qry%")
+            ->where('category', $type)
+            ->get();
+        return response()->json($data);
+    }
 }
