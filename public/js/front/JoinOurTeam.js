@@ -423,12 +423,12 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h1", { staticClass: "gbi_main-heading pt-3 text-capitalize" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -449,12 +449,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("p", { staticClass: "gbi_paragraph largeFirstLetter pt-2" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -475,12 +475,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h4", { staticClass: "gbi_sub-heading text-capitalize m-0 p-0" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -501,12 +501,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("vue-content-loading", { attrs: { width: 300, height: 200 } }, [
-    _c("rect", { attrs: { y: "30", r: "30", width: "300", height: "200" } })
+    _c("rect", { attrs: { y: "30", r: "30", width: "300", height: "200" } }),
   ])
 }
 var staticRenderFns = []
@@ -527,7 +527,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -539,9 +539,9 @@ var render = function() {
             staticStyle: { height: "100%", width: "100%" },
             attrs: {
               src: _vm.$gbiAssets + "/assets/front/images/job-banner.png",
-              loading: "lazy"
-            }
-          })
+              loading: "lazy",
+            },
+          }),
         ]),
         _vm._v(" "),
         _c("main", [
@@ -553,25 +553,25 @@ var render = function() {
                     name: "model",
                     rawName: "v-model",
                     value: _vm.sField,
-                    expression: "sField"
-                  }
+                    expression: "sField",
+                  },
                 ],
                 staticClass: "form-control customSearch shadow",
                 attrs: {
                   type: "text",
                   placeholder: "Job Title",
-                  "aria-label": "Search"
+                  "aria-label": "Search",
                 },
                 domProps: { value: _vm.sField },
                 on: {
-                  input: function($event) {
+                  input: function ($event) {
                     if ($event.target.composing) {
                       return
                     }
                     _vm.sField = $event.target.value
-                  }
-                }
-              })
+                  },
+                },
+              }),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-2 col-12" }, [
@@ -581,22 +581,22 @@ var render = function() {
                   staticClass: "btn btnCustom",
                   attrs: { type: "submit" },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       $event.preventDefault()
-                      return _vm.SearchJobs($event)
-                    }
-                  }
+                      return _vm.SearchJobs.apply(null, arguments)
+                    },
+                  },
                 },
                 [_vm._v("SEARCH")]
-              )
-            ])
+              ),
+            ]),
           ]),
           _vm._v(" "),
           _vm.dataLoading
             ? _c(
                 "div",
                 { staticClass: "row card-titles py-2 customdiv" },
-                _vm._l(6, function(index) {
+                _vm._l(6, function (index) {
                   return _c(
                     "div",
                     { key: index, staticClass: "col-sm-4" },
@@ -615,17 +615,17 @@ var render = function() {
                       {
                         staticClass: "card shadow py-5 mb-3 customCard",
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.redirJob("technology")
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c(
                           "div",
                           {
                             staticClass:
-                              "card-body d-flex justify-content-center align-items-center flex-column"
+                              "card-body d-flex justify-content-center align-items-center flex-column",
                           },
                           [
                             _c("img", {
@@ -634,17 +634,17 @@ var render = function() {
                                 src:
                                   _vm.$gbiAssets +
                                   "/assets/front/images/Technology-&-Design.png",
-                                loading: "lazy"
-                              }
+                                loading: "lazy",
+                              },
                             }),
                             _vm._v(" "),
                             _c("p", { staticClass: "cardCText text-center" }, [
-                              _vm._v("Technology & Design")
-                            ])
+                              _vm._v("Technology & Design"),
+                            ]),
                           ]
-                        )
+                        ),
                       ]
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-4 col-6" }, [
@@ -653,17 +653,17 @@ var render = function() {
                       {
                         staticClass: "card shadow py-5 mb-3 customCard",
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.redirJob("operation")
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c(
                           "div",
                           {
                             staticClass:
-                              "card-body d-flex justify-content-center align-items-center flex-column"
+                              "card-body d-flex justify-content-center align-items-center flex-column",
                           },
                           [
                             _c("img", {
@@ -672,17 +672,17 @@ var render = function() {
                                 src:
                                   _vm.$gbiAssets +
                                   "/assets/front/images/Operation.png",
-                                loading: "lazy"
-                              }
+                                loading: "lazy",
+                              },
                             }),
                             _vm._v(" "),
                             _c("p", { staticClass: "cardCText text-center" }, [
-                              _vm._v("Operation")
-                            ])
+                              _vm._v("Operation"),
+                            ]),
                           ]
-                        )
+                        ),
                       ]
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-4 col-6" }, [
@@ -691,17 +691,17 @@ var render = function() {
                       {
                         staticClass: "card shadow py-5 mb-3 customCard",
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.redirJob("reservations")
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c(
                           "div",
                           {
                             staticClass:
-                              "card-body d-flex justify-content-center align-items-center flex-column"
+                              "card-body d-flex justify-content-center align-items-center flex-column",
                           },
                           [
                             _c("img", {
@@ -710,17 +710,17 @@ var render = function() {
                                 src:
                                   _vm.$gbiAssets +
                                   "/assets/front/images/Reservations.png",
-                                loading: "lazy"
-                              }
+                                loading: "lazy",
+                              },
                             }),
                             _vm._v(" "),
                             _c("p", { staticClass: "cardCText text-center" }, [
-                              _vm._v("Reservations")
-                            ])
+                              _vm._v("Reservations"),
+                            ]),
                           ]
-                        )
+                        ),
                       ]
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-4 col-6" }, [
@@ -729,17 +729,17 @@ var render = function() {
                       {
                         staticClass: "card shadow py-5 mb-3 customCard",
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.redirJob("sales-marketing")
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c(
                           "div",
                           {
                             staticClass:
-                              "card-body d-flex justify-content-center align-items-center flex-column"
+                              "card-body d-flex justify-content-center align-items-center flex-column",
                           },
                           [
                             _c("img", {
@@ -748,17 +748,17 @@ var render = function() {
                                 src:
                                   _vm.$gbiAssets +
                                   "/assets/front/images/Sales-&-Marketing.png",
-                                loading: "lazy"
-                              }
+                                loading: "lazy",
+                              },
                             }),
                             _vm._v(" "),
                             _c("p", { staticClass: "cardCText text-center" }, [
-                              _vm._v("Sales & Marketing")
-                            ])
+                              _vm._v("Sales & Marketing"),
+                            ]),
                           ]
-                        )
+                        ),
                       ]
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-4 col-6" }, [
@@ -767,17 +767,17 @@ var render = function() {
                       {
                         staticClass: "card shadow py-5 mb-3 customCard",
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.redirJob("finance")
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c(
                           "div",
                           {
                             staticClass:
-                              "card-body d-flex justify-content-center align-items-center flex-column"
+                              "card-body d-flex justify-content-center align-items-center flex-column",
                           },
                           [
                             _c("img", {
@@ -786,17 +786,17 @@ var render = function() {
                                 src:
                                   _vm.$gbiAssets +
                                   "/assets/front/images/Finance.png",
-                                loading: "lazy"
-                              }
+                                loading: "lazy",
+                              },
                             }),
                             _vm._v(" "),
                             _c("p", { staticClass: "cardCText text-center" }, [
-                              _vm._v("Finance")
-                            ])
+                              _vm._v("Finance"),
+                            ]),
                           ]
-                        )
+                        ),
                       ]
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-4 col-6" }, [
@@ -805,17 +805,17 @@ var render = function() {
                       {
                         staticClass: "card shadow py-5 mb-3 customCard",
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.redirJob("product-project-management")
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c(
                           "div",
                           {
                             staticClass:
-                              "card-body d-flex justify-content-center align-items-center flex-column"
+                              "card-body d-flex justify-content-center align-items-center flex-column",
                           },
                           [
                             _c("img", {
@@ -824,19 +824,19 @@ var render = function() {
                                 src:
                                   _vm.$gbiAssets +
                                   "/assets/front/images/Product-&-Project-Management.png",
-                                loading: "lazy"
-                              }
+                                loading: "lazy",
+                              },
                             }),
                             _vm._v(" "),
                             _c("p", { staticClass: "cardCText text-center" }, [
-                              _vm._v("Product & Project Management")
-                            ])
+                              _vm._v("Product & Project Management"),
+                            ]),
                           ]
-                        )
+                        ),
                       ]
-                    )
-                  ])
-                ])
+                    ),
+                  ]),
+                ]),
               ])
             : _vm.search_list.length
             ? _c(
@@ -846,12 +846,12 @@ var render = function() {
                   _c("heading", {
                     staticStyle: {
                       "margin-bottom": "35px !important",
-                      "font-size": "26px !important"
+                      "font-size": "26px !important",
                     },
-                    attrs: { text: "Jobs" }
+                    attrs: { text: "Jobs" },
                   }),
                   _vm._v(" "),
-                  _vm._l(_vm.search_list, function(sjob) {
+                  _vm._l(_vm.search_list, function (sjob) {
                     return _c(
                       "div",
                       { key: sjob.id, staticClass: "lDiv shadow row mx-2" },
@@ -863,14 +863,14 @@ var render = function() {
                             _c("sub-heading", {
                               staticStyle: {
                                 "margin-bottom": "10px !important",
-                                "font-weight": "600 !important"
+                                "font-weight": "600 !important",
                               },
-                              attrs: { text: sjob.title }
+                              attrs: { text: sjob.title },
                             }),
                             _vm._v(" "),
                             _c("paragraph", {
-                              attrs: { text: sjob.description.slice(0, 100) }
-                            })
+                              attrs: { text: sjob.description.slice(0, 100) },
+                            }),
                           ],
                           1
                         ),
@@ -880,19 +880,19 @@ var render = function() {
                           {
                             staticClass: "col-md-2 col-8 btn profile_button",
                             on: {
-                              click: function($event) {
+                              click: function ($event) {
                                 $event.preventDefault()
                                 return _vm.$router.push(
                                   "/about-us/join-our-team/job/" + sjob.id
                                 )
-                              }
-                            }
+                              },
+                            },
                           },
                           [_vm._v("\n          View\n        ")]
-                        )
+                        ),
                       ]
                     )
-                  })
+                  }),
                 ],
                 2
               )
@@ -904,14 +904,14 @@ var render = function() {
                     staticStyle: {
                       "margin-left": "12px",
                       "margin-bottom": "35px !important",
-                      "font-size": "20px !important"
+                      "font-size": "20px !important",
                     },
-                    attrs: { text: "No Jobs found." }
-                  })
+                    attrs: { text: "No Jobs found." },
+                  }),
                 ],
                 1
-              )
-        ])
+              ),
+        ]),
       ])
 }
 var staticRenderFns = []
@@ -1261,7 +1261,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinOurTeam_vue_vue_type_style_index_0_id_068c2dbc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./JoinOurTeam.vue?vue&type=style&index=0&id=068c2dbc&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/AboutUs/JoinOurTeam.vue?vue&type=style&index=0&id=068c2dbc&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinOurTeam_vue_vue_type_style_index_0_id_068c2dbc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinOurTeam_vue_vue_type_style_index_0_id_068c2dbc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinOurTeam_vue_vue_type_style_index_0_id_068c2dbc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinOurTeam_vue_vue_type_style_index_0_id_068c2dbc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinOurTeam_vue_vue_type_style_index_0_id_068c2dbc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JoinOurTeam_vue_vue_type_style_index_0_id_068c2dbc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

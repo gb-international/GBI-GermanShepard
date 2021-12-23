@@ -235,9 +235,14 @@
           Back</button
         ><span class="mr-10"></span>
 
-        <button type="submit" v-if="book_btn" class="btn profile_button text-capitalize">
+        <button type="submit" v-if="book_btn && customize_btn" class="btn profile_button text-capitalize">
           send inquiry
         </button>
+
+        <button type="button" @click.prevent="secondForm()" v-else class="btn profile_button text-capitalize">
+          Confirm
+        </button>
+
       </div>
     </form>
   </div>
@@ -407,6 +412,7 @@ export default {
         });
         return false;
       }
+      this.form.itinerary_id = this.$route.params.id;
       this.form
         .post("/api/booking", {
           headers: { Authorization: `Bearer ${this.$cookies.get('access_token')}` },
@@ -416,14 +422,14 @@ export default {
           window.$(".close").click();
           this.$swal.fire({
             icon: "success",
-            title:"Successfull",
+            title:"Booking Inquiry Sent",
             text: "We will contact you soon !!",
           });
         })
         .catch((error) => {
           this.$swal.fire({
             icon: "error",
-            title: "Please provide valide details",
+            title: "Please provide valid details",
           });
           this.handleError(error);
         });
@@ -448,7 +454,7 @@ fieldset, input[type="button"] {
     border: 0;
 }
 input[type="button"] {
-    background-color: #3490dc;
+    background: #01c5c4;
     color: #fff;
     cursor: pointer;
     width: 35px;
@@ -472,8 +478,11 @@ input[type="passengers"] {
   font-weight: 600;
 }
 .btn-primary{
-  background-color: #3490dc !important;
+  background: #01c5c4 !important;
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+.profile_button{
+  background: #01c5c4 !important;
 }
 </style>

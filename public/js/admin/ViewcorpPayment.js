@@ -221,7 +221,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -236,12 +236,16 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { to: _vm.url },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
           )
         : _c(
@@ -251,14 +255,18 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { type: "button" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
-          )
+          ),
     ],
     1
   )
@@ -281,7 +289,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -298,11 +306,11 @@ var render = function() {
             { staticClass: "text-center" },
             [_c("back-button", { attrs: { url: _vm.backurl } })],
             1
-          )
+          ),
         ],
         2
-      )
-    ])
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -323,7 +331,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -331,7 +339,7 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "viewdata",
-        fn: function() {
+        fn: function () {
           return [
             _vm.tour.tour_code
               ? _c("div", { staticClass: "row pl-3" }, [
@@ -339,7 +347,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Tour Code")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.tour_code))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour.tour_code))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -347,7 +355,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Tour Price")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.amount) + "/-")])
+                        _c("p", [_vm._v(_vm._s(_vm.tour.amount) + "/-")]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -363,19 +371,19 @@ var render = function() {
                           [
                             _vm._v(
                               "\n            " + _vm._s(_vm.tour.user.name)
-                            )
+                            ),
                           ]
-                        )
+                        ),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _vm.tour.schoolbankdetail_id != null
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("School Bank Detail ID")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.schoolbankdetail_id))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour.schoolbankdetail_id))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -383,7 +391,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Payment By")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.payment_mode))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour.payment_mode))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -391,7 +399,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Payment Type")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.payment_type))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour.payment_type))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -399,7 +407,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("IFSC Code")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.ifsc_code))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour.ifsc_code))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -407,7 +415,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Cheque Bank Name")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.cheque_bank_name))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour.cheque_bank_name))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -415,7 +423,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Date of Issue")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.date_of_issue))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour.date_of_issue))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -423,14 +431,14 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Status")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour.status))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour.status))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
                     _c("h5", [_vm._v("Added At")]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.tour.created_at))])
+                    _c("p", [_vm._v(_vm._s(_vm.tour.created_at))]),
                   ]),
                   _vm._v(" "),
                   _vm.tour.payment_data
@@ -442,21 +450,21 @@ var render = function() {
                                 {
                                   staticClass: "btn btn-info text-white",
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       _vm.show_json = !_vm.show_json
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [
                                   _vm._v(
                                     "\n            Payment Details\n          "
-                                  )
+                                  ),
                                 ]
-                              )
+                              ),
                             ])
-                          : _vm._e()
+                          : _vm._e(),
                       ])
-                    : _vm._e()
+                    : _vm._e(),
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -465,27 +473,27 @@ var render = function() {
                   _c("table", [
                     _c(
                       "tbody",
-                      _vm._l(_vm.tour.payment_data, function(value, key, i) {
+                      _vm._l(_vm.tour.payment_data, function (value, key, i) {
                         return _c("tr", { key: i }, [
                           _c("td", [
                             _c("p", { staticClass: "mr-5" }, [
                               _c("b", [_vm._v(_vm._s(key) + " : ")]),
                               _vm._v(" "),
-                              _c("i", [_vm._v(_vm._s(value) + " ")])
-                            ])
-                          ])
+                              _c("i", [_vm._v(_vm._s(value) + " ")]),
+                            ]),
+                          ]),
                         ])
                       }),
                       0
-                    )
-                  ])
+                    ),
+                  ]),
                 ])
-              : _vm._e()
+              : _vm._e(),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

@@ -72,7 +72,7 @@ class FrontbookingController extends Controller
                 'city'=>$booking->city,
                 'transport'=>$booking->transport,
                 'sightseen'=>$booking->sightseen,
-                'emailto'=>'ajay_yadav@gbinternational.in'
+                'emailto'=>'manas_bhowmick@gbinternational.in'
             );
         FrontBookingAdminJob::dispatch($data);
     }

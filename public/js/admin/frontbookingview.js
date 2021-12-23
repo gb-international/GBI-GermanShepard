@@ -243,7 +243,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -258,12 +258,16 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { to: _vm.url },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
           )
         : _c(
@@ -273,14 +277,18 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { type: "button" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
-          )
+          ),
     ],
     1
   )
@@ -303,7 +311,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -320,11 +328,11 @@ var render = function() {
             { staticClass: "text-center" },
             [_c("back-button", { attrs: { url: _vm.backurl } })],
             1
-          )
+          ),
         ],
         2
-      )
-    ])
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -345,7 +353,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -356,7 +364,7 @@ var render = function() {
         _vm.booking.user
           ? {
               key: "viewdata",
-              fn: function() {
+              fn: function () {
                 return [
                   _c("div", { staticClass: "row pl-3" }, [
                     _c("div", { staticClass: "col-sm-4" }, [
@@ -374,12 +382,12 @@ var render = function() {
                                   " (ID: " +
                                   _vm._s(_vm.booking.user.id) +
                                   ")"
-                              )
+                              ),
                             ]
-                          )
+                          ),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-8" }, [
@@ -393,8 +401,8 @@ var render = function() {
                             {
                               attrs: {
                                 to:
-                                  "/view-itinerary/" + _vm.booking.itinerary.id
-                              }
+                                  "/view-itinerary/" + _vm.booking.itinerary.id,
+                              },
                             },
                             [
                               _vm._v(
@@ -402,49 +410,49 @@ var render = function() {
                                   " (ID: " +
                                   _vm._s(_vm.booking.itinerary.id) +
                                   ")\n          "
-                              )
+                              ),
                             ]
-                          )
+                          ),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("Start Date")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.booking.start_date))])
+                      _c("p", [_vm._v(_vm._s(_vm.booking.start_date))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("End Date")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.booking.end_date))])
+                      _c("p", [_vm._v(_vm._s(_vm.booking.end_date))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("No. of Days")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.booking.noofday))])
+                      _c("p", [_vm._v(_vm._s(_vm.booking.noofday))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [
                         _vm._v(
                           _vm._s(_vm.booking.adults ? "Adults" : "Passengers")
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _vm.booking.adults
                         ? _c("p", [_vm._v(_vm._s(_vm.booking.adults))])
-                        : _c("p", [_vm._v(_vm._s(_vm.booking.person))])
+                        : _c("p", [_vm._v(_vm._s(_vm.booking.person))]),
                     ]),
                     _vm._v(" "),
                     _vm.booking.children
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Children")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.booking.children))])
+                          _c("p", [_vm._v(_vm._s(_vm.booking.children))]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -452,44 +460,44 @@ var render = function() {
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Infants")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.booking.infants))])
+                          _c("p", [_vm._v(_vm._s(_vm.booking.infants))]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("Rooms")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.booking.room))])
+                      _c("p", [_vm._v(_vm._s(_vm.booking.room))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("Occupancy Type")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.booking.occupancy_type))])
+                      _c("p", [_vm._v(_vm._s(_vm.booking.occupancy_type))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("Accomodation")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.booking.accomodation))])
+                      _c("p", [_vm._v(_vm._s(_vm.booking.accomodation))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("Cities")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.booking.city))])
+                      _c("p", [_vm._v(_vm._s(_vm.booking.city))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("Transports")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.booking.transport))])
+                      _c("p", [_vm._v(_vm._s(_vm.booking.transport))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("Sightseen")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.booking.sightseen))])
+                      _c("p", [_vm._v(_vm._s(_vm.booking.sightseen))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
@@ -505,24 +513,24 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: _vm.booking.status,
-                                expression: "booking.status"
-                              }
+                                expression: "booking.status",
+                              },
                             ],
                             staticClass: "switch switch-bootstrap status",
                             attrs: {
                               type: "checkbox",
                               name: "status",
                               id: "status",
-                              value: "1"
+                              value: "1",
                             },
                             domProps: {
                               checked: Array.isArray(_vm.booking.status)
                                 ? _vm._i(_vm.booking.status, "1") > -1
-                                : _vm.booking.status
+                                : _vm.booking.status,
                             },
                             on: {
                               change: [
-                                function($event) {
+                                function ($event) {
                                   var $$a = _vm.booking.status,
                                     $$el = $event.target,
                                     $$c = $$el.checked ? true : false
@@ -550,25 +558,25 @@ var render = function() {
                                     _vm.$set(_vm.booking, "status", $$c)
                                   }
                                 },
-                                _vm.upadateStatus
-                              ]
-                            }
+                                _vm.upadateStatus,
+                              ],
+                            },
                           }),
                           _vm._v(" "),
-                          _c("span", { staticClass: "lable" })
+                          _c("span", { staticClass: "lable" }),
                         ]
-                      )
-                    ])
-                  ])
+                      ),
+                    ]),
+                  ]),
                 ]
               },
-              proxy: true
+              proxy: true,
             }
-          : null
+          : null,
       ],
       null,
       true
-    )
+    ),
   })
 }
 var staticRenderFns = []

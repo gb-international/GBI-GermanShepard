@@ -240,14 +240,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm._m(0)
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -257,11 +257,11 @@ var staticRenderFns = [
       [
         _c("i", {
           staticClass: "fas fa-minus",
-          attrs: { "aria-hidden": "true" }
-        })
+          attrs: { "aria-hidden": "true" },
+        }),
       ]
     )
-  }
+  },
 ]
 render._withStripped = true
 
@@ -280,14 +280,14 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm._m(0)
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -297,11 +297,11 @@ var staticRenderFns = [
       [
         _c("i", {
           staticClass: "fas fa-plus",
-          attrs: { "aria-hidden": "true" }
-        })
+          attrs: { "aria-hidden": "true" },
+        }),
       ]
     )
-  }
+  },
 ]
 render._withStripped = true
 
@@ -320,7 +320,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -328,7 +328,7 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _c("div", { staticClass: "reservation pl-4 pt-2" }, [
               _c(
@@ -336,19 +336,19 @@ var render = function() {
                 {
                   attrs: { role: "form" },
                   on: {
-                    submit: function($event) {
+                    submit: function ($event) {
                       $event.preventDefault()
                       return _vm.addSightseeing()
-                    }
-                  }
+                    },
+                  },
                 },
                 [
-                  _vm._l(_vm.itineraryday_list, function(itinerary, index) {
+                  _vm._l(_vm.itineraryday_list, function (itinerary, index) {
                     return _c(
                       "div",
                       {
                         key: itinerary.id,
-                        staticClass: "row w-100 p-3 card-layout"
+                        staticClass: "row w-100 p-3 card-layout",
                       },
                       [
                         _c("div", { staticClass: "col-sm-5" }, [
@@ -364,17 +364,17 @@ var render = function() {
                                   _vm._s(itinerary.day_source) +
                                     " - " +
                                     _vm._s(itinerary.day_destination)
-                                )
+                                ),
                               ]),
-                              _vm._v(")")
-                            ])
-                          ])
+                              _vm._v(")"),
+                            ]),
+                          ]),
                         ]),
                         _vm._v(" "),
                         _c(
                           "div",
                           { staticClass: "col-sm-5" },
-                          _vm._l(_vm.total_row[index], function(row, i) {
+                          _vm._l(_vm.total_row[index], function (row, i) {
                             return _c(
                               "div",
                               { key: i, staticClass: "row w-100" },
@@ -391,27 +391,28 @@ var render = function() {
                                             _vm.total_row[index][i]
                                               .sightseeing_id,
                                           expression:
-                                            "total_row[index][i].sightseeing_id"
-                                        }
+                                            "total_row[index][i].sightseeing_id",
+                                        },
                                       ],
                                       staticClass: "form-control select-field",
                                       attrs: { placeholder: "From" },
                                       on: {
-                                        change: function($event) {
-                                          var $$selectedVal = Array.prototype.filter
-                                            .call(
-                                              $event.target.options,
-                                              function(o) {
-                                                return o.selected
-                                              }
-                                            )
-                                            .map(function(o) {
-                                              var val =
-                                                "_value" in o
-                                                  ? o._value
-                                                  : o.value
-                                              return val
-                                            })
+                                        change: function ($event) {
+                                          var $$selectedVal =
+                                            Array.prototype.filter
+                                              .call(
+                                                $event.target.options,
+                                                function (o) {
+                                                  return o.selected
+                                                }
+                                              )
+                                              .map(function (o) {
+                                                var val =
+                                                  "_value" in o
+                                                    ? o._value
+                                                    : o.value
+                                                return val
+                                              })
                                           _vm.$set(
                                             _vm.total_row[index][i],
                                             "sightseeing_id",
@@ -419,8 +420,8 @@ var render = function() {
                                               ? $$selectedVal
                                               : $$selectedVal[0]
                                           )
-                                        }
-                                      }
+                                        },
+                                      },
                                     },
                                     [
                                       _c(
@@ -429,26 +430,26 @@ var render = function() {
                                           attrs: {
                                             value: "",
                                             disabled: "",
-                                            hidden: ""
-                                          }
+                                            hidden: "",
+                                          },
                                         },
                                         [_vm._v("Select Sightseeing")]
                                       ),
                                       _vm._v(" "),
-                                      _vm._l(_vm.options, function(data) {
+                                      _vm._l(_vm.options, function (data) {
                                         return _c(
                                           "option",
                                           {
                                             key: data.id,
-                                            domProps: { value: data.id }
+                                            domProps: { value: data.id },
                                           },
                                           [_vm._v(_vm._s(data.name))]
                                         )
-                                      })
+                                      }),
                                     ],
                                     2
-                                  )
-                                ])
+                                  ),
+                                ]),
                               ]
                             )
                           }),
@@ -461,36 +462,36 @@ var render = function() {
                           [
                             _c("plus-button", {
                               nativeOn: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.addRow(index)
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c("minus-button", {
                               nativeOn: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.removeRow(index)
-                                }
-                              }
-                            })
+                                },
+                              },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]
                     )
                   }),
                   _vm._v(" "),
-                  _c("form-buttons", { staticClass: "mb-5" })
+                  _c("form-buttons", { staticClass: "mb-5" }),
                 ],
                 2
-              )
-            ])
+              ),
+            ]),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

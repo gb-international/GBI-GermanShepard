@@ -141,7 +141,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -156,12 +156,16 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { to: _vm.url },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
           )
         : _c(
@@ -171,14 +175,18 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { type: "button" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
-          )
+          ),
     ],
     1
   )
@@ -201,7 +209,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -211,7 +219,7 @@ var render = function() {
       { staticClass: "col-sm-9 text-center" },
       [_c("back-button"), _vm._v(" "), _c("submit-button")],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []
@@ -232,7 +240,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -240,9 +248,13 @@ var render = function() {
     "button",
     {
       staticClass:
-        "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold"
+        "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
     },
-    [_vm._t("default", [_vm._v("submit")])],
+    [
+      _vm._t("default", function () {
+        return [_vm._v("submit")]
+      }),
+    ],
     2
   )
 }
@@ -264,7 +276,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -275,13 +287,13 @@ var render = function() {
           "div",
           {
             staticClass: "col-md-12 pl-4 pb-5",
-            staticStyle: { position: "relative" }
+            staticStyle: { position: "relative" },
           },
           [_vm._t("formdata")],
           2
-        )
-      ])
-    ])
+        ),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []

@@ -18,7 +18,7 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
@@ -300,7 +300,7 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -308,7 +308,7 @@ var render = function() {
     "section",
     {
       staticClass: "d-flex flex-column justify-content-center",
-      staticStyle: { background: "white !important" }
+      staticStyle: { background: "white !important" },
     },
     [
       _c(
@@ -316,7 +316,7 @@ var render = function() {
         {
           staticClass:
             "d-flex justify-content-center align-items-center mainRow1 container",
-          staticStyle: { background: "white !important" }
+          staticStyle: { background: "white !important" },
         },
         [
           _c("div", { staticClass: "p-2 d-flex flex-column expDetCol1" }, [
@@ -325,8 +325,8 @@ var render = function() {
               attrs: {
                 src: _vm.selectedPhoto,
                 loading: "lazy",
-                alt: "itinerary"
-              }
+                alt: "itinerary",
+              },
             }),
             _vm._v(" "),
             _c(
@@ -341,16 +341,16 @@ var render = function() {
                     _vm.settings,
                     false
                   ),
-                  _vm._l(10, function(index) {
+                  _vm._l(10, function (index) {
                     return _c(
                       "div",
                       {
                         key: index,
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.changePhoto(_vm.photo)
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c("img", {
@@ -358,29 +358,29 @@ var render = function() {
                           attrs: {
                             src: _vm.photo,
                             loading: "lazy",
-                            alt: "itinerary"
-                          }
-                        })
+                            alt: "itinerary",
+                          },
+                        }),
                       ]
                     )
                   }),
                   0
-                )
+                ),
               ],
               1
-            )
+            ),
           ]),
           _vm._v(" "),
-          _vm._m(0)
+          _vm._m(0),
         ]
       ),
       _vm._v(" "),
-      _vm._m(1)
+      _vm._m(1),
     ]
   )
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -390,12 +390,12 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "d-flex justify-content-start align-items-center priceSingleDiv"
+              "d-flex justify-content-start align-items-center priceSingleDiv",
           },
           [
             _c("p", [_c("b", [_vm._v("₹11,000 x 1 day")])]),
             _vm._v(" "),
-            _c("p", { staticClass: "ml-auto p2" }, [_vm._v("₹11,000")])
+            _c("p", { staticClass: "ml-auto p2" }, [_vm._v("₹11,000")]),
           ]
         ),
         _vm._v(" "),
@@ -403,12 +403,12 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "d-flex justify-content-start align-items-center priceSingleDiv"
+              "d-flex justify-content-start align-items-center priceSingleDiv",
           },
           [
             _c("p", [_vm._v("Total Basic Cost")]),
             _vm._v(" "),
-            _c("p", { staticClass: "ml-auto p2" }, [_vm._v("₹11,000")])
+            _c("p", { staticClass: "ml-auto p2" }, [_vm._v("₹11,000")]),
           ]
         ),
         _vm._v(" "),
@@ -416,7 +416,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "d-flex flex-column justify-content-start couponDivMain"
+              "d-flex flex-column justify-content-start couponDivMain",
           },
           [
             _c(
@@ -425,7 +425,7 @@ var staticRenderFns = [
               [
                 _c("p", [_vm._v("GBIHOTEL")]),
                 _vm._v(" "),
-                _c("p", { staticClass: "ml-auto p2" }, [_vm._v("- ₹2,000")])
+                _c("p", { staticClass: "ml-auto p2" }, [_vm._v("- ₹2,000")]),
               ]
             ),
             _vm._v(" "),
@@ -435,9 +435,9 @@ var staticRenderFns = [
               [
                 _c("input", { attrs: { type: "text" } }),
                 _vm._v(" "),
-                _c("button", { staticClass: "btn btnCpn" }, [_vm._v("Add")])
+                _c("button", { staticClass: "btn btnCpn" }, [_vm._v("Add")]),
               ]
-            )
+            ),
           ]
         ),
         _vm._v(" "),
@@ -445,12 +445,12 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "d-flex justify-content-start align-items-center priceSingleDiv"
+              "d-flex justify-content-start align-items-center priceSingleDiv",
           },
           [
             _c("p", [_vm._v("Taxes")]),
             _vm._v(" "),
-            _c("p", { staticClass: "ml-auto p2" }, [_vm._v("₹1,000")])
+            _c("p", { staticClass: "ml-auto p2" }, [_vm._v("₹1,000")]),
           ]
         ),
         _vm._v(" "),
@@ -458,7 +458,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "d-flex justify-content-start align-items-center grandTotalDiv"
+              "d-flex justify-content-start align-items-center grandTotalDiv",
           },
           [
             _c(
@@ -466,25 +466,25 @@ var staticRenderFns = [
               {
                 staticClass:
                   "d-flex flex-column justify-content-start align-items-center",
-                staticStyle: { "margin-top": "5px", "margin-right": "3px" }
+                staticStyle: { "margin-top": "5px", "margin-right": "3px" },
               },
               [
                 _vm._v("Grand Total\n            "),
                 _c("span", { staticClass: "smallP" }, [
-                  _vm._v("(Incl. all taxes)")
-                ])
+                  _vm._v("(Incl. all taxes)"),
+                ]),
               ]
             ),
             _vm._v(" "),
-            _c("p", { staticClass: "ml-auto p2" }, [_vm._v("₹10000")])
+            _c("p", { staticClass: "ml-auto p2" }, [_vm._v("₹10000")]),
           ]
-        )
+        ),
       ]),
       _vm._v(" "),
-      _c("button", { staticClass: "btn btnPay" }, [_vm._v("Pay Now")])
+      _c("button", { staticClass: "btn btnPay" }, [_vm._v("Pay Now")]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -492,32 +492,32 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "d-flex justify-content-between align-items-center grandTotalMob"
+          "d-flex justify-content-between align-items-center grandTotalMob",
       },
       [
         _c(
           "div",
           {
             staticClass:
-              "d-flex flex-column justify-content-start align-items-start"
+              "d-flex flex-column justify-content-start align-items-start",
           },
           [
             _c("p", [_vm._v("Grand Total")]),
             _vm._v(" "),
             _c("span", { staticClass: "smallP" }, [
-              _vm._v("(Incl. all taxes)")
+              _vm._v("(Incl. all taxes)"),
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "p2" }, [_vm._v("₹10000")])
+            _c("p", { staticClass: "p2" }, [_vm._v("₹10000")]),
           ]
         ),
         _vm._v(" "),
         _c("button", { staticClass: "btn btnConfirm ml-auto" }, [
-          _vm._v("Pay Now")
-        ])
+          _vm._v("Pay Now"),
+        ]),
       ]
     )
-  }
+  },
 ]
 render._withStripped = true
 
@@ -589,7 +589,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_hotelDetails_vue_vue_type_style_index_0_id_df00e650_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./hotelDetails.vue?vue&type=style&index=0&id=df00e650&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/Hotel/hotelDetails.vue?vue&type=style&index=0&id=df00e650&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_hotelDetails_vue_vue_type_style_index_0_id_df00e650_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_hotelDetails_vue_vue_type_style_index_0_id_df00e650_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_hotelDetails_vue_vue_type_style_index_0_id_df00e650_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_hotelDetails_vue_vue_type_style_index_0_id_df00e650_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_hotelDetails_vue_vue_type_style_index_0_id_df00e650_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_hotelDetails_vue_vue_type_style_index_0_id_df00e650_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

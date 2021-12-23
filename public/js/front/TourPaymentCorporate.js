@@ -630,7 +630,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -646,12 +646,12 @@ var render = function() {
                         "label",
                         {
                           staticClass: "text-muted",
-                          attrs: { for: "tour_code" }
+                          attrs: { for: "tour_code" },
                         },
                         [_vm._v("Travel Code")]
                       ),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.tour_info.travel_code))])
+                      _c("p", [_vm._v(_vm._s(_vm.tour_info.travel_code))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4 text-center" }, [
@@ -666,8 +666,8 @@ var render = function() {
                           "\n              " +
                             _vm._s(_vm.tour_info.base_price) +
                             " /-\n            "
-                        )
-                      ])
+                        ),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4 text-center" }, [
@@ -682,9 +682,9 @@ var render = function() {
                           "\n              " +
                             _vm._s(_vm.tour_info.price) +
                             " /-\n            "
-                        )
-                      ])
-                    ])
+                        ),
+                      ]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
@@ -695,7 +695,7 @@ var render = function() {
                         [_vm._v("Total Number of people")]
                       ),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.tour_info.total_members))])
+                      _c("p", [_vm._v(_vm._s(_vm.tour_info.total_members))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4 text-center" }, [
@@ -705,7 +705,7 @@ var render = function() {
                         [_vm._v("Paid Members")]
                       ),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.tour_info.paid_person))])
+                      _c("p", [_vm._v(_vm._s(_vm.tour_info.paid_person))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4 text-center" }, [
@@ -715,14 +715,14 @@ var render = function() {
                         [_vm._v("Complimentary")]
                       ),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.tour_info.unpaid_person))])
-                    ])
+                      _c("p", [_vm._v(_vm._s(_vm.tour_info.unpaid_person))]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("label", { attrs: { for: "payment_mode mt-20" } }, [
-                        _vm._v("Payment Mode")
+                        _vm._v("Payment Mode"),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "teacher-section" }, [
@@ -734,36 +734,36 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.teacherform.payment_mode,
-                                  expression: "teacherform.payment_mode"
-                                }
+                                  expression: "teacherform.payment_mode",
+                                },
                               ],
                               staticClass: "form-check-input",
                               attrs: {
                                 type: "radio",
                                 value: "self",
-                                name: "payment_mode"
+                                name: "payment_mode",
                               },
                               domProps: {
                                 checked: _vm._q(
                                   _vm.teacherform.payment_mode,
                                   "self"
-                                )
+                                ),
                               },
                               on: {
-                                change: function($event) {
+                                change: function ($event) {
                                   return _vm.$set(
                                     _vm.teacherform,
                                     "payment_mode",
                                     "self"
                                   )
-                                }
-                              }
+                                },
+                              },
                             }),
-                            _vm._v("By Company\n                ")
-                          ])
-                        ])
-                      ])
-                    ])
+                            _vm._v("By Company\n                "),
+                          ]),
+                        ]),
+                      ]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _vm.teacherform.payment_mode == "self"
@@ -777,36 +777,36 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.teacherform.payment_type,
-                                    expression: "teacherform.payment_type"
-                                  }
+                                    expression: "teacherform.payment_type",
+                                  },
                                 ],
                                 staticClass: "form-check-input",
                                 attrs: {
                                   type: "radio",
                                   name: "option",
-                                  value: "cheque"
+                                  value: "cheque",
                                 },
                                 domProps: {
                                   checked: _vm._q(
                                     _vm.teacherform.payment_type,
                                     "cheque"
-                                  )
+                                  ),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.$set(
                                       _vm.teacherform,
                                       "payment_type",
                                       "cheque"
                                     )
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(
                                 "\n                Cheque/DD\n              "
-                              )
-                            ])
-                          ])
+                              ),
+                            ]),
+                          ]),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-3" }, [
@@ -818,34 +818,34 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.teacherform.payment_type,
-                                    expression: "teacherform.payment_type"
-                                  }
+                                    expression: "teacherform.payment_type",
+                                  },
                                 ],
                                 staticClass: "form-check-input",
                                 attrs: {
                                   type: "radio",
                                   name: "option",
-                                  value: "dd"
+                                  value: "dd",
                                 },
                                 domProps: {
                                   checked: _vm._q(
                                     _vm.teacherform.payment_type,
                                     "dd"
-                                  )
+                                  ),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.$set(
                                       _vm.teacherform,
                                       "payment_type",
                                       "dd"
                                     )
-                                  }
-                                }
+                                  },
+                                },
                               }),
-                              _vm._v("\n                DD\n              ")
-                            ])
-                          ])
+                              _vm._v("\n                DD\n              "),
+                            ]),
+                          ]),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-3" }, [
@@ -857,34 +857,34 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.teacherform.payment_type,
-                                    expression: "teacherform.payment_type"
-                                  }
+                                    expression: "teacherform.payment_type",
+                                  },
                                 ],
                                 staticClass: "form-check-input",
                                 attrs: {
                                   type: "radio",
                                   name: "option",
-                                  value: "cash"
+                                  value: "cash",
                                 },
                                 domProps: {
                                   checked: _vm._q(
                                     _vm.teacherform.payment_type,
                                     "cash"
-                                  )
+                                  ),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.$set(
                                       _vm.teacherform,
                                       "payment_type",
                                       "cash"
                                     )
-                                  }
-                                }
+                                  },
+                                },
                               }),
-                              _vm._v("\n                Cash\n              ")
-                            ])
-                          ])
+                              _vm._v("\n                Cash\n              "),
+                            ]),
+                          ]),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-3" }, [
@@ -896,37 +896,37 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.teacherform.payment_type,
-                                    expression: "teacherform.payment_type"
-                                  }
+                                    expression: "teacherform.payment_type",
+                                  },
                                 ],
                                 staticClass: "form-check-input",
                                 attrs: {
                                   type: "radio",
                                   name: "option",
-                                  value: "net"
+                                  value: "net",
                                 },
                                 domProps: {
                                   checked: _vm._q(
                                     _vm.teacherform.payment_type,
                                     "net"
-                                  )
+                                  ),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.$set(
                                       _vm.teacherform,
                                       "payment_type",
                                       "net"
                                     )
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(
                                 "\n                Net Banking\n              "
-                              )
-                            ])
-                          ])
-                        ])
+                              ),
+                            ]),
+                          ]),
+                        ]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -936,7 +936,7 @@ var render = function() {
                         "label",
                         {
                           staticClass: "col-sm-2 col-form-label",
-                          attrs: { for: "robot" }
+                          attrs: { for: "robot" },
                         },
                         [_vm._v("RObOt?")]
                       ),
@@ -950,17 +950,17 @@ var render = function() {
                             attrs: {
                               loadRecaptchaScript: true,
                               sitekey:
-                                "6LeyF7gZAAAAADBt5N6EDQqFhL4-DZBUC13NgDpT"
+                                "6LeyF7gZAAAAADBt5N6EDQqFhL4-DZBUC13NgDpT",
                             },
                             on: {
                               expired: _vm.onCaptchaExpired,
-                              verify: _vm.onVerify
-                            }
-                          })
+                              verify: _vm.onVerify,
+                            },
+                          }),
                         ],
                         1
-                      )
-                    ])
+                      ),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -975,10 +975,10 @@ var render = function() {
                                 "btn btn-outline-primary btn-square ml-2",
                               attrs: { type: "button" },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.onlinePayment()
-                                }
-                              }
+                                },
+                              },
                             },
                             [_vm._v("\n            SUBMIT\n          ")]
                           )
@@ -988,15 +988,15 @@ var render = function() {
                               staticClass: "btn btn-outline-primary btn-square",
                               attrs: { type: "button" },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.submitPayment()
-                                }
-                              }
+                                },
+                              },
                             },
                             [_vm._v("\n            SUBMIT\n          ")]
-                          )
+                          ),
                     ]
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c(
@@ -1010,7 +1010,10 @@ var render = function() {
                             "button",
                             {
                               staticClass: "close",
-                              attrs: { type: "button", "data-dismiss": "modal" }
+                              attrs: {
+                                type: "button",
+                                "data-dismiss": "modal",
+                              },
                             },
                             [_vm._v("\n                ×\n              ")]
                           ),
@@ -1022,7 +1025,7 @@ var render = function() {
                                 { staticClass: "form-group" },
                                 [
                                   _c("label", { attrs: { for: "no_row" } }, [
-                                    _vm._v("Beneficary Name")
+                                    _vm._v("Beneficary Name"),
                                   ]),
                                   _vm._v(" "),
                                   _c("input", {
@@ -1031,21 +1034,21 @@ var render = function() {
                                         name: "model",
                                         rawName: "v-model",
                                         value: _vm.form.name,
-                                        expression: "form.name"
-                                      }
+                                        expression: "form.name",
+                                      },
                                     ],
                                     staticClass: "form-control grey-border",
                                     class: {
-                                      "is-invalid": _vm.form.errors.has("name")
+                                      "is-invalid": _vm.form.errors.has("name"),
                                     },
                                     attrs: {
                                       type: "text",
                                       name: "name",
-                                      placeholder: "Enter Beneficary Name"
+                                      placeholder: "Enter Beneficary Name",
                                     },
                                     domProps: { value: _vm.form.name },
                                     on: {
-                                      input: function($event) {
+                                      input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
@@ -1054,16 +1057,16 @@ var render = function() {
                                           "name",
                                           $event.target.value
                                         )
-                                      }
-                                    }
+                                      },
+                                    },
                                   }),
                                   _vm._v(" "),
                                   _c("has-error", {
-                                    attrs: { form: _vm.form, field: "name" }
-                                  })
+                                    attrs: { form: _vm.form, field: "name" },
+                                  }),
                                 ],
                                 1
-                              )
+                              ),
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-sm-6" }, [
@@ -1072,7 +1075,7 @@ var render = function() {
                                 { staticClass: "form-group" },
                                 [
                                   _c("label", { attrs: { for: "no_row" } }, [
-                                    _vm._v("Select Bank")
+                                    _vm._v("Select Bank"),
                                   ]),
                                   _vm._v(" "),
                                   _c(
@@ -1083,31 +1086,31 @@ var render = function() {
                                           name: "model",
                                           rawName: "v-model",
                                           value: _vm.form.bank_name,
-                                          expression: "form.bank_name"
-                                        }
+                                          expression: "form.bank_name",
+                                        },
                                       ],
                                       staticClass: "form-control grey-border",
                                       class: {
-                                        "is-invalid": _vm.form.errors.has(
-                                          "bank_name"
-                                        )
+                                        "is-invalid":
+                                          _vm.form.errors.has("bank_name"),
                                       },
                                       on: {
-                                        change: function($event) {
-                                          var $$selectedVal = Array.prototype.filter
-                                            .call(
-                                              $event.target.options,
-                                              function(o) {
-                                                return o.selected
-                                              }
-                                            )
-                                            .map(function(o) {
-                                              var val =
-                                                "_value" in o
-                                                  ? o._value
-                                                  : o.value
-                                              return val
-                                            })
+                                        change: function ($event) {
+                                          var $$selectedVal =
+                                            Array.prototype.filter
+                                              .call(
+                                                $event.target.options,
+                                                function (o) {
+                                                  return o.selected
+                                                }
+                                              )
+                                              .map(function (o) {
+                                                var val =
+                                                  "_value" in o
+                                                    ? o._value
+                                                    : o.value
+                                                return val
+                                              })
                                           _vm.$set(
                                             _vm.form,
                                             "bank_name",
@@ -1115,22 +1118,22 @@ var render = function() {
                                               ? $$selectedVal
                                               : $$selectedVal[0]
                                           )
-                                        }
-                                      }
+                                        },
+                                      },
                                     },
-                                    _vm._l(_vm.banknames, function(bank) {
+                                    _vm._l(_vm.banknames, function (bank) {
                                       return _c(
                                         "option",
                                         {
                                           key: bank.id,
-                                          domProps: { value: bank.name }
+                                          domProps: { value: bank.name },
                                         },
                                         [
                                           _vm._v(
                                             "\n                        " +
                                               _vm._s(bank.name) +
                                               "\n                      "
-                                          )
+                                          ),
                                         ]
                                       )
                                     }),
@@ -1140,12 +1143,12 @@ var render = function() {
                                   _c("has-error", {
                                     attrs: {
                                       form: _vm.form,
-                                      field: "bank_name"
-                                    }
-                                  })
+                                      field: "bank_name",
+                                    },
+                                  }),
                                 ],
                                 1
-                              )
+                              ),
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-sm-6" }, [
@@ -1154,7 +1157,7 @@ var render = function() {
                                 { staticClass: "form-group" },
                                 [
                                   _c("label", { attrs: { for: "no_row" } }, [
-                                    _vm._v("Account Number")
+                                    _vm._v("Account Number"),
                                   ]),
                                   _vm._v(" "),
                                   _c("input", {
@@ -1163,25 +1166,24 @@ var render = function() {
                                         name: "model",
                                         rawName: "v-model",
                                         value: _vm.form.account_number,
-                                        expression: "form.account_number"
-                                      }
+                                        expression: "form.account_number",
+                                      },
                                     ],
                                     staticClass: "form-control grey-border",
                                     class: {
-                                      "is-invalid": _vm.form.errors.has(
-                                        "account_number"
-                                      )
+                                      "is-invalid":
+                                        _vm.form.errors.has("account_number"),
                                     },
                                     attrs: {
                                       type: "number",
                                       placeholder: "Enter Account Number",
-                                      name: "account_number"
+                                      name: "account_number",
                                     },
                                     domProps: {
-                                      value: _vm.form.account_number
+                                      value: _vm.form.account_number,
                                     },
                                     on: {
-                                      input: function($event) {
+                                      input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
@@ -1190,19 +1192,19 @@ var render = function() {
                                           "account_number",
                                           $event.target.value
                                         )
-                                      }
-                                    }
+                                      },
+                                    },
                                   }),
                                   _vm._v(" "),
                                   _c("has-error", {
                                     attrs: {
                                       form: _vm.form,
-                                      field: "account_number"
-                                    }
-                                  })
+                                      field: "account_number",
+                                    },
+                                  }),
                                 ],
                                 1
-                              )
+                              ),
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-sm-6" }, [
@@ -1211,7 +1213,7 @@ var render = function() {
                                 { staticClass: "form-group" },
                                 [
                                   _c("label", { attrs: { for: "no_row" } }, [
-                                    _vm._v("Account Type")
+                                    _vm._v("Account Type"),
                                   ]),
                                   _vm._v(" "),
                                   _c(
@@ -1222,31 +1224,31 @@ var render = function() {
                                           name: "model",
                                           rawName: "v-model",
                                           value: _vm.form.account_type,
-                                          expression: "form.account_type"
-                                        }
+                                          expression: "form.account_type",
+                                        },
                                       ],
                                       staticClass: "form-control grey-border",
                                       class: {
-                                        "is-invalid": _vm.form.errors.has(
-                                          "account_type"
-                                        )
+                                        "is-invalid":
+                                          _vm.form.errors.has("account_type"),
                                       },
                                       on: {
-                                        change: function($event) {
-                                          var $$selectedVal = Array.prototype.filter
-                                            .call(
-                                              $event.target.options,
-                                              function(o) {
-                                                return o.selected
-                                              }
-                                            )
-                                            .map(function(o) {
-                                              var val =
-                                                "_value" in o
-                                                  ? o._value
-                                                  : o.value
-                                              return val
-                                            })
+                                        change: function ($event) {
+                                          var $$selectedVal =
+                                            Array.prototype.filter
+                                              .call(
+                                                $event.target.options,
+                                                function (o) {
+                                                  return o.selected
+                                                }
+                                              )
+                                              .map(function (o) {
+                                                var val =
+                                                  "_value" in o
+                                                    ? o._value
+                                                    : o.value
+                                                return val
+                                              })
                                           _vm.$set(
                                             _vm.form,
                                             "account_type",
@@ -1254,22 +1256,22 @@ var render = function() {
                                               ? $$selectedVal
                                               : $$selectedVal[0]
                                           )
-                                        }
-                                      }
+                                        },
+                                      },
                                     },
-                                    _vm._l(_vm.account_type, function(type) {
+                                    _vm._l(_vm.account_type, function (type) {
                                       return _c(
                                         "option",
                                         {
                                           key: type,
-                                          domProps: { value: type }
+                                          domProps: { value: type },
                                         },
                                         [
                                           _vm._v(
                                             "\n                        " +
                                               _vm._s(type) +
                                               "\n                      "
-                                          )
+                                          ),
                                         ]
                                       )
                                     }),
@@ -1279,12 +1281,12 @@ var render = function() {
                                   _c("has-error", {
                                     attrs: {
                                       form: _vm.form,
-                                      field: "account_type"
-                                    }
-                                  })
+                                      field: "account_type",
+                                    },
+                                  }),
                                 ],
                                 1
-                              )
+                              ),
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-sm-6" }, [
@@ -1293,7 +1295,7 @@ var render = function() {
                                 { staticClass: "form-group" },
                                 [
                                   _c("label", { attrs: { for: "no_row" } }, [
-                                    _vm._v("IFSC Code")
+                                    _vm._v("IFSC Code"),
                                   ]),
                                   _vm._v(" "),
                                   _c("input", {
@@ -1302,23 +1304,22 @@ var render = function() {
                                         name: "model",
                                         rawName: "v-model",
                                         value: _vm.form.ifsc_code,
-                                        expression: "form.ifsc_code"
-                                      }
+                                        expression: "form.ifsc_code",
+                                      },
                                     ],
                                     staticClass: "form-control grey-border",
                                     class: {
-                                      "is-invalid": _vm.form.errors.has(
-                                        "ifsc_code"
-                                      )
+                                      "is-invalid":
+                                        _vm.form.errors.has("ifsc_code"),
                                     },
                                     attrs: {
                                       type: "text",
                                       placeholder: "Enter IFSC Code",
-                                      name: "ifsc_code"
+                                      name: "ifsc_code",
                                     },
                                     domProps: { value: _vm.form.ifsc_code },
                                     on: {
-                                      input: function($event) {
+                                      input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
@@ -1327,20 +1328,20 @@ var render = function() {
                                           "ifsc_code",
                                           $event.target.value
                                         )
-                                      }
-                                    }
+                                      },
+                                    },
                                   }),
                                   _vm._v(" "),
                                   _c("has-error", {
                                     attrs: {
                                       form: _vm.form,
-                                      field: "ifsc_code"
-                                    }
-                                  })
+                                      field: "ifsc_code",
+                                    },
+                                  }),
                                 ],
                                 1
-                              )
-                            ])
+                              ),
+                            ]),
                           ]),
                           _vm._v(" "),
                           _c("p", { staticClass: "text-center" }, [
@@ -1351,25 +1352,25 @@ var render = function() {
                                   "btn btn-outline-primary btn-square",
                                 attrs: { type: "button" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     return _vm.ModalForm()
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [
                                 _vm._v(
                                   "\n                  ADD\n                "
-                                )
+                                ),
                               ]
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
+                            ),
+                          ]),
+                        ]),
+                      ]),
+                    ]),
                   ]
-                )
+                ),
               ])
-            : _vm._e()
+            : _vm._e(),
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -1382,7 +1383,7 @@ var render = function() {
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "father_name" } }, [
-                    _vm._v("Bank Name")
+                    _vm._v("Bank Name"),
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -1391,14 +1392,14 @@ var render = function() {
                         name: "model",
                         rawName: "v-model",
                         value: _vm.teacherform.cheque_bank_name,
-                        expression: "teacherform.cheque_bank_name"
-                      }
+                        expression: "teacherform.cheque_bank_name",
+                      },
                     ],
                     staticClass: "form-control",
                     attrs: { type: "text" },
                     domProps: { value: _vm.teacherform.cheque_bank_name },
                     on: {
-                      input: function($event) {
+                      input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
@@ -1407,16 +1408,16 @@ var render = function() {
                           "cheque_bank_name",
                           $event.target.value
                         )
-                      }
-                    }
-                  })
-                ])
+                      },
+                    },
+                  }),
+                ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "father_name" } }, [
-                    _vm._v("Date of Issue")
+                    _vm._v("Date of Issue"),
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -1425,14 +1426,14 @@ var render = function() {
                         name: "model",
                         rawName: "v-model",
                         value: _vm.teacherform.date_of_issue,
-                        expression: "teacherform.date_of_issue"
-                      }
+                        expression: "teacherform.date_of_issue",
+                      },
                     ],
                     staticClass: "form-control",
                     attrs: { type: "date" },
                     domProps: { value: _vm.teacherform.date_of_issue },
                     on: {
-                      input: function($event) {
+                      input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
@@ -1441,16 +1442,16 @@ var render = function() {
                           "date_of_issue",
                           $event.target.value
                         )
-                      }
-                    }
-                  })
-                ])
+                      },
+                    },
+                  }),
+                ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "father_name" } }, [
-                    _vm._v("IFSC Code")
+                    _vm._v("IFSC Code"),
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -1459,14 +1460,14 @@ var render = function() {
                         name: "model",
                         rawName: "v-model",
                         value: _vm.teacherform.ifsc_code,
-                        expression: "teacherform.ifsc_code"
-                      }
+                        expression: "teacherform.ifsc_code",
+                      },
                     ],
                     staticClass: "form-control",
                     attrs: { type: "text" },
                     domProps: { value: _vm.teacherform.ifsc_code },
                     on: {
-                      input: function($event) {
+                      input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
@@ -1475,16 +1476,16 @@ var render = function() {
                           "ifsc_code",
                           $event.target.value
                         )
-                      }
-                    }
-                  })
-                ])
+                      },
+                    },
+                  }),
+                ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "father_name" } }, [
-                    _vm._v("Cheque Number")
+                    _vm._v("Cheque Number"),
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -1493,14 +1494,14 @@ var render = function() {
                         name: "model",
                         rawName: "v-model",
                         value: _vm.teacherform.cheque_number,
-                        expression: "teacherform.cheque_number"
-                      }
+                        expression: "teacherform.cheque_number",
+                      },
                     ],
                     staticClass: "form-control",
                     attrs: { type: "number" },
                     domProps: { value: _vm.teacherform.cheque_number },
                     on: {
-                      input: function($event) {
+                      input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
@@ -1509,11 +1510,11 @@ var render = function() {
                           "cheque_number",
                           $event.target.value
                         )
-                      }
-                    }
-                  })
-                ])
-              ])
+                      },
+                    },
+                  }),
+                ]),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "text-center" }, [
@@ -1523,10 +1524,10 @@ var render = function() {
                   staticClass: "btn btn-outline-primary btn-square",
                   attrs: { type: "button" },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.backReset()
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("\n          BACK\n        ")]
               ),
@@ -1537,17 +1538,17 @@ var render = function() {
                   staticClass: "btn btn-outline-primary btn-square",
                   attrs: { type: "button" },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.validateCheque()
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("\n          SUBMIT\n        ")]
-              )
-            ])
-          ])
+              ),
+            ]),
+          ]),
         ])
-      : _vm._e()
+      : _vm._e(),
   ])
 }
 var staticRenderFns = []

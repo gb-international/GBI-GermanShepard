@@ -89,9 +89,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_icons_ViewIcon_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/components/icons/ViewIcon.vue */ "./resources/js/admin/components/icons/ViewIcon.vue");
 /* harmony import */ var _admin_components_TableLoader_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/TableLoader.vue */ "./resources/js/admin/components/TableLoader.vue");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -253,7 +253,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -263,10 +263,10 @@ var render = function() {
           "span",
           {
             staticClass: "badge badge-primary incrIconSize",
-            attrs: { title: "Edit Item" }
+            attrs: { title: "Edit Item" },
           },
           [_c("i", { staticClass: "fas fa-pencil-alt" })]
-        )
+        ),
       ])
     : _vm._e()
 }
@@ -288,7 +288,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -300,10 +300,10 @@ var render = function() {
         "span",
         {
           staticClass: "badge badge-primary incrIconSize",
-          attrs: { title: "View Item" }
+          attrs: { title: "View Item" },
         },
         [_c("i", { staticClass: "fas fa-eye" })]
-      )
+      ),
     ]
   )
 }
@@ -325,7 +325,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -335,7 +335,7 @@ var render = function() {
       [
         {
           key: "perpage",
-          fn: function() {
+          fn: function () {
             return [
               _c(
                 "b-form-group",
@@ -348,8 +348,8 @@ var render = function() {
                     "label-cols-md": "4",
                     "label-cols-lg": "3",
                     "label-align-sm": "right",
-                    "label-size": "sm"
-                  }
+                    "label-size": "sm",
+                  },
                 },
                 [
                   _c("b-form-select", {
@@ -357,41 +357,41 @@ var render = function() {
                     attrs: { id: "per-page-select", options: _vm.options },
                     model: {
                       value: _vm.perPage,
-                      callback: function($$v) {
+                      callback: function ($$v) {
                         _vm.perPage = $$v
                       },
-                      expression: "perPage"
-                    }
-                  })
+                      expression: "perPage",
+                    },
+                  }),
                 ],
                 1
-              )
+              ),
             ]
           },
-          proxy: true
+          proxy: true,
         },
         {
           key: "searchbar",
-          fn: function() {
+          fn: function () {
             return [
               _c("b-form-input", {
                 staticClass: "radius-0",
                 attrs: { type: "search", placeholder: "Type to Search" },
                 model: {
                   value: _vm.filter,
-                  callback: function($$v) {
+                  callback: function ($$v) {
                     _vm.filter = $$v
                   },
-                  expression: "filter"
-                }
-              })
+                  expression: "filter",
+                },
+              }),
             ]
           },
-          proxy: true
+          proxy: true,
         },
         {
           key: "table",
-          fn: function() {
+          fn: function () {
             return [
               _c("b-table", {
                 staticClass: "w-100 table-layout",
@@ -405,82 +405,82 @@ var render = function() {
                   items: _vm.items.data,
                   busy: _vm.$store.getters.isBusy,
                   filter: _vm.filter,
-                  "primary-key": "updated_at"
+                  "primary-key": "updated_at",
                 },
                 scopedSlots: _vm._u([
                   {
                     key: "table-busy",
-                    fn: function() {
+                    fn: function () {
                       return [_c("table-loader")]
                     },
-                    proxy: true
+                    proxy: true,
                   },
                   {
                     key: "cell(image)",
-                    fn: function(data) {
+                    fn: function (data) {
                       return [
                         _c("img", {
                           staticClass: "w-60",
-                          attrs: { src: data.item.image }
-                        })
+                          attrs: { src: data.item.image },
+                        }),
                       ]
-                    }
+                    },
                   },
                   {
                     key: "cell(description)",
-                    fn: function(data) {
+                    fn: function (data) {
                       return [
                         _c("span", {
                           domProps: {
                             innerHTML: _vm._f("readMore")(
                               data.item.description,
                               90
-                            )
-                          }
-                        })
+                            ),
+                          },
+                        }),
                       ]
-                    }
+                    },
                   },
                   {
                     key: "cell(status)",
-                    fn: function(data) {
+                    fn: function (data) {
                       return [
                         data.item.status == 1
                           ? _c("span", { staticClass: "badge badge-success" }, [
-                              _vm._v("Publish")
+                              _vm._v("Publish"),
                             ])
                           : _c("span", { staticClass: "badge badge-default" }, [
-                              _vm._v("Draft")
-                            ])
+                              _vm._v("Draft"),
+                            ]),
                       ]
-                    }
+                    },
                   },
                   {
                     key: "cell(action)",
-                    fn: function(data) {
+                    fn: function (data) {
                       return [
                         _c("edit-icon", {
-                          attrs: { url: "/tourprogram/" + data.item.id }
-                        })
+                          attrs: { url: "/tourprogram/" + data.item.id },
+                        }),
                       ]
-                    }
-                  }
-                ])
-              })
+                    },
+                  },
+                ]),
+              }),
             ]
           },
-          proxy: true
+          proxy: true,
         },
         _vm.items.data
           ? {
               key: "pagination",
-              fn: function() {
+              fn: function () {
                 return [
                   _c(
                     "pagination",
                     {
                       attrs: { data: _vm.items, align: "right" },
-                      on: { "pagination-change-page": _vm.getitems }
+                      on: { "pagination-change-page": _vm.getitems },
                     },
                     [
                       _c(
@@ -493,18 +493,18 @@ var render = function() {
                         "span",
                         { attrs: { slot: "next-nav" }, slot: "next-nav" },
                         [_vm._v("Next")]
-                      )
+                      ),
                     ]
-                  )
+                  ),
                 ]
               },
-              proxy: true
+              proxy: true,
             }
-          : null
+          : null,
       ],
       null,
       true
-    )
+    ),
   })
 }
 var staticRenderFns = []

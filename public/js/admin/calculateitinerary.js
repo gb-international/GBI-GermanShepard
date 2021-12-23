@@ -1061,7 +1061,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1070,7 +1070,7 @@ var render = function() {
       _c("div", { staticClass: "col-md-12 calculator" }, [
         _c("div", { staticClass: "container container_admin_body" }, [
           _c("h3", { staticClass: "text-center" }, [
-            _vm._v(_vm._s(_vm.itineraryData.title))
+            _vm._v(_vm._s(_vm.itineraryData.title)),
           ]),
           _vm._v(" "),
           _c("h4", [
@@ -1081,20 +1081,20 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.total,
-                  expression: "total"
-                }
+                  expression: "total",
+                },
               ],
               attrs: { type: "text", readonly: "" },
               domProps: { value: _vm.total },
               on: {
-                input: function($event) {
+                input: function ($event) {
                   if ($event.target.composing) {
                     return
                   }
                   _vm.total = $event.target.value
-                }
-              }
-            })
+                },
+              },
+            }),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card_calculator" }, [
@@ -1105,7 +1105,7 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "col-sm-12" },
-                  _vm._l(_vm.hotel_row, function(data, index) {
+                  _vm._l(_vm.hotel_row, function (data, index) {
                     return _c("div", { key: data.id, staticClass: "row" }, [
                       _c(
                         "div",
@@ -1116,22 +1116,22 @@ var render = function() {
                           _c("dropdown-list", {
                             attrs: { itemList: _vm.hotel_list },
                             on: {
-                              change: function($event) {
+                              change: function ($event) {
                                 return _vm.onChange(
                                   index,
                                   "hotel",
                                   data.hotel_id
                                 )
-                              }
+                              },
                             },
                             model: {
                               value: data.hotel_id,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(data, "hotel_id", $$v)
                               },
-                              expression: "data.hotel_id"
-                            }
-                          })
+                              expression: "data.hotel_id",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -1147,7 +1147,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "custom-control custom-checkbox"
+                                          "custom-control custom-checkbox",
                                       },
                                       [
                                         _c("input", {
@@ -1156,14 +1156,14 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value: _vm.hotel_selected,
-                                              expression: "hotel_selected"
-                                            }
+                                              expression: "hotel_selected",
+                                            },
                                           ],
                                           staticClass: "custom-control-input",
                                           attrs: {
                                             type: "checkbox",
                                             id: index + "1",
-                                            name: "example1"
+                                            name: "example1",
                                           },
                                           domProps: {
                                             value: data.apai_single / 1,
@@ -1174,13 +1174,13 @@ var render = function() {
                                                   _vm.hotel_selected,
                                                   data.apai_single / 1
                                                 ) > -1
-                                              : _vm.hotel_selected
+                                              : _vm.hotel_selected,
                                           },
                                           on: {
-                                            click: function($event) {
+                                            click: function ($event) {
                                               return _vm.check($event)
                                             },
-                                            change: function($event) {
+                                            change: function ($event) {
                                               var $$a = _vm.hotel_selected,
                                                 $$el = $event.target,
                                                 $$c = $$el.checked
@@ -1191,9 +1191,8 @@ var render = function() {
                                                   $$i = _vm._i($$a, $$v)
                                                 if ($$el.checked) {
                                                   $$i < 0 &&
-                                                    (_vm.hotel_selected = $$a.concat(
-                                                      [$$v]
-                                                    ))
+                                                    (_vm.hotel_selected =
+                                                      $$a.concat([$$v]))
                                                 } else {
                                                   $$i > -1 &&
                                                     (_vm.hotel_selected = $$a
@@ -1205,25 +1204,25 @@ var render = function() {
                                               } else {
                                                 _vm.hotel_selected = $$c
                                               }
-                                            }
-                                          }
+                                            },
+                                          },
                                         }),
                                         _vm._v(" "),
                                         _c(
                                           "label",
                                           {
                                             staticClass: "custom-control-label",
-                                            attrs: { for: index + "1" }
+                                            attrs: { for: index + "1" },
                                           },
                                           [
                                             _vm._v(
                                               _vm._s(data.apai_single) + "/-"
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ]
                                     )
-                                  : _vm._e()
+                                  : _vm._e(),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-2" }, [
@@ -1234,7 +1233,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "custom-control custom-checkbox"
+                                          "custom-control custom-checkbox",
                                       },
                                       [
                                         _c("input", {
@@ -1243,14 +1242,14 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value: _vm.hotel_selected,
-                                              expression: "hotel_selected"
-                                            }
+                                              expression: "hotel_selected",
+                                            },
                                           ],
                                           staticClass: "custom-control-input",
                                           attrs: {
                                             type: "checkbox",
                                             id: index + "2",
-                                            name: "example1"
+                                            name: "example1",
                                           },
                                           domProps: {
                                             value: data.apai_double / 2,
@@ -1261,13 +1260,13 @@ var render = function() {
                                                   _vm.hotel_selected,
                                                   data.apai_double / 2
                                                 ) > -1
-                                              : _vm.hotel_selected
+                                              : _vm.hotel_selected,
                                           },
                                           on: {
-                                            click: function($event) {
+                                            click: function ($event) {
                                               return _vm.check($event)
                                             },
-                                            change: function($event) {
+                                            change: function ($event) {
                                               var $$a = _vm.hotel_selected,
                                                 $$el = $event.target,
                                                 $$c = $$el.checked
@@ -1278,9 +1277,8 @@ var render = function() {
                                                   $$i = _vm._i($$a, $$v)
                                                 if ($$el.checked) {
                                                   $$i < 0 &&
-                                                    (_vm.hotel_selected = $$a.concat(
-                                                      [$$v]
-                                                    ))
+                                                    (_vm.hotel_selected =
+                                                      $$a.concat([$$v]))
                                                 } else {
                                                   $$i > -1 &&
                                                     (_vm.hotel_selected = $$a
@@ -1292,25 +1290,25 @@ var render = function() {
                                               } else {
                                                 _vm.hotel_selected = $$c
                                               }
-                                            }
-                                          }
+                                            },
+                                          },
                                         }),
                                         _vm._v(" "),
                                         _c(
                                           "label",
                                           {
                                             staticClass: "custom-control-label",
-                                            attrs: { for: index + "2" }
+                                            attrs: { for: index + "2" },
                                           },
                                           [
                                             _vm._v(
                                               _vm._s(data.apai_double) + "/-"
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ]
                                     )
-                                  : _vm._e()
+                                  : _vm._e(),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-2" }, [
@@ -1321,7 +1319,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "custom-control custom-checkbox"
+                                          "custom-control custom-checkbox",
                                       },
                                       [
                                         _c("input", {
@@ -1330,14 +1328,14 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value: _vm.hotel_selected,
-                                              expression: "hotel_selected"
-                                            }
+                                              expression: "hotel_selected",
+                                            },
                                           ],
                                           staticClass: "custom-control-input",
                                           attrs: {
                                             type: "checkbox",
                                             id: index + "3",
-                                            name: "example1"
+                                            name: "example1",
                                           },
                                           domProps: {
                                             value: data.apai_triple / 3,
@@ -1348,13 +1346,13 @@ var render = function() {
                                                   _vm.hotel_selected,
                                                   data.apai_triple / 3
                                                 ) > -1
-                                              : _vm.hotel_selected
+                                              : _vm.hotel_selected,
                                           },
                                           on: {
-                                            click: function($event) {
+                                            click: function ($event) {
                                               return _vm.check($event)
                                             },
-                                            change: function($event) {
+                                            change: function ($event) {
                                               var $$a = _vm.hotel_selected,
                                                 $$el = $event.target,
                                                 $$c = $$el.checked
@@ -1365,9 +1363,8 @@ var render = function() {
                                                   $$i = _vm._i($$a, $$v)
                                                 if ($$el.checked) {
                                                   $$i < 0 &&
-                                                    (_vm.hotel_selected = $$a.concat(
-                                                      [$$v]
-                                                    ))
+                                                    (_vm.hotel_selected =
+                                                      $$a.concat([$$v]))
                                                 } else {
                                                   $$i > -1 &&
                                                     (_vm.hotel_selected = $$a
@@ -1379,25 +1376,25 @@ var render = function() {
                                               } else {
                                                 _vm.hotel_selected = $$c
                                               }
-                                            }
-                                          }
+                                            },
+                                          },
                                         }),
                                         _vm._v(" "),
                                         _c(
                                           "label",
                                           {
                                             staticClass: "custom-control-label",
-                                            attrs: { for: index + "3" }
+                                            attrs: { for: index + "3" },
                                           },
                                           [
                                             _vm._v(
                                               _vm._s(data.apai_triple) + "/-"
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ]
                                     )
-                                  : _vm._e()
+                                  : _vm._e(),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-2" }, [
@@ -1408,7 +1405,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "custom-control custom-checkbox"
+                                          "custom-control custom-checkbox",
                                       },
                                       [
                                         _c("input", {
@@ -1417,14 +1414,14 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value: _vm.hotel_selected,
-                                              expression: "hotel_selected"
-                                            }
+                                              expression: "hotel_selected",
+                                            },
                                           ],
                                           staticClass: "custom-control-input",
                                           attrs: {
                                             type: "checkbox",
                                             id: index + "4",
-                                            name: "example1"
+                                            name: "example1",
                                           },
                                           domProps: {
                                             value: data.apai_quad / 4,
@@ -1435,13 +1432,13 @@ var render = function() {
                                                   _vm.hotel_selected,
                                                   data.apai_quad / 4
                                                 ) > -1
-                                              : _vm.hotel_selected
+                                              : _vm.hotel_selected,
                                           },
                                           on: {
-                                            click: function($event) {
+                                            click: function ($event) {
                                               return _vm.check($event)
                                             },
-                                            change: function($event) {
+                                            change: function ($event) {
                                               var $$a = _vm.hotel_selected,
                                                 $$el = $event.target,
                                                 $$c = $$el.checked
@@ -1452,9 +1449,8 @@ var render = function() {
                                                   $$i = _vm._i($$a, $$v)
                                                 if ($$el.checked) {
                                                   $$i < 0 &&
-                                                    (_vm.hotel_selected = $$a.concat(
-                                                      [$$v]
-                                                    ))
+                                                    (_vm.hotel_selected =
+                                                      $$a.concat([$$v]))
                                                 } else {
                                                   $$i > -1 &&
                                                     (_vm.hotel_selected = $$a
@@ -1466,25 +1462,25 @@ var render = function() {
                                               } else {
                                                 _vm.hotel_selected = $$c
                                               }
-                                            }
-                                          }
+                                            },
+                                          },
                                         }),
                                         _vm._v(" "),
                                         _c(
                                           "label",
                                           {
                                             staticClass: "custom-control-label",
-                                            attrs: { for: index + "4" }
+                                            attrs: { for: index + "4" },
                                           },
                                           [
                                             _vm._v(
                                               _vm._s(data.apai_quad) + "/-"
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ]
                                     )
-                                  : _vm._e()
+                                  : _vm._e(),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-2" }, [
@@ -1495,7 +1491,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "custom-control custom-checkbox"
+                                          "custom-control custom-checkbox",
                                       },
                                       [
                                         _c("input", {
@@ -1504,14 +1500,14 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value: _vm.hotel_selected,
-                                              expression: "hotel_selected"
-                                            }
+                                              expression: "hotel_selected",
+                                            },
                                           ],
                                           staticClass: "custom-control-input",
                                           attrs: {
                                             type: "checkbox",
                                             id: index + "5",
-                                            name: "example1"
+                                            name: "example1",
                                           },
                                           domProps: {
                                             value: data.mapai_single / 1,
@@ -1522,13 +1518,13 @@ var render = function() {
                                                   _vm.hotel_selected,
                                                   data.mapai_single / 1
                                                 ) > -1
-                                              : _vm.hotel_selected
+                                              : _vm.hotel_selected,
                                           },
                                           on: {
-                                            click: function($event) {
+                                            click: function ($event) {
                                               return _vm.check($event)
                                             },
-                                            change: function($event) {
+                                            change: function ($event) {
                                               var $$a = _vm.hotel_selected,
                                                 $$el = $event.target,
                                                 $$c = $$el.checked
@@ -1539,9 +1535,8 @@ var render = function() {
                                                   $$i = _vm._i($$a, $$v)
                                                 if ($$el.checked) {
                                                   $$i < 0 &&
-                                                    (_vm.hotel_selected = $$a.concat(
-                                                      [$$v]
-                                                    ))
+                                                    (_vm.hotel_selected =
+                                                      $$a.concat([$$v]))
                                                 } else {
                                                   $$i > -1 &&
                                                     (_vm.hotel_selected = $$a
@@ -1553,25 +1548,25 @@ var render = function() {
                                               } else {
                                                 _vm.hotel_selected = $$c
                                               }
-                                            }
-                                          }
+                                            },
+                                          },
                                         }),
                                         _vm._v(" "),
                                         _c(
                                           "label",
                                           {
                                             staticClass: "custom-control-label",
-                                            attrs: { for: index + "5" }
+                                            attrs: { for: index + "5" },
                                           },
                                           [
                                             _vm._v(
                                               _vm._s(data.mapai_single) + "/-"
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ]
                                     )
-                                  : _vm._e()
+                                  : _vm._e(),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-2" }, [
@@ -1582,7 +1577,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "custom-control custom-checkbox"
+                                          "custom-control custom-checkbox",
                                       },
                                       [
                                         _c("input", {
@@ -1591,14 +1586,14 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value: _vm.hotel_selected,
-                                              expression: "hotel_selected"
-                                            }
+                                              expression: "hotel_selected",
+                                            },
                                           ],
                                           staticClass: "custom-control-input",
                                           attrs: {
                                             type: "checkbox",
                                             id: index + "6",
-                                            name: "example1"
+                                            name: "example1",
                                           },
                                           domProps: {
                                             value: data.mapai_double / 2,
@@ -1609,13 +1604,13 @@ var render = function() {
                                                   _vm.hotel_selected,
                                                   data.mapai_double / 2
                                                 ) > -1
-                                              : _vm.hotel_selected
+                                              : _vm.hotel_selected,
                                           },
                                           on: {
-                                            click: function($event) {
+                                            click: function ($event) {
                                               return _vm.check($event)
                                             },
-                                            change: function($event) {
+                                            change: function ($event) {
                                               var $$a = _vm.hotel_selected,
                                                 $$el = $event.target,
                                                 $$c = $$el.checked
@@ -1626,9 +1621,8 @@ var render = function() {
                                                   $$i = _vm._i($$a, $$v)
                                                 if ($$el.checked) {
                                                   $$i < 0 &&
-                                                    (_vm.hotel_selected = $$a.concat(
-                                                      [$$v]
-                                                    ))
+                                                    (_vm.hotel_selected =
+                                                      $$a.concat([$$v]))
                                                 } else {
                                                   $$i > -1 &&
                                                     (_vm.hotel_selected = $$a
@@ -1640,25 +1634,25 @@ var render = function() {
                                               } else {
                                                 _vm.hotel_selected = $$c
                                               }
-                                            }
-                                          }
+                                            },
+                                          },
                                         }),
                                         _vm._v(" "),
                                         _c(
                                           "label",
                                           {
                                             staticClass: "custom-control-label",
-                                            attrs: { for: index + "6" }
+                                            attrs: { for: index + "6" },
                                           },
                                           [
                                             _vm._v(
                                               _vm._s(data.mapai_double) + "/-"
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ]
                                     )
-                                  : _vm._e()
+                                  : _vm._e(),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-2" }, [
@@ -1669,7 +1663,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "custom-control custom-checkbox"
+                                          "custom-control custom-checkbox",
                                       },
                                       [
                                         _c("input", {
@@ -1678,14 +1672,14 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value: _vm.hotel_selected,
-                                              expression: "hotel_selected"
-                                            }
+                                              expression: "hotel_selected",
+                                            },
                                           ],
                                           staticClass: "custom-control-input",
                                           attrs: {
                                             type: "checkbox",
                                             id: index + "7",
-                                            name: "example1"
+                                            name: "example1",
                                           },
                                           domProps: {
                                             value: data.mapai_triple / 3,
@@ -1696,13 +1690,13 @@ var render = function() {
                                                   _vm.hotel_selected,
                                                   data.mapai_triple / 3
                                                 ) > -1
-                                              : _vm.hotel_selected
+                                              : _vm.hotel_selected,
                                           },
                                           on: {
-                                            click: function($event) {
+                                            click: function ($event) {
                                               return _vm.check($event)
                                             },
-                                            change: function($event) {
+                                            change: function ($event) {
                                               var $$a = _vm.hotel_selected,
                                                 $$el = $event.target,
                                                 $$c = $$el.checked
@@ -1713,9 +1707,8 @@ var render = function() {
                                                   $$i = _vm._i($$a, $$v)
                                                 if ($$el.checked) {
                                                   $$i < 0 &&
-                                                    (_vm.hotel_selected = $$a.concat(
-                                                      [$$v]
-                                                    ))
+                                                    (_vm.hotel_selected =
+                                                      $$a.concat([$$v]))
                                                 } else {
                                                   $$i > -1 &&
                                                     (_vm.hotel_selected = $$a
@@ -1727,25 +1720,25 @@ var render = function() {
                                               } else {
                                                 _vm.hotel_selected = $$c
                                               }
-                                            }
-                                          }
+                                            },
+                                          },
                                         }),
                                         _vm._v(" "),
                                         _c(
                                           "label",
                                           {
                                             staticClass: "custom-control-label",
-                                            attrs: { for: index + "7" }
+                                            attrs: { for: index + "7" },
                                           },
                                           [
                                             _vm._v(
                                               _vm._s(data.mapai_triple) + "/-"
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ]
                                     )
-                                  : _vm._e()
+                                  : _vm._e(),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-2" }, [
@@ -1756,7 +1749,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "custom-control custom-checkbox"
+                                          "custom-control custom-checkbox",
                                       },
                                       [
                                         _c("input", {
@@ -1765,14 +1758,14 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value: _vm.hotel_selected,
-                                              expression: "hotel_selected"
-                                            }
+                                              expression: "hotel_selected",
+                                            },
                                           ],
                                           staticClass: "custom-control-input",
                                           attrs: {
                                             type: "checkbox",
                                             id: index + "8",
-                                            name: "example1"
+                                            name: "example1",
                                           },
                                           domProps: {
                                             value: data.mapai_quad / 4,
@@ -1783,13 +1776,13 @@ var render = function() {
                                                   _vm.hotel_selected,
                                                   data.mapai_quad / 4
                                                 ) > -1
-                                              : _vm.hotel_selected
+                                              : _vm.hotel_selected,
                                           },
                                           on: {
-                                            click: function($event) {
+                                            click: function ($event) {
                                               return _vm.check($event)
                                             },
-                                            change: function($event) {
+                                            change: function ($event) {
                                               var $$a = _vm.hotel_selected,
                                                 $$el = $event.target,
                                                 $$c = $$el.checked
@@ -1800,9 +1793,8 @@ var render = function() {
                                                   $$i = _vm._i($$a, $$v)
                                                 if ($$el.checked) {
                                                   $$i < 0 &&
-                                                    (_vm.hotel_selected = $$a.concat(
-                                                      [$$v]
-                                                    ))
+                                                    (_vm.hotel_selected =
+                                                      $$a.concat([$$v]))
                                                 } else {
                                                   $$i > -1 &&
                                                     (_vm.hotel_selected = $$a
@@ -1814,25 +1806,25 @@ var render = function() {
                                               } else {
                                                 _vm.hotel_selected = $$c
                                               }
-                                            }
-                                          }
+                                            },
+                                          },
                                         }),
                                         _vm._v(" "),
                                         _c(
                                           "label",
                                           {
                                             staticClass: "custom-control-label",
-                                            attrs: { for: index + "8" }
+                                            attrs: { for: index + "8" },
                                           },
                                           [
                                             _vm._v(
                                               _vm._s(data.mapai_quad) + "/-"
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ]
                                     )
-                                  : _vm._e()
+                                  : _vm._e(),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-2" }, [
@@ -1843,7 +1835,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "custom-control custom-checkbox"
+                                          "custom-control custom-checkbox",
                                       },
                                       [
                                         _c("input", {
@@ -1852,14 +1844,14 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value: _vm.hotel_selected,
-                                              expression: "hotel_selected"
-                                            }
+                                              expression: "hotel_selected",
+                                            },
                                           ],
                                           staticClass: "custom-control-input",
                                           attrs: {
                                             type: "checkbox",
                                             id: index + "9",
-                                            name: "example1"
+                                            name: "example1",
                                           },
                                           domProps: {
                                             value: data.cpai_single / 1,
@@ -1870,13 +1862,13 @@ var render = function() {
                                                   _vm.hotel_selected,
                                                   data.cpai_single / 1
                                                 ) > -1
-                                              : _vm.hotel_selected
+                                              : _vm.hotel_selected,
                                           },
                                           on: {
-                                            click: function($event) {
+                                            click: function ($event) {
                                               return _vm.check($event)
                                             },
-                                            change: function($event) {
+                                            change: function ($event) {
                                               var $$a = _vm.hotel_selected,
                                                 $$el = $event.target,
                                                 $$c = $$el.checked
@@ -1887,9 +1879,8 @@ var render = function() {
                                                   $$i = _vm._i($$a, $$v)
                                                 if ($$el.checked) {
                                                   $$i < 0 &&
-                                                    (_vm.hotel_selected = $$a.concat(
-                                                      [$$v]
-                                                    ))
+                                                    (_vm.hotel_selected =
+                                                      $$a.concat([$$v]))
                                                 } else {
                                                   $$i > -1 &&
                                                     (_vm.hotel_selected = $$a
@@ -1901,25 +1892,25 @@ var render = function() {
                                               } else {
                                                 _vm.hotel_selected = $$c
                                               }
-                                            }
-                                          }
+                                            },
+                                          },
                                         }),
                                         _vm._v(" "),
                                         _c(
                                           "label",
                                           {
                                             staticClass: "custom-control-label",
-                                            attrs: { for: index + "9" }
+                                            attrs: { for: index + "9" },
                                           },
                                           [
                                             _vm._v(
                                               _vm._s(data.cpai_single) + "/-"
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ]
                                     )
-                                  : _vm._e()
+                                  : _vm._e(),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-2" }, [
@@ -1930,7 +1921,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "custom-control custom-checkbox"
+                                          "custom-control custom-checkbox",
                                       },
                                       [
                                         _c("input", {
@@ -1939,14 +1930,14 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value: _vm.hotel_selected,
-                                              expression: "hotel_selected"
-                                            }
+                                              expression: "hotel_selected",
+                                            },
                                           ],
                                           staticClass: "custom-control-input",
                                           attrs: {
                                             type: "checkbox",
                                             id: index + "10",
-                                            name: "example1"
+                                            name: "example1",
                                           },
                                           domProps: {
                                             value: data.cpai_double / 2,
@@ -1957,13 +1948,13 @@ var render = function() {
                                                   _vm.hotel_selected,
                                                   data.cpai_double / 2
                                                 ) > -1
-                                              : _vm.hotel_selected
+                                              : _vm.hotel_selected,
                                           },
                                           on: {
-                                            click: function($event) {
+                                            click: function ($event) {
                                               return _vm.check($event)
                                             },
-                                            change: function($event) {
+                                            change: function ($event) {
                                               var $$a = _vm.hotel_selected,
                                                 $$el = $event.target,
                                                 $$c = $$el.checked
@@ -1974,9 +1965,8 @@ var render = function() {
                                                   $$i = _vm._i($$a, $$v)
                                                 if ($$el.checked) {
                                                   $$i < 0 &&
-                                                    (_vm.hotel_selected = $$a.concat(
-                                                      [$$v]
-                                                    ))
+                                                    (_vm.hotel_selected =
+                                                      $$a.concat([$$v]))
                                                 } else {
                                                   $$i > -1 &&
                                                     (_vm.hotel_selected = $$a
@@ -1988,25 +1978,25 @@ var render = function() {
                                               } else {
                                                 _vm.hotel_selected = $$c
                                               }
-                                            }
-                                          }
+                                            },
+                                          },
                                         }),
                                         _vm._v(" "),
                                         _c(
                                           "label",
                                           {
                                             staticClass: "custom-control-label",
-                                            attrs: { for: index + "10" }
+                                            attrs: { for: index + "10" },
                                           },
                                           [
                                             _vm._v(
                                               _vm._s(data.cpai_double) + "/-"
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ]
                                     )
-                                  : _vm._e()
+                                  : _vm._e(),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-2" }, [
@@ -2017,7 +2007,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "custom-control custom-checkbox"
+                                          "custom-control custom-checkbox",
                                       },
                                       [
                                         _c("input", {
@@ -2026,14 +2016,14 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value: _vm.hotel_selected,
-                                              expression: "hotel_selected"
-                                            }
+                                              expression: "hotel_selected",
+                                            },
                                           ],
                                           staticClass: "custom-control-input",
                                           attrs: {
                                             type: "checkbox",
                                             id: index + "11",
-                                            name: "example1"
+                                            name: "example1",
                                           },
                                           domProps: {
                                             value: data.cpai_triple / 3,
@@ -2044,13 +2034,13 @@ var render = function() {
                                                   _vm.hotel_selected,
                                                   data.cpai_triple / 3
                                                 ) > -1
-                                              : _vm.hotel_selected
+                                              : _vm.hotel_selected,
                                           },
                                           on: {
-                                            click: function($event) {
+                                            click: function ($event) {
                                               return _vm.check($event)
                                             },
-                                            change: function($event) {
+                                            change: function ($event) {
                                               var $$a = _vm.hotel_selected,
                                                 $$el = $event.target,
                                                 $$c = $$el.checked
@@ -2061,9 +2051,8 @@ var render = function() {
                                                   $$i = _vm._i($$a, $$v)
                                                 if ($$el.checked) {
                                                   $$i < 0 &&
-                                                    (_vm.hotel_selected = $$a.concat(
-                                                      [$$v]
-                                                    ))
+                                                    (_vm.hotel_selected =
+                                                      $$a.concat([$$v]))
                                                 } else {
                                                   $$i > -1 &&
                                                     (_vm.hotel_selected = $$a
@@ -2075,25 +2064,25 @@ var render = function() {
                                               } else {
                                                 _vm.hotel_selected = $$c
                                               }
-                                            }
-                                          }
+                                            },
+                                          },
                                         }),
                                         _vm._v(" "),
                                         _c(
                                           "label",
                                           {
                                             staticClass: "custom-control-label",
-                                            attrs: { for: index + "11" }
+                                            attrs: { for: index + "11" },
                                           },
                                           [
                                             _vm._v(
                                               _vm._s(data.cpai_triple) + "/-"
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ]
                                     )
-                                  : _vm._e()
+                                  : _vm._e(),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-2" }, [
@@ -2104,7 +2093,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "custom-control custom-checkbox"
+                                          "custom-control custom-checkbox",
                                       },
                                       [
                                         _c("input", {
@@ -2113,14 +2102,14 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value: _vm.hotel_selected,
-                                              expression: "hotel_selected"
-                                            }
+                                              expression: "hotel_selected",
+                                            },
                                           ],
                                           staticClass: "custom-control-input",
                                           attrs: {
                                             type: "checkbox",
                                             id: index + "12",
-                                            name: "example1"
+                                            name: "example1",
                                           },
                                           domProps: {
                                             value: data.cpai_quad / 4,
@@ -2131,13 +2120,13 @@ var render = function() {
                                                   _vm.hotel_selected,
                                                   data.cpai_quad / 4
                                                 ) > -1
-                                              : _vm.hotel_selected
+                                              : _vm.hotel_selected,
                                           },
                                           on: {
-                                            click: function($event) {
+                                            click: function ($event) {
                                               return _vm.check($event)
                                             },
-                                            change: function($event) {
+                                            change: function ($event) {
                                               var $$a = _vm.hotel_selected,
                                                 $$el = $event.target,
                                                 $$c = $$el.checked
@@ -2148,9 +2137,8 @@ var render = function() {
                                                   $$i = _vm._i($$a, $$v)
                                                 if ($$el.checked) {
                                                   $$i < 0 &&
-                                                    (_vm.hotel_selected = $$a.concat(
-                                                      [$$v]
-                                                    ))
+                                                    (_vm.hotel_selected =
+                                                      $$a.concat([$$v]))
                                                 } else {
                                                   $$i > -1 &&
                                                     (_vm.hotel_selected = $$a
@@ -2162,29 +2150,29 @@ var render = function() {
                                               } else {
                                                 _vm.hotel_selected = $$c
                                               }
-                                            }
-                                          }
+                                            },
+                                          },
                                         }),
                                         _vm._v(" "),
                                         _c(
                                           "label",
                                           {
                                             staticClass: "custom-control-label",
-                                            attrs: { for: index + "12" }
+                                            attrs: { for: index + "12" },
                                           },
                                           [
                                             _vm._v(
                                               _vm._s(data.cpai_quad) + "/-"
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ]
                                     )
-                                  : _vm._e()
-                              ])
+                                  : _vm._e(),
+                              ]),
                             ]),
                             _vm._v(" "),
-                            _c("hr")
+                            _c("hr"),
                           ])
                         : _c("div", { staticClass: "col-sm-8" }),
                       _vm._v(" "),
@@ -2196,10 +2184,10 @@ var render = function() {
                                 staticClass: "btn btn_plus text-white",
                                 attrs: { type: "button", title: "Add Row" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     return _vm.add_row("hotel")
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [_c("i", { staticClass: "fas fa-plus" })]
                             )
@@ -2209,22 +2197,22 @@ var render = function() {
                                 staticClass: "btn btn_plus text-white",
                                 attrs: { type: "button", title: "Remove Row" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     return _vm.remove_row("hotel", index)
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [_c("i", { staticClass: "fas fa-minus" })]
-                            )
+                            ),
                       ]),
                       _vm._v(" "),
-                      _c("hr")
+                      _c("hr"),
                     ])
                   }),
                   0
-                )
-              ])
-            ])
+                ),
+              ]),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card_calculator" }, [
@@ -2235,7 +2223,7 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "col-sm-12" },
-                  _vm._l(_vm.bus_row, function(bus_data, index) {
+                  _vm._l(_vm.bus_row, function (bus_data, index) {
                     return _c("div", { key: bus_data.id, staticClass: "row" }, [
                       _c(
                         "div",
@@ -2246,22 +2234,22 @@ var render = function() {
                           _c("dropdown-list", {
                             attrs: { itemList: _vm.bus_list },
                             on: {
-                              change: function($event) {
+                              change: function ($event) {
                                 return _vm.onChange(
                                   index,
                                   "bus",
                                   bus_data.bus_id
                                 )
-                              }
+                              },
                             },
                             model: {
                               value: bus_data.bus_id,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(bus_data, "bus_id", $$v)
                               },
-                              expression: "bus_data.bus_id"
-                            }
-                          })
+                              expression: "bus_data.bus_id",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -2269,19 +2257,19 @@ var render = function() {
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Seater")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(bus_data.seater))])
+                        _c("p", [_vm._v(_vm._s(bus_data.seater))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
                         _c("label", [_vm._v("Seat Type")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(bus_data.seat_type))])
+                        _c("p", [_vm._v(_vm._s(bus_data.seat_type))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
                         _c("label", [_vm._v("Price")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(bus_data.price) + " /-")])
+                        _c("p", [_vm._v(_vm._s(bus_data.price) + " /-")]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-1 pt-2" }, [
@@ -2292,10 +2280,10 @@ var render = function() {
                                 staticClass: "btn btn_plus text-white",
                                 attrs: { type: "button", title: "Add Row" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     return _vm.add_row("bus")
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [_c("i", { staticClass: "fas fa-plus" })]
                             )
@@ -2305,20 +2293,20 @@ var render = function() {
                                 staticClass: "btn btn_plus text-white",
                                 attrs: { type: "button", title: "Remove Row" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     return _vm.remove_row("bus", index)
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [_c("i", { staticClass: "fas fa-minus" })]
-                            )
-                      ])
+                            ),
+                      ]),
                     ])
                   }),
                   0
-                )
-              ])
-            ])
+                ),
+              ]),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card_calculator" }, [
@@ -2329,7 +2317,7 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "col-sm-12" },
-                  _vm._l(_vm.train_row, function(train_data, index) {
+                  _vm._l(_vm.train_row, function (train_data, index) {
                     return _c(
                       "div",
                       { key: train_data.id, staticClass: "row" },
@@ -2343,22 +2331,22 @@ var render = function() {
                             _c("dropdown-list", {
                               attrs: { itemList: _vm.train_list },
                               on: {
-                                change: function($event) {
+                                change: function ($event) {
                                   return _vm.onChange(
                                     index,
                                     "train",
                                     train_data.train_id
                                   )
-                                }
+                                },
                               },
                               model: {
                                 value: train_data.train_id,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(train_data, "train_id", $$v)
                                 },
-                                expression: "train_data.train_id"
-                              }
-                            })
+                                expression: "train_data.train_id",
+                              },
+                            }),
                           ],
                           1
                         ),
@@ -2366,7 +2354,7 @@ var render = function() {
                         _c("div", { staticClass: "col-sm-4" }, [
                           _c("label", [_vm._v("Code")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(train_data.code))])
+                          _c("p", [_vm._v(_vm._s(train_data.code))]),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-4" }, [
@@ -2378,13 +2366,13 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: train_data.price,
-                                expression: "train_data.price"
-                              }
+                                expression: "train_data.price",
+                              },
                             ],
                             attrs: { type: "number", name: "price" },
                             domProps: { value: train_data.price },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
@@ -2393,9 +2381,9 @@ var render = function() {
                                   "price",
                                   $event.target.value
                                 )
-                              }
-                            }
-                          })
+                              },
+                            },
+                          }),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-1 pt-2" }, [
@@ -2406,10 +2394,10 @@ var render = function() {
                                   staticClass: "btn btn_plus text-white",
                                   attrs: { type: "button", title: "Add Row" },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.add_row("train")
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_c("i", { staticClass: "fas fa-plus" })]
                               )
@@ -2419,24 +2407,24 @@ var render = function() {
                                   staticClass: "btn btn_plus text-white",
                                   attrs: {
                                     type: "button",
-                                    title: "Remove Row"
+                                    title: "Remove Row",
                                   },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.remove_row("train", index)
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_c("i", { staticClass: "fas fa-minus" })]
-                              )
-                        ])
+                              ),
+                        ]),
                       ]
                     )
                   }),
                   0
-                )
-              ])
-            ])
+                ),
+              ]),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card_calculator" }, [
@@ -2447,7 +2435,7 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "col-sm-12" },
-                  _vm._l(_vm.flight_row, function(flight_data, index) {
+                  _vm._l(_vm.flight_row, function (flight_data, index) {
                     return _c(
                       "div",
                       { key: flight_data.id, staticClass: "row" },
@@ -2461,22 +2449,22 @@ var render = function() {
                             _c("dropdown-list", {
                               attrs: { itemList: _vm.flight_list },
                               on: {
-                                change: function($event) {
+                                change: function ($event) {
                                   return _vm.onChange(
                                     index,
                                     "flight",
                                     flight_data.flight_id
                                   )
-                                }
+                                },
                               },
                               model: {
                                 value: flight_data.flight_id,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(flight_data, "flight_id", $$v)
                                 },
-                                expression: "flight_data.flight_id"
-                              }
-                            })
+                                expression: "flight_data.flight_id",
+                              },
+                            }),
                           ],
                           1
                         ),
@@ -2484,7 +2472,7 @@ var render = function() {
                         _c("div", { staticClass: "col-sm-4" }, [
                           _c("label", [_vm._v("Code")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(flight_data.code))])
+                          _c("p", [_vm._v(_vm._s(flight_data.code))]),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-4" }, [
@@ -2496,13 +2484,13 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: flight_data.price,
-                                expression: "flight_data.price"
-                              }
+                                expression: "flight_data.price",
+                              },
                             ],
                             attrs: { type: "number", name: "price" },
                             domProps: { value: flight_data.price },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
@@ -2511,9 +2499,9 @@ var render = function() {
                                   "price",
                                   $event.target.value
                                 )
-                              }
-                            }
-                          })
+                              },
+                            },
+                          }),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-1 pt-2" }, [
@@ -2524,10 +2512,10 @@ var render = function() {
                                   staticClass: "btn btn_plus text-white",
                                   attrs: { type: "button", title: "Add Row" },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.add_row("flight")
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_c("i", { staticClass: "fas fa-plus" })]
                               )
@@ -2537,24 +2525,24 @@ var render = function() {
                                   staticClass: "btn btn_plus text-white",
                                   attrs: {
                                     type: "button",
-                                    title: "Remove Row"
+                                    title: "Remove Row",
                                   },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.remove_row("flight", index)
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_c("i", { staticClass: "fas fa-minus" })]
-                              )
-                        ])
+                              ),
+                        ]),
                       ]
                     )
                   }),
                   0
-                )
-              ])
-            ])
+                ),
+              ]),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card_calculator" }, [
@@ -2565,7 +2553,7 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "col-sm-12" },
-                  _vm._l(_vm.sight_row, function(sight_data, index) {
+                  _vm._l(_vm.sight_row, function (sight_data, index) {
                     return _c(
                       "div",
                       { key: sight_data.id, staticClass: "row" },
@@ -2579,22 +2567,22 @@ var render = function() {
                             _c("dropdown-list", {
                               attrs: { itemList: _vm.sight_list },
                               on: {
-                                change: function($event) {
+                                change: function ($event) {
                                   return _vm.onChange(
                                     index,
                                     "sight",
                                     sight_data.sight_id
                                   )
-                                }
+                                },
                               },
                               model: {
                                 value: sight_data.sight_id,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(sight_data, "sight_id", $$v)
                                 },
-                                expression: "sight_data.sight_id"
-                              }
-                            })
+                                expression: "sight_data.sight_id",
+                              },
+                            }),
                           ],
                           1
                         ),
@@ -2602,7 +2590,7 @@ var render = function() {
                         _c("div", { staticClass: "col-sm-3" }, [
                           _c("label", [_vm._v("City")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(sight_data.city))])
+                          _c("p", [_vm._v(_vm._s(sight_data.city))]),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-3" }, [
@@ -2612,7 +2600,7 @@ var render = function() {
                             ? _c(
                                 "div",
                                 {
-                                  staticClass: "custom-control custom-checkbox"
+                                  staticClass: "custom-control custom-checkbox",
                                 },
                                 [
                                   _c("input", {
@@ -2621,13 +2609,13 @@ var render = function() {
                                         name: "model",
                                         rawName: "v-model",
                                         value: _vm.sight_selected,
-                                        expression: "sight_selected"
-                                      }
+                                        expression: "sight_selected",
+                                      },
                                     ],
                                     staticClass: "custom-control-input",
                                     attrs: {
                                       type: "checkbox",
-                                      id: index + "adultprice"
+                                      id: index + "adultprice",
                                     },
                                     domProps: {
                                       value: sight_data.adult_price,
@@ -2636,13 +2624,13 @@ var render = function() {
                                             _vm.sight_selected,
                                             sight_data.adult_price
                                           ) > -1
-                                        : _vm.sight_selected
+                                        : _vm.sight_selected,
                                     },
                                     on: {
-                                      click: function($event) {
+                                      click: function ($event) {
                                         return _vm.check($event)
                                       },
-                                      change: function($event) {
+                                      change: function ($event) {
                                         var $$a = _vm.sight_selected,
                                           $$el = $event.target,
                                           $$c = $$el.checked ? true : false
@@ -2652,7 +2640,7 @@ var render = function() {
                                           if ($$el.checked) {
                                             $$i < 0 &&
                                               (_vm.sight_selected = $$a.concat([
-                                                $$v
+                                                $$v,
                                               ]))
                                           } else {
                                             $$i > -1 &&
@@ -2663,25 +2651,25 @@ var render = function() {
                                         } else {
                                           _vm.sight_selected = $$c
                                         }
-                                      }
-                                    }
+                                      },
+                                    },
                                   }),
                                   _vm._v(" "),
                                   _c(
                                     "label",
                                     {
                                       staticClass: "custom-control-label",
-                                      attrs: { for: index + "adultprice" }
+                                      attrs: { for: index + "adultprice" },
                                     },
                                     [
                                       _vm._v(
                                         _vm._s(sight_data.adult_price) + "/-"
-                                      )
+                                      ),
                                     ]
-                                  )
+                                  ),
                                 ]
                               )
-                            : _vm._e()
+                            : _vm._e(),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-2" }, [
@@ -2691,7 +2679,7 @@ var render = function() {
                             ? _c(
                                 "div",
                                 {
-                                  staticClass: "custom-control custom-checkbox"
+                                  staticClass: "custom-control custom-checkbox",
                                 },
                                 [
                                   _c("input", {
@@ -2700,13 +2688,13 @@ var render = function() {
                                         name: "model",
                                         rawName: "v-model",
                                         value: _vm.sight_selected,
-                                        expression: "sight_selected"
-                                      }
+                                        expression: "sight_selected",
+                                      },
                                     ],
                                     staticClass: "custom-control-input",
                                     attrs: {
                                       type: "checkbox",
-                                      id: index + "childchild"
+                                      id: index + "childchild",
                                     },
                                     domProps: {
                                       value: sight_data.child_price,
@@ -2715,13 +2703,13 @@ var render = function() {
                                             _vm.sight_selected,
                                             sight_data.child_price
                                           ) > -1
-                                        : _vm.sight_selected
+                                        : _vm.sight_selected,
                                     },
                                     on: {
-                                      click: function($event) {
+                                      click: function ($event) {
                                         return _vm.check($event)
                                       },
-                                      change: function($event) {
+                                      change: function ($event) {
                                         var $$a = _vm.sight_selected,
                                           $$el = $event.target,
                                           $$c = $$el.checked ? true : false
@@ -2731,7 +2719,7 @@ var render = function() {
                                           if ($$el.checked) {
                                             $$i < 0 &&
                                               (_vm.sight_selected = $$a.concat([
-                                                $$v
+                                                $$v,
                                               ]))
                                           } else {
                                             $$i > -1 &&
@@ -2742,25 +2730,25 @@ var render = function() {
                                         } else {
                                           _vm.sight_selected = $$c
                                         }
-                                      }
-                                    }
+                                      },
+                                    },
                                   }),
                                   _vm._v(" "),
                                   _c(
                                     "label",
                                     {
                                       staticClass: "custom-control-label",
-                                      attrs: { for: index + "childchild" }
+                                      attrs: { for: index + "childchild" },
                                     },
                                     [
                                       _vm._v(
                                         _vm._s(sight_data.child_price) + "/-"
-                                      )
+                                      ),
                                     ]
-                                  )
+                                  ),
                                 ]
                               )
-                            : _vm._e()
+                            : _vm._e(),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-1 pt-2" }, [
@@ -2771,10 +2759,10 @@ var render = function() {
                                   staticClass: "btn btn_plus text-white",
                                   attrs: { type: "button", title: "Add Row" },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.add_row("sight")
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_c("i", { staticClass: "fas fa-plus" })]
                               )
@@ -2784,24 +2772,24 @@ var render = function() {
                                   staticClass: "btn btn_plus text-white",
                                   attrs: {
                                     type: "button",
-                                    title: "Remove Row"
+                                    title: "Remove Row",
                                   },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.remove_row("sight", index)
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_c("i", { staticClass: "fas fa-minus" })]
-                              )
-                        ])
+                              ),
+                        ]),
                       ]
                     )
                   }),
                   0
-                )
-              ])
-            ])
+                ),
+              ]),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card_calculator" }, [
@@ -2812,7 +2800,7 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "col-sm-12" },
-                  _vm._l(_vm.escort_row, function(escort_data, index) {
+                  _vm._l(_vm.escort_row, function (escort_data, index) {
                     return _c(
                       "div",
                       { key: escort_data.id, staticClass: "row" },
@@ -2826,22 +2814,22 @@ var render = function() {
                             _c("dropdown-list", {
                               attrs: { itemList: _vm.escort_list },
                               on: {
-                                change: function($event) {
+                                change: function ($event) {
                                   return _vm.onChange(
                                     index,
                                     "escort",
                                     escort_data.escort_id
                                   )
-                                }
+                                },
                               },
                               model: {
                                 value: escort_data.escort_id,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(escort_data, "escort_id", $$v)
                                 },
-                                expression: "escort_data.escort_id"
-                              }
-                            })
+                                expression: "escort_data.escort_id",
+                              },
+                            }),
                           ],
                           1
                         ),
@@ -2849,15 +2837,15 @@ var render = function() {
                         _c("div", { staticClass: "col-sm-4" }, [
                           _c("label", [_vm._v("Phone No")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(escort_data.phoneno))])
+                          _c("p", [_vm._v(_vm._s(escort_data.phoneno))]),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-4" }, [
                           _c("label", [_vm._v("Per Day Salary")]),
                           _vm._v(" "),
                           _c("p", [
-                            _vm._v(_vm._s(escort_data.salaryPerday) + "/-")
-                          ])
+                            _vm._v(_vm._s(escort_data.salaryPerday) + "/-"),
+                          ]),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-1 pt-2" }, [
@@ -2868,10 +2856,10 @@ var render = function() {
                                   staticClass: "btn btn_plus text-white",
                                   attrs: { type: "button", title: "Add Row" },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.add_row("escort")
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_c("i", { staticClass: "fas fa-plus" })]
                               )
@@ -2881,24 +2869,24 @@ var render = function() {
                                   staticClass: "btn btn_plus text-white",
                                   attrs: {
                                     type: "button",
-                                    title: "Remove Row"
+                                    title: "Remove Row",
                                   },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.remove_row("escort", index)
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_c("i", { staticClass: "fas fa-minus" })]
-                              )
-                        ])
+                              ),
+                        ]),
                       ]
                     )
                   }),
                   0
-                )
-              ])
-            ])
+                ),
+              ]),
+            ]),
           ]),
           _vm._v(" "),
           _vm.showModal
@@ -2912,13 +2900,13 @@ var render = function() {
                           "div",
                           {
                             staticClass: "modal-dialog",
-                            attrs: { role: "document" }
+                            attrs: { role: "document" },
                           },
                           [
                             _c("div", { staticClass: "modal-content" }, [
                               _c("div", { staticClass: "modal-header" }, [
                                 _c("h5", { staticClass: "modal-title" }, [
-                                  _vm._v("Calculator Preview")
+                                  _vm._v("Calculator Preview"),
                                 ]),
                                 _vm._v(" "),
                                 _c(
@@ -2928,8 +2916,8 @@ var render = function() {
                                     attrs: {
                                       type: "button",
                                       "data-dismiss": "modal",
-                                      "aria-label": "Close"
-                                    }
+                                      "aria-label": "Close",
+                                    },
                                   },
                                   [
                                     _c(
@@ -2937,15 +2925,15 @@ var render = function() {
                                       {
                                         attrs: { "aria-hidden": "true" },
                                         on: {
-                                          click: function($event) {
+                                          click: function ($event) {
                                             _vm.showModal = false
-                                          }
-                                        }
+                                          },
+                                        },
                                       },
                                       [_vm._v("×")]
-                                    )
+                                    ),
                                   ]
-                                )
+                                ),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "modal-body" }, [
@@ -2957,48 +2945,48 @@ var render = function() {
                                       _c("td", [_c("b", [_vm._v("Hotel ")])]),
                                       _vm._v(" "),
                                       _c("td", [
-                                        _vm._v(_vm._s(_vm.hotel_total))
-                                      ])
+                                        _vm._v(_vm._s(_vm.hotel_total)),
+                                      ]),
                                     ]),
                                     _vm._v(" "),
                                     _c("tr", [
                                       _c("td", [_c("b", [_vm._v("Train")])]),
                                       _vm._v(" "),
                                       _c("td", [
-                                        _vm._v(_vm._s(_vm.train_total))
-                                      ])
+                                        _vm._v(_vm._s(_vm.train_total)),
+                                      ]),
                                     ]),
                                     _vm._v(" "),
                                     _c("tr", [
                                       _c("td", [_c("b", [_vm._v("Bus")])]),
                                       _vm._v(" "),
-                                      _c("td", [_vm._v(_vm._s(_vm.bus_total))])
+                                      _c("td", [_vm._v(_vm._s(_vm.bus_total))]),
                                     ]),
                                     _vm._v(" "),
                                     _c("tr", [
                                       _c("td", [_c("b", [_vm._v("Flight")])]),
                                       _vm._v(" "),
                                       _c("td", [
-                                        _vm._v(_vm._s(_vm.flight_total))
-                                      ])
+                                        _vm._v(_vm._s(_vm.flight_total)),
+                                      ]),
                                     ]),
                                     _vm._v(" "),
                                     _c("tr", [
                                       _c("td", [
-                                        _c("b", [_vm._v("Sightseeing")])
+                                        _c("b", [_vm._v("Sightseeing")]),
                                       ]),
                                       _vm._v(" "),
                                       _c("td", [
-                                        _vm._v(_vm._s(_vm.sight_seeing_total))
-                                      ])
-                                    ])
+                                        _vm._v(_vm._s(_vm.sight_seeing_total)),
+                                      ]),
+                                    ]),
                                   ]
-                                )
+                                ),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "modal-footer" }, [
                                 _c("h4", { staticClass: "mr-auto" }, [
-                                  _vm._v("Total : " + _vm._s(_vm.total))
+                                  _vm._v("Total : " + _vm._s(_vm.total)),
                                 ]),
                                 _vm._v(" "),
                                 _c(
@@ -3007,24 +2995,24 @@ var render = function() {
                                     staticClass: "btn btn-secondary",
                                     attrs: { type: "button" },
                                     on: {
-                                      click: function($event) {
+                                      click: function ($event) {
                                         _vm.showModal = false
-                                      }
-                                    }
+                                      },
+                                    },
                                   },
                                   [
                                     _vm._v(
                                       "\n                        Close\n                      "
-                                    )
+                                    ),
                                   ]
-                                )
-                              ])
-                            ])
+                                ),
+                              ]),
+                            ]),
                           ]
-                        )
-                      ])
-                    ])
-                  ])
+                        ),
+                      ]),
+                    ]),
+                  ]),
                 ],
                 1
               )
@@ -3039,7 +3027,7 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "btn btn-primary itrn_add_btn back_btn",
-                    attrs: { to: "/itinerary-list" }
+                    attrs: { to: "/itinerary-list" },
                   },
                   [_vm._v("\n              Back\n            ")]
                 ),
@@ -3050,20 +3038,20 @@ var render = function() {
                     staticClass: "btn itrn_add_btn",
                     attrs: { type: "button" },
                     on: {
-                      click: function($event) {
+                      click: function ($event) {
                         return _vm.sumData()
-                      }
-                    }
+                      },
+                    },
                   },
                   [_vm._v("\n              Submit\n            ")]
-                )
+                ),
               ],
               1
-            )
-          ])
-        ])
-      ])
-    ])
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []

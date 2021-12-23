@@ -69,7 +69,7 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -84,21 +84,21 @@ var render = function() {
             {
               staticClass: "display table table-striped table-bordered nowrap",
               staticStyle: { width: "100%" },
-              attrs: { id: "example" }
+              attrs: { id: "example" },
             },
             [
               _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.encyclopedia_list, function(encyclopedia) {
+                _vm._l(_vm.encyclopedia_list, function (encyclopedia) {
                   return _c(
                     "tr",
                     {
                       key: encyclopedia.id,
                       staticClass: "row_list",
                       class: { odd: _vm.oddclass, even: _vm.evenclass },
-                      attrs: { role: "row" }
+                      attrs: { role: "row" },
                     },
                     [
                       _c("td", [_vm._v(_vm._s(encyclopedia.encyclopedia_id))]),
@@ -114,29 +114,29 @@ var render = function() {
                             staticClass: "delete_link",
                             attrs: { href: "" },
                             on: {
-                              click: function($event) {
+                              click: function ($event) {
                                 $event.preventDefault()
                                 return _vm.deleteencyclopedia(encyclopedia.id)
-                              }
-                            }
+                              },
+                            },
                           },
                           [_vm._m(1, true)]
-                        )
-                      ])
+                        ),
+                      ]),
                     ]
                   )
                 }),
                 0
-              )
+              ),
             ]
-          )
-        ])
-      ])
-    ])
+          ),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -148,18 +148,18 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("DATE "), _c("i", { staticClass: "fas fa-sort" })]),
         _vm._v(" "),
-        _c("th", [_c("i", { staticClass: "fas fa-cog" })])
-      ])
+        _c("th", [_c("i", { staticClass: "fas fa-cog" })]),
+      ]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "badge badge-danger" }, [
-      _c("i", { staticClass: "far fa-trash-alt" })
+      _c("i", { staticClass: "far fa-trash-alt" }),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -178,7 +178,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _List_encyclopediacomment_vue_vue_type_template_id_54124ad4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./List-encyclopediacomment.vue?vue&type=template&id=54124ad4& */ "./resources/js/admin/pages/encyclopedia/comment/List-encyclopediacomment.vue?vue&type=template&id=54124ad4&");
 /* harmony import */ var _List_encyclopediacomment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./List-encyclopediacomment.vue?vue&type=script&lang=js& */ "./resources/js/admin/pages/encyclopedia/comment/List-encyclopediacomment.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _List_encyclopediacomment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _List_encyclopediacomment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _List_encyclopediacomment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _List_encyclopediacomment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -216,7 +216,7 @@ component.options.__file = "resources/js/admin/pages/encyclopedia/comment/List-e
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_encyclopediacomment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./List-encyclopediacomment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/encyclopedia/comment/List-encyclopediacomment.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_encyclopediacomment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_encyclopediacomment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_encyclopediacomment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_encyclopediacomment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_encyclopediacomment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_encyclopediacomment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_encyclopediacomment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),

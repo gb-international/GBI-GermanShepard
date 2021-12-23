@@ -29,6 +29,8 @@ Route::namespace('Front')->group(function(){
 	Route::get('/itinerary-list/{count?}','ItineraryController@list');
 	Route::get('/itinerary-view/{id}','ItineraryController@view');
 
+	Route::post('/hotel-search','HotelController@searchHotel');
+
 	Route::post('/user-logout','FrontUserController@logout');
 	Route::get('/tour-list/{id}','FrontUserController@user_tour_list');
 	Route::get('/userdata/{id}','FrontUserController@userdata');

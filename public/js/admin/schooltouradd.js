@@ -328,7 +328,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -341,21 +341,21 @@ var render = function() {
               [
                 {
                   key: "formdata",
-                  fn: function() {
+                  fn: function () {
                     return [
                       _c(
                         "form",
                         {
                           attrs: {
                             role: "form",
-                            enctype: "multipart/form-data"
+                            enctype: "multipart/form-data",
                           },
                           on: {
-                            submit: function($event) {
+                            submit: function ($event) {
                               $event.preventDefault()
                               return _vm.AddTour()
-                            }
-                          }
+                            },
+                          },
                         },
                         [
                           _c("div", { staticClass: "row" }, [
@@ -365,7 +365,7 @@ var render = function() {
                                 { staticClass: "form-group" },
                                 [
                                   _c("label", { attrs: { for: "tour_id" } }, [
-                                    _vm._v("Tour Code")
+                                    _vm._v("Tour Code"),
                                   ]),
                                   _vm._v(" "),
                                   _c("input", {
@@ -374,23 +374,22 @@ var render = function() {
                                         name: "model",
                                         rawName: "v-model",
                                         value: _vm.form.tour_id,
-                                        expression: "form.tour_id"
-                                      }
+                                        expression: "form.tour_id",
+                                      },
                                     ],
                                     staticClass: "form-control",
                                     class: {
-                                      "is-invalid": _vm.form.errors.has(
-                                        "tour_id"
-                                      )
+                                      "is-invalid":
+                                        _vm.form.errors.has("tour_id"),
                                     },
                                     attrs: {
                                       type: "text",
                                       readonly: "",
-                                      placeholder: "Enter Tour ID"
+                                      placeholder: "Enter Tour ID",
                                     },
                                     domProps: { value: _vm.form.tour_id },
                                     on: {
-                                      input: function($event) {
+                                      input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
@@ -399,16 +398,16 @@ var render = function() {
                                           "tour_id",
                                           $event.target.value
                                         )
-                                      }
-                                    }
+                                      },
+                                    },
                                   }),
                                   _vm._v(" "),
                                   _c("has-error", {
-                                    attrs: { form: _vm.form, field: "tour_id" }
-                                  })
+                                    attrs: { form: _vm.form, field: "tour_id" },
+                                  }),
                                 ],
                                 1
-                              )
+                              ),
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-sm-6" }, [
@@ -428,22 +427,21 @@ var render = function() {
                                         name: "model",
                                         rawName: "v-model",
                                         value: _vm.form.travel_code,
-                                        expression: "form.travel_code"
-                                      }
+                                        expression: "form.travel_code",
+                                      },
                                     ],
                                     staticClass: "form-control",
                                     class: {
-                                      "is-invalid": _vm.form.errors.has(
-                                        "travel_code"
-                                      )
+                                      "is-invalid":
+                                        _vm.form.errors.has("travel_code"),
                                     },
                                     attrs: {
                                       type: "text",
-                                      placeholder: "Enter Travel Code"
+                                      placeholder: "Enter Travel Code",
                                     },
                                     domProps: { value: _vm.form.travel_code },
                                     on: {
-                                      input: function($event) {
+                                      input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
@@ -452,19 +450,19 @@ var render = function() {
                                           "travel_code",
                                           $event.target.value
                                         )
-                                      }
-                                    }
+                                      },
+                                    },
                                   }),
                                   _vm._v(" "),
                                   _c("has-error", {
                                     attrs: {
                                       form: _vm.form,
-                                      field: "travel_code"
-                                    }
-                                  })
+                                      field: "travel_code",
+                                    },
+                                  }),
                                 ],
                                 1
-                              )
+                              ),
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-sm-12" }, [
@@ -481,7 +479,9 @@ var render = function() {
                                   _c("dropdown-filter", {
                                     staticClass: "mb-2",
                                     attrs: { itemList: _vm.itinerary_list },
-                                    on: { "update:option": _vm.itineraryUpdate }
+                                    on: {
+                                      "update:option": _vm.itineraryUpdate,
+                                    },
                                   }),
                                   _vm._v(" "),
                                   _vm.form.errors.has("itinerary_id")
@@ -496,14 +496,14 @@ var render = function() {
                                                   "itinerary_id"
                                                 )
                                               )
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ])
-                                    : _vm._e()
+                                    : _vm._e(),
                                 ],
                                 1
-                              )
+                              ),
                             ]),
                             _vm._v(" "),
                             _vm.form.customer_type == "school"
@@ -522,8 +522,8 @@ var render = function() {
                                         staticClass: "mb-2",
                                         attrs: { itemList: _vm.school_list },
                                         on: {
-                                          "update:option": _vm.schoolUpdate
-                                        }
+                                          "update:option": _vm.schoolUpdate,
+                                        },
                                       }),
                                       _vm._v(" "),
                                       _vm.form.errors.has("school_id")
@@ -532,7 +532,7 @@ var render = function() {
                                               "label",
                                               {
                                                 staticClass:
-                                                  "danger text-danger"
+                                                  "danger text-danger",
                                               },
                                               [
                                                 _vm._v(
@@ -541,14 +541,14 @@ var render = function() {
                                                       "school_id"
                                                     )
                                                   )
-                                                )
+                                                ),
                                               ]
-                                            )
+                                            ),
                                           ])
-                                        : _vm._e()
+                                        : _vm._e(),
                                     ],
                                     1
-                                  )
+                                  ),
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -568,8 +568,8 @@ var render = function() {
                                         staticClass: "mb-2",
                                         attrs: { itemList: _vm.company_list },
                                         on: {
-                                          "update:option": _vm.companyUpdate
-                                        }
+                                          "update:option": _vm.companyUpdate,
+                                        },
                                       }),
                                       _vm._v(" "),
                                       _vm.form.errors.has("company_id")
@@ -578,7 +578,7 @@ var render = function() {
                                               "label",
                                               {
                                                 staticClass:
-                                                  "danger text-danger"
+                                                  "danger text-danger",
                                               },
                                               [
                                                 _vm._v(
@@ -587,14 +587,14 @@ var render = function() {
                                                       "company_id"
                                                     )
                                                   )
-                                                )
+                                                ),
                                               ]
-                                            )
+                                            ),
                                           ])
-                                        : _vm._e()
+                                        : _vm._e(),
                                     ],
                                     1
-                                  )
+                                  ),
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -615,25 +615,24 @@ var render = function() {
                                         name: "model",
                                         rawName: "v-model",
                                         value: _vm.form.tour_start_date,
-                                        expression: "form.tour_start_date"
-                                      }
+                                        expression: "form.tour_start_date",
+                                      },
                                     ],
                                     staticClass: "form-control",
                                     class: {
-                                      "is-invalid": _vm.form.errors.has(
-                                        "tour_start_date"
-                                      )
+                                      "is-invalid":
+                                        _vm.form.errors.has("tour_start_date"),
                                     },
                                     attrs: {
                                       type: "date",
                                       placeholder: "Enter Tour Start Date",
-                                      min: _vm.minDate
+                                      min: _vm.minDate,
                                     },
                                     domProps: {
-                                      value: _vm.form.tour_start_date
+                                      value: _vm.form.tour_start_date,
                                     },
                                     on: {
-                                      input: function($event) {
+                                      input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
@@ -642,19 +641,19 @@ var render = function() {
                                           "tour_start_date",
                                           $event.target.value
                                         )
-                                      }
-                                    }
+                                      },
+                                    },
                                   }),
                                   _vm._v(" "),
                                   _c("has-error", {
                                     attrs: {
                                       form: _vm.form,
-                                      field: "tour_start_date"
-                                    }
-                                  })
+                                      field: "tour_start_date",
+                                    },
+                                  }),
                                 ],
                                 1
-                              )
+                              ),
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-sm-4" }, [
@@ -674,23 +673,22 @@ var render = function() {
                                         name: "model",
                                         rawName: "v-model",
                                         value: _vm.form.tour_end_date,
-                                        expression: "form.tour_end_date"
-                                      }
+                                        expression: "form.tour_end_date",
+                                      },
                                     ],
                                     staticClass: "form-control",
                                     class: {
-                                      "is-invalid": _vm.form.errors.has(
-                                        "tour_end_date"
-                                      )
+                                      "is-invalid":
+                                        _vm.form.errors.has("tour_end_date"),
                                     },
                                     attrs: {
                                       type: "date",
                                       placeholder: "Enter Enter Date",
-                                      min: _vm.form.tour_start_date
+                                      min: _vm.form.tour_start_date,
                                     },
                                     domProps: { value: _vm.form.tour_end_date },
                                     on: {
-                                      input: function($event) {
+                                      input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
@@ -699,19 +697,19 @@ var render = function() {
                                           "tour_end_date",
                                           $event.target.value
                                         )
-                                      }
-                                    }
+                                      },
+                                    },
                                   }),
                                   _vm._v(" "),
                                   _c("has-error", {
                                     attrs: {
                                       form: _vm.form,
-                                      field: "tour_end_date"
-                                    }
-                                  })
+                                      field: "tour_end_date",
+                                    },
+                                  }),
                                 ],
                                 1
-                              )
+                              ),
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-sm-4" }, [
@@ -731,22 +729,21 @@ var render = function() {
                                         name: "model",
                                         rawName: "v-model",
                                         value: _vm.form.tour_price,
-                                        expression: "form.tour_price"
-                                      }
+                                        expression: "form.tour_price",
+                                      },
                                     ],
                                     staticClass: "form-control",
                                     class: {
-                                      "is-invalid": _vm.form.errors.has(
-                                        "tour_price"
-                                      )
+                                      "is-invalid":
+                                        _vm.form.errors.has("tour_price"),
                                     },
                                     attrs: {
                                       type: "text",
-                                      placeholder: "Enter Tour Price"
+                                      placeholder: "Enter Tour Price",
                                     },
                                     domProps: { value: _vm.form.tour_price },
                                     on: {
-                                      input: function($event) {
+                                      input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
@@ -755,35 +752,35 @@ var render = function() {
                                           "tour_price",
                                           $event.target.value
                                         )
-                                      }
-                                    }
+                                      },
+                                    },
                                   }),
                                   _vm._v(" "),
                                   _c("has-error", {
                                     attrs: {
                                       form: _vm.form,
-                                      field: "tour_price"
-                                    }
-                                  })
+                                      field: "tour_price",
+                                    },
+                                  }),
                                 ],
                                 1
-                              )
-                            ])
+                              ),
+                            ]),
                           ]),
                           _vm._v(" "),
-                          _c("form-buttons")
+                          _c("form-buttons"),
                         ],
                         1
-                      )
+                      ),
                     ]
                   },
-                  proxy: true
-                }
+                  proxy: true,
+                },
               ],
               null,
               false,
               2903982386
-            )
+            ),
           })
         : _vm._e(),
       _vm._v(" "),
@@ -795,15 +792,15 @@ var render = function() {
               name: "show",
               rawName: "v-show",
               value: _vm.loading,
-              expression: "loading"
-            }
+              expression: "loading",
+            },
           ],
-          staticClass: "LoaderDiv"
+          staticClass: "LoaderDiv",
         },
         [
           _c("img", {
             staticClass: "loaderLogo",
-            attrs: { src: "/loader/logo_gif.gif" }
+            attrs: { src: "/loader/logo_gif.gif" },
           }),
           _vm._v(" "),
           _c(
@@ -812,13 +809,13 @@ var render = function() {
               staticStyle: {
                 "padding-left": "33px",
                 "margin-top": "12px",
-                "font-weight": "500"
-              }
+                "font-weight": "500",
+              },
             },
             [_vm._v("Loading..")]
-          )
+          ),
         ]
-      )
+      ),
     ],
     1
   )

@@ -112,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -134,7 +134,7 @@ var render = function() {
                           _c("tbody", [
                             _c("tr", [
                               _c("td", { staticClass: "border-0" }, [
-                                _vm._v("Male")
+                                _vm._v("Male"),
                               ]),
                               _vm._v(" "),
                               _c(
@@ -145,7 +145,7 @@ var render = function() {
                                     "\n                          " +
                                       _vm._s(_vm.escort.total_male) +
                                       "\n                        "
-                                  )
+                                  ),
                                 ]
                               ),
                               _vm._v(" "),
@@ -157,14 +157,14 @@ var render = function() {
                                     "\n                          " +
                                       _vm._s(_vm.escort.absent_male) +
                                       "\n                        "
-                                  )
+                                  ),
                                 ]
-                              )
+                              ),
                             ]),
                             _vm._v(" "),
                             _c("tr", [
                               _c("td", { staticClass: "border-0" }, [
-                                _vm._v("Female")
+                                _vm._v("Female"),
                               ]),
                               _vm._v(" "),
                               _c(
@@ -175,7 +175,7 @@ var render = function() {
                                     "\n                          " +
                                       _vm._s(_vm.escort.total_male) +
                                       "\n                        "
-                                  )
+                                  ),
                                 ]
                               ),
                               _vm._v(" "),
@@ -187,45 +187,45 @@ var render = function() {
                                     "\n                          " +
                                       _vm._s(_vm.escort.absent_male) +
                                       "\n                        "
-                                  )
+                                  ),
                                 ]
-                              )
-                            ])
-                          ])
-                        ])
+                              ),
+                            ]),
+                          ]),
+                        ]),
                       ]),
                       _vm._v(" "),
                       _vm._m(2),
                       _vm._v(" "),
                       _c("p", { staticClass: "m-0" }, [
-                        _vm._v(_vm._s(_vm.escort.message))
+                        _vm._v(_vm._s(_vm.escort.message)),
                       ]),
                       _vm._v(" "),
                       _vm._m(3),
                       _vm._v(" "),
-                      _c("p", {}, [_vm._v(_vm._s(_vm.escort.escort.name))])
+                      _c("p", {}, [_vm._v(_vm._s(_vm.escort.escort.name))]),
                     ])
                   : _c("div", { staticClass: "mt-5 text-center" }, [
                       _c("p", { staticClass: "text-muted" }, [
-                        _vm._v("No Updates from escort")
-                      ])
-                    ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
+                        _vm._v("No Updates from escort"),
+                      ]),
+                    ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [_c("label", [_vm._v("Update from Escort")])])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -235,26 +235,26 @@ var staticRenderFns = [
       _c("th", { staticClass: "text-center border-0" }, [_vm._v("Passenger")]),
       _vm._v(" "),
       _c("th", { staticClass: "text-center border-0" }, [
-        _vm._v("Absent Passenger")
-      ])
+        _vm._v("Absent Passenger"),
+      ]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "m-0" }, [
-      _c("label", [_vm._v("Comment from Escort")])
+      _c("label", [_vm._v("Comment from Escort")]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "m-0 mt-3" }, [
-      _c("label", [_vm._v("Escort Name")])
+      _c("label", [_vm._v("Escort Name")]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

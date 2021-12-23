@@ -193,7 +193,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -204,18 +204,18 @@ var render = function() {
         scopedSlots: _vm._u([
           {
             key: "formdata",
-            fn: function() {
+            fn: function () {
               return [
                 _c(
                   "form",
                   {
                     attrs: { role: "form", enctype: "multipart/form-data" },
                     on: {
-                      submit: function($event) {
+                      submit: function ($event) {
                         $event.preventDefault()
                         return _vm.UpdateJob()
-                      }
-                    }
+                      },
+                    },
                   },
                   [
                     _vm.form.title
@@ -226,7 +226,7 @@ var render = function() {
                               { staticClass: "form-group" },
                               [
                                 _c("label", { attrs: { for: "title" } }, [
-                                  _vm._v("Job Title")
+                                  _vm._v("Job Title"),
                                 ]),
                                 _vm._v(" "),
                                 _c("input", {
@@ -235,20 +235,20 @@ var render = function() {
                                       name: "model",
                                       rawName: "v-model",
                                       value: _vm.form.title,
-                                      expression: "form.title"
-                                    }
+                                      expression: "form.title",
+                                    },
                                   ],
                                   staticClass: "form-control",
                                   class: {
-                                    "is-invalid": _vm.form.errors.has("title")
+                                    "is-invalid": _vm.form.errors.has("title"),
                                   },
                                   attrs: {
                                     type: "text",
-                                    placeholder: "Enter title"
+                                    placeholder: "Enter title",
                                   },
                                   domProps: { value: _vm.form.title },
                                   on: {
-                                    input: function($event) {
+                                    input: function ($event) {
                                       if ($event.target.composing) {
                                         return
                                       }
@@ -257,16 +257,16 @@ var render = function() {
                                         "title",
                                         $event.target.value
                                       )
-                                    }
-                                  }
+                                    },
+                                  },
                                 }),
                                 _vm._v(" "),
                                 _c("has-error", {
-                                  attrs: { form: _vm.form, field: "title" }
-                                })
+                                  attrs: { form: _vm.form, field: "title" },
+                                }),
                               ],
                               1
-                            )
+                            ),
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "col-sm-12" }, [
@@ -275,7 +275,7 @@ var render = function() {
                               { staticClass: "form-group" },
                               [
                                 _c("label", { attrs: { for: "job_type" } }, [
-                                  _vm._v("Job Type")
+                                  _vm._v("Job Type"),
                                 ]),
                                 _vm._v(" "),
                                 _c("multiselect", {
@@ -284,29 +284,29 @@ var render = function() {
                                     "close-on-select": true,
                                     placeholder: "Choose Job Type",
                                     label: "name",
-                                    "track-by": "name"
+                                    "track-by": "name",
                                   },
                                   model: {
                                     value: _vm.form.job_type,
-                                    callback: function($$v) {
+                                    callback: function ($$v) {
                                       _vm.$set(_vm.form, "job_type", $$v)
                                     },
-                                    expression: "form.job_type"
-                                  }
+                                    expression: "form.job_type",
+                                  },
                                 }),
                                 _vm._v(" "),
                                 _c("has-error", {
-                                  attrs: { form: _vm.form, field: "job_type" }
+                                  attrs: { form: _vm.form, field: "job_type" },
                                 }),
                                 _vm._v(" "),
                                 _vm.categoryWarn && !_vm.form.job_type
                                   ? _c("p", { staticClass: "warn-error" }, [
-                                      _vm._v(" Select Job Type.")
+                                      _vm._v(" Select Job Type."),
                                     ])
-                                  : _vm._e()
+                                  : _vm._e(),
                               ],
                               1
-                            )
+                            ),
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "col-sm-12" }, [
@@ -315,57 +315,56 @@ var render = function() {
                               { staticClass: "form-group" },
                               [
                                 _c("label", { attrs: { for: "description" } }, [
-                                  _vm._v("Job Description")
+                                  _vm._v("Job Description"),
                                 ]),
                                 _vm._v(" "),
                                 _c("vue-editor", {
                                   class: {
-                                    "is-invalid": _vm.form.errors.has(
-                                      "description"
-                                    )
+                                    "is-invalid":
+                                      _vm.form.errors.has("description"),
                                   },
                                   attrs: {
                                     customModules: _vm.customModulesForEditor,
                                     editorOptions: _vm.editorSettings,
                                     id: "editor",
-                                    useCustomImageHandler: ""
+                                    useCustomImageHandler: "",
                                   },
                                   on: {
                                     "image-added": _vm.handleImageAdded,
-                                    "image-removed": _vm.handleImageRemoved
+                                    "image-removed": _vm.handleImageRemoved,
                                   },
                                   model: {
                                     value: _vm.form.description,
-                                    callback: function($$v) {
+                                    callback: function ($$v) {
                                       _vm.$set(_vm.form, "description", $$v)
                                     },
-                                    expression: "form.description"
-                                  }
+                                    expression: "form.description",
+                                  },
                                 }),
                                 _vm._v(" "),
                                 _c("has-error", {
                                   attrs: {
                                     form: _vm.form,
-                                    field: "description"
-                                  }
-                                })
+                                    field: "description",
+                                  },
+                                }),
                               ],
                               1
-                            )
-                          ])
+                            ),
+                          ]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
-                    _c("form-buttons")
+                    _c("form-buttons"),
                   ],
                   1
-                )
+                ),
               ]
             },
-            proxy: true
-          }
-        ])
-      })
+            proxy: true,
+          },
+        ]),
+      }),
     ],
     1
   )

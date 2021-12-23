@@ -33,20 +33,9 @@ Vue.prototype.$swal = swal;
 Vue.config.devtools = false;
 Vue.config.debug = false;
 Vue.config.silent = true;
-//console.log = function() {};
+console.log = function() {};
 
 // End
-
-Vue.use(new VueSocketIO({
-    debug: true,
-    connection: 'http://127.0.0.1:3000',
-    vuex: {
-        store,
-        actionPrefix: 'SOCKET_',
-        mutationPrefix: 'SOCKET_'
-    },
-    //options: { path: "/my-app/" } //Optional options
-}))
 
 const toast = swal.mixin({
     toast: true,
@@ -57,6 +46,8 @@ const toast = swal.mixin({
 
 Vue.prototype.$toast = toast
 Vue.prototype.$gbiAssets = 'https://gbi-assets.s3.ap-south-1.amazonaws.com';
+//Vue.prototype.$hostName = 'https://gowithgbi.com:3000'
+Vue.prototype.$hostName = 'localhost:3000'
 
 const eventsHub = new Vue();
 //600000, // 10 Mint Auto logout,

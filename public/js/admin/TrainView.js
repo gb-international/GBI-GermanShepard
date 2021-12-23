@@ -106,7 +106,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -121,38 +121,38 @@ var render = function() {
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Name")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.bus_view.company_name))])
+                _c("p", [_vm._v(_vm._s(_vm.bus_view.company_name))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Street")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.bus_view.seater))])
+                _c("p", [_vm._v(_vm._s(_vm.bus_view.seater))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("City Name")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.bus_view.seat_type))])
+                _c("p", [_vm._v(_vm._s(_vm.bus_view.seat_type))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("State Name")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.bus_view.price))])
+                _c("p", [_vm._v(_vm._s(_vm.bus_view.price))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Created At")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.bus_view.created_at))])
+                _c("p", [_vm._v(_vm._s(_vm.bus_view.created_at))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Updated At")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.bus_view.updated_at))])
-              ])
+                _c("p", [_vm._v(_vm._s(_vm.bus_view.updated_at))]),
+              ]),
             ]),
             _vm._v(" "),
             _c(
@@ -160,17 +160,17 @@ var render = function() {
               {
                 staticClass: "btn btn-primary itrn_add_btn back_btn",
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.goBack()
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("\n            Back\n          ")]
-            )
-          ])
-        ])
-      ])
-    ])
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []

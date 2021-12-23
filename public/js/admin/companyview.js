@@ -203,7 +203,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -218,12 +218,16 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { to: _vm.url },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
           )
         : _c(
@@ -233,14 +237,18 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { type: "button" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
-          )
+          ),
     ],
     1
   )
@@ -263,7 +271,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -280,11 +288,11 @@ var render = function() {
             { staticClass: "text-center" },
             [_c("back-button", { attrs: { url: _vm.backurl } })],
             1
-          )
+          ),
         ],
         2
-      )
-    ])
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -305,7 +313,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -314,74 +322,74 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "viewdata",
-        fn: function() {
+        fn: function () {
           return [
             _c("div", { staticClass: "row pl-3" }, [
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Name")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.client_view.company_name))])
+                _c("p", [_vm._v(_vm._s(_vm.client_view.company_name))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Street")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.client_view.street))])
+                _c("p", [_vm._v(_vm._s(_vm.client_view.street))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("City Name")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.client_view.city_name))])
+                _c("p", [_vm._v(_vm._s(_vm.client_view.city_name))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("State Name")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.client_view.state_name))])
+                _c("p", [_vm._v(_vm._s(_vm.client_view.state_name))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Country Name")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.client_view.country_name))])
+                _c("p", [_vm._v(_vm._s(_vm.client_view.country_name))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Pincode")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.client_view.pincode))])
+                _c("p", [_vm._v(_vm._s(_vm.client_view.pincode))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Primary Email")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.client_view.incharge_email_id))])
+                _c("p", [_vm._v(_vm._s(_vm.client_view.incharge_email_id))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Secondary Email")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.client_view.company_email_id))])
+                _c("p", [_vm._v(_vm._s(_vm.client_view.company_email_id))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Mobile")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.client_view.mobile))])
+                _c("p", [_vm._v(_vm._s(_vm.client_view.mobile))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Created At")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.client_view.created_at))])
+                _c("p", [_vm._v(_vm._s(_vm.client_view.created_at))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Updated At")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.client_view.updated_at))])
-              ])
+                _c("p", [_vm._v(_vm._s(_vm.client_view.updated_at))]),
+              ]),
             ]),
             _vm._v(" "),
             _c("hr"),
@@ -392,7 +400,7 @@ var render = function() {
               ? _c(
                   "div",
                   { staticClass: "row pl-3" },
-                  _vm._l(_vm.client_view.tours, function(tour, index) {
+                  _vm._l(_vm.client_view.tours, function (tour, index) {
                     return _c(
                       "div",
                       { key: tour.id, staticClass: "col-sm-4" },
@@ -406,21 +414,21 @@ var render = function() {
                               "router-link",
                               { attrs: { to: "/booked-tour/10" } },
                               [_vm._v(_vm._s(tour.tour_id))]
-                            )
+                            ),
                           ],
                           1
-                        )
+                        ),
                       ]
                     )
                   }),
                   0
                 )
-              : _vm._e()
+              : _vm._e(),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

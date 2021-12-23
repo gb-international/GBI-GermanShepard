@@ -64,7 +64,18 @@
           <p class="ml-auto p2">₹{{itineraryData.price * 5/100 + itineraryData.price - 2000}} </p>
         </div>
       </div>
-      <button class="btn btnPay">Pay Now</button>
+
+      <button v-if="login" 
+        class="btn btnPay" 
+        data-toggle="modal"
+        data-target="#bookModal">
+          Book Now
+      </button>
+      <button v-else class="btn btnPay" id="loginButton"
+        data-toggle="modal"
+        data-target="#LoginForm">
+        Book Now
+      </button>
     </div>
   </div>
 
@@ -75,7 +86,19 @@
       <span class="smallP">(Incl. all taxes)</span>
       <p class="p2">₹{{itineraryData.price * 5/100 + itineraryData.price - 2000}}</p>
     </div>
-    <button class="btn btnConfirm ml-auto">Pay Now</button>
+    <button v-if="login" 
+      class="btn btnConfirm ml-auto" 
+      data-toggle="modal"
+      data-target="#bookModal">
+        Book Now
+    </button>
+    <button v-else
+      class="btn btnConfirm ml-auto"
+      data-toggle="modal"
+      data-target="#LoginForm"
+      id="loginButton"
+    >Book Now
+    </button>
   </div>
   <!-- Row 2 -->
   <div class="mainRow2 container">
@@ -135,6 +158,25 @@
       </div>
     </div>
   </div>
+
+  <!-- Booking Modal -->
+    <div class="modal" id="bookModal">
+      <div class="modal-dialog">
+        <div class="modal-content modal-color">
+          <div class="modal-body" v-if="itineraryData.itinerarydays">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            <booking 
+              v-if="loading== false"
+              :title="itineraryData.title"
+              :selected_cities="selected_cities"
+              :city_list="city_list"
+              ></booking>
+
+          </div>
+        </div>
+      </div>
+    </div>
 
 </section>
   

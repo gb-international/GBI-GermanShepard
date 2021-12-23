@@ -165,12 +165,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h1", { staticClass: "gbi_main-heading pt-3 text-capitalize" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -191,12 +191,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("p", { staticClass: "gbi_paragraph largeFirstLetter pt-2" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -217,12 +217,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h4", { staticClass: "gbi_sub-heading text-capitalize m-0 p-0" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -243,7 +243,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -262,15 +262,14 @@ var render = function() {
                 _c("heading", { attrs: { text: "Safety and Security" } }),
                 _vm._v(" "),
                 _c("sub-heading", {
-                  attrs: { text: "Your Safety Our Responsibility" }
+                  attrs: { text: "Your Safety Our Responsibility" },
                 }),
                 _vm._v(" "),
                 _c("paragraph", {
                   attrs: {
-                    text:
-                      "We are completely aware of your travel worries and equally concerned with the issues related to the safety of oneself and your fellow travelers.Thereby ensuring a complete well-planned itinerary where there are limited chances of any security lapses. Our extensive travel experience in handling practical scenarios and managing risks with safety protocols, we strive to deliver a hassle-free journey under the guidance of our thoroughly trained tour leaders."
-                  }
-                })
+                    text: "We are completely aware of your travel worries and equally concerned with the issues related to the safety of oneself and your fellow travelers.Thereby ensuring a complete well-planned itinerary where there are limited chances of any security lapses. Our extensive travel experience in handling practical scenarios and managing risks with safety protocols, we strive to deliver a hassle-free journey under the guidance of our thoroughly trained tour leaders.",
+                  },
+                }),
               ],
               1
             ),
@@ -280,7 +279,7 @@ var render = function() {
                 "figure",
                 {
                   directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                  staticClass: "image__wrapper"
+                  staticClass: "image__wrapper",
                 },
                 [
                   _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -290,44 +289,43 @@ var render = function() {
                     attrs: {
                       id: "safetyimg1",
                       "data-url": "/assets/front/images/safety_security.jpg",
-                      alt: "GBI safety security"
-                    }
-                  })
+                      alt: "GBI safety security",
+                    },
+                  }),
                 ],
                 1
-              )
-            ])
+              ),
+            ]),
           ]),
           _vm._v(" "),
           _c("sub-heading", {
             attrs: {
-              text: "We Put Efforts to Make Your Trip Worth Breathe Taking"
-            }
+              text: "We Put Efforts to Make Your Trip Worth Breathe Taking",
+            },
           }),
           _vm._v(" "),
           _c("paragraph", {
             attrs: {
-              text:
-                "Every group oriented journey that is planned with GBI, an experienced and a friendly tour leader is assigned who ensures your personal safety and security and other travel needs. Our tour leaders are carefully assessed and selected for their sensitivity and knowledge of that very destination. Besides their day-to-day responsibilities, they are also trained to deal with the unforeseen circumstances."
-            }
-          })
+              text: "Every group oriented journey that is planned with GBI, an experienced and a friendly tour leader is assigned who ensures your personal safety and security and other travel needs. Our tour leaders are carefully assessed and selected for their sensitivity and knowledge of that very destination. Besides their day-to-day responsibilities, they are also trained to deal with the unforeseen circumstances.",
+            },
+          }),
         ],
         1
-      )
-    ])
+      ),
+    ]),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "safety_banner text_on_image banner_bg" }, [
       _c("div", { staticClass: "content" }, [
-        _c("p", { staticClass: "heading" }, [_vm._v("Safety & Security")])
-      ])
+        _c("p", { staticClass: "heading" }, [_vm._v("Safety & Security")]),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

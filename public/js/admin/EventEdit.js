@@ -277,7 +277,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -285,7 +285,7 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _vm.allCreated
               ? _c(
@@ -293,11 +293,11 @@ var render = function() {
                   {
                     attrs: { role: "form", enctype: "multipart/form-data" },
                     on: {
-                      submit: function($event) {
+                      submit: function ($event) {
                         $event.preventDefault()
                         return _vm.updateEvent()
-                      }
-                    }
+                      },
+                    },
                   },
                   [
                     _c("div", { staticClass: "row" }, [
@@ -307,7 +307,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "name" } }, [
-                              _vm._v("Event Name")
+                              _vm._v("Event Name"),
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -316,20 +316,20 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.name,
-                                  expression: "form.name"
-                                }
+                                  expression: "form.name",
+                                },
                               ],
                               staticClass: "form-control",
                               class: {
-                                "is-invalid": _vm.form.errors.has("name")
+                                "is-invalid": _vm.form.errors.has("name"),
                               },
                               attrs: {
                                 type: "text",
-                                placeholder: "Enter Event Name"
+                                placeholder: "Enter Event Name",
                               },
                               domProps: { value: _vm.form.name },
                               on: {
-                                input: function($event) {
+                                input: function ($event) {
                                   if ($event.target.composing) {
                                     return
                                   }
@@ -338,16 +338,16 @@ var render = function() {
                                     "name",
                                     $event.target.value
                                   )
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "name" }
-                            })
+                              attrs: { form: _vm.form, field: "name" },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-6" }, [
@@ -356,7 +356,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "itinerary_id" } }, [
-                              _vm._v("Select Itinerary")
+                              _vm._v("Select Itinerary"),
                             ]),
                             _vm._v(" "),
                             _c("dropdown-filter", {
@@ -365,11 +365,11 @@ var render = function() {
                               on: { "update:option": _vm.itineraryUpdate },
                               model: {
                                 value: _vm.form.itinerary_id,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(_vm.form, "itinerary_id", $$v)
                                 },
-                                expression: "form.itinerary_id"
-                              }
+                                expression: "form.itinerary_id",
+                              },
                             }),
                             _vm._v(" "),
                             _vm.form.errors.has("itinerary_id")
@@ -382,14 +382,14 @@ var render = function() {
                                         _vm._s(
                                           _vm.form.errors.get("itinerary_id")
                                         )
-                                      )
+                                      ),
                                     ]
-                                  )
+                                  ),
                                 ])
-                              : _vm._e()
+                              : _vm._e(),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-12" }, [
@@ -398,39 +398,40 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "description" } }, [
-                              _vm._v("Description")
+                              _vm._v("Description"),
                             ]),
                             _vm._v(" "),
                             _c("vue-editor", {
                               class: {
-                                "is-invalid": _vm.form.errors.has("description")
+                                "is-invalid":
+                                  _vm.form.errors.has("description"),
                               },
                               attrs: {
                                 customModules: _vm.customModulesForEditor,
                                 editorOptions: _vm.editorSettings,
                                 id: "editor",
-                                useCustomImageHandler: ""
+                                useCustomImageHandler: "",
                               },
                               on: {
                                 "image-added": _vm.handleImageAdded,
-                                "image-removed": _vm.handleImageRemoved
+                                "image-removed": _vm.handleImageRemoved,
                               },
                               model: {
                                 value: _vm.form.description,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(_vm.form, "description", $$v)
                                 },
-                                expression: "form.description"
-                              }
+                                expression: "form.description",
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "description" }
-                            })
+                              attrs: { form: _vm.form, field: "description" },
+                            }),
                           ],
                           1
-                        )
-                      ])
+                        ),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
@@ -440,7 +441,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "date" } }, [
-                              _vm._v("Date")
+                              _vm._v("Date"),
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -449,20 +450,20 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.date,
-                                  expression: "form.date"
-                                }
+                                  expression: "form.date",
+                                },
                               ],
                               staticClass: "form-control",
                               class: {
-                                "is-invalid": _vm.form.errors.has("date")
+                                "is-invalid": _vm.form.errors.has("date"),
                               },
                               attrs: {
                                 type: "date",
-                                placeholder: "Enter Event date"
+                                placeholder: "Enter Event date",
                               },
                               domProps: { value: _vm.form.date },
                               on: {
-                                input: function($event) {
+                                input: function ($event) {
                                   if ($event.target.composing) {
                                     return
                                   }
@@ -471,16 +472,16 @@ var render = function() {
                                     "date",
                                     $event.target.value
                                   )
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "date" }
-                            })
+                              attrs: { form: _vm.form, field: "date" },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-6" }, [
@@ -489,7 +490,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "time" } }, [
-                              _vm._v("Time")
+                              _vm._v("Time"),
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -498,20 +499,20 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.time,
-                                  expression: "form.time"
-                                }
+                                  expression: "form.time",
+                                },
                               ],
                               staticClass: "form-control",
                               class: {
-                                "is-invalid": _vm.form.errors.has("time")
+                                "is-invalid": _vm.form.errors.has("time"),
                               },
                               attrs: {
                                 type: "time",
-                                placeholder: "Enter Event time"
+                                placeholder: "Enter Event time",
                               },
                               domProps: { value: _vm.form.time },
                               on: {
-                                input: function($event) {
+                                input: function ($event) {
                                   if ($event.target.composing) {
                                     return
                                   }
@@ -520,17 +521,17 @@ var render = function() {
                                     "time",
                                     $event.target.value
                                   )
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "time" }
-                            })
+                              attrs: { form: _vm.form, field: "time" },
+                            }),
                           ],
                           1
-                        )
-                      ])
+                        ),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row mb-30" }, [
@@ -541,18 +542,17 @@ var render = function() {
                               _c("input", {
                                 staticClass: "overflow-hidden",
                                 class: {
-                                  "is-invalid": _vm.form.errors.has(
-                                    "form.photo"
-                                  )
+                                  "is-invalid":
+                                    _vm.form.errors.has("form.photo"),
                                 },
                                 attrs: { name: "photo", type: "file" },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.changePhoto($event)
-                                  }
-                                }
-                              })
-                            ])
+                                  },
+                                },
+                              }),
+                            ]),
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "col-sm-6" }, [
@@ -562,12 +562,12 @@ var render = function() {
                                     src: _vm.form.photo,
                                     alt: "",
                                     width: "80",
-                                    height: "80"
-                                  }
+                                    height: "80",
+                                  },
                                 })
-                              : _vm._e()
-                          ])
-                        ])
+                              : _vm._e(),
+                          ]),
+                        ]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-6" }, [
@@ -577,18 +577,17 @@ var render = function() {
                               _c("input", {
                                 staticClass: "overflow-hidden",
                                 class: {
-                                  "is-invalid": _vm.form.errors.has(
-                                    "form.detail_photo"
-                                  )
+                                  "is-invalid":
+                                    _vm.form.errors.has("form.detail_photo"),
                                 },
                                 attrs: { type: "file" },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.changeDetailPhoto($event)
-                                  }
-                                }
-                              })
-                            ])
+                                  },
+                                },
+                              }),
+                            ]),
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "col-sm-7" }, [
@@ -599,25 +598,25 @@ var render = function() {
                                     src: _vm.form.detail_photo,
                                     alt: "",
                                     width: "80",
-                                    height: "80"
-                                  }
+                                    height: "80",
+                                  },
                                 })
-                              : _vm._e()
-                          ])
-                        ])
-                      ])
+                              : _vm._e(),
+                          ]),
+                        ]),
+                      ]),
                     ]),
                     _vm._v(" "),
-                    _c("form-buttons")
+                    _c("form-buttons"),
                   ],
                   1
                 )
-              : _vm._e()
+              : _vm._e(),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

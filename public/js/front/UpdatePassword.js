@@ -88,7 +88,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -98,7 +98,7 @@ var render = function() {
         _c("div", { staticClass: "row justify-content-center pt-20" }, [
           _c("div", { staticClass: "col-sm-5 p-20 tour-code-card" }, [
             _c("h5", { staticClass: "text-center pb-15" }, [
-              _vm._v("Update Your Password")
+              _vm._v("Update Your Password"),
             ]),
             _vm._v(" "),
             _c(
@@ -107,11 +107,11 @@ var render = function() {
                 staticClass: "form",
                 attrs: { method: "post" },
                 on: {
-                  submit: function($event) {
+                  submit: function ($event) {
                     $event.preventDefault()
                     return _vm.UpdatePassword()
-                  }
-                }
+                  },
+                },
               },
               [
                 _c(
@@ -119,7 +119,7 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "tour_code" } }, [
-                      _vm._v("Current Password")
+                      _vm._v("Current Password"),
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -128,21 +128,21 @@ var render = function() {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.form.current_password,
-                          expression: "form.current_password"
-                        }
+                          expression: "form.current_password",
+                        },
                       ],
                       staticClass: "form-control",
                       class: {
-                        "is-invalid": _vm.form.errors.has("current_password")
+                        "is-invalid": _vm.form.errors.has("current_password"),
                       },
                       attrs: {
                         type: "password",
                         placeholder: "Enter Current Password",
-                        required: ""
+                        required: "",
                       },
                       domProps: { value: _vm.form.current_password },
                       on: {
-                        input: function($event) {
+                        input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
@@ -151,13 +151,13 @@ var render = function() {
                             "current_password",
                             $event.target.value
                           )
-                        }
-                      }
+                        },
+                      },
                     }),
                     _vm._v(" "),
                     _c("has-error", {
-                      attrs: { form: _vm.form, field: "current_password" }
-                    })
+                      attrs: { form: _vm.form, field: "current_password" },
+                    }),
                   ],
                   1
                 ),
@@ -167,7 +167,7 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "tour_code" } }, [
-                      _vm._v("New Password")
+                      _vm._v("New Password"),
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -176,21 +176,21 @@ var render = function() {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.form.new_password,
-                          expression: "form.new_password"
-                        }
+                          expression: "form.new_password",
+                        },
                       ],
                       staticClass: "form-control",
                       class: {
-                        "is-invalid": _vm.form.errors.has("new_password")
+                        "is-invalid": _vm.form.errors.has("new_password"),
                       },
                       attrs: {
                         type: "password",
                         placeholder: "Enter New Password",
-                        required: ""
+                        required: "",
                       },
                       domProps: { value: _vm.form.new_password },
                       on: {
-                        input: function($event) {
+                        input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
@@ -199,13 +199,13 @@ var render = function() {
                             "new_password",
                             $event.target.value
                           )
-                        }
-                      }
+                        },
+                      },
                     }),
                     _vm._v(" "),
                     _c("has-error", {
-                      attrs: { form: _vm.form, field: "new_password" }
-                    })
+                      attrs: { form: _vm.form, field: "new_password" },
+                    }),
                   ],
                   1
                 ),
@@ -215,7 +215,7 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "tour_code" } }, [
-                      _vm._v("Confirm Password")
+                      _vm._v("Confirm Password"),
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -224,21 +224,21 @@ var render = function() {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.form.confirm_password,
-                          expression: "form.confirm_password"
-                        }
+                          expression: "form.confirm_password",
+                        },
                       ],
                       staticClass: "form-control",
                       class: {
-                        "is-invalid": _vm.form.errors.has("confirm_password")
+                        "is-invalid": _vm.form.errors.has("confirm_password"),
                       },
                       attrs: {
                         type: "password",
                         placeholder: "Re-Enter Password",
-                        required: ""
+                        required: "",
                       },
                       domProps: { value: _vm.form.confirm_password },
                       on: {
-                        input: function($event) {
+                        input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
@@ -247,34 +247,34 @@ var render = function() {
                             "confirm_password",
                             $event.target.value
                           )
-                        }
-                      }
+                        },
+                      },
                     }),
                     _vm._v(" "),
                     _c("has-error", {
-                      attrs: { form: _vm.form, field: "confirm_password" }
-                    })
+                      attrs: { form: _vm.form, field: "confirm_password" },
+                    }),
                   ],
                   1
                 ),
                 _vm._v(" "),
                 _vm.message
                   ? _c("p", { staticClass: "text-success" }, [
-                      _vm._v(_vm._s(_vm.message))
+                      _vm._v(_vm._s(_vm.message)),
                     ])
                   : _vm._e(),
                 _vm._v(" "),
-                _vm._m(0)
+                _vm._m(0),
               ]
-            )
-          ])
-        ])
-      ])
-    ])
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -283,9 +283,9 @@ var staticRenderFns = [
         "button",
         { staticClass: "btn profile_button", attrs: { type: "submit" } },
         [_vm._v("Update")]
-      )
+      ),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

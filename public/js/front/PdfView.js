@@ -52,7 +52,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -61,10 +61,10 @@ var render = function() {
       staticClass: "img w-20 mr-2 link mb-2",
       attrs: { src: _vm.$gbiAssets + "/images/icons/back.png" },
       on: {
-        click: function($event) {
+        click: function ($event) {
           return _vm.$router.go(-1)
-        }
-      }
+        },
+      },
     }),
     _vm._v(" "),
     _vm.pdf
@@ -73,11 +73,12 @@ var render = function() {
             staticClass: "w-100 h-400",
             attrs: {
               id: "fraDisabled",
-              src: "/encyclopedia/pdf/" + _vm.pdf.name + "#toolbar=0&navpanes=0"
-            }
-          })
+              src:
+                "/encyclopedia/pdf/" + _vm.pdf.name + "#toolbar=0&navpanes=0",
+            },
+          }),
         ])
-      : _vm._e()
+      : _vm._e(),
   ])
 }
 var staticRenderFns = []

@@ -15,9 +15,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_buttons_SubmitButton_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/buttons/SubmitButton.vue */ "./resources/js/admin/components/buttons/SubmitButton.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -269,7 +269,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -277,18 +277,18 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "form",
               {
                 attrs: { role: "form", enctype: "multipart/form-data" },
                 on: {
-                  submit: function($event) {
+                  submit: function ($event) {
                     $event.preventDefault()
                     return _vm.UpdateBookedusers()
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("div", { staticClass: "row" }, [
@@ -298,7 +298,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "schoolbankdetail_id" } }, [
-                          _vm._v("School Bank Detail")
+                          _vm._v("School Bank Detail"),
                         ]),
                         _vm._v(" "),
                         _c(
@@ -310,17 +310,17 @@ var render = function() {
                                 rawName: "v-model.lazy",
                                 value: _vm.form.schoolbankdetail_id,
                                 expression: "form.schoolbankdetail_id",
-                                modifiers: { lazy: true }
-                              }
+                                modifiers: { lazy: true },
+                              },
                             ],
                             staticClass: "form-control select-field",
                             on: {
-                              change: function($event) {
+                              change: function ($event) {
                                 var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
+                                  .call($event.target.options, function (o) {
                                     return o.selected
                                   })
-                                  .map(function(o) {
+                                  .map(function (o) {
                                     var val = "_value" in o ? o._value : o.value
                                     return val
                                   })
@@ -331,8 +331,8 @@ var render = function() {
                                     ? $$selectedVal
                                     : $$selectedVal[0]
                                 )
-                              }
-                            }
+                              },
+                            },
                           },
                           [
                             _c(
@@ -341,7 +341,7 @@ var render = function() {
                               [_vm._v("Select Bank ")]
                             ),
                             _vm._v(" "),
-                            _vm._l(_vm.banks, function(bank) {
+                            _vm._l(_vm.banks, function (bank) {
                               return _c(
                                 "option",
                                 { key: bank.id, domProps: { value: bank.id } },
@@ -350,10 +350,10 @@ var render = function() {
                                     "\n              " +
                                       _vm._s(bank.name) +
                                       "\n            "
-                                  )
+                                  ),
                                 ]
                               )
-                            })
+                            }),
                           ],
                           2
                         ),
@@ -361,12 +361,12 @@ var render = function() {
                         _c("has-error", {
                           attrs: {
                             form: _vm.form,
-                            field: "form.schoolbankdetail_id"
-                          }
-                        })
+                            field: "form.schoolbankdetail_id",
+                          },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -375,7 +375,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "payment_mode" } }, [
-                          _vm._v("Payment Mode")
+                          _vm._v("Payment Mode"),
                         ]),
                         _vm._v(" "),
                         _c(
@@ -387,17 +387,17 @@ var render = function() {
                                 rawName: "v-model.lazy",
                                 value: _vm.form.payment_mode,
                                 expression: "form.payment_mode",
-                                modifiers: { lazy: true }
-                              }
+                                modifiers: { lazy: true },
+                              },
                             ],
                             staticClass: "form-control select-field",
                             on: {
-                              change: function($event) {
+                              change: function ($event) {
                                 var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
+                                  .call($event.target.options, function (o) {
                                     return o.selected
                                   })
-                                  .map(function(o) {
+                                  .map(function (o) {
                                     var val = "_value" in o ? o._value : o.value
                                     return val
                                   })
@@ -408,8 +408,8 @@ var render = function() {
                                     ? $$selectedVal
                                     : $$selectedVal[0]
                                 )
-                              }
-                            }
+                              },
+                            },
                           },
                           [
                             _c(
@@ -419,17 +419,17 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "self" } }, [
-                              _vm._v("Self")
-                            ])
+                              _vm._v("Self"),
+                            ]),
                           ]
                         ),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "form.payment_mode" }
-                        })
+                          attrs: { form: _vm.form, field: "form.payment_mode" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -438,7 +438,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "payment_type" } }, [
-                          _vm._v("Payment type")
+                          _vm._v("Payment type"),
                         ]),
                         _vm._v(" "),
                         _c(
@@ -450,17 +450,17 @@ var render = function() {
                                 rawName: "v-model.lazy",
                                 value: _vm.form.payment_type,
                                 expression: "form.payment_type",
-                                modifiers: { lazy: true }
-                              }
+                                modifiers: { lazy: true },
+                              },
                             ],
                             staticClass: "form-control select-field",
                             on: {
-                              change: function($event) {
+                              change: function ($event) {
                                 var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
+                                  .call($event.target.options, function (o) {
                                     return o.selected
                                   })
-                                  .map(function(o) {
+                                  .map(function (o) {
                                     var val = "_value" in o ? o._value : o.value
                                     return val
                                   })
@@ -471,8 +471,8 @@ var render = function() {
                                     ? $$selectedVal
                                     : $$selectedVal[0]
                                 )
-                              }
-                            }
+                              },
+                            },
                           },
                           [
                             _c(
@@ -482,25 +482,25 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "cash" } }, [
-                              _vm._v("Cash")
+                              _vm._v("Cash"),
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "cheque" } }, [
-                              _vm._v("Cheque")
+                              _vm._v("Cheque"),
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "net" } }, [
-                              _vm._v("Net")
-                            ])
+                              _vm._v("Net"),
+                            ]),
                           ]
                         ),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "form.payment_type" }
-                        })
+                          attrs: { form: _vm.form, field: "form.payment_type" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -509,7 +509,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "ifsc_code" } }, [
-                          _vm._v("IFSC Code")
+                          _vm._v("IFSC Code"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -518,20 +518,20 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.ifsc_code,
-                              expression: "form.ifsc_code"
-                            }
+                              expression: "form.ifsc_code",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("ifsc_code")
+                            "is-invalid": _vm.form.errors.has("ifsc_code"),
                           },
                           attrs: {
                             type: "text",
-                            placeholder: "Enter ifsc_code"
+                            placeholder: "Enter ifsc_code",
                           },
                           domProps: { value: _vm.form.ifsc_code },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -540,16 +540,16 @@ var render = function() {
                                 "ifsc_code",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "ifsc_code" }
-                        })
+                          attrs: { form: _vm.form, field: "ifsc_code" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -558,7 +558,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "cheque_number" } }, [
-                          _vm._v("Cheque Number")
+                          _vm._v("Cheque Number"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -567,20 +567,20 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.cheque_number,
-                              expression: "form.cheque_number"
-                            }
+                              expression: "form.cheque_number",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("cheque_number")
+                            "is-invalid": _vm.form.errors.has("cheque_number"),
                           },
                           attrs: {
                             type: "text",
-                            placeholder: "Enter cheque_number"
+                            placeholder: "Enter cheque_number",
                           },
                           domProps: { value: _vm.form.cheque_number },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -589,16 +589,16 @@ var render = function() {
                                 "cheque_number",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "cheque_number" }
-                        })
+                          attrs: { form: _vm.form, field: "cheque_number" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -607,7 +607,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "cheque_bank_name" } }, [
-                          _vm._v("Cheque Bank Name")
+                          _vm._v("Cheque Bank Name"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -616,22 +616,21 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.cheque_bank_name,
-                              expression: "form.cheque_bank_name"
-                            }
+                              expression: "form.cheque_bank_name",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has(
-                              "cheque_bank_name"
-                            )
+                            "is-invalid":
+                              _vm.form.errors.has("cheque_bank_name"),
                           },
                           attrs: {
                             type: "text",
-                            placeholder: "Enter cheque_bank_name"
+                            placeholder: "Enter cheque_bank_name",
                           },
                           domProps: { value: _vm.form.cheque_bank_name },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -640,16 +639,16 @@ var render = function() {
                                 "cheque_bank_name",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "cheque_bank_name" }
-                        })
+                          attrs: { form: _vm.form, field: "cheque_bank_name" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -658,7 +657,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "date_of_issue" } }, [
-                          _vm._v("Date Of Issue")
+                          _vm._v("Date Of Issue"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -667,20 +666,20 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.date_of_issue,
-                              expression: "form.date_of_issue"
-                            }
+                              expression: "form.date_of_issue",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("date_of_issue")
+                            "is-invalid": _vm.form.errors.has("date_of_issue"),
                           },
                           attrs: {
                             type: "date",
-                            placeholder: "Enter date_of_issue"
+                            placeholder: "Enter date_of_issue",
                           },
                           domProps: { value: _vm.form.date_of_issue },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -689,16 +688,16 @@ var render = function() {
                                 "date_of_issue",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "date_of_issue" }
-                        })
+                          attrs: { form: _vm.form, field: "date_of_issue" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -707,7 +706,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "added_by" } }, [
-                          _vm._v("Added By")
+                          _vm._v("Added By"),
                         ]),
                         _vm._v(" "),
                         _c(
@@ -719,17 +718,17 @@ var render = function() {
                                 rawName: "v-model.lazy",
                                 value: _vm.form.added_by,
                                 expression: "form.added_by",
-                                modifiers: { lazy: true }
-                              }
+                                modifiers: { lazy: true },
+                              },
                             ],
                             staticClass: "form-control select-field",
                             on: {
-                              change: function($event) {
+                              change: function ($event) {
                                 var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
+                                  .call($event.target.options, function (o) {
                                     return o.selected
                                   })
-                                  .map(function(o) {
+                                  .map(function (o) {
                                     var val = "_value" in o ? o._value : o.value
                                     return val
                                   })
@@ -740,8 +739,8 @@ var render = function() {
                                     ? $$selectedVal
                                     : $$selectedVal[0]
                                 )
-                              }
-                            }
+                              },
+                            },
                           },
                           [
                             _c(
@@ -751,21 +750,21 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "teacher" } }, [
-                              _vm._v("Teacher")
+                              _vm._v("Teacher"),
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "student" } }, [
-                              _vm._v("Student")
-                            ])
+                              _vm._v("Student"),
+                            ]),
                           ]
                         ),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "form.added_by" }
-                        })
+                          attrs: { form: _vm.form, field: "form.added_by" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -774,7 +773,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "amount" } }, [
-                          _vm._v("Amount")
+                          _vm._v("Amount"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -783,34 +782,34 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.amount,
-                              expression: "form.amount"
-                            }
+                              expression: "form.amount",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("amount")
+                            "is-invalid": _vm.form.errors.has("amount"),
                           },
                           attrs: {
                             type: "number",
-                            placeholder: "Enter amount"
+                            placeholder: "Enter amount",
                           },
                           domProps: { value: _vm.form.amount },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "amount", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "amount" }
-                        })
+                          attrs: { form: _vm.form, field: "amount" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -819,7 +818,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "status" } }, [
-                          _vm._v("Status")
+                          _vm._v("Status"),
                         ]),
                         _vm._v(" "),
                         _c(
@@ -831,17 +830,17 @@ var render = function() {
                                 rawName: "v-model.lazy",
                                 value: _vm.form.status,
                                 expression: "form.status",
-                                modifiers: { lazy: true }
-                              }
+                                modifiers: { lazy: true },
+                              },
                             ],
                             staticClass: "form-control select-field",
                             on: {
-                              change: function($event) {
+                              change: function ($event) {
                                 var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
+                                  .call($event.target.options, function (o) {
                                     return o.selected
                                   })
-                                  .map(function(o) {
+                                  .map(function (o) {
                                     var val = "_value" in o ? o._value : o.value
                                     return val
                                   })
@@ -852,8 +851,8 @@ var render = function() {
                                     ? $$selectedVal
                                     : $$selectedVal[0]
                                 )
-                              }
-                            }
+                              },
+                            },
                           },
                           [
                             _c(
@@ -863,33 +862,33 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "success" } }, [
-                              _vm._v("Success")
+                              _vm._v("Success"),
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "peding" } }, [
-                              _vm._v("Pending")
-                            ])
+                              _vm._v("Pending"),
+                            ]),
                           ]
                         ),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "form.status" }
-                        })
+                          attrs: { form: _vm.form, field: "form.status" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
-                _c("form-buttons")
+                _c("form-buttons"),
               ],
               1
-            )
+            ),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

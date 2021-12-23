@@ -127,7 +127,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -135,7 +135,7 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _vm.allCreated
               ? _c(
@@ -143,11 +143,11 @@ var render = function() {
                   {
                     attrs: { role: "form", enctype: "multipart/form-data" },
                     on: {
-                      submit: function($event) {
+                      submit: function ($event) {
                         $event.preventDefault()
                         return _vm.updateSeason()
-                      }
-                    }
+                      },
+                    },
                   },
                   [
                     _c("div", { staticClass: "row" }, [
@@ -157,7 +157,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "current" } }, [
-                              _vm._v("Select Current Season")
+                              _vm._v("Select Current Season"),
                             ]),
                             _vm._v(" "),
                             _c("dropdown-filter", {
@@ -166,11 +166,11 @@ var render = function() {
                               on: { "update:option": _vm.currentUpdate },
                               model: {
                                 value: _vm.form.current,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(_vm.form, "current", $$v)
                                 },
-                                expression: "form.current"
-                              }
+                                expression: "form.current",
+                              },
                             }),
                             _vm._v(" "),
                             _vm.form.errors.has("current")
@@ -181,27 +181,27 @@ var render = function() {
                                     [
                                       _vm._v(
                                         _vm._s(_vm.form.errors.get("current"))
-                                      )
+                                      ),
                                     ]
-                                  )
+                                  ),
                                 ])
-                              : _vm._e()
+                              : _vm._e(),
                           ],
                           1
-                        )
-                      ])
+                        ),
+                      ]),
                     ]),
                     _vm._v(" "),
-                    _c("form-buttons")
+                    _c("form-buttons"),
                   ],
                   1
                 )
-              : _vm._e()
+              : _vm._e(),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

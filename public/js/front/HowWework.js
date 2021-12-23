@@ -332,12 +332,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h1", { staticClass: "gbi_main-heading pt-3 text-capitalize" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -358,12 +358,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("p", { staticClass: "gbi_paragraph largeFirstLetter pt-2" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -384,12 +384,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h4", { staticClass: "gbi_sub-heading text-capitalize m-0 p-0" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -410,7 +410,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -425,9 +425,8 @@ var render = function() {
         _vm._v(" "),
         _c("paragraph", {
           attrs: {
-            text:
-              "We at GB International follow a  ROFRE mechanism  which helps our teams to execute and plan the excursions based on the requirements of the clients (students and travelers). Every GBI  team member takes into the consideration the scope of the travel and based on the custom needs we plan and execute the trip. Our 40 years of research and experimental approach has helped us understand the customer and their needs better."
-          }
+            text: "We at GB International follow a  ROFRE mechanism  which helps our teams to execute and plan the excursions based on the requirements of the clients (students and travelers). Every GBI  team member takes into the consideration the scope of the travel and based on the custom needs we plan and execute the trip. Our 40 years of research and experimental approach has helped us understand the customer and their needs better.",
+          },
         }),
         _vm._v(" "),
         _c("paragraph", { attrs: { text: "R-Requirement gathering" } }),
@@ -441,26 +440,24 @@ var render = function() {
         _c("paragraph", { attrs: { text: "E-Execution" } }),
         _vm._v(" "),
         _c("paragraph", {
-          attrs: { text: "Travel research for destination and market" }
+          attrs: { text: "Travel research for destination and market" },
         }),
         _vm._v(" "),
         _c("sub-heading", { attrs: { text: "Itinerary Development" } }),
         _vm._v(" "),
         _c("paragraph", {
           attrs: {
-            text:
-              "Understanding the objective of travel plan include the main curriculum handpicked ,collaborate ,research problem, research and resource material, curriculum connection."
-          }
+            text: "Understanding the objective of travel plan include the main curriculum handpicked ,collaborate ,research problem, research and resource material, curriculum connection.",
+          },
         }),
         _vm._v(" "),
         _c("sub-heading", { attrs: { text: "Financial Planning" } }),
         _vm._v(" "),
         _c("paragraph", {
           attrs: {
-            text:
-              "Gathering requirements and scope, creating a road map, performing analysis , travel and implementation planning and executing  the plan."
-          }
-        })
+            text: "Gathering requirements and scope, creating a road map, performing analysis , travel and implementation planning and executing  the plan.",
+          },
+        }),
       ],
       1
     ),
@@ -471,7 +468,7 @@ var render = function() {
       [
         _c("heading", {
           staticClass: "text-center",
-          attrs: { text: "Your Experience Includes" }
+          attrs: { text: "Your Experience Includes" },
         }),
         _vm._v(" "),
         _c("div", { staticClass: "container" }, [
@@ -482,7 +479,7 @@ var render = function() {
                   "figure",
                   {
                     directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
+                    staticClass: "image__wrapper",
                   },
                   [
                     _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -491,15 +488,15 @@ var render = function() {
                       staticClass: "image__item cards-img",
                       attrs: {
                         "data-url": "/assets/front/images/img/airfare.png",
-                        alt: "airfare GBI"
-                      }
-                    })
+                        alt: "airfare GBI",
+                      },
+                    }),
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(1)
-              ])
+                _vm._m(1),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
@@ -508,7 +505,7 @@ var render = function() {
                   "figure",
                   {
                     directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
+                    staticClass: "image__wrapper",
                   },
                   [
                     _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -517,15 +514,15 @@ var render = function() {
                       staticClass: "image__item cards-img",
                       attrs: {
                         "data-url": "/assets/front/images/img/hotel.png",
-                        alt: "hotel GBI"
-                      }
-                    })
+                        alt: "hotel GBI",
+                      },
+                    }),
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(2)
-              ])
+                _vm._m(2),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
@@ -534,7 +531,7 @@ var render = function() {
                   "figure",
                   {
                     directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
+                    staticClass: "image__wrapper",
                   },
                   [
                     _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -543,15 +540,15 @@ var render = function() {
                       staticClass: "image__item cards-img",
                       attrs: {
                         "data-url": "/assets/front/images/img/reginoal.png",
-                        alt: "reginoal GBI"
-                      }
-                    })
+                        alt: "reginoal GBI",
+                      },
+                    }),
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(3)
-              ])
+                _vm._m(3),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
@@ -560,7 +557,7 @@ var render = function() {
                   "figure",
                   {
                     directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
+                    staticClass: "image__wrapper",
                   },
                   [
                     _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -569,15 +566,15 @@ var render = function() {
                       staticClass: "image__item cards-img",
                       attrs: {
                         "data-url": "/assets/front/images/img/gudided.png",
-                        alt: "gudided GBI"
-                      }
-                    })
+                        alt: "gudided GBI",
+                      },
+                    }),
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(4)
-              ])
+                _vm._m(4),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
@@ -586,7 +583,7 @@ var render = function() {
                   "figure",
                   {
                     directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
+                    staticClass: "image__wrapper",
                   },
                   [
                     _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -595,15 +592,15 @@ var render = function() {
                       staticClass: "image__item cards-img",
                       attrs: {
                         "data-url": "/assets/front/images/img/entrance.png",
-                        alt: "entrance GBI"
-                      }
-                    })
+                        alt: "entrance GBI",
+                      },
+                    }),
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(5)
-              ])
+                _vm._m(5),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
@@ -612,7 +609,7 @@ var render = function() {
                   "figure",
                   {
                     directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
+                    staticClass: "image__wrapper",
                   },
                   [
                     _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -621,15 +618,15 @@ var render = function() {
                       staticClass: "image__item cards-img",
                       attrs: {
                         "data-url": "/assets/front/images/img/experiential.png",
-                        alt: "experiential GBI"
-                      }
-                    })
+                        alt: "experiential GBI",
+                      },
+                    }),
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(6)
-              ])
+                _vm._m(6),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
@@ -638,7 +635,7 @@ var render = function() {
                   "figure",
                   {
                     directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
+                    staticClass: "image__wrapper",
                   },
                   [
                     _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -648,15 +645,15 @@ var render = function() {
                       attrs: {
                         "data-url":
                           "/assets/front/images/img/emergency-support.png",
-                        alt: "emergency-support GBI"
-                      }
-                    })
+                        alt: "emergency-support GBI",
+                      },
+                    }),
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(7)
-              ])
+                _vm._m(7),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
@@ -665,7 +662,7 @@ var render = function() {
                   "figure",
                   {
                     directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
+                    staticClass: "image__wrapper",
                   },
                   [
                     _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -674,15 +671,15 @@ var render = function() {
                       staticClass: "image__item cards-img",
                       attrs: {
                         "data-url": "/assets/front/images/img/continous.png",
-                        alt: "continous GBI"
-                      }
-                    })
+                        alt: "continous GBI",
+                      },
+                    }),
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(8)
-              ])
+                _vm._m(8),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 col-lg-4" }, [
@@ -691,7 +688,7 @@ var render = function() {
                   "figure",
                   {
                     directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
+                    staticClass: "image__wrapper",
                   },
                   [
                     _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -700,25 +697,25 @@ var render = function() {
                       staticClass: "image__item cards-img",
                       attrs: {
                         "data-url": "/assets/front/images/img/finely.png",
-                        alt: "finely GBI"
-                      }
-                    })
+                        alt: "finely GBI",
+                      },
+                    }),
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(9)
-              ])
-            ])
-          ])
-        ])
+                _vm._m(9),
+              ]),
+            ]),
+          ]),
+        ]),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -727,26 +724,26 @@ var staticRenderFns = [
       { staticClass: "howwework_banner text_on_image banner_bg" },
       [
         _c("div", { staticClass: "content" }, [
-          _c("p", { staticClass: "heading" }, [_vm._v("How We Work")])
-        ])
+          _c("p", { staticClass: "heading" }, [_vm._v("How We Work")]),
+        ]),
       ]
     )
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-block p-top-10" }, [
       _c("h4", { staticClass: "card-title" }, [
-        _vm._v("Airfare And Transportation")
+        _vm._v("Airfare And Transportation"),
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text p-l-r" }, [
-        _vm._v("Round-trip airfares, railway fares and comfortable ac coach")
-      ])
+        _vm._v("Round-trip airfares, railway fares and comfortable ac coach"),
+      ]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -754,11 +751,11 @@ var staticRenderFns = [
       _c("h4", { staticClass: "card-title" }, [_vm._v("Hotel")]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text p-l-r" }, [
-        _vm._v("Overnight stays in hotels with private washroom")
-      ])
+        _vm._v("Overnight stays in hotels with private washroom"),
+      ]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -766,11 +763,11 @@ var staticRenderFns = [
       _c("h4", { staticClass: "card-title" }, [_vm._v("Regional-Style Meal")]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text p-l-r" }, [
-        _vm._v("Includes three-time lip-smacking regional style meal")
-      ])
+        _vm._v("Includes three-time lip-smacking regional style meal"),
+      ]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -778,11 +775,11 @@ var staticRenderFns = [
       _c("h4", { staticClass: "card-title" }, [_vm._v("Guided Sightseeing")]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text p-l-r" }, [
-        _vm._v("Experience sightseeing with expert tour guides")
-      ])
+        _vm._v("Experience sightseeing with expert tour guides"),
+      ]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -792,25 +789,25 @@ var staticRenderFns = [
       _c("p", { staticClass: "card-text p-l-r" }, [
         _vm._v(
           "Includes entry fees of both domestic as well as international sight scenes."
-        )
-      ])
+        ),
+      ]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-block p-top-10" }, [
       _c("h4", { staticClass: "card-title" }, [
-        _vm._v("Experiential Learning")
+        _vm._v("Experiential Learning"),
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text p-l-r" }, [
-        _vm._v("We compliment classroom learning with a touch of the real")
-      ])
+        _vm._v("We compliment classroom learning with a touch of the real"),
+      ]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -818,11 +815,11 @@ var staticRenderFns = [
       _c("h4", { staticClass: "card-title" }, [_vm._v("Emergency Support")]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text p-l-r" }, [
-        _vm._v("We provide 24 hours safety and security to our students")
-      ])
+        _vm._v("We provide 24 hours safety and security to our students"),
+      ]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -832,26 +829,26 @@ var staticRenderFns = [
       _c("p", { staticClass: "card-text p-l-r" }, [
         _vm._v(
           "Our GBI team will keep assisting you in every step of your journey with us."
-        )
-      ])
+        ),
+      ]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-block p-top-10" }, [
       _c("h4", { staticClass: "card-title" }, [
-        _vm._v("Finely Curated Programs")
+        _vm._v("Finely Curated Programs"),
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text p-l-r" }, [
         _vm._v(
           "Our team offers a number of tour programs covering a wide array of topics."
-        )
-      ])
+        ),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

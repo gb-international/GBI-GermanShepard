@@ -174,7 +174,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -182,18 +182,18 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "form",
               {
                 attrs: { role: "form", enctype: "multipart/form-data" },
                 on: {
-                  submit: function($event) {
+                  submit: function ($event) {
                     $event.preventDefault()
                     return _vm.updateData()
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("div", { staticClass: "row" }, [
@@ -207,11 +207,11 @@ var render = function() {
                         _c("dropdown-filter", {
                           staticClass: "mb-2",
                           attrs: { itemList: _vm.escort_list },
-                          on: { "update:option": _vm.UpdatedItem }
-                        })
+                          on: { "update:option": _vm.UpdatedItem },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -219,33 +219,33 @@ var render = function() {
                       _c("label", [_vm._v("SALARY PER DAY(INR)")]),
                       _vm._v(" "),
                       _c("p", [
-                        _vm._v(_vm._s(_vm.manager_data.salaryPerday) + "/-")
-                      ])
-                    ])
+                        _vm._v(_vm._s(_vm.manager_data.salaryPerday) + "/-"),
+                      ]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-3" }, [
                     _c("label", [_vm._v("CONTACT NUMBER")]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.manager_data.phoneno))])
+                    _c("p", [_vm._v(_vm._s(_vm.manager_data.phoneno))]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-5" }, [
                     _c("label", [_vm._v("EMAIL ID")]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.manager_data.email))])
-                  ])
+                    _c("p", [_vm._v(_vm._s(_vm.manager_data.email))]),
+                  ]),
                 ]),
                 _vm._v(" "),
-                _c("form-buttons")
+                _c("form-buttons"),
               ],
               1
-            )
+            ),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

@@ -948,6 +948,7 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         _this2.upcoming_data = response.data;
+        console.log(response.data);
       });
     },
     searchAll: function searchAll() {
@@ -1071,12 +1072,12 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h1", { staticClass: "gbi_main-heading pt-3 text-capitalize" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -1097,12 +1098,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h4", { staticClass: "gbi_sub-heading text-capitalize m-0 p-0" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -1123,7 +1124,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1139,24 +1140,38 @@ var render = function() {
     _c("rect", { attrs: { y: "290", width: "90", height: "10" } }),
     _vm._v(" "),
     _c("rect", {
-      attrs: { x: "6", y: "315", rx: "0", ry: "0", width: "33", height: "35" }
+      attrs: { x: "6", y: "315", rx: "0", ry: "0", width: "33", height: "35" },
     }),
     _vm._v(" "),
     _c("rect", {
-      attrs: { x: "197", y: "315", rx: "0", ry: "0", width: "91", height: "35" }
+      attrs: {
+        x: "197",
+        y: "315",
+        rx: "0",
+        ry: "0",
+        width: "91",
+        height: "35",
+      },
     }),
     _vm._v(" "),
     _c("rect", {
-      attrs: { x: "46", y: "315", rx: "0", ry: "0", width: "33", height: "35" }
+      attrs: { x: "46", y: "315", rx: "0", ry: "0", width: "33", height: "35" },
     }),
     _vm._v(" "),
     _c("rect", {
-      attrs: { x: "87", y: "315", rx: "0", ry: "0", width: "33", height: "35" }
+      attrs: { x: "87", y: "315", rx: "0", ry: "0", width: "33", height: "35" },
     }),
     _vm._v(" "),
     _c("rect", {
-      attrs: { x: "124", y: "315", rx: "0", ry: "0", width: "33", height: "35" }
-    })
+      attrs: {
+        x: "124",
+        y: "315",
+        rx: "0",
+        ry: "0",
+        width: "33",
+        height: "35",
+      },
+    }),
   ])
 }
 var staticRenderFns = []
@@ -1177,20 +1192,20 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.apiFailed
     ? _c("errorState", {
-        attrs: { imgName: "explore_destination_500x500.png" }
+        attrs: { imgName: "explore_destination_500x500.png" },
       })
     : _c("div", { attrs: { id: "exploreDestination" } }, [
         _c(
           "div",
           {
             staticClass:
-              "explore_banner text_on_image banner_bg2 explore_bg_img"
+              "explore_banner text_on_image banner_bg2 explore_bg_img",
           },
           [
             _c("div", { staticClass: "content" }, [
@@ -1213,16 +1228,16 @@ var render = function() {
                                     staticClass: "nav-link active border-none",
                                     attrs: {
                                       "data-toggle": "tab",
-                                      href: "#home"
+                                      href: "#home",
                                     },
                                     on: {
-                                      click: function($event) {
+                                      click: function ($event) {
                                         _vm.panel = "Itinerary"
-                                      }
-                                    }
+                                      },
+                                    },
                                   },
                                   [_vm._v("Itinerary")]
-                                )
+                                ),
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "nav-item" }, [
@@ -1232,17 +1247,17 @@ var render = function() {
                                     staticClass: "nav-link border-none",
                                     attrs: {
                                       "data-toggle": "tab",
-                                      href: "#menu1"
+                                      href: "#menu1",
                                     },
                                     on: {
-                                      click: function($event) {
+                                      click: function ($event) {
                                         _vm.panel = "Hotels"
-                                      }
-                                    }
+                                      },
+                                    },
                                   },
                                   [_vm._v("Hotels")]
-                                )
-                              ])
+                                ),
+                              ]),
                             ]
                           ),
                           _vm._v(" "),
@@ -1264,7 +1279,8 @@ var render = function() {
                                                 _c(
                                                   "div",
                                                   {
-                                                    staticClass: "row pt-3 pb-3"
+                                                    staticClass:
+                                                      "row pt-3 pb-3",
                                                   },
                                                   [
                                                     _c(
@@ -1275,7 +1291,7 @@ var render = function() {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "custom-control custom-radio"
+                                                              "custom-control custom-radio",
                                                           },
                                                           [
                                                             _c("input", {
@@ -1287,32 +1303,32 @@ var render = function() {
                                                                   value:
                                                                     _vm.tripType,
                                                                   expression:
-                                                                    "tripType"
-                                                                }
+                                                                    "tripType",
+                                                                },
                                                               ],
                                                               staticClass:
                                                                 "custom-control-input",
                                                               attrs: {
                                                                 type: "radio",
                                                                 id: "national",
-                                                                name:
-                                                                  "customRadio",
-                                                                value: "return"
+                                                                name: "customRadio",
+                                                                value: "return",
                                                               },
                                                               domProps: {
                                                                 checked: _vm._q(
                                                                   _vm.tripType,
                                                                   "return"
-                                                                )
+                                                                ),
                                                               },
                                                               on: {
-                                                                change: function(
-                                                                  $event
-                                                                ) {
-                                                                  _vm.tripType =
-                                                                    "return"
-                                                                }
-                                                              }
+                                                                change:
+                                                                  function (
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.tripType =
+                                                                      "return"
+                                                                  },
+                                                              },
                                                             }),
                                                             _vm._v(" "),
                                                             _c(
@@ -1321,14 +1337,13 @@ var render = function() {
                                                                 staticClass:
                                                                   "custom-control-label",
                                                                 attrs: {
-                                                                  for:
-                                                                    "national"
-                                                                }
+                                                                  for: "national",
+                                                                },
                                                               },
                                                               [_vm._v("Return")]
-                                                            )
+                                                            ),
                                                           ]
-                                                        )
+                                                        ),
                                                       ]
                                                     ),
                                                     _vm._v(" "),
@@ -1340,7 +1355,7 @@ var render = function() {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "custom-control custom-radio"
+                                                              "custom-control custom-radio",
                                                           },
                                                           [
                                                             _c("input", {
@@ -1352,34 +1367,33 @@ var render = function() {
                                                                   value:
                                                                     _vm.tripType,
                                                                   expression:
-                                                                    "tripType"
-                                                                }
+                                                                    "tripType",
+                                                                },
                                                               ],
                                                               staticClass:
                                                                 "custom-control-input",
                                                               attrs: {
                                                                 type: "radio",
-                                                                id:
-                                                                  "international",
-                                                                name:
-                                                                  "customRadio",
+                                                                id: "international",
+                                                                name: "customRadio",
                                                                 value:
-                                                                  "multicity"
+                                                                  "multicity",
                                                               },
                                                               domProps: {
                                                                 checked: _vm._q(
                                                                   _vm.tripType,
                                                                   "multicity"
-                                                                )
+                                                                ),
                                                               },
                                                               on: {
-                                                                change: function(
-                                                                  $event
-                                                                ) {
-                                                                  _vm.tripType =
-                                                                    "multicity"
-                                                                }
-                                                              }
+                                                                change:
+                                                                  function (
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.tripType =
+                                                                      "multicity"
+                                                                  },
+                                                              },
                                                             }),
                                                             _vm._v(" "),
                                                             _c(
@@ -1388,24 +1402,23 @@ var render = function() {
                                                                 staticClass:
                                                                   "custom-control-label",
                                                                 attrs: {
-                                                                  for:
-                                                                    "international"
-                                                                }
+                                                                  for: "international",
+                                                                },
                                                               },
                                                               [
                                                                 _vm._v(
                                                                   "Multicity"
-                                                                )
+                                                                ),
                                                               ]
-                                                            )
+                                                            ),
                                                           ]
-                                                        )
+                                                        ),
                                                       ]
-                                                    )
+                                                    ),
                                                   ]
-                                                )
+                                                ),
                                               ]
-                                            )
+                                            ),
                                           ]
                                         ),
                                         _vm._v(" "),
@@ -1413,30 +1426,30 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "row p-0 parent_padding"
+                                              "row p-0 parent_padding",
                                           },
                                           [
                                             _c(
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding",
                                               },
                                               [
                                                 _c("model-select", {
                                                   attrs: {
                                                     options: _vm.options,
                                                     placeholder: "Leave from",
-                                                    autocomplete: "off"
+                                                    autocomplete: "off",
                                                   },
                                                   model: {
                                                     value: _vm.sources,
-                                                    callback: function($$v) {
+                                                    callback: function ($$v) {
                                                       _vm.sources = $$v
                                                     },
-                                                    expression: "sources"
-                                                  }
-                                                })
+                                                    expression: "sources",
+                                                  },
+                                                }),
                                               ],
                                               1
                                             ),
@@ -1445,23 +1458,23 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding",
                                               },
                                               [
                                                 _c("model-select", {
                                                   attrs: {
                                                     options:
                                                       _vm.destinationCities,
-                                                    placeholder: "Arrive at"
+                                                    placeholder: "Arrive at",
                                                   },
                                                   model: {
                                                     value: _vm.destinations,
-                                                    callback: function($$v) {
+                                                    callback: function ($$v) {
                                                       _vm.destinations = $$v
                                                     },
-                                                    expression: "destinations"
-                                                  }
-                                                })
+                                                    expression: "destinations",
+                                                  },
+                                                }),
                                               ],
                                               1
                                             ),
@@ -1470,7 +1483,7 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding",
                                               },
                                               [
                                                 _c(
@@ -1483,17 +1496,17 @@ var render = function() {
                                                         staticClass:
                                                           "placeholder_color ui fluid search selection dropdown",
                                                         attrs: {
-                                                          name: "typetour"
+                                                          name: "typetour",
                                                         },
                                                         on: {
-                                                          change: function(
+                                                          change: function (
                                                             $event
                                                           ) {
                                                             return _vm.tourtypeOnChange(
                                                               $event
                                                             )
-                                                          }
-                                                        }
+                                                          },
+                                                        },
                                                       },
                                                       [
                                                         _c(
@@ -1501,27 +1514,27 @@ var render = function() {
                                                           {
                                                             attrs: {
                                                               selected: "",
-                                                              disabled: ""
-                                                            }
+                                                              disabled: "",
+                                                            },
                                                           },
                                                           [
                                                             _vm._v(
                                                               "In mood for"
-                                                            )
+                                                            ),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
                                                         _vm._l(
                                                           _vm.tourtype_option,
-                                                          function(index) {
+                                                          function (index) {
                                                             return _c(
                                                               "option",
                                                               {
                                                                 key: index.id,
                                                                 domProps: {
                                                                   value:
-                                                                    index.id
-                                                                }
+                                                                    index.id,
+                                                                },
                                                               },
                                                               [
                                                                 _vm._v(
@@ -1530,16 +1543,16 @@ var render = function() {
                                                                       index.name
                                                                     ) +
                                                                     "\n                            "
-                                                                )
+                                                                ),
                                                               ]
                                                             )
                                                           }
-                                                        )
+                                                        ),
                                                       ],
                                                       2
-                                                    )
+                                                    ),
                                                   ]
-                                                )
+                                                ),
                                               ]
                                             ),
                                             _vm._v(" "),
@@ -1547,7 +1560,7 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding",
                                               },
                                               [
                                                 _c(
@@ -1560,43 +1573,43 @@ var render = function() {
                                                         staticClass:
                                                           "selectpicker ui selection dropdown",
                                                         attrs: {
-                                                          name: "noofday"
+                                                          name: "noofday",
                                                         },
                                                         on: {
-                                                          change: function(
+                                                          change: function (
                                                             $event
                                                           ) {
                                                             return _vm.noofdaysOnChange(
                                                               $event
                                                             )
-                                                          }
-                                                        }
+                                                          },
+                                                        },
                                                       },
                                                       [
                                                         _c(
                                                           "option",
                                                           {
                                                             attrs: {
-                                                              selected: ""
-                                                            }
+                                                              selected: "",
+                                                            },
                                                           },
                                                           [
                                                             _vm._v(
                                                               "No. of days"
-                                                            )
+                                                            ),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
                                                         _vm._l(
                                                           _vm.noofdays_option,
-                                                          function(index) {
+                                                          function (index) {
                                                             return _c(
                                                               "option",
                                                               {
                                                                 key: index.id,
                                                                 domProps: {
-                                                                  value: index
-                                                                }
+                                                                  value: index,
+                                                                },
                                                               },
                                                               [
                                                                 _vm._v(
@@ -1605,16 +1618,16 @@ var render = function() {
                                                                       index
                                                                     ) +
                                                                     "\n                            "
-                                                                )
+                                                                ),
                                                               ]
                                                             )
                                                           }
-                                                        )
+                                                        ),
                                                       ],
                                                       2
-                                                    )
+                                                    ),
                                                   ]
-                                                )
+                                                ),
                                               ]
                                             ),
                                             _vm._v(" "),
@@ -1622,31 +1635,32 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-12 col-sm-6 col-lg-6 ml-2"
+                                                  "col-12 col-sm-6 col-lg-6 ml-2",
                                               },
                                               [
                                                 _c(
                                                   "div",
                                                   {
                                                     staticClass:
-                                                      "row search-radio"
+                                                      "row search-radio",
                                                   },
                                                   [
                                                     _c(
                                                       "div",
                                                       {
-                                                        staticClass: "col-sm-12"
+                                                        staticClass:
+                                                          "col-sm-12",
                                                       },
                                                       [
                                                         _c(
                                                           "custLabel2",
                                                           {
-                                                            staticClass: "pt-3"
+                                                            staticClass: "pt-3",
                                                           },
                                                           [
                                                             _vm._v(
                                                               "Customer type"
-                                                            )
+                                                            ),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -1654,71 +1668,71 @@ var render = function() {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "row pb-3"
+                                                              "row pb-3",
                                                           },
                                                           [
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "col-md-4 col-6"
+                                                                  "col-md-4 col-6",
                                                               },
                                                               [
                                                                 _c(
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "custom-control custom-radio"
+                                                                      "custom-control custom-radio",
                                                                   },
                                                                   [
                                                                     _c(
                                                                       "input",
                                                                       {
-                                                                        directives: [
-                                                                          {
-                                                                            name:
-                                                                              "model",
-                                                                            rawName:
-                                                                              "v-model",
-                                                                            value:
-                                                                              _vm
-                                                                                .searchForm
-                                                                                .clientType,
-                                                                            expression:
-                                                                              "searchForm.clientType"
-                                                                          }
-                                                                        ],
+                                                                        directives:
+                                                                          [
+                                                                            {
+                                                                              name: "model",
+                                                                              rawName:
+                                                                                "v-model",
+                                                                              value:
+                                                                                _vm
+                                                                                  .searchForm
+                                                                                  .clientType,
+                                                                              expression:
+                                                                                "searchForm.clientType",
+                                                                            },
+                                                                          ],
                                                                         staticClass:
                                                                           "custom-control-input",
                                                                         attrs: {
-                                                                          type:
-                                                                            "radio",
-                                                                          id:
-                                                                            "student",
-                                                                          name:
-                                                                            "customRadio2",
+                                                                          type: "radio",
+                                                                          id: "student",
+                                                                          name: "customRadio2",
                                                                           value:
-                                                                            "student"
+                                                                            "student",
                                                                         },
-                                                                        domProps: {
-                                                                          checked: _vm._q(
-                                                                            _vm
-                                                                              .searchForm
-                                                                              .clientType,
-                                                                            "student"
-                                                                          )
-                                                                        },
+                                                                        domProps:
+                                                                          {
+                                                                            checked:
+                                                                              _vm._q(
+                                                                                _vm
+                                                                                  .searchForm
+                                                                                  .clientType,
+                                                                                "student"
+                                                                              ),
+                                                                          },
                                                                         on: {
-                                                                          change: function(
-                                                                            $event
-                                                                          ) {
-                                                                            return _vm.$set(
-                                                                              _vm.searchForm,
-                                                                              "clientType",
-                                                                              "student"
-                                                                            )
-                                                                          }
-                                                                        }
+                                                                          change:
+                                                                            function (
+                                                                              $event
+                                                                            ) {
+                                                                              return _vm.$set(
+                                                                                _vm.searchForm,
+                                                                                "clientType",
+                                                                                "student"
+                                                                              )
+                                                                            },
+                                                                        },
                                                                       }
                                                                     ),
                                                                     _vm._v(" "),
@@ -1728,18 +1742,17 @@ var render = function() {
                                                                         staticClass:
                                                                           "custom-control-label",
                                                                         attrs: {
-                                                                          for:
-                                                                            "student"
-                                                                        }
+                                                                          for: "student",
+                                                                        },
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           "Student"
-                                                                        )
+                                                                        ),
                                                                       ]
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
                                                             ),
                                                             _vm._v(" "),
@@ -1747,64 +1760,64 @@ var render = function() {
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "col-md-4 col-6"
+                                                                  "col-md-4 col-6",
                                                               },
                                                               [
                                                                 _c(
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "custom-control custom-radio"
+                                                                      "custom-control custom-radio",
                                                                   },
                                                                   [
                                                                     _c(
                                                                       "input",
                                                                       {
-                                                                        directives: [
-                                                                          {
-                                                                            name:
-                                                                              "model",
-                                                                            rawName:
-                                                                              "v-model",
-                                                                            value:
-                                                                              _vm
-                                                                                .searchForm
-                                                                                .clientType,
-                                                                            expression:
-                                                                              "searchForm.clientType"
-                                                                          }
-                                                                        ],
+                                                                        directives:
+                                                                          [
+                                                                            {
+                                                                              name: "model",
+                                                                              rawName:
+                                                                                "v-model",
+                                                                              value:
+                                                                                _vm
+                                                                                  .searchForm
+                                                                                  .clientType,
+                                                                              expression:
+                                                                                "searchForm.clientType",
+                                                                            },
+                                                                          ],
                                                                         staticClass:
                                                                           "custom-control-input",
                                                                         attrs: {
-                                                                          type:
-                                                                            "radio",
-                                                                          id:
-                                                                            "corporate",
-                                                                          name:
-                                                                            "customRadio2",
+                                                                          type: "radio",
+                                                                          id: "corporate",
+                                                                          name: "customRadio2",
                                                                           value:
-                                                                            "corporate"
+                                                                            "corporate",
                                                                         },
-                                                                        domProps: {
-                                                                          checked: _vm._q(
-                                                                            _vm
-                                                                              .searchForm
-                                                                              .clientType,
-                                                                            "corporate"
-                                                                          )
-                                                                        },
+                                                                        domProps:
+                                                                          {
+                                                                            checked:
+                                                                              _vm._q(
+                                                                                _vm
+                                                                                  .searchForm
+                                                                                  .clientType,
+                                                                                "corporate"
+                                                                              ),
+                                                                          },
                                                                         on: {
-                                                                          change: function(
-                                                                            $event
-                                                                          ) {
-                                                                            return _vm.$set(
-                                                                              _vm.searchForm,
-                                                                              "clientType",
-                                                                              "corporate"
-                                                                            )
-                                                                          }
-                                                                        }
+                                                                          change:
+                                                                            function (
+                                                                              $event
+                                                                            ) {
+                                                                              return _vm.$set(
+                                                                                _vm.searchForm,
+                                                                                "clientType",
+                                                                                "corporate"
+                                                                              )
+                                                                            },
+                                                                        },
                                                                       }
                                                                     ),
                                                                     _vm._v(" "),
@@ -1814,18 +1827,17 @@ var render = function() {
                                                                         staticClass:
                                                                           "custom-control-label",
                                                                         attrs: {
-                                                                          for:
-                                                                            "corporate"
-                                                                        }
+                                                                          for: "corporate",
+                                                                        },
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           "Corporate"
-                                                                        )
+                                                                        ),
                                                                       ]
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
                                                             ),
                                                             _vm._v(" "),
@@ -1833,64 +1845,64 @@ var render = function() {
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "col-md-4 col-6"
+                                                                  "col-md-4 col-6",
                                                               },
                                                               [
                                                                 _c(
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "custom-control custom-radio"
+                                                                      "custom-control custom-radio",
                                                                   },
                                                                   [
                                                                     _c(
                                                                       "input",
                                                                       {
-                                                                        directives: [
-                                                                          {
-                                                                            name:
-                                                                              "model",
-                                                                            rawName:
-                                                                              "v-model",
-                                                                            value:
-                                                                              _vm
-                                                                                .searchForm
-                                                                                .clientType,
-                                                                            expression:
-                                                                              "searchForm.clientType"
-                                                                          }
-                                                                        ],
+                                                                        directives:
+                                                                          [
+                                                                            {
+                                                                              name: "model",
+                                                                              rawName:
+                                                                                "v-model",
+                                                                              value:
+                                                                                _vm
+                                                                                  .searchForm
+                                                                                  .clientType,
+                                                                              expression:
+                                                                                "searchForm.clientType",
+                                                                            },
+                                                                          ],
                                                                         staticClass:
                                                                           "custom-control-input",
                                                                         attrs: {
-                                                                          type:
-                                                                            "radio",
-                                                                          id:
-                                                                            "family",
-                                                                          name:
-                                                                            "customRadio2",
+                                                                          type: "radio",
+                                                                          id: "family",
+                                                                          name: "customRadio2",
                                                                           value:
-                                                                            "family"
+                                                                            "family",
                                                                         },
-                                                                        domProps: {
-                                                                          checked: _vm._q(
-                                                                            _vm
-                                                                              .searchForm
-                                                                              .clientType,
-                                                                            "family"
-                                                                          )
-                                                                        },
+                                                                        domProps:
+                                                                          {
+                                                                            checked:
+                                                                              _vm._q(
+                                                                                _vm
+                                                                                  .searchForm
+                                                                                  .clientType,
+                                                                                "family"
+                                                                              ),
+                                                                          },
                                                                         on: {
-                                                                          change: function(
-                                                                            $event
-                                                                          ) {
-                                                                            return _vm.$set(
-                                                                              _vm.searchForm,
-                                                                              "clientType",
-                                                                              "family"
-                                                                            )
-                                                                          }
-                                                                        }
+                                                                          change:
+                                                                            function (
+                                                                              $event
+                                                                            ) {
+                                                                              return _vm.$set(
+                                                                                _vm.searchForm,
+                                                                                "clientType",
+                                                                                "family"
+                                                                              )
+                                                                            },
+                                                                        },
                                                                       }
                                                                     ),
                                                                     _vm._v(" "),
@@ -1900,27 +1912,26 @@ var render = function() {
                                                                         staticClass:
                                                                           "custom-control-label",
                                                                         attrs: {
-                                                                          for:
-                                                                            "family"
-                                                                        }
+                                                                          for: "family",
+                                                                        },
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           "Family"
-                                                                        )
+                                                                        ),
                                                                       ]
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
-                                                            )
+                                                            ),
                                                           ]
-                                                        )
+                                                        ),
                                                       ],
                                                       1
-                                                    )
+                                                    ),
                                                   ]
-                                                )
+                                                ),
                                               ]
                                             ),
                                             _vm._v(" "),
@@ -1928,7 +1939,7 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-12 col-sm-5 col-lg-5"
+                                                  "col-12 col-sm-5 col-lg-5",
                                               },
                                               [
                                                 _c(
@@ -1938,13 +1949,13 @@ var render = function() {
                                                     _c("custLabel", [
                                                       _vm._v(
                                                         "Choose your transport"
-                                                      )
+                                                      ),
                                                     ]),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
                                                       {
-                                                        staticClass: "row pb-2"
+                                                        staticClass: "row pb-2",
                                                       },
                                                       [
                                                         _c(
@@ -1953,14 +1964,14 @@ var render = function() {
                                                             staticClass:
                                                               "col-6 col-md-2 mb-2",
                                                             on: {
-                                                              click: function(
+                                                              click: function (
                                                                 $event
                                                               ) {
                                                                 _vm.portType =
                                                                   "car"
                                                                 _vm.getCities()
-                                                              }
-                                                            }
+                                                              },
+                                                            },
                                                           },
                                                           [
                                                             _c("img", {
@@ -1973,9 +1984,9 @@ var render = function() {
                                                                     ? _vm.$gbiAssets +
                                                                       "/car_onclick_icon.png"
                                                                     : _vm.$gbiAssets +
-                                                                      "/car_icon_src.png"
-                                                              }
-                                                            })
+                                                                      "/car_icon_src.png",
+                                                              },
+                                                            }),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -1985,14 +1996,14 @@ var render = function() {
                                                             staticClass:
                                                               "col-6 col-md-2 mb-2",
                                                             on: {
-                                                              click: function(
+                                                              click: function (
                                                                 $event
                                                               ) {
                                                                 _vm.portType =
                                                                   "bus"
                                                                 _vm.getCities()
-                                                              }
-                                                            }
+                                                              },
+                                                            },
                                                           },
                                                           [
                                                             _c("img", {
@@ -2005,9 +2016,9 @@ var render = function() {
                                                                     ? _vm.$gbiAssets +
                                                                       "/bus_onclick_icon.png"
                                                                     : _vm.$gbiAssets +
-                                                                      "/bus_icon_src.png"
-                                                              }
-                                                            })
+                                                                      "/bus_icon_src.png",
+                                                              },
+                                                            }),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -2017,14 +2028,14 @@ var render = function() {
                                                             staticClass:
                                                               "col-6 col-md-2 mb-2",
                                                             on: {
-                                                              click: function(
+                                                              click: function (
                                                                 $event
                                                               ) {
                                                                 _vm.portType =
                                                                   "train"
                                                                 _vm.getCities()
-                                                              }
-                                                            }
+                                                              },
+                                                            },
                                                           },
                                                           [
                                                             _c("img", {
@@ -2037,9 +2048,9 @@ var render = function() {
                                                                     ? _vm.$gbiAssets +
                                                                       "/train_onclick_icon.png"
                                                                     : _vm.$gbiAssets +
-                                                                      "/train_icon_src.png"
-                                                              }
-                                                            })
+                                                                      "/train_icon_src.png",
+                                                              },
+                                                            }),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -2049,14 +2060,14 @@ var render = function() {
                                                             staticClass:
                                                               "col-6 col-md-2 mb-2",
                                                             on: {
-                                                              click: function(
+                                                              click: function (
                                                                 $event
                                                               ) {
                                                                 _vm.portType =
                                                                   "plane"
                                                                 _vm.getCities()
-                                                              }
-                                                            }
+                                                              },
+                                                            },
                                                           },
                                                           [
                                                             _c("img", {
@@ -2069,18 +2080,18 @@ var render = function() {
                                                                     ? _vm.$gbiAssets +
                                                                       "/flight_onclick_icon.png"
                                                                     : _vm.$gbiAssets +
-                                                                      "/flight_icon_src.png"
-                                                              }
-                                                            })
+                                                                      "/flight_icon_src.png",
+                                                              },
+                                                            }),
                                                           ]
-                                                        )
+                                                        ),
                                                       ]
-                                                    )
+                                                    ),
                                                   ],
                                                   1
-                                                )
+                                                ),
                                               ]
-                                            )
+                                            ),
                                           ]
                                         ),
                                         _vm._v(" "),
@@ -2096,24 +2107,24 @@ var render = function() {
                                                 attrs: { type: "submit" },
                                                 on: {
                                                   click: [
-                                                    function($event) {
+                                                    function ($event) {
                                                       $event.preventDefault()
                                                       return _vm.searchAll()
                                                     },
-                                                    function($event) {
+                                                    function ($event) {
                                                       _vm.show = !_vm.show
-                                                    }
-                                                  ]
-                                                }
+                                                    },
+                                                  ],
+                                                },
                                               },
                                               [
                                                 _vm._v(
                                                   "\n                        SEARCH\n                      "
-                                                )
+                                                ),
                                               ]
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ])
                                     : _c("div", { staticClass: "container" }, [
                                         _c(
@@ -2127,7 +2138,8 @@ var render = function() {
                                                 _c(
                                                   "div",
                                                   {
-                                                    staticClass: "row pt-3 pb-3"
+                                                    staticClass:
+                                                      "row pt-3 pb-3",
                                                   },
                                                   [
                                                     _c(
@@ -2138,7 +2150,7 @@ var render = function() {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "custom-control custom-radio"
+                                                              "custom-control custom-radio",
                                                           },
                                                           [
                                                             _c("input", {
@@ -2150,32 +2162,32 @@ var render = function() {
                                                                   value:
                                                                     _vm.tripType,
                                                                   expression:
-                                                                    "tripType"
-                                                                }
+                                                                    "tripType",
+                                                                },
                                                               ],
                                                               staticClass:
                                                                 "custom-control-input",
                                                               attrs: {
                                                                 type: "radio",
                                                                 id: "national",
-                                                                name:
-                                                                  "customRadio",
-                                                                value: "return"
+                                                                name: "customRadio",
+                                                                value: "return",
                                                               },
                                                               domProps: {
                                                                 checked: _vm._q(
                                                                   _vm.tripType,
                                                                   "return"
-                                                                )
+                                                                ),
                                                               },
                                                               on: {
-                                                                change: function(
-                                                                  $event
-                                                                ) {
-                                                                  _vm.tripType =
-                                                                    "return"
-                                                                }
-                                                              }
+                                                                change:
+                                                                  function (
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.tripType =
+                                                                      "return"
+                                                                  },
+                                                              },
                                                             }),
                                                             _vm._v(" "),
                                                             _c(
@@ -2184,14 +2196,13 @@ var render = function() {
                                                                 staticClass:
                                                                   "custom-control-label",
                                                                 attrs: {
-                                                                  for:
-                                                                    "national"
-                                                                }
+                                                                  for: "national",
+                                                                },
                                                               },
                                                               [_vm._v("Return")]
-                                                            )
+                                                            ),
                                                           ]
-                                                        )
+                                                        ),
                                                       ]
                                                     ),
                                                     _vm._v(" "),
@@ -2203,7 +2214,7 @@ var render = function() {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "custom-control custom-radio"
+                                                              "custom-control custom-radio",
                                                           },
                                                           [
                                                             _c("input", {
@@ -2215,34 +2226,33 @@ var render = function() {
                                                                   value:
                                                                     _vm.tripType,
                                                                   expression:
-                                                                    "tripType"
-                                                                }
+                                                                    "tripType",
+                                                                },
                                                               ],
                                                               staticClass:
                                                                 "custom-control-input",
                                                               attrs: {
                                                                 type: "radio",
-                                                                id:
-                                                                  "international",
-                                                                name:
-                                                                  "customRadio",
+                                                                id: "international",
+                                                                name: "customRadio",
                                                                 value:
-                                                                  "multicity"
+                                                                  "multicity",
                                                               },
                                                               domProps: {
                                                                 checked: _vm._q(
                                                                   _vm.tripType,
                                                                   "multicity"
-                                                                )
+                                                                ),
                                                               },
                                                               on: {
-                                                                change: function(
-                                                                  $event
-                                                                ) {
-                                                                  _vm.tripType =
-                                                                    "multicity"
-                                                                }
-                                                              }
+                                                                change:
+                                                                  function (
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.tripType =
+                                                                      "multicity"
+                                                                  },
+                                                              },
                                                             }),
                                                             _vm._v(" "),
                                                             _c(
@@ -2251,24 +2261,23 @@ var render = function() {
                                                                 staticClass:
                                                                   "custom-control-label",
                                                                 attrs: {
-                                                                  for:
-                                                                    "international"
-                                                                }
+                                                                  for: "international",
+                                                                },
                                                               },
                                                               [
                                                                 _vm._v(
                                                                   "Multicity"
-                                                                )
+                                                                ),
                                                               ]
-                                                            )
+                                                            ),
                                                           ]
-                                                        )
+                                                        ),
                                                       ]
-                                                    )
+                                                    ),
                                                   ]
-                                                )
+                                                ),
                                               ]
-                                            )
+                                            ),
                                           ]
                                         ),
                                         _vm._v(" "),
@@ -2276,29 +2285,29 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "row p-0 parent_padding"
+                                              "row p-0 parent_padding",
                                           },
                                           [
                                             _c(
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding",
                                               },
                                               [
                                                 _c("model-select", {
                                                   attrs: {
                                                     options: _vm.options,
-                                                    placeholder: "Leave from"
+                                                    placeholder: "Leave from",
                                                   },
                                                   model: {
                                                     value: _vm.multi_source,
-                                                    callback: function($$v) {
+                                                    callback: function ($$v) {
                                                       _vm.multi_source = $$v
                                                     },
-                                                    expression: "multi_source"
-                                                  }
-                                                })
+                                                    expression: "multi_source",
+                                                  },
+                                                }),
                                               ],
                                               1
                                             ),
@@ -2307,27 +2316,28 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding",
                                               },
                                               [
                                                 _c("model-select", {
                                                   attrs: {
                                                     options: _vm.options,
-                                                    placeholder: "Arrive at"
+                                                    placeholder: "Arrive at",
                                                   },
                                                   model: {
                                                     value:
                                                       _vm.multi_destination,
-                                                    callback: function($$v) {
-                                                      _vm.multi_destination = $$v
+                                                    callback: function ($$v) {
+                                                      _vm.multi_destination =
+                                                        $$v
                                                     },
                                                     expression:
-                                                      "multi_destination"
-                                                  }
-                                                })
+                                                      "multi_destination",
+                                                  },
+                                                }),
                                               ],
                                               1
-                                            )
+                                            ),
                                           ]
                                         ),
                                         _vm._v(" "),
@@ -2335,117 +2345,119 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "row p-0 parent_padding"
+                                              "row p-0 parent_padding",
                                           },
                                           [
-                                            _vm._l(_vm.rows, function(
-                                              row,
-                                              index
-                                            ) {
-                                              return _c(
-                                                "div",
-                                                {
-                                                  key: index,
-                                                  staticClass:
-                                                    "col-sm-12 col-12"
-                                                },
-                                                [
-                                                  _c(
-                                                    "div",
-                                                    { staticClass: "row" },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "col-6 col-sm-6 input-p nopadding"
-                                                        },
-                                                        [
-                                                          _c("model-select", {
-                                                            attrs: {
-                                                              options:
-                                                                _vm.options,
-                                                              placeholder:
-                                                                "Leave from"
-                                                            },
-                                                            model: {
-                                                              value:
-                                                                row["source"],
-                                                              callback: function(
-                                                                $$v
-                                                              ) {
-                                                                _vm.$set(
-                                                                  row,
-                                                                  "source",
-                                                                  $$v
-                                                                )
+                                            _vm._l(
+                                              _vm.rows,
+                                              function (row, index) {
+                                                return _c(
+                                                  "div",
+                                                  {
+                                                    key: index,
+                                                    staticClass:
+                                                      "col-sm-12 col-12",
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      { staticClass: "row" },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-6 col-sm-6 input-p nopadding",
+                                                          },
+                                                          [
+                                                            _c("model-select", {
+                                                              attrs: {
+                                                                options:
+                                                                  _vm.options,
+                                                                placeholder:
+                                                                  "Leave from",
                                                               },
-                                                              expression:
-                                                                "row['source']"
-                                                            }
-                                                          })
-                                                        ],
-                                                        1
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "col-6 col-sm-6 input-p nopadding"
-                                                        },
-                                                        [
-                                                          _c("model-select", {
-                                                            attrs: {
-                                                              options:
-                                                                _vm.options,
-                                                              placeholder:
-                                                                "Arrive at"
-                                                            },
-                                                            model: {
-                                                              value:
-                                                                row[
-                                                                  "destination"
-                                                                ],
-                                                              callback: function(
-                                                                $$v
-                                                              ) {
-                                                                _vm.$set(
-                                                                  row,
-                                                                  "destination",
-                                                                  $$v
-                                                                )
+                                                              model: {
+                                                                value:
+                                                                  row["source"],
+                                                                callback:
+                                                                  function (
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      row,
+                                                                      "source",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                expression:
+                                                                  "row['source']",
                                                               },
-                                                              expression:
-                                                                "row['destination']"
-                                                            }
-                                                          })
-                                                        ],
-                                                        1
-                                                      )
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            }),
+                                                            }),
+                                                          ],
+                                                          1
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-6 col-sm-6 input-p nopadding",
+                                                          },
+                                                          [
+                                                            _c("model-select", {
+                                                              attrs: {
+                                                                options:
+                                                                  _vm.options,
+                                                                placeholder:
+                                                                  "Arrive at",
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  row[
+                                                                    "destination"
+                                                                  ],
+                                                                callback:
+                                                                  function (
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      row,
+                                                                      "destination",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                expression:
+                                                                  "row['destination']",
+                                                              },
+                                                            }),
+                                                          ],
+                                                          1
+                                                        ),
+                                                      ]
+                                                    ),
+                                                  ]
+                                                )
+                                              }
+                                            ),
                                             _vm._v(" "),
                                             _c("div", {
                                               staticClass:
-                                                "col-8 col-md-10 col-lg-10"
+                                                "col-8 col-md-10 col-lg-10",
                                             }),
                                             _vm._v(" "),
                                             _c(
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-4 col-md-2 col-lg-2"
+                                                  "col-4 col-md-2 col-lg-2",
                                               },
                                               [
                                                 _c(
                                                   "div",
                                                   {
                                                     staticClass:
-                                                      "row button_group"
+                                                      "row button_group",
                                                   },
                                                   [
                                                     _c(
@@ -2456,7 +2468,7 @@ var render = function() {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "buttons save_btn link"
+                                                              "buttons save_btn link",
                                                           },
                                                           [
                                                             _vm.current_counter <
@@ -2468,13 +2480,13 @@ var render = function() {
                                                                       "text-right addCity",
                                                                     on: {
                                                                       click:
-                                                                        _vm.addRow
-                                                                    }
+                                                                        _vm.addRow,
+                                                                    },
                                                                   },
                                                                   [
                                                                     _vm._v(
                                                                       " + Another City"
-                                                                    )
+                                                                    ),
                                                                   ]
                                                                 )
                                                               : _c(
@@ -2483,30 +2495,31 @@ var render = function() {
                                                                     staticClass:
                                                                       "text-right removeCity",
                                                                     on: {
-                                                                      click: function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.deleteRow(
-                                                                          _vm.current_counter -
-                                                                            1
-                                                                        )
-                                                                      }
-                                                                    }
+                                                                      click:
+                                                                        function (
+                                                                          $event
+                                                                        ) {
+                                                                          return _vm.deleteRow(
+                                                                            _vm.current_counter -
+                                                                              1
+                                                                          )
+                                                                        },
+                                                                    },
                                                                   },
                                                                   [
                                                                     _vm._v(
                                                                       "- Remove City"
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                           ]
-                                                        )
+                                                        ),
                                                       ]
-                                                    )
+                                                    ),
                                                   ]
-                                                )
+                                                ),
                                               ]
-                                            )
+                                            ),
                                           ],
                                           2
                                         ),
@@ -2519,7 +2532,7 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding",
                                               },
                                               [
                                                 _c(
@@ -2532,43 +2545,43 @@ var render = function() {
                                                         staticClass:
                                                           "placeholder_color ui fluid search selection dropdown",
                                                         attrs: {
-                                                          name: "typetour"
+                                                          name: "typetour",
                                                         },
                                                         on: {
-                                                          change: function(
+                                                          change: function (
                                                             $event
                                                           ) {
                                                             return _vm.tourtypeOnChange(
                                                               $event
                                                             )
-                                                          }
-                                                        }
+                                                          },
+                                                        },
                                                       },
                                                       [
                                                         _c(
                                                           "option",
                                                           {
                                                             attrs: {
-                                                              selected: ""
-                                                            }
+                                                              selected: "",
+                                                            },
                                                           },
                                                           [
                                                             _vm._v(
                                                               "In mood for"
-                                                            )
+                                                            ),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
                                                         _vm._l(
                                                           _vm.tourtype_option,
-                                                          function(index) {
+                                                          function (index) {
                                                             return _c(
                                                               "option",
                                                               {
                                                                 key: index.id,
                                                                 domProps: {
-                                                                  value: index
-                                                                }
+                                                                  value: index,
+                                                                },
                                                               },
                                                               [
                                                                 _vm._v(
@@ -2577,16 +2590,16 @@ var render = function() {
                                                                       index.name
                                                                     ) +
                                                                     "\n                            "
-                                                                )
+                                                                ),
                                                               ]
                                                             )
                                                           }
-                                                        )
+                                                        ),
                                                       ],
                                                       2
-                                                    )
+                                                    ),
                                                   ]
-                                                )
+                                                ),
                                               ]
                                             ),
                                             _vm._v(" "),
@@ -2594,7 +2607,7 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding",
                                               },
                                               [
                                                 _c(
@@ -2607,44 +2620,44 @@ var render = function() {
                                                         staticClass:
                                                           "selectpicker ui selection dropdown",
                                                         attrs: {
-                                                          name: "noofday"
+                                                          name: "noofday",
                                                         },
                                                         on: {
-                                                          change: function(
+                                                          change: function (
                                                             $event
                                                           ) {
                                                             return _vm.noofdaysOnChange(
                                                               $event
                                                             )
-                                                          }
-                                                        }
+                                                          },
+                                                        },
                                                       },
                                                       [
                                                         _c(
                                                           "option",
                                                           {
                                                             attrs: {
-                                                              selected: ""
-                                                            }
+                                                              selected: "",
+                                                            },
                                                           },
                                                           [
                                                             _vm._v(
                                                               "No. of days"
-                                                            )
+                                                            ),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
                                                         _vm._l(
                                                           _vm.noofdays_option,
-                                                          function(index) {
+                                                          function (index) {
                                                             return _c(
                                                               "option",
                                                               {
                                                                 key: index.id,
                                                                 domProps: {
                                                                   value:
-                                                                    index.id
-                                                                }
+                                                                    index.id,
+                                                                },
                                                               },
                                                               [
                                                                 _vm._v(
@@ -2653,16 +2666,16 @@ var render = function() {
                                                                       index.name
                                                                     ) +
                                                                     "\n                            "
-                                                                )
+                                                                ),
                                                               ]
                                                             )
                                                           }
-                                                        )
+                                                        ),
                                                       ],
                                                       2
-                                                    )
+                                                    ),
                                                   ]
-                                                )
+                                                ),
                                               ]
                                             ),
                                             _vm._v(" "),
@@ -2670,31 +2683,32 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-12 col-sm-6 col-lg-6 ml-2"
+                                                  "col-12 col-sm-6 col-lg-6 ml-2",
                                               },
                                               [
                                                 _c(
                                                   "div",
                                                   {
                                                     staticClass:
-                                                      "row search-radio"
+                                                      "row search-radio",
                                                   },
                                                   [
                                                     _c(
                                                       "div",
                                                       {
-                                                        staticClass: "col-sm-12"
+                                                        staticClass:
+                                                          "col-sm-12",
                                                       },
                                                       [
                                                         _c(
                                                           "custLabel2",
                                                           {
-                                                            staticClass: "pt-3"
+                                                            staticClass: "pt-3",
                                                           },
                                                           [
                                                             _vm._v(
                                                               "Customer type"
-                                                            )
+                                                            ),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -2702,71 +2716,71 @@ var render = function() {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "row pb-3"
+                                                              "row pb-3",
                                                           },
                                                           [
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "col-md-4 col-6"
+                                                                  "col-md-4 col-6",
                                                               },
                                                               [
                                                                 _c(
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "custom-control custom-radio"
+                                                                      "custom-control custom-radio",
                                                                   },
                                                                   [
                                                                     _c(
                                                                       "input",
                                                                       {
-                                                                        directives: [
-                                                                          {
-                                                                            name:
-                                                                              "model",
-                                                                            rawName:
-                                                                              "v-model",
-                                                                            value:
-                                                                              _vm
-                                                                                .searchForm
-                                                                                .clientType,
-                                                                            expression:
-                                                                              "searchForm.clientType"
-                                                                          }
-                                                                        ],
+                                                                        directives:
+                                                                          [
+                                                                            {
+                                                                              name: "model",
+                                                                              rawName:
+                                                                                "v-model",
+                                                                              value:
+                                                                                _vm
+                                                                                  .searchForm
+                                                                                  .clientType,
+                                                                              expression:
+                                                                                "searchForm.clientType",
+                                                                            },
+                                                                          ],
                                                                         staticClass:
                                                                           "custom-control-input",
                                                                         attrs: {
-                                                                          type:
-                                                                            "radio",
-                                                                          id:
-                                                                            "student",
-                                                                          name:
-                                                                            "customRadio2",
+                                                                          type: "radio",
+                                                                          id: "student",
+                                                                          name: "customRadio2",
                                                                           value:
-                                                                            "student"
+                                                                            "student",
                                                                         },
-                                                                        domProps: {
-                                                                          checked: _vm._q(
-                                                                            _vm
-                                                                              .searchForm
-                                                                              .clientType,
-                                                                            "student"
-                                                                          )
-                                                                        },
+                                                                        domProps:
+                                                                          {
+                                                                            checked:
+                                                                              _vm._q(
+                                                                                _vm
+                                                                                  .searchForm
+                                                                                  .clientType,
+                                                                                "student"
+                                                                              ),
+                                                                          },
                                                                         on: {
-                                                                          change: function(
-                                                                            $event
-                                                                          ) {
-                                                                            return _vm.$set(
-                                                                              _vm.searchForm,
-                                                                              "clientType",
-                                                                              "student"
-                                                                            )
-                                                                          }
-                                                                        }
+                                                                          change:
+                                                                            function (
+                                                                              $event
+                                                                            ) {
+                                                                              return _vm.$set(
+                                                                                _vm.searchForm,
+                                                                                "clientType",
+                                                                                "student"
+                                                                              )
+                                                                            },
+                                                                        },
                                                                       }
                                                                     ),
                                                                     _vm._v(" "),
@@ -2776,18 +2790,17 @@ var render = function() {
                                                                         staticClass:
                                                                           "custom-control-label",
                                                                         attrs: {
-                                                                          for:
-                                                                            "student"
-                                                                        }
+                                                                          for: "student",
+                                                                        },
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           "Student"
-                                                                        )
+                                                                        ),
                                                                       ]
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
                                                             ),
                                                             _vm._v(" "),
@@ -2795,64 +2808,64 @@ var render = function() {
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "col-md-4 col-6"
+                                                                  "col-md-4 col-6",
                                                               },
                                                               [
                                                                 _c(
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "custom-control custom-radio"
+                                                                      "custom-control custom-radio",
                                                                   },
                                                                   [
                                                                     _c(
                                                                       "input",
                                                                       {
-                                                                        directives: [
-                                                                          {
-                                                                            name:
-                                                                              "model",
-                                                                            rawName:
-                                                                              "v-model",
-                                                                            value:
-                                                                              _vm
-                                                                                .searchForm
-                                                                                .clientType,
-                                                                            expression:
-                                                                              "searchForm.clientType"
-                                                                          }
-                                                                        ],
+                                                                        directives:
+                                                                          [
+                                                                            {
+                                                                              name: "model",
+                                                                              rawName:
+                                                                                "v-model",
+                                                                              value:
+                                                                                _vm
+                                                                                  .searchForm
+                                                                                  .clientType,
+                                                                              expression:
+                                                                                "searchForm.clientType",
+                                                                            },
+                                                                          ],
                                                                         staticClass:
                                                                           "custom-control-input",
                                                                         attrs: {
-                                                                          type:
-                                                                            "radio",
-                                                                          id:
-                                                                            "corporate",
-                                                                          name:
-                                                                            "customRadio2",
+                                                                          type: "radio",
+                                                                          id: "corporate",
+                                                                          name: "customRadio2",
                                                                           value:
-                                                                            "corporate"
+                                                                            "corporate",
                                                                         },
-                                                                        domProps: {
-                                                                          checked: _vm._q(
-                                                                            _vm
-                                                                              .searchForm
-                                                                              .clientType,
-                                                                            "corporate"
-                                                                          )
-                                                                        },
+                                                                        domProps:
+                                                                          {
+                                                                            checked:
+                                                                              _vm._q(
+                                                                                _vm
+                                                                                  .searchForm
+                                                                                  .clientType,
+                                                                                "corporate"
+                                                                              ),
+                                                                          },
                                                                         on: {
-                                                                          change: function(
-                                                                            $event
-                                                                          ) {
-                                                                            return _vm.$set(
-                                                                              _vm.searchForm,
-                                                                              "clientType",
-                                                                              "corporate"
-                                                                            )
-                                                                          }
-                                                                        }
+                                                                          change:
+                                                                            function (
+                                                                              $event
+                                                                            ) {
+                                                                              return _vm.$set(
+                                                                                _vm.searchForm,
+                                                                                "clientType",
+                                                                                "corporate"
+                                                                              )
+                                                                            },
+                                                                        },
                                                                       }
                                                                     ),
                                                                     _vm._v(" "),
@@ -2862,18 +2875,17 @@ var render = function() {
                                                                         staticClass:
                                                                           "custom-control-label",
                                                                         attrs: {
-                                                                          for:
-                                                                            "corporate"
-                                                                        }
+                                                                          for: "corporate",
+                                                                        },
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           "Corporate"
-                                                                        )
+                                                                        ),
                                                                       ]
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
                                                             ),
                                                             _vm._v(" "),
@@ -2881,64 +2893,64 @@ var render = function() {
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "col-md-4 col-6"
+                                                                  "col-md-4 col-6",
                                                               },
                                                               [
                                                                 _c(
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "custom-control custom-radio"
+                                                                      "custom-control custom-radio",
                                                                   },
                                                                   [
                                                                     _c(
                                                                       "input",
                                                                       {
-                                                                        directives: [
-                                                                          {
-                                                                            name:
-                                                                              "model",
-                                                                            rawName:
-                                                                              "v-model",
-                                                                            value:
-                                                                              _vm
-                                                                                .searchForm
-                                                                                .clientType,
-                                                                            expression:
-                                                                              "searchForm.clientType"
-                                                                          }
-                                                                        ],
+                                                                        directives:
+                                                                          [
+                                                                            {
+                                                                              name: "model",
+                                                                              rawName:
+                                                                                "v-model",
+                                                                              value:
+                                                                                _vm
+                                                                                  .searchForm
+                                                                                  .clientType,
+                                                                              expression:
+                                                                                "searchForm.clientType",
+                                                                            },
+                                                                          ],
                                                                         staticClass:
                                                                           "custom-control-input",
                                                                         attrs: {
-                                                                          type:
-                                                                            "radio",
-                                                                          id:
-                                                                            "family",
-                                                                          name:
-                                                                            "customRadio2",
+                                                                          type: "radio",
+                                                                          id: "family",
+                                                                          name: "customRadio2",
                                                                           value:
-                                                                            "family"
+                                                                            "family",
                                                                         },
-                                                                        domProps: {
-                                                                          checked: _vm._q(
-                                                                            _vm
-                                                                              .searchForm
-                                                                              .clientType,
-                                                                            "family"
-                                                                          )
-                                                                        },
+                                                                        domProps:
+                                                                          {
+                                                                            checked:
+                                                                              _vm._q(
+                                                                                _vm
+                                                                                  .searchForm
+                                                                                  .clientType,
+                                                                                "family"
+                                                                              ),
+                                                                          },
                                                                         on: {
-                                                                          change: function(
-                                                                            $event
-                                                                          ) {
-                                                                            return _vm.$set(
-                                                                              _vm.searchForm,
-                                                                              "clientType",
-                                                                              "family"
-                                                                            )
-                                                                          }
-                                                                        }
+                                                                          change:
+                                                                            function (
+                                                                              $event
+                                                                            ) {
+                                                                              return _vm.$set(
+                                                                                _vm.searchForm,
+                                                                                "clientType",
+                                                                                "family"
+                                                                              )
+                                                                            },
+                                                                        },
                                                                       }
                                                                     ),
                                                                     _vm._v(" "),
@@ -2948,27 +2960,26 @@ var render = function() {
                                                                         staticClass:
                                                                           "custom-control-label",
                                                                         attrs: {
-                                                                          for:
-                                                                            "family"
-                                                                        }
+                                                                          for: "family",
+                                                                        },
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           "Family"
-                                                                        )
+                                                                        ),
                                                                       ]
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
-                                                            )
+                                                            ),
                                                           ]
-                                                        )
+                                                        ),
                                                       ],
                                                       1
-                                                    )
+                                                    ),
                                                   ]
-                                                )
+                                                ),
                                               ]
                                             ),
                                             _vm._v(" "),
@@ -2976,7 +2987,7 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-12 col-sm-5 col-lg-5"
+                                                  "col-12 col-sm-5 col-lg-5",
                                               },
                                               [
                                                 _c(
@@ -2986,13 +2997,13 @@ var render = function() {
                                                     _c("custLabel", [
                                                       _vm._v(
                                                         "Choose your transport"
-                                                      )
+                                                      ),
                                                     ]),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
                                                       {
-                                                        staticClass: "row pb-2"
+                                                        staticClass: "row pb-2",
                                                       },
                                                       [
                                                         _c(
@@ -3001,14 +3012,14 @@ var render = function() {
                                                             staticClass:
                                                               "col-6 col-md-2 mb-2",
                                                             on: {
-                                                              click: function(
+                                                              click: function (
                                                                 $event
                                                               ) {
                                                                 _vm.portType =
                                                                   "car"
                                                                 _vm.getCities()
-                                                              }
-                                                            }
+                                                              },
+                                                            },
                                                           },
                                                           [
                                                             _c("img", {
@@ -3021,9 +3032,9 @@ var render = function() {
                                                                     ? _vm.$gbiAssets +
                                                                       "/car_onclick_icon.png"
                                                                     : _vm.$gbiAssets +
-                                                                      "/car_icon_src.png"
-                                                              }
-                                                            })
+                                                                      "/car_icon_src.png",
+                                                              },
+                                                            }),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -3033,14 +3044,14 @@ var render = function() {
                                                             staticClass:
                                                               "col-6 col-md-2 mb-2",
                                                             on: {
-                                                              click: function(
+                                                              click: function (
                                                                 $event
                                                               ) {
                                                                 _vm.portType =
                                                                   "bus"
                                                                 _vm.getCities()
-                                                              }
-                                                            }
+                                                              },
+                                                            },
                                                           },
                                                           [
                                                             _c("img", {
@@ -3053,9 +3064,9 @@ var render = function() {
                                                                     ? _vm.$gbiAssets +
                                                                       "/bus_onclick_icon.png"
                                                                     : _vm.$gbiAssets +
-                                                                      "/bus_icon_src.png"
-                                                              }
-                                                            })
+                                                                      "/bus_icon_src.png",
+                                                              },
+                                                            }),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -3065,14 +3076,14 @@ var render = function() {
                                                             staticClass:
                                                               "col-6 col-md-2 mb-2",
                                                             on: {
-                                                              click: function(
+                                                              click: function (
                                                                 $event
                                                               ) {
                                                                 _vm.portType =
                                                                   "train"
                                                                 _vm.getCities()
-                                                              }
-                                                            }
+                                                              },
+                                                            },
                                                           },
                                                           [
                                                             _c("img", {
@@ -3085,9 +3096,9 @@ var render = function() {
                                                                     ? _vm.$gbiAssets +
                                                                       "/train_onclick_icon.png"
                                                                     : _vm.$gbiAssets +
-                                                                      "/train_icon_src.png"
-                                                              }
-                                                            })
+                                                                      "/train_icon_src.png",
+                                                              },
+                                                            }),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -3097,14 +3108,14 @@ var render = function() {
                                                             staticClass:
                                                               "col-6 col-md-2 mb-2",
                                                             on: {
-                                                              click: function(
+                                                              click: function (
                                                                 $event
                                                               ) {
                                                                 _vm.portType =
                                                                   "plane"
                                                                 _vm.getCities()
-                                                              }
-                                                            }
+                                                              },
+                                                            },
                                                           },
                                                           [
                                                             _c("img", {
@@ -3117,18 +3128,18 @@ var render = function() {
                                                                     ? _vm.$gbiAssets +
                                                                       "/flight_onclick_icon.png"
                                                                     : _vm.$gbiAssets +
-                                                                      "/flight_icon_src.png"
-                                                              }
-                                                            })
+                                                                      "/flight_icon_src.png",
+                                                              },
+                                                            }),
                                                           ]
-                                                        )
+                                                        ),
                                                       ]
-                                                    )
+                                                    ),
                                                   ],
                                                   1
-                                                )
+                                                ),
                                               ]
-                                            )
+                                            ),
                                           ]
                                         ),
                                         _vm._v(" "),
@@ -3144,25 +3155,25 @@ var render = function() {
                                                 attrs: { type: "submit" },
                                                 on: {
                                                   click: [
-                                                    function($event) {
+                                                    function ($event) {
                                                       $event.preventDefault()
                                                       return _vm.searchAll()
                                                     },
-                                                    function($event) {
+                                                    function ($event) {
                                                       _vm.show = !_vm.show
-                                                    }
-                                                  ]
-                                                }
+                                                    },
+                                                  ],
+                                                },
                                               },
                                               [
                                                 _vm._v(
                                                   "\n                        SEARCH\n                      "
-                                                )
+                                                ),
                                               ]
-                                            )
+                                            ),
                                           ]
-                                        )
-                                      ])
+                                        ),
+                                      ]),
                                 ]
                               )
                             : _c(
@@ -3170,8 +3181,8 @@ var render = function() {
                                 {
                                   staticClass: "explor-content pb-1",
                                   staticStyle: {
-                                    "padding-top": "5.6vh !important"
-                                  }
+                                    "padding-top": "5.6vh !important",
+                                  },
                                 },
                                 [
                                   _c("div", { staticClass: "container" }, [
@@ -3183,23 +3194,23 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                              "col-6 col-sm-6 col-lg-6 input-p nopadding",
                                           },
                                           [
                                             _c("model-select", {
                                               attrs: {
                                                 options: _vm.optionsHotel,
                                                 placeholder: "Location",
-                                                autocomplete: "off"
+                                                autocomplete: "off",
                                               },
                                               model: {
                                                 value: _vm.sources,
-                                                callback: function($$v) {
+                                                callback: function ($$v) {
                                                   _vm.sources = $$v
                                                 },
-                                                expression: "sources"
-                                              }
-                                            })
+                                                expression: "sources",
+                                              },
+                                            }),
                                           ],
                                           1
                                         ),
@@ -3208,7 +3219,7 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "col-6 col-sm-6 col-lg-6 input-p nopadding"
+                                              "col-6 col-sm-6 col-lg-6 input-p nopadding",
                                           },
                                           [
                                             _c("input", {
@@ -3217,8 +3228,8 @@ var render = function() {
                                                   name: "model",
                                                   rawName: "v-model",
                                                   value: _vm.people,
-                                                  expression: "people"
-                                                }
+                                                  expression: "people",
+                                                },
                                               ],
                                               staticClass: "form-control",
                                               attrs: {
@@ -3227,28 +3238,28 @@ var render = function() {
                                                 "data-toggle": "modal",
                                                 "data-target": "#personsModal",
                                                 placeholder: "Guests",
-                                                readonly: ""
+                                                readonly: "",
                                               },
                                               domProps: { value: _vm.people },
                                               on: {
-                                                click: function($event) {
+                                                click: function ($event) {
                                                   _vm.showPersonModal = true
                                                 },
-                                                input: function($event) {
+                                                input: function ($event) {
                                                   if ($event.target.composing) {
                                                     return
                                                   }
                                                   _vm.people =
                                                     $event.target.value
-                                                }
-                                              }
+                                                },
+                                              },
                                             }),
                                             _vm._v(" "),
                                             _c("has-error", {
                                               attrs: {
                                                 form: _vm.form,
-                                                field: "start_date"
-                                              }
+                                                field: "start_date",
+                                              },
                                             }),
                                             _vm._v(" "),
                                             _vm.showPersonModal
@@ -3259,8 +3270,8 @@ var render = function() {
                                                     attrs: {
                                                       tabindex: "-1",
                                                       role: "dialog",
-                                                      id: "personsModal"
-                                                    }
+                                                      id: "personsModal",
+                                                    },
                                                   },
                                                   [
                                                     _c(
@@ -3269,22 +3280,22 @@ var render = function() {
                                                         staticClass:
                                                           "modal-dialog",
                                                         attrs: {
-                                                          role: "document"
-                                                        }
+                                                          role: "document",
+                                                        },
                                                       },
                                                       [
                                                         _c(
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "modal-content"
+                                                              "modal-content",
                                                           },
                                                           [
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "modal-header"
+                                                                  "modal-header",
                                                               },
                                                               [
                                                                 _c(
@@ -3292,15 +3303,16 @@ var render = function() {
                                                                   {
                                                                     staticClass:
                                                                       "modal-title",
-                                                                    staticStyle: {
-                                                                      color:
-                                                                        "black"
-                                                                    }
+                                                                    staticStyle:
+                                                                      {
+                                                                        color:
+                                                                          "black",
+                                                                      },
                                                                   },
                                                                   [
                                                                     _vm._v(
                                                                       "Passengers"
-                                                                    )
+                                                                    ),
                                                                   ]
                                                                 ),
                                                                 _vm._v(" "),
@@ -3310,18 +3322,18 @@ var render = function() {
                                                                     staticClass:
                                                                       "close",
                                                                     attrs: {
-                                                                      type:
-                                                                        "button",
+                                                                      type: "button",
                                                                       "aria-label":
-                                                                        "Close"
+                                                                        "Close",
                                                                     },
                                                                     on: {
-                                                                      click: function(
-                                                                        $event
-                                                                      ) {
-                                                                        _vm.showPersonModal = false
-                                                                      }
-                                                                    }
+                                                                      click:
+                                                                        function (
+                                                                          $event
+                                                                        ) {
+                                                                          _vm.showPersonModal = false
+                                                                        },
+                                                                    },
                                                                   },
                                                                   [
                                                                     _c(
@@ -3329,17 +3341,17 @@ var render = function() {
                                                                       {
                                                                         attrs: {
                                                                           "aria-hidden":
-                                                                            "true"
-                                                                        }
+                                                                            "true",
+                                                                        },
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           "×"
-                                                                        )
+                                                                        ),
                                                                       ]
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
                                                             ),
                                                             _vm._v(" "),
@@ -3347,14 +3359,14 @@ var render = function() {
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "modal-body"
+                                                                  "modal-body",
                                                               },
                                                               [
                                                                 _c(
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "marginT"
+                                                                      "marginT",
                                                                   },
                                                                   [
                                                                     _c(
@@ -3363,14 +3375,13 @@ var render = function() {
                                                                         staticClass:
                                                                           "personLables",
                                                                         attrs: {
-                                                                          for:
-                                                                            "number_of_adults"
-                                                                        }
+                                                                          for: "number_of_adults",
+                                                                        },
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           "Adults(>12 years)"
-                                                                        )
+                                                                        ),
                                                                       ]
                                                                     ),
                                                                     _vm._v(" "),
@@ -3382,21 +3393,22 @@ var render = function() {
                                                                           {
                                                                             staticClass:
                                                                               "decrease",
-                                                                            attrs: {
-                                                                              type:
-                                                                                "button",
-                                                                              value:
-                                                                                "-"
-                                                                            },
+                                                                            attrs:
+                                                                              {
+                                                                                type: "button",
+                                                                                value:
+                                                                                  "-",
+                                                                              },
                                                                             on: {
-                                                                              click: function(
-                                                                                $event
-                                                                              ) {
-                                                                                return _vm.decrVal(
-                                                                                  "adults"
-                                                                                )
-                                                                              }
-                                                                            }
+                                                                              click:
+                                                                                function (
+                                                                                  $event
+                                                                                ) {
+                                                                                  return _vm.decrVal(
+                                                                                    "adults"
+                                                                                  )
+                                                                                },
+                                                                            },
                                                                           }
                                                                         ),
                                                                         _vm._v(
@@ -3405,45 +3417,46 @@ var render = function() {
                                                                         _c(
                                                                           "input",
                                                                           {
-                                                                            directives: [
+                                                                            directives:
+                                                                              [
+                                                                                {
+                                                                                  name: "model",
+                                                                                  rawName:
+                                                                                    "v-model",
+                                                                                  value:
+                                                                                    _vm.adults,
+                                                                                  expression:
+                                                                                    "adults",
+                                                                                },
+                                                                              ],
+                                                                            attrs:
                                                                               {
-                                                                                name:
-                                                                                  "model",
-                                                                                rawName:
-                                                                                  "v-model",
+                                                                                type: "passengers",
+                                                                                id: "incrdcr",
+                                                                                readonly:
+                                                                                  "",
+                                                                              },
+                                                                            domProps:
+                                                                              {
                                                                                 value:
                                                                                   _vm.adults,
-                                                                                expression:
-                                                                                  "adults"
-                                                                              }
-                                                                            ],
-                                                                            attrs: {
-                                                                              type:
-                                                                                "passengers",
-                                                                              id:
-                                                                                "incrdcr",
-                                                                              readonly:
-                                                                                ""
-                                                                            },
-                                                                            domProps: {
-                                                                              value:
-                                                                                _vm.adults
-                                                                            },
+                                                                              },
                                                                             on: {
-                                                                              input: function(
-                                                                                $event
-                                                                              ) {
-                                                                                if (
+                                                                              input:
+                                                                                function (
                                                                                   $event
-                                                                                    .target
-                                                                                    .composing
                                                                                 ) {
-                                                                                  return
-                                                                                }
-                                                                                _vm.adults =
-                                                                                  $event.target.value
-                                                                              }
-                                                                            }
+                                                                                  if (
+                                                                                    $event
+                                                                                      .target
+                                                                                      .composing
+                                                                                  ) {
+                                                                                    return
+                                                                                  }
+                                                                                  _vm.adults =
+                                                                                    $event.target.value
+                                                                                },
+                                                                            },
                                                                           }
                                                                         ),
                                                                         _vm._v(
@@ -3454,25 +3467,26 @@ var render = function() {
                                                                           {
                                                                             staticClass:
                                                                               "increase",
-                                                                            attrs: {
-                                                                              type:
-                                                                                "button",
-                                                                              value:
-                                                                                "+"
-                                                                            },
+                                                                            attrs:
+                                                                              {
+                                                                                type: "button",
+                                                                                value:
+                                                                                  "+",
+                                                                              },
                                                                             on: {
-                                                                              click: function(
-                                                                                $event
-                                                                              ) {
-                                                                                return _vm.incrVal(
-                                                                                  "adults"
-                                                                                )
-                                                                              }
-                                                                            }
+                                                                              click:
+                                                                                function (
+                                                                                  $event
+                                                                                ) {
+                                                                                  return _vm.incrVal(
+                                                                                    "adults"
+                                                                                  )
+                                                                                },
+                                                                            },
                                                                           }
-                                                                        )
+                                                                        ),
                                                                       ]
-                                                                    )
+                                                                    ),
                                                                   ]
                                                                 ),
                                                                 _vm._v(" "),
@@ -3480,7 +3494,7 @@ var render = function() {
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "marginT"
+                                                                      "marginT",
                                                                   },
                                                                   [
                                                                     _c(
@@ -3489,14 +3503,13 @@ var render = function() {
                                                                         staticClass:
                                                                           "personLables",
                                                                         attrs: {
-                                                                          for:
-                                                                            "number_of_children"
-                                                                        }
+                                                                          for: "number_of_children",
+                                                                        },
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           "Children(2 to 12 years)"
-                                                                        )
+                                                                        ),
                                                                       ]
                                                                     ),
                                                                     _vm._v(" "),
@@ -3508,21 +3521,22 @@ var render = function() {
                                                                           {
                                                                             staticClass:
                                                                               "decrease",
-                                                                            attrs: {
-                                                                              type:
-                                                                                "button",
-                                                                              value:
-                                                                                "-"
-                                                                            },
+                                                                            attrs:
+                                                                              {
+                                                                                type: "button",
+                                                                                value:
+                                                                                  "-",
+                                                                              },
                                                                             on: {
-                                                                              click: function(
-                                                                                $event
-                                                                              ) {
-                                                                                return _vm.decrVal(
-                                                                                  "children"
-                                                                                )
-                                                                              }
-                                                                            }
+                                                                              click:
+                                                                                function (
+                                                                                  $event
+                                                                                ) {
+                                                                                  return _vm.decrVal(
+                                                                                    "children"
+                                                                                  )
+                                                                                },
+                                                                            },
                                                                           }
                                                                         ),
                                                                         _vm._v(
@@ -3531,45 +3545,46 @@ var render = function() {
                                                                         _c(
                                                                           "input",
                                                                           {
-                                                                            directives: [
+                                                                            directives:
+                                                                              [
+                                                                                {
+                                                                                  name: "model",
+                                                                                  rawName:
+                                                                                    "v-model",
+                                                                                  value:
+                                                                                    _vm.children,
+                                                                                  expression:
+                                                                                    "children",
+                                                                                },
+                                                                              ],
+                                                                            attrs:
                                                                               {
-                                                                                name:
-                                                                                  "model",
-                                                                                rawName:
-                                                                                  "v-model",
+                                                                                type: "passengers",
+                                                                                id: "incrdcr",
+                                                                                readonly:
+                                                                                  "",
+                                                                              },
+                                                                            domProps:
+                                                                              {
                                                                                 value:
                                                                                   _vm.children,
-                                                                                expression:
-                                                                                  "children"
-                                                                              }
-                                                                            ],
-                                                                            attrs: {
-                                                                              type:
-                                                                                "passengers",
-                                                                              id:
-                                                                                "incrdcr",
-                                                                              readonly:
-                                                                                ""
-                                                                            },
-                                                                            domProps: {
-                                                                              value:
-                                                                                _vm.children
-                                                                            },
+                                                                              },
                                                                             on: {
-                                                                              input: function(
-                                                                                $event
-                                                                              ) {
-                                                                                if (
+                                                                              input:
+                                                                                function (
                                                                                   $event
-                                                                                    .target
-                                                                                    .composing
                                                                                 ) {
-                                                                                  return
-                                                                                }
-                                                                                _vm.children =
-                                                                                  $event.target.value
-                                                                              }
-                                                                            }
+                                                                                  if (
+                                                                                    $event
+                                                                                      .target
+                                                                                      .composing
+                                                                                  ) {
+                                                                                    return
+                                                                                  }
+                                                                                  _vm.children =
+                                                                                    $event.target.value
+                                                                                },
+                                                                            },
                                                                           }
                                                                         ),
                                                                         _vm._v(
@@ -3580,25 +3595,26 @@ var render = function() {
                                                                           {
                                                                             staticClass:
                                                                               "increase",
-                                                                            attrs: {
-                                                                              type:
-                                                                                "button",
-                                                                              value:
-                                                                                "+"
-                                                                            },
+                                                                            attrs:
+                                                                              {
+                                                                                type: "button",
+                                                                                value:
+                                                                                  "+",
+                                                                              },
                                                                             on: {
-                                                                              click: function(
-                                                                                $event
-                                                                              ) {
-                                                                                return _vm.incrVal(
-                                                                                  "children"
-                                                                                )
-                                                                              }
-                                                                            }
+                                                                              click:
+                                                                                function (
+                                                                                  $event
+                                                                                ) {
+                                                                                  return _vm.incrVal(
+                                                                                    "children"
+                                                                                  )
+                                                                                },
+                                                                            },
                                                                           }
-                                                                        )
+                                                                        ),
                                                                       ]
-                                                                    )
+                                                                    ),
                                                                   ]
                                                                 ),
                                                                 _vm._v(" "),
@@ -3606,7 +3622,7 @@ var render = function() {
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "marginT"
+                                                                      "marginT",
                                                                   },
                                                                   [
                                                                     _c(
@@ -3615,14 +3631,13 @@ var render = function() {
                                                                         staticClass:
                                                                           "personLables",
                                                                         attrs: {
-                                                                          for:
-                                                                            "number_of_infants"
-                                                                        }
+                                                                          for: "number_of_infants",
+                                                                        },
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           "Infants(3 days to 2 years)"
-                                                                        )
+                                                                        ),
                                                                       ]
                                                                     ),
                                                                     _vm._v(" "),
@@ -3634,21 +3649,22 @@ var render = function() {
                                                                           {
                                                                             staticClass:
                                                                               "decrease",
-                                                                            attrs: {
-                                                                              type:
-                                                                                "button",
-                                                                              value:
-                                                                                "-"
-                                                                            },
+                                                                            attrs:
+                                                                              {
+                                                                                type: "button",
+                                                                                value:
+                                                                                  "-",
+                                                                              },
                                                                             on: {
-                                                                              click: function(
-                                                                                $event
-                                                                              ) {
-                                                                                return _vm.decrVal(
-                                                                                  "infants"
-                                                                                )
-                                                                              }
-                                                                            }
+                                                                              click:
+                                                                                function (
+                                                                                  $event
+                                                                                ) {
+                                                                                  return _vm.decrVal(
+                                                                                    "infants"
+                                                                                  )
+                                                                                },
+                                                                            },
                                                                           }
                                                                         ),
                                                                         _vm._v(
@@ -3657,45 +3673,46 @@ var render = function() {
                                                                         _c(
                                                                           "input",
                                                                           {
-                                                                            directives: [
+                                                                            directives:
+                                                                              [
+                                                                                {
+                                                                                  name: "model",
+                                                                                  rawName:
+                                                                                    "v-model",
+                                                                                  value:
+                                                                                    _vm.infants,
+                                                                                  expression:
+                                                                                    "infants",
+                                                                                },
+                                                                              ],
+                                                                            attrs:
                                                                               {
-                                                                                name:
-                                                                                  "model",
-                                                                                rawName:
-                                                                                  "v-model",
+                                                                                type: "passengers",
+                                                                                id: "incrdcr",
+                                                                                readonly:
+                                                                                  "",
+                                                                              },
+                                                                            domProps:
+                                                                              {
                                                                                 value:
                                                                                   _vm.infants,
-                                                                                expression:
-                                                                                  "infants"
-                                                                              }
-                                                                            ],
-                                                                            attrs: {
-                                                                              type:
-                                                                                "passengers",
-                                                                              id:
-                                                                                "incrdcr",
-                                                                              readonly:
-                                                                                ""
-                                                                            },
-                                                                            domProps: {
-                                                                              value:
-                                                                                _vm.infants
-                                                                            },
+                                                                              },
                                                                             on: {
-                                                                              input: function(
-                                                                                $event
-                                                                              ) {
-                                                                                if (
+                                                                              input:
+                                                                                function (
                                                                                   $event
-                                                                                    .target
-                                                                                    .composing
                                                                                 ) {
-                                                                                  return
-                                                                                }
-                                                                                _vm.infants =
-                                                                                  $event.target.value
-                                                                              }
-                                                                            }
+                                                                                  if (
+                                                                                    $event
+                                                                                      .target
+                                                                                      .composing
+                                                                                  ) {
+                                                                                    return
+                                                                                  }
+                                                                                  _vm.infants =
+                                                                                    $event.target.value
+                                                                                },
+                                                                            },
                                                                           }
                                                                         ),
                                                                         _vm._v(
@@ -3706,27 +3723,28 @@ var render = function() {
                                                                           {
                                                                             staticClass:
                                                                               "increase",
-                                                                            attrs: {
-                                                                              type:
-                                                                                "button",
-                                                                              value:
-                                                                                "+"
-                                                                            },
+                                                                            attrs:
+                                                                              {
+                                                                                type: "button",
+                                                                                value:
+                                                                                  "+",
+                                                                              },
                                                                             on: {
-                                                                              click: function(
-                                                                                $event
-                                                                              ) {
-                                                                                return _vm.incrVal(
-                                                                                  "infants"
-                                                                                )
-                                                                              }
-                                                                            }
+                                                                              click:
+                                                                                function (
+                                                                                  $event
+                                                                                ) {
+                                                                                  return _vm.incrVal(
+                                                                                    "infants"
+                                                                                  )
+                                                                                },
+                                                                            },
                                                                           }
-                                                                        )
+                                                                        ),
                                                                       ]
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
                                                             ),
                                                             _vm._v(" "),
@@ -3734,7 +3752,7 @@ var render = function() {
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "modal-footer"
+                                                                  "modal-footer",
                                                               },
                                                               [
                                                                 _c(
@@ -3743,29 +3761,28 @@ var render = function() {
                                                                     staticClass:
                                                                       "btn btn-primary",
                                                                     attrs: {
-                                                                      type:
-                                                                        "button"
+                                                                      type: "button",
                                                                     },
                                                                     on: {
                                                                       click:
-                                                                        _vm.savePersons
-                                                                    }
+                                                                        _vm.savePersons,
+                                                                    },
                                                                   },
                                                                   [
                                                                     _vm._v(
                                                                       "Confirm"
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
-                                                            )
+                                                            ),
                                                           ]
-                                                        )
+                                                        ),
                                                       ]
-                                                    )
+                                                    ),
                                                   ]
                                                 )
-                                              : _vm._e()
+                                              : _vm._e(),
                                           ],
                                           1
                                         ),
@@ -3774,7 +3791,7 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "col-6 col-sm-6 col-lg-3 input-p nopadding"
+                                              "col-6 col-sm-6 col-lg-3 input-p nopadding",
                                           },
                                           [
                                             _c(
@@ -3788,48 +3805,50 @@ var render = function() {
                                                       "selectpicker ui selection dropdown",
                                                     attrs: { name: "noofday" },
                                                     on: {
-                                                      change: function($event) {
+                                                      change: function (
+                                                        $event
+                                                      ) {
                                                         return _vm.noofdaysOnChange(
                                                           $event
                                                         )
-                                                      }
-                                                    }
+                                                      },
+                                                    },
                                                   },
                                                   [
                                                     _c(
                                                       "option",
                                                       {
-                                                        attrs: { selected: "" }
+                                                        attrs: { selected: "" },
                                                       },
                                                       [_vm._v("Room Category")]
                                                     ),
                                                     _vm._v(" "),
                                                     _vm._l(
                                                       _vm.room_types,
-                                                      function(index) {
+                                                      function (index) {
                                                         return _c(
                                                           "option",
                                                           {
                                                             key: index.id,
                                                             domProps: {
-                                                              value: index
-                                                            }
+                                                              value: index,
+                                                            },
                                                           },
                                                           [
                                                             _vm._v(
                                                               "\n                              " +
                                                                 _vm._s(index) +
                                                                 "\n                            "
-                                                            )
+                                                            ),
                                                           ]
                                                         )
                                                       }
-                                                    )
+                                                    ),
                                                   ],
                                                   2
-                                                )
+                                                ),
                                               ]
-                                            )
+                                            ),
                                           ]
                                         ),
                                         _vm._v(" "),
@@ -3837,7 +3856,7 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "col-6 col-sm-6 col-lg-3 input-p nopadding"
+                                              "col-6 col-sm-6 col-lg-3 input-p nopadding",
                                           },
                                           [
                                             _c("input", {
@@ -3846,8 +3865,8 @@ var render = function() {
                                                   name: "model",
                                                   rawName: "v-model",
                                                   value: _vm.room_text,
-                                                  expression: "room_text"
-                                                }
+                                                  expression: "room_text",
+                                                },
                                               ],
                                               staticClass: "form-control",
                                               attrs: {
@@ -3856,23 +3875,23 @@ var render = function() {
                                                 "data-toggle": "modal",
                                                 "data-target": "#roomsModal",
                                                 placeholder: "No. of Rooms",
-                                                readonly: ""
+                                                readonly: "",
                                               },
                                               domProps: {
-                                                value: _vm.room_text
+                                                value: _vm.room_text,
                                               },
                                               on: {
-                                                click: function($event) {
+                                                click: function ($event) {
                                                   _vm.showRoomModal = true
                                                 },
-                                                input: function($event) {
+                                                input: function ($event) {
                                                   if ($event.target.composing) {
                                                     return
                                                   }
                                                   _vm.room_text =
                                                     $event.target.value
-                                                }
-                                              }
+                                                },
+                                              },
                                             }),
                                             _vm._v(" "),
                                             _vm.showRoomModal
@@ -3883,8 +3902,8 @@ var render = function() {
                                                     attrs: {
                                                       tabindex: "-1",
                                                       role: "dialog",
-                                                      id: "roomsModal"
-                                                    }
+                                                      id: "roomsModal",
+                                                    },
                                                   },
                                                   [
                                                     _c(
@@ -3893,22 +3912,22 @@ var render = function() {
                                                         staticClass:
                                                           "modal-dialog",
                                                         attrs: {
-                                                          role: "document"
-                                                        }
+                                                          role: "document",
+                                                        },
                                                       },
                                                       [
                                                         _c(
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "modal-content"
+                                                              "modal-content",
                                                           },
                                                           [
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "modal-header"
+                                                                  "modal-header",
                                                               },
                                                               [
                                                                 _c(
@@ -3916,15 +3935,16 @@ var render = function() {
                                                                   {
                                                                     staticClass:
                                                                       "modal-title",
-                                                                    staticStyle: {
-                                                                      color:
-                                                                        "black"
-                                                                    }
+                                                                    staticStyle:
+                                                                      {
+                                                                        color:
+                                                                          "black",
+                                                                      },
                                                                   },
                                                                   [
                                                                     _vm._v(
                                                                       "No. of Rooms"
-                                                                    )
+                                                                    ),
                                                                   ]
                                                                 ),
                                                                 _vm._v(" "),
@@ -3934,18 +3954,18 @@ var render = function() {
                                                                     staticClass:
                                                                       "close",
                                                                     attrs: {
-                                                                      type:
-                                                                        "button",
+                                                                      type: "button",
                                                                       "aria-label":
-                                                                        "Close"
+                                                                        "Close",
                                                                     },
                                                                     on: {
-                                                                      click: function(
-                                                                        $event
-                                                                      ) {
-                                                                        _vm.showRoomModal = false
-                                                                      }
-                                                                    }
+                                                                      click:
+                                                                        function (
+                                                                          $event
+                                                                        ) {
+                                                                          _vm.showRoomModal = false
+                                                                        },
+                                                                    },
                                                                   },
                                                                   [
                                                                     _c(
@@ -3953,17 +3973,17 @@ var render = function() {
                                                                       {
                                                                         attrs: {
                                                                           "aria-hidden":
-                                                                            "true"
-                                                                        }
+                                                                            "true",
+                                                                        },
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           "×"
-                                                                        )
+                                                                        ),
                                                                       ]
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
                                                             ),
                                                             _vm._v(" "),
@@ -3971,14 +3991,14 @@ var render = function() {
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "modal-body"
+                                                                  "modal-body",
                                                               },
                                                               [
                                                                 _c(
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "marginT"
+                                                                      "marginT",
                                                                   },
                                                                   [
                                                                     _c(
@@ -3986,19 +4006,19 @@ var render = function() {
                                                                       {
                                                                         staticClass:
                                                                           "personLables",
-                                                                        staticStyle: {
-                                                                          color:
-                                                                            "gray"
-                                                                        },
+                                                                        staticStyle:
+                                                                          {
+                                                                            color:
+                                                                              "gray",
+                                                                          },
                                                                         attrs: {
-                                                                          for:
-                                                                            "number_of_infants"
-                                                                        }
+                                                                          for: "number_of_infants",
+                                                                        },
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           "Number of rooms required?"
-                                                                        )
+                                                                        ),
                                                                       ]
                                                                     ),
                                                                     _vm._v(" "),
@@ -4010,21 +4030,22 @@ var render = function() {
                                                                           {
                                                                             staticClass:
                                                                               "decrease",
-                                                                            attrs: {
-                                                                              type:
-                                                                                "button",
-                                                                              value:
-                                                                                "-"
-                                                                            },
+                                                                            attrs:
+                                                                              {
+                                                                                type: "button",
+                                                                                value:
+                                                                                  "-",
+                                                                              },
                                                                             on: {
-                                                                              click: function(
-                                                                                $event
-                                                                              ) {
-                                                                                return _vm.decrVal(
-                                                                                  "rooms"
-                                                                                )
-                                                                              }
-                                                                            }
+                                                                              click:
+                                                                                function (
+                                                                                  $event
+                                                                                ) {
+                                                                                  return _vm.decrVal(
+                                                                                    "rooms"
+                                                                                  )
+                                                                                },
+                                                                            },
                                                                           }
                                                                         ),
                                                                         _vm._v(
@@ -4033,45 +4054,46 @@ var render = function() {
                                                                         _c(
                                                                           "input",
                                                                           {
-                                                                            directives: [
+                                                                            directives:
+                                                                              [
+                                                                                {
+                                                                                  name: "model",
+                                                                                  rawName:
+                                                                                    "v-model",
+                                                                                  value:
+                                                                                    _vm.rooms,
+                                                                                  expression:
+                                                                                    "rooms",
+                                                                                },
+                                                                              ],
+                                                                            attrs:
                                                                               {
-                                                                                name:
-                                                                                  "model",
-                                                                                rawName:
-                                                                                  "v-model",
+                                                                                type: "passengers",
+                                                                                id: "incrdcr",
+                                                                                readonly:
+                                                                                  "",
+                                                                              },
+                                                                            domProps:
+                                                                              {
                                                                                 value:
                                                                                   _vm.rooms,
-                                                                                expression:
-                                                                                  "rooms"
-                                                                              }
-                                                                            ],
-                                                                            attrs: {
-                                                                              type:
-                                                                                "passengers",
-                                                                              id:
-                                                                                "incrdcr",
-                                                                              readonly:
-                                                                                ""
-                                                                            },
-                                                                            domProps: {
-                                                                              value:
-                                                                                _vm.rooms
-                                                                            },
+                                                                              },
                                                                             on: {
-                                                                              input: function(
-                                                                                $event
-                                                                              ) {
-                                                                                if (
+                                                                              input:
+                                                                                function (
                                                                                   $event
-                                                                                    .target
-                                                                                    .composing
                                                                                 ) {
-                                                                                  return
-                                                                                }
-                                                                                _vm.rooms =
-                                                                                  $event.target.value
-                                                                              }
-                                                                            }
+                                                                                  if (
+                                                                                    $event
+                                                                                      .target
+                                                                                      .composing
+                                                                                  ) {
+                                                                                    return
+                                                                                  }
+                                                                                  _vm.rooms =
+                                                                                    $event.target.value
+                                                                                },
+                                                                            },
                                                                           }
                                                                         ),
                                                                         _vm._v(
@@ -4082,27 +4104,28 @@ var render = function() {
                                                                           {
                                                                             staticClass:
                                                                               "increase",
-                                                                            attrs: {
-                                                                              type:
-                                                                                "button",
-                                                                              value:
-                                                                                "+"
-                                                                            },
+                                                                            attrs:
+                                                                              {
+                                                                                type: "button",
+                                                                                value:
+                                                                                  "+",
+                                                                              },
                                                                             on: {
-                                                                              click: function(
-                                                                                $event
-                                                                              ) {
-                                                                                return _vm.incrVal(
-                                                                                  "rooms"
-                                                                                )
-                                                                              }
-                                                                            }
+                                                                              click:
+                                                                                function (
+                                                                                  $event
+                                                                                ) {
+                                                                                  return _vm.incrVal(
+                                                                                    "rooms"
+                                                                                  )
+                                                                                },
+                                                                            },
                                                                           }
-                                                                        )
+                                                                        ),
                                                                       ]
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
                                                             ),
                                                             _vm._v(" "),
@@ -4110,7 +4133,7 @@ var render = function() {
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "modal-footer"
+                                                                  "modal-footer",
                                                               },
                                                               [
                                                                 _c(
@@ -4119,29 +4142,28 @@ var render = function() {
                                                                     staticClass:
                                                                       "btn btn-primary",
                                                                     attrs: {
-                                                                      type:
-                                                                        "button"
+                                                                      type: "button",
                                                                     },
                                                                     on: {
                                                                       click:
-                                                                        _vm.saveRooms
-                                                                    }
+                                                                        _vm.saveRooms,
+                                                                    },
                                                                   },
                                                                   [
                                                                     _vm._v(
                                                                       "Confirm"
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
-                                                            )
+                                                            ),
                                                           ]
-                                                        )
+                                                        ),
                                                       ]
-                                                    )
+                                                    ),
                                                   ]
                                                 )
-                                              : _vm._e()
+                                              : _vm._e(),
                                           ]
                                         ),
                                         _vm._v(" "),
@@ -4149,7 +4171,7 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "col-12 col-sm-12 col-lg-6 input-p nopadding"
+                                              "col-12 col-sm-12 col-lg-6 input-p nopadding",
                                           },
                                           [_c("HotelDatePicker")],
                                           1
@@ -4159,13 +4181,13 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "col-12 col-sm-6 col-lg-6 ml-2"
+                                              "col-12 col-sm-6 col-lg-6 ml-2",
                                           },
                                           [
                                             _c(
                                               "div",
                                               {
-                                                staticClass: "row search-radio"
+                                                staticClass: "row search-radio",
                                               },
                                               [
                                                 _c(
@@ -4181,28 +4203,27 @@ var render = function() {
                                                     _c(
                                                       "div",
                                                       {
-                                                        staticClass: "row pb-3"
+                                                        staticClass: "row pb-3",
                                                       },
                                                       [
                                                         _c(
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "col-md-4 col-6"
+                                                              "col-md-4 col-6",
                                                           },
                                                           [
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "custom-control custom-radio"
+                                                                  "custom-control custom-radio",
                                                               },
                                                               [
                                                                 _c("input", {
                                                                   directives: [
                                                                     {
-                                                                      name:
-                                                                        "model",
+                                                                      name: "model",
                                                                       rawName:
                                                                         "v-model",
                                                                       value:
@@ -4210,40 +4231,39 @@ var render = function() {
                                                                           .searchForm
                                                                           .clientType,
                                                                       expression:
-                                                                        "searchForm.clientType"
-                                                                    }
+                                                                        "searchForm.clientType",
+                                                                    },
                                                                   ],
                                                                   staticClass:
                                                                     "custom-control-input",
                                                                   attrs: {
-                                                                    type:
-                                                                      "radio",
-                                                                    id:
-                                                                      "student",
-                                                                    name:
-                                                                      "customRadio2",
+                                                                    type: "radio",
+                                                                    id: "student",
+                                                                    name: "customRadio2",
                                                                     value:
-                                                                      "student"
+                                                                      "student",
                                                                   },
                                                                   domProps: {
-                                                                    checked: _vm._q(
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                      "student"
-                                                                    )
+                                                                    checked:
+                                                                      _vm._q(
+                                                                        _vm
+                                                                          .searchForm
+                                                                          .clientType,
+                                                                        "student"
+                                                                      ),
                                                                   },
                                                                   on: {
-                                                                    change: function(
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.$set(
-                                                                        _vm.searchForm,
-                                                                        "clientType",
-                                                                        "student"
-                                                                      )
-                                                                    }
-                                                                  }
+                                                                    change:
+                                                                      function (
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.$set(
+                                                                          _vm.searchForm,
+                                                                          "clientType",
+                                                                          "student"
+                                                                        )
+                                                                      },
+                                                                  },
                                                                 }),
                                                                 _vm._v(" "),
                                                                 _c(
@@ -4252,18 +4272,17 @@ var render = function() {
                                                                     staticClass:
                                                                       "custom-control-label",
                                                                     attrs: {
-                                                                      for:
-                                                                        "student"
-                                                                    }
+                                                                      for: "student",
+                                                                    },
                                                                   },
                                                                   [
                                                                     _vm._v(
                                                                       "Student"
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
-                                                            )
+                                                            ),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -4271,21 +4290,20 @@ var render = function() {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "col-md-4 col-6"
+                                                              "col-md-4 col-6",
                                                           },
                                                           [
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "custom-control custom-radio"
+                                                                  "custom-control custom-radio",
                                                               },
                                                               [
                                                                 _c("input", {
                                                                   directives: [
                                                                     {
-                                                                      name:
-                                                                        "model",
+                                                                      name: "model",
                                                                       rawName:
                                                                         "v-model",
                                                                       value:
@@ -4293,40 +4311,39 @@ var render = function() {
                                                                           .searchForm
                                                                           .clientType,
                                                                       expression:
-                                                                        "searchForm.clientType"
-                                                                    }
+                                                                        "searchForm.clientType",
+                                                                    },
                                                                   ],
                                                                   staticClass:
                                                                     "custom-control-input",
                                                                   attrs: {
-                                                                    type:
-                                                                      "radio",
-                                                                    id:
-                                                                      "corporate",
-                                                                    name:
-                                                                      "customRadio2",
+                                                                    type: "radio",
+                                                                    id: "corporate",
+                                                                    name: "customRadio2",
                                                                     value:
-                                                                      "corporate"
+                                                                      "corporate",
                                                                   },
                                                                   domProps: {
-                                                                    checked: _vm._q(
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                      "corporate"
-                                                                    )
+                                                                    checked:
+                                                                      _vm._q(
+                                                                        _vm
+                                                                          .searchForm
+                                                                          .clientType,
+                                                                        "corporate"
+                                                                      ),
                                                                   },
                                                                   on: {
-                                                                    change: function(
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.$set(
-                                                                        _vm.searchForm,
-                                                                        "clientType",
-                                                                        "corporate"
-                                                                      )
-                                                                    }
-                                                                  }
+                                                                    change:
+                                                                      function (
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.$set(
+                                                                          _vm.searchForm,
+                                                                          "clientType",
+                                                                          "corporate"
+                                                                        )
+                                                                      },
+                                                                  },
                                                                 }),
                                                                 _vm._v(" "),
                                                                 _c(
@@ -4335,18 +4352,17 @@ var render = function() {
                                                                     staticClass:
                                                                       "custom-control-label",
                                                                     attrs: {
-                                                                      for:
-                                                                        "corporate"
-                                                                    }
+                                                                      for: "corporate",
+                                                                    },
                                                                   },
                                                                   [
                                                                     _vm._v(
                                                                       "Corporate"
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
-                                                            )
+                                                            ),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -4354,21 +4370,20 @@ var render = function() {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "col-md-4 col-6"
+                                                              "col-md-4 col-6",
                                                           },
                                                           [
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "custom-control custom-radio"
+                                                                  "custom-control custom-radio",
                                                               },
                                                               [
                                                                 _c("input", {
                                                                   directives: [
                                                                     {
-                                                                      name:
-                                                                        "model",
+                                                                      name: "model",
                                                                       rawName:
                                                                         "v-model",
                                                                       value:
@@ -4376,40 +4391,39 @@ var render = function() {
                                                                           .searchForm
                                                                           .clientType,
                                                                       expression:
-                                                                        "searchForm.clientType"
-                                                                    }
+                                                                        "searchForm.clientType",
+                                                                    },
                                                                   ],
                                                                   staticClass:
                                                                     "custom-control-input",
                                                                   attrs: {
-                                                                    type:
-                                                                      "radio",
-                                                                    id:
-                                                                      "family",
-                                                                    name:
-                                                                      "customRadio2",
+                                                                    type: "radio",
+                                                                    id: "family",
+                                                                    name: "customRadio2",
                                                                     value:
-                                                                      "family"
+                                                                      "family",
                                                                   },
                                                                   domProps: {
-                                                                    checked: _vm._q(
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                      "family"
-                                                                    )
+                                                                    checked:
+                                                                      _vm._q(
+                                                                        _vm
+                                                                          .searchForm
+                                                                          .clientType,
+                                                                        "family"
+                                                                      ),
                                                                   },
                                                                   on: {
-                                                                    change: function(
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.$set(
-                                                                        _vm.searchForm,
-                                                                        "clientType",
-                                                                        "family"
-                                                                      )
-                                                                    }
-                                                                  }
+                                                                    change:
+                                                                      function (
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.$set(
+                                                                          _vm.searchForm,
+                                                                          "clientType",
+                                                                          "family"
+                                                                        )
+                                                                      },
+                                                                  },
                                                                 }),
                                                                 _vm._v(" "),
                                                                 _c(
@@ -4418,29 +4432,28 @@ var render = function() {
                                                                     staticClass:
                                                                       "custom-control-label",
                                                                     attrs: {
-                                                                      for:
-                                                                        "family"
-                                                                    }
+                                                                      for: "family",
+                                                                    },
                                                                   },
                                                                   [
                                                                     _vm._v(
                                                                       "Family"
-                                                                    )
+                                                                    ),
                                                                   ]
-                                                                )
+                                                                ),
                                                               ]
-                                                            )
+                                                            ),
                                                           ]
-                                                        )
+                                                        ),
                                                       ]
-                                                    )
+                                                    ),
                                                   ],
                                                   1
-                                                )
+                                                ),
                                               ]
-                                            )
+                                            ),
                                           ]
-                                        )
+                                        ),
                                       ]
                                     ),
                                     _vm._v(" "),
@@ -4453,33 +4466,33 @@ var render = function() {
                                           attrs: { type: "submit" },
                                           on: {
                                             click: [
-                                              function($event) {
+                                              function ($event) {
                                                 $event.preventDefault()
                                                 return _vm.searchAll()
                                               },
-                                              function($event) {
+                                              function ($event) {
                                                 _vm.show = !_vm.show
-                                              }
-                                            ]
-                                          }
+                                              },
+                                            ],
+                                          },
                                         },
                                         [
                                           _vm._v(
                                             "\n                        SEARCH\n                      "
-                                          )
+                                          ),
                                         ]
-                                      )
-                                    ])
-                                  ])
+                                      ),
+                                    ]),
+                                  ]),
                                 ]
-                              )
-                        ])
+                              ),
+                        ]),
                       ]
-                    )
-                  ])
-                ])
-              ])
-            ])
+                    ),
+                  ]),
+                ]),
+              ]),
+            ]),
           ]
         ),
         _vm._v(" "),
@@ -4494,13 +4507,13 @@ var render = function() {
                     [
                       _c("heading", {
                         staticClass: "text-center mt-5",
-                        attrs: { text: "Upcoming Tour" }
+                        attrs: { text: "Upcoming Tour" },
                       }),
                       _vm._v(" "),
                       _c(
                         "div",
                         { staticClass: "row card-titles" },
-                        _vm._l(6, function(index) {
+                        _vm._l(6, function (index) {
                           return _c(
                             "div",
                             { key: index, staticClass: "col-sm-4" },
@@ -4513,13 +4526,13 @@ var render = function() {
                       _vm._v(" "),
                       _c("heading", {
                         staticClass: "text-center mt-5",
-                        attrs: { text: "Popular Tour" }
+                        attrs: { text: "Popular Tour" },
                       }),
                       _vm._v(" "),
                       _c(
                         "div",
                         { staticClass: "row card-titles" },
-                        _vm._l(6, function(index) {
+                        _vm._l(6, function (index) {
                           return _c(
                             "div",
                             { key: index, staticClass: "col-sm-4" },
@@ -4528,7 +4541,7 @@ var render = function() {
                           )
                         }),
                         0
-                      )
+                      ),
                     ],
                     1
                   )
@@ -4539,11 +4552,11 @@ var render = function() {
                     [
                       _c("heading", {
                         staticClass: "text-center",
-                        attrs: { text: "Upcoming Tour" }
+                        attrs: { text: "Upcoming Tour" },
                       }),
                       _vm._v(" "),
                       _c("itinerary-list", {
-                        attrs: { list: _vm.upcoming_data }
+                        attrs: { list: _vm.upcoming_data },
                       }),
                       _vm._v(" "),
                       _c(
@@ -4554,21 +4567,21 @@ var render = function() {
                             "router-link",
                             {
                               staticClass: "listexplore",
-                              attrs: { to: "/explore-list" }
+                              attrs: { to: "/explore-list" },
                             },
                             [_vm._v("View More")]
-                          )
+                          ),
                         ],
                         1
                       ),
                       _vm._v(" "),
                       _c("heading", {
                         staticClass: "text-center",
-                        attrs: { text: "Popular Tour" }
+                        attrs: { text: "Popular Tour" },
                       }),
                       _vm._v(" "),
                       _c("itinerary-list", {
-                        attrs: { list: _vm.popular_data }
+                        attrs: { list: _vm.popular_data },
                       }),
                       _vm._v(" "),
                       _c(
@@ -4579,13 +4592,13 @@ var render = function() {
                             "router-link",
                             {
                               staticClass: "listexplore",
-                              attrs: { to: "/explore-list" }
+                              attrs: { to: "/explore-list" },
                             },
                             [_vm._v("View More")]
-                          )
+                          ),
                         ],
                         1
-                      )
+                      ),
                     ],
                     1
                   )
@@ -4593,8 +4606,8 @@ var render = function() {
                     "div",
                     [
                       _c("itinerary-list", {
-                        attrs: { list: _vm.allSearchdata }
-                      })
+                        attrs: { list: _vm.allSearchdata },
+                      }),
                     ],
                     1
                   ),
@@ -4604,13 +4617,13 @@ var render = function() {
                   sources: _vm.sources,
                   destinations: _vm.destinations,
                   noofdays: _vm.noofday,
-                  tourtypes: _vm.tour_type_text
-                }
-              })
+                  tourtypes: _vm.tour_type_text,
+                },
+              }),
             ],
             1
-          )
-        ])
+          ),
+        ]),
       ])
 }
 var staticRenderFns = []
@@ -4891,7 +4904,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDestination_vue_vue_type_style_index_0_id_002da906_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ExploreDestination.vue?vue&type=style&index=0&id=002da906&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/Explore/ExploreDestination.vue?vue&type=style&index=0&id=002da906&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDestination_vue_vue_type_style_index_0_id_002da906_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDestination_vue_vue_type_style_index_0_id_002da906_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDestination_vue_vue_type_style_index_0_id_002da906_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDestination_vue_vue_type_style_index_0_id_002da906_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDestination_vue_vue_type_style_index_0_id_002da906_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDestination_vue_vue_type_style_index_0_id_002da906_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

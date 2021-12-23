@@ -173,7 +173,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -188,12 +188,16 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { to: _vm.url },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
           )
         : _c(
@@ -203,14 +207,18 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { type: "button" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
-          )
+          ),
     ],
     1
   )
@@ -233,7 +241,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -250,11 +258,11 @@ var render = function() {
             { staticClass: "text-center" },
             [_c("back-button", { attrs: { url: _vm.backurl } })],
             1
-          )
+          ),
         ],
         2
-      )
-    ])
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -275,7 +283,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -284,12 +292,12 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "viewdata",
-        fn: function() {
+        fn: function () {
           return [
             _c("div", { staticClass: "col-sm-12" }, [
               _c("h5", [_vm._v("Title")]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.posts.title))])
+              _c("p", [_vm._v(_vm._s(_vm.posts.title))]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-4" }, [
@@ -297,28 +305,28 @@ var render = function() {
               _vm._v(" "),
               _c("img", {
                 staticClass: "w-100",
-                attrs: { src: _vm.posts.image }
-              })
+                attrs: { src: _vm.posts.image },
+              }),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-12" }, [
               _c("h5", [_vm._v("Description")]),
               _vm._v(" "),
               _c("p", {
-                domProps: { innerHTML: _vm._s(_vm.posts.description) }
-              })
+                domProps: { innerHTML: _vm._s(_vm.posts.description) },
+              }),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-4" }, [
               _c("h5", [_vm._v("Slug")]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.posts.slug))])
+              _c("p", [_vm._v(_vm._s(_vm.posts.slug))]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-4" }, [
               _c("h5", [_vm._v("Meta Title")]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.posts.meta_title))])
+              _c("p", [_vm._v(_vm._s(_vm.posts.meta_title))]),
             ]),
             _vm._v(" "),
             _c(
@@ -327,11 +335,11 @@ var render = function() {
               [
                 _c("h5", [_vm._v("Meta Keyword")]),
                 _vm._v(" "),
-                _vm._l(_vm.posts.tags, function(cat) {
+                _vm._l(_vm.posts.tags, function (cat) {
                   return _c("span", { key: cat.id }, [
-                    _vm._v(_vm._s(cat.title) + ", ")
+                    _vm._v(_vm._s(cat.title) + ", "),
                   ])
-                })
+                }),
               ],
               2
             ),
@@ -339,19 +347,19 @@ var render = function() {
             _c("div", { staticClass: "col-sm-4 mt-2" }, [
               _c("h5", [_vm._v("Created At")]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.posts.created_at))])
+              _c("p", [_vm._v(_vm._s(_vm.posts.created_at))]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-4" }, [
               _c("h5", [_vm._v("Category")]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.posts.category))])
-            ])
+              _c("p", [_vm._v(_vm._s(_vm.posts.category))]),
+            ]),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

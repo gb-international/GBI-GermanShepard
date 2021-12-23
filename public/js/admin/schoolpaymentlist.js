@@ -562,7 +562,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -570,7 +570,7 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "viewdata",
-        fn: function() {
+        fn: function () {
           return [
             _c("div", { staticClass: "row pl-4" }, [
               _c(
@@ -586,8 +586,8 @@ var render = function() {
                           "/school/bookedusers/" +
                           _vm.$route.params.school_id +
                           "/" +
-                          _vm.$route.params.tour_code
-                      }
+                          _vm.$route.params.tour_code,
+                      },
                     },
                     [_vm._v("Payment History")]
                   ),
@@ -598,8 +598,9 @@ var render = function() {
                         {
                           attrs: {
                             url:
-                              "/update-paymentmethod-school/" + _vm.tour_view.id
-                          }
+                              "/update-paymentmethod-school/" +
+                              _vm.tour_view.id,
+                          },
                         },
                         [_vm._v("Update Payment Method")]
                       )
@@ -611,14 +612,14 @@ var render = function() {
                               "/add-paymentmethod-school/" +
                               _vm.$route.params.school_id +
                               "/" +
-                              _vm.$route.params.tour_code
-                          }
+                              _vm.$route.params.tour_code,
+                          },
                         },
                         [_vm._v("Add Payment Method")]
-                      )
+                      ),
                 ],
                 1
-              )
+              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card_view pl-4" }, [
@@ -630,7 +631,7 @@ var render = function() {
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Tour Code")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.tour_code))])
+                          _c("p", [_vm._v(_vm._s(_vm.tour_view.tour_code))]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -649,18 +650,18 @@ var render = function() {
                               _vm._v(
                                 "\n              " +
                                   _vm._s(_vm.tour_view.user.name)
-                              )
+                              ),
                             ]
-                          )
+                          ),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("Added By")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.tour_view.added_by))])
+                      _c("p", [_vm._v(_vm._s(_vm.tour_view.added_by))]),
                     ]),
                     _vm._v(" "),
                     _vm.tour_view.schoolbankdetail_id != null
@@ -668,8 +669,8 @@ var render = function() {
                           _c("h5", [_vm._v("School Bank Detail ID")]),
                           _vm._v(" "),
                           _c("p", [
-                            _vm._v(_vm._s(_vm.tour_view.schoolbankdetail_id))
-                          ])
+                            _vm._v(_vm._s(_vm.tour_view.schoolbankdetail_id)),
+                          ]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -677,7 +678,7 @@ var render = function() {
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Payment By")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.payment_mode))])
+                          _c("p", [_vm._v(_vm._s(_vm.tour_view.payment_mode))]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -685,7 +686,7 @@ var render = function() {
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Payment Type")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.payment_type))])
+                          _c("p", [_vm._v(_vm._s(_vm.tour_view.payment_type))]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -693,7 +694,7 @@ var render = function() {
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("IFSC Code")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.ifsc_code))])
+                          _c("p", [_vm._v(_vm._s(_vm.tour_view.ifsc_code))]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -701,7 +702,7 @@ var render = function() {
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Amount")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.amount))])
+                          _c("p", [_vm._v(_vm._s(_vm.tour_view.amount))]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -710,8 +711,8 @@ var render = function() {
                           _c("h5", [_vm._v("Cheque Bank Name")]),
                           _vm._v(" "),
                           _c("p", [
-                            _vm._v(_vm._s(_vm.tour_view.cheque_bank_name))
-                          ])
+                            _vm._v(_vm._s(_vm.tour_view.cheque_bank_name)),
+                          ]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -719,7 +720,9 @@ var render = function() {
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Date of Issue")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.date_of_issue))])
+                          _c("p", [
+                            _vm._v(_vm._s(_vm.tour_view.date_of_issue)),
+                          ]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -729,20 +732,20 @@ var render = function() {
                       _vm.tour_view.status == "success"
                         ? _c("p", [
                             _c("span", { staticClass: "badge badge-success" }, [
-                              _vm._v("Success")
-                            ])
+                              _vm._v("Success"),
+                            ]),
                           ])
                         : _c("p", [
                             _c("span", { staticClass: "badge badge-primary" }, [
-                              _vm._v("Pending")
-                            ])
-                          ])
+                              _vm._v("Pending"),
+                            ]),
+                          ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("Added At")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.tour_view.created_at))])
+                      _c("p", [_vm._v(_vm._s(_vm.tour_view.created_at))]),
                     ]),
                     _vm._v(" "),
                     _vm.tour_view.payment_mode == "self"
@@ -755,20 +758,20 @@ var render = function() {
                               staticClass: "btn btn-success",
                               attrs: {
                                 "data-toggle": "modal",
-                                "data-target": "#paymentModal"
+                                "data-target": "#paymentModal",
                               },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.tourModal(_vm.tour_view)
-                                }
-                              }
+                                },
+                              },
                             },
                             [
                               _vm._v(
                                 "\n            Collect Payment\n          "
-                              )
+                              ),
                             ]
-                          )
+                          ),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -781,23 +784,23 @@ var render = function() {
                                 staticClass: "btn btn-info text-white",
                                 attrs: {
                                   "data-toggle": "modal",
-                                  "data-target": "#DetailsModal"
+                                  "data-target": "#DetailsModal",
                                 },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     return _vm.viewDetails()
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [
                                 _vm._v(
                                   "\n              Payment Details\n            "
-                                )
+                                ),
                               ]
-                            )
-                          ])
+                            ),
+                          ]),
                         ])
-                      : _vm._e()
+                      : _vm._e(),
                   ])
                 : _vm._e(),
               _vm._v(" "),
@@ -810,7 +813,7 @@ var render = function() {
                         _c("div", { staticClass: "modal-content" }, [
                           _c("div", { staticClass: "modal-header" }, [
                             _c("h5", { staticClass: "modal-title" }, [
-                              _vm._v("Payment Details")
+                              _vm._v("Payment Details"),
                             ]),
                             _vm._v(" "),
                             _c(
@@ -820,17 +823,17 @@ var render = function() {
                                 attrs: {
                                   type: "button",
                                   "data-dismiss": "modal",
-                                  "aria-label": "Close"
-                                }
+                                  "aria-label": "Close",
+                                },
                               },
                               [
                                 _c(
                                   "span",
                                   { attrs: { "aria-hidden": "true" } },
                                   [_vm._v("×")]
-                                )
+                                ),
                               ]
-                            )
+                            ),
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "modal-body" }, [
@@ -841,8 +844,8 @@ var render = function() {
                                     {
                                       staticStyle: {
                                         "margin-bottom": "4px",
-                                        "font-size": "16px"
-                                      }
+                                        "font-size": "16px",
+                                      },
                                     },
                                     [
                                       _c("b", [_vm._v("Paid By: ")]),
@@ -854,7 +857,7 @@ var render = function() {
                                               ? "Student"
                                               : "InCharge"
                                           )
-                                      )
+                                      ),
                                     ]
                                   ),
                                   _vm._v(" "),
@@ -863,12 +866,12 @@ var render = function() {
                                     {
                                       staticStyle: {
                                         "margin-bottom": "4px",
-                                        "font-size": "16px"
-                                      }
+                                        "font-size": "16px",
+                                      },
                                     },
                                     [
                                       _c("b", [_vm._v("Paid with:")]),
-                                      _vm._v(" Cheque/DD")
+                                      _vm._v(" Cheque/DD"),
                                     ]
                                   ),
                                   _vm._v(" "),
@@ -878,9 +881,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "cheque_bank_name" }
+                                          attrs: { for: "cheque_bank_name" },
                                         },
                                         [_vm._v("Bank Name")]
                                       ),
@@ -894,17 +897,17 @@ var render = function() {
                                               _vm.paymentDetails
                                                 .cheque_bank_name,
                                             expression:
-                                              "paymentDetails.cheque_bank_name"
-                                          }
+                                              "paymentDetails.cheque_bank_name",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
                                           value:
-                                            _vm.paymentDetails.cheque_bank_name
+                                            _vm.paymentDetails.cheque_bank_name,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -913,9 +916,9 @@ var render = function() {
                                               "cheque_bank_name",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
+                                          },
+                                        },
+                                      }),
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-6" }, [
@@ -923,9 +926,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "date_of_issue" }
+                                          attrs: { for: "date_of_issue" },
                                         },
                                         [_vm._v("Date of Issue")]
                                       ),
@@ -938,17 +941,17 @@ var render = function() {
                                             value:
                                               _vm.paymentDetails.date_of_issue,
                                             expression:
-                                              "paymentDetails.date_of_issue"
-                                          }
+                                              "paymentDetails.date_of_issue",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
                                           value:
-                                            _vm.paymentDetails.date_of_issue
+                                            _vm.paymentDetails.date_of_issue,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -957,10 +960,10 @@ var render = function() {
                                               "date_of_issue",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
-                                    ])
+                                          },
+                                        },
+                                      }),
+                                    ]),
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "row mt-3" }, [
@@ -969,9 +972,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "ifsc_code" }
+                                          attrs: { for: "ifsc_code" },
                                         },
                                         [_vm._v("IFSC Code")]
                                       ),
@@ -983,16 +986,16 @@ var render = function() {
                                             rawName: "v-model",
                                             value: _vm.paymentDetails.ifsc_code,
                                             expression:
-                                              "paymentDetails.ifsc_code"
-                                          }
+                                              "paymentDetails.ifsc_code",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
-                                          value: _vm.paymentDetails.ifsc_code
+                                          value: _vm.paymentDetails.ifsc_code,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -1001,9 +1004,9 @@ var render = function() {
                                               "ifsc_code",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
+                                          },
+                                        },
+                                      }),
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-6" }, [
@@ -1011,9 +1014,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "cheque_number" }
+                                          attrs: { for: "cheque_number" },
                                         },
                                         [_vm._v("Cheque Number")]
                                       ),
@@ -1026,17 +1029,17 @@ var render = function() {
                                             value:
                                               _vm.paymentDetails.cheque_number,
                                             expression:
-                                              "paymentDetails.cheque_number"
-                                          }
+                                              "paymentDetails.cheque_number",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
                                           value:
-                                            _vm.paymentDetails.cheque_number
+                                            _vm.paymentDetails.cheque_number,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -1045,10 +1048,10 @@ var render = function() {
                                               "cheque_number",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
-                                    ])
+                                          },
+                                        },
+                                      }),
+                                    ]),
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "row mt-3" }, [
@@ -1057,9 +1060,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "amount" }
+                                          attrs: { for: "amount" },
                                         },
                                         [_vm._v("Amount Paid")]
                                       ),
@@ -1072,16 +1075,16 @@ var render = function() {
                                             value:
                                               _vm.paymentDetails.base_price,
                                             expression:
-                                              "paymentDetails.base_price"
-                                          }
+                                              "paymentDetails.base_price",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
-                                          value: _vm.paymentDetails.base_price
+                                          value: _vm.paymentDetails.base_price,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -1090,9 +1093,9 @@ var render = function() {
                                               "base_price",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
+                                          },
+                                        },
+                                      }),
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-6" }, [
@@ -1100,9 +1103,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "amount" }
+                                          attrs: { for: "amount" },
                                         },
                                         [_vm._v("Payment Status")]
                                       ),
@@ -1113,16 +1116,16 @@ var render = function() {
                                             name: "model",
                                             rawName: "v-model",
                                             value: _vm.paymentDetails.status,
-                                            expression: "paymentDetails.status"
-                                          }
+                                            expression: "paymentDetails.status",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
-                                          value: _vm.paymentDetails.status
+                                          value: _vm.paymentDetails.status,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -1131,11 +1134,11 @@ var render = function() {
                                               "status",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
-                                    ])
-                                  ])
+                                          },
+                                        },
+                                      }),
+                                    ]),
+                                  ]),
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -1146,8 +1149,8 @@ var render = function() {
                                     {
                                       staticStyle: {
                                         "margin-bottom": "4px",
-                                        "font-size": "16px"
-                                      }
+                                        "font-size": "16px",
+                                      },
                                     },
                                     [
                                       _c("b", [_vm._v("Paid By: ")]),
@@ -1159,7 +1162,7 @@ var render = function() {
                                               ? "Student"
                                               : "Incharge"
                                           )
-                                      )
+                                      ),
                                     ]
                                   ),
                                   _vm._v(" "),
@@ -1168,12 +1171,12 @@ var render = function() {
                                     {
                                       staticStyle: {
                                         "margin-bottom": "4px",
-                                        "font-size": "16px"
-                                      }
+                                        "font-size": "16px",
+                                      },
                                     },
                                     [
                                       _c("b", [_vm._v("Paid with:")]),
-                                      _vm._v(" Cash")
+                                      _vm._v(" Cash"),
                                     ]
                                   ),
                                   _vm._v(" "),
@@ -1183,9 +1186,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "amount" }
+                                          attrs: { for: "amount" },
                                         },
                                         [_vm._v("Amount Paid")]
                                       ),
@@ -1198,16 +1201,16 @@ var render = function() {
                                             value:
                                               _vm.paymentDetails.base_price,
                                             expression:
-                                              "paymentDetails.base_price"
-                                          }
+                                              "paymentDetails.base_price",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
-                                          value: _vm.paymentDetails.base_price
+                                          value: _vm.paymentDetails.base_price,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -1216,9 +1219,9 @@ var render = function() {
                                               "base_price",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
+                                          },
+                                        },
+                                      }),
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-6" }, [
@@ -1226,9 +1229,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "amount" }
+                                          attrs: { for: "amount" },
                                         },
                                         [_vm._v("Payment Status")]
                                       ),
@@ -1239,16 +1242,16 @@ var render = function() {
                                             name: "model",
                                             rawName: "v-model",
                                             value: _vm.paymentDetails.status,
-                                            expression: "paymentDetails.status"
-                                          }
+                                            expression: "paymentDetails.status",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
-                                          value: _vm.paymentDetails.status
+                                          value: _vm.paymentDetails.status,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -1257,11 +1260,11 @@ var render = function() {
                                               "status",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
-                                    ])
-                                  ])
+                                          },
+                                        },
+                                      }),
+                                    ]),
+                                  ]),
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -1272,8 +1275,8 @@ var render = function() {
                                     {
                                       staticStyle: {
                                         "margin-bottom": "4px",
-                                        "font-size": "16px"
-                                      }
+                                        "font-size": "16px",
+                                      },
                                     },
                                     [
                                       _c("b", [_vm._v("Paid By: ")]),
@@ -1285,7 +1288,7 @@ var render = function() {
                                               ? "Student"
                                               : "InCharge"
                                           )
-                                      )
+                                      ),
                                     ]
                                   ),
                                   _vm._v(" "),
@@ -1294,12 +1297,12 @@ var render = function() {
                                     {
                                       staticStyle: {
                                         "margin-bottom": "4px",
-                                        "font-size": "16px"
-                                      }
+                                        "font-size": "16px",
+                                      },
                                     },
                                     [
                                       _c("b", [_vm._v("Paid with:")]),
-                                      _vm._v(" Net Banking")
+                                      _vm._v(" Net Banking"),
                                     ]
                                   ),
                                   _vm._v(" "),
@@ -1309,9 +1312,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "amount" }
+                                          attrs: { for: "amount" },
                                         },
                                         [_vm._v("Billing Name")]
                                       ),
@@ -1322,9 +1325,9 @@ var render = function() {
                                         domProps: {
                                           value:
                                             _vm.paymentDetails.payment_data
-                                              .billing_name
-                                        }
-                                      })
+                                              .billing_name,
+                                        },
+                                      }),
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-6" }, [
@@ -1332,9 +1335,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "amount" }
+                                          attrs: { for: "amount" },
                                         },
                                         [_vm._v("Billing Address")]
                                       ),
@@ -1345,10 +1348,10 @@ var render = function() {
                                         domProps: {
                                           value:
                                             _vm.paymentDetails.payment_data
-                                              .billing_address
-                                        }
-                                      })
-                                    ])
+                                              .billing_address,
+                                        },
+                                      }),
+                                    ]),
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "row mt-3" }, [
@@ -1357,9 +1360,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "amount" }
+                                          attrs: { for: "amount" },
                                         },
                                         [_vm._v("Billing City")]
                                       ),
@@ -1373,18 +1376,18 @@ var render = function() {
                                               _vm.paymentDetails.payment_data
                                                 .billing_city,
                                             expression:
-                                              "paymentDetails.payment_data.billing_city"
-                                          }
+                                              "paymentDetails.payment_data.billing_city",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
                                           value:
                                             _vm.paymentDetails.payment_data
-                                              .billing_city
+                                              .billing_city,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -1393,9 +1396,9 @@ var render = function() {
                                               "billing_city",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
+                                          },
+                                        },
+                                      }),
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-6" }, [
@@ -1403,9 +1406,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "amount" }
+                                          attrs: { for: "amount" },
                                         },
                                         [_vm._v("Billing State")]
                                       ),
@@ -1419,18 +1422,18 @@ var render = function() {
                                               _vm.paymentDetails.payment_data
                                                 .billing_state,
                                             expression:
-                                              "paymentDetails.payment_data.billing_state"
-                                          }
+                                              "paymentDetails.payment_data.billing_state",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
                                           value:
                                             _vm.paymentDetails.payment_data
-                                              .billing_state
+                                              .billing_state,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -1439,10 +1442,10 @@ var render = function() {
                                               "billing_state",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
-                                    ])
+                                          },
+                                        },
+                                      }),
+                                    ]),
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "row mt-3" }, [
@@ -1451,9 +1454,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "amount" }
+                                          attrs: { for: "amount" },
                                         },
                                         [_vm._v("Billing Zip Code")]
                                       ),
@@ -1467,18 +1470,18 @@ var render = function() {
                                               _vm.paymentDetails.payment_data
                                                 .billing_zip,
                                             expression:
-                                              "paymentDetails.payment_data.billing_zip"
-                                          }
+                                              "paymentDetails.payment_data.billing_zip",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
                                           value:
                                             _vm.paymentDetails.payment_data
-                                              .billing_zip
+                                              .billing_zip,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -1487,9 +1490,9 @@ var render = function() {
                                               "billing_zip",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
+                                          },
+                                        },
+                                      }),
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-6" }, [
@@ -1497,9 +1500,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "amount" }
+                                          attrs: { for: "amount" },
                                         },
                                         [_vm._v("Billing Country")]
                                       ),
@@ -1513,18 +1516,18 @@ var render = function() {
                                               _vm.paymentDetails.payment_data
                                                 .billing_country,
                                             expression:
-                                              "paymentDetails.payment_data.billing_country"
-                                          }
+                                              "paymentDetails.payment_data.billing_country",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
                                           value:
                                             _vm.paymentDetails.payment_data
-                                              .billing_country
+                                              .billing_country,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -1533,10 +1536,10 @@ var render = function() {
                                               "billing_country",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
-                                    ])
+                                          },
+                                        },
+                                      }),
+                                    ]),
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "row mt-3" }, [
@@ -1545,9 +1548,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "amount" }
+                                          attrs: { for: "amount" },
                                         },
                                         [_vm._v("Phone Number")]
                                       ),
@@ -1561,18 +1564,18 @@ var render = function() {
                                               _vm.paymentDetails.payment_data
                                                 .billing_tel,
                                             expression:
-                                              "paymentDetails.payment_data.billing_tel"
-                                          }
+                                              "paymentDetails.payment_data.billing_tel",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
                                           value:
                                             _vm.paymentDetails.payment_data
-                                              .billing_tel
+                                              .billing_tel,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -1581,9 +1584,9 @@ var render = function() {
                                               "billing_tel",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
+                                          },
+                                        },
+                                      }),
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-6" }, [
@@ -1591,9 +1594,9 @@ var render = function() {
                                         "p",
                                         {
                                           staticStyle: {
-                                            "margin-bottom": "2px"
+                                            "margin-bottom": "2px",
                                           },
-                                          attrs: { for: "amount" }
+                                          attrs: { for: "amount" },
                                         },
                                         [_vm._v("Billing Email")]
                                       ),
@@ -1607,18 +1610,18 @@ var render = function() {
                                               _vm.paymentDetails.payment_data
                                                 .billing_email,
                                             expression:
-                                              "paymentDetails.payment_data.billing_email"
-                                          }
+                                              "paymentDetails.payment_data.billing_email",
+                                          },
                                         ],
                                         staticClass: "form-control",
                                         attrs: { type: "text", readonly: "" },
                                         domProps: {
                                           value:
                                             _vm.paymentDetails.payment_data
-                                              .billing_email
+                                              .billing_email,
                                         },
                                         on: {
-                                          input: function($event) {
+                                          input: function ($event) {
                                             if ($event.target.composing) {
                                               return
                                             }
@@ -1627,13 +1630,13 @@ var render = function() {
                                               "billing_email",
                                               $event.target.value
                                             )
-                                          }
-                                        }
-                                      })
-                                    ])
-                                  ])
+                                          },
+                                        },
+                                      }),
+                                    ]),
+                                  ]),
                                 ])
-                              : _vm._e()
+                              : _vm._e(),
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "modal-footer" }, [
@@ -1643,18 +1646,18 @@ var render = function() {
                                 staticClass: "btn btn-secondary",
                                 attrs: {
                                   type: "button",
-                                  "data-dismiss": "modal"
-                                }
+                                  "data-dismiss": "modal",
+                                },
                               },
                               [_vm._v("Close")]
-                            )
-                          ])
-                        ])
-                      ])
+                            ),
+                          ]),
+                        ]),
+                      ]),
                     ]
                   )
                 : _c("div", { staticClass: "text-center text-muted" }, [
-                    _vm._v("No Data Available")
+                    _vm._v("No Data Available"),
                   ]),
               _vm._v(" "),
               _vm.tour_view.payment_type == "self"
@@ -1662,10 +1665,10 @@ var render = function() {
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("Amount")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.tour_view.amount))])
-                    ])
+                      _c("p", [_vm._v(_vm._s(_vm.tour_view.amount))]),
+                    ]),
                   ])
-                : _vm._e()
+                : _vm._e(),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "modal", attrs: { id: "paymentModal" } }, [
@@ -1673,17 +1676,17 @@ var render = function() {
                 _c("div", { staticClass: "modal-content" }, [
                   _c("div", { staticClass: "modal-header" }, [
                     _c("h5", { staticClass: "modal-title" }, [
-                      _vm._v("Tour Payment")
+                      _vm._v("Tour Payment"),
                     ]),
                     _vm._v(" "),
                     _c(
                       "button",
                       {
                         staticClass: "close",
-                        attrs: { type: "button", "data-dismiss": "modal" }
+                        attrs: { type: "button", "data-dismiss": "modal" },
                       },
                       [_vm._v("\n              ×\n            ")]
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
@@ -1697,21 +1700,21 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.perHead,
-                              expression: "perHead"
-                            }
+                              expression: "perHead",
+                            },
                           ],
                           staticClass: "form-control",
                           attrs: { type: "number" },
                           domProps: { value: _vm.perHead },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.perHead = $event.target.value
-                            }
-                          }
-                        })
+                            },
+                          },
+                        }),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
@@ -1723,21 +1726,21 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.totalPax,
-                              expression: "totalPax"
-                            }
+                              expression: "totalPax",
+                            },
                           ],
                           staticClass: "form-control",
                           attrs: { type: "number", readonly: "" },
                           domProps: { value: _vm.totalPax },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.totalPax = $event.target.value
-                            }
-                          }
-                        })
+                            },
+                          },
+                        }),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
@@ -1749,21 +1752,21 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.totalCompl,
-                              expression: "totalCompl"
-                            }
+                              expression: "totalCompl",
+                            },
                           ],
                           staticClass: "form-control",
                           attrs: { type: "number", readonly: "" },
                           domProps: { value: _vm.totalCompl },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.totalCompl = $event.target.value
-                            }
-                          }
-                        })
+                            },
+                          },
+                        }),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
@@ -1775,22 +1778,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.amount,
-                              expression: "form.amount"
-                            }
+                              expression: "form.amount",
+                            },
                           ],
                           staticClass: "form-control",
                           attrs: { type: "number", readonly: "" },
                           domProps: { value: _vm.form.amount },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "amount", $event.target.value)
-                            }
-                          }
-                        })
-                      ])
+                            },
+                          },
+                        }),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
@@ -1804,14 +1807,14 @@ var render = function() {
                             staticClass: "mb-2",
                             attrs: {
                               itemList: _vm.status_list,
-                              selectedId: _vm.form.status
+                              selectedId: _vm.form.status,
                             },
-                            on: { "update:option": _vm.updateStatus }
-                          })
+                            on: { "update:option": _vm.updateStatus },
+                          }),
                         ],
                         1
-                      )
-                    ])
+                      ),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("p", { staticClass: "text-center" }, [
@@ -1821,22 +1824,22 @@ var render = function() {
                         staticClass: "btn btn-info itrn_add_btn",
                         attrs: { type: "button" },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.tourPaymentSave()
-                          }
-                        }
+                          },
+                        },
                       },
                       [_vm._v("\n              Save\n            ")]
-                    )
-                  ])
-                ])
-              ])
-            ])
+                    ),
+                  ]),
+                ]),
+              ]),
+            ]),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

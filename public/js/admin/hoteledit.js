@@ -520,7 +520,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -528,18 +528,18 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "form",
               {
                 attrs: { role: "form", enctype: "multipart/form-data" },
                 on: {
-                  submit: function($event) {
+                  submit: function ($event) {
                     $event.preventDefault()
                     return _vm.UpdateHotel()
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("div", { staticClass: "row" }, [
@@ -549,7 +549,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "name" } }, [
-                          _vm._v("Hotel Name")
+                          _vm._v("Hotel Name"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -558,33 +558,33 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.name,
-                              expression: "form.name"
-                            }
+                              expression: "form.name",
+                            },
                           ],
                           staticClass: "form-control",
                           class: { "is-invalid": _vm.form.errors.has("name") },
                           attrs: {
                             type: "text",
                             placeholder: "Enter Hotel Name",
-                            name: "hotelName"
+                            name: "hotelName",
                           },
                           domProps: { value: _vm.form.name },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "name", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "name" }
-                        })
+                          attrs: { form: _vm.form, field: "name" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -593,7 +593,7 @@ var render = function() {
                       { staticClass: "form-group aligen_top_input" },
                       [
                         _c("label", { attrs: { for: "type" } }, [
-                          _vm._v("Hotel Type")
+                          _vm._v("Hotel Type"),
                         ]),
                         _vm._v(" "),
                         _c("br"),
@@ -602,7 +602,7 @@ var render = function() {
                           "div",
                           {
                             staticClass:
-                              "custom-control custom-radio custom-control-inline"
+                              "custom-control custom-radio custom-control-inline",
                           },
                           [
                             _c("input", {
@@ -611,35 +611,35 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.type,
-                                  expression: "form.type"
-                                }
+                                  expression: "form.type",
+                                },
                               ],
                               staticClass: "custom-control-input",
                               class: {
-                                "is-invalid": _vm.form.errors.has("type")
+                                "is-invalid": _vm.form.errors.has("type"),
                               },
                               attrs: {
                                 type: "radio",
                                 id: "hotelRadio",
                                 name: "type",
-                                value: "3"
+                                value: "3",
                               },
                               domProps: { checked: _vm._q(_vm.form.type, "3") },
                               on: {
-                                change: function($event) {
+                                change: function ($event) {
                                   return _vm.$set(_vm.form, "type", "3")
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c(
                               "label",
                               {
                                 staticClass: "custom-control-label",
-                                attrs: { for: "hotelRadio" }
+                                attrs: { for: "hotelRadio" },
                               },
                               [_vm._v("3 Star")]
-                            )
+                            ),
                           ]
                         ),
                         _vm._v(" "),
@@ -647,7 +647,7 @@ var render = function() {
                           "div",
                           {
                             staticClass:
-                              "custom-control custom-radio custom-control-inline"
+                              "custom-control custom-radio custom-control-inline",
                           },
                           [
                             _c("input", {
@@ -656,35 +656,35 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.type,
-                                  expression: "form.type"
-                                }
+                                  expression: "form.type",
+                                },
                               ],
                               staticClass: "custom-control-input",
                               class: {
-                                "is-invalid": _vm.form.errors.has("type")
+                                "is-invalid": _vm.form.errors.has("type"),
                               },
                               attrs: {
                                 type: "radio",
                                 id: "hotelRadio1",
                                 name: "type",
-                                value: "4"
+                                value: "4",
                               },
                               domProps: { checked: _vm._q(_vm.form.type, "4") },
                               on: {
-                                change: function($event) {
+                                change: function ($event) {
                                   return _vm.$set(_vm.form, "type", "4")
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c(
                               "label",
                               {
                                 staticClass: "custom-control-label",
-                                attrs: { for: "hotelRadio1" }
+                                attrs: { for: "hotelRadio1" },
                               },
                               [_vm._v("4 Star")]
-                            )
+                            ),
                           ]
                         ),
                         _vm._v(" "),
@@ -692,7 +692,7 @@ var render = function() {
                           "div",
                           {
                             staticClass:
-                              "custom-control custom-radio custom-control-inline"
+                              "custom-control custom-radio custom-control-inline",
                           },
                           [
                             _c("input", {
@@ -701,44 +701,44 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.type,
-                                  expression: "form.type"
-                                }
+                                  expression: "form.type",
+                                },
                               ],
                               staticClass: "custom-control-input",
                               class: {
-                                "is-invalid": _vm.form.errors.has("type")
+                                "is-invalid": _vm.form.errors.has("type"),
                               },
                               attrs: {
                                 type: "radio",
                                 id: "hotelRadio2",
                                 name: "type",
-                                value: "5"
+                                value: "5",
                               },
                               domProps: { checked: _vm._q(_vm.form.type, "5") },
                               on: {
-                                change: function($event) {
+                                change: function ($event) {
                                   return _vm.$set(_vm.form, "type", "5")
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c(
                               "label",
                               {
                                 staticClass: "custom-control-label",
-                                attrs: { for: "hotelRadio2" }
+                                attrs: { for: "hotelRadio2" },
                               },
                               [_vm._v("5 Star")]
-                            )
+                            ),
                           ]
                         ),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "type" }
-                        })
+                          attrs: { form: _vm.form, field: "type" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -747,7 +747,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "phoneno" } }, [
-                          _vm._v("Contact Number")
+                          _vm._v("Contact Number"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -756,36 +756,36 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.phoneno,
-                              expression: "form.phoneno"
-                            }
+                              expression: "form.phoneno",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("phoneno")
+                            "is-invalid": _vm.form.errors.has("phoneno"),
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter Contact Number",
-                            name: "phoneno"
+                            name: "phoneno",
                           },
                           domProps: { value: _vm.form.phoneno },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "phoneno", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "phoneno" }
-                        })
+                          attrs: { form: _vm.form, field: "phoneno" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
@@ -795,7 +795,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "email" } }, [
-                          _vm._v("Email")
+                          _vm._v("Email"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -804,8 +804,8 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.email,
-                              expression: "form.email"
-                            }
+                              expression: "form.email",
+                            },
                           ],
                           staticClass: "form-control",
                           class: { "is-invalid": _vm.form.errors.has("email") },
@@ -814,25 +814,25 @@ var render = function() {
                             placeholder: "Enter Email",
                             id: "email",
                             rows: "5",
-                            name: "email"
+                            name: "email",
                           },
                           domProps: { value: _vm.form.email },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "email", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "email" }
-                        })
+                          attrs: { form: _vm.form, field: "email" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -841,7 +841,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "room" } }, [
-                          _vm._v("Rooms")
+                          _vm._v("Rooms"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -850,8 +850,8 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.room,
-                              expression: "form.room"
-                            }
+                              expression: "form.room",
+                            },
                           ],
                           staticClass: "form-control",
                           class: { "is-invalid": _vm.form.errors.has("room") },
@@ -859,25 +859,25 @@ var render = function() {
                             type: "number",
                             placeholder: "Enter No. of Room in hotel",
                             id: "room",
-                            name: "room"
+                            name: "room",
                           },
                           domProps: { value: _vm.form.room },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "room", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "room" }
-                        })
+                          attrs: { form: _vm.form, field: "room" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -886,7 +886,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "state" } }, [
-                          _vm._v("State")
+                          _vm._v("State"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -895,8 +895,8 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.state,
-                              expression: "form.state"
-                            }
+                              expression: "form.state",
+                            },
                           ],
                           staticClass: "form-control",
                           class: { "is-invalid": _vm.form.errors.has("state") },
@@ -904,26 +904,26 @@ var render = function() {
                             type: "text",
                             placeholder: "Enter State",
                             id: "state",
-                            name: "state"
+                            name: "state",
                           },
                           domProps: { value: _vm.form.state },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "state", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "state" }
-                        })
+                          attrs: { form: _vm.form, field: "state" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
@@ -933,7 +933,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "city" } }, [
-                          _vm._v("City")
+                          _vm._v("City"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -942,8 +942,8 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.city,
-                              expression: "form.city"
-                            }
+                              expression: "form.city",
+                            },
                           ],
                           staticClass: "form-control",
                           class: { "is-invalid": _vm.form.errors.has("city") },
@@ -951,25 +951,25 @@ var render = function() {
                             type: "text",
                             placeholder: "Enter City",
                             id: "city",
-                            name: "city"
+                            name: "city",
                           },
                           domProps: { value: _vm.form.city },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "city", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "city" }
-                        })
+                          attrs: { form: _vm.form, field: "city" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-3" }, [
@@ -978,7 +978,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "image" } }, [
-                          _vm._v("Image")
+                          _vm._v("Image"),
                         ]),
                         _vm._v(" "),
                         _c("br"),
@@ -987,18 +987,18 @@ var render = function() {
                           class: { "is-invalid": _vm.form.errors.has("image") },
                           attrs: { name: "image", type: "file" },
                           on: {
-                            change: function($event) {
+                            change: function ($event) {
                               return _vm.changeDetailPhoto($event)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "image" }
-                        })
+                          attrs: { form: _vm.form, field: "image" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-3" }, [
@@ -1012,15 +1012,15 @@ var render = function() {
                         _vm._v(" "),
                         _c("img", {
                           staticClass: "image width-140",
-                          attrs: { src: _vm.img_image, alt: "" }
+                          attrs: { src: _vm.img_image, alt: "" },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "image" }
-                        })
+                          attrs: { form: _vm.form, field: "image" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-8" }, [
@@ -1029,7 +1029,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "address" } }, [
-                          _vm._v("Address")
+                          _vm._v("Address"),
                         ]),
                         _vm._v(" "),
                         _c("textarea", {
@@ -1038,37 +1038,37 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.address,
-                              expression: "form.address"
-                            }
+                              expression: "form.address",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("address")
+                            "is-invalid": _vm.form.errors.has("address"),
                           },
                           attrs: {
                             rows: "3",
                             placeholder: "Enter Address",
                             id: "address",
-                            name: "address"
+                            name: "address",
                           },
                           domProps: { value: _vm.form.address },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "address", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "address" }
-                        })
+                          attrs: { form: _vm.form, field: "address" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
@@ -1078,7 +1078,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "apai_single" } }, [
-                          _vm._v("APAI-Single (Price)")
+                          _vm._v("APAI-Single (Price)"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -1087,22 +1087,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.apai_single,
-                              expression: "form.apai_single"
-                            }
+                              expression: "form.apai_single",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("apai_single")
+                            "is-invalid": _vm.form.errors.has("apai_single"),
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter apai_single",
                             id: "apai_single",
-                            name: "apai_single"
+                            name: "apai_single",
                           },
                           domProps: { value: _vm.form.apai_single },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -1111,16 +1111,16 @@ var render = function() {
                                 "apai_single",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "apai_single" }
-                        })
+                          attrs: { form: _vm.form, field: "apai_single" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-3" }, [
@@ -1129,7 +1129,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "apai_double" } }, [
-                          _vm._v("APAI-Double (Price)")
+                          _vm._v("APAI-Double (Price)"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -1138,22 +1138,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.apai_double,
-                              expression: "form.apai_double"
-                            }
+                              expression: "form.apai_double",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("apai_double")
+                            "is-invalid": _vm.form.errors.has("apai_double"),
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter apai_double",
                             id: "apai_double",
-                            name: "apai_double"
+                            name: "apai_double",
                           },
                           domProps: { value: _vm.form.apai_double },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -1162,16 +1162,16 @@ var render = function() {
                                 "apai_double",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "apai_double" }
-                        })
+                          attrs: { form: _vm.form, field: "apai_double" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-3" }, [
@@ -1180,7 +1180,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "apai_triple" } }, [
-                          _vm._v("APAI-Triple (Price)")
+                          _vm._v("APAI-Triple (Price)"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -1189,22 +1189,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.apai_triple,
-                              expression: "form.apai_triple"
-                            }
+                              expression: "form.apai_triple",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("apai_triple")
+                            "is-invalid": _vm.form.errors.has("apai_triple"),
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter apai_triple",
                             id: "apai_triple",
-                            name: "apai_triple"
+                            name: "apai_triple",
                           },
                           domProps: { value: _vm.form.apai_triple },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -1213,16 +1213,16 @@ var render = function() {
                                 "apai_triple",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "apai_triple" }
-                        })
+                          attrs: { form: _vm.form, field: "apai_triple" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-3" }, [
@@ -1231,7 +1231,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "apai_quad" } }, [
-                          _vm._v("APAI-quad (Price)")
+                          _vm._v("APAI-quad (Price)"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -1240,22 +1240,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.apai_quad,
-                              expression: "form.apai_quad"
-                            }
+                              expression: "form.apai_quad",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("apai_quad")
+                            "is-invalid": _vm.form.errors.has("apai_quad"),
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter apai_quad",
                             id: "apai_quad",
-                            name: "apai_quad"
+                            name: "apai_quad",
                           },
                           domProps: { value: _vm.form.apai_quad },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -1264,17 +1264,17 @@ var render = function() {
                                 "apai_quad",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "apai_quad" }
-                        })
+                          attrs: { form: _vm.form, field: "apai_quad" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
@@ -1284,7 +1284,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "mapai_single" } }, [
-                          _vm._v("MAPAI-Single (Price)")
+                          _vm._v("MAPAI-Single (Price)"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -1293,22 +1293,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.mapai_single,
-                              expression: "form.mapai_single"
-                            }
+                              expression: "form.mapai_single",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("mapai_single")
+                            "is-invalid": _vm.form.errors.has("mapai_single"),
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter mapai_single",
                             id: "mapai_single",
-                            name: "mapai_single"
+                            name: "mapai_single",
                           },
                           domProps: { value: _vm.form.mapai_single },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -1317,16 +1317,16 @@ var render = function() {
                                 "mapai_single",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "mapai_single" }
-                        })
+                          attrs: { form: _vm.form, field: "mapai_single" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-3" }, [
@@ -1335,7 +1335,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "mapai_double" } }, [
-                          _vm._v("MAPAI-Double (Price)")
+                          _vm._v("MAPAI-Double (Price)"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -1344,22 +1344,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.mapai_double,
-                              expression: "form.mapai_double"
-                            }
+                              expression: "form.mapai_double",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("mapai_double")
+                            "is-invalid": _vm.form.errors.has("mapai_double"),
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter mapai_double",
                             id: "mapai_double",
-                            name: "mapai_double"
+                            name: "mapai_double",
                           },
                           domProps: { value: _vm.form.mapai_double },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -1368,16 +1368,16 @@ var render = function() {
                                 "mapai_double",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "mapai_double" }
-                        })
+                          attrs: { form: _vm.form, field: "mapai_double" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-3" }, [
@@ -1386,7 +1386,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "mapai_triple" } }, [
-                          _vm._v("MAPAI-Triple (Price)")
+                          _vm._v("MAPAI-Triple (Price)"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -1395,22 +1395,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.mapai_triple,
-                              expression: "form.mapai_triple"
-                            }
+                              expression: "form.mapai_triple",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("mapai_triple")
+                            "is-invalid": _vm.form.errors.has("mapai_triple"),
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter mapai_triple",
                             id: "mapai_triple",
-                            name: "mapai_triple"
+                            name: "mapai_triple",
                           },
                           domProps: { value: _vm.form.mapai_triple },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -1419,16 +1419,16 @@ var render = function() {
                                 "mapai_triple",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "mapai_triple" }
-                        })
+                          attrs: { form: _vm.form, field: "mapai_triple" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-3" }, [
@@ -1437,7 +1437,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "mapai_quad" } }, [
-                          _vm._v("MAPAI-quad (Price)")
+                          _vm._v("MAPAI-quad (Price)"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -1446,22 +1446,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.mapai_quad,
-                              expression: "form.mapai_quad"
-                            }
+                              expression: "form.mapai_quad",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("mapai_quad")
+                            "is-invalid": _vm.form.errors.has("mapai_quad"),
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter mapai_quad",
                             id: "mapai_quad",
-                            name: "mapai_quad"
+                            name: "mapai_quad",
                           },
                           domProps: { value: _vm.form.mapai_quad },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -1470,17 +1470,17 @@ var render = function() {
                                 "mapai_quad",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "mapai_quad" }
-                        })
+                          attrs: { form: _vm.form, field: "mapai_quad" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
@@ -1490,7 +1490,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "cpai_single" } }, [
-                          _vm._v("CPAI-Single (Price)")
+                          _vm._v("CPAI-Single (Price)"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -1499,22 +1499,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.cpai_single,
-                              expression: "form.cpai_single"
-                            }
+                              expression: "form.cpai_single",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("cpai_single")
+                            "is-invalid": _vm.form.errors.has("cpai_single"),
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter cpai_single",
                             id: "cpai_single",
-                            name: "cpai_single"
+                            name: "cpai_single",
                           },
                           domProps: { value: _vm.form.cpai_single },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -1523,16 +1523,16 @@ var render = function() {
                                 "cpai_single",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "cpai_single" }
-                        })
+                          attrs: { form: _vm.form, field: "cpai_single" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-3" }, [
@@ -1541,7 +1541,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "cpai_double" } }, [
-                          _vm._v("CPAI-Double (Price)")
+                          _vm._v("CPAI-Double (Price)"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -1550,22 +1550,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.cpai_double,
-                              expression: "form.cpai_double"
-                            }
+                              expression: "form.cpai_double",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("cpai_double")
+                            "is-invalid": _vm.form.errors.has("cpai_double"),
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter cpai_double",
                             id: "cpai_double",
-                            name: "cpai_double"
+                            name: "cpai_double",
                           },
                           domProps: { value: _vm.form.cpai_double },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -1574,16 +1574,16 @@ var render = function() {
                                 "cpai_double",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "cpai_double" }
-                        })
+                          attrs: { form: _vm.form, field: "cpai_double" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-3" }, [
@@ -1592,7 +1592,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "cpai_triple" } }, [
-                          _vm._v("CPAI-Triple (Price)")
+                          _vm._v("CPAI-Triple (Price)"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -1601,22 +1601,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.cpai_triple,
-                              expression: "form.cpai_triple"
-                            }
+                              expression: "form.cpai_triple",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("cpai_triple")
+                            "is-invalid": _vm.form.errors.has("cpai_triple"),
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter cpai_triple",
                             id: "cpai_triple",
-                            name: "cpai_triple"
+                            name: "cpai_triple",
                           },
                           domProps: { value: _vm.form.cpai_triple },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -1625,16 +1625,16 @@ var render = function() {
                                 "cpai_triple",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "cpai_triple" }
-                        })
+                          attrs: { form: _vm.form, field: "cpai_triple" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-3" }, [
@@ -1643,7 +1643,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "cpai_quad" } }, [
-                          _vm._v("CPAI-quad (Price)")
+                          _vm._v("CPAI-quad (Price)"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -1652,22 +1652,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.cpai_quad,
-                              expression: "form.cpai_quad"
-                            }
+                              expression: "form.cpai_quad",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("cpai_quad")
+                            "is-invalid": _vm.form.errors.has("cpai_quad"),
                           },
                           attrs: {
                             type: "text",
                             placeholder: "Enter cpai_quad",
                             id: "cpai_quad",
-                            name: "cpai_quad"
+                            name: "cpai_quad",
                           },
                           domProps: { value: _vm.form.cpai_quad },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -1676,28 +1676,28 @@ var render = function() {
                                 "cpai_quad",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "cpai_quad" }
-                        })
+                          attrs: { form: _vm.form, field: "cpai_quad" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
-                _c("form-buttons")
+                _c("form-buttons"),
               ],
               1
-            )
+            ),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

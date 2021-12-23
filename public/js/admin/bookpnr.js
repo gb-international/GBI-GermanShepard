@@ -183,7 +183,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -195,13 +195,13 @@ var render = function() {
               _vm._v(
                 _vm._s(_vm._f("firstUppercase")(_vm.transport)) +
                   " Number History"
-              )
+              ),
             ])
           : _c("h3", { staticClass: "text-center pt-2" }, [
               _vm._v(
                 _vm._s(_vm._f("firstUppercase")(_vm.transport)) + " PNR History"
-              )
-            ])
+              ),
+            ]),
       ]),
       _vm._v(" "),
       _c(
@@ -220,15 +220,15 @@ var render = function() {
                       "/" +
                       _vm.$route.params.id +
                       "/" +
-                      _vm.$route.params.tour_id
-                  }
+                      _vm.$route.params.tour_id,
+                  },
                 },
                 [_vm._v("Assign PNR to Students")]
               )
-            : _vm._e()
+            : _vm._e(),
         ],
         1
-      )
+      ),
     ]),
     _vm._v(" "),
     _c("hr"),
@@ -238,7 +238,7 @@ var render = function() {
           _c(
             "div",
             { staticClass: "row" },
-            _vm._l(_vm.list, function(flight, index) {
+            _vm._l(_vm.list, function (flight, index) {
               return _c("div", { key: flight.id, staticClass: "col-sm-6" }, [
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-sm-10" }, [
@@ -248,24 +248,24 @@ var render = function() {
                           name: "model",
                           rawName: "v-model",
                           value: flight.pnr_number,
-                          expression: "flight.pnr_number"
-                        }
+                          expression: "flight.pnr_number",
+                        },
                       ],
                       staticClass: "form-control",
                       attrs: {
                         type: "text",
-                        readonly: index != _vm.edit_index
+                        readonly: index != _vm.edit_index,
                       },
                       domProps: { value: flight.pnr_number },
                       on: {
-                        input: function($event) {
+                        input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(flight, "pnr_number", $event.target.value)
-                        }
-                      }
-                    })
+                        },
+                      },
+                    }),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-2" }, [
@@ -273,48 +273,49 @@ var render = function() {
                       ? _c("img", {
                           staticClass: "edit",
                           attrs: {
-                            src: _vm.$gbiAssets + "/assets/front/icons/edit.png"
+                            src:
+                              _vm.$gbiAssets + "/assets/front/icons/edit.png",
                           },
                           on: {
-                            click: function($event) {
+                            click: function ($event) {
                               return _vm.edit_row(index)
-                            }
-                          }
+                            },
+                          },
                         })
                       : _c("img", {
                           staticClass: "edit",
                           attrs: {
                             src:
-                              _vm.$gbiAssets + "/assets/front/icons/update.png"
+                              _vm.$gbiAssets + "/assets/front/icons/update.png",
                           },
                           on: {
-                            click: function($event) {
+                            click: function ($event) {
                               return _vm.update_row("flight", index)
-                            }
-                          }
+                            },
+                          },
                         }),
                     _vm._v(" "),
                     _c("img", {
                       staticClass: "delete",
                       attrs: {
-                        src: _vm.$gbiAssets + "/assets/front/icons/delete.png"
+                        src: _vm.$gbiAssets + "/assets/front/icons/delete.png",
                       },
                       on: {
-                        click: function($event) {
+                        click: function ($event) {
                           return _vm.delete_row("flight", index, flight.id)
-                        }
-                      }
-                    })
-                  ])
-                ])
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
               ])
             }),
             0
-          )
+          ),
         ])
       : _c("div", { staticClass: "text-center" }, [
-          _c("p", [_vm._v("Table is empty..")])
-        ])
+          _c("p", [_vm._v("Table is empty..")]),
+        ]),
   ])
 }
 var staticRenderFns = []

@@ -107,7 +107,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -118,18 +118,18 @@ var render = function() {
         scopedSlots: _vm._u([
           {
             key: "formdata",
-            fn: function() {
+            fn: function () {
               return [
                 _c(
                   "form",
                   {
                     attrs: { role: "form", enctype: "multipart/form-data" },
                     on: {
-                      submit: function($event) {
+                      submit: function ($event) {
                         $event.preventDefault()
                         return _vm.AddCategory()
-                      }
-                    }
+                      },
+                    },
                   },
                   [
                     _c("div", { staticClass: "row" }, [
@@ -139,7 +139,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "title" } }, [
-                              _vm._v("Title")
+                              _vm._v("Title"),
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -148,20 +148,20 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.title,
-                                  expression: "form.title"
-                                }
+                                  expression: "form.title",
+                                },
                               ],
                               staticClass: "form-control",
                               class: {
-                                "is-invalid": _vm.form.errors.has("title")
+                                "is-invalid": _vm.form.errors.has("title"),
                               },
                               attrs: {
                                 type: "text",
-                                placeholder: "Enter title"
+                                placeholder: "Enter title",
                               },
                               domProps: { value: _vm.form.title },
                               on: {
-                                input: function($event) {
+                                input: function ($event) {
                                   if ($event.target.composing) {
                                     return
                                   }
@@ -170,29 +170,29 @@ var render = function() {
                                     "title",
                                     $event.target.value
                                   )
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "title" }
-                            })
+                              attrs: { form: _vm.form, field: "title" },
+                            }),
                           ],
                           1
-                        )
-                      ])
+                        ),
+                      ]),
                     ]),
                     _vm._v(" "),
-                    _c("form-buttons")
+                    _c("form-buttons"),
                   ],
                   1
-                )
+                ),
               ]
             },
-            proxy: true
-          }
-        ])
-      })
+            proxy: true,
+          },
+        ]),
+      }),
     ],
     1
   )

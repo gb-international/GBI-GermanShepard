@@ -189,7 +189,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -197,18 +197,18 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "form",
               {
                 attrs: { role: "form", enctype: "multipart/form-data" },
                 on: {
-                  submit: function($event) {
+                  submit: function ($event) {
                     $event.preventDefault()
                     return _vm.addHotel()
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("div", { staticClass: "row" }, [
@@ -218,21 +218,21 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "name" } }, [
-                          _vm._v("Hotel Name")
+                          _vm._v("Hotel Name"),
                         ]),
                         _vm._v(" "),
                         _c("dropdown-filter", {
                           staticClass: "mb-2",
                           attrs: { itemList: _vm.hotel_list },
-                          on: { "update:option": _vm.UpdatedItem }
+                          on: { "update:option": _vm.UpdatedItem },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "name" }
-                        })
+                          attrs: { form: _vm.form, field: "name" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -241,7 +241,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "check_in" } }, [
-                          _vm._v("Check In")
+                          _vm._v("Check In"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -250,21 +250,21 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.check_in,
-                              expression: "form.check_in"
-                            }
+                              expression: "form.check_in",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("check_in")
+                            "is-invalid": _vm.form.errors.has("check_in"),
                           },
                           attrs: {
                             type: "datetime-local",
                             placeholder: "Enter Salary Per Day",
-                            name: "check_in"
+                            name: "check_in",
                           },
                           domProps: { value: _vm.form.check_in },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -273,16 +273,16 @@ var render = function() {
                                 "check_in",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "check_in" }
-                        })
+                          attrs: { form: _vm.form, field: "check_in" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -291,7 +291,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "check_out" } }, [
-                          _vm._v("Check Out")
+                          _vm._v("Check Out"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -300,21 +300,21 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.check_out,
-                              expression: "form.check_out"
-                            }
+                              expression: "form.check_out",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("check_out")
+                            "is-invalid": _vm.form.errors.has("check_out"),
                           },
                           attrs: {
                             type: "datetime-local",
                             placeholder: "Enter check Out",
-                            name: "check_out"
+                            name: "check_out",
                           },
                           domProps: { value: _vm.form.check_out },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -323,17 +323,17 @@ var render = function() {
                                 "check_out",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "check_out" }
-                        })
+                          attrs: { form: _vm.form, field: "check_out" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
@@ -343,7 +343,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "price" } }, [
-                          _vm._v("Price")
+                          _vm._v("Price"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -352,41 +352,41 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.price,
-                              expression: "form.price"
-                            }
+                              expression: "form.price",
+                            },
                           ],
                           staticClass: "form-control",
                           class: { "is-invalid": _vm.form.errors.has("price") },
                           attrs: { type: "number", placeholder: "Enter Price" },
                           domProps: { value: _vm.form.price },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "price", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "price" }
-                        })
+                          attrs: { form: _vm.form, field: "price" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
-                _c("form-buttons")
+                _c("form-buttons"),
               ],
               1
-            )
+            ),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

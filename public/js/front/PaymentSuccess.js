@@ -11,29 +11,29 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm._m(0)
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center p-5" }, [
       _c("div", [
         _c("h3", { staticClass: "text-success" }, [
-          _vm._v("Payment Successfull !!!")
+          _vm._v("Payment Successfull !!!"),
         ]),
         _vm._v(" "),
         _c("p", { staticClass: "text-dark pt-2" }, [
-          _vm._v("Your payment has been submited successfully ")
-        ])
-      ])
+          _vm._v("Your payment has been submited successfully "),
+        ]),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

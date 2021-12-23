@@ -28,6 +28,7 @@ class LocationController extends Controller
                 ->get();
             $country = $data[0]['name'];
             foreach ($data[0]->cities as $d ) {
+                $d->city = $d->name;
                 $d->name = $d->name.','.$country;
                 array_push($cities,$d);
             }
@@ -40,6 +41,7 @@ class LocationController extends Controller
             foreach($data as $row){
                 $country = $row['name'];
                 foreach ($row->cities as $d ) {
+                    $d->city = $d->name;
                     $d->name = $d->name.','.$country;
                     array_push($cities,$d);
                 }

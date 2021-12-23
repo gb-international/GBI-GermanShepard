@@ -54,7 +54,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -124,19 +124,19 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "div",
     { staticClass: "row" },
-    _vm._l(_vm.gallery, function(data) {
+    _vm._l(_vm.gallery, function (data) {
       return _c(
         "div",
         {
           key: data.id,
-          staticClass: "col-12 col-sm-8 col-md-6 col-lg-4 fullimagecard"
+          staticClass: "col-12 col-sm-8 col-md-6 col-lg-4 fullimagecard",
         },
         [
           _c(
@@ -144,44 +144,44 @@ var render = function() {
             {
               attrs: {
                 title: data.images[0].alt,
-                to: { name: "images", params: { slug: data.slug } }
-              }
+                to: { name: "images", params: { slug: data.slug } },
+              },
             },
             [
               _c("div", { staticClass: "card" }, [
                 _c("img", {
                   staticClass: "card-img card-image",
-                  attrs: { src: data.images[0].path, alt: data.images[0].alt }
+                  attrs: { src: data.images[0].path, alt: data.images[0].alt },
                 }),
                 _vm._v(" "),
                 _c(
                   "div",
                   {
                     staticClass:
-                      "card-img-overlay text-white d-flex align-content-end flex-wrap p-0"
+                      "card-img-overlay text-white d-flex align-content-end flex-wrap p-0",
                   },
                   [
                     _c(
                       "div",
                       {
                         staticClass:
-                          "card-text-data p-3 bg-transparent-card w-100"
+                          "card-text-data p-3 bg-transparent-card w-100",
                       },
                       [
                         _c("h6", { staticClass: "card-subtitle mb-2" }, [
-                          _vm._v(_vm._s(data.school.school_name))
+                          _vm._v(_vm._s(data.school.school_name)),
                         ]),
                         _vm._v(" "),
                         _c("p", { staticClass: "card-text" }, [
-                          _vm._v(_vm._s(data.title))
-                        ])
+                          _vm._v(_vm._s(data.title)),
+                        ]),
                       ]
-                    )
+                    ),
                   ]
-                )
-              ])
+                ),
+              ]),
             ]
-          )
+          ),
         ],
         1
       )
@@ -207,7 +207,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -231,12 +231,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("vue-content-loading", { attrs: { width: 300, height: 350 } }, [
-    _c("rect", { attrs: { y: "30", r: "30", width: "300", height: "350" } })
+    _c("rect", { attrs: { y: "30", r: "30", width: "300", height: "350" } }),
   ])
 }
 var staticRenderFns = []

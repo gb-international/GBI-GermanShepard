@@ -1074,7 +1074,7 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1088,13 +1088,13 @@ var render = function() {
               staticClass: "btn btn-dark border-0",
               attrs: { type: "button", disabled: _vm.checkbox_state == 0 },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.sendLoginCreds()
-                }
-              }
+                },
+              },
             },
             [_vm._v("Send Login Credentails")]
-          )
+          ),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-sm-4" }, [
@@ -1105,29 +1105,29 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.searchQuery,
-                  expression: "searchQuery"
-                }
+                  expression: "searchQuery",
+                },
               ],
               staticClass: "form-control py-2 border-right-0 border",
               attrs: {
                 type: "search",
                 value: "search",
                 id: "example-search-input",
-                placeholder: "Search .."
+                placeholder: "Search ..",
               },
               domProps: { value: _vm.searchQuery },
               on: {
-                input: function($event) {
+                input: function ($event) {
                   if ($event.target.composing) {
                     return
                   }
                   _vm.searchQuery = $event.target.value
-                }
-              }
+                },
+              },
             }),
             _vm._v(" "),
-            _vm._m(0)
-          ])
+            _vm._m(0),
+          ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-sm-2 p-0 text-center" }, [
@@ -1135,13 +1135,13 @@ var render = function() {
             "a",
             {
               staticClass: "text-dark",
-              attrs: { href: "/assets/sample-group-list.xlsx", download: "" }
+              attrs: { href: "/assets/sample-group-list.xlsx", download: "" },
             },
             [
               _c("i", { staticClass: "fas fa-download" }),
-              _vm._v(" Name list formate\n        ")
+              _vm._v(" Name list formate\n        "),
             ]
-          )
+          ),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-sm-3" }, [
@@ -1150,7 +1150,7 @@ var render = function() {
               "div",
               {
                 staticClass: "input-group file-input-group",
-                attrs: { "data-controller": "file-input" }
+                attrs: { "data-controller": "file-input" },
               },
               [
                 _c("input", {
@@ -1159,8 +1159,8 @@ var render = function() {
                     type: "text",
                     placeholder: ".xlsx file upload",
                     readonly: "",
-                    "data-target": "file-input.value"
-                  }
+                    "data-target": "file-input.value",
+                  },
                 }),
                 _vm._v(" "),
                 _c("input", {
@@ -1169,20 +1169,20 @@ var render = function() {
                     type: "file",
                     id: "customFile",
                     name: "file",
-                    accept: ".xlsx"
+                    accept: ".xlsx",
                   },
                   on: {
-                    change: function($event) {
+                    change: function ($event) {
                       return _vm.changeExcelFile($event)
-                    }
-                  }
+                    },
+                  },
                 }),
                 _vm._v(" "),
-                _vm._m(1)
+                _vm._m(1),
               ]
-            )
-          ])
-        ])
+            ),
+          ]),
+        ]),
       ]),
       _vm._v(" "),
       _c(
@@ -1200,22 +1200,22 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: _vm.selectAll,
-                            expression: "selectAll"
-                          }
+                            expression: "selectAll",
+                          },
                         ],
                         staticClass: "form-check-input checkbox-select-all",
                         attrs: {
                           type: "checkbox",
                           id: "studentCheckbox",
-                          title: "Select All"
+                          title: "Select All",
                         },
                         domProps: {
                           checked: Array.isArray(_vm.selectAll)
                             ? _vm._i(_vm.selectAll, null) > -1
-                            : _vm.selectAll
+                            : _vm.selectAll,
                         },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             var $$a = _vm.selectAll,
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
@@ -1233,15 +1233,15 @@ var render = function() {
                             } else {
                               _vm.selectAll = $$c
                             }
-                          }
-                        }
+                          },
+                        },
                       }),
                       _c("label", {
                         staticClass: "form-check-label font-12",
-                        attrs: { for: "studentCheckbox" }
-                      })
+                        attrs: { for: "studentCheckbox" },
+                      }),
                     ])
-                  : _c("div", [_vm._v("#")])
+                  : _c("div", [_vm._v("#")]),
               ]),
               _vm._v(" "),
               _c("th", { staticClass: "w-80" }, [_vm._v("Sr-no")]),
@@ -1256,14 +1256,14 @@ var render = function() {
               _vm._v(" "),
               _c("th", { staticClass: "w-160" }, [_vm._v("Email")]),
               _vm._v(" "),
-              _c("th", { staticClass: "w-160" }, [_vm._v("Contact No.")])
+              _c("th", { staticClass: "w-160" }, [_vm._v("Contact No.")]),
             ]),
             _vm._v(" "),
             _c(
               "tbody",
               { staticStyle: { "font-size": "5px !important" } },
               [
-                _vm._l(_vm.resultQuery, function(data, index) {
+                _vm._l(_vm.resultQuery, function (data, index) {
                   return _c("tr", { key: data.id, staticClass: "hidden" }, [
                     _c("td", { staticClass: "text-center" }, [
                       _c("div", { staticClass: "form-check" }, [
@@ -1273,8 +1273,8 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.selected,
-                              expression: "selected"
-                            }
+                              expression: "selected",
+                            },
                           ],
                           staticClass: "form-check-input",
                           attrs: { type: "checkbox", id: data.id },
@@ -1282,11 +1282,11 @@ var render = function() {
                             value: data,
                             checked: Array.isArray(_vm.selected)
                               ? _vm._i(_vm.selected, data) > -1
-                              : _vm.selected
+                              : _vm.selected,
                           },
                           on: {
                             change: [
-                              function($event) {
+                              function ($event) {
                                 var $$a = _vm.selected,
                                   $$el = $event.target,
                                   $$c = $$el.checked ? true : false
@@ -1306,17 +1306,17 @@ var render = function() {
                                   _vm.selected = $$c
                                 }
                               },
-                              function($event) {
+                              function ($event) {
                                 return _vm.checkedBox()
-                              }
-                            ]
-                          }
-                        })
-                      ])
+                              },
+                            ],
+                          },
+                        }),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "text-center padding-top-10" }, [
-                      _vm._v(_vm._s(data.srNo))
+                      _vm._v(_vm._s(data.srNo)),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -1326,24 +1326,24 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.first_name,
-                            expression: "data.first_name"
-                          }
+                            expression: "data.first_name",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: {
                           type: "text",
-                          readonly: index != _vm.edit_index
+                          readonly: index != _vm.edit_index,
                         },
                         domProps: { value: data.first_name },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "first_name", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -1353,24 +1353,24 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.last_name,
-                            expression: "data.last_name"
-                          }
+                            expression: "data.last_name",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: {
                           type: "text",
-                          readonly: index != _vm.edit_index
+                          readonly: index != _vm.edit_index,
                         },
                         domProps: { value: data.last_name },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "last_name", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -1382,18 +1382,18 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: data.gender,
-                              expression: "data.gender"
-                            }
+                              expression: "data.gender",
+                            },
                           ],
                           staticClass: "form-control",
                           attrs: { disabled: index != _vm.edit_index },
                           on: {
-                            change: function($event) {
+                            change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
+                                .call($event.target.options, function (o) {
                                   return o.selected
                                 })
-                                .map(function(o) {
+                                .map(function (o) {
                                   var val = "_value" in o ? o._value : o.value
                                   return val
                                 })
@@ -1404,17 +1404,19 @@ var render = function() {
                                   ? $$selectedVal
                                   : $$selectedVal[0]
                               )
-                            }
-                          }
+                            },
+                          },
                         },
                         [
                           _c("option", { attrs: { value: "M" } }, [
-                            _vm._v("M")
+                            _vm._v("M"),
                           ]),
                           _vm._v(" "),
-                          _c("option", { attrs: { value: "F" } }, [_vm._v("F")])
+                          _c("option", { attrs: { value: "F" } }, [
+                            _vm._v("F"),
+                          ]),
                         ]
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -1424,24 +1426,24 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.age,
-                            expression: "data.age"
-                          }
+                            expression: "data.age",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: {
                           type: "number",
-                          readonly: index != _vm.edit_index
+                          readonly: index != _vm.edit_index,
                         },
                         domProps: { value: data.age },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "age", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -1451,24 +1453,24 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.email,
-                            expression: "data.email"
-                          }
+                            expression: "data.email",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: {
                           type: "text",
-                          readonly: index != _vm.edit_index
+                          readonly: index != _vm.edit_index,
                         },
                         domProps: { value: data.email },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "email", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -1480,24 +1482,24 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: data.mobile,
-                                expression: "data.mobile"
-                              }
+                                expression: "data.mobile",
+                              },
                             ],
                             staticClass: "form-control",
                             attrs: {
                               type: "number",
-                              readonly: index != _vm.edit_index
+                              readonly: index != _vm.edit_index,
                             },
                             domProps: { value: data.mobile },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(data, "mobile", $event.target.value)
-                              }
-                            }
-                          })
+                              },
+                            },
+                          }),
                         ]),
                         _vm._v(" "),
                         _c(
@@ -1508,7 +1510,7 @@ var render = function() {
                               "div",
                               {
                                 staticClass:
-                                  "form-group action_item margin-top-11"
+                                  "form-group action_item margin-top-11",
                               },
                               [
                                 index != _vm.edit_index
@@ -1517,29 +1519,29 @@ var render = function() {
                                       attrs: {
                                         src:
                                           _vm.$gbiAssets +
-                                          "/assets/front/icons/edit.png"
+                                          "/assets/front/icons/edit.png",
                                       },
                                       on: {
-                                        click: function($event) {
+                                        click: function ($event) {
                                           return _vm.edit_row(index)
-                                        }
-                                      }
+                                        },
+                                      },
                                     })
                                   : _c("img", {
                                       staticClass: "edit mr-1",
                                       attrs: {
                                         src:
                                           _vm.$gbiAssets +
-                                          "/assets/front/icons/update.png"
+                                          "/assets/front/icons/update.png",
                                       },
                                       on: {
-                                        click: function($event) {
+                                        click: function ($event) {
                                           return _vm.checkAndUpdateRow(
                                             data,
                                             index
                                           )
-                                        }
-                                      }
+                                        },
+                                      },
                                     }),
                                 _vm._v(" "),
                                 _c("img", {
@@ -1547,29 +1549,29 @@ var render = function() {
                                   attrs: {
                                     src:
                                       _vm.$gbiAssets +
-                                      "/assets/front/icons/delete.png"
+                                      "/assets/front/icons/delete.png",
                                   },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.delete_row(index, data.id)
-                                    }
-                                  }
-                                })
+                                    },
+                                  },
+                                }),
                               ]
-                            )
+                            ),
                           ]
-                        )
-                      ])
-                    ])
+                        ),
+                      ]),
+                    ]),
                   ])
                 }),
                 _vm._v(" "),
-                _vm._l(_vm.new_row, function(data, index) {
+                _vm._l(_vm.new_row, function (data, index) {
                   return _c("tr", { key: index }, [
                     _c("td"),
                     _vm._v(" "),
                     _c("td", { staticClass: "text-center" }, [
-                      _vm._v(_vm._s(data.srNo))
+                      _vm._v(_vm._s(data.srNo)),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -1579,21 +1581,21 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.first_name,
-                            expression: "data.first_name"
-                          }
+                            expression: "data.first_name",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "text" },
                         domProps: { value: data.first_name },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "first_name", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -1603,21 +1605,21 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.last_name,
-                            expression: "data.last_name"
-                          }
+                            expression: "data.last_name",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "text" },
                         domProps: { value: data.last_name },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "last_name", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -1629,17 +1631,17 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: data.gender,
-                              expression: "data.gender"
-                            }
+                              expression: "data.gender",
+                            },
                           ],
                           staticClass: "form-control",
                           on: {
-                            change: function($event) {
+                            change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
+                                .call($event.target.options, function (o) {
                                   return o.selected
                                 })
-                                .map(function(o) {
+                                .map(function (o) {
                                   var val = "_value" in o ? o._value : o.value
                                   return val
                                 })
@@ -1650,19 +1652,19 @@ var render = function() {
                                   ? $$selectedVal
                                   : $$selectedVal[0]
                               )
-                            }
-                          }
+                            },
+                          },
                         },
                         [
                           _c("option", { attrs: { value: "M" } }, [
-                            _vm._v("Male")
+                            _vm._v("Male"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "F" } }, [
-                            _vm._v("Female")
-                          ])
+                            _vm._v("Female"),
+                          ]),
                         ]
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -1672,21 +1674,21 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.age,
-                            expression: "data.age"
-                          }
+                            expression: "data.age",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "number", min: "0" },
                         domProps: { value: data.age },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "age", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -1696,21 +1698,21 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.email,
-                            expression: "data.email"
-                          }
+                            expression: "data.email",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "email" },
                         domProps: { value: data.email },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "email", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -1722,21 +1724,21 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: data.mobile,
-                                expression: "data.mobile"
-                              }
+                                expression: "data.mobile",
+                              },
                             ],
                             staticClass: "form-control",
                             attrs: { type: "number", min: "0" },
                             domProps: { value: data.mobile },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(data, "mobile", $event.target.value)
-                              }
-                            }
-                          })
+                              },
+                            },
+                          }),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-4 text-left pt-2" }, [
@@ -1745,39 +1747,39 @@ var render = function() {
                             attrs: {
                               src:
                                 _vm.$gbiAssets +
-                                "/assets/front/icons/delete.png"
+                                "/assets/front/icons/delete.png",
                             },
                             on: {
-                              click: function($event) {
+                              click: function ($event) {
                                 _vm.delete_new_row(index)
                                 _vm.lastSr -= 1
-                              }
-                            }
-                          })
-                        ])
-                      ])
+                              },
+                            },
+                          }),
+                        ]),
+                      ]),
                     ]),
                     _vm._v(" "),
-                    _c("td")
+                    _c("td"),
                   ])
-                })
+                }),
               ],
               2
-            )
+            ),
           ]),
           _vm._v(" "),
           this.error == true
             ? _c("p", { staticClass: "text-danger font-weight-bold" }, [
-                _vm._v(_vm._s(_vm.message))
+                _vm._v(_vm._s(_vm.message)),
               ])
-            : _vm._e()
+            : _vm._e(),
         ]
       ),
       _vm._v(" "),
       _c(
         "div",
         {
-          staticClass: "row w-100 mt-5 mb-5 justify-content-center text-center"
+          staticClass: "row w-100 mt-5 mb-5 justify-content-center text-center",
         },
         [
           _c("div", { staticClass: "col-sm-5 m-0 p-0" }, [
@@ -1786,10 +1788,10 @@ var render = function() {
               {
                 staticClass: "btn btn-default itrn_add_btn btn-info",
                 attrs: { type: "button" },
-                on: { click: _vm.generatePdf }
+                on: { click: _vm.generatePdf },
               },
               [_vm._v("DOWNLOAD PDF")]
-            )
+            ),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-5 m-0 p-0" }, [
@@ -1799,19 +1801,19 @@ var render = function() {
                 staticClass: "btn btn-default itrn_add_btn btn-info",
                 attrs: { type: "button", disabled: _vm.new_row_add == false },
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.checkAndSave()
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("UPDATE")]
-            )
+            ),
           ]),
           _vm._v(" "),
           _c(
             "div",
             {
-              staticClass: "col-sm-2 p-0 add-row-input-button text-left mt-29"
+              staticClass: "col-sm-2 p-0 add-row-input-button text-left mt-29",
             },
             [
               _c("div", { staticClass: "input-group mb-3" }, [
@@ -1821,21 +1823,21 @@ var render = function() {
                       name: "model",
                       rawName: "v-model",
                       value: _vm.row_input,
-                      expression: "row_input"
-                    }
+                      expression: "row_input",
+                    },
                   ],
                   staticClass: "form-control",
                   staticStyle: { border: "solid 1px black", height: "40px" },
                   attrs: { type: "number", placeholder: "Add Row.." },
                   domProps: { value: _vm.row_input },
                   on: {
-                    input: function($event) {
+                    input: function ($event) {
                       if ($event.target.composing) {
                         return
                       }
                       _vm.row_input = $event.target.value
-                    }
-                  }
+                    },
+                  },
                 }),
                 _vm._v(" "),
                 _c("div", { staticClass: "input-group-append" }, [
@@ -1845,24 +1847,24 @@ var render = function() {
                       staticClass: "btn btn-info text-white pl-2",
                       attrs: { type: "button" },
                       on: {
-                        click: function($event) {
+                        click: function ($event) {
                           return _vm.add_row()
-                        }
-                      }
+                        },
+                      },
                     },
                     [_vm._v("Go")]
-                  )
-                ])
-              ])
+                  ),
+                ]),
+              ]),
             ]
-          )
+          ),
         ]
-      )
-    ])
+      ),
+    ]),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -1871,13 +1873,13 @@ var staticRenderFns = [
         "button",
         {
           staticClass: "btn btn-outline-secondary border-left-0 border",
-          attrs: { type: "button" }
+          attrs: { type: "button" },
         },
         [_c("i", { staticClass: "fa fa-search" })]
-      )
+      ),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -1886,9 +1888,9 @@ var staticRenderFns = [
         "label",
         { staticClass: "btn btn-secondary mb-0", attrs: { for: "customFile" } },
         [_vm._v("Browse")]
-      )
+      ),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -1907,7 +1909,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1921,13 +1923,13 @@ var render = function() {
               staticClass: "btn btn-dark border-0",
               attrs: { type: "button", disabled: _vm.checkbox_state == 0 },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.sendLoginCreds()
-                }
-              }
+                },
+              },
             },
             [_vm._v("\n          Send Login Credentails\n        ")]
-          )
+          ),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-sm-4" }, [
@@ -1938,29 +1940,29 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.searchQuery,
-                  expression: "searchQuery"
-                }
+                  expression: "searchQuery",
+                },
               ],
               staticClass: "form-control py-2 border-right-0 border",
               attrs: {
                 type: "search",
                 value: "search",
                 id: "example-search-input",
-                placeholder: "Search .."
+                placeholder: "Search ..",
               },
               domProps: { value: _vm.searchQuery },
               on: {
-                input: function($event) {
+                input: function ($event) {
                   if ($event.target.composing) {
                     return
                   }
                   _vm.searchQuery = $event.target.value
-                }
-              }
+                },
+              },
             }),
             _vm._v(" "),
-            _vm._m(0)
-          ])
+            _vm._m(0),
+          ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-sm-2 p-0 text-center" }, [
@@ -1968,13 +1970,13 @@ var render = function() {
             "a",
             {
               staticClass: "text-dark",
-              attrs: { href: "/assets/sample-group-list.xlsx", download: "" }
+              attrs: { href: "/assets/sample-group-list.xlsx", download: "" },
             },
             [
               _c("i", { staticClass: "fas fa-download" }),
-              _vm._v(" Name list formate\n        ")
+              _vm._v(" Name list formate\n        "),
             ]
-          )
+          ),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-sm-3" }, [
@@ -1983,7 +1985,7 @@ var render = function() {
               "div",
               {
                 staticClass: "input-group file-input-group",
-                attrs: { "data-controller": "file-input" }
+                attrs: { "data-controller": "file-input" },
               },
               [
                 _c("input", {
@@ -1992,8 +1994,8 @@ var render = function() {
                     type: "text",
                     placeholder: ".xlsx file upload",
                     readonly: "",
-                    "data-target": "file-input.value"
-                  }
+                    "data-target": "file-input.value",
+                  },
                 }),
                 _vm._v(" "),
                 _c("input", {
@@ -2002,20 +2004,20 @@ var render = function() {
                     type: "file",
                     id: "customFile",
                     name: "file",
-                    accept: ".xlsx"
+                    accept: ".xlsx",
                   },
                   on: {
-                    change: function($event) {
+                    change: function ($event) {
                       return _vm.changeExcelFile($event)
-                    }
-                  }
+                    },
+                  },
                 }),
                 _vm._v(" "),
-                _vm._m(1)
+                _vm._m(1),
               ]
-            )
-          ])
-        ])
+            ),
+          ]),
+        ]),
       ]),
       _vm._v(" "),
       _c(
@@ -2033,22 +2035,22 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: _vm.selectAll,
-                            expression: "selectAll"
-                          }
+                            expression: "selectAll",
+                          },
                         ],
                         staticClass: "form-check-input checkbox-select-all",
                         attrs: {
                           type: "checkbox",
                           id: "teacherCheck",
-                          title: "Select All"
+                          title: "Select All",
                         },
                         domProps: {
                           checked: Array.isArray(_vm.selectAll)
                             ? _vm._i(_vm.selectAll, null) > -1
-                            : _vm.selectAll
+                            : _vm.selectAll,
                         },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             var $$a = _vm.selectAll,
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
@@ -2066,15 +2068,15 @@ var render = function() {
                             } else {
                               _vm.selectAll = $$c
                             }
-                          }
-                        }
+                          },
+                        },
                       }),
                       _c("label", {
                         staticClass: "form-check-label font-12",
-                        attrs: { for: "teacherCheck" }
-                      })
+                        attrs: { for: "teacherCheck" },
+                      }),
                     ])
-                  : _c("div", [_vm._v("#")])
+                  : _c("div", [_vm._v("#")]),
               ]),
               _vm._v(" "),
               _c("th", { staticClass: "w-80" }, [_vm._v("Sr-no")]),
@@ -2088,18 +2090,18 @@ var render = function() {
               _c("th", { staticClass: "w-70" }, [_vm._v("Age")]),
               _vm._v(" "),
               _c("th", { staticClass: "w-80", staticStyle: { width: "7%" } }, [
-                _vm._v("Paid?")
+                _vm._v("Paid?"),
               ]),
               _vm._v(" "),
               _c("th", { staticClass: "w-160" }, [_vm._v("Email")]),
               _vm._v(" "),
-              _c("th", { staticClass: "w-160" }, [_vm._v("Contact No.")])
+              _c("th", { staticClass: "w-160" }, [_vm._v("Contact No.")]),
             ]),
             _vm._v(" "),
             _c(
               "tbody",
               [
-                _vm._l(_vm.resultQuery, function(data, index) {
+                _vm._l(_vm.resultQuery, function (data, index) {
                   return _c("tr", { key: data.id, staticClass: "hidden" }, [
                     _c("td", { staticClass: "text-center" }, [
                       _c("div", { staticClass: "form-check" }, [
@@ -2109,8 +2111,8 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.selected,
-                              expression: "selected"
-                            }
+                              expression: "selected",
+                            },
                           ],
                           staticClass: "form-check-input",
                           attrs: { type: "checkbox", id: data.id },
@@ -2118,11 +2120,11 @@ var render = function() {
                             value: data,
                             checked: Array.isArray(_vm.selected)
                               ? _vm._i(_vm.selected, data) > -1
-                              : _vm.selected
+                              : _vm.selected,
                           },
                           on: {
                             change: [
-                              function($event) {
+                              function ($event) {
                                 var $$a = _vm.selected,
                                   $$el = $event.target,
                                   $$c = $$el.checked ? true : false
@@ -2142,19 +2144,19 @@ var render = function() {
                                   _vm.selected = $$c
                                 }
                               },
-                              function($event) {
+                              function ($event) {
                                 return _vm.checkedBox()
-                              }
-                            ]
-                          }
-                        })
-                      ])
+                              },
+                            ],
+                          },
+                        }),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "text-center padding-top-10" }, [
                       _vm._v(
                         "\n            " + _vm._s(data.srNo) + "\n          "
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2164,24 +2166,24 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.first_name,
-                            expression: "data.first_name"
-                          }
+                            expression: "data.first_name",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: {
                           type: "text",
-                          readonly: index != _vm.edit_index
+                          readonly: index != _vm.edit_index,
                         },
                         domProps: { value: data.first_name },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "first_name", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2191,24 +2193,24 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.last_name,
-                            expression: "data.last_name"
-                          }
+                            expression: "data.last_name",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: {
                           type: "text",
-                          readonly: index != _vm.edit_index
+                          readonly: index != _vm.edit_index,
                         },
                         domProps: { value: data.last_name },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "last_name", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2220,18 +2222,18 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: data.gender,
-                              expression: "data.gender"
-                            }
+                              expression: "data.gender",
+                            },
                           ],
                           staticClass: "form-control",
                           attrs: { disabled: index != _vm.edit_index },
                           on: {
-                            change: function($event) {
+                            change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
+                                .call($event.target.options, function (o) {
                                   return o.selected
                                 })
-                                .map(function(o) {
+                                .map(function (o) {
                                   var val = "_value" in o ? o._value : o.value
                                   return val
                                 })
@@ -2242,17 +2244,19 @@ var render = function() {
                                   ? $$selectedVal
                                   : $$selectedVal[0]
                               )
-                            }
-                          }
+                            },
+                          },
                         },
                         [
                           _c("option", { attrs: { value: "M" } }, [
-                            _vm._v("M")
+                            _vm._v("M"),
                           ]),
                           _vm._v(" "),
-                          _c("option", { attrs: { value: "F" } }, [_vm._v("F")])
+                          _c("option", { attrs: { value: "F" } }, [
+                            _vm._v("F"),
+                          ]),
                         ]
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2262,24 +2266,24 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.age,
-                            expression: "data.age"
-                          }
+                            expression: "data.age",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: {
                           type: "number",
-                          readonly: index != _vm.edit_index
+                          readonly: index != _vm.edit_index,
                         },
                         domProps: { value: data.age },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "age", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2291,18 +2295,18 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: data.is_paid,
-                              expression: "data.is_paid"
-                            }
+                              expression: "data.is_paid",
+                            },
                           ],
                           staticClass: "form-control",
                           attrs: { disabled: index != _vm.edit_index },
                           on: {
-                            change: function($event) {
+                            change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
+                                .call($event.target.options, function (o) {
                                   return o.selected
                                 })
-                                .map(function(o) {
+                                .map(function (o) {
                                   var val = "_value" in o ? o._value : o.value
                                   return val
                                 })
@@ -2313,19 +2317,19 @@ var render = function() {
                                   ? $$selectedVal
                                   : $$selectedVal[0]
                               )
-                            }
-                          }
+                            },
+                          },
                         },
                         [
                           _c("option", { attrs: { value: "true" } }, [
-                            _vm._v("Paid")
+                            _vm._v("Paid"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "false" } }, [
-                            _vm._v("Free")
-                          ])
+                            _vm._v("Free"),
+                          ]),
                         ]
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2335,24 +2339,24 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.email,
-                            expression: "data.email"
-                          }
+                            expression: "data.email",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: {
                           type: "email",
-                          readonly: index != _vm.edit_index
+                          readonly: index != _vm.edit_index,
                         },
                         domProps: { value: data.email },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "email", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2364,24 +2368,24 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: data.mobile,
-                                expression: "data.mobile"
-                              }
+                                expression: "data.mobile",
+                              },
                             ],
                             staticClass: "form-control",
                             attrs: {
                               type: "number",
-                              readonly: index != _vm.edit_index
+                              readonly: index != _vm.edit_index,
                             },
                             domProps: { value: data.mobile },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(data, "mobile", $event.target.value)
-                              }
-                            }
-                          })
+                              },
+                            },
+                          }),
                         ]),
                         _vm._v(" "),
                         _c(
@@ -2392,7 +2396,7 @@ var render = function() {
                               "div",
                               {
                                 staticClass:
-                                  "form-group action_item margin-top-11"
+                                  "form-group action_item margin-top-11",
                               },
                               [
                                 index != _vm.edit_index
@@ -2401,29 +2405,29 @@ var render = function() {
                                       attrs: {
                                         src:
                                           _vm.$gbiAssets +
-                                          "/assets/front/icons/edit.png"
+                                          "/assets/front/icons/edit.png",
                                       },
                                       on: {
-                                        click: function($event) {
+                                        click: function ($event) {
                                           return _vm.edit_row(index)
-                                        }
-                                      }
+                                        },
+                                      },
                                     })
                                   : _c("img", {
                                       staticClass: "edit mr-1",
                                       attrs: {
                                         src:
                                           _vm.$gbiAssets +
-                                          "/assets/front/icons/update.png"
+                                          "/assets/front/icons/update.png",
                                       },
                                       on: {
-                                        click: function($event) {
+                                        click: function ($event) {
                                           return _vm.checkAndUpdateRow(
                                             data,
                                             index
                                           )
-                                        }
-                                      }
+                                        },
+                                      },
                                     }),
                                 _vm._v(" "),
                                 _c("img", {
@@ -2431,29 +2435,29 @@ var render = function() {
                                   attrs: {
                                     src:
                                       _vm.$gbiAssets +
-                                      "/assets/front/icons/delete.png"
+                                      "/assets/front/icons/delete.png",
                                   },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.delete_row(index, data.id)
-                                    }
-                                  }
-                                })
+                                    },
+                                  },
+                                }),
                               ]
-                            )
+                            ),
                           ]
-                        )
-                      ])
-                    ])
+                        ),
+                      ]),
+                    ]),
                   ])
                 }),
                 _vm._v(" "),
-                _vm._l(_vm.new_row, function(data, index) {
+                _vm._l(_vm.new_row, function (data, index) {
                   return _c("tr", { key: index }, [
                     _c("td"),
                     _vm._v(" "),
                     _c("td", { staticClass: "text-center" }, [
-                      _vm._v(_vm._s(data.srNo))
+                      _vm._v(_vm._s(data.srNo)),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2463,21 +2467,21 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.first_name,
-                            expression: "data.first_name"
-                          }
+                            expression: "data.first_name",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "text" },
                         domProps: { value: data.first_name },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "first_name", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2487,21 +2491,21 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.last_name,
-                            expression: "data.last_name"
-                          }
+                            expression: "data.last_name",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "text" },
                         domProps: { value: data.last_name },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "last_name", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2513,17 +2517,17 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: data.gender,
-                              expression: "data.gender"
-                            }
+                              expression: "data.gender",
+                            },
                           ],
                           staticClass: "form-control",
                           on: {
-                            change: function($event) {
+                            change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
+                                .call($event.target.options, function (o) {
                                   return o.selected
                                 })
-                                .map(function(o) {
+                                .map(function (o) {
                                   var val = "_value" in o ? o._value : o.value
                                   return val
                                 })
@@ -2534,19 +2538,19 @@ var render = function() {
                                   ? $$selectedVal
                                   : $$selectedVal[0]
                               )
-                            }
-                          }
+                            },
+                          },
                         },
                         [
                           _c("option", { attrs: { value: "M" } }, [
-                            _vm._v("Male")
+                            _vm._v("Male"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "F" } }, [
-                            _vm._v("Female")
-                          ])
+                            _vm._v("Female"),
+                          ]),
                         ]
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2556,21 +2560,21 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.age,
-                            expression: "data.age"
-                          }
+                            expression: "data.age",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "number" },
                         domProps: { value: data.age },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "age", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2582,17 +2586,17 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: data.is_paid,
-                              expression: "data.is_paid"
-                            }
+                              expression: "data.is_paid",
+                            },
                           ],
                           staticClass: "form-control",
                           on: {
-                            change: function($event) {
+                            change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
+                                .call($event.target.options, function (o) {
                                   return o.selected
                                 })
-                                .map(function(o) {
+                                .map(function (o) {
                                   var val = "_value" in o ? o._value : o.value
                                   return val
                                 })
@@ -2603,19 +2607,19 @@ var render = function() {
                                   ? $$selectedVal
                                   : $$selectedVal[0]
                               )
-                            }
-                          }
+                            },
+                          },
                         },
                         [
                           _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("Paid")
+                            _vm._v("Paid"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("Free")
-                          ])
+                            _vm._v("Free"),
+                          ]),
                         ]
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2625,21 +2629,21 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: data.email,
-                            expression: "data.email"
-                          }
+                            expression: "data.email",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "email" },
                         domProps: { value: data.email },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(data, "email", $event.target.value)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -2651,21 +2655,21 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: data.mobile,
-                                expression: "data.mobile"
-                              }
+                                expression: "data.mobile",
+                              },
                             ],
                             staticClass: "form-control",
                             attrs: { type: "number" },
                             domProps: { value: data.mobile },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(data, "mobile", $event.target.value)
-                              }
-                            }
-                          })
+                              },
+                            },
+                          }),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-4 text-right pt-2" }, [
@@ -2674,30 +2678,30 @@ var render = function() {
                             attrs: {
                               src:
                                 _vm.$gbiAssets +
-                                "/assets/front/icons/delete.png"
+                                "/assets/front/icons/delete.png",
                             },
                             on: {
-                              click: function($event) {
+                              click: function ($event) {
                                 _vm.delete_new_row(index)
                                 _vm.lastSr -= 1
-                              }
-                            }
-                          })
-                        ])
-                      ])
-                    ])
+                              },
+                            },
+                          }),
+                        ]),
+                      ]),
+                    ]),
                   ])
-                })
+                }),
               ],
               2
-            )
+            ),
           ]),
           _vm._v(" "),
           this.error == true
             ? _c("p", { staticClass: "text-danger font-weight-bold" }, [
-                _vm._v(_vm._s(_vm.message))
+                _vm._v(_vm._s(_vm.message)),
               ])
-            : _vm._e()
+            : _vm._e(),
         ]
       ),
       _vm._v(" "),
@@ -2705,7 +2709,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "row reservation_bottom w-100 mt-5 mb-5 justify-content-center text-center"
+            "row reservation_bottom w-100 mt-5 mb-5 justify-content-center text-center",
         },
         [
           _c("div", { staticClass: "col-sm-5 m-0 p-0" }, [
@@ -2714,10 +2718,10 @@ var render = function() {
               {
                 staticClass: "btn btn-default itrn_add_btn btn-info",
                 attrs: { type: "button" },
-                on: { click: _vm.generatePdf }
+                on: { click: _vm.generatePdf },
               },
               [_vm._v("DOWNLOAD PDF")]
-            )
+            ),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-5 m-0 p-0" }, [
@@ -2727,13 +2731,13 @@ var render = function() {
                 staticClass: "btn btn-default itrn_add_btn btn-info",
                 attrs: { type: "button", disabled: _vm.new_row_add == false },
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.checkAndSave()
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("UPDATE")]
-            )
+            ),
           ]),
           _vm._v(" "),
           _c(
@@ -2747,21 +2751,21 @@ var render = function() {
                       name: "model",
                       rawName: "v-model",
                       value: _vm.row_input,
-                      expression: "row_input"
-                    }
+                      expression: "row_input",
+                    },
                   ],
                   staticClass: "form-control",
                   staticStyle: { border: "solid 1px black", height: "40px" },
                   attrs: { type: "number", placeholder: "Add Row.." },
                   domProps: { value: _vm.row_input },
                   on: {
-                    input: function($event) {
+                    input: function ($event) {
                       if ($event.target.composing) {
                         return
                       }
                       _vm.row_input = $event.target.value
-                    }
-                  }
+                    },
+                  },
                 }),
                 _vm._v(" "),
                 _c("div", { staticClass: "input-group-append" }, [
@@ -2771,24 +2775,24 @@ var render = function() {
                       staticClass: "btn btn-info text-white pl-2",
                       attrs: { type: "button" },
                       on: {
-                        click: function($event) {
+                        click: function ($event) {
                           return _vm.add_row()
-                        }
-                      }
+                        },
+                      },
                     },
                     [_vm._v("Go")]
-                  )
-                ])
-              ])
+                  ),
+                ]),
+              ]),
             ]
-          )
+          ),
         ]
-      )
-    ])
+      ),
+    ]),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -2797,13 +2801,13 @@ var staticRenderFns = [
         "button",
         {
           staticClass: "btn btn-outline-secondary border-left-0 border",
-          attrs: { type: "button" }
+          attrs: { type: "button" },
         },
         [_c("i", { staticClass: "fa fa-search" })]
-      )
+      ),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -2812,9 +2816,9 @@ var staticRenderFns = [
         "label",
         { staticClass: "btn btn-secondary mb-0", attrs: { for: "customFile" } },
         [_vm._v("Browse")]
-      )
+      ),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -2833,7 +2837,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -2843,10 +2847,10 @@ var render = function() {
         staticClass: "img w-20 mr-2 link mb-2",
         attrs: { src: _vm.$gbiAssets + "/images/icons/back.png" },
         on: {
-          click: function($event) {
+          click: function ($event) {
             return _vm.$router.go(-1)
-          }
-        }
+          },
+        },
       }),
       _vm._v(" "),
       _c("div", { staticClass: "row text-center text-muted pt-2" }, [
@@ -2856,15 +2860,15 @@ var render = function() {
             {
               staticClass: "mb-0 pointer link",
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.navigateTab(0)
-                }
-              }
+                },
+              },
             },
             [_vm._v("Student List")]
           ),
           _vm._v(" "),
-          _c("hr", { class: _vm.active ? "active_tab" : "" })
+          _c("hr", { class: _vm.active ? "active_tab" : "" }),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col p-0 m-0" }, [
@@ -2873,22 +2877,22 @@ var render = function() {
             {
               staticClass: "mb-0 pointer link",
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.navigateTab(1)
-                }
-              }
+                },
+              },
             },
             [_vm._v("Teacher List")]
           ),
           _vm._v(" "),
-          _c("hr", { class: _vm.active ? "" : "active_tab" })
-        ])
+          _c("hr", { class: _vm.active ? "" : "active_tab" }),
+        ]),
       ]),
       _vm._v(" "),
       _vm.navigate == 0 ? _c("div", [_c("student-layout")], 1) : _vm._e(),
       _vm._v(" "),
-      _vm.navigate == 1 ? _c("div", [_c("teacher-layout")], 1) : _vm._e()
-    ])
+      _vm.navigate == 1 ? _c("div", [_c("teacher-layout")], 1) : _vm._e(),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -2917,7 +2921,7 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
@@ -3231,7 +3235,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentExcelUpload_vue_vue_type_style_index_0_id_6a05f33f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./StudentExcelUpload.vue?vue&type=style&index=0&id=6a05f33f&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/tour/StudentExcelUpload.vue?vue&type=style&index=0&id=6a05f33f&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentExcelUpload_vue_vue_type_style_index_0_id_6a05f33f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentExcelUpload_vue_vue_type_style_index_0_id_6a05f33f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentExcelUpload_vue_vue_type_style_index_0_id_6a05f33f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentExcelUpload_vue_vue_type_style_index_0_id_6a05f33f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentExcelUpload_vue_vue_type_style_index_0_id_6a05f33f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentExcelUpload_vue_vue_type_style_index_0_id_6a05f33f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
@@ -3318,7 +3322,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TeacherExcelUpload_vue_vue_type_style_index_0_id_01df46b8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TeacherExcelUpload.vue?vue&type=style&index=0&id=01df46b8&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/tour/TeacherExcelUpload.vue?vue&type=style&index=0&id=01df46b8&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TeacherExcelUpload_vue_vue_type_style_index_0_id_01df46b8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TeacherExcelUpload_vue_vue_type_style_index_0_id_01df46b8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TeacherExcelUpload_vue_vue_type_style_index_0_id_01df46b8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TeacherExcelUpload_vue_vue_type_style_index_0_id_01df46b8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TeacherExcelUpload_vue_vue_type_style_index_0_id_01df46b8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TeacherExcelUpload_vue_vue_type_style_index_0_id_01df46b8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

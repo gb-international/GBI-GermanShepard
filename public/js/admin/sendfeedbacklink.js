@@ -309,7 +309,7 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -318,11 +318,15 @@ var render = function() {
       "button",
       {
         staticClass:
-          "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold text-center"
+          "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold text-center",
       },
-      [_vm._t("default", [_vm._v("SEND LINK")])],
+      [
+        _vm._t("default", function () {
+          return [_vm._v("SEND LINK")]
+        }),
+      ],
       2
-    )
+    ),
   ])
 }
 var staticRenderFns = []
@@ -343,7 +347,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -354,13 +358,13 @@ var render = function() {
           "div",
           {
             staticClass: "col-md-12 pl-4 pb-5",
-            staticStyle: { position: "relative" }
+            staticStyle: { position: "relative" },
           },
           [_vm._t("formdata")],
           2
-        )
-      ])
-    ])
+        ),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -381,7 +385,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -389,7 +393,7 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             !_vm.Sending
               ? _c(
@@ -398,11 +402,11 @@ var render = function() {
                     staticStyle: { margin: "21px" },
                     attrs: { role: "form", enctype: "multipart/form-data" },
                     on: {
-                      submit: function($event) {
+                      submit: function ($event) {
                         $event.preventDefault()
                         return _vm.SendLink()
-                      }
-                    }
+                      },
+                    },
                   },
                   [
                     _c("div", { staticClass: "row" }, [
@@ -412,13 +416,13 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "tour_id" } }, [
-                              _vm._v("Tour Code")
+                              _vm._v("Tour Code"),
                             ]),
                             _vm._v(" "),
                             _c("dropdown-filter", {
                               staticClass: "mb-2",
                               attrs: { itemList: _vm.tour_list },
-                              on: { "update:option": _vm.tourUpdate }
+                              on: { "update:option": _vm.tourUpdate },
                             }),
                             _vm._v(" "),
                             _vm.form.errors.has("tour_id")
@@ -429,15 +433,15 @@ var render = function() {
                                     [
                                       _vm._v(
                                         _vm._s(_vm.form.errors.get("tour_id"))
-                                      )
+                                      ),
                                     ]
-                                  )
+                                  ),
                                 ])
-                              : _vm._e()
+                              : _vm._e(),
                           ],
                           1
-                        )
-                      ])
+                        ),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
@@ -447,7 +451,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "itinerary" } }, [
-                              _vm._v("Itinerary")
+                              _vm._v("Itinerary"),
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -456,29 +460,29 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.itinerary,
-                                  expression: "itinerary"
-                                }
+                                  expression: "itinerary",
+                                },
                               ],
                               staticClass: "form-control",
                               attrs: { type: "text", readonly: "" },
                               domProps: { value: _vm.itinerary },
                               on: {
-                                input: function($event) {
+                                input: function ($event) {
                                   if ($event.target.composing) {
                                     return
                                   }
                                   _vm.itinerary = $event.target.value
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "itinerary" }
-                            })
+                              attrs: { form: _vm.form, field: "itinerary" },
+                            }),
                           ],
                           1
-                        )
-                      ])
+                        ),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
@@ -488,7 +492,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "ph_no" } }, [
-                              _vm._v("Customer Phone Number")
+                              _vm._v("Customer Phone Number"),
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -497,17 +501,17 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.ph_no,
-                                  expression: "form.ph_no"
-                                }
+                                  expression: "form.ph_no",
+                                },
                               ],
                               staticClass: "form-control",
                               attrs: {
                                 type: "number",
-                                placeholder: "Enter Phone Number"
+                                placeholder: "Enter Phone Number",
                               },
                               domProps: { value: _vm.form.ph_no },
                               on: {
-                                input: function($event) {
+                                input: function ($event) {
                                   if ($event.target.composing) {
                                     return
                                   }
@@ -516,16 +520,16 @@ var render = function() {
                                     "ph_no",
                                     $event.target.value
                                   )
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "ph_no" }
-                            })
+                              attrs: { form: _vm.form, field: "ph_no" },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-6" }, [
@@ -534,7 +538,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "email" } }, [
-                              _vm._v("Customer Email")
+                              _vm._v("Customer Email"),
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -543,21 +547,21 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.email,
-                                  expression: "form.email"
-                                }
+                                  expression: "form.email",
+                                },
                               ],
                               staticClass: "form-control",
                               class: {
-                                "is-invalid": _vm.form.errors.has("email")
+                                "is-invalid": _vm.form.errors.has("email"),
                               },
                               attrs: {
                                 type: "email",
                                 placeholder: "Enter Email",
-                                rows: "5"
+                                rows: "5",
                               },
                               domProps: { value: _vm.form.email },
                               on: {
-                                input: function($event) {
+                                input: function ($event) {
                                   if ($event.target.composing) {
                                     return
                                   }
@@ -566,29 +570,29 @@ var render = function() {
                                     "email",
                                     $event.target.value
                                   )
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "email" }
-                            })
+                              attrs: { form: _vm.form, field: "email" },
+                            }),
                           ],
                           1
-                        )
-                      ])
+                        ),
+                      ]),
                     ]),
                     _vm._v(" "),
-                    _c("SendLinkButton")
+                    _c("SendLinkButton"),
                   ],
                   1
                 )
-              : _c("div", [_c("p", [_vm._v("Sending...")])])
+              : _c("div", [_c("p", [_vm._v("Sending...")])]),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []
@@ -800,7 +804,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_send_feedback_link_vue_vue_type_style_index_0_id_d81d7024_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./send-feedback-link.vue?vue&type=style&index=0&id=d81d7024&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/feedback/send-feedback-link.vue?vue&type=style&index=0&id=d81d7024&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_send_feedback_link_vue_vue_type_style_index_0_id_d81d7024_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_send_feedback_link_vue_vue_type_style_index_0_id_d81d7024_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_send_feedback_link_vue_vue_type_style_index_0_id_d81d7024_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_send_feedback_link_vue_vue_type_style_index_0_id_d81d7024_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_send_feedback_link_vue_vue_type_style_index_0_id_d81d7024_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_send_feedback_link_vue_vue_type_style_index_0_id_d81d7024_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

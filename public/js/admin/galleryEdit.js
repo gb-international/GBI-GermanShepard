@@ -242,7 +242,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -250,18 +250,18 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "form",
               {
                 attrs: { role: "form", enctype: "multipart/form-data" },
                 on: {
-                  submit: function($event) {
+                  submit: function ($event) {
                     $event.preventDefault()
                     return _vm.updateGallery()
-                  }
-                }
+                  },
+                },
               },
               [
                 _vm.form.title
@@ -272,7 +272,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "category" } }, [
-                              _vm._v("Gallery Category")
+                              _vm._v("Gallery Category"),
                             ]),
                             _vm._v(" "),
                             _c("dropdown-list", {
@@ -280,19 +280,19 @@ var render = function() {
                               attrs: { itemList: _vm.categories },
                               model: {
                                 value: _vm.form.category,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(_vm.form, "category", $$v)
                                 },
-                                expression: "form.category"
-                              }
+                                expression: "form.category",
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "category" }
-                            })
+                              attrs: { form: _vm.form, field: "category" },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-8" }, [
@@ -301,7 +301,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "category" } }, [
-                              _vm._v("Gallery Title")
+                              _vm._v("Gallery Title"),
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -310,18 +310,18 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.title,
-                                  expression: "form.title"
-                                }
+                                  expression: "form.title",
+                                },
                               ],
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
                                 options: _vm.options,
-                                placeholder: "Select Itinerary"
+                                placeholder: "Select Itinerary",
                               },
                               domProps: { value: _vm.form.title },
                               on: {
-                                input: function($event) {
+                                input: function ($event) {
                                   if ($event.target.composing) {
                                     return
                                   }
@@ -330,16 +330,16 @@ var render = function() {
                                     "title",
                                     $event.target.value
                                   )
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "title" }
-                            })
+                              attrs: { form: _vm.form, field: "title" },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-8" }, [
@@ -348,7 +348,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "category" } }, [
-                              _vm._v("School")
+                              _vm._v("School"),
                             ]),
                             _vm._v(" "),
                             _c("dropdown-list", {
@@ -356,41 +356,41 @@ var render = function() {
                               attrs: { itemList: _vm.schools },
                               model: {
                                 value: _vm.form.school_id,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(_vm.form, "school_id", $$v)
                                 },
-                                expression: "form.school_id"
-                              }
+                                expression: "form.school_id",
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "school_id" }
-                            })
+                              attrs: { form: _vm.form, field: "school_id" },
+                            }),
                           ],
                           1
-                        )
-                      ])
+                        ),
+                      ]),
                     ])
                   : _vm._e(),
                 _vm._v(" "),
                 _c(
                   "div",
                   { staticClass: "row img-card-delete-icon" },
-                  _vm._l(_vm.images, function(img) {
+                  _vm._l(_vm.images, function (img) {
                     return _c(
                       "div",
                       {
                         key: img.id,
-                        staticClass: "col-sm-4 position-relative"
+                        staticClass: "col-sm-4 position-relative",
                       },
                       [
                         _c("div", { staticClass: "card" }, [
                           _c("div", { staticClass: "card-body" }, [
                             _c("img", {
                               staticClass: "w-100",
-                              attrs: { src: "" + img.path }
-                            })
-                          ])
+                              attrs: { src: "" + img.path },
+                            }),
+                          ]),
                         ]),
                         _vm._v(" "),
                         _c(
@@ -399,18 +399,18 @@ var render = function() {
                             staticClass:
                               "badge badge-danger position-absolute cursor-pointer",
                             on: {
-                              click: function($event) {
+                              click: function ($event) {
                                 return _vm.deleteImage(img.id)
-                              }
-                            }
+                              },
+                            },
                           },
                           [
                             _c("i", {
                               staticClass: "far fa-trash-alt",
-                              attrs: { "aria-hidden": "true" }
-                            })
+                              attrs: { "aria-hidden": "true" },
+                            }),
                           ]
-                        )
+                        ),
                       ]
                     )
                   }),
@@ -421,28 +421,28 @@ var render = function() {
                   _c("div", { staticClass: "col-sm-4" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "images" } }, [
-                        _vm._v("Select Multiple Images")
+                        _vm._v("Select Multiple Images"),
                       ]),
                       _vm._v(" "),
                       _c("input", {
                         ref: "attachments",
                         staticClass: "form-control w-100",
                         attrs: { type: "file", multiple: "multiple" },
-                        on: { change: _vm.changePhoto }
-                      })
-                    ])
-                  ])
+                        on: { change: _vm.changePhoto },
+                      }),
+                    ]),
+                  ]),
                 ]),
                 _vm._v(" "),
-                _c("form-buttons")
+                _c("form-buttons"),
               ],
               1
-            )
+            ),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

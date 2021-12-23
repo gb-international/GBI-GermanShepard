@@ -18,12 +18,54 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -357,7 +399,7 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -365,7 +407,7 @@ var render = function() {
     "section",
     {
       staticClass: "d-flex flex-column justify-content-center",
-      staticStyle: { background: "white !important" }
+      staticStyle: { background: "white !important" },
     },
     [
       _c(
@@ -373,7 +415,7 @@ var render = function() {
         {
           staticClass:
             "d-flex justify-content-center align-items-center mainRow1 container",
-          staticStyle: { background: "white !important" }
+          staticStyle: { background: "white !important" },
         },
         [
           _c("div", { staticClass: "p-2 d-flex flex-column expDetCol1" }, [
@@ -382,8 +424,8 @@ var render = function() {
               attrs: {
                 src: _vm.selectedPhoto,
                 loading: "lazy",
-                alt: "itinerary"
-              }
+                alt: "itinerary",
+              },
             }),
             _vm._v(" "),
             _c(
@@ -398,16 +440,16 @@ var render = function() {
                     _vm.settings,
                     false
                   ),
-                  _vm._l(10, function(index) {
+                  _vm._l(10, function (index) {
                     return _c(
                       "div",
                       {
                         key: index,
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.changePhoto(_vm.itineraryData.photo)
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c("img", {
@@ -415,17 +457,17 @@ var render = function() {
                           attrs: {
                             src: _vm.itineraryData.photo,
                             loading: "lazy",
-                            alt: "itinerary"
-                          }
-                        })
+                            alt: "itinerary",
+                          },
+                        }),
                       ]
                     )
                   }),
                   0
-                )
+                ),
               ],
               1
-            )
+            ),
           ]),
           _vm._v(" "),
           _vm.itineraryData.price
@@ -435,20 +477,20 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "d-flex justify-content-start align-items-center priceSingleDiv"
+                        "d-flex justify-content-start align-items-center priceSingleDiv",
                     },
                     [
                       _c("p", [
                         _c("b", [
                           _vm._v(
                             "₹" + _vm._s(_vm.itineraryData.price) + " x 1 Pax"
-                          )
-                        ])
+                          ),
+                        ]),
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "ml-auto p2" }, [
-                        _vm._v("₹" + _vm._s(_vm.itineraryData.price))
-                      ])
+                        _vm._v("₹" + _vm._s(_vm.itineraryData.price)),
+                      ]),
                     ]
                   ),
                   _vm._v(" "),
@@ -456,14 +498,14 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "d-flex justify-content-start align-items-center priceSingleDiv"
+                        "d-flex justify-content-start align-items-center priceSingleDiv",
                     },
                     [
                       _c("p", [_vm._v("Total Basic Cost")]),
                       _vm._v(" "),
                       _c("p", { staticClass: "ml-auto p2" }, [
-                        _vm._v("₹" + _vm._s(_vm.itineraryData.price))
-                      ])
+                        _vm._v("₹" + _vm._s(_vm.itineraryData.price)),
+                      ]),
                     ]
                   ),
                   _vm._v(" "),
@@ -473,7 +515,7 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "d-flex justify-content-start align-items-center priceSingleDiv"
+                        "d-flex justify-content-start align-items-center priceSingleDiv",
                     },
                     [
                       _c("p", [_vm._v("Taxes")]),
@@ -481,8 +523,8 @@ var render = function() {
                       _c("p", { staticClass: "ml-auto p2" }, [
                         _vm._v(
                           "₹" + _vm._s((_vm.itineraryData.price * 5) / 100)
-                        )
-                      ])
+                        ),
+                      ]),
                     ]
                   ),
                   _vm._v(" "),
@@ -491,7 +533,7 @@ var render = function() {
                         "div",
                         {
                           staticClass:
-                            "d-flex justify-content-start align-items-center grandTotalDiv"
+                            "d-flex justify-content-start align-items-center grandTotalDiv",
                         },
                         [
                           _vm._m(1),
@@ -505,16 +547,39 @@ var render = function() {
                                     2000
                                 ) +
                                 " "
-                            )
-                          ])
+                            ),
+                          ]),
                         ]
                       )
-                    : _vm._e()
+                    : _vm._e(),
                 ]),
                 _vm._v(" "),
-                _c("button", { staticClass: "btn btnPay" }, [_vm._v("Pay Now")])
+                _vm.login
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btnPay",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": "#bookModal",
+                        },
+                      },
+                      [_vm._v("\n          Book Now\n      ")]
+                    )
+                  : _c(
+                      "button",
+                      {
+                        staticClass: "btn btnPay",
+                        attrs: {
+                          id: "loginButton",
+                          "data-toggle": "modal",
+                          "data-target": "#LoginForm",
+                        },
+                      },
+                      [_vm._v("\n        Book Now\n      ")]
+                    ),
               ])
-            : _vm._e()
+            : _vm._e(),
         ]
       ),
       _vm._v(" "),
@@ -522,20 +587,20 @@ var render = function() {
         "div",
         {
           staticClass:
-            "d-flex justify-content-between align-items-center grandTotalMob"
+            "d-flex justify-content-between align-items-center grandTotalMob",
         },
         [
           _c(
             "div",
             {
               staticClass:
-                "d-flex flex-column justify-content-start align-items-start"
+                "d-flex flex-column justify-content-start align-items-start",
             },
             [
               _c("p", [_vm._v("Grand Total")]),
               _vm._v(" "),
               _c("span", { staticClass: "smallP" }, [
-                _vm._v("(Incl. all taxes)")
+                _vm._v("(Incl. all taxes)"),
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "p2" }, [
@@ -546,83 +611,104 @@ var render = function() {
                         _vm.itineraryData.price -
                         2000
                     )
-                )
-              ])
+                ),
+              ]),
             ]
           ),
           _vm._v(" "),
-          _c("button", { staticClass: "btn btnConfirm ml-auto" }, [
-            _vm._v("Pay Now")
-          ])
+          _vm.login
+            ? _c(
+                "button",
+                {
+                  staticClass: "btn btnConfirm ml-auto",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#bookModal",
+                  },
+                },
+                [_vm._v("\n        Book Now\n    ")]
+              )
+            : _c(
+                "button",
+                {
+                  staticClass: "btn btnConfirm ml-auto",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#LoginForm",
+                    id: "loginButton",
+                  },
+                },
+                [_vm._v("Book Now\n    ")]
+              ),
         ]
       ),
       _vm._v(" "),
       _c("div", { staticClass: "mainRow2 container" }, [
         _c("p", { staticClass: "rowheadings" }, [
-          _vm._v("Your Experience Includes")
+          _vm._v("Your Experience Includes"),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "iconMainDiv" }, [
           _c("div", { staticClass: "iconClass" }, [
             _c("img", { attrs: { src: _vm.$gbiAssets + "/hotel_icon.png" } }),
             _vm._v(" "),
-            _c("p", [_vm._v("Hotel")])
+            _c("p", [_vm._v("Hotel")]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "iconClass" }, [
             _c("img", { attrs: { src: _vm.$gbiAssets + "/flight_icon.png" } }),
             _vm._v(" "),
-            _c("p", [_vm._v("Flight")])
+            _c("p", [_vm._v("Flight")]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "iconClass" }, [
             _c("img", {
-              attrs: { src: _vm.$gbiAssets + "/passport_icon.png" }
+              attrs: { src: _vm.$gbiAssets + "/passport_icon.png" },
             }),
             _vm._v(" "),
-            _c("p", [_vm._v("Passport/Visa")])
+            _c("p", [_vm._v("Passport/Visa")]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "iconClass" }, [
             _c("img", {
-              attrs: { src: _vm.$gbiAssets + "/transport_icon.png" }
+              attrs: { src: _vm.$gbiAssets + "/transport_icon.png" },
             }),
             _vm._v(" "),
-            _c("p", [_vm._v("Transfers")])
+            _c("p", [_vm._v("Transfers")]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "iconClass" }, [
             _c("img", { attrs: { src: _vm.$gbiAssets + "/dinner_icon.png" } }),
             _vm._v(" "),
-            _c("p", [_vm._v("Dinner")])
+            _c("p", [_vm._v("Dinner")]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "iconClass" }, [
             _c("img", {
-              attrs: { src: _vm.$gbiAssets + "/citytour_icon.png" }
+              attrs: { src: _vm.$gbiAssets + "/citytour_icon.png" },
             }),
             _vm._v(" "),
-            _c("p", [_vm._v("City Tour")])
+            _c("p", [_vm._v("City Tour")]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "iconClass" }, [
             _c("img", { attrs: { src: _vm.$gbiAssets + "/taxes_icon.png" } }),
             _vm._v(" "),
-            _c("p", [_vm._v("Taxes")])
+            _c("p", [_vm._v("Taxes")]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "iconClass" }, [
             _c("img", { attrs: { src: _vm.$gbiAssets + "/sightseeing.png" } }),
             _vm._v(" "),
-            _c("p", [_vm._v("Sightseeing")])
+            _c("p", [_vm._v("Sightseeing")]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "iconClass" }, [
             _c("img", { attrs: { src: _vm.$gbiAssets + "/breakfast.png" } }),
             _vm._v(" "),
-            _c("p", [_vm._v("Breakfast")])
-          ])
-        ])
+            _c("p", [_vm._v("Breakfast")]),
+          ]),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "mainRow3 container" }, [
@@ -631,24 +717,24 @@ var render = function() {
         _c(
           "div",
           { staticClass: "itineraryDiv" },
-          _vm._l(_vm.itineraryData.itinerarydays, function(data, index) {
+          _vm._l(_vm.itineraryData.itinerarydays, function (data, index) {
             return _c(
               "div",
               {
                 key: data.id,
                 staticClass: "singleItneraryDivMain",
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.changeItDiv(data.id)
-                  }
-                }
+                  },
+                },
               },
               [
                 _c(
                   "div",
                   {
                     staticClass:
-                      "singleItneraryDiv d-flex justify-content-between"
+                      "singleItneraryDiv d-flex justify-content-between",
                   },
                   [
                     _c("p", [_vm._v("Itinerary : Day " + _vm._s(data.day))]),
@@ -657,8 +743,8 @@ var render = function() {
                       class:
                         _vm.selectedDay == data.id
                           ? "fas fa-sort-up mt-2"
-                          : "fas fa-sort-down"
-                    })
+                          : "fas fa-sort-down",
+                    }),
                   ]
                 ),
                 _vm._v(" "),
@@ -666,25 +752,59 @@ var render = function() {
                   ? _c("div", { staticClass: "singleItneraryDiv2" }, [
                       _c("div", {
                         staticClass: "card-text card-text-ul py-2",
-                        domProps: { innerHTML: _vm._s(data.day_description) }
-                      })
+                        domProps: { innerHTML: _vm._s(data.day_description) },
+                      }),
                     ])
                   : _vm._e(),
                 _vm._v(" "),
                 _vm.itineraryData.itinerarydays.length - 1 !== index
                   ? _c("div", { staticClass: "verticalStep" })
-                  : _vm._e()
+                  : _vm._e(),
               ]
             )
           }),
           0
-        )
-      ])
+        ),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "modal", attrs: { id: "bookModal" } }, [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content modal-color" }, [
+            _vm.itineraryData.itinerarydays
+              ? _c(
+                  "div",
+                  { staticClass: "modal-body" },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "close",
+                        attrs: { type: "button", "data-dismiss": "modal" },
+                      },
+                      [_vm._v("×")]
+                    ),
+                    _vm._v(" "),
+                    _vm.loading == false
+                      ? _c("booking", {
+                          attrs: {
+                            title: _vm.itineraryData.title,
+                            selected_cities: _vm.selected_cities,
+                            city_list: _vm.city_list,
+                          },
+                        })
+                      : _vm._e(),
+                  ],
+                  1
+                )
+              : _vm._e(),
+          ]),
+        ]),
+      ]),
     ]
   )
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -695,7 +815,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "d-flex justify-content-start couponDiv" }, [
           _c("p", [_vm._v("GBITRIP")]),
           _vm._v(" "),
-          _c("p", { staticClass: "ml-auto p2" }, [_vm._v("- ₹2,000")])
+          _c("p", { staticClass: "ml-auto p2" }, [_vm._v("- ₹2,000")]),
         ]),
         _vm._v(" "),
         _c(
@@ -704,13 +824,13 @@ var staticRenderFns = [
           [
             _c("input", { attrs: { type: "text" } }),
             _vm._v(" "),
-            _c("button", { staticClass: "btn btnCpn" }, [_vm._v("Add")])
+            _c("button", { staticClass: "btn btnCpn" }, [_vm._v("Add")]),
           ]
-        )
+        ),
       ]
     )
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -719,14 +839,14 @@ var staticRenderFns = [
       {
         staticClass:
           "d-flex flex-column justify-content-start align-items-center",
-        staticStyle: { "margin-top": "5px", "margin-right": "3px" }
+        staticStyle: { "margin-top": "5px", "margin-right": "3px" },
       },
       [
         _vm._v("Grand Total\n            "),
-        _c("span", { staticClass: "smallP" }, [_vm._v("(Incl. all taxes)")])
+        _c("span", { staticClass: "smallP" }, [_vm._v("(Incl. all taxes)")]),
       ]
     )
-  }
+  },
 ]
 render._withStripped = true
 
@@ -798,7 +918,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDetail_vue_vue_type_style_index_0_id_2bb87509_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ExploreDetail.vue?vue&type=style&index=0&id=2bb87509&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/Explore/ExploreDetail.vue?vue&type=style&index=0&id=2bb87509&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDetail_vue_vue_type_style_index_0_id_2bb87509_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDetail_vue_vue_type_style_index_0_id_2bb87509_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDetail_vue_vue_type_style_index_0_id_2bb87509_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDetail_vue_vue_type_style_index_0_id_2bb87509_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDetail_vue_vue_type_style_index_0_id_2bb87509_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDetail_vue_vue_type_style_index_0_id_2bb87509_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

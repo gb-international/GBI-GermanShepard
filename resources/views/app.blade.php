@@ -17,8 +17,8 @@
   <!-- CSRF Token -->
   <title>{{ config('app.name', 'GBI') }}</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link rel="icon" type="image/png" href="{{ asset('assets/front/images/favicon.png') }}" />
-  {{-- <link rel="icon" type="image/png" href="{{ secure_asset('assets/front/images/favicon.png') }}" />  --}}
+   <link rel="icon" type="image/png" href="{{ asset('assets/front/images/favicon.png') }}" />  
+  {{-- <link rel="icon" type="image/png" href="{{ secure_asset('assets/front/images/favicon.png') }}" /> --}}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
   <!-- Font awesome Icons -->
@@ -42,8 +42,8 @@
   <meta property="og:url" content="{{Request::fullUrl()}}">
   <meta property="og:type" content="website">
   <!-- Styles -->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
- {{--  <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">  --}}
+   <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
+  {{-- <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet"> --}}
 </head>
 <body style="background: white !important">
 
@@ -58,7 +58,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://cdn.socket.io/4.0.1/socket.io.min.js" integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU" crossorigin="anonymous"></script>
 
-  <script src="{{ asset('js/app.js') }}" defer></script>
+   <script src="{{ asset('js/app.js') }}" defer></script> 
   {{-- <script src="{{ secure_asset('js/app.js') }}" defer></script> --}}
  {{-- {!! $ssr !!}
   <script src="{{ asset('js/app-client.js') }}" type="text/javascript"></script> 
@@ -87,5 +87,38 @@
             
         });
     </script> --}}
+    <style>
+
+        .vhd__datepicker__months {
+            display: flex;
+            flex-wrap: wrap;
+            width: 74vw;
+            justify-content: space-between;
+        }
+       .vhd__datepicker__close-button{
+        z-index: 9999999 !important;
+       }
+       .vhd__datepicker{
+          padding-top: 5px;
+          z-index: 999999 !important;
+      }
+      @media (min-width: 992px) { 
+        .vhd__datepicker__months{
+          width: 40vw !important;
+        }
+      }
+      @media screen and (max-width: 767px){
+        .vhd__datepicker__months {
+          width: 100vw;
+        }
+      }
+
+      @media screen and (max-width: 767px){
+        .qkb-bubble-btn {
+          margin-bottom: 56px;
+        }
+    }
+
+    </style>
 </body>
 </html>

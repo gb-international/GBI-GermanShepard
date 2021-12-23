@@ -24,7 +24,7 @@ Vue.config.productionTip = false;
 Vue.config.devtools = false;
 Vue.config.debug = false;
 Vue.config.silent = true;
-//console.log = function() {};
+console.log = function() {};
 // End
 
 Vue.use(responsive)
@@ -67,6 +67,8 @@ const toast = swal.mixin({
 });
 Vue.prototype.$toast = toast;
 Vue.prototype.$gbiAssets = 'https://gbi-assets.s3.ap-south-1.amazonaws.com';
+//Vue.prototype.$hostName = 'https://gowithgbi.com:3000'
+Vue.prototype.$hostName = 'localhost:3000'
 
 const router = new VueRouter({
     // mode : 'history',

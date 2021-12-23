@@ -222,7 +222,7 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -236,7 +236,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "text-center d-flex justify-content-center align-items-center flex-column"
+                "text-center d-flex justify-content-center align-items-center flex-column",
             },
             [
               _c("div", { staticClass: "avatar-upload user_edit_image" }, [
@@ -249,19 +249,19 @@ var render = function() {
                         attrs: {
                           type: "file",
                           id: "imageUpload",
-                          accept: ".png, .jpg, .jpeg"
+                          accept: ".png, .jpg, .jpeg",
                         },
-                        on: { change: _vm.onChange }
+                        on: { change: _vm.onChange },
                       }),
                       _vm._v(" "),
                       _c("label", { attrs: { for: "imageUpload" } }, [
                         _c("img", {
                           staticClass: "icon-width",
                           attrs: {
-                            src: _vm.$gbiAssets + "/images/icons/edit.png"
-                          }
-                        })
-                      ])
+                            src: _vm.$gbiAssets + "/images/icons/edit.png",
+                          },
+                        }),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "avatar-preview" }, [
@@ -269,30 +269,30 @@ var render = function() {
                         "div",
                         {
                           staticStyle: { "background-image": "url()" },
-                          attrs: { id: "imagePreview" }
+                          attrs: { id: "imagePreview" },
                         },
                         [
                           _vm.image
                             ? _c("img", {
                                 staticClass: "img",
-                                attrs: { src: _vm.image, loading: "lazy" }
+                                attrs: { src: _vm.image, loading: "lazy" },
                               })
                             : _c("img", {
                                 staticClass: "img",
                                 attrs: {
                                   src: _vm.image,
                                   loading: "lazy",
-                                  alt: "user profile"
-                                }
-                              })
+                                  alt: "user profile",
+                                },
+                              }),
                         ]
-                      )
-                    ])
+                      ),
+                    ]),
                   ]
-                )
-              ])
+                ),
+              ]),
             ]
-          )
+          ),
         ]
       ),
       _vm._v(" "),
@@ -307,10 +307,10 @@ var render = function() {
                   ? "background-color: rgb(216 214 214); border-right: none;"
                   : "",
               on: {
-                click: function($event) {
+                click: function ($event) {
                   _vm.selected = "profileForm"
-                }
-              }
+                },
+              },
             },
             [_vm._v("\n            Profile Detail\n          ")]
           ),
@@ -324,10 +324,10 @@ var render = function() {
                   ? "background-color: rgb(216 214 214); border-right: none;"
                   : "",
               on: {
-                click: function($event) {
+                click: function ($event) {
                   _vm.selected = "loginDetailsForm"
-                }
-              }
+                },
+              },
             },
             [_vm._v("\n            Login Detail\n          ")]
           ),
@@ -341,10 +341,10 @@ var render = function() {
                   ? "background-color: rgb(216 214 214); border-right: none;"
                   : "",
               on: {
-                click: function($event) {
+                click: function ($event) {
                   _vm.selected = "docsForm"
-                }
-              }
+                },
+              },
             },
             [_vm._v("\n            Document Verfication\n          ")]
           ),
@@ -358,13 +358,13 @@ var render = function() {
                   ? "background-color: rgb(216 214 214); border-right: none;"
                   : "",
               on: {
-                click: function($event) {
+                click: function ($event) {
                   _vm.selected = "socialForm"
-                }
-              }
+                },
+              },
             },
             [_vm._v("\n            Social Media\n          ")]
-          )
+          ),
         ]),
         _vm._v(" "),
         _c(
@@ -380,10 +380,10 @@ var render = function() {
                     ? "background-color: rgb(216 214 214); border-right: none;"
                     : "",
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.selectForm("profileForm")
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("\n            Profile Detail\n          ")]
             ),
@@ -397,10 +397,10 @@ var render = function() {
                     ? "background-color: rgb(216 214 214); border-right: none;"
                     : "",
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.selectForm("loginDetailsForm")
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("\n            Login Detail\n          ")]
             ),
@@ -414,10 +414,10 @@ var render = function() {
                     ? "background-color: rgb(216 214 214); border-right: none;"
                     : "",
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.selectForm("docsForm")
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("\n            Document Verfication\n          ")]
             ),
@@ -431,22 +431,22 @@ var render = function() {
                     ? "background-color: rgb(216 214 214); border-right: none;"
                     : "",
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.selectForm("socialForm")
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("\n            Social Media\n          ")]
-            )
+            ),
           ]
-        )
+        ),
       ]),
       _vm._v(" "),
       _c(
         "div",
         {
           staticClass: "col-lg-6 px-4 pt-4 thirdCol",
-          style: { display: _vm.rightDisplay }
+          style: { display: _vm.rightDisplay },
         },
         [
           _vm.selected == "profileForm"
@@ -463,11 +463,11 @@ var render = function() {
           _vm._v(" "),
           _vm.selected == "socialForm"
             ? _c("social-form", { on: { close: _vm.backPage } })
-            : _vm._e()
+            : _vm._e(),
         ],
         1
-      )
-    ])
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -541,7 +541,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEdit_vue_vue_type_style_index_0_id_3554265e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ProfileEdit.vue?vue&type=style&index=0&id=3554265e&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/user/teacher/ProfileEdit.vue?vue&type=style&index=0&id=3554265e&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEdit_vue_vue_type_style_index_0_id_3554265e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEdit_vue_vue_type_style_index_0_id_3554265e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEdit_vue_vue_type_style_index_0_id_3554265e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEdit_vue_vue_type_style_index_0_id_3554265e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEdit_vue_vue_type_style_index_0_id_3554265e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEdit_vue_vue_type_style_index_0_id_3554265e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

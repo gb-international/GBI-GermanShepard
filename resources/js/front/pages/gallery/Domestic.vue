@@ -28,10 +28,12 @@
       <div v-if="gallery.length">
         <image-card :gallery="gallery" v-if="gallery.length > 0 && !search"></image-card>
         <image-card :gallery="resultQuery" v-else-if="search && resultQuery.length > 0"></image-card>
-        <p v-else class="text-center text-muted">Not Data Avaliable</p>
+         <div v-else style="object-position: center; max-width: 350px; margin: auto;">
+            <img :src="$gbiAssets+'/assets/errorImages/gallery-search.png'"/> 
+          </div>
       </div>
       <Observer @intersect="intersected" />
-
+  
      <div v-show="loading" class="row card-titles">
         <div class="col-sm-4"  v-for="(index) in 6" :key="index">
           <cardLoader />

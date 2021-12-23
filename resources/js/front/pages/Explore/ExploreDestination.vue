@@ -498,7 +498,7 @@
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h5 class="modal-title" style="color: black">Passengers</h5>
+                                  <h5 class="modal-title" style="color: black">Guests</h5>
                                   <button type="button" class="close" aria-label="Close" @click="showPersonModal = false">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
@@ -541,7 +541,7 @@
                             <select
                               class="selectpicker ui selection dropdown"
                               name="noofday"
-                              @change="noofdaysOnChange($event)"
+                              @change="changeRoomType($event)"
                             >
                               <option selected>Room Category</option>
                               <option
@@ -663,7 +663,7 @@
                       <p class="text-center">
                         <button
                           class="btn-defalt btn-lg center-block explore_custom_button"
-                          @click.prevent="searchAll()"
+                          @click.prevent="searchHotels()"
                           type="submit"
                           @click="show = !show"
                         >
@@ -865,8 +865,18 @@ export default {
           this.apiFailed = true
         }
         this.upcoming_data = response.data;
+        console.log(response.data)
       });
     },
+
+    searchHotels(){
+      this.$cookies.set("hotelSearch_Location", this.sources.city);
+      this.$cookies.set("hotelSearch_rooms", this.room);
+      this.$cookies.set("hotelSearch_room_type", this.room_type);
+      this.$cookies.set("hotelSearch_guests", this.person);
+      this.$router.push('/hotel-search')
+    },
+
     searchAll() {
       // Submit form
       let vm = this;

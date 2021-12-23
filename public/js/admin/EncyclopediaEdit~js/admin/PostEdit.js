@@ -184,7 +184,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -197,10 +197,10 @@ var render = function() {
               name: "click-outside",
               rawName: "v-click-outside",
               value: _vm.closeEvent,
-              expression: "closeEvent"
-            }
+              expression: "closeEvent",
+            },
           ],
-          staticClass: "dropdown-field"
+          staticClass: "dropdown-field",
         },
         [
           Object.keys(_vm.selectedItem).length === 0
@@ -211,38 +211,38 @@ var render = function() {
                     rawName: "v-model.trim",
                     value: _vm.inputValue,
                     expression: "inputValue",
-                    modifiers: { trim: true }
-                  }
+                    modifiers: { trim: true },
+                  },
                 ],
                 ref: "dropdowninput",
                 staticClass: "form-control dropdown-input",
                 attrs: {
                   type: "text",
                   placeholder: _vm.placeholder,
-                  autocomplete: "off"
+                  autocomplete: "off",
                 },
                 domProps: { value: _vm.inputValue },
                 on: {
-                  focus: function($event) {
+                  focus: function ($event) {
                     _vm.showlist = true
                     _vm.remodeReadOnlyError()
                   },
-                  input: function($event) {
+                  input: function ($event) {
                     if ($event.target.composing) {
                       return
                     }
                     _vm.inputValue = $event.target.value.trim()
                   },
-                  blur: function($event) {
+                  blur: function ($event) {
                     return _vm.$forceUpdate()
-                  }
-                }
+                  },
+                },
               })
             : _c(
                 "div",
                 {
                   staticClass: "dropdown-selected",
-                  on: { click: _vm.resetSelection }
+                  on: { click: _vm.resetSelection },
                 },
                 [_vm._v("\n    " + _vm._s(_vm.selectedItem.name) + "\n  ")]
               ),
@@ -250,10 +250,10 @@ var render = function() {
           _c("i", {
             staticClass: "fas fa-caret-down",
             on: {
-              click: function($event) {
+              click: function ($event) {
                 return _vm.showToggle()
-              }
-            }
+              },
+            },
           }),
           _vm._v(" "),
           _vm.showlist == true
@@ -264,7 +264,7 @@ var render = function() {
                   _c(
                     "ul",
                     { ref: "scrollContainer" },
-                    _vm._l(_vm.itemList, function(item, index) {
+                    _vm._l(_vm.itemList, function (item, index) {
                       return _c(
                         "li",
                         {
@@ -273,8 +273,8 @@ var render = function() {
                               name: "show",
                               rawName: "v-show",
                               value: _vm.itemVisible(item),
-                              expression: "itemVisible(item)"
-                            }
+                              expression: "itemVisible(item)",
+                            },
                           ],
                           key: item.id,
                           ref: "options",
@@ -282,11 +282,11 @@ var render = function() {
                           staticClass: "dropdown-item",
                           class: { "active-item": _vm.arrowCounter === index },
                           on: {
-                            click: function($event) {
+                            click: function ($event) {
                               return _vm.selectItem(item)
                             },
                             keydown: [
-                              function($event) {
+                              function ($event) {
                                 if (
                                   !$event.type.indexOf("key") &&
                                   _vm._k(
@@ -303,7 +303,7 @@ var render = function() {
                                   _vm.matches[_vm.arrowCounter]
                                 )
                               },
-                              function($event) {
+                              function ($event) {
                                 if (
                                   !$event.type.indexOf("key") &&
                                   _vm._k(
@@ -317,27 +317,27 @@ var render = function() {
                                   return null
                                 }
                                 _vm.showlist = false
-                              }
-                            ]
-                          }
+                              },
+                            ],
+                          },
                         },
                         [
                           _c("label", [
                             _c("input", {
                               staticClass: "d-none",
                               attrs: { type: "checkbox" },
-                              domProps: { value: item.id }
+                              domProps: { value: item.id },
                             }),
-                            _vm._v(_vm._s(item.name))
-                          ])
+                            _vm._v(_vm._s(item.name)),
+                          ]),
                         ]
                       )
                     }),
                     0
-                  )
+                  ),
                 ]
               )
-            : _vm._e()
+            : _vm._e(),
         ]
       )
     : _vm._e()

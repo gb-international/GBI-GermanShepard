@@ -9,2375 +9,14 @@
 
 /*!
  * 
- *             jsPDF AutoTable plugin v3.5.14
- *             
- *             Copyright (c) 2021 Simon Bengtsson, https://github.com/simonbengtsson/jsPDF-AutoTable
- *             Licensed under the MIT License.
- *             http://opensource.org/licenses/mit-license
- *         
+ *               jsPDF AutoTable plugin v3.5.23
+ *
+ *               Copyright (c) 2021 Simon Bengtsson, https://github.com/simonbengtsson/jsPDF-AutoTable
+ *               Licensed under the MIT License.
+ *               http://opensource.org/licenses/mit-license
+ *
  */
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(true)
-		module.exports = factory((function webpackLoadOptionalExternalModule() { try { return __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js"); } catch(e) {} }()));
-	else { var i, a; }
-})(typeof this !== 'undefined' ? this : window, function(__WEBPACK_EXTERNAL_MODULE__17__) {
-return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseSpacing = exports.getFillStyle = exports.addTableBorder = exports.getStringWidth = void 0;
-function getStringWidth(text, styles, doc) {
-    doc.applyStyles(styles, true);
-    var textArr = Array.isArray(text) ? text : [text];
-    var widestLineWidth = textArr
-        .map(function (text) { return doc.getTextWidth(text); })
-        .reduce(function (a, b) { return Math.max(a, b); }, 0);
-    return widestLineWidth;
-}
-exports.getStringWidth = getStringWidth;
-function addTableBorder(doc, table, startPos, cursor) {
-    var lineWidth = table.settings.tableLineWidth;
-    var lineColor = table.settings.tableLineColor;
-    doc.applyStyles({ lineWidth: lineWidth, lineColor: lineColor });
-    var fillStyle = getFillStyle(lineWidth, false);
-    if (fillStyle) {
-        doc.rect(startPos.x, startPos.y, table.getWidth(doc.pageSize().width), cursor.y - startPos.y, fillStyle);
-    }
-}
-exports.addTableBorder = addTableBorder;
-function getFillStyle(lineWidth, fillColor) {
-    var drawLine = lineWidth > 0;
-    var drawBackground = fillColor || fillColor === 0;
-    if (drawLine && drawBackground) {
-        return 'DF'; // Fill then stroke
-    }
-    else if (drawLine) {
-        return 'S'; // Only stroke (transparent background)
-    }
-    else if (drawBackground) {
-        return 'F'; // Only fill, no stroke
-    }
-    else {
-        return null;
-    }
-}
-exports.getFillStyle = getFillStyle;
-function parseSpacing(value, defaultValue) {
-    var _a, _b, _c, _d;
-    value = value || defaultValue;
-    if (Array.isArray(value)) {
-        if (value.length >= 4) {
-            return {
-                top: value[0],
-                right: value[1],
-                bottom: value[2],
-                left: value[3],
-            };
-        }
-        else if (value.length === 3) {
-            return {
-                top: value[0],
-                right: value[1],
-                bottom: value[2],
-                left: value[1],
-            };
-        }
-        else if (value.length === 2) {
-            return {
-                top: value[0],
-                right: value[1],
-                bottom: value[0],
-                left: value[1],
-            };
-        }
-        else if (value.length === 1) {
-            value = value[0];
-        }
-        else {
-            value = defaultValue;
-        }
-    }
-    if (typeof value === 'object') {
-        if (typeof value.vertical === 'number') {
-            value.top = value.vertical;
-            value.bottom = value.vertical;
-        }
-        if (typeof value.horizontal === 'number') {
-            value.right = value.horizontal;
-            value.left = value.horizontal;
-        }
-        return {
-            left: (_a = value.left) !== null && _a !== void 0 ? _a : defaultValue,
-            top: (_b = value.top) !== null && _b !== void 0 ? _b : defaultValue,
-            right: (_c = value.right) !== null && _c !== void 0 ? _c : defaultValue,
-            bottom: (_d = value.bottom) !== null && _d !== void 0 ? _d : defaultValue,
-        };
-    }
-    if (typeof value !== 'number') {
-        value = defaultValue;
-    }
-    return { top: value, right: value, bottom: value, left: value };
-}
-exports.parseSpacing = parseSpacing;
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getTheme = exports.defaultStyles = exports.HtmlRowInput = exports.FONT_ROW_RATIO = void 0;
-/**
- * Ratio between font size and font height. The number comes from jspdf's source code
- */
-exports.FONT_ROW_RATIO = 1.15;
-var HtmlRowInput = /** @class */ (function (_super) {
-    __extends(HtmlRowInput, _super);
-    function HtmlRowInput(element) {
-        var _this = _super.call(this) || this;
-        _this._element = element;
-        return _this;
-    }
-    return HtmlRowInput;
-}(Array));
-exports.HtmlRowInput = HtmlRowInput;
-// Base style for all themes
-function defaultStyles(scaleFactor) {
-    return {
-        font: 'helvetica',
-        fontStyle: 'normal',
-        overflow: 'linebreak',
-        fillColor: false,
-        textColor: 20,
-        halign: 'left',
-        valign: 'top',
-        fontSize: 10,
-        cellPadding: 5 / scaleFactor,
-        lineColor: 200,
-        lineWidth: 0,
-        cellWidth: 'auto',
-        minCellHeight: 0,
-        minCellWidth: 0,
-    };
-}
-exports.defaultStyles = defaultStyles;
-function getTheme(name) {
-    var themes = {
-        striped: {
-            table: { fillColor: 255, textColor: 80, fontStyle: 'normal' },
-            head: { textColor: 255, fillColor: [41, 128, 185], fontStyle: 'bold' },
-            body: {},
-            foot: { textColor: 255, fillColor: [41, 128, 185], fontStyle: 'bold' },
-            alternateRow: { fillColor: 245 },
-        },
-        grid: {
-            table: {
-                fillColor: 255,
-                textColor: 80,
-                fontStyle: 'normal',
-                lineWidth: 0.1,
-            },
-            head: {
-                textColor: 255,
-                fillColor: [26, 188, 156],
-                fontStyle: 'bold',
-                lineWidth: 0,
-            },
-            body: {},
-            foot: {
-                textColor: 255,
-                fillColor: [26, 188, 156],
-                fontStyle: 'bold',
-                lineWidth: 0,
-            },
-            alternateRow: {},
-        },
-        plain: {
-            head: { fontStyle: 'bold' },
-            foot: { fontStyle: 'bold' },
-        },
-    };
-    return themes[name];
-}
-exports.getTheme = getTheme;
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.DocHandler = void 0;
-var globalDefaults = {};
-var DocHandler = /** @class */ (function () {
-    function DocHandler(jsPDFDocument) {
-        this.jsPDFDocument = jsPDFDocument;
-        this.userStyles = {
-            // Black for versions of jspdf without getTextColor
-            textColor: jsPDFDocument.getTextColor
-                ? this.jsPDFDocument.getTextColor()
-                : 0,
-            fontSize: jsPDFDocument.internal.getFontSize(),
-            fontStyle: jsPDFDocument.internal.getFont().fontStyle,
-            font: jsPDFDocument.internal.getFont().fontName,
-        };
-    }
-    DocHandler.setDefaults = function (defaults, doc) {
-        if (doc === void 0) { doc = null; }
-        if (doc) {
-            doc.__autoTableDocumentDefaults = defaults;
-        }
-        else {
-            globalDefaults = defaults;
-        }
-    };
-    DocHandler.unifyColor = function (c) {
-        if (Array.isArray(c)) {
-            return c;
-        }
-        else if (typeof c === 'number') {
-            return [c, c, c];
-        }
-        else if (typeof c === 'string') {
-            return [c];
-        }
-        else {
-            return null;
-        }
-    };
-    DocHandler.prototype.applyStyles = function (styles, fontOnly) {
-        // Font style needs to be applied before font
-        // https://github.com/simonbengtsson/jsPDF-AutoTable/issues/632
-        var _a, _b, _c;
-        if (fontOnly === void 0) { fontOnly = false; }
-        if (styles.fontStyle)
-            this.jsPDFDocument.setFontStyle && this.jsPDFDocument.setFontStyle(styles.fontStyle);
-        var _d = this.jsPDFDocument.internal.getFont(), fontStyle = _d.fontStyle, fontName = _d.fontName;
-        if (styles.font)
-            fontName = styles.font;
-        if (styles.fontStyle) {
-            fontStyle = styles.fontStyle;
-            var availableFontStyles = this.getFontList()[fontName];
-            if (availableFontStyles && availableFontStyles.indexOf(fontStyle) === -1) {
-                // Common issue was that the default bold in headers
-                // made custom fonts not work. For example:
-                // https://github.com/simonbengtsson/jsPDF-AutoTable/issues/653
-                this.jsPDFDocument.setFontStyle && this.jsPDFDocument.setFontStyle(availableFontStyles[0]);
-                fontStyle = availableFontStyles[0];
-            }
-        }
-        this.jsPDFDocument.setFont(fontName, fontStyle);
-        if (styles.fontSize)
-            this.jsPDFDocument.setFontSize(styles.fontSize);
-        if (fontOnly) {
-            return; // Performance improvement
-        }
-        var color = DocHandler.unifyColor(styles.fillColor);
-        if (color)
-            (_a = this.jsPDFDocument).setFillColor.apply(_a, color);
-        color = DocHandler.unifyColor(styles.textColor);
-        if (color)
-            (_b = this.jsPDFDocument).setTextColor.apply(_b, color);
-        color = DocHandler.unifyColor(styles.lineColor);
-        if (color)
-            (_c = this.jsPDFDocument).setDrawColor.apply(_c, color);
-        if (typeof styles.lineWidth === 'number') {
-            this.jsPDFDocument.setLineWidth(styles.lineWidth);
-        }
-    };
-    DocHandler.prototype.splitTextToSize = function (text, size, opts) {
-        return this.jsPDFDocument.splitTextToSize(text, size, opts);
-    };
-    DocHandler.prototype.rect = function (x, y, width, height, fillStyle) {
-        return this.jsPDFDocument.rect(x, y, width, height, fillStyle);
-    };
-    DocHandler.prototype.getLastAutoTable = function () {
-        return this.jsPDFDocument.lastAutoTable || null;
-    };
-    DocHandler.prototype.getTextWidth = function (text) {
-        return this.jsPDFDocument.getTextWidth(text);
-    };
-    DocHandler.prototype.getDocument = function () {
-        return this.jsPDFDocument;
-    };
-    DocHandler.prototype.setPage = function (page) {
-        this.jsPDFDocument.setPage(page);
-    };
-    DocHandler.prototype.addPage = function () {
-        return this.jsPDFDocument.addPage();
-    };
-    DocHandler.prototype.getFontList = function () {
-        return this.jsPDFDocument.getFontList();
-    };
-    DocHandler.prototype.getGlobalOptions = function () {
-        return globalDefaults || {};
-    };
-    DocHandler.prototype.getDocumentOptions = function () {
-        return this.jsPDFDocument.__autoTableDocumentDefaults || {};
-    };
-    DocHandler.prototype.pageSize = function () {
-        var pageSize = this.jsPDFDocument.internal.pageSize;
-        // JSPDF 1.4 uses get functions instead of properties on pageSize
-        if (pageSize.width == null) {
-            pageSize = {
-                width: pageSize.getWidth(),
-                height: pageSize.getHeight(),
-            };
-        }
-        return pageSize;
-    };
-    DocHandler.prototype.scaleFactor = function () {
-        return this.jsPDFDocument.internal.scaleFactor;
-    };
-    DocHandler.prototype.pageNumber = function () {
-        var pageInfo = this.jsPDFDocument.internal.getCurrentPageInfo();
-        if (!pageInfo) {
-            // Only recent versions of jspdf has pageInfo
-            return this.jsPDFDocument.internal.getNumberOfPages();
-        }
-        return pageInfo.pageNumber;
-    };
-    return DocHandler;
-}());
-exports.DocHandler = DocHandler;
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Column = exports.Cell = exports.Row = exports.Table = void 0;
-var config_1 = __webpack_require__(1);
-var HookData_1 = __webpack_require__(9);
-var common_1 = __webpack_require__(0);
-var Table = /** @class */ (function () {
-    function Table(input, content) {
-        this.pageNumber = 1;
-        // Deprecated, use pageNumber instead
-        // Not using getter since:
-        // https://github.com/simonbengtsson/jsPDF-AutoTable/issues/596
-        this.pageCount = 1;
-        this.id = input.id;
-        this.settings = input.settings;
-        this.styles = input.styles;
-        this.hooks = input.hooks;
-        this.columns = content.columns;
-        this.head = content.head;
-        this.body = content.body;
-        this.foot = content.foot;
-    }
-    Table.prototype.getHeadHeight = function (columns) {
-        return this.head.reduce(function (acc, row) { return acc + row.getMaxCellHeight(columns); }, 0);
-    };
-    Table.prototype.getFootHeight = function (columns) {
-        return this.foot.reduce(function (acc, row) { return acc + row.getMaxCellHeight(columns); }, 0);
-    };
-    Table.prototype.allRows = function () {
-        return this.head.concat(this.body).concat(this.foot);
-    };
-    Table.prototype.callCellHooks = function (doc, handlers, cell, row, column, cursor) {
-        for (var _i = 0, handlers_1 = handlers; _i < handlers_1.length; _i++) {
-            var handler = handlers_1[_i];
-            var data = new HookData_1.CellHookData(doc, this, cell, row, column, cursor);
-            var result = handler(data) === false;
-            // Make sure text is always string[] since user can assign string
-            cell.text = Array.isArray(cell.text) ? cell.text : [cell.text];
-            if (result) {
-                return false;
-            }
-        }
-        return true;
-    };
-    Table.prototype.callEndPageHooks = function (doc, cursor) {
-        doc.applyStyles(doc.userStyles);
-        for (var _i = 0, _a = this.hooks.didDrawPage; _i < _a.length; _i++) {
-            var handler = _a[_i];
-            handler(new HookData_1.HookData(doc, this, cursor));
-        }
-    };
-    Table.prototype.getWidth = function (pageWidth) {
-        if (typeof this.settings.tableWidth === 'number') {
-            return this.settings.tableWidth;
-        }
-        else if (this.settings.tableWidth === 'wrap') {
-            var wrappedWidth = this.columns.reduce(function (total, col) { return total + col.wrappedWidth; }, 0);
-            return wrappedWidth;
-        }
-        else {
-            var margin = this.settings.margin;
-            return pageWidth - margin.left - margin.right;
-        }
-    };
-    return Table;
-}());
-exports.Table = Table;
-var Row = /** @class */ (function () {
-    function Row(raw, index, section, cells, spansMultiplePages) {
-        if (spansMultiplePages === void 0) { spansMultiplePages = false; }
-        this.height = 0;
-        this.raw = raw;
-        if (raw instanceof config_1.HtmlRowInput) {
-            this.raw = raw._element;
-            this.element = raw._element;
-        }
-        this.index = index;
-        this.section = section;
-        this.cells = cells;
-        this.spansMultiplePages = spansMultiplePages;
-    }
-    Row.prototype.getMaxCellHeight = function (columns) {
-        var _this = this;
-        return columns.reduce(function (acc, column) { var _a; return Math.max(acc, ((_a = _this.cells[column.index]) === null || _a === void 0 ? void 0 : _a.height) || 0); }, 0);
-    };
-    Row.prototype.hasRowSpan = function (columns) {
-        var _this = this;
-        return (columns.filter(function (column) {
-            var cell = _this.cells[column.index];
-            if (!cell)
-                return false;
-            return cell.rowSpan > 1;
-        }).length > 0);
-    };
-    Row.prototype.canEntireRowFit = function (height, columns) {
-        return this.getMaxCellHeight(columns) <= height;
-    };
-    Row.prototype.getMinimumRowHeight = function (columns, doc) {
-        var _this = this;
-        return columns.reduce(function (acc, column) {
-            var cell = _this.cells[column.index];
-            if (!cell)
-                return 0;
-            var fontHeight = (cell.styles.fontSize / doc.scaleFactor()) * config_1.FONT_ROW_RATIO;
-            var vPadding = cell.padding('vertical');
-            var oneRowHeight = vPadding + fontHeight;
-            return oneRowHeight > acc ? oneRowHeight : acc;
-        }, 0);
-    };
-    return Row;
-}());
-exports.Row = Row;
-var Cell = /** @class */ (function () {
-    function Cell(raw, styles, section) {
-        var _a, _b;
-        this.contentHeight = 0;
-        this.contentWidth = 0;
-        this.wrappedWidth = 0;
-        this.minReadableWidth = 0;
-        this.minWidth = 0;
-        this.width = 0;
-        this.height = 0;
-        this.x = 0;
-        this.y = 0;
-        this.styles = styles;
-        this.section = section;
-        this.raw = raw;
-        var content = raw;
-        if (raw != null && typeof raw === 'object' && !Array.isArray(raw)) {
-            this.rowSpan = raw.rowSpan || 1;
-            this.colSpan = raw.colSpan || 1;
-            content = (_b = (_a = raw.content) !== null && _a !== void 0 ? _a : raw.title) !== null && _b !== void 0 ? _b : raw;
-            if (raw._element) {
-                this.raw = raw._element;
-            }
-        }
-        else {
-            this.rowSpan = 1;
-            this.colSpan = 1;
-        }
-        // Stringify 0 and false, but not undefined or null
-        var text = content != null ? '' + content : '';
-        var splitRegex = /\r\n|\r|\n/g;
-        this.text = text.split(splitRegex);
-    }
-    Cell.prototype.getTextPos = function () {
-        var y;
-        if (this.styles.valign === 'top') {
-            y = this.y + this.padding('top');
-        }
-        else if (this.styles.valign === 'bottom') {
-            y = this.y + this.height - this.padding('bottom');
-        }
-        else {
-            var netHeight = this.height - this.padding('vertical');
-            y = this.y + netHeight / 2 + this.padding('top');
-        }
-        var x;
-        if (this.styles.halign === 'right') {
-            x = this.x + this.width - this.padding('right');
-        }
-        else if (this.styles.halign === 'center') {
-            var netWidth = this.width - this.padding('horizontal');
-            x = this.x + netWidth / 2 + this.padding('left');
-        }
-        else {
-            x = this.x + this.padding('left');
-        }
-        return { x: x, y: y };
-    };
-    Cell.prototype.getContentHeight = function (scaleFactor) {
-        var lineCount = Array.isArray(this.text) ? this.text.length : 1;
-        var fontHeight = (this.styles.fontSize / scaleFactor) * config_1.FONT_ROW_RATIO;
-        var height = lineCount * fontHeight + this.padding('vertical');
-        return Math.max(height, this.styles.minCellHeight);
-    };
-    Cell.prototype.padding = function (name) {
-        var padding = common_1.parseSpacing(this.styles.cellPadding, 0);
-        if (name === 'vertical') {
-            return padding.top + padding.bottom;
-        }
-        else if (name === 'horizontal') {
-            return padding.left + padding.right;
-        }
-        else {
-            return padding[name];
-        }
-    };
-    return Cell;
-}());
-exports.Cell = Cell;
-var Column = /** @class */ (function () {
-    function Column(dataKey, raw, index) {
-        this.wrappedWidth = 0;
-        this.minReadableWidth = 0;
-        this.minWidth = 0;
-        this.width = 0;
-        this.dataKey = dataKey;
-        this.raw = raw;
-        this.index = index;
-    }
-    Column.prototype.getMaxCustomCellWidth = function (table) {
-        var max = 0;
-        for (var _i = 0, _a = table.allRows(); _i < _a.length; _i++) {
-            var row = _a[_i];
-            var cell = row.cells[this.index];
-            if (cell && typeof cell.styles.cellWidth === 'number') {
-                max = Math.max(max, cell.styles.cellWidth);
-            }
-        }
-        return max;
-    };
-    return Column;
-}());
-exports.Column = Column;
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.assign = void 0;
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
-function assign(target, s, s1, s2, s3) {
-    if (target == null) {
-        throw new TypeError('Cannot convert undefined or null to object');
-    }
-    var to = Object(target);
-    for (var index = 1; index < arguments.length; index++) {
-        // eslint-disable-next-line prefer-rest-params
-        var nextSource = arguments[index];
-        if (nextSource != null) {
-            // Skip over if undefined or null
-            for (var nextKey in nextSource) {
-                // Avoid bugs when hasOwnProperty is shadowed
-                if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
-                    to[nextKey] = nextSource[nextKey];
-                }
-            }
-        }
-    }
-    return to;
-}
-exports.assign = assign;
-
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseHtml = void 0;
-var cssParser_1 = __webpack_require__(13);
-var config_1 = __webpack_require__(1);
-function parseHtml(doc, input, window, includeHiddenHtml, useCss) {
-    var _a, _b;
-    if (includeHiddenHtml === void 0) { includeHiddenHtml = false; }
-    if (useCss === void 0) { useCss = false; }
-    var tableElement;
-    if (typeof input === 'string') {
-        tableElement = window.document.querySelector(input);
-    }
-    else {
-        tableElement = input;
-    }
-    var supportedFonts = Object.keys(doc.getFontList());
-    var scaleFactor = doc.scaleFactor();
-    var head = [], body = [], foot = [];
-    if (!tableElement) {
-        console.error('Html table could not be found with input: ', input);
-        return { head: head, body: body, foot: foot };
-    }
-    for (var i = 0; i < tableElement.rows.length; i++) {
-        var element = tableElement.rows[i];
-        var tagName = (_b = (_a = element === null || element === void 0 ? void 0 : element.parentElement) === null || _a === void 0 ? void 0 : _a.tagName) === null || _b === void 0 ? void 0 : _b.toLowerCase();
-        var row = parseRowContent(supportedFonts, scaleFactor, window, element, includeHiddenHtml, useCss);
-        if (!row)
-            continue;
-        if (tagName === 'thead') {
-            head.push(row);
-        }
-        else if (tagName === 'tfoot') {
-            foot.push(row);
-        }
-        else {
-            // Add to body both if parent is tbody or table
-            body.push(row);
-        }
-    }
-    return { head: head, body: body, foot: foot };
-}
-exports.parseHtml = parseHtml;
-function parseRowContent(supportedFonts, scaleFactor, window, row, includeHidden, useCss) {
-    var resultRow = new config_1.HtmlRowInput(row);
-    for (var i = 0; i < row.cells.length; i++) {
-        var cell = row.cells[i];
-        var style_1 = window.getComputedStyle(cell);
-        if (includeHidden || style_1.display !== 'none') {
-            var cellStyles = void 0;
-            if (useCss) {
-                cellStyles = cssParser_1.parseCss(supportedFonts, cell, scaleFactor, style_1, window);
-            }
-            resultRow.push({
-                rowSpan: cell.rowSpan,
-                colSpan: cell.colSpan,
-                styles: cellStyles,
-                _element: cell,
-                content: parseCellContent(cell),
-            });
-        }
-    }
-    var style = window.getComputedStyle(row);
-    if (resultRow.length > 0 && (includeHidden || style.display !== 'none')) {
-        return resultRow;
-    }
-}
-function parseCellContent(orgCell) {
-    // Work on cloned node to make sure no changes are applied to html table
-    var cell = orgCell.cloneNode(true);
-    // Remove extra space and line breaks in markup to make it more similar to
-    // what would be shown in html
-    cell.innerHTML = cell.innerHTML.replace(/\n/g, '').replace(/ +/g, ' ');
-    // Preserve <br> tags as line breaks in the pdf
-    cell.innerHTML = cell.innerHTML
-        .split(/\<br.*?\>/) //start with '<br' and ends with '>'.
-        .map(function (part) { return part.trim(); })
-        .join('\n');
-    // innerText for ie
-    return cell.innerText || cell.textContent || '';
-}
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * Improved text function with halign and valign support
- * Inspiration from: http://stackoverflow.com/questions/28327510/align-text-right-using-jspdf/28433113#28433113
- */
-function default_1(text, x, y, styles, doc) {
-    styles = styles || {};
-    var FONT_ROW_RATIO = 1.15;
-    var k = doc.internal.scaleFactor;
-    var fontSize = doc.internal.getFontSize() / k;
-    var splitRegex = /\r\n|\r|\n/g;
-    var splitText = '';
-    var lineCount = 1;
-    if (styles.valign === 'middle' ||
-        styles.valign === 'bottom' ||
-        styles.halign === 'center' ||
-        styles.halign === 'right') {
-        splitText = typeof text === 'string' ? text.split(splitRegex) : text;
-        lineCount = splitText.length || 1;
-    }
-    // Align the top
-    y += fontSize * (2 - FONT_ROW_RATIO);
-    if (styles.valign === 'middle')
-        y -= (lineCount / 2) * fontSize * FONT_ROW_RATIO;
-    else if (styles.valign === 'bottom')
-        y -= lineCount * fontSize * FONT_ROW_RATIO;
-    if (styles.halign === 'center' || styles.halign === 'right') {
-        var alignSize = fontSize;
-        if (styles.halign === 'center')
-            alignSize *= 0.5;
-        if (splitText && lineCount >= 1) {
-            for (var iLine = 0; iLine < splitText.length; iLine++) {
-                doc.text(splitText[iLine], x - doc.getStringUnitWidth(splitText[iLine]) * alignSize, y);
-                y += fontSize * FONT_ROW_RATIO;
-            }
-            return doc;
-        }
-        x -= doc.getStringUnitWidth(text) * alignSize;
-    }
-    if (styles.halign === 'justify') {
-        doc.text(text, x, y, {
-            maxWidth: styles.maxWidth || 100,
-            align: 'justify',
-        });
-    }
-    else {
-        doc.text(text, x, y);
-    }
-    return doc;
-}
-exports.default = default_1;
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseInput = void 0;
-var htmlParser_1 = __webpack_require__(5);
-var polyfills_1 = __webpack_require__(4);
-var common_1 = __webpack_require__(0);
-var documentHandler_1 = __webpack_require__(2);
-var inputValidator_1 = __webpack_require__(14);
-function parseInput(d, current) {
-    var doc = new documentHandler_1.DocHandler(d);
-    var document = doc.getDocumentOptions();
-    var global = doc.getGlobalOptions();
-    inputValidator_1.default(doc, global, document, current);
-    var options = polyfills_1.assign({}, global, document, current);
-    var win;
-    if (typeof window !== 'undefined') {
-        win = window;
-    }
-    var styles = parseStyles(global, document, current);
-    var hooks = parseHooks(global, document, current);
-    var settings = parseSettings(doc, options);
-    var content = parseContent(doc, options, win);
-    return {
-        id: current.tableId,
-        content: content,
-        hooks: hooks,
-        styles: styles,
-        settings: settings,
-    };
-}
-exports.parseInput = parseInput;
-function parseStyles(gInput, dInput, cInput) {
-    var styleOptions = {
-        styles: {},
-        headStyles: {},
-        bodyStyles: {},
-        footStyles: {},
-        alternateRowStyles: {},
-        columnStyles: {},
-    };
-    var _loop_1 = function (prop) {
-        if (prop === 'columnStyles') {
-            var global_1 = gInput[prop];
-            var document_1 = dInput[prop];
-            var current = cInput[prop];
-            styleOptions.columnStyles = polyfills_1.assign({}, global_1, document_1, current);
-        }
-        else {
-            var allOptions = [gInput, dInput, cInput];
-            var styles = allOptions.map(function (opts) { return opts[prop] || {}; });
-            styleOptions[prop] = polyfills_1.assign({}, styles[0], styles[1], styles[2]);
-        }
-    };
-    for (var _i = 0, _a = Object.keys(styleOptions); _i < _a.length; _i++) {
-        var prop = _a[_i];
-        _loop_1(prop);
-    }
-    return styleOptions;
-}
-function parseHooks(global, document, current) {
-    var allOptions = [global, document, current];
-    var result = {
-        didParseCell: [],
-        willDrawCell: [],
-        didDrawCell: [],
-        didDrawPage: [],
-    };
-    for (var _i = 0, allOptions_1 = allOptions; _i < allOptions_1.length; _i++) {
-        var options = allOptions_1[_i];
-        if (options.didParseCell)
-            result.didParseCell.push(options.didParseCell);
-        if (options.willDrawCell)
-            result.willDrawCell.push(options.willDrawCell);
-        if (options.didDrawCell)
-            result.didDrawCell.push(options.didDrawCell);
-        if (options.didDrawPage)
-            result.didDrawPage.push(options.didDrawPage);
-    }
-    return result;
-}
-function parseSettings(doc, options) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
-    var margin = common_1.parseSpacing(options.margin, 40 / doc.scaleFactor());
-    var startY = (_a = getStartY(doc, options.startY)) !== null && _a !== void 0 ? _a : margin.top;
-    var showFoot;
-    if (options.showFoot === true) {
-        showFoot = 'everyPage';
-    }
-    else if (options.showFoot === false) {
-        showFoot = 'never';
-    }
-    else {
-        showFoot = (_b = options.showFoot) !== null && _b !== void 0 ? _b : 'everyPage';
-    }
-    var showHead;
-    if (options.showHead === true) {
-        showHead = 'everyPage';
-    }
-    else if (options.showHead === false) {
-        showHead = 'never';
-    }
-    else {
-        showHead = (_c = options.showHead) !== null && _c !== void 0 ? _c : 'everyPage';
-    }
-    var useCss = (_d = options.useCss) !== null && _d !== void 0 ? _d : false;
-    var theme = options.theme || (useCss ? 'plain' : 'striped');
-    var horizontalPageBreak = options.horizontalPageBreak ? true : false;
-    return {
-        includeHiddenHtml: (_e = options.includeHiddenHtml) !== null && _e !== void 0 ? _e : false,
-        useCss: useCss,
-        theme: theme,
-        startY: startY,
-        margin: margin,
-        pageBreak: (_f = options.pageBreak) !== null && _f !== void 0 ? _f : 'auto',
-        rowPageBreak: (_g = options.rowPageBreak) !== null && _g !== void 0 ? _g : 'auto',
-        tableWidth: (_h = options.tableWidth) !== null && _h !== void 0 ? _h : 'auto',
-        showHead: showHead,
-        showFoot: showFoot,
-        tableLineWidth: (_j = options.tableLineWidth) !== null && _j !== void 0 ? _j : 0,
-        tableLineColor: (_k = options.tableLineColor) !== null && _k !== void 0 ? _k : 200,
-        horizontalPageBreak: horizontalPageBreak,
-    };
-}
-function getStartY(doc, userStartY) {
-    var previous = doc.getLastAutoTable();
-    var sf = doc.scaleFactor();
-    var currentPage = doc.pageNumber();
-    var isSamePageAsPreviousTable = false;
-    if (previous && previous.startPageNumber) {
-        var endingPage = previous.startPageNumber + previous.pageNumber - 1;
-        isSamePageAsPreviousTable = endingPage === currentPage;
-    }
-    if (typeof userStartY === 'number') {
-        return userStartY;
-    }
-    else if (userStartY == null || userStartY === false) {
-        if (isSamePageAsPreviousTable && (previous === null || previous === void 0 ? void 0 : previous.finalY) != null) {
-            // Some users had issues with overlapping tables when they used multiple
-            // tables without setting startY so setting it here to a sensible default.
-            return previous.finalY + 20 / sf;
-        }
-    }
-    return null;
-}
-function parseContent(doc, options, window) {
-    var head = options.head || [];
-    var body = options.body || [];
-    var foot = options.foot || [];
-    if (options.html) {
-        var hidden = options.includeHiddenHtml;
-        if (window) {
-            var htmlContent = htmlParser_1.parseHtml(doc, options.html, window, hidden, options.useCss) || {};
-            head = htmlContent.head || head;
-            body = htmlContent.body || head;
-            foot = htmlContent.foot || head;
-        }
-        else {
-            console.error('Cannot parse html in non browser environment');
-        }
-    }
-    var columns = options.columns || parseColumns(head, body, foot);
-    return {
-        columns: columns,
-        head: head,
-        body: body,
-        foot: foot,
-    };
-}
-function parseColumns(head, body, foot) {
-    var firstRow = head[0] || body[0] || foot[0] || [];
-    var result = [];
-    Object.keys(firstRow)
-        .filter(function (key) { return key !== '_element'; })
-        .forEach(function (key) {
-        var colSpan = 1;
-        var input;
-        if (Array.isArray(firstRow)) {
-            input = firstRow[parseInt(key)];
-        }
-        else {
-            input = firstRow[key];
-        }
-        if (typeof input === 'object' && !Array.isArray(input)) {
-            colSpan = (input === null || input === void 0 ? void 0 : input.colSpan) || 1;
-        }
-        for (var i = 0; i < colSpan; i++) {
-            var id = void 0;
-            if (Array.isArray(firstRow)) {
-                id = result.length;
-            }
-            else {
-                id = key + (i > 0 ? "_" + i : '');
-            }
-            var rowResult = { dataKey: id };
-            result.push(rowResult);
-        }
-    });
-    return result;
-}
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.addPage = exports.drawTable = void 0;
-var config_1 = __webpack_require__(1);
-var common_1 = __webpack_require__(0);
-var models_1 = __webpack_require__(3);
-var documentHandler_1 = __webpack_require__(2);
-var polyfills_1 = __webpack_require__(4);
-var autoTableText_1 = __webpack_require__(6);
-var tablePrinter_1 = __webpack_require__(15);
-function drawTable(jsPDFDoc, table) {
-    var settings = table.settings;
-    var startY = settings.startY;
-    var margin = settings.margin;
-    var cursor = {
-        x: margin.left,
-        y: startY,
-    };
-    var sectionsHeight = table.getHeadHeight(table.columns) + table.getFootHeight(table.columns);
-    var minTableBottomPos = startY + margin.bottom + sectionsHeight;
-    if (settings.pageBreak === 'avoid') {
-        var rows = table.allRows();
-        var tableHeight = rows.reduce(function (acc, row) { return acc + row.height; }, 0);
-        minTableBottomPos += tableHeight;
-    }
-    var doc = new documentHandler_1.DocHandler(jsPDFDoc);
-    if (settings.pageBreak === 'always' ||
-        (settings.startY != null && minTableBottomPos > doc.pageSize().height)) {
-        nextPage(doc);
-        cursor.y = margin.top;
-    }
-    var startPos = polyfills_1.assign({}, cursor);
-    table.startPageNumber = doc.pageNumber();
-    if (settings.horizontalPageBreak === true) {
-        // managed flow for split columns
-        printTableWithHorizontalPageBreak(doc, table, startPos, cursor);
-    }
-    else {
-        // normal flow
-        doc.applyStyles(doc.userStyles);
-        if (settings.showHead === 'firstPage' ||
-            settings.showHead === 'everyPage') {
-            table.head.forEach(function (row) { return printRow(doc, table, row, cursor, table.columns); });
-        }
-        doc.applyStyles(doc.userStyles);
-        table.body.forEach(function (row, index) {
-            var isLastRow = index === table.body.length - 1;
-            printFullRow(doc, table, row, isLastRow, startPos, cursor, table.columns);
-        });
-        doc.applyStyles(doc.userStyles);
-        if (settings.showFoot === 'lastPage' || settings.showFoot === 'everyPage') {
-            table.foot.forEach(function (row) { return printRow(doc, table, row, cursor, table.columns); });
-        }
-    }
-    common_1.addTableBorder(doc, table, startPos, cursor);
-    table.callEndPageHooks(doc, cursor);
-    table.finalY = cursor.y;
-    jsPDFDoc.lastAutoTable = table;
-    jsPDFDoc.previousAutoTable = table; // Deprecated
-    if (jsPDFDoc.autoTable)
-        jsPDFDoc.autoTable.previous = table; // Deprecated
-    doc.applyStyles(doc.userStyles);
-}
-exports.drawTable = drawTable;
-function printTableWithHorizontalPageBreak(doc, table, startPos, cursor) {
-    // calculate width of columns and render only those which can fit into page
-    var allColumnsCanFitResult = tablePrinter_1.default.calculateAllColumnsCanFitInPage(doc, table);
-    allColumnsCanFitResult.map(function (colsAndIndexes, index) {
-        doc.applyStyles(doc.userStyles);
-        // add page to print next columns in new page
-        if (index > 0) {
-            addPage(doc, table, startPos, cursor, colsAndIndexes.columns);
-        }
-        else {
-            // print head for selected columns
-            printHead(doc, table, cursor, colsAndIndexes.columns);
-        }
-        // print body for selected columns
-        printBody(doc, table, startPos, cursor, colsAndIndexes.columns);
-        // print foot for selected columns
-        printFoot(doc, table, cursor, colsAndIndexes.columns);
-    });
-}
-function printHead(doc, table, cursor, columns) {
-    var settings = table.settings;
-    doc.applyStyles(doc.userStyles);
-    if (settings.showHead === 'firstPage' ||
-        settings.showHead === 'everyPage') {
-        table.head.forEach(function (row) { return printRow(doc, table, row, cursor, columns); });
-    }
-}
-function printBody(doc, table, startPos, cursor, columns) {
-    doc.applyStyles(doc.userStyles);
-    table.body.forEach(function (row, index) {
-        var isLastRow = index === table.body.length - 1;
-        printFullRow(doc, table, row, isLastRow, startPos, cursor, columns);
-    });
-}
-function printFoot(doc, table, cursor, columns) {
-    var settings = table.settings;
-    doc.applyStyles(doc.userStyles);
-    if (settings.showFoot === 'lastPage' || settings.showFoot === 'everyPage') {
-        table.foot.forEach(function (row) { return printRow(doc, table, row, cursor, columns); });
-    }
-}
-function getRemainingLineCount(cell, remainingPageSpace, doc) {
-    var fontHeight = (cell.styles.fontSize / doc.scaleFactor()) * config_1.FONT_ROW_RATIO;
-    var vPadding = cell.padding('vertical');
-    var remainingLines = Math.floor((remainingPageSpace - vPadding) / fontHeight);
-    return Math.max(0, remainingLines);
-}
-function modifyRowToFit(row, remainingPageSpace, table, doc) {
-    var cells = {};
-    row.spansMultiplePages = true;
-    row.height = 0;
-    var rowHeight = 0;
-    for (var _i = 0, _a = table.columns; _i < _a.length; _i++) {
-        var column = _a[_i];
-        var cell = row.cells[column.index];
-        if (!cell)
-            continue;
-        if (!Array.isArray(cell.text)) {
-            cell.text = [cell.text];
-        }
-        var remainderCell = new models_1.Cell(cell.raw, cell.styles, cell.section);
-        remainderCell = polyfills_1.assign(remainderCell, cell);
-        remainderCell.text = [];
-        var remainingLineCount = getRemainingLineCount(cell, remainingPageSpace, doc);
-        if (cell.text.length > remainingLineCount) {
-            remainderCell.text = cell.text.splice(remainingLineCount, cell.text.length);
-        }
-        var scaleFactor = doc.scaleFactor();
-        cell.contentHeight = cell.getContentHeight(scaleFactor);
-        if (cell.contentHeight >= remainingPageSpace) {
-            cell.contentHeight = remainingPageSpace;
-            remainderCell.styles.minCellHeight -= remainingPageSpace;
-        }
-        if (cell.contentHeight > row.height) {
-            row.height = cell.contentHeight;
-        }
-        remainderCell.contentHeight = remainderCell.getContentHeight(scaleFactor);
-        if (remainderCell.contentHeight > rowHeight) {
-            rowHeight = remainderCell.contentHeight;
-        }
-        cells[column.index] = remainderCell;
-    }
-    var remainderRow = new models_1.Row(row.raw, -1, row.section, cells, true);
-    remainderRow.height = rowHeight;
-    for (var _b = 0, _c = table.columns; _b < _c.length; _b++) {
-        var column = _c[_b];
-        var remainderCell = remainderRow.cells[column.index];
-        if (remainderCell) {
-            remainderCell.height = remainderRow.height;
-        }
-        var cell = row.cells[column.index];
-        if (cell) {
-            cell.height = row.height;
-        }
-    }
-    return remainderRow;
-}
-function shouldPrintOnCurrentPage(doc, row, remainingPageSpace, table) {
-    var pageHeight = doc.pageSize().height;
-    var margin = table.settings.margin;
-    var marginHeight = margin.top + margin.bottom;
-    var maxRowHeight = pageHeight - marginHeight;
-    if (row.section === 'body') {
-        // Should also take into account that head and foot is not
-        // on every page with some settings
-        maxRowHeight -=
-            table.getHeadHeight(table.columns) + table.getFootHeight(table.columns);
-    }
-    var minRowHeight = row.getMinimumRowHeight(table.columns, doc);
-    var minRowFits = minRowHeight < remainingPageSpace;
-    if (minRowHeight > maxRowHeight) {
-        console.error("Will not be able to print row " + row.index + " correctly since it's minimum height is larger than page height");
-        return true;
-    }
-    if (!minRowFits) {
-        return false;
-    }
-    var rowHasRowSpanCell = row.hasRowSpan(table.columns);
-    var rowHigherThanPage = row.getMaxCellHeight(table.columns) > maxRowHeight;
-    if (rowHigherThanPage) {
-        if (rowHasRowSpanCell) {
-            console.error("The content of row " + row.index + " will not be drawn correctly since drawing rows with a height larger than the page height and has cells with rowspans is not supported.");
-        }
-        return true;
-    }
-    if (rowHasRowSpanCell) {
-        // Currently a new page is required whenever a rowspan row don't fit a page.
-        return false;
-    }
-    if (table.settings.rowPageBreak === 'avoid') {
-        return false;
-    }
-    // In all other cases print the row on current page
-    return true;
-}
-function printFullRow(doc, table, row, isLastRow, startPos, cursor, columns) {
-    var remainingSpace = getRemainingPageSpace(doc, table, isLastRow, cursor);
-    if (row.canEntireRowFit(remainingSpace, columns)) {
-        printRow(doc, table, row, cursor, columns);
-    }
-    else {
-        if (shouldPrintOnCurrentPage(doc, row, remainingSpace, table)) {
-            var remainderRow = modifyRowToFit(row, remainingSpace, table, doc);
-            printRow(doc, table, row, cursor, columns);
-            addPage(doc, table, startPos, cursor, columns);
-            printFullRow(doc, table, remainderRow, isLastRow, startPos, cursor, columns);
-        }
-        else {
-            addPage(doc, table, startPos, cursor, columns);
-            printFullRow(doc, table, row, isLastRow, startPos, cursor, columns);
-        }
-    }
-}
-function printRow(doc, table, row, cursor, columns) {
-    cursor.x = table.settings.margin.left;
-    for (var _i = 0, columns_1 = columns; _i < columns_1.length; _i++) {
-        var column = columns_1[_i];
-        var cell = row.cells[column.index];
-        if (!cell) {
-            cursor.x += column.width;
-            continue;
-        }
-        doc.applyStyles(cell.styles);
-        cell.x = cursor.x;
-        cell.y = cursor.y;
-        var result = table.callCellHooks(doc, table.hooks.willDrawCell, cell, row, column, cursor);
-        if (result === false) {
-            cursor.x += column.width;
-            continue;
-        }
-        drawCellBorders(doc, cell, cursor);
-        var textPos = cell.getTextPos();
-        autoTableText_1.default(cell.text, textPos.x, textPos.y, {
-            halign: cell.styles.halign,
-            valign: cell.styles.valign,
-            maxWidth: Math.ceil(cell.width - cell.padding('left') - cell.padding('right')),
-        }, doc.getDocument());
-        table.callCellHooks(doc, table.hooks.didDrawCell, cell, row, column, cursor);
-        cursor.x += column.width;
-    }
-    cursor.y += row.height;
-}
-function drawCellBorders(doc, cell, cursor) {
-    var cellStyles = cell.styles;
-    if (typeof cellStyles.lineWidth === 'number') {
-        // prints normal cell border
-        var fillStyle = common_1.getFillStyle(cellStyles.lineWidth, cellStyles.fillColor);
-        if (fillStyle) {
-            doc.rect(cell.x, cursor.y, cell.width, cell.height, fillStyle);
-        }
-    }
-    else if (typeof cellStyles.lineWidth === 'object') {
-        var sides = Object.keys(cellStyles.lineWidth);
-        var lineWidth_1 = cellStyles.lineWidth;
-        sides.map(function (side) {
-            var fillStyle = common_1.getFillStyle(lineWidth_1[side], cellStyles.fillColor);
-            drawBorderForSide(doc, cell, cursor, side, fillStyle || 'S', lineWidth_1[side]);
-        });
-    }
-}
-function drawBorderForSide(doc, cell, cursor, side, fillStyle, lineWidth) {
-    var x1, y1, x2, y2;
-    switch (side) {
-        case 'top':
-            x1 = cursor.x;
-            y1 = cursor.y;
-            x2 = cursor.x + cell.width;
-            y2 = cursor.y;
-            break;
-        case 'left':
-            x1 = cursor.x;
-            y1 = cursor.y;
-            x2 = cursor.x;
-            y2 = cursor.y + cell.height;
-            break;
-        case 'right':
-            x1 = cursor.x + cell.width;
-            y1 = cursor.y;
-            x2 = cursor.x + cell.width;
-            y2 = cursor.y + cell.height;
-            break;
-        default: // default it will print bottom
-            x1 = cursor.x;
-            y1 = cursor.y + cell.height;
-            x2 = cursor.x + cell.width;
-            y2 = cursor.y + cell.height;
-            break;
-    }
-    doc.getDocument().setLineWidth(lineWidth);
-    doc.getDocument().line(x1, y1, x2, y2, fillStyle);
-}
-function getRemainingPageSpace(doc, table, isLastRow, cursor) {
-    var bottomContentHeight = table.settings.margin.bottom;
-    var showFoot = table.settings.showFoot;
-    if (showFoot === 'everyPage' || (showFoot === 'lastPage' && isLastRow)) {
-        bottomContentHeight += table.getFootHeight(table.columns);
-    }
-    return doc.pageSize().height - cursor.y - bottomContentHeight;
-}
-function addPage(doc, table, startPos, cursor, columns) {
-    if (columns === void 0) { columns = []; }
-    doc.applyStyles(doc.userStyles);
-    if (table.settings.showFoot === 'everyPage') {
-        table.foot.forEach(function (row) { return printRow(doc, table, row, cursor, columns); });
-    }
-    // Add user content just before adding new page ensure it will
-    // be drawn above other things on the page
-    table.callEndPageHooks(doc, cursor);
-    var margin = table.settings.margin;
-    common_1.addTableBorder(doc, table, startPos, cursor);
-    nextPage(doc);
-    table.pageNumber++;
-    table.pageCount++;
-    cursor.x = margin.left;
-    cursor.y = margin.top;
-    if (table.settings.showHead === 'everyPage') {
-        table.head.forEach(function (row) { return printRow(doc, table, row, cursor, columns); });
-    }
-}
-exports.addPage = addPage;
-function nextPage(doc) {
-    var current = doc.pageNumber();
-    doc.setPage(current + 1);
-    var newCurrent = doc.pageNumber();
-    if (newCurrent === current) {
-        doc.addPage();
-    }
-}
-
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CellHookData = exports.HookData = void 0;
-var HookData = /** @class */ (function () {
-    function HookData(doc, table, cursor) {
-        this.table = table;
-        this.pageNumber = table.pageNumber;
-        this.pageCount = this.pageNumber;
-        this.settings = table.settings;
-        this.cursor = cursor;
-        this.doc = doc.getDocument();
-    }
-    return HookData;
-}());
-exports.HookData = HookData;
-var CellHookData = /** @class */ (function (_super) {
-    __extends(CellHookData, _super);
-    function CellHookData(doc, table, cell, row, column, cursor) {
-        var _this = _super.call(this, doc, table, cursor) || this;
-        _this.cell = cell;
-        _this.row = row;
-        _this.column = column;
-        _this.section = row.section;
-        return _this;
-    }
-    return CellHookData;
-}(HookData));
-exports.CellHookData = CellHookData;
-
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.createTable = void 0;
-var documentHandler_1 = __webpack_require__(2);
-var models_1 = __webpack_require__(3);
-var widthCalculator_1 = __webpack_require__(16);
-var config_1 = __webpack_require__(1);
-var polyfills_1 = __webpack_require__(4);
-function createTable(jsPDFDoc, input) {
-    var doc = new documentHandler_1.DocHandler(jsPDFDoc);
-    var content = parseContent(input, doc.scaleFactor());
-    var table = new models_1.Table(input, content);
-    widthCalculator_1.calculateWidths(doc, table);
-    doc.applyStyles(doc.userStyles);
-    return table;
-}
-exports.createTable = createTable;
-function parseContent(input, sf) {
-    var content = input.content;
-    var columns = createColumns(content.columns);
-    // If no head or foot is set, try generating it with content from columns
-    if (content.head.length === 0) {
-        var sectionRow = generateSectionRow(columns, 'head');
-        if (sectionRow)
-            content.head.push(sectionRow);
-    }
-    if (content.foot.length === 0) {
-        var sectionRow = generateSectionRow(columns, 'foot');
-        if (sectionRow)
-            content.foot.push(sectionRow);
-    }
-    var theme = input.settings.theme;
-    var styles = input.styles;
-    return {
-        columns: columns,
-        head: parseSection('head', content.head, columns, styles, theme, sf),
-        body: parseSection('body', content.body, columns, styles, theme, sf),
-        foot: parseSection('foot', content.foot, columns, styles, theme, sf),
-    };
-}
-function parseSection(sectionName, sectionRows, columns, styleProps, theme, scaleFactor) {
-    var rowSpansLeftForColumn = {};
-    var result = sectionRows.map(function (rawRow, rowIndex) {
-        var skippedRowForRowSpans = 0;
-        var cells = {};
-        var colSpansAdded = 0;
-        var columnSpansLeft = 0;
-        for (var _i = 0, columns_1 = columns; _i < columns_1.length; _i++) {
-            var column = columns_1[_i];
-            if (rowSpansLeftForColumn[column.index] == null ||
-                rowSpansLeftForColumn[column.index].left === 0) {
-                if (columnSpansLeft === 0) {
-                    var rawCell = void 0;
-                    if (Array.isArray(rawRow)) {
-                        rawCell =
-                            rawRow[column.index - colSpansAdded - skippedRowForRowSpans];
-                    }
-                    else {
-                        rawCell = rawRow[column.dataKey];
-                    }
-                    var cellInputStyles = {};
-                    if (typeof rawCell === 'object' && !Array.isArray(rawCell)) {
-                        cellInputStyles = (rawCell === null || rawCell === void 0 ? void 0 : rawCell.styles) || {};
-                    }
-                    var styles = cellStyles(sectionName, column, rowIndex, theme, styleProps, scaleFactor, cellInputStyles);
-                    var cell = new models_1.Cell(rawCell, styles, sectionName);
-                    // dataKey is not used internally no more but keep for
-                    // backwards compat in hooks
-                    cells[column.dataKey] = cell;
-                    cells[column.index] = cell;
-                    columnSpansLeft = cell.colSpan - 1;
-                    rowSpansLeftForColumn[column.index] = {
-                        left: cell.rowSpan - 1,
-                        times: columnSpansLeft,
-                    };
-                }
-                else {
-                    columnSpansLeft--;
-                    colSpansAdded++;
-                }
-            }
-            else {
-                rowSpansLeftForColumn[column.index].left--;
-                columnSpansLeft = rowSpansLeftForColumn[column.index].times;
-                skippedRowForRowSpans++;
-            }
-        }
-        return new models_1.Row(rawRow, rowIndex, sectionName, cells);
-    });
-    return result;
-}
-function generateSectionRow(columns, section) {
-    var sectionRow = {};
-    columns.forEach(function (col) {
-        if (col.raw != null) {
-            var title = getSectionTitle(section, col.raw);
-            if (title != null)
-                sectionRow[col.dataKey] = title;
-        }
-    });
-    return Object.keys(sectionRow).length > 0 ? sectionRow : null;
-}
-function getSectionTitle(section, column) {
-    if (section === 'head') {
-        if (typeof column === 'object') {
-            return column.header || column.title || null;
-        }
-        else if (typeof column === 'string' || typeof column === 'number') {
-            return column;
-        }
-    }
-    else if (section === 'foot' && typeof column === 'object') {
-        return column.footer;
-    }
-    return null;
-}
-function createColumns(columns) {
-    return columns.map(function (input, index) {
-        var _a, _b;
-        var key;
-        if (typeof input === 'object') {
-            key = (_b = (_a = input.dataKey) !== null && _a !== void 0 ? _a : input.key) !== null && _b !== void 0 ? _b : index;
-        }
-        else {
-            key = index;
-        }
-        return new models_1.Column(key, input, index);
-    });
-}
-function cellStyles(sectionName, column, rowIndex, themeName, styles, scaleFactor, cellInputStyles) {
-    var theme = config_1.getTheme(themeName);
-    var sectionStyles;
-    if (sectionName === 'head') {
-        sectionStyles = styles.headStyles;
-    }
-    else if (sectionName === 'body') {
-        sectionStyles = styles.bodyStyles;
-    }
-    else if (sectionName === 'foot') {
-        sectionStyles = styles.footStyles;
-    }
-    var otherStyles = polyfills_1.assign({}, theme.table, theme[sectionName], styles.styles, sectionStyles);
-    var columnStyles = styles.columnStyles[column.dataKey] ||
-        styles.columnStyles[column.index] ||
-        {};
-    var colStyles = sectionName === 'body' ? columnStyles : {};
-    var rowStyles = sectionName === 'body' && rowIndex % 2 === 0
-        ? polyfills_1.assign({}, theme.alternateRow, styles.alternateRowStyles)
-        : {};
-    var defaultStyle = config_1.defaultStyles(scaleFactor);
-    var themeStyles = polyfills_1.assign({}, defaultStyle, otherStyles, rowStyles, colStyles);
-    return polyfills_1.assign(themeStyles, cellInputStyles);
-}
-
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Cell = exports.Column = exports.Row = exports.Table = exports.CellHookData = exports.__drawTable = exports.__createTable = exports.applyPlugin = void 0;
-var applyPlugin_1 = __webpack_require__(12);
-var inputParser_1 = __webpack_require__(7);
-var tableDrawer_1 = __webpack_require__(8);
-var tableCalculator_1 = __webpack_require__(10);
-var models_1 = __webpack_require__(3);
-Object.defineProperty(exports, "Table", { enumerable: true, get: function () { return models_1.Table; } });
-var HookData_1 = __webpack_require__(9);
-Object.defineProperty(exports, "CellHookData", { enumerable: true, get: function () { return HookData_1.CellHookData; } });
-var models_2 = __webpack_require__(3);
-Object.defineProperty(exports, "Cell", { enumerable: true, get: function () { return models_2.Cell; } });
-Object.defineProperty(exports, "Column", { enumerable: true, get: function () { return models_2.Column; } });
-Object.defineProperty(exports, "Row", { enumerable: true, get: function () { return models_2.Row; } });
-// export { applyPlugin } didn't export applyPlugin
-// to index.d.ts for some reason
-function applyPlugin(jsPDF) {
-    applyPlugin_1.default(jsPDF);
-}
-exports.applyPlugin = applyPlugin;
-function autoTable(d, options) {
-    var input = inputParser_1.parseInput(d, options);
-    var table = tableCalculator_1.createTable(d, input);
-    tableDrawer_1.drawTable(d, table);
-}
-exports.default = autoTable;
-// Experimental export
-function __createTable(d, options) {
-    var input = inputParser_1.parseInput(d, options);
-    return tableCalculator_1.createTable(d, input);
-}
-exports.__createTable = __createTable;
-function __drawTable(d, table) {
-    tableDrawer_1.drawTable(d, table);
-}
-exports.__drawTable = __drawTable;
-try {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    var jsPDF = __webpack_require__(17);
-    // Webpack imported jspdf instead of jsPDF for some reason 
-    // while it seemed to work everywhere else.
-    if (jsPDF.jsPDF)
-        jsPDF = jsPDF.jsPDF;
-    applyPlugin(jsPDF);
-}
-catch (error) {
-    // Importing jspdf in nodejs environments does not work as of jspdf
-    // 1.5.3 so we need to silence potential errors to support using for example
-    // the nodejs jspdf dist files with the exported applyPlugin
-}
-
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var htmlParser_1 = __webpack_require__(5);
-var autoTableText_1 = __webpack_require__(6);
-var documentHandler_1 = __webpack_require__(2);
-var inputParser_1 = __webpack_require__(7);
-var tableDrawer_1 = __webpack_require__(8);
-var tableCalculator_1 = __webpack_require__(10);
-function default_1(jsPDF) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    jsPDF.API.autoTable = function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        var options;
-        if (args.length === 1) {
-            options = args[0];
-        }
-        else {
-            console.error('Use of deprecated autoTable initiation');
-            options = args[2] || {};
-            options.columns = args[0];
-            options.body = args[1];
-        }
-        var input = inputParser_1.parseInput(this, options);
-        var table = tableCalculator_1.createTable(this, input);
-        tableDrawer_1.drawTable(this, table);
-        return this;
-    };
-    // Assign false to enable `doc.lastAutoTable.finalY || 40` sugar
-    jsPDF.API.lastAutoTable = false;
-    jsPDF.API.previousAutoTable = false; // deprecated in v3
-    jsPDF.API.autoTable.previous = false; // deprecated in v3
-    jsPDF.API.autoTableText = function (text, x, y, styles) {
-        autoTableText_1.default(text, x, y, styles, this);
-    };
-    jsPDF.API.autoTableSetDefaults = function (defaults) {
-        documentHandler_1.DocHandler.setDefaults(defaults, this);
-        return this;
-    };
-    jsPDF.autoTableSetDefaults = function (defaults, doc) {
-        documentHandler_1.DocHandler.setDefaults(defaults, doc);
-    };
-    jsPDF.API.autoTableHtmlToJson = function (tableElem, includeHiddenElements) {
-        if (includeHiddenElements === void 0) { includeHiddenElements = false; }
-        if (typeof window === 'undefined') {
-            console.error('Cannot run autoTableHtmlToJson in non browser environment');
-            return null;
-        }
-        var doc = new documentHandler_1.DocHandler(this);
-        var _a = htmlParser_1.parseHtml(doc, tableElem, window, includeHiddenElements, false), head = _a.head, body = _a.body;
-        var columns = head[0].map(function (c) { return c.content; });
-        return { columns: columns, rows: body, data: body };
-    };
-    /**
-     * @deprecated
-     */
-    jsPDF.API.autoTableEndPosY = function () {
-        console.error('Use of deprecated function: autoTableEndPosY. Use doc.lastAutoTable.finalY instead.');
-        var prev = this.lastAutoTable;
-        if (prev && prev.finalY) {
-            return prev.finalY;
-        }
-        else {
-            return 0;
-        }
-    };
-    /**
-     * @deprecated
-     */
-    jsPDF.API.autoTableAddPageContent = function (hook) {
-        console.error('Use of deprecated function: autoTableAddPageContent. Use jsPDF.autoTableSetDefaults({didDrawPage: () => {}}) instead.');
-        if (!jsPDF.API.autoTable.globalDefaults) {
-            jsPDF.API.autoTable.globalDefaults = {};
-        }
-        jsPDF.API.autoTable.globalDefaults.addPageContent = hook;
-        return this;
-    };
-    /**
-     * @deprecated
-     */
-    jsPDF.API.autoTableAddPage = function () {
-        console.error('Use of deprecated function: autoTableAddPage. Use doc.addPage()');
-        this.addPage();
-        return this;
-    };
-}
-exports.default = default_1;
-
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseCss = void 0;
-// Limitations
-// - No support for border spacing
-// - No support for transparency
-var common_1 = __webpack_require__(0);
-function parseCss(supportedFonts, element, scaleFactor, style, window) {
-    var result = {};
-    var pxScaleFactor = 96 / 72;
-    var color = parseColor(element, function (elem) {
-        return window.getComputedStyle(elem)['backgroundColor'];
-    });
-    if (color != null)
-        result.fillColor = color;
-    color = parseColor(element, function (elem) {
-        return window.getComputedStyle(elem)['color'];
-    });
-    if (color != null)
-        result.textColor = color;
-    color = parseColor(element, function (elem) {
-        return window.getComputedStyle(elem)['borderTopColor'];
-    });
-    if (color != null)
-        result.lineColor = color;
-    var padding = parsePadding(style, scaleFactor);
-    if (padding)
-        result.cellPadding = padding;
-    // style.borderWidth only works in chrome (borderTopWidth etc works in firefox and ie as well)
-    var bw = parseInt(style.borderTopWidth || '');
-    bw = bw / pxScaleFactor / scaleFactor;
-    if (bw)
-        result.lineWidth = bw;
-    var accepted = ['left', 'right', 'center', 'justify'];
-    if (accepted.indexOf(style.textAlign) !== -1) {
-        result.halign = style.textAlign;
-    }
-    accepted = ['middle', 'bottom', 'top'];
-    if (accepted.indexOf(style.verticalAlign) !== -1) {
-        result.valign = style.verticalAlign;
-    }
-    var res = parseInt(style.fontSize || '');
-    if (!isNaN(res))
-        result.fontSize = res / pxScaleFactor;
-    var fontStyle = parseFontStyle(style);
-    if (fontStyle)
-        result.fontStyle = fontStyle;
-    var font = (style.fontFamily || '').toLowerCase();
-    if (supportedFonts.indexOf(font) !== -1) {
-        result.font = font;
-    }
-    return result;
-}
-exports.parseCss = parseCss;
-function parseFontStyle(style) {
-    var res = '';
-    if (style.fontWeight === 'bold' ||
-        style.fontWeight === 'bolder' ||
-        parseInt(style.fontWeight) >= 700) {
-        res = 'bold';
-    }
-    if (style.fontStyle === 'italic' || style.fontStyle === 'oblique') {
-        res += 'italic';
-    }
-    return res;
-}
-function parseColor(element, styleGetter) {
-    var cssColor = realColor(element, styleGetter);
-    if (!cssColor)
-        return null;
-    var rgba = cssColor.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d*\.?\d*))?\)$/);
-    if (!rgba || !Array.isArray(rgba)) {
-        return null;
-    }
-    var color = [
-        parseInt(rgba[1]),
-        parseInt(rgba[2]),
-        parseInt(rgba[3]),
-    ];
-    var alpha = parseInt(rgba[4]);
-    if (alpha === 0 || isNaN(color[0]) || isNaN(color[1]) || isNaN(color[2])) {
-        return null;
-    }
-    return color;
-}
-function realColor(elem, styleGetter) {
-    var bg = styleGetter(elem);
-    if (bg === 'rgba(0, 0, 0, 0)' ||
-        bg === 'transparent' ||
-        bg === 'initial' ||
-        bg === 'inherit') {
-        if (elem.parentElement == null) {
-            return null;
-        }
-        return realColor(elem.parentElement, styleGetter);
-    }
-    else {
-        return bg;
-    }
-}
-function parsePadding(style, scaleFactor) {
-    var val = [
-        style.paddingTop,
-        style.paddingRight,
-        style.paddingBottom,
-        style.paddingLeft,
-    ];
-    var pxScaleFactor = 96 / (72 / scaleFactor);
-    var linePadding = (parseInt(style.lineHeight) - parseInt(style.fontSize)) / scaleFactor / 2;
-    var inputPadding = val.map(function (n) {
-        return parseInt(n) / pxScaleFactor;
-    });
-    var padding = common_1.parseSpacing(inputPadding, 0);
-    if (linePadding > padding.top) {
-        padding.top = linePadding;
-    }
-    if (linePadding > padding.bottom) {
-        padding.bottom = linePadding;
-    }
-    return padding;
-}
-
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-function default_1(doc, global, document, current) {
-    var _loop_1 = function (options) {
-        if (options && typeof options !== 'object') {
-            console.error('The options parameter should be of type object, is: ' + typeof options);
-        }
-        if (typeof options.extendWidth !== 'undefined') {
-            options.tableWidth = options.extendWidth ? 'auto' : 'wrap';
-            console.error('Use of deprecated option: extendWidth, use tableWidth instead.');
-        }
-        if (typeof options.margins !== 'undefined') {
-            if (typeof options.margin === 'undefined')
-                options.margin = options.margins;
-            console.error('Use of deprecated option: margins, use margin instead.');
-        }
-        if (options.startY && typeof options.startY !== 'number') {
-            console.error('Invalid value for startY option', options.startY);
-            delete options.startY;
-        }
-        if (!options.didDrawPage &&
-            (options.afterPageContent ||
-                options.beforePageContent ||
-                options.afterPageAdd)) {
-            console.error('The afterPageContent, beforePageContent and afterPageAdd hooks are deprecated. Use didDrawPage instead');
-            options.didDrawPage = function (data) {
-                doc.applyStyles(doc.userStyles);
-                if (options.beforePageContent)
-                    options.beforePageContent(data);
-                doc.applyStyles(doc.userStyles);
-                if (options.afterPageContent)
-                    options.afterPageContent(data);
-                doc.applyStyles(doc.userStyles);
-                if (options.afterPageAdd && data.pageNumber > 1) {
-                    ;
-                    data.afterPageAdd(data);
-                }
-                doc.applyStyles(doc.userStyles);
-            };
-        }
-        ;
-        [
-            'createdHeaderCell',
-            'drawHeaderRow',
-            'drawRow',
-            'drawHeaderCell',
-        ].forEach(function (name) {
-            if (options[name]) {
-                console.error("The \"" + name + "\" hook has changed in version 3.0, check the changelog for how to migrate.");
-            }
-        });
-        [
-            ['showFoot', 'showFooter'],
-            ['showHead', 'showHeader'],
-            ['didDrawPage', 'addPageContent'],
-            ['didParseCell', 'createdCell'],
-            ['headStyles', 'headerStyles'],
-        ].forEach(function (_a) {
-            var current = _a[0], deprecated = _a[1];
-            if (options[deprecated]) {
-                console.error("Use of deprecated option " + deprecated + ". Use " + current + " instead");
-                options[current] = options[deprecated];
-            }
-        });
-        [
-            ['padding', 'cellPadding'],
-            ['lineHeight', 'rowHeight'],
-            'fontSize',
-            'overflow',
-        ].forEach(function (o) {
-            var deprecatedOption = typeof o === 'string' ? o : o[0];
-            var style = typeof o === 'string' ? o : o[1];
-            if (typeof options[deprecatedOption] !== 'undefined') {
-                if (typeof options.styles[style] === 'undefined') {
-                    options.styles[style] = options[deprecatedOption];
-                }
-                console.error('Use of deprecated option: ' +
-                    deprecatedOption +
-                    ', use the style ' +
-                    style +
-                    ' instead.');
-            }
-        });
-        for (var _i = 0, _a = [
-            'styles',
-            'bodyStyles',
-            'headStyles',
-            'footStyles',
-        ]; _i < _a.length; _i++) {
-            var styleProp = _a[_i];
-            checkStyles(options[styleProp] || {});
-        }
-        var columnStyles = options['columnStyles'] || {};
-        for (var _b = 0, _c = Object.keys(columnStyles); _b < _c.length; _b++) {
-            var key = _c[_b];
-            checkStyles(columnStyles[key] || {});
-        }
-    };
-    for (var _i = 0, _a = [global, document, current]; _i < _a.length; _i++) {
-        var options = _a[_i];
-        _loop_1(options);
-    }
-}
-exports.default = default_1;
-function checkStyles(styles) {
-    if (styles.rowHeight) {
-        console.error('Use of deprecated style rowHeight. It is renamed to minCellHeight.');
-        if (!styles.minCellHeight) {
-            styles.minCellHeight = styles.rowHeight;
-        }
-    }
-    else if (styles.columnWidth) {
-        console.error('Use of deprecated style columnWidth. It is renamed to cellWidth.');
-        if (!styles.cellWidth) {
-            styles.cellWidth = styles.columnWidth;
-        }
-    }
-}
-
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-// get columns can be fit into page
-var getColumnsCanFitInPage = function (doc, table, config) {
-    if (config === void 0) { config = {}; }
-    // get page width
-    var margins = table.settings.margin;
-    var availablePageWidth = doc.pageSize().width - (margins.left + margins.right);
-    var remainingWidth = availablePageWidth;
-    var cols = [];
-    var columns = [];
-    var len = table.columns.length;
-    var i = config && config.start ? config.start : 0;
-    while (i < len) {
-        var colWidth = table.columns[i].wrappedWidth;
-        if (remainingWidth < colWidth) {
-            // check if it's first column in the sequence then add it into result
-            if (i === 0 || i === config.start) {
-                cols.push(i);
-                columns.push(table.columns[i]);
-            }
-            // can't print more columns in same page
-            break;
-        }
-        cols.push(i);
-        columns.push(table.columns[i]);
-        remainingWidth = remainingWidth - colWidth;
-        i++;
-    }
-    return { colIndexes: cols, columns: columns };
-};
-var calculateAllColumnsCanFitInPage = function (doc, table) {
-    // const margins = table.settings.margin;
-    // const availablePageWidth = doc.pageSize().width - (margins.left + margins.right);
-    var allResults = [];
-    var index = 0;
-    var len = table.columns.length;
-    while (index < len) {
-        var result = getColumnsCanFitInPage(doc, table, {
-            start: index === 0 ? 0 : index,
-        });
-        if (result && result.columns && result.columns.length) {
-            index += result.columns.length;
-            allResults.push(result);
-        }
-        else {
-            index++;
-        }
-    }
-    return allResults;
-};
-exports.default = {
-    getColumnsCanFitInPage: getColumnsCanFitInPage,
-    calculateAllColumnsCanFitInPage: calculateAllColumnsCanFitInPage,
-};
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ellipsize = exports.resizeColumns = exports.calculateWidths = void 0;
-var common_1 = __webpack_require__(0);
-/**
- * Calculate the column widths
- */
-function calculateWidths(doc, table) {
-    calculate(doc, table);
-    var resizableColumns = [];
-    var initialTableWidth = 0;
-    table.columns.forEach(function (column) {
-        var customWidth = column.getMaxCustomCellWidth(table);
-        if (customWidth) {
-            // final column width
-            column.width = customWidth;
-        }
-        else {
-            // initial column width (will be resized)
-            column.width = column.wrappedWidth;
-            resizableColumns.push(column);
-        }
-        initialTableWidth += column.width;
-    });
-    // width difference that needs to be distributed
-    var resizeWidth = table.getWidth(doc.pageSize().width) - initialTableWidth;
-    // first resize attempt: with respect to minReadableWidth and minWidth
-    if (resizeWidth) {
-        resizeWidth = resizeColumns(resizableColumns, resizeWidth, function (column) {
-            return Math.max(column.minReadableWidth, column.minWidth);
-        });
-    }
-    // second resize attempt: ignore minReadableWidth but respect minWidth
-    if (resizeWidth) {
-        resizeWidth = resizeColumns(resizableColumns, resizeWidth, function (column) { return column.minWidth; });
-    }
-    resizeWidth = Math.abs(resizeWidth);
-    if (!table.settings.horizontalPageBreak && resizeWidth > 0.1 / doc.scaleFactor()) {
-        // Table can't get smaller due to custom-width or minWidth restrictions
-        // We can't really do much here. Up to user to for example
-        // reduce font size, increase page size or remove custom cell widths
-        // to allow more columns to be reduced in size
-        resizeWidth = resizeWidth < 1 ? resizeWidth : Math.round(resizeWidth);
-        console.error("Of the table content, " + resizeWidth + " units width could not fit page");
-    }
-    applyColSpans(table);
-    fitContent(table, doc);
-    applyRowSpans(table);
-}
-exports.calculateWidths = calculateWidths;
-function calculate(doc, table) {
-    var sf = doc.scaleFactor();
-    table.allRows().forEach(function (row) {
-        for (var _i = 0, _a = table.columns; _i < _a.length; _i++) {
-            var column = _a[_i];
-            var cell = row.cells[column.index];
-            if (!cell)
-                continue;
-            var hooks = table.hooks.didParseCell;
-            table.callCellHooks(doc, hooks, cell, row, column, null);
-            var padding = cell.padding('horizontal');
-            cell.contentWidth = common_1.getStringWidth(cell.text, cell.styles, doc) + padding;
-            var longestWordWidth = common_1.getStringWidth(cell.text.join(' ').split(/\s+/), cell.styles, doc);
-            cell.minReadableWidth = longestWordWidth + cell.padding('horizontal');
-            if (typeof cell.styles.cellWidth === 'number') {
-                cell.minWidth = cell.styles.cellWidth;
-                cell.wrappedWidth = cell.styles.cellWidth;
-            }
-            else if (cell.styles.cellWidth === 'wrap') {
-                cell.minWidth = cell.contentWidth;
-                cell.wrappedWidth = cell.contentWidth;
-            }
-            else {
-                // auto
-                var defaultMinWidth = 10 / sf;
-                cell.minWidth = cell.styles.minCellWidth || defaultMinWidth;
-                cell.wrappedWidth = cell.contentWidth;
-                if (cell.minWidth > cell.wrappedWidth) {
-                    cell.wrappedWidth = cell.minWidth;
-                }
-            }
-        }
-    });
-    table.allRows().forEach(function (row) {
-        for (var _i = 0, _a = table.columns; _i < _a.length; _i++) {
-            var column = _a[_i];
-            var cell = row.cells[column.index];
-            // For now we ignore the minWidth and wrappedWidth of colspan cells when calculating colspan widths.
-            // Could probably be improved upon however.
-            if (cell && cell.colSpan === 1) {
-                column.wrappedWidth = Math.max(column.wrappedWidth, cell.wrappedWidth);
-                column.minWidth = Math.max(column.minWidth, cell.minWidth);
-                column.minReadableWidth = Math.max(column.minReadableWidth, cell.minReadableWidth);
-            }
-            else {
-                // Respect cellWidth set in columnStyles even if there is no cells for this column
-                // or if the column only have colspan cells. Since the width of colspan cells
-                // does not affect the width of columns, setting columnStyles cellWidth enables the
-                // user to at least do it manually.
-                // Note that this is not perfect for now since for example row and table styles are
-                // not accounted for
-                var columnStyles = table.styles.columnStyles[column.dataKey] ||
-                    table.styles.columnStyles[column.index] ||
-                    {};
-                var cellWidth = columnStyles.cellWidth || columnStyles.minCellWidth;
-                if (cellWidth && typeof cellWidth === 'number') {
-                    column.minWidth = cellWidth;
-                    column.wrappedWidth = cellWidth;
-                }
-            }
-            if (cell) {
-                // Make sure all columns get at least min width even though width calculations are not based on them
-                if (cell.colSpan > 1 && !column.minWidth) {
-                    column.minWidth = cell.minWidth;
-                }
-                if (cell.colSpan > 1 && !column.wrappedWidth) {
-                    column.wrappedWidth = cell.minWidth;
-                }
-            }
-        }
-    });
-}
-/**
- * Distribute resizeWidth on passed resizable columns
- */
-function resizeColumns(columns, resizeWidth, getMinWidth) {
-    var initialResizeWidth = resizeWidth;
-    var sumWrappedWidth = columns.reduce(function (acc, column) { return acc + column.wrappedWidth; }, 0);
-    for (var i = 0; i < columns.length; i++) {
-        var column = columns[i];
-        var ratio = column.wrappedWidth / sumWrappedWidth;
-        var suggestedChange = initialResizeWidth * ratio;
-        var suggestedWidth = column.width + suggestedChange;
-        var minWidth = getMinWidth(column);
-        var newWidth = suggestedWidth < minWidth ? minWidth : suggestedWidth;
-        resizeWidth -= newWidth - column.width;
-        column.width = newWidth;
-    }
-    resizeWidth = Math.round(resizeWidth * 1e10) / 1e10;
-    // Run the resizer again if there's remaining width needs
-    // to be distributed and there're columns that can be resized
-    if (resizeWidth) {
-        var resizableColumns = columns.filter(function (column) {
-            return resizeWidth < 0
-                ? column.width > getMinWidth(column) // check if column can shrink
-                : true; // check if column can grow
-        });
-        if (resizableColumns.length) {
-            resizeWidth = resizeColumns(resizableColumns, resizeWidth, getMinWidth);
-        }
-    }
-    return resizeWidth;
-}
-exports.resizeColumns = resizeColumns;
-function applyRowSpans(table) {
-    var rowSpanCells = {};
-    var colRowSpansLeft = 1;
-    var all = table.allRows();
-    for (var rowIndex = 0; rowIndex < all.length; rowIndex++) {
-        var row = all[rowIndex];
-        for (var _i = 0, _a = table.columns; _i < _a.length; _i++) {
-            var column = _a[_i];
-            var data = rowSpanCells[column.index];
-            if (colRowSpansLeft > 1) {
-                colRowSpansLeft--;
-                delete row.cells[column.index];
-            }
-            else if (data) {
-                data.cell.height += row.height;
-                colRowSpansLeft = data.cell.colSpan;
-                delete row.cells[column.index];
-                data.left--;
-                if (data.left <= 1) {
-                    delete rowSpanCells[column.index];
-                }
-            }
-            else {
-                var cell = row.cells[column.index];
-                if (!cell) {
-                    continue;
-                }
-                cell.height = row.height;
-                if (cell.rowSpan > 1) {
-                    var remaining = all.length - rowIndex;
-                    var left = cell.rowSpan > remaining ? remaining : cell.rowSpan;
-                    rowSpanCells[column.index] = { cell: cell, left: left, row: row };
-                }
-            }
-        }
-    }
-}
-function applyColSpans(table) {
-    var all = table.allRows();
-    for (var rowIndex = 0; rowIndex < all.length; rowIndex++) {
-        var row = all[rowIndex];
-        var colSpanCell = null;
-        var combinedColSpanWidth = 0;
-        var colSpansLeft = 0;
-        for (var columnIndex = 0; columnIndex < table.columns.length; columnIndex++) {
-            var column = table.columns[columnIndex];
-            // Width and colspan
-            colSpansLeft -= 1;
-            if (colSpansLeft > 1 && table.columns[columnIndex + 1]) {
-                combinedColSpanWidth += column.width;
-                delete row.cells[column.index];
-            }
-            else if (colSpanCell) {
-                var cell = colSpanCell;
-                delete row.cells[column.index];
-                colSpanCell = null;
-                cell.width = column.width + combinedColSpanWidth;
-            }
-            else {
-                var cell = row.cells[column.index];
-                if (!cell)
-                    continue;
-                colSpansLeft = cell.colSpan;
-                combinedColSpanWidth = 0;
-                if (cell.colSpan > 1) {
-                    colSpanCell = cell;
-                    combinedColSpanWidth += column.width;
-                    continue;
-                }
-                cell.width = column.width + combinedColSpanWidth;
-            }
-        }
-    }
-}
-function fitContent(table, doc) {
-    var rowSpanHeight = { count: 0, height: 0 };
-    for (var _i = 0, _a = table.allRows(); _i < _a.length; _i++) {
-        var row = _a[_i];
-        for (var _b = 0, _c = table.columns; _b < _c.length; _b++) {
-            var column = _c[_b];
-            var cell = row.cells[column.index];
-            if (!cell)
-                continue;
-            doc.applyStyles(cell.styles, true);
-            var textSpace = cell.width - cell.padding('horizontal');
-            if (cell.styles.overflow === 'linebreak') {
-                // Add one pt to textSpace to fix rounding error
-                cell.text = doc.splitTextToSize(cell.text, textSpace + 1 / doc.scaleFactor(), { fontSize: cell.styles.fontSize });
-            }
-            else if (cell.styles.overflow === 'ellipsize') {
-                cell.text = ellipsize(cell.text, textSpace, cell.styles, doc, '...');
-            }
-            else if (cell.styles.overflow === 'hidden') {
-                cell.text = ellipsize(cell.text, textSpace, cell.styles, doc, '');
-            }
-            else if (typeof cell.styles.overflow === 'function') {
-                cell.text = cell.styles.overflow(cell.text, textSpace);
-            }
-            cell.contentHeight = cell.getContentHeight(doc.scaleFactor());
-            var realContentHeight = cell.contentHeight / cell.rowSpan;
-            if (cell.rowSpan > 1 &&
-                rowSpanHeight.count * rowSpanHeight.height <
-                    realContentHeight * cell.rowSpan) {
-                rowSpanHeight = { height: realContentHeight, count: cell.rowSpan };
-            }
-            else if (rowSpanHeight && rowSpanHeight.count > 0) {
-                if (rowSpanHeight.height > realContentHeight) {
-                    realContentHeight = rowSpanHeight.height;
-                }
-            }
-            if (realContentHeight > row.height) {
-                row.height = realContentHeight;
-            }
-        }
-        rowSpanHeight.count--;
-    }
-}
-function ellipsize(text, width, styles, doc, overflow) {
-    return text.map(function (str) { return ellipsizeStr(str, width, styles, doc, overflow); });
-}
-exports.ellipsize = ellipsize;
-function ellipsizeStr(text, width, styles, doc, overflow) {
-    var precision = 10000 * doc.scaleFactor();
-    width = Math.ceil(width * precision) / precision;
-    if (width >= common_1.getStringWidth(text, styles, doc)) {
-        return text;
-    }
-    while (width < common_1.getStringWidth(text + overflow, styles, doc)) {
-        if (text.length <= 1) {
-            break;
-        }
-        text = text.substring(0, text.length - 1);
-    }
-    return text.trim() + overflow;
-}
-
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-if(typeof __WEBPACK_EXTERNAL_MODULE__17__ === 'undefined') {var e = new Error("Cannot find module 'undefined'"); e.code = 'MODULE_NOT_FOUND'; throw e;}
-module.exports = __WEBPACK_EXTERNAL_MODULE__17__;
-
-/***/ })
-/******/ ]);
-});
+!function(t,e){if(true)module.exports=e(function(){try{return __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js")}catch(t){}}());else { var o, n; }}(void 0!==this?this:window,(function(t){return(()=>{"use strict";var e={662:function(t,e){var n,o=this&&this.__extends||(n=function(t,e){return(n=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n])})(t,e)},function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Class extends value "+String(e)+" is not a constructor or null");function o(){this.constructor=t}n(t,e),t.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)});Object.defineProperty(e,"__esModule",{value:!0}),e.CellHookData=e.HookData=void 0;var r=function(t,e,n){this.table=e,this.pageNumber=e.pageNumber,this.pageCount=this.pageNumber,this.settings=e.settings,this.cursor=n,this.doc=t.getDocument()};e.HookData=r;var i=function(t){function e(e,n,o,r,i,l){var a=t.call(this,e,n,l)||this;return a.cell=o,a.row=r,a.column=i,a.section=r.section,a}return o(e,t),e}(r);e.CellHookData=i},790:(t,e,n)=>{Object.defineProperty(e,"__esModule",{value:!0});var o=n(148),r=n(938),i=n(323),l=n(587),a=n(49),s=n(858);e.default=function(t){t.API.autoTable=function(){for(var t,e=[],n=0;n<arguments.length;n++)e[n]=arguments[n];1===e.length?t=e[0]:(console.error("Use of deprecated autoTable initiation"),(t=e[2]||{}).columns=e[0],t.body=e[1]);var o=(0,l.parseInput)(this,t),r=(0,s.createTable)(this,o);return(0,a.drawTable)(this,r),this},t.API.lastAutoTable=!1,t.API.previousAutoTable=!1,t.API.autoTable.previous=!1,t.API.autoTableText=function(t,e,n,o){(0,r.default)(t,e,n,o,this)},t.API.autoTableSetDefaults=function(t){return i.DocHandler.setDefaults(t,this),this},t.autoTableSetDefaults=function(t,e){i.DocHandler.setDefaults(t,e)},t.API.autoTableHtmlToJson=function(t,e){if(void 0===e&&(e=!1),"undefined"==typeof window)return console.error("Cannot run autoTableHtmlToJson in non browser environment"),null;var n=new i.DocHandler(this),r=(0,o.parseHtml)(n,t,window,e,!1),l=r.head,a=r.body;return{columns:l[0].map((function(t){return t.content})),rows:a,data:a}},t.API.autoTableEndPosY=function(){console.error("Use of deprecated function: autoTableEndPosY. Use doc.lastAutoTable.finalY instead.");var t=this.lastAutoTable;return t&&t.finalY?t.finalY:0},t.API.autoTableAddPageContent=function(e){return console.error("Use of deprecated function: autoTableAddPageContent. Use jsPDF.autoTableSetDefaults({didDrawPage: () => {}}) instead."),t.API.autoTable.globalDefaults||(t.API.autoTable.globalDefaults={}),t.API.autoTable.globalDefaults.addPageContent=e,this},t.API.autoTableAddPage=function(){return console.error("Use of deprecated function: autoTableAddPage. Use doc.addPage()"),this.addPage(),this}}},938:(t,e)=>{Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(t,e,n,o,r){o=o||{};var i=1.15,l=r.internal.scaleFactor,a=r.internal.getFontSize()/l,s="",u=1;if("middle"!==o.valign&&"bottom"!==o.valign&&"center"!==o.halign&&"right"!==o.halign||(u=(s="string"==typeof t?t.split(/\r\n|\r|\n/g):t).length||1),n+=a*(2-i),"middle"===o.valign?n-=u/2*a*i:"bottom"===o.valign&&(n-=u*a*i),"center"===o.halign||"right"===o.halign){var d=a;if("center"===o.halign&&(d*=.5),s&&u>=1){for(var h=0;h<s.length;h++)r.text(s[h],e-r.getStringUnitWidth(s[h])*d,n),n+=a*i;return r}e-=r.getStringUnitWidth(t)*d}return"justify"===o.halign?r.text(t,e,n,{maxWidth:o.maxWidth||100,align:"justify"}):r.text(t,e,n),r}},200:(t,e)=>{function n(t,e){var n=t>0,o=e||0===e;return n&&o?"DF":n?"S":o?"F":null}Object.defineProperty(e,"__esModule",{value:!0}),e.parseSpacing=e.getFillStyle=e.addTableBorder=e.getStringWidth=void 0,e.getStringWidth=function(t,e,n){return n.applyStyles(e,!0),(Array.isArray(t)?t:[t]).map((function(t){return n.getTextWidth(t)})).reduce((function(t,e){return Math.max(t,e)}),0)},e.addTableBorder=function(t,e,o,r){var i=e.settings.tableLineWidth,l=e.settings.tableLineColor;t.applyStyles({lineWidth:i,lineColor:l});var a=n(i,!1);a&&t.rect(o.x,o.y,e.getWidth(t.pageSize().width),r.y-o.y,a)},e.getFillStyle=n,e.parseSpacing=function(t,e){var n,o,r,i;if(t=t||e,Array.isArray(t)){if(t.length>=4)return{top:t[0],right:t[1],bottom:t[2],left:t[3]};if(3===t.length)return{top:t[0],right:t[1],bottom:t[2],left:t[1]};if(2===t.length)return{top:t[0],right:t[1],bottom:t[0],left:t[1]};t=1===t.length?t[0]:e}return"object"==typeof t?("number"==typeof t.vertical&&(t.top=t.vertical,t.bottom=t.vertical),"number"==typeof t.horizontal&&(t.right=t.horizontal,t.left=t.horizontal),{left:null!==(n=t.left)&&void 0!==n?n:e,top:null!==(o=t.top)&&void 0!==o?o:e,right:null!==(r=t.right)&&void 0!==r?r:e,bottom:null!==(i=t.bottom)&&void 0!==i?i:e}):("number"!=typeof t&&(t=e),{top:t,right:t,bottom:t,left:t})}},913:function(t,e){var n,o=this&&this.__extends||(n=function(t,e){return(n=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n])})(t,e)},function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Class extends value "+String(e)+" is not a constructor or null");function o(){this.constructor=t}n(t,e),t.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)});Object.defineProperty(e,"__esModule",{value:!0}),e.getTheme=e.defaultStyles=e.HtmlRowInput=e.FONT_ROW_RATIO=void 0,e.FONT_ROW_RATIO=1.15;var r=function(t){function e(e){var n=t.call(this)||this;return n._element=e,n}return o(e,t),e}(Array);e.HtmlRowInput=r,e.defaultStyles=function(t){return{font:"helvetica",fontStyle:"normal",overflow:"linebreak",fillColor:!1,textColor:20,halign:"left",valign:"top",fontSize:10,cellPadding:5/t,lineColor:200,lineWidth:0,cellWidth:"auto",minCellHeight:0,minCellWidth:0}},e.getTheme=function(t){return{striped:{table:{fillColor:255,textColor:80,fontStyle:"normal"},head:{textColor:255,fillColor:[41,128,185],fontStyle:"bold"},body:{},foot:{textColor:255,fillColor:[41,128,185],fontStyle:"bold"},alternateRow:{fillColor:245}},grid:{table:{fillColor:255,textColor:80,fontStyle:"normal",lineWidth:.1},head:{textColor:255,fillColor:[26,188,156],fontStyle:"bold",lineWidth:0},body:{},foot:{textColor:255,fillColor:[26,188,156],fontStyle:"bold",lineWidth:0},alternateRow:{}},plain:{head:{fontStyle:"bold"},foot:{fontStyle:"bold"}}}[t]}},259:(t,e,n)=>{Object.defineProperty(e,"__esModule",{value:!0}),e.parseCss=void 0;var o=n(200);function r(t,e){var n=i(t,e);if(!n)return null;var o=n.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d*\.?\d*))?\)$/);if(!o||!Array.isArray(o))return null;var r=[parseInt(o[1]),parseInt(o[2]),parseInt(o[3])];return 0===parseInt(o[4])||isNaN(r[0])||isNaN(r[1])||isNaN(r[2])?null:r}function i(t,e){var n=e(t);return"rgba(0, 0, 0, 0)"===n||"transparent"===n||"initial"===n||"inherit"===n?null==t.parentElement?null:i(t.parentElement,e):n}e.parseCss=function(t,e,n,i,l){var a={},s=96/72,u=r(e,(function(t){return l.getComputedStyle(t).backgroundColor}));null!=u&&(a.fillColor=u);var d=r(e,(function(t){return l.getComputedStyle(t).color}));null!=d&&(a.textColor=d);var h=r(e,(function(t){return l.getComputedStyle(t).borderTopColor}));null!=h&&(a.lineColor=h);var c=function(t,e){var n=[t.paddingTop,t.paddingRight,t.paddingBottom,t.paddingLeft],r=96/(72/e),i=(parseInt(t.lineHeight)-parseInt(t.fontSize))/e/2,l=n.map((function(t){return parseInt(t||"0")/r})),a=(0,o.parseSpacing)(l,0);i>a.top&&(a.top=i);i>a.bottom&&(a.bottom=i);return a}(i,n);c&&(a.cellPadding=c);var f=parseInt(i.borderTopWidth||"");(f=f/s/n)&&(a.lineWidth=f);var p=["left","right","center","justify"];-1!==p.indexOf(i.textAlign)&&(a.halign=i.textAlign),-1!==(p=["middle","bottom","top"]).indexOf(i.verticalAlign)&&(a.valign=i.verticalAlign);var g=parseInt(i.fontSize||"");isNaN(g)||(a.fontSize=g/s);var y=function(t){var e="";("bold"===t.fontWeight||"bolder"===t.fontWeight||parseInt(t.fontWeight)>=700)&&(e="bold");"italic"!==t.fontStyle&&"oblique"!==t.fontStyle||(e+="italic");return e}(i);y&&(a.fontStyle=y);var v=(i.fontFamily||"").toLowerCase();return-1!==t.indexOf(v)&&(a.font=v),a}},323:(t,e)=>{Object.defineProperty(e,"__esModule",{value:!0}),e.DocHandler=void 0;var n={},o=function(){function t(t){this.jsPDFDocument=t,this.userStyles={textColor:t.getTextColor?this.jsPDFDocument.getTextColor():0,fontSize:t.internal.getFontSize(),fontStyle:t.internal.getFont().fontStyle,font:t.internal.getFont().fontName}}return t.setDefaults=function(t,e){void 0===e&&(e=null),e?e.__autoTableDocumentDefaults=t:n=t},t.unifyColor=function(t){return Array.isArray(t)?t:"number"==typeof t?[t,t,t]:"string"==typeof t?[t]:null},t.prototype.applyStyles=function(e,n){var o,r,i;void 0===n&&(n=!1),e.fontStyle&&this.jsPDFDocument.setFontStyle&&this.jsPDFDocument.setFontStyle(e.fontStyle);var l=this.jsPDFDocument.internal.getFont(),a=l.fontStyle,s=l.fontName;if(e.font&&(s=e.font),e.fontStyle){a=e.fontStyle;var u=this.getFontList()[s];u&&-1===u.indexOf(a)&&(this.jsPDFDocument.setFontStyle&&this.jsPDFDocument.setFontStyle(u[0]),a=u[0])}if(this.jsPDFDocument.setFont(s,a),e.fontSize&&this.jsPDFDocument.setFontSize(e.fontSize),!n){var d=t.unifyColor(e.fillColor);d&&(o=this.jsPDFDocument).setFillColor.apply(o,d),(d=t.unifyColor(e.textColor))&&(r=this.jsPDFDocument).setTextColor.apply(r,d),(d=t.unifyColor(e.lineColor))&&(i=this.jsPDFDocument).setDrawColor.apply(i,d),"number"==typeof e.lineWidth&&this.jsPDFDocument.setLineWidth(e.lineWidth)}},t.prototype.splitTextToSize=function(t,e,n){return this.jsPDFDocument.splitTextToSize(t,e,n)},t.prototype.rect=function(t,e,n,o,r){return this.jsPDFDocument.rect(t,e,n,o,r)},t.prototype.getLastAutoTable=function(){return this.jsPDFDocument.lastAutoTable||null},t.prototype.getTextWidth=function(t){return this.jsPDFDocument.getTextWidth(t)},t.prototype.getDocument=function(){return this.jsPDFDocument},t.prototype.setPage=function(t){this.jsPDFDocument.setPage(t)},t.prototype.addPage=function(){return this.jsPDFDocument.addPage()},t.prototype.getFontList=function(){return this.jsPDFDocument.getFontList()},t.prototype.getGlobalOptions=function(){return n||{}},t.prototype.getDocumentOptions=function(){return this.jsPDFDocument.__autoTableDocumentDefaults||{}},t.prototype.pageSize=function(){var t=this.jsPDFDocument.internal.pageSize;return null==t.width&&(t={width:t.getWidth(),height:t.getHeight()}),t},t.prototype.scaleFactor=function(){return this.jsPDFDocument.internal.scaleFactor},t.prototype.pageNumber=function(){var t=this.jsPDFDocument.internal.getCurrentPageInfo();return t?t.pageNumber:this.jsPDFDocument.internal.getNumberOfPages()},t}();e.DocHandler=o},148:(t,e,n)=>{Object.defineProperty(e,"__esModule",{value:!0}),e.parseHtml=void 0;var o=n(259),r=n(913);function i(t,e,n,i,a,s){for(var u=new r.HtmlRowInput(i),d=0;d<i.cells.length;d++){var h=i.cells[d],c=n.getComputedStyle(h);if(a||"none"!==c.display){var f=void 0;s&&(f=(0,o.parseCss)(t,h,e,c,n)),u.push({rowSpan:h.rowSpan,colSpan:h.colSpan,styles:f,_element:h,content:l(h)})}}var p=n.getComputedStyle(i);if(u.length>0&&(a||"none"!==p.display))return u}function l(t){var e=t.cloneNode(!0);return e.innerHTML=e.innerHTML.replace(/\n/g,"").replace(/ +/g," "),e.innerHTML=e.innerHTML.split(/\<br.*?\>/).map((function(t){return t.trim()})).join("\n"),e.innerText||e.textContent||""}e.parseHtml=function(t,e,n,o,r){var l,a,s;void 0===o&&(o=!1),void 0===r&&(r=!1),s="string"==typeof e?n.document.querySelector(e):e;var u=Object.keys(t.getFontList()),d=t.scaleFactor(),h=[],c=[],f=[];if(!s)return console.error("Html table could not be found with input: ",e),{head:h,body:c,foot:f};for(var p=0;p<s.rows.length;p++){var g=s.rows[p],y=null===(a=null===(l=null==g?void 0:g.parentElement)||void 0===l?void 0:l.tagName)||void 0===a?void 0:a.toLowerCase(),v=i(u,d,n,g,o,r);v&&("thead"===y?h.push(v):"tfoot"===y?f.push(v):c.push(v))}return{head:h,body:c,foot:f}}},587:(t,e,n)=>{Object.defineProperty(e,"__esModule",{value:!0}),e.parseInput=void 0;var o=n(148),r=n(360),i=n(200),l=n(323),a=n(291);function s(t,e,n){var o=t[0]||e[0]||n[0]||[],r=[];return Object.keys(o).filter((function(t){return"_element"!==t})).forEach((function(t){var e,n=1;"object"!=typeof(e=Array.isArray(o)?o[parseInt(t)]:o[t])||Array.isArray(e)||(n=(null==e?void 0:e.colSpan)||1);for(var i=0;i<n;i++){var l={dataKey:Array.isArray(o)?r.length:t+(i>0?"_"+i:"")};r.push(l)}})),r}e.parseInput=function(t,e){var n=new l.DocHandler(t),u=n.getDocumentOptions(),d=n.getGlobalOptions();(0,a.default)(n,d,u,e);var h,c=(0,r.assign)({},d,u,e);"undefined"!=typeof window&&(h=window);var f=function(t,e,n){for(var o={styles:{},headStyles:{},bodyStyles:{},footStyles:{},alternateRowStyles:{},columnStyles:{}},i=function(i){if("columnStyles"===i){var l=t[i],a=e[i],s=n[i];o.columnStyles=(0,r.assign)({},l,a,s)}else{var u=[t,e,n].map((function(t){return t[i]||{}}));o[i]=(0,r.assign)({},u[0],u[1],u[2])}},l=0,a=Object.keys(o);l<a.length;l++){i(a[l])}return o}(d,u,e),p=function(t,e,n){for(var o={didParseCell:[],willDrawCell:[],didDrawCell:[],didDrawPage:[]},r=0,i=[t,e,n];r<i.length;r++){var l=i[r];l.didParseCell&&o.didParseCell.push(l.didParseCell),l.willDrawCell&&o.willDrawCell.push(l.willDrawCell),l.didDrawCell&&o.didDrawCell.push(l.didDrawCell),l.didDrawPage&&o.didDrawPage.push(l.didDrawPage)}return o}(d,u,e),g=function(t,e){var n,o,r,l,a,s,u,d,h,c,f,p,g,y=(0,i.parseSpacing)(e.margin,40/t.scaleFactor()),v=null!==(n=function(t,e){var n=t.getLastAutoTable(),o=t.scaleFactor(),r=t.pageNumber(),i=!1;if(n&&n.startPageNumber){i=n.startPageNumber+n.pageNumber-1===r}if("number"==typeof e)return e;if((null==e||!1===e)&&i&&null!=(null==n?void 0:n.finalY))return n.finalY+20/o;return null}(t,e.startY))&&void 0!==n?n:y.top;p=!0===e.showFoot?"everyPage":!1===e.showFoot?"never":null!==(o=e.showFoot)&&void 0!==o?o:"everyPage";g=!0===e.showHead?"everyPage":!1===e.showHead?"never":null!==(r=e.showHead)&&void 0!==r?r:"everyPage";var m=null!==(l=e.useCss)&&void 0!==l&&l,b=e.theme||(m?"plain":"striped"),w=!!e.horizontalPageBreak,S=null!==(a=e.horizontalPageBreakRepeat)&&void 0!==a?a:null;return{includeHiddenHtml:null!==(s=e.includeHiddenHtml)&&void 0!==s&&s,useCss:m,theme:b,startY:v,margin:y,pageBreak:null!==(u=e.pageBreak)&&void 0!==u?u:"auto",rowPageBreak:null!==(d=e.rowPageBreak)&&void 0!==d?d:"auto",tableWidth:null!==(h=e.tableWidth)&&void 0!==h?h:"auto",showHead:g,showFoot:p,tableLineWidth:null!==(c=e.tableLineWidth)&&void 0!==c?c:0,tableLineColor:null!==(f=e.tableLineColor)&&void 0!==f?f:200,horizontalPageBreak:w,horizontalPageBreakRepeat:S}}(n,c),y=function(t,e,n){var r=e.head||[],i=e.body||[],l=e.foot||[];if(e.html){var a=e.includeHiddenHtml;if(n){var u=(0,o.parseHtml)(t,e.html,n,a,e.useCss)||{};r=u.head||r,i=u.body||r,l=u.foot||r}else console.error("Cannot parse html in non browser environment")}return{columns:e.columns||s(r,i,l),head:r,body:i,foot:l}}(n,c,h);return{id:e.tableId,content:y,hooks:p,styles:f,settings:g}}},291:(t,e)=>{function n(t){t.rowHeight?(console.error("Use of deprecated style rowHeight. It is renamed to minCellHeight."),t.minCellHeight||(t.minCellHeight=t.rowHeight)):t.columnWidth&&(console.error("Use of deprecated style columnWidth. It is renamed to cellWidth."),t.cellWidth||(t.cellWidth=t.columnWidth))}Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(t,e,o,r){for(var i=function(e){e&&"object"!=typeof e&&console.error("The options parameter should be of type object, is: "+typeof e),void 0!==e.extendWidth&&(e.tableWidth=e.extendWidth?"auto":"wrap",console.error("Use of deprecated option: extendWidth, use tableWidth instead.")),void 0!==e.margins&&(void 0===e.margin&&(e.margin=e.margins),console.error("Use of deprecated option: margins, use margin instead.")),e.startY&&"number"!=typeof e.startY&&(console.error("Invalid value for startY option",e.startY),delete e.startY),!e.didDrawPage&&(e.afterPageContent||e.beforePageContent||e.afterPageAdd)&&(console.error("The afterPageContent, beforePageContent and afterPageAdd hooks are deprecated. Use didDrawPage instead"),e.didDrawPage=function(n){t.applyStyles(t.userStyles),e.beforePageContent&&e.beforePageContent(n),t.applyStyles(t.userStyles),e.afterPageContent&&e.afterPageContent(n),t.applyStyles(t.userStyles),e.afterPageAdd&&n.pageNumber>1&&n.afterPageAdd(n),t.applyStyles(t.userStyles)}),["createdHeaderCell","drawHeaderRow","drawRow","drawHeaderCell"].forEach((function(t){e[t]&&console.error('The "'+t+'" hook has changed in version 3.0, check the changelog for how to migrate.')})),[["showFoot","showFooter"],["showHead","showHeader"],["didDrawPage","addPageContent"],["didParseCell","createdCell"],["headStyles","headerStyles"]].forEach((function(t){var n=t[0],o=t[1];e[o]&&(console.error("Use of deprecated option "+o+". Use "+n+" instead"),e[n]=e[o])})),[["padding","cellPadding"],["lineHeight","rowHeight"],"fontSize","overflow"].forEach((function(t){var n="string"==typeof t?t:t[0],o="string"==typeof t?t:t[1];void 0!==e[n]&&(void 0===e.styles[o]&&(e.styles[o]=e[n]),console.error("Use of deprecated option: "+n+", use the style "+o+" instead."))}));for(var o=0,r=["styles","bodyStyles","headStyles","footStyles"];o<r.length;o++){n(e[r[o]]||{})}for(var i=e.columnStyles||{},l=0,a=Object.keys(i);l<a.length;l++){n(i[a[l]]||{})}},l=0,a=[e,o,r];l<a.length;l++){i(a[l])}}},287:(t,e,n)=>{Object.defineProperty(e,"__esModule",{value:!0}),e.Column=e.Cell=e.Row=e.Table=void 0;var o=n(913),r=n(662),i=n(200),l=function(){function t(t,e){this.pageNumber=1,this.pageCount=1,this.id=t.id,this.settings=t.settings,this.styles=t.styles,this.hooks=t.hooks,this.columns=e.columns,this.head=e.head,this.body=e.body,this.foot=e.foot}return t.prototype.getHeadHeight=function(t){return this.head.reduce((function(e,n){return e+n.getMaxCellHeight(t)}),0)},t.prototype.getFootHeight=function(t){return this.foot.reduce((function(e,n){return e+n.getMaxCellHeight(t)}),0)},t.prototype.allRows=function(){return this.head.concat(this.body).concat(this.foot)},t.prototype.callCellHooks=function(t,e,n,o,i,l){for(var a=0,s=e;a<s.length;a++){var u=!1===(0,s[a])(new r.CellHookData(t,this,n,o,i,l));if(n.text=Array.isArray(n.text)?n.text:[n.text],u)return!1}return!0},t.prototype.callEndPageHooks=function(t,e){t.applyStyles(t.userStyles);for(var n=0,o=this.hooks.didDrawPage;n<o.length;n++){(0,o[n])(new r.HookData(t,this,e))}},t.prototype.getWidth=function(t){if("number"==typeof this.settings.tableWidth)return this.settings.tableWidth;if("wrap"===this.settings.tableWidth)return this.columns.reduce((function(t,e){return t+e.wrappedWidth}),0);var e=this.settings.margin;return t-e.left-e.right},t}();e.Table=l;var a=function(){function t(t,e,n,r,i){void 0===i&&(i=!1),this.height=0,this.raw=t,t instanceof o.HtmlRowInput&&(this.raw=t._element,this.element=t._element),this.index=e,this.section=n,this.cells=r,this.spansMultiplePages=i}return t.prototype.getMaxCellHeight=function(t){var e=this;return t.reduce((function(t,n){var o;return Math.max(t,(null===(o=e.cells[n.index])||void 0===o?void 0:o.height)||0)}),0)},t.prototype.hasRowSpan=function(t){var e=this;return t.filter((function(t){var n=e.cells[t.index];return!!n&&n.rowSpan>1})).length>0},t.prototype.canEntireRowFit=function(t,e){return this.getMaxCellHeight(e)<=t},t.prototype.getMinimumRowHeight=function(t,e){var n=this;return t.reduce((function(t,r){var i=n.cells[r.index];if(!i)return 0;var l=i.styles.fontSize/e.scaleFactor()*o.FONT_ROW_RATIO,a=i.padding("vertical")+l;return a>t?a:t}),0)},t}();e.Row=a;var s=function(){function t(t,e,n){var o,r;this.contentHeight=0,this.contentWidth=0,this.wrappedWidth=0,this.minReadableWidth=0,this.minWidth=0,this.width=0,this.height=0,this.x=0,this.y=0,this.styles=e,this.section=n,this.raw=t;var i=t;null==t||"object"!=typeof t||Array.isArray(t)?(this.rowSpan=1,this.colSpan=1):(this.rowSpan=t.rowSpan||1,this.colSpan=t.colSpan||1,i=null!==(r=null!==(o=t.content)&&void 0!==o?o:t.title)&&void 0!==r?r:t,t._element&&(this.raw=t._element));var l=null!=i?""+i:"";this.text=l.split(/\r\n|\r|\n/g)}return t.prototype.getTextPos=function(){var t,e;if("top"===this.styles.valign)t=this.y+this.padding("top");else if("bottom"===this.styles.valign)t=this.y+this.height-this.padding("bottom");else{var n=this.height-this.padding("vertical");t=this.y+n/2+this.padding("top")}if("right"===this.styles.halign)e=this.x+this.width-this.padding("right");else if("center"===this.styles.halign){var o=this.width-this.padding("horizontal");e=this.x+o/2+this.padding("left")}else e=this.x+this.padding("left");return{x:e,y:t}},t.prototype.getContentHeight=function(t){var e=(Array.isArray(this.text)?this.text.length:1)*(this.styles.fontSize/t*o.FONT_ROW_RATIO)+this.padding("vertical");return Math.max(e,this.styles.minCellHeight)},t.prototype.padding=function(t){var e=(0,i.parseSpacing)(this.styles.cellPadding,0);return"vertical"===t?e.top+e.bottom:"horizontal"===t?e.left+e.right:e[t]},t}();e.Cell=s;var u=function(){function t(t,e,n){this.wrappedWidth=0,this.minReadableWidth=0,this.minWidth=0,this.width=0,this.dataKey=t,this.raw=e,this.index=n}return t.prototype.getMaxCustomCellWidth=function(t){for(var e=0,n=0,o=t.allRows();n<o.length;n++){var r=o[n].cells[this.index];r&&"number"==typeof r.styles.cellWidth&&(e=Math.max(e,r.styles.cellWidth))}return e},t}();e.Column=u},360:(t,e)=>{Object.defineProperty(e,"__esModule",{value:!0}),e.assign=void 0,e.assign=function(t,e,n,o,r){if(null==t)throw new TypeError("Cannot convert undefined or null to object");for(var i=Object(t),l=1;l<arguments.length;l++){var a=arguments[l];if(null!=a)for(var s in a)Object.prototype.hasOwnProperty.call(a,s)&&(i[s]=a[s])}return i}},858:(t,e,n)=>{Object.defineProperty(e,"__esModule",{value:!0}),e.createTable=void 0;var o=n(323),r=n(287),i=n(189),l=n(913),a=n(360);function s(t,e,n,o,i,l){var a={};return e.map((function(e,s){for(var u=0,h={},c=0,f=0,p=0,g=n;p<g.length;p++){var y=g[p];if(null==a[y.index]||0===a[y.index].left)if(0===f){var v=void 0,m={};"object"!=typeof(v=Array.isArray(e)?e[y.index-c-u]:e[y.dataKey])||Array.isArray(v)||(m=(null==v?void 0:v.styles)||{});var b=d(t,y,s,i,o,l,m),w=new r.Cell(v,b,t);h[y.dataKey]=w,h[y.index]=w,f=w.colSpan-1,a[y.index]={left:w.rowSpan-1,times:f}}else f--,c++;else a[y.index].left--,f=a[y.index].times,u++}return new r.Row(e,s,t,h)}))}function u(t,e){var n={};return t.forEach((function(t){if(null!=t.raw){var o=function(t,e){if("head"===t){if("object"==typeof e)return e.header||e.title||null;if("string"==typeof e||"number"==typeof e)return e}else if("foot"===t&&"object"==typeof e)return e.footer;return null}(e,t.raw);null!=o&&(n[t.dataKey]=o)}})),Object.keys(n).length>0?n:null}function d(t,e,n,o,r,i,s){var u,d=(0,l.getTheme)(o);"head"===t?u=r.headStyles:"body"===t?u=r.bodyStyles:"foot"===t&&(u=r.footStyles);var h=(0,a.assign)({},d.table,d[t],r.styles,u),c=r.columnStyles[e.dataKey]||r.columnStyles[e.index]||{},f="body"===t?c:{},p="body"===t&&n%2==0?(0,a.assign)({},d.alternateRow,r.alternateRowStyles):{},g=(0,l.defaultStyles)(i),y=(0,a.assign)({},g,h,p,f);return(0,a.assign)(y,s)}e.createTable=function(t,e){var n=new o.DocHandler(t),l=function(t,e){var n=t.content,o=function(t){return t.map((function(t,e){var n,o,i;return i="object"==typeof t&&null!==(o=null!==(n=t.dataKey)&&void 0!==n?n:t.key)&&void 0!==o?o:e,new r.Column(i,t,e)}))}(n.columns);if(0===n.head.length){(i=u(o,"head"))&&n.head.push(i)}if(0===n.foot.length){var i;(i=u(o,"foot"))&&n.foot.push(i)}var l=t.settings.theme,a=t.styles;return{columns:o,head:s("head",n.head,o,a,l,e),body:s("body",n.body,o,a,l,e),foot:s("foot",n.foot,o,a,l,e)}}(e,n.scaleFactor()),a=new r.Table(e,l);return(0,i.calculateWidths)(n,a),n.applyStyles(n.userStyles),a}},49:(t,e,n)=>{Object.defineProperty(e,"__esModule",{value:!0}),e.addPage=e.drawTable=void 0;var o=n(913),r=n(200),i=n(287),l=n(323),a=n(360),s=n(938),u=n(435);function d(t,e,n){var r=t.styles.fontSize/n.scaleFactor()*o.FONT_ROW_RATIO,i=t.padding("vertical"),l=Math.floor((e-i)/r);return Math.max(0,l)}function h(t,e,n,o,r,l,s){var u=function(t,e,n,o){var r=e.settings.margin.bottom,i=e.settings.showFoot;("everyPage"===i||"lastPage"===i&&n)&&(r+=e.getFootHeight(e.columns));return t.pageSize().height-o.y-r}(t,e,o,l);if(n.canEntireRowFit(u,s))c(t,e,n,l,s);else if(function(t,e,n,o){var r=t.pageSize().height,i=o.settings.margin,l=r-(i.top+i.bottom);"body"===e.section&&(l-=o.getHeadHeight(o.columns)+o.getFootHeight(o.columns));var a=e.getMinimumRowHeight(o.columns,t),s=a<n;if(a>l)return console.error("Will not be able to print row "+e.index+" correctly since it's minimum height is larger than page height"),!0;if(!s)return!1;var u=e.hasRowSpan(o.columns);return e.getMaxCellHeight(o.columns)>l?(u&&console.error("The content of row "+e.index+" will not be drawn correctly since drawing rows with a height larger than the page height and has cells with rowspans is not supported."),!0):!u&&"avoid"!==o.settings.rowPageBreak}(t,n,u,e)){var f=function(t,e,n,o){var r={};t.spansMultiplePages=!0,t.height=0;for(var l=0,s=0,u=n.columns;s<u.length;s++){var h=u[s];if(m=t.cells[h.index]){Array.isArray(m.text)||(m.text=[m.text]);var c=new i.Cell(m.raw,m.styles,m.section);(c=(0,a.assign)(c,m)).text=[];var f=d(m,e,o);m.text.length>f&&(c.text=m.text.splice(f,m.text.length));var p=o.scaleFactor();m.contentHeight=m.getContentHeight(p),m.contentHeight>=e&&(m.contentHeight=e,c.styles.minCellHeight-=e),m.contentHeight>t.height&&(t.height=m.contentHeight),c.contentHeight=c.getContentHeight(p),c.contentHeight>l&&(l=c.contentHeight),r[h.index]=c}}var g=new i.Row(t.raw,-1,t.section,r,!0);g.height=l;for(var y=0,v=n.columns;y<v.length;y++){var m;h=v[y],(c=g.cells[h.index])&&(c.height=g.height),(m=t.cells[h.index])&&(m.height=t.height)}return g}(n,u,e,t);c(t,e,n,l,s),p(t,e,r,l,s),h(t,e,f,o,r,l,s)}else p(t,e,r,l,s),h(t,e,n,o,r,l,s)}function c(t,e,n,o,r){o.x=e.settings.margin.left;for(var i=0,l=r;i<l.length;i++){var a=l[i],u=n.cells[a.index];if(u)if(t.applyStyles(u.styles),u.x=o.x,u.y=o.y,!1!==e.callCellHooks(t,e.hooks.willDrawCell,u,n,a,o)){f(t,u,o);var d=u.getTextPos();(0,s.default)(u.text,d.x,d.y,{halign:u.styles.halign,valign:u.styles.valign,maxWidth:Math.ceil(u.width-u.padding("left")-u.padding("right"))},t.getDocument()),e.callCellHooks(t,e.hooks.didDrawCell,u,n,a,o),o.x+=a.width}else o.x+=a.width;else o.x+=a.width}o.y+=n.height}function f(t,e,n){var o=e.styles;if(t.getDocument().setFillColor(t.getDocument().getFillColor()),"number"==typeof o.lineWidth){var i=(0,r.getFillStyle)(o.lineWidth,o.fillColor);i&&t.rect(e.x,n.y,e.width,e.height,i)}else if("object"==typeof o.lineWidth){t.rect(e.x,n.y,e.width,e.height,"F");var l=Object.keys(o.lineWidth),a=o.lineWidth;l.map((function(i){var l=(0,r.getFillStyle)(a[i],o.fillColor);!function(t,e,n,o,r,i){var l,a,s,u;switch(o){case"top":l=n.x,a=n.y,s=n.x+e.width,u=n.y;break;case"left":l=n.x,a=n.y,s=n.x,u=n.y+e.height;break;case"right":l=n.x+e.width,a=n.y,s=n.x+e.width,u=n.y+e.height;break;default:l=n.x,a=n.y+e.height-i,s=n.x+e.width,u=n.y+e.height-i}t.getDocument().setLineWidth(i),t.getDocument().line(l,a,s,u,r)}(t,e,n,i,l||"S",a[i])}))}}function p(t,e,n,o,i){void 0===i&&(i=[]),t.applyStyles(t.userStyles),"everyPage"===e.settings.showFoot&&e.foot.forEach((function(n){return c(t,e,n,o,i)})),e.callEndPageHooks(t,o);var l=e.settings.margin;(0,r.addTableBorder)(t,e,n,o),g(t),e.pageNumber++,e.pageCount++,o.x=l.left,o.y=l.top,n.y=l.top,"everyPage"===e.settings.showHead&&e.head.forEach((function(n){return c(t,e,n,o,i)}))}function g(t){var e=t.pageNumber();t.setPage(e+1),t.pageNumber()===e&&t.addPage()}e.drawTable=function(t,e){var n=e.settings,o=n.startY,i=n.margin,s={x:i.left,y:o},d=e.getHeadHeight(e.columns)+e.getFootHeight(e.columns),f=o+i.bottom+d;"avoid"===n.pageBreak&&(f+=e.allRows().reduce((function(t,e){return t+e.height}),0));var y=new l.DocHandler(t);("always"===n.pageBreak||null!=n.startY&&f>y.pageSize().height)&&(g(y),s.y=i.top);var v=(0,a.assign)({},s);e.startPageNumber=y.pageNumber(),!0===n.horizontalPageBreak?function(t,e,n,o){u.default.calculateAllColumnsCanFitInPage(t,e).map((function(r,i){t.applyStyles(t.userStyles),i>0?p(t,e,n,o,r.columns):function(t,e,n,o){var r=e.settings;t.applyStyles(t.userStyles),("firstPage"===r.showHead||"everyPage"===r.showHead)&&e.head.forEach((function(r){return c(t,e,r,n,o)}))}(t,e,o,r.columns),function(t,e,n,o,r){t.applyStyles(t.userStyles),e.body.forEach((function(i,l){var a=l===e.body.length-1;h(t,e,i,a,n,o,r)}))}(t,e,n,o,r.columns),function(t,e,n,o){var r=e.settings;t.applyStyles(t.userStyles),("lastPage"===r.showFoot||"everyPage"===r.showFoot)&&e.foot.forEach((function(r){return c(t,e,r,n,o)}))}(t,e,o,r.columns)}))}(y,e,v,s):(y.applyStyles(y.userStyles),"firstPage"!==n.showHead&&"everyPage"!==n.showHead||e.head.forEach((function(t){return c(y,e,t,s,e.columns)})),y.applyStyles(y.userStyles),e.body.forEach((function(t,n){var o=n===e.body.length-1;h(y,e,t,o,v,s,e.columns)})),y.applyStyles(y.userStyles),"lastPage"!==n.showFoot&&"everyPage"!==n.showFoot||e.foot.forEach((function(t){return c(y,e,t,s,e.columns)}))),(0,r.addTableBorder)(y,e,v,s),e.callEndPageHooks(y,s),e.finalY=s.y,t.lastAutoTable=e,t.previousAutoTable=e,t.autoTable&&(t.autoTable.previous=e),y.applyStyles(y.userStyles)},e.addPage=p},435:(t,e,n)=>{Object.defineProperty(e,"__esModule",{value:!0});var o=n(200),r=function(t,e){var n=(0,o.parseSpacing)(e.settings.margin,0);return t.pageSize().width-(n.left+n.right)},i=function(t,e,n){void 0===n&&(n={});var o=r(t,e),i=e.settings.horizontalPageBreakRepeat,l=null,a=[],s=[],u=e.columns.length,d=n&&n.start?n.start:0;for(null!=i&&(l=e.columns.find((function(t){return t.dataKey===i||t.index===i})))&&(a.push(l.index),s.push(e.columns[l.index]),o-=l.wrappedWidth);d<u;)if((null==l?void 0:l.index)!==d){var h=e.columns[d].wrappedWidth;if(o<h){0!==d&&d!==n.start||(a.push(d),s.push(e.columns[d]));break}a.push(d),s.push(e.columns[d]),o-=h,d++}else d++;return{colIndexes:a,columns:s,lastIndex:d}};e.default={getColumnsCanFitInPage:i,calculateAllColumnsCanFitInPage:function(t,e){for(var n=[],o=0,r=e.columns.length;o<r;){var l=i(t,e,{start:0===o?0:o});l&&l.columns&&l.columns.length?(o=l.lastIndex,n.push(l)):o++}return n},getPageAvailableWidth:r}},189:(t,e,n)=>{Object.defineProperty(e,"__esModule",{value:!0}),e.ellipsize=e.resizeColumns=e.calculateWidths=void 0;var o=n(200),r=n(435);function i(t,e,n){for(var o=e,r=t.reduce((function(t,e){return t+e.wrappedWidth}),0),l=0;l<t.length;l++){var a=t[l],s=o*(a.wrappedWidth/r),u=a.width+s,d=n(a),h=u<d?d:u;e-=h-a.width,a.width=h}if(e=Math.round(1e10*e)/1e10){var c=t.filter((function(t){return!(e<0)||t.width>n(t)}));c.length&&(e=i(c,e,n))}return e}function l(t,e,n,r,i){return t.map((function(t){return function(t,e,n,r,i){var l=1e4*r.scaleFactor();if((e=Math.ceil(e*l)/l)>=(0,o.getStringWidth)(t,n,r))return t;for(;e<(0,o.getStringWidth)(t+i,n,r)&&!(t.length<=1);)t=t.substring(0,t.length-1);return t.trim()+i}(t,e,n,r,i)}))}e.calculateWidths=function(t,e){!function(t,e){var n=t.scaleFactor(),i=e.settings.horizontalPageBreak,l=r.default.getPageAvailableWidth(t,e);e.allRows().forEach((function(r){for(var a=0,s=e.columns;a<s.length;a++){var u=s[a],d=r.cells[u.index];if(d){var h=e.hooks.didParseCell;e.callCellHooks(t,h,d,r,u,null);var c=d.padding("horizontal");d.contentWidth=(0,o.getStringWidth)(d.text,d.styles,t)+c;var f=(0,o.getStringWidth)(d.text.join(" ").split(/\s+/),d.styles,t);if(d.minReadableWidth=f+d.padding("horizontal"),"number"==typeof d.styles.cellWidth)d.minWidth=d.styles.cellWidth,d.wrappedWidth=d.styles.cellWidth;else if("wrap"===d.styles.cellWidth||!0===i)d.contentWidth>l?(d.minWidth=l,d.wrappedWidth=l):(d.minWidth=d.contentWidth,d.wrappedWidth=d.contentWidth);else{var p=10/n;d.minWidth=d.styles.minCellWidth||p,d.wrappedWidth=d.contentWidth,d.minWidth>d.wrappedWidth&&(d.wrappedWidth=d.minWidth)}}}})),e.allRows().forEach((function(t){for(var n=0,o=e.columns;n<o.length;n++){var r=o[n],i=t.cells[r.index];if(i&&1===i.colSpan)r.wrappedWidth=Math.max(r.wrappedWidth,i.wrappedWidth),r.minWidth=Math.max(r.minWidth,i.minWidth),r.minReadableWidth=Math.max(r.minReadableWidth,i.minReadableWidth);else{var l=e.styles.columnStyles[r.dataKey]||e.styles.columnStyles[r.index]||{},a=l.cellWidth||l.minCellWidth;a&&"number"==typeof a&&(r.minWidth=a,r.wrappedWidth=a)}i&&(i.colSpan>1&&!r.minWidth&&(r.minWidth=i.minWidth),i.colSpan>1&&!r.wrappedWidth&&(r.wrappedWidth=i.minWidth))}}))}(t,e);var n=[],a=0;e.columns.forEach((function(t){var o=t.getMaxCustomCellWidth(e);o?t.width=o:(t.width=t.wrappedWidth,n.push(t)),a+=t.width}));var s=e.getWidth(t.pageSize().width)-a;s&&(s=i(n,s,(function(t){return Math.max(t.minReadableWidth,t.minWidth)}))),s&&(s=i(n,s,(function(t){return t.minWidth}))),s=Math.abs(s),!e.settings.horizontalPageBreak&&s>.1/t.scaleFactor()&&(s=s<1?s:Math.round(s),console.error("Of the table content, "+s+" units width could not fit page")),function(t){for(var e=t.allRows(),n=0;n<e.length;n++)for(var o=e[n],r=null,i=0,l=0,a=0;a<t.columns.length;a++){var s=t.columns[a];if((l-=1)>1&&t.columns[a+1])i+=s.width,delete o.cells[s.index];else if(r){var u=r;delete o.cells[s.index],r=null,u.width=s.width+i}else{if(!(u=o.cells[s.index]))continue;if(l=u.colSpan,i=0,u.colSpan>1){r=u,i+=s.width;continue}u.width=s.width+i}}}(e),function(t,e){for(var n={count:0,height:0},o=0,r=t.allRows();o<r.length;o++){for(var i=r[o],a=0,s=t.columns;a<s.length;a++){var u=s[a],d=i.cells[u.index];if(d){e.applyStyles(d.styles,!0);var h=d.width-d.padding("horizontal");"linebreak"===d.styles.overflow?d.text=e.splitTextToSize(d.text,h+1/e.scaleFactor(),{fontSize:d.styles.fontSize}):"ellipsize"===d.styles.overflow?d.text=l(d.text,h,d.styles,e,"..."):"hidden"===d.styles.overflow?d.text=l(d.text,h,d.styles,e,""):"function"==typeof d.styles.overflow&&(d.text=d.styles.overflow(d.text,h)),d.contentHeight=d.getContentHeight(e.scaleFactor());var c=d.contentHeight/d.rowSpan;d.rowSpan>1&&n.count*n.height<c*d.rowSpan?n={height:c,count:d.rowSpan}:n&&n.count>0&&n.height>c&&(c=n.height),c>i.height&&(i.height=c)}}n.count--}}(e,t),function(t){for(var e={},n=1,o=t.allRows(),r=0;r<o.length;r++)for(var i=o[r],l=0,a=t.columns;l<a.length;l++){var s=a[l],u=e[s.index];if(n>1)n--,delete i.cells[s.index];else if(u)u.cell.height+=i.height,n=u.cell.colSpan,delete i.cells[s.index],u.left--,u.left<=1&&delete e[s.index];else{var d=i.cells[s.index];if(!d)continue;if(d.height=i.height,d.rowSpan>1){var h=o.length-r,c=d.rowSpan>h?h:d.rowSpan;e[s.index]={cell:d,left:c,row:i}}}}}(e)},e.resizeColumns=i,e.ellipsize=l},84:e=>{if(void 0===t){var n=new Error("Cannot find module 'undefined'");throw n.code="MODULE_NOT_FOUND",n}e.exports=t}},n={};function o(t){var r=n[t];if(void 0!==r)return r.exports;var i=n[t]={exports:{}};return e[t].call(i.exports,i,i.exports,o),i.exports}var r={};return(()=>{var t=r;Object.defineProperty(t,"__esModule",{value:!0}),t.Cell=t.Column=t.Row=t.Table=t.CellHookData=t.__drawTable=t.__createTable=t.applyPlugin=void 0;var e=o(790),n=o(587),i=o(49),l=o(858),a=o(287);Object.defineProperty(t,"Table",{enumerable:!0,get:function(){return a.Table}});var s=o(662);Object.defineProperty(t,"CellHookData",{enumerable:!0,get:function(){return s.CellHookData}});var u=o(287);function d(t){(0,e.default)(t)}Object.defineProperty(t,"Cell",{enumerable:!0,get:function(){return u.Cell}}),Object.defineProperty(t,"Column",{enumerable:!0,get:function(){return u.Column}}),Object.defineProperty(t,"Row",{enumerable:!0,get:function(){return u.Row}}),t.applyPlugin=d,t.default=function(t,e){var o=(0,n.parseInput)(t,e),r=(0,l.createTable)(t,o);(0,i.drawTable)(t,r)},t.__createTable=function(t,e){var o=(0,n.parseInput)(t,e);return(0,l.createTable)(t,o)},t.__drawTable=function(t,e){(0,i.drawTable)(t,e)};try{var h=o(84);h.jsPDF&&(h=h.jsPDF),d(h)}catch(t){}})(),r})()}));
 
 /***/ }),
 
@@ -2690,9 +329,9 @@ var Pt=function(){function t(){this.pos=0,this.bufferLength=0,this.eof=!1,this.b
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {/* cpexcel.js (C) 2013-present SheetJS -- http://sheetjs.com */
+/* WEBPACK VAR INJECTION */(function(Buffer) {/*! cpexcel.js (C) 2013-present SheetJS -- http://sheetjs.com */
 /*jshint -W100 */
-var cptable = {version:"1.14.0"};
+var cptable = {version:"1.15.0"};
 cptable[437] = (function(){ var d = "\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒáíóúñÑªº¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■ ", D = [], e = {}; for(var i=0;i!=d.length;++i) { if(d.charCodeAt(i) !== 0xFFFD) e[d.charAt(i)] = i; D[i] = d.charAt(i); } return {"enc": e, "dec": D }; })();
 cptable[620] = (function(){ var d = "\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ÇüéâäàąçêëèïîćÄĄĘęłôöĆûùŚÖÜ¢Ł¥śƒŹŻóÓńŃźż¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■ ", D = [], e = {}; for(var i=0;i!=d.length;++i) { if(d.charCodeAt(i) !== 0xFFFD) e[d.charAt(i)] = i; D[i] = d.charAt(i); } return {"enc": e, "dec": D }; })();
 cptable[737] = (function(){ var d = "\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρσςτυφχψ░▒▓│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀ωάέήϊίόύϋώΆΈΉΊΌΎΏ±≥≤ΪΫ÷≈°∙·√ⁿ²■ ", D = [], e = {}; for(var i=0;i!=d.length;++i) { if(d.charCodeAt(i) !== 0xFFFD) e[d.charAt(i)] = i; D[i] = d.charAt(i); } return {"enc": e, "dec": D }; })();
@@ -3665,9 +1304,10 @@ return {"enc": e, "dec": d }; })();
 cptable[10029] = (function(){ var d = "\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ÄĀāÉĄÖÜáąČäčĆćéŹźĎíďĒēĖóėôöõúĚěü†°Ę£§•¶ß®©™ę¨≠ģĮįĪ≤≥īĶ∂∑łĻļĽľĹĺŅņŃ¬√ńŇ∆«»… ňŐÕőŌ–—“”‘’÷◊ōŔŕŘ‹›řŖŗŠ‚„šŚśÁŤťÍŽžŪÓÔūŮÚůŰűŲųÝýķŻŁżĢˇ", D = [], e = {}; for(var i=0;i!=d.length;++i) { if(d.charCodeAt(i) !== 0xFFFD) e[d.charAt(i)] = i; D[i] = d.charAt(i); } return {"enc": e, "dec": D }; })();
 cptable[10079] = (function(){ var d = "\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûüÝ°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄¤ÐðÞþý·‚„‰ÂÊÁËÈÍÎÏÌÓÔ�ÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ", D = [], e = {}; for(var i=0;i!=d.length;++i) { if(d.charCodeAt(i) !== 0xFFFD) e[d.charAt(i)] = i; D[i] = d.charAt(i); } return {"enc": e, "dec": D }; })();
 cptable[10081] = (function(){ var d = "\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸĞğİıŞş‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔ�ÒÚÛÙ�ˆ˜¯˘˙˚¸˝˛ˇ", D = [], e = {}; for(var i=0;i!=d.length;++i) { if(d.charCodeAt(i) !== 0xFFFD) e[d.charAt(i)] = i; D[i] = d.charAt(i); } return {"enc": e, "dec": D }; })();
+cptable[28591] = (function(){ var d = "\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ", D = [], e = {}; for(var i=0;i!=d.length;++i) { if(d.charCodeAt(i) !== 0xFFFD) e[d.charAt(i)] = i; D[i] = d.charAt(i); } return {"enc": e, "dec": D }; })();
 // eslint-disable-next-line no-undef
 if ( true && module.exports && typeof DO_NOT_EXPORT_CODEPAGE === 'undefined') module.exports = cptable;
-/* cputils.js (C) 2013-present SheetJS -- http://sheetjs.com */
+/*! cputils.js (C) 2013-present SheetJS -- http://sheetjs.com */
 /* vim: set ft=javascript: */
 /*jshint newcap: false */
 (function(root, factory) {
@@ -4541,9 +2181,9 @@ DataReader.prototype = {
         // see implementations
     },
     /**
-     * Find the last occurence of a zip signature (4 bytes).
+     * Find the last occurrence of a zip signature (4 bytes).
      * @param {string} sig the signature to find.
-     * @return {number} the index of the last occurence, -1 if not found.
+     * @return {number} the index of the last occurrence, -1 if not found.
      */
     lastIndexOfSignature: function(sig) {
         // see implementations
@@ -13228,7 +10868,7 @@ module.exports = ZStream;
 /*global global, exports, module, require:false, process:false, Buffer:false, ArrayBuffer:false */
 var XLSX = {};
 function make_xlsx_lib(XLSX){
-XLSX.version = '0.17.0';
+XLSX.version = '0.17.4';
 var current_codepage = 1200, current_ansi = 1252;
 /*global cptable:true, window */
 if(true) {
@@ -14872,7 +12512,7 @@ function sleuth_fat(idx, cnt, sectors, ssz, fat_addrs) {
 			if((q = __readInt32LE(sector,i*4)) === ENDOFCHAIN) break;
 			fat_addrs.push(q);
 		}
-		sleuth_fat(__readInt32LE(sector,ssz-4),cnt - 1, sectors, ssz, fat_addrs);
+		if(cnt >= 1) sleuth_fat(__readInt32LE(sector,ssz-4),cnt - 1, sectors, ssz, fat_addrs);
 	}
 }
 
@@ -16083,7 +13723,8 @@ function fill(c,l) { var o = ""; while(o.length < l) o+=c; return o; }
 /* TODO: stress test */
 function fuzzynum(s) {
 	var v = Number(s);
-	if(!isNaN(v)) return v;
+	if(isFinite(v)) return v;
+	if(!isNaN(v)) return NaN;
 	if(!/\d/.test(s)) return v;
 	var wt = 1;
 	var ss = s.replace(/([\d]),([\d])/g,"$1$2").replace(/[$]/g,"").replace(/[%]/g, function() { wt *= 100; return "";});
@@ -16139,10 +13780,10 @@ function getdata(data) { return (data && data.name.slice(-4) === ".bin") ? getda
 /* OASIS does not comment on filename case sensitivity */
 function safegetzipfile(zip, file) {
 	var k = zip.FullPaths || keys(zip.files);
-	var f = file.toLowerCase(), g = f.replace(/\//g,'\\');
+	var f = file.toLowerCase().replace(/[\/]/g, '\\'), g = f.replace(/\\/g,'\/');
 	for(var i=0; i<k.length; ++i) {
-		var n = k[i].toLowerCase();
-		if(f == n || g == n) return zip.files[k[i]];
+		var n = k[i].replace(/^Root Entry[\/]/,"").toLowerCase();
+		if(f == n || g == n) return zip.files ? zip.files[k[i]] : zip.FileIndex[i];
 	}
 	return null;
 }
@@ -16736,7 +14377,7 @@ function recordhopper(data, cb, opts) {
 		length = tmpbyte & 0x7F;
 		for(cntbyte = 1; cntbyte <4 && (tmpbyte & 0x80); ++cntbyte) length += ((tmpbyte = data.read_shift(1)) & 0x7F)<<(7*cntbyte);
 		tgt = data.l + length;
-		var d = (R.f||parsenoop)(data, length, opts);
+		var d = R.f && R.f(data, length, opts);
 		data.l = tgt;
 		if(cb(d, R.n, RT)) return;
 	}
@@ -16961,6 +14602,7 @@ function format_cell(cell, v, o) {
 	if(cell == null || cell.t == null || cell.t == 'z') return "";
 	if(cell.w !== undefined) return cell.w;
 	if(cell.t == 'd' && !cell.z && o && o.dateNF) cell.z = o.dateNF;
+	if(cell.t == "e") return BErr[cell.v] || cell.v;
 	if(v == undefined) return safe_format_cell(cell, cell.v);
 	return safe_format_cell(cell, v);
 }
@@ -17008,7 +14650,12 @@ function sheet_add_aoa(_ws, data, opts) {
 			if(data[R][C] && typeof data[R][C] === 'object' && !Array.isArray(data[R][C]) && !(data[R][C] instanceof Date)) cell = data[R][C];
 			else {
 				if(Array.isArray(cell.v)) { cell.f = data[R][C][1]; cell.v = cell.v[0]; }
-				if(cell.v === null) { if(cell.f) cell.t = 'n'; else if(!o.sheetStubs) continue; else cell.t = 'z'; }
+				if(cell.v === null) {
+					if(cell.f) cell.t = 'n';
+					else if(o.nullError) { cell.t = 'e'; cell.v = 0; }
+					else if(!o.sheetStubs) continue;
+					else cell.t = 'z';
+				}
 				else if(typeof cell.v === 'number') cell.t = 'n';
 				else if(typeof cell.v === 'boolean') cell.t = 'b';
 				else if(cell.v instanceof Date) {
@@ -17124,6 +14771,19 @@ function write_XLSBCell(cell, o) {
 	return o;
 }
 
+/* Short XLSB Cell does not include column */
+function parse_XLSBShortCell(data) {
+	var iStyleRef = data.read_shift(2);
+	iStyleRef += data.read_shift(1) <<16;
+	data.l++; //var fPhShow = data.read_shift(1);
+	return { c:-1, iStyleRef: iStyleRef };
+}
+function write_XLSBShortCell(cell, o) {
+	if(o == null) o = new_buf(4);
+	o.write_shift(3, cell.iStyleRef || cell.s);
+	o.write_shift(1, 0); /* fPhShow */
+	return o;
+}
 
 /* [MS-XLSB] 2.5.21 */
 var parse_XLSBCodeName = parse_XLWideString;
@@ -17398,7 +15058,11 @@ var DocSummaryPIDDSI = {
 0x1B: { n: 'ContentStatus', t: VT_STRING },
 0x1C: { n: 'Language', t: VT_STRING },
 0x1D: { n: 'Version', t: VT_STRING },
-0xFF: {}
+0xFF: {},
+	/* [MS-OLEPS] 2.18 */
+0x80000000: { n: 'Locale', t: VT_UI4 },
+0x80000003: { n: 'Behavior', t: VT_UI4 },
+0x72627262: {}
 };
 
 /* [MS-OSHARED] 2.3.3.2.1.1 Summary Information Property Set PIDSI */
@@ -17422,20 +15086,12 @@ var SummaryPIDSI = {
 0x11: { n: 'Thumbnail', t: VT_CF },
 0x12: { n: 'Application', t: VT_STRING },
 0x13: { n: 'DocSecurity', t: VT_I4 },
-0xFF: {}
-};
-
-/* [MS-OLEPS] 2.18 */
-var SpecialProperties = {
+0xFF: {},
+	/* [MS-OLEPS] 2.18 */
 0x80000000: { n: 'Locale', t: VT_UI4 },
 0x80000003: { n: 'Behavior', t: VT_UI4 },
 0x72627262: {}
 };
-
-(function() {
-	for(var y in SpecialProperties) if(Object.prototype.hasOwnProperty.call(SpecialProperties, y))
-	DocSummaryPIDDSI[y] = SummaryPIDSI[y] = SpecialProperties[y];
-})();
 
 var DocSummaryRE = evert_key(DocSummaryPIDDSI, "n");
 var SummaryRE = evert_key(SummaryPIDSI, "n");
@@ -18063,7 +15719,7 @@ function write_rdf(rdf) {
 }
 /* TODO: pull properties */
 var write_meta_ods = (function() {
-	var payload = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><office:document-meta xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xlink="http://www.w3.org/1999/xlink" office:version="1.2"><office:meta><meta:generator>Sheet' + 'JS ' + XLSX.version + '</meta:generator></office:meta></office:document-meta>';
+	var payload = '<office:document-meta xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xlink="http://www.w3.org/1999/xlink" office:version="1.2"><office:meta><meta:generator>Sheet' + 'JS ' + XLSX.version + '</meta:generator></office:meta></office:document-meta>';
 	return function wmo() {
 		return payload;
 	};
@@ -18472,6 +16128,18 @@ function parse_VtStringBase(blob, stringType, pad) {
 function parse_VtString(blob, t, pad) { return parse_VtStringBase(blob, t, pad === false ? 0: 4); }
 function parse_VtUnalignedString(blob, t) { if(!t) throw new Error("VtUnalignedString must have positive length"); return parse_VtStringBase(blob, t, 0); }
 
+/* [MS-OSHARED] 2.3.3.1.7 VtVecLpwstrValue */
+function parse_VtVecLpwstrValue(blob) {
+	var length = blob.read_shift(4);
+	var ret = [];
+	for(var i = 0; i != length; ++i) {
+		var start = blob.l;
+		ret[i] = blob.read_shift(0, 'lpwstr').replace(chr0,'');
+		if((blob.l - start) & 0x02) blob.l += 2;
+	}
+	return ret;
+}
+
 /* [MS-OSHARED] 2.3.3.1.9 VtVecUnalignedLpstrValue */
 function parse_VtVecUnalignedLpstrValue(blob) {
 	var length = blob.read_shift(4);
@@ -18480,14 +16148,12 @@ function parse_VtVecUnalignedLpstrValue(blob) {
 	return ret;
 }
 
-/* [MS-OSHARED] 2.3.3.1.10 VtVecUnalignedLpstr */
-function parse_VtVecUnalignedLpstr(blob) {
-	return parse_VtVecUnalignedLpstrValue(blob);
-}
 
 /* [MS-OSHARED] 2.3.3.1.13 VtHeadingPair */
 function parse_VtHeadingPair(blob) {
+	var start = blob.l;
 	var headingString = parse_TypedPropertyValue(blob, VT_USTR);
+	if(blob[blob.l] == 0x00 && blob[blob.l+1] == 0x00 && ((blob.l - start) & 0x02)) blob.l += 2;
 	var headerParts = parse_TypedPropertyValue(blob, VT_I4);
 	return [headingString, headerParts];
 }
@@ -18496,14 +16162,8 @@ function parse_VtHeadingPair(blob) {
 function parse_VtVecHeadingPairValue(blob) {
 	var cElements = blob.read_shift(4);
 	var out = [];
-	for(var i = 0; i != cElements / 2; ++i) out.push(parse_VtHeadingPair(blob));
+	for(var i = 0; i < cElements / 2; ++i) out.push(parse_VtHeadingPair(blob));
 	return out;
-}
-
-/* [MS-OSHARED] 2.3.3.1.15 VtVecHeadingPair */
-function parse_VtVecHeadingPair(blob) {
-	// NOTE: When invoked, wType & padding were already consumed
-	return parse_VtVecHeadingPairValue(blob);
 }
 
 /* [MS-OLEPS] 2.18.1 Dictionary (uses 2.17, 2.16) */
@@ -18544,7 +16204,7 @@ function parse_TypedPropertyValue(blob, type, _opts) {
 	var t = blob.read_shift(2), ret, opts = _opts||{};
 	blob.l += 2;
 	if(type !== VT_VARIANT)
-	if(t !== type && VT_CUSTOM.indexOf(type)===-1) throw new Error('Expected type ' + type + ' saw ' + t);
+	if(t !== type && VT_CUSTOM.indexOf(type)===-1 && !((type & 0xFFFE) == 0x101E && (t & 0xFFFE) == 0x101E)) throw new Error('Expected type ' + type + ' saw ' + t);
 	switch(type === VT_VARIANT ? t : type) {
 		case 0x02 /*VT_I2*/: ret = blob.read_shift(2, 'i'); if(!opts.raw) blob.l += 2; return ret;
 		case 0x03 /*VT_I4*/: ret = blob.read_shift(4, 'i'); return ret;
@@ -18557,8 +16217,10 @@ function parse_TypedPropertyValue(blob, type, _opts) {
 		case 0x47 /*VT_CF*/: return parse_ClipboardData(blob);
 		case 0x50 /*VT_STRING*/: return parse_VtString(blob, t, !opts.raw).replace(chr0,'');
 		case 0x51 /*VT_USTR*/: return parse_VtUnalignedString(blob, t/*, 4*/).replace(chr0,'');
-		case 0x100C /*VT_VECTOR|VT_VARIANT*/: return parse_VtVecHeadingPair(blob);
-		case 0x101E /*VT_LPSTR*/: return parse_VtVecUnalignedLpstr(blob);
+		case 0x100C /*VT_VECTOR|VT_VARIANT*/: return parse_VtVecHeadingPairValue(blob);
+		case 0x101E /*VT_VECTOR|VT_LPSTR*/:
+		case 0x101F /*VT_VECTOR|VT_LPWSTR*/:
+			return t == 0x101F ? parse_VtVecLpwstrValue(blob) : parse_VtVecUnalignedLpstrValue(blob);
 		default: throw new Error("TypedPropertyValue unrecognized type " + type + " " + t);
 	}
 }
@@ -18832,7 +16494,7 @@ function parse_Bes(blob) {
 }
 function write_Bes(v, t, o) {
 	if(!o) o = new_buf(2);
-	o.write_shift(1, +v);
+	o.write_shift(1, ((t == 'e') ? +v : +!!v));
 	o.write_shift(1, ((t == 'e') ? 1 : 0));
 	return o;
 }
@@ -18952,16 +16614,17 @@ function parse_URLMoniker(blob) {
 
 /* [MS-OSHARED] 2.3.7.8 FileMoniker TODO: all fields */
 function parse_FileMoniker(blob) {
-	blob.l += 2; //var cAnti = blob.read_shift(2);
+	var cAnti = blob.read_shift(2);
+	var preamble = ""; while(cAnti-- > 0) preamble += "../";
 	var ansiPath = blob.read_shift(0, 'lpstr-ansi');
 	blob.l += 2; //var endServer = blob.read_shift(2);
 	if(blob.read_shift(2) != 0xDEAD) throw new Error("Bad FileMoniker");
 	var sz = blob.read_shift(4);
-	if(sz === 0) return ansiPath.replace(/\\/g,"/");
+	if(sz === 0) return preamble + ansiPath.replace(/\\/g,"/");
 	var bytes = blob.read_shift(4);
 	if(blob.read_shift(2) != 3) throw new Error("Bad FileMoniker");
 	var unicodePath = blob.read_shift(bytes>>1, 'utf16le').replace(chr0,"");
-	return unicodePath;
+	return preamble + unicodePath;
 }
 
 /* [MS-OSHARED] 2.3.7.2 HyperlinkMoniker TODO: all the monikers */
@@ -18978,6 +16641,13 @@ function parse_HyperlinkMoniker(blob, length) {
 function parse_HyperlinkString(blob) {
 	var len = blob.read_shift(4);
 	var o = len > 0 ? blob.read_shift(len, 'utf16le').replace(chr0, "") : "";
+	return o;
+}
+function write_HyperlinkString(str, o) {
+	if(!o) o = new_buf(6 + str.length * 2);
+	o.write_shift(4, 1 + str.length);
+	for(var i = 0; i < str.length; ++i) o.write_shift(2, str.charCodeAt(i));
+	o.write_shift(2, 0);
 	return o;
 }
 
@@ -19000,6 +16670,7 @@ function parse_Hyperlink(blob, length) {
 	var target = targetFrameName||moniker||oleMoniker||"";
 	if(target && Loc) target+="#"+Loc;
 	if(!target) target = "#" + Loc;
+	if((flags & 0x0002) && target.charAt(0) == "/" && target.charAt(1) != "/") target = "file://" + target;
 	var out = ({Target:target});
 	if(guid) out.guid = guid;
 	if(fileTime) out.time = fileTime;
@@ -19009,29 +16680,31 @@ function parse_Hyperlink(blob, length) {
 function write_Hyperlink(hl) {
 	var out = new_buf(512), i = 0;
 	var Target = hl.Target;
-	var F = Target.indexOf("#") > -1 ? 0x1f : 0x17;
+	if(Target.slice(0,7) == "file://") Target = Target.slice(7);
+	var hashidx = Target.indexOf("#");
+	var F = hashidx > -1 ? 0x1f : 0x17;
 	switch(Target.charAt(0)) { case "#": F=0x1c; break; case ".": F&=~2; break; }
 	out.write_shift(4,2); out.write_shift(4, F);
 	var data = [8,6815827,6619237,4849780,83]; for(i = 0; i < data.length; ++i) out.write_shift(4, data[i]);
 	if(F == 0x1C) {
 		Target = Target.slice(1);
-		out.write_shift(4, Target.length + 1);
-		for(i = 0; i < Target.length; ++i) out.write_shift(2, Target.charCodeAt(i));
-		out.write_shift(2, 0);
+		write_HyperlinkString(Target, out);
 	} else if(F & 0x02) {
 		data = "e0 c9 ea 79 f9 ba ce 11 8c 82 00 aa 00 4b a9 0b".split(" ");
 		for(i = 0; i < data.length; ++i) out.write_shift(1, parseInt(data[i], 16));
-		out.write_shift(4, 2*(Target.length + 1));
-		for(i = 0; i < Target.length; ++i) out.write_shift(2, Target.charCodeAt(i));
+		var Pretarget = hashidx > -1 ? Target.slice(0, hashidx) : Target;
+		out.write_shift(4, 2*(Pretarget.length + 1));
+		for(i = 0; i < Pretarget.length; ++i) out.write_shift(2, Pretarget.charCodeAt(i));
 		out.write_shift(2, 0);
+		if(F & 0x08) write_HyperlinkString(hashidx > -1 ? Target.slice(hashidx+1): "", out);
 	} else {
 		data = "03 03 00 00 00 00 00 00 c0 00 00 00 00 00 00 46".split(" ");
 		for(i = 0; i < data.length; ++i) out.write_shift(1, parseInt(data[i], 16));
 		var P = 0;
 		while(Target.slice(P*3,P*3+3)=="../"||Target.slice(P*3,P*3+3)=="..\\") ++P;
 		out.write_shift(2, P);
-		out.write_shift(4, Target.length + 1);
-		for(i = 0; i < Target.length; ++i) out.write_shift(1, Target.charCodeAt(i) & 0xFF);
+		out.write_shift(4, Target.length - 3 * P + 1);
+		for(i = 0; i < Target.length - 3 * P; ++i) out.write_shift(1, Target.charCodeAt(i + 3 * P) & 0xFF);
 		out.write_shift(1, 0);
 		out.write_shift(2, 0xFFFF);
 		out.write_shift(2, 0xDEAD);
@@ -19272,7 +16945,7 @@ function write_WriteAccess(s, opts) {
 /* [MS-XLS] 2.4.351 */
 function parse_WsBool(blob, length, opts) {
 	var flags = opts && opts.biff == 8 || length == 2 ? blob.read_shift(2) : (blob.l += length, 0);
-	return { fDialog: flags & 0x10 };
+	return { fDialog: flags & 0x10, fBelow: flags & 0x40, fRight: flags & 0x80 };
 }
 
 /* [MS-XLS] 2.4.28 */
@@ -19471,6 +17144,7 @@ function write_LabelSst(R, C, v, os ) {
 
 /* [MS-XLS] 2.4.148 */
 function parse_Label(blob, length, opts) {
+	if(opts.biffguess && opts.biff == 2) opts.biff = 5;
 	var target = blob.l + length;
 	var cell = parse_XLSCell(blob, 6);
 	if(opts.biff == 2) blob.l++;
@@ -19622,7 +17296,9 @@ function write_XF(data, ixfeP, opts, o) {
 		o.write_shift(2, (data.numFmtId||0));
 		o.write_shift(2, (ixfeP<<4));
 	}
-	o.write_shift(4, 0);
+	var f = 0;
+	if(data.numFmtId > 0 && b5) f |= 0x0400;
+	o.write_shift(4, f);
 	o.write_shift(4, 0);
 	if(!b5) o.write_shift(4, 0);
 	o.write_shift(2, 0);
@@ -19649,7 +17325,7 @@ function write_Guts(guts) {
 /* [MS-XLS] 2.4.24 */
 function parse_BoolErr(blob, length, opts) {
 	var cell = parse_XLSCell(blob, 6);
-	if(opts.biff == 2) ++blob.l;
+	if(opts.biff == 2 || length == 9) ++blob.l;
 	var val = parse_Bes(blob, 2);
 	cell.val = val;
 	cell.t = (val === true || val === false) ? 'b' : 'e';
@@ -19663,7 +17339,8 @@ function write_BoolErr(R, C, v, os, opts, t) {
 }
 
 /* [MS-XLS] 2.4.180 Number */
-function parse_Number(blob) {
+function parse_Number(blob, length, opts) {
+	if(opts.biffguess && opts.biff == 2) opts.biff = 5;
 	var cell = parse_XLSCell(blob, 6);
 	var xnum = parse_Xnum(blob, 8);
 	cell.val = xnum;
@@ -20016,6 +17693,20 @@ function parse_ColInfo(blob, length, opts) {
 	if(opts.biff >= 5 || !opts.biff) o.level = (flags >> 8) & 0x7;
 	return o;
 }
+function write_ColInfo(col, idx) {
+	var o = new_buf(12);
+	o.write_shift(2, idx);
+	o.write_shift(2, idx);
+	o.write_shift(2, col.width * 256);
+	o.write_shift(2, 0);
+	var f = 0;
+	if(col.hidden) f |= 1;
+	o.write_shift(1, f);
+	f = col.level || 0;
+	o.write_shift(1, f);
+	o.write_shift(2, 0);
+	return o;
+}
 
 /* [MS-XLS] 2.4.257 */
 function parse_Setup(blob, length) {
@@ -20060,6 +17751,7 @@ function parse_ImData(blob) {
 
 /* BIFF2_??? where ??? is the name from [XLS] */
 function parse_BIFF2STR(blob, length, opts) {
+	if(opts.biffguess && opts.biff == 5) opts.biff = 2;
 	var cell = parse_XLSCell(blob, 6);
 	++blob.l;
 	var str = parse_XLUnicodeString2(blob, length-7, opts);
@@ -20162,7 +17854,9 @@ var dbf_codepage_map = {
 0x4D:   936,           0x4E:   949,
 0x4F:   950,           0x50:   874,
 0x57:  1252,           0x58:  1252,
-0x59:  1252,
+0x59:  1252,           0x6C:   863,
+0x86:   737,           0x87:   852,
+0x88:   857,           0xCC:  1257,
 
 0xFF: 16969
 };
@@ -20186,7 +17880,6 @@ var DBF_SUPPORTED_VERSIONS = [0x02, 0x03, 0x30, 0x31, 0x83, 0x8B, 0x8C, 0xF5];
 /* TODO: find an actual specification */
 function dbf_to_aoa(buf, opts) {
 	var out = [];
-	/* TODO: browser based */
 	var d = (new_raw_buf(1));
 	switch(opts.type) {
 		case 'base64': d = s2a(Base64.decode(buf)); break;
@@ -20195,43 +17888,54 @@ function dbf_to_aoa(buf, opts) {
 		case 'array': d = buf; break;
 	}
 	prep_blob(d, 0);
+
 	/* header */
 	var ft = d.read_shift(1);
-	var memo = false;
+	var memo = !!(ft & 0x88);
 	var vfp = false, l7 = false;
 	switch(ft) {
-		case 0x02: case 0x03: break;
-		case 0x30: vfp = true; memo = true; break;
-		case 0x31: vfp = true; break;
-		case 0x83: memo = true; break;
-		case 0x8B: memo = true; break;
-		case 0x8C: memo = true; l7 = true; break;
-		case 0xF5: memo = true; break;
+		case 0x02: break; // dBASE II
+		case 0x03: break; // dBASE III
+		case 0x30: vfp = true; memo = true; break; // VFP
+		case 0x31: vfp = true; memo = true; break; // VFP with autoincrement
+		// 0x43 dBASE IV SQL table files
+		// 0x63 dBASE IV SQL system files
+		case 0x83: break; // dBASE III with memo
+		case 0x8B: break; // dBASE IV with memo
+		case 0x8C: l7 = true; break; // dBASE Level 7 with memo
+		// case 0xCB dBASE IV SQL table files with memo
+		case 0xF5: break; // FoxPro 2.x with memo
+		// case 0xFB FoxBASE
 		default: throw new Error("DBF Unsupported Version: " + ft.toString(16));
 	}
-	var /*filedate = new Date(),*/ nrow = 0, fpos = 0;
+
+	var nrow = 0, fpos = 0x0209;
 	if(ft == 0x02) nrow = d.read_shift(2);
-	/*filedate = new Date(d.read_shift(1) + 1900, d.read_shift(1) - 1, d.read_shift(1));*/d.l += 3;
-	if(ft != 0x02) nrow = d.read_shift(4); if(nrow > 1048576) nrow = 1e6;
-	if(ft != 0x02) fpos = d.read_shift(2);
-	var rlen = d.read_shift(2);
+	d.l += 3; // dBASE II stores DDMMYY date, others use YYMMDD
+	if(ft != 0x02) nrow = d.read_shift(4);
+	if(nrow > 1048576) nrow = 1e6;
 
-	var /*flags = 0,*/ current_cp = 1252;
-	if(ft != 0x02) {
-	d.l+=16;
-	/*flags = */d.read_shift(1);
-	//if(memo && ((flags & 0x02) === 0)) throw new Error("DBF Flags " + flags.toString(16) + " ft " + ft.toString(16));
+	if(ft != 0x02) fpos = d.read_shift(2); // header length
+	var rlen = d.read_shift(2); // record length
 
-	/* codepage present in FoxPro */
-	if(d[d.l] !== 0) current_cp = dbf_codepage_map[d[d.l]];
-	d.l+=1;
+	var /*flags = 0,*/ current_cp = opts.codepage || 1252;
+	if(ft != 0x02) { // 20 reserved bytes
+		d.l+=16;
+		/*flags = */d.read_shift(1);
+		//if(memo && ((flags & 0x02) === 0)) throw new Error("DBF Flags " + flags.toString(16) + " ft " + ft.toString(16));
 
-	d.l+=2;
+		/* codepage present in FoxPro and dBASE Level 7 */
+		if(d[d.l] !== 0) current_cp = dbf_codepage_map[d[d.l]];
+		d.l+=1;
+
+		d.l+=2;
 	}
-	if(l7) d.l += 36;
+	if(l7) d.l += 36; // Level 7: 32 byte "Language driver name", 4 byte reserved
+
 var fields = [], field = ({});
-	var hend = fpos - 10 - (vfp ? 264 : 0), ww = l7 ? 32 : 11;
-	while(ft == 0x02 ? d.l < d.length && d[d.l] != 0x0d: d.l < hend) {
+	var hend = Math.min(d.length, (ft == 0x02 ? 0x209 : (fpos - 10 - (vfp ? 264 : 0))));
+	var ww = l7 ? 32 : 11;
+	while(d.l < hend && d[d.l] != 0x0d) {
 		field = ({});
 		field.name = cptable.utils.decode(current_cp, d.slice(d.l, d.l+ww)).replace(/[\u0000\r\n].*$/g,"");
 		d.l += ww;
@@ -20243,42 +17947,45 @@ var fields = [], field = ({});
 		if(field.name.length) fields.push(field);
 		if(ft != 0x02) d.l += l7 ? 13 : 14;
 		switch(field.type) {
-			case 'B': // VFP Double
+			case 'B': // Double (VFP) / Binary (dBASE L7)
 				if((!vfp || field.len != 8) && opts.WTF) console.log('Skipping ' + field.name + ':' + field.type);
 				break;
-			case 'G': // General
-			case 'P': // Picture
+			case 'G': // General (FoxPro and dBASE L7)
+			case 'P': // Picture (FoxPro and dBASE L7)
 				if(opts.WTF) console.log('Skipping ' + field.name + ':' + field.type);
 				break;
-			case 'C': // character
-			case 'D': // date
-			case 'F': // floating point
-			case 'I': // long
-			case 'L': // boolean
-			case 'M': // memo
-			case 'N': // number
-			case 'O': // double
-			case 'T': // datetime
-			case 'Y': // currency
-			case '0': // VFP _NullFlags
-			case '@': // timestamp
-			case '+': // autoincrement
+			case '+': // Autoincrement (dBASE L7 only)
+			case '0': // _NullFlags (VFP only)
+			case '@': // Timestamp (dBASE L7 only)
+			case 'C': // Character (dBASE II)
+			case 'D': // Date (dBASE III)
+			case 'F': // Float (dBASE IV)
+			case 'I': // Long (VFP and dBASE L7)
+			case 'L': // Logical (dBASE II)
+			case 'M': // Memo (dBASE III)
+			case 'N': // Number (dBASE II)
+			case 'O': // Double (dBASE L7 only)
+			case 'T': // Datetime (VFP only)
+			case 'Y': // Currency (VFP only)
 				break;
 			default: throw new Error('Unknown Field Type: ' + field.type);
 		}
 	}
+
 	if(d[d.l] !== 0x0D) d.l = fpos-1;
-	else if(ft == 0x02) d.l = 0x209;
-	if(ft != 0x02) {
-		if(d.read_shift(1) !== 0x0D) throw new Error("DBF Terminator not found " + d.l + " " + d[d.l]);
-		d.l = fpos;
-	}
+	if(d.read_shift(1) !== 0x0D) throw new Error("DBF Terminator not found " + d.l + " " + d[d.l]);
+	d.l = fpos;
+
 	/* data */
 	var R = 0, C = 0;
 	out[0] = [];
 	for(C = 0; C != fields.length; ++C) out[0][C] = fields[C].name;
 	while(nrow-- > 0) {
-		if(d[d.l] === 0x2A) { d.l+=rlen; continue; }
+		if(d[d.l] === 0x2A) {
+			// TODO: record marked as deleted -- create a hidden row?
+			d.l+=rlen;
+			continue;
+		}
 		++d.l;
 		out[++R] = []; C = 0;
 		for(C = 0; C != fields.length; ++C) {
@@ -20287,8 +17994,8 @@ var fields = [], field = ({});
 			var s = cptable.utils.decode(current_cp, dd);
 			switch(fields[C].type) {
 				case 'C':
-					out[R][C] = cptable.utils.decode(current_cp, dd);
-					out[R][C] = out[R][C].trim();
+					// NOTE: it is conventional to write '  /  /  ' for empty dates
+					if(s.trim().length) out[R][C] = s.replace(/\s+$/,"");
 					break;
 				case 'D':
 					if(s.length === 8) out[R][C] = new Date(+s.slice(0,4), +s.slice(4,6)-1, +s.slice(6,8));
@@ -20296,18 +18003,24 @@ var fields = [], field = ({});
 					break;
 				case 'F': out[R][C] = parseFloat(s.trim()); break;
 				case '+': case 'I': out[R][C] = l7 ? dd.read_shift(-4, 'i') ^ 0x80000000 : dd.read_shift(4, 'i'); break;
-				case 'L': switch(s.toUpperCase()) {
+				case 'L': switch(s.trim().toUpperCase()) {
 					case 'Y': case 'T': out[R][C] = true; break;
 					case 'N': case 'F': out[R][C] = false; break;
-					case ' ': case '?': out[R][C] = false; break; /* NOTE: technically uninitialized */
+					case '': case '?': break;
 					default: throw new Error("DBF Unrecognized L:|" + s + "|");
 					} break;
 				case 'M': /* TODO: handle memo files */
 					if(!memo) throw new Error("DBF Unexpected MEMO for type " + ft.toString(16));
 					out[R][C] = "##MEMO##" + (l7 ? parseInt(s.trim(), 10): dd.read_shift(4));
 					break;
-				case 'N': out[R][C] = +s.replace(/\u0000/g,"").trim(); break;
-				case '@': out[R][C] = new Date(dd.read_shift(-8, 'f') - 0x388317533400); break;
+				case 'N':
+					s = s.replace(/\u0000/g,"").trim();
+					// NOTE: dBASE II interprets "  .  " as 0
+					if(s && s != ".") out[R][C] = +s || 0; break;
+				case '@':
+					// NOTE: dBASE specs appear to be incorrect
+					out[R][C] = new Date(dd.read_shift(-8, 'f') - 0x388317533400);
+					break;
 				case 'T': out[R][C] = new Date((dd.read_shift(4) - 0x253D8C) * 0x5265C00 + dd.read_shift(4)); break;
 				case 'Y': out[R][C] = dd.read_shift(4,'i')/1e4; break;
 				case 'O': out[R][C] = -dd.read_shift(-8, 'f'); break;
@@ -20457,7 +18170,7 @@ var SYLK = (function() {
 		Au:'ù', Bu:'ú', Cu:'û',         Hu:'ü',
 		KC:'Ç', Kc:'ç', q:'æ',  z:'œ',  a:'Æ',  j:'Œ',
 		DN:209, Dn:241, Hy:255,
-		S:169,  c:170,  R:174,  B:180,
+		S:169,  c:170,  R:174,  "B ":180,
 0:176,    1:177,  2:178,
 3:179,    5:181,  6:182,
 7:183,    Q:185,  k:186,  b:208,  i:216,  l:222,  s:240,  y:248,
@@ -20473,7 +18186,7 @@ var SYLK = (function() {
 		switch(opts.type) {
 			case 'base64': return sylk_to_aoa_str(Base64.decode(d), opts);
 			case 'binary': return sylk_to_aoa_str(d, opts);
-			case 'buffer': return sylk_to_aoa_str(d.toString('binary'), opts);
+			case 'buffer': return sylk_to_aoa_str(has_buf && Buffer.isBuffer(d) ? d.toString('binary') : a2s(d), opts);
 			case 'array': return sylk_to_aoa_str(cc2str(d), opts);
 		}
 		throw new Error("Unrecognized type " + opts.type);
@@ -20495,13 +18208,15 @@ var SYLK = (function() {
 			case 'E': break; /* EOF */
 			case 'B': break; /* dimensions */
 			case 'O': break; /* options? */
+			case 'W': break; /* window? */
 			case 'P':
 				if(record[1].charAt(0) == 'P')
 					formats.push(rstr.slice(3).replace(/;;/g, ";"));
 				break;
 			case 'C':
-			var C_seen_K = false, C_seen_X = false;
+			var C_seen_K = false, C_seen_X = false, C_seen_S = false, C_seen_E = false, _R = -1, _C = -1;
 			for(rj=1; rj<record.length; ++rj) switch(record[rj].charAt(0)) {
+				case 'A': break; // TODO: comment
 				case 'X': C = parseInt(record[rj].slice(1))-1; C_seen_X = true; break;
 				case 'Y':
 					R = parseInt(record[rj].slice(1))-1; if(!C_seen_X) C = 0;
@@ -20522,12 +18237,30 @@ var SYLK = (function() {
 					C_seen_K = true;
 					break;
 				case 'E':
+					C_seen_E = true;
 					var formula = rc_to_a1(record[rj].slice(1), {r:R,c:C});
 					arr[R][C] = [arr[R][C], formula];
 					break;
+				case 'S':
+					C_seen_S = true;
+					arr[R][C] = [arr[R][C], "S5S"];
+					break;
+				case 'G': break; // unknown
+				case 'R': _R = parseInt(record[rj].slice(1))-1; break;
+				case 'C': _C = parseInt(record[rj].slice(1))-1; break;
 				default: if(opts && opts.WTF) throw new Error("SYLK bad record " + rstr);
 			}
-			if(C_seen_K) { arr[R][C] = val; next_cell_format = null; }
+			if(C_seen_K) {
+				if(arr[R][C] && arr[R][C].length == 2) arr[R][C][0] = val;
+				else arr[R][C] = val;
+				next_cell_format = null;
+			}
+			if(C_seen_S) {
+				if(C_seen_E) throw new Error("SYLK shared formula cannot have own formula");
+				var shrbase = _R > -1 && arr[_R][_C];
+				if(!shrbase || !shrbase[1]) throw new Error("SYLK shared formula cannot find base");
+				arr[R][C][1] = shift_formula_str(shrbase[1], {r: R - _R, c: C - _C});
+			}
 			break;
 			case 'F':
 			var F_seen = 0;
@@ -20603,8 +18336,8 @@ var SYLK = (function() {
 			var rec = "F;W" + (i+1) + " " + (i+1) + " ";
 			if(col.hidden) rec += "0";
 			else {
-				if(typeof col.width == 'number') col.wpx = width2px(col.width);
-				if(typeof col.wpx == 'number') col.wch = px2char(col.wpx);
+				if(typeof col.width == 'number' && !col.wpx) col.wpx = width2px(col.width);
+				if(typeof col.wpx == 'number' && !col.wch) col.wch = px2char(col.wpx);
 				if(typeof col.wch == 'number') rec += Math.round(col.wch);
 			}
 			if(rec.charAt(rec.length - 1) != " ") out.push(rec);
@@ -20656,7 +18389,7 @@ var DIF = (function() {
 		switch(opts.type) {
 			case 'base64': return dif_to_aoa_str(Base64.decode(d), opts);
 			case 'binary': return dif_to_aoa_str(d, opts);
-			case 'buffer': return dif_to_aoa_str(d.toString('binary'), opts);
+			case 'buffer': return dif_to_aoa_str(has_buf && Buffer.isBuffer(d) ? d.toString('binary') : a2s(d), opts);
 			case 'array': return dif_to_aoa_str(cc2str(d), opts);
 		}
 		throw new Error("Unrecognized type " + opts.type);
@@ -20669,7 +18402,9 @@ var DIF = (function() {
 			var metadata = records[ri].trim().split(",");
 			var type = metadata[0], value = metadata[1];
 			++ri;
-			var data = records[ri].trim();
+			var data = records[ri] || "";
+			while(((data.match(/["]/g)||[]).length & 1) && ri < records.length - 1) data += "\n" + records[++ri];
+			data = data.trim();
 			switch (+type) {
 				case -1:
 					if (data === 'BOT') { arr[++R] = []; C = 0; continue; }
@@ -20684,6 +18419,8 @@ var DIF = (function() {
 					++C; break;
 				case 1:
 					data = data.slice(1,data.length-1);
+					data = data.replace(/""/g, '"');
+					if(DIF_XL && data && data.match(/^=".*"$/)) data = data.slice(2, -1);
 					arr[R][C++] = data !== '' ? data : null;
 					break;
 			}
@@ -20862,9 +18599,9 @@ var ETH = (function() {
 var PRN = (function() {
 	function set_text_arr(data, arr, R, C, o) {
 		if(o.raw) arr[R][C] = data;
+		else if(data === ""){/* empty */}
 		else if(data === 'TRUE') arr[R][C] = true;
 		else if(data === 'FALSE') arr[R][C] = false;
-		else if(data === ""){/* empty */}
 		else if(!isNaN(fuzzynum(data))) arr[R][C] = fuzzynum(data);
 		else if(!isNaN(fuzzydate(data).getDate())) arr[R][C] = parseDate(data);
 		else arr[R][C] = data;
@@ -20900,14 +18637,16 @@ var PRN = (function() {
 	var guess_seps = {
 0x2C: ',',
 0x09: "\t",
-0x3B: ';'
+0x3B: ';',
+0x7C: '|'
 	};
 
 	// CSV separator weights to be used in case of equal numbers
 	var guess_sep_weights = {
 0x2C: 3,
 0x09: 2,
-0x3B: 1
+0x3B: 1,
+0x7C: 0
 	};
 
 	function guess_sep(str) {
@@ -20931,7 +18670,7 @@ var PRN = (function() {
 
 		cc.sort(function(a, b) { return a[0] - b[0] || guess_sep_weights[a[1]] - guess_sep_weights[b[1]]; });
 
-		return guess_seps[cc.pop()[1]];
+		return guess_seps[cc.pop()[1]] || 0x2C;
 	}
 
 	function dsv_to_sheet_str(str, opts) {
@@ -20950,10 +18689,12 @@ var PRN = (function() {
 			else if(str.charCodeAt(5) == 13 || str.charCodeAt(5) == 10 ) {
 				sep = str.charAt(4); str = str.slice(6);
 			}
+			else sep = guess_sep(str.slice(0,1024));
 		}
+		else if(o && o.FS) sep = o.FS;
 		else sep = guess_sep(str.slice(0,1024));
 		var R = 0, C = 0, v = 0;
-		var start = 0, end = 0, sepcc = sep.charCodeAt(0), instr = false, cc=0;
+		var start = 0, end = 0, sepcc = sep.charCodeAt(0), instr = false, cc=0, startcc=str.charCodeAt(0);
 		str = str.replace(/\r\n/mg, "\n");
 		var _re = o.dateNF != null ? dateNF_regex(o.dateNF) : null;
 		function finish_cell() {
@@ -20985,13 +18726,13 @@ var PRN = (function() {
 			if(cell.t == 'z'){}
 			else if(o.dense) { if(!ws[R]) ws[R] = []; ws[R][C] = cell; }
 			else ws[encode_cell({c:C,r:R})] = cell;
-			start = end+1;
+			start = end+1; startcc = str.charCodeAt(start);
 			if(range.e.c < C) range.e.c = C;
 			if(range.e.r < R) range.e.r = R;
 			if(cc == sepcc) ++C; else { C = 0; ++R; if(o.sheetRows && o.sheetRows <= R) return true; }
 		}
 		outer: for(;end < str.length;++end) switch((cc=str.charCodeAt(end))) {
-			case 0x22: instr = !instr; break;
+			case 0x22: if(startcc === 0x22) instr = !instr; break;
 			case sepcc: case 0x0a: case 0x0d: if(!instr && finish_cell()) break outer; break;
 			default: break;
 		}
@@ -21003,6 +18744,7 @@ var PRN = (function() {
 
 	function prn_to_sheet_str(str, opts) {
 		if(!(opts && opts.PRN)) return dsv_to_sheet_str(str, opts);
+		if(opts.FS) return dsv_to_sheet_str(str, opts);
 		if(str.slice(0,4) == "sep=") return dsv_to_sheet_str(str, opts);
 		if(str.indexOf("\t") >= 0 || str.indexOf(",") >= 0 || str.indexOf(";") >= 0) return dsv_to_sheet_str(str, opts);
 		return aoa_to_sheet(prn_to_aoa_str(str, opts), opts);
@@ -21014,16 +18756,17 @@ var PRN = (function() {
 			case 'base64': str = Base64.decode(d); break;
 			case 'binary': str = d; break;
 			case 'buffer':
-				if(opts.codepage == 65001) str = d.toString('utf8');
+				if(opts.codepage == 65001) str = d.toString('utf8'); // TODO: test if buf
 				else if(opts.codepage && typeof cptable !== 'undefined') str = cptable.utils.decode(opts.codepage, d);
-				else str = d.toString('binary');
+				else str = has_buf && Buffer.isBuffer(d) ? d.toString('binary') : a2s(d);
 				break;
 			case 'array': str = cc2str(d); break;
 			case 'string': str = d; break;
 			default: throw new Error("Unrecognized type " + opts.type);
 		}
 		if(bytes[0] == 0xEF && bytes[1] == 0xBB && bytes[2] == 0xBF) str = utf8read(str.slice(3));
-		else if((opts.type == 'binary') && typeof cptable !== 'undefined' && opts.codepage)  str = cptable.utils.decode(opts.codepage, cptable.utils.encode(1252,str));
+		else if(opts.type != 'string' && opts.codepage == 65001) str = utf8read(str);
+		else if((opts.type == 'binary') && typeof cptable !== 'undefined' && opts.codepage)  str = cptable.utils.decode(opts.codepage, cptable.utils.encode(28591,str));
 		if(str.slice(0,19) == "socialcalc:version:") return ETH.to_sheet(opts.type == 'string' ? str : utf8read(str), opts);
 		return prn_to_sheet_str(str, opts);
 	}
@@ -21070,19 +18813,19 @@ function read_wb_ID(d, opts) {
 	}
 }
 
-var WK_ = (function() {
+var WK_ =  (function() {
 	function lotushopper(data, cb, opts) {
 		if(!data) return;
 		prep_blob(data, data.l || 0);
 		var Enum = opts.Enum || WK1Enum;
 		while(data.l < data.length) {
 			var RT = data.read_shift(2);
-			var R = Enum[RT] || Enum[0xFF];
+			var R = Enum[RT] || Enum[0xFFFF];
 			var length = data.read_shift(2);
 			var tgt = data.l + length;
-			var d = (R.f||parsenoop)(data, length, opts);
+			var d = R.f && R.f(data, length, opts);
 			data.l = tgt;
-			if(cb(d, R.n, RT)) return;
+			if(cb(d, R, RT)) return;
 		}
 	}
 
@@ -21101,40 +18844,49 @@ var WK_ = (function() {
 		var o = opts || {};
 		if(DENSE != null && o.dense == null) o.dense = DENSE;
 		var s = ((o.dense ? [] : {})), n = "Sheet1", sidx = 0;
-		var sheets = {}, snames = [n];
+		var sheets = {}, snames = [n], realnames = [];
 
 		var refguess = {s: {r:0, c:0}, e: {r:0, c:0} };
 		var sheetRows = o.sheetRows || 0;
 
-		if(d[2] == 0x02) o.Enum = WK1Enum;
-		else if(d[2] == 0x1a) o.Enum = WK3Enum;
-		else if(d[2] == 0x0e) { o.Enum = WK3Enum; o.qpro = true; d.l = 0; }
-		else throw new Error("Unrecognized LOTUS BOF " + d[2]);
-		lotushopper(d, function(val, Rn, RT) {
-			if(d[2] == 0x02) switch(RT) {
-				case 0x00:
+		if(d[2] == 0x02) {
+			o.Enum = WK1Enum;
+			lotushopper(d, function(val, R, RT) { switch(RT) {
+				case 0x00: /* BOF */
 					o.vers = val;
 					if(val >= 0x1000) o.qpro = true;
 					break;
 				case 0x06: refguess = val; break; /* RANGE */
 				case 0x0F: /* LABEL */
+				case 0x33: /* STRING */
 					if(!o.qpro) val[1].v = val[1].v.slice(1);
 					/* falls through */
 				case 0x0D: /* INTEGER */
 				case 0x0E: /* NUMBER */
 				case 0x10: /* FORMULA */
-				case 0x33: /* STRING */
 					/* TODO: actual translation of the format code */
 					if(RT == 0x0E && (val[2] & 0x70) == 0x70 && (val[2] & 0x0F) > 1 && (val[2] & 0x0F) < 15) {
 						val[1].z = o.dateNF || SSF._table[14];
 						if(o.cellDates) { val[1].t = 'd'; val[1].v = numdate(val[1].v); }
+					}
+					var tmpcell = o.dense ? (s[val[0].r]||[])[val[0].c] : s[encode_cell(val[0])];
+					if(tmpcell) {
+						tmpcell.t = val[1].t; tmpcell.v = val[1].v;
+						if(val[1].z != null) tmpcell.z = val[1].z;
+						if(val[1].f != null) tmpcell.f = val[1].f;
+						break;
 					}
 					if(o.dense) {
 						if(!s[val[0].r]) s[val[0].r] = [];
 						s[val[0].r][val[0].c] = val[1];
 					} else s[encode_cell(val[0])] = val[1];
 					break;
-			} else switch(RT) {
+				default:
+			}}, o);
+		} else if(d[2] == 0x1A || d[2] == 0x0E) {
+			o.Enum = WK3Enum;
+			if(d[2] == 0x0E) { o.qpro = true; d.l = 0; }
+			lotushopper(d, function(val, R, RT) { switch(RT) {
 				case 0x16: /* LABEL16 */
 					val[1].v = val[1].v.slice(1);
 					/* falls through */
@@ -21160,13 +18912,130 @@ var WK_ = (function() {
 					if(refguess.e.c < val[0].c) refguess.e.c = val[0].c;
 					if(refguess.e.r < val[0].r) refguess.e.r = val[0].r;
 					break;
+				case 0x1B: /* XFORMAT */
+					if(val[0x36b0]) realnames[val[0x36b0][0]] = val[0x36b0][1];
+					break;
 				default: break;
-			}
-		}, o);
+			}}, o);
+		} else throw new Error("Unrecognized LOTUS BOF " + d[2]);
 
 		s["!ref"] = encode_range(refguess);
 		sheets[n] = s;
-		return { SheetNames: snames, Sheets:sheets };
+		if(!realnames.length) return { SheetNames: snames, Sheets: sheets };
+		var osheets = {}, rnames = [];
+		for(var i = 0; i < realnames.length; ++i) if(sheets[snames[i]]) {
+			rnames.push(realnames[i]);
+			osheets[realnames[i]] = sheets[snames[i]];
+		}
+		return { SheetNames: rnames, Sheets: osheets };
+	}
+
+	function sheet_to_wk1(ws, opts) {
+		var o = opts || {};
+		if(+o.codepage >= 0) set_cp(+o.codepage);
+		if(o.type == "string") throw new Error("Cannot write WK1 to JS string");
+		var ba = buf_array();
+		var range = safe_decode_range(ws["!ref"]);
+		var dense = Array.isArray(ws);
+		var cols = [];
+
+		write_biff_rec(ba, 0x00, write_BOF_WK1(0x0406));
+		write_biff_rec(ba, 0x06, write_RANGE(range));
+		for(var R = range.s.r; R <= range.e.r; ++R) {
+			var rr = encode_row(R);
+			for(var C = range.s.c; C <= range.e.c; ++C) {
+				if(R === range.s.r) cols[C] = encode_col(C);
+				var ref = cols[C] + rr;
+				var cell = dense ? (ws[R]||[])[C] : ws[ref];
+				if(!cell || cell.t == "z") continue;
+				/* TODO: formula records */
+				if(cell.t == "n") {
+					if((cell.v|0)==cell.v && cell.v >= -32768 && cell.v <= 32767) write_biff_rec(ba, 0x0d, write_INTEGER(R, C, cell.v));
+					else write_biff_rec(ba, 0x0e, write_NUMBER(R, C, cell.v));
+				} else {
+					var str = format_cell(cell);
+					write_biff_rec(ba, 0x0F, write_LABEL(R, C, str.slice(0, 239)));
+				}
+			}
+		}
+
+		write_biff_rec(ba, 0x01);
+		return ba.end();
+	}
+
+	function book_to_wk3(wb, opts) {
+		var o = opts || {};
+		if(+o.codepage >= 0) set_cp(+o.codepage);
+		if(o.type == "string") throw new Error("Cannot write WK3 to JS string");
+		var ba = buf_array();
+
+		write_biff_rec(ba, 0x00, write_BOF_WK3(wb));
+
+		for(var i = 0, cnt = 0; i < wb.SheetNames.length; ++i) if((wb.Sheets[wb.SheetNames[i]] || {})["!ref"]) write_biff_rec(ba, 0x1b, write_XFORMAT_SHEETNAME(wb.SheetNames[i], cnt++));
+
+		var wsidx = 0;
+		for(i = 0; i < wb.SheetNames.length; ++i) {
+			var ws = wb.Sheets[wb.SheetNames[i]];
+			if(!ws || !ws["!ref"]) continue;
+			var range = safe_decode_range(ws["!ref"]);
+			var dense = Array.isArray(ws);
+			var cols = [];
+			for(var R = range.s.r; R <= range.e.r; ++R) {
+				var rr = encode_row(R);
+				for(var C = range.s.c; C <= range.e.c; ++C) {
+					if(R === range.s.r) cols[C] = encode_col(C);
+					var ref = cols[C] + rr;
+					var cell = dense ? (ws[R]||[])[C] : ws[ref];
+					if(!cell || cell.t == "z") continue;
+					/* TODO: FORMULA19 NUMBER18 records */
+					if(cell.t == "n") {
+						write_biff_rec(ba, 0x17, write_NUMBER_17(R, C, wsidx, cell.v));
+					} else {
+						var str = format_cell(cell);
+						/* TODO: max len? */
+						write_biff_rec(ba, 0x16, write_LABEL_16(R, C, wsidx, str.slice(0, 239)));
+					}
+				}
+			}
+			++wsidx;
+		}
+
+		write_biff_rec(ba, 0x01);
+		return ba.end();
+	}
+
+
+	function write_BOF_WK1(v) {
+		var out = new_buf(2);
+		out.write_shift(2, v);
+		return out;
+	}
+
+	function write_BOF_WK3(wb) {
+		var out = new_buf(26);
+		out.write_shift(2, 0x1000);
+		out.write_shift(2, 0x0004);
+		out.write_shift(4, 0x0000);
+		var rows = 0, cols = 0, wscnt = 0;
+		for(var i = 0; i < wb.SheetNames.length; ++i) {
+			var name = wb.SheetNames[i];
+			var ws = wb.Sheets[name];
+			if(!ws || !ws["!ref"]) continue;
+			++wscnt;
+			var range = decode_range(ws["!ref"]);
+			if(rows < range.e.r) rows = range.e.r;
+			if(cols < range.e.c) cols = range.e.c;
+		}
+		out.write_shift(2, rows);
+		out.write_shift(1, wscnt);
+		out.write_shift(1, cols);
+		out.write_shift(2, 0x00);
+		out.write_shift(2, 0x00);
+		out.write_shift(1, 0x01);
+		out.write_shift(1, 0x02);
+		out.write_shift(4, 0);
+		out.write_shift(4, 0);
+		return out;
 	}
 
 	function parse_RANGE(blob) {
@@ -21177,6 +19046,14 @@ var WK_ = (function() {
 		o.e.r = blob.read_shift(2);
 		if(o.s.c == 0xFFFF) o.s.c = o.e.c = o.s.r = o.e.r = 0;
 		return o;
+	}
+	function write_RANGE(range) {
+		var out = new_buf(8);
+		out.write_shift(2, range.s.c);
+		out.write_shift(2, range.s.r);
+		out.write_shift(2, range.e.c);
+		out.write_shift(2, range.e.r);
+		return out;
 	}
 
 	function parse_cell(blob, length, opts) {
@@ -21207,16 +19084,46 @@ var WK_ = (function() {
 		o[1].v = blob.read_shift(tgt - blob.l, 'cstr');
 		return o;
 	}
+	function write_LABEL(R, C, s) {
+		/* TODO: encoding */
+		var o = new_buf(7 + s.length);
+		o.write_shift(1, 0xFF);
+		o.write_shift(2, C);
+		o.write_shift(2, R);
+		o.write_shift(1, 0x27); // ??
+		for(var i = 0; i < o.length; ++i) {
+			var cc = s.charCodeAt(i);
+			o.write_shift(1, cc >= 0x80 ? 0x5F : cc);
+		}
+		o.write_shift(1, 0);
+		return o;
+	}
 
 	function parse_INTEGER(blob, length, opts) {
 		var o = parse_cell(blob, length, opts);
 		o[1].v = blob.read_shift(2, 'i');
 		return o;
 	}
+	function write_INTEGER(R, C, v) {
+		var o = new_buf(7);
+		o.write_shift(1, 0xFF);
+		o.write_shift(2, C);
+		o.write_shift(2, R);
+		o.write_shift(2, v, 'i');
+		return o;
+	}
 
 	function parse_NUMBER(blob, length, opts) {
 		var o = parse_cell(blob, length, opts);
 		o[1].v = blob.read_shift(8, 'f');
+		return o;
+	}
+	function write_NUMBER(R, C, v) {
+		var o = new_buf(13);
+		o.write_shift(1, 0xFF);
+		o.write_shift(2, C);
+		o.write_shift(2, R);
+		o.write_shift(8, v, 'f');
 		return o;
 	}
 
@@ -21228,10 +19135,104 @@ var WK_ = (function() {
 		if(opts.qpro) blob.l = tgt;
 		else {
 			var flen = blob.read_shift(2);
+			wk1_fmla_to_csf(blob.slice(blob.l, blob.l + flen), o);
 			blob.l += flen;
 		}
 		return o;
 	}
+
+	function wk1_parse_rc(B, V, col) {
+		var rel = V & 0x8000;
+		V &= ~0x8000;
+		V = (rel ? B : 0) + ((V >= 0x2000) ? V - 0x4000 : V);
+		return (rel ? "" : "$") + (col ? encode_col(V) : encode_row(V));
+	}
+	var oprec = [
+		8, 8, 8, 8, 8, 8, 8, 8, 6, 4, 4, 5, 5, 7, 3, 3,
+		3, 3, 3, 3, 1, 1, 2, 6, 8, 8, 8, 8, 8, 8, 8, 8
+	];
+	/* TODO: flesh out */
+	var FuncTab = {
+		0x33: ["FALSE", 0],
+		0x34: ["TRUE", 0],
+		0x46: ["LEN", 1],
+		0x50: ["SUM", 69],
+		0x51: ["AVERAGEA", 69],
+		0x52: ["COUNTA", 69],
+		0x53: ["MINA", 69],
+		0x54: ["MAXA", 69],
+		0x6F: ["T", 1]
+	};
+	var BinOpTab = [
+		  "",   "",   "",   "",   "",   "",   "",   "",
+		  "",  "+",  "-",  "*",  "/",  "^",  "=", "<>",
+		"<=", ">=",  "<",  ">",   "",   "",   "",   "",
+		 "&",   "",   "",   "",   "",   "",   "",   ""
+	];
+
+	function wk1_fmla_to_csf(blob, o) {
+		prep_blob(blob, 0);
+		var out = [], argc = 0, R = "", C = "";
+		while(blob.l < blob.length) {
+			var cc = blob[blob.l++];
+			switch(cc) {
+				case 0x00: out.push(blob.read_shift(8, 'f')); break;
+				case 0x01: {
+					C = wk1_parse_rc(o[0].c, blob.read_shift(2), true);
+					R = wk1_parse_rc(o[0].r, blob.read_shift(2), false);
+					out.push(C + R);
+				} break;
+				case 0x02: {
+					var c = wk1_parse_rc(o[0].c, blob.read_shift(2), true);
+					var r = wk1_parse_rc(o[0].r, blob.read_shift(2), false);
+					C = wk1_parse_rc(o[0].c, blob.read_shift(2), true);
+					R = wk1_parse_rc(o[0].r, blob.read_shift(2), false);
+					out.push(c + r + ":" + C + R);
+				} break;
+				case 0x03:
+					if(blob.l < blob.length) { console.error("WK1 premature formula end"); return; }
+					break;
+				case 0x04: out.push("(" + out.pop() + ")"); break;
+				case 0x05: out.push(blob.read_shift(2)); break;
+				case 0x06: {
+					/* TODO: text encoding */
+					var Z = ""; while((cc = blob[blob.l++])) Z += String.fromCharCode(cc);
+					out.push('"' + Z.replace(/"/g, '""') + '"'); break;
+				} break;
+
+				case 0x08: out.push("-" + out.pop()); break;
+				case 0x17: out.push("+" + out.pop()); break;
+				case 0x16: out.push("NOT(" + out.pop() + ")"); break;
+
+				case 0x14: case 0x15: {
+					var argR = out.pop(), argL = out.pop();
+					out.push(["AND", "OR"][cc - 0x14] + "(" + argL + "," + argR + ")");
+				} break;
+
+				default:
+					if(cc < 0x20 && BinOpTab[cc]) {
+						argR = out.pop(); argL = out.pop();
+						out.push(argL + BinOpTab[cc] + argR);
+					} else if(FuncTab[cc]) {
+						argc = FuncTab[cc][1];
+						if(argc == 69) argc = blob[blob.l++];
+						if(argc > out.length) { console.error("WK1 bad formula parse 0x" + cc.toString(16) + ":|" + out.join("|") + "|"); return; }
+						var args = out.slice(-argc);
+						out.length -= argc;
+						out.push(FuncTab[cc][0] + "(" + args.join(",") + ")");
+					}
+					else if(cc <= 0x07) return console.error("WK1 invalid opcode " + cc.toString(16));
+					else if(cc <= 0x18) return console.error("WK1 unsupported op " + cc.toString(16));
+					else if(cc <= 0x1E) return console.error("WK1 invalid opcode " + cc.toString(16));
+					else if(cc <= 0x73) return console.error("WK1 unsupported function opcode " + cc.toString(16));
+					// possible future functions ??
+					else return console.error("WK1 unrecognized opcode " + cc.toString(16));
+			}
+		}
+		if(out.length == 1) o[1].f = "" + out[0];
+		else console.error("WK1 bad formula parse |" + out.join("|") + "|");
+	}
+
 
 	function parse_cell_3(blob) {
 		var o = [{c:0,r:0}, {t:'n',v:0}, 0];
@@ -21245,20 +19246,35 @@ var WK_ = (function() {
 		o[1].v = blob.read_shift(length - 4, 'cstr');
 		return o;
 	}
+	function write_LABEL_16(R, C, wsidx, s) {
+		/* TODO: encoding */
+		var o = new_buf(6 + s.length);
+		o.write_shift(2, R);
+		o.write_shift(1, wsidx);
+		o.write_shift(1, C);
+		o.write_shift(1, 0x27);
+		for(var i = 0; i < s.length; ++i) {
+			var cc = s.charCodeAt(i);
+			o.write_shift(1, cc >= 0x80 ? 0x5F : cc);
+		}
+		o.write_shift(1, 0);
+		return o;
+	}
 
 	function parse_NUMBER_18(blob, length) {
 		var o = parse_cell_3(blob, length);
 		o[1].v = blob.read_shift(2);
 		var v = o[1].v >> 1;
-		/* TODO: figure out all of the corner cases */
 		if(o[1].v & 0x1) {
 			switch(v & 0x07) {
+				case 0: v = (v >> 3) * 5000; break;
 				case 1: v = (v >> 3) * 500; break;
 				case 2: v = (v >> 3) / 20; break;
+				case 3: v = (v >> 3) / 200; break;
 				case 4: v = (v >> 3) / 2000; break;
+				case 5: v = (v >> 3) / 20000; break;
 				case 6: v = (v >> 3) / 16; break;
 				case 7: v = (v >> 3) / 64; break;
-				default: throw "unknown NUMBER_18 encoding " + (v & 0x07);
 			}
 		}
 		o[1].v = v;
@@ -21270,15 +19286,48 @@ var WK_ = (function() {
 		var v1 = blob.read_shift(4);
 		var v2 = blob.read_shift(4);
 		var e = blob.read_shift(2);
-		if(e == 0xFFFF) { o[1].v = 0; return o; }
+		if(e == 0xFFFF) {
+			if(v1 === 0 && v2 === 0xC0000000) { o[1].t = "e"; o[1].v = 0x0F; } // ERR -> #VALUE!
+			else if(v1 === 0 && v2 === 0xD0000000) { o[1].t = "e"; o[1].v = 0x2A; } // NA -> #N/A
+			else o[1].v = 0;
+			return o;
+		}
 		var s = e & 0x8000; e = (e&0x7FFF) - 16446;
-		o[1].v = (s*2 - 1) * ((e > 0 ? (v2 << e) : (v2 >>> -e)) + (e > -32 ? (v1 << (e + 32)) : (v1 >>> -(e + 32))));
+		o[1].v = (1 - s*2) * (v2 * Math.pow(2, e+32) + v1 * Math.pow(2, e));
+		return o;
+	}
+	function write_NUMBER_17(R, C, wsidx, v) {
+		var o = new_buf(14);
+		o.write_shift(2, R);
+		o.write_shift(1, wsidx);
+		o.write_shift(1, C);
+		if(v == 0) {
+			o.write_shift(4, 0);
+			o.write_shift(4, 0);
+			o.write_shift(2, 0xFFFF);
+			return o;
+		}
+		var s = 0, e = 0, v1 = 0, v2 = 0;
+		if(v < 0) { s = 1; v = -v; }
+		e = Math.log2(v) | 0;
+		v /= Math.pow(2, e-31);
+		v2 = (v)>>>0;
+		if((v2&0x80000000) == 0) { v/=2; ++e; v2 = v >>> 0; }
+		v -= v2;
+		v2 |= 0x80000000;
+		v2 >>>= 0;
+		v *= Math.pow(2, 32);
+		v1 = v>>>0;
+		o.write_shift(4, v1);
+		o.write_shift(4, v2);
+		e += 0x3FFF + (s ? 0x8000 : 0);
+		o.write_shift(2, e);
 		return o;
 	}
 
 	function parse_FORMULA_19(blob, length) {
 		var o = parse_NUMBER_17(blob, 14);
-		blob.l += length - 14; /* TODO: formula */
+		blob.l += length - 14; /* TODO: WK3 formula */
 		return o;
 	}
 
@@ -21300,6 +19349,31 @@ var WK_ = (function() {
 		var o = parse_NUMBER_27(blob, 14);
 		blob.l += length - 10; /* TODO: formula */
 		return o;
+	}
+
+	function parse_XFORMAT(blob, length) {
+		var o = {}, tgt = blob.l + length;
+		while(blob.l < tgt) {
+			var dt = blob.read_shift(2);
+			if(dt == 0x36b0) {
+				o[dt] = [0, ""];
+				o[dt][0] = blob.read_shift(2);
+				while(blob[blob.l]) { o[dt][1] += String.fromCharCode(blob[blob.l]); blob.l++; } blob.l++;
+			}
+			// TODO: 0x3a99 ??
+		}
+		return o;
+	}
+	function write_XFORMAT_SHEETNAME(name, wsidx) {
+		var out = new_buf(5 + name.length);
+		out.write_shift(2, 0x36b0);
+		out.write_shift(2, wsidx);
+		for(var i = 0; i < name.length; ++i) {
+			var cc = name.charCodeAt(i);
+			out[out.l++] = cc > 0x7F ? 0x5F : cc;
+		}
+		out[out.l++] = 0;
+		return out;
 	}
 
 	var WK1Enum = {
@@ -21360,45 +19434,139 @@ var WK_ = (function() {
 0x0048: { n:"ACOMM" },
 0x0049: { n:"AMACRO" },
 0x004A: { n:"PARSE" },
-0x00FF: { n:"", f:parsenoop }
+0x0066: { n:"PRANGES??" },
+0x0067: { n:"RRANGES??" },
+0x0068: { n:"FNAME??" },
+0x0069: { n:"MRANGES??" },
+0xFFFF: { n:"" }
 	};
 
 	var WK3Enum = {
 0x0000: { n:"BOF" },
 0x0001: { n:"EOF" },
-0x0003: { n:"??" },
-0x0004: { n:"??" },
-0x0005: { n:"??" },
-0x0006: { n:"??" },
-0x0007: { n:"??" },
-0x0009: { n:"??" },
-0x000a: { n:"??" },
-0x000b: { n:"??" },
-0x000c: { n:"??" },
-0x000e: { n:"??" },
-0x000f: { n:"??" },
-0x0010: { n:"??" },
-0x0011: { n:"??" },
-0x0012: { n:"??" },
+0x0002: { n:"PASSWORD" },
+0x0003: { n:"CALCSET" },
+0x0004: { n:"WINDOWSET" },
+0x0005: { n:"SHEETCELLPTR" },
+0x0006: { n:"SHEETLAYOUT" },
+0x0007: { n:"COLUMNWIDTH" },
+0x0008: { n:"HIDDENCOLUMN" },
+0x0009: { n:"USERRANGE" },
+0x000A: { n:"SYSTEMRANGE" },
+0x000B: { n:"ZEROFORCE" },
+0x000C: { n:"SORTKEYDIR" },
+0x000D: { n:"FILESEAL" },
+0x000E: { n:"DATAFILLNUMS" },
+0x000F: { n:"PRINTMAIN" },
+0x0010: { n:"PRINTSTRING" },
+0x0011: { n:"GRAPHMAIN" },
+0x0012: { n:"GRAPHSTRING" },
 0x0013: { n:"??" },
-0x0015: { n:"??" },
+0x0014: { n:"ERRCELL" },
+0x0015: { n:"NACELL" },
 0x0016: { n:"LABEL16", f:parse_LABEL_16},
 0x0017: { n:"NUMBER17", f:parse_NUMBER_17 },
 0x0018: { n:"NUMBER18", f:parse_NUMBER_18 },
 0x0019: { n:"FORMULA19", f:parse_FORMULA_19},
-0x001a: { n:"??" },
-0x001b: { n:"??" },
-0x001c: { n:"??" },
-0x001d: { n:"??" },
-0x001e: { n:"??" },
-0x001f: { n:"??" },
-0x0021: { n:"??" },
+0x001A: { n:"FORMULA1A" },
+0x001B: { n:"XFORMAT", f:parse_XFORMAT },
+0x001C: { n:"DTLABELMISC" },
+0x001D: { n:"DTLABELCELL" },
+0x001E: { n:"GRAPHWINDOW" },
+0x001F: { n:"CPA" },
+0x0020: { n:"LPLAUTO" },
+0x0021: { n:"QUERY" },
+0x0022: { n:"HIDDENSHEET" },
+0x0023: { n:"??" },
 0x0025: { n:"NUMBER25", f:parse_NUMBER_25 },
+0x0026: { n:"??" },
 0x0027: { n:"NUMBER27", f:parse_NUMBER_27 },
 0x0028: { n:"FORMULA28", f:parse_FORMULA_28 },
-0x00FF: { n:"", f:parsenoop }
+0x008E: { n:"??" },
+0x0093: { n:"??" },
+0x0096: { n:"??" },
+0x0097: { n:"??" },
+0x0098: { n:"??" },
+0x0099: { n:"??" },
+0x009A: { n:"??" },
+0x009B: { n:"??" },
+0x009C: { n:"??" },
+0x00A3: { n:"??" },
+0x00AE: { n:"??" },
+0x00AF: { n:"??" },
+0x00B0: { n:"??" },
+0x00B1: { n:"??" },
+0x00B8: { n:"??" },
+0x00B9: { n:"??" },
+0x00BA: { n:"??" },
+0x00BB: { n:"??" },
+0x00BC: { n:"??" },
+0x00C3: { n:"??" },
+0x00C9: { n:"??" },
+0x00CD: { n:"??" },
+0x00CE: { n:"??" },
+0x00CF: { n:"??" },
+0x00D0: { n:"??" },
+0x0100: { n:"??" },
+0x0103: { n:"??" },
+0x0104: { n:"??" },
+0x0105: { n:"??" },
+0x0106: { n:"??" },
+0x0107: { n:"??" },
+0x0109: { n:"??" },
+0x010A: { n:"??" },
+0x010B: { n:"??" },
+0x010C: { n:"??" },
+0x010E: { n:"??" },
+0x010F: { n:"??" },
+0x0180: { n:"??" },
+0x0185: { n:"??" },
+0x0186: { n:"??" },
+0x0189: { n:"??" },
+0x018C: { n:"??" },
+0x0200: { n:"??" },
+0x0202: { n:"??" },
+0x0201: { n:"??" },
+0x0204: { n:"??" },
+0x0205: { n:"??" },
+0x0280: { n:"??" },
+0x0281: { n:"??" },
+0x0282: { n:"??" },
+0x0283: { n:"??" },
+0x0284: { n:"??" },
+0x0285: { n:"??" },
+0x0286: { n:"??" },
+0x0287: { n:"??" },
+0x0288: { n:"??" },
+0x0292: { n:"??" },
+0x0293: { n:"??" },
+0x0294: { n:"??" },
+0x0295: { n:"??" },
+0x0296: { n:"??" },
+0x0299: { n:"??" },
+0x029A: { n:"??" },
+0x0300: { n:"??" },
+0x0304: { n:"??" },
+0x0640: { n:"??" },
+0x0642: { n:"??" },
+0x0701: { n:"??" },
+0x0702: { n:"??" },
+0x0703: { n:"??" },
+0x0704: { n:"??" },
+0x0780: { n:"??" },
+0x0800: { n:"??" },
+0x0801: { n:"??" },
+0x0804: { n:"??" },
+0x0A80: { n:"??" },
+0x2AF6: { n:"??" },
+0x3231: { n:"??" },
+0x6E49: { n:"??" },
+0x6F44: { n:"??" },
+0xFFFF: { n:"" }
 	};
 	return {
+		sheet_to_wk1: sheet_to_wk1,
+		book_to_wk3: book_to_wk3,
 		to_workbook: lotus_to_workbook
 	};
 })();
@@ -22008,20 +20176,44 @@ var RTF = (function() {
 		switch(opts.type) {
 			case 'base64': return rtf_to_sheet_str(Base64.decode(d), opts);
 			case 'binary': return rtf_to_sheet_str(d, opts);
-			case 'buffer': return rtf_to_sheet_str(d.toString('binary'), opts);
+			case 'buffer': return rtf_to_sheet_str(has_buf && Buffer.isBuffer(d) ? d.toString('binary') : a2s(d), opts);
 			case 'array':  return rtf_to_sheet_str(cc2str(d), opts);
 		}
 		throw new Error("Unrecognized type " + opts.type);
 	}
 
+	/* TODO: this is a stub */
 	function rtf_to_sheet_str(str, opts) {
 		var o = opts || {};
 		var ws = o.dense ? ([]) : ({});
-		var range = ({s: {c:0, r:0}, e: {c:0, r:0}});
 
-		// TODO: parse
-		if(!str.match(/\\trowd/)) throw new Error("RTF missing table");
-
+		var rows = str.match(/\\trowd.*?\\row\b/g);
+		if(!rows.length) throw new Error("RTF missing table");
+		var range = ({s: {c:0, r:0}, e: {c:0, r:rows.length - 1}});
+		rows.forEach(function(rowtf, R) {
+			if(Array.isArray(ws)) ws[R] = [];
+			var rtfre = /\\\w+\b/g;
+			var last_index = 0;
+			var res;
+			var C = -1;
+			while((res = rtfre.exec(rowtf))) {
+				switch(res[0]) {
+					case "\\cell":
+						var data = rowtf.slice(last_index, rtfre.lastIndex - res[0].length);
+						if(data[0] == " ") data = data.slice(1);
+						++C;
+						if(data.length) {
+							// TODO: value parsing, including codepage adjustments
+							var cell = {v: data, t:"s"};
+							if(Array.isArray(ws)) ws[R][C] = cell;
+							else ws[encode_cell({r:R, c:C})] = cell;
+						}
+						break;
+				}
+				last_index = rtfre.lastIndex;
+			}
+			if(C > range.e.c) range.e.c = C;
+		});
 		ws['!ref'] = encode_range(range);
 		return ws;
 	}
@@ -22406,7 +20598,7 @@ function parse_fonts(t, styles, themes, opts) {
 					font.color.index = parseInt(y.indexed, 10);
 					var icv = XLSIcv[font.color.index];
 					if(font.color.index == 81) icv = XLSIcv[1];
-					if(!icv) throw new Error(x);
+					if(!icv) icv = XLSIcv[1]; //throw new Error(x); // note: 206 is valid
 					font.color.rgb = icv[0].toString(16) + icv[1].toString(16) + icv[2].toString(16);
 				} else if(y.theme) {
 					font.color.theme = parseInt(y.theme, 10);
@@ -22493,7 +20685,7 @@ function parse_cellXfs(t, styles, opts) {
 					xf[cellXF_uint[i]] = parseInt(xf[cellXF_uint[i]], 10);
 				for(i = 0; i < cellXF_bool.length; ++i) if(xf[cellXF_bool[i]])
 					xf[cellXF_bool[i]] = parsexmlbool(xf[cellXF_bool[i]]);
-				if(xf.numFmtId > 0x188) {
+				if(styles.NumberFmt && xf.numFmtId > 0x188) {
 					for(i = 0x188; i > 0x3c; --i) if(styles.NumberFmt[xf.numFmtId] == styles.NumberFmt[i]) { xf.numFmtId = i; break; }
 				}
 				styles.CellXf.push(xf); break;
@@ -23283,10 +21475,10 @@ function parse_Theme(blob, length, opts) {
 	var end = blob.l + length;
 	var dwThemeVersion = blob.read_shift(4);
 	if(dwThemeVersion === 124226) return;
-	if(!opts.cellStyles || !jszip) { blob.l = end; return; }
+	if(!opts.cellStyles) { blob.l = end; return; }
 	var data = blob.slice(blob.l);
 	blob.l = end;
-	var zip; try { zip = new jszip(data); } catch(e) { return; }
+	var zip; try { zip = zip_read(data, {type: "array"}); } catch(e) { return; }
 	var themeXML = getzipstr(zip, "theme/theme/theme1.xml", true);
 	if(!themeXML) return;
 	return parse_theme_xml(themeXML, opts);
@@ -23605,7 +21797,7 @@ function parse_comments_xml(data, opts) {
 		var rt = !!textMatch && !!textMatch[1] && parse_si(textMatch[1]) || {r:"",t:"",h:""};
 		comment.r = rt.r;
 		if(rt.r == "<t></t>") rt.t = rt.h = "";
-		comment.t = rt.t.replace(/\r\n/g,"\n").replace(/\r/g,"\n");
+		comment.t = (rt.t||"").replace(/\r\n/g,"\n").replace(/\r/g,"\n");
 		if(opts.cellHTML) comment.h = rt.h;
 		commentList.push(comment);
 	});
@@ -24555,7 +22747,8 @@ function get_ixti_raw(supbooks, ixti, opts) {
 	}
 }
 function get_ixti(supbooks, ixti, opts) {
-	return formula_quote_sheet_name(get_ixti_raw(supbooks, ixti, opts), opts);
+	var ixtiraw = get_ixti_raw(supbooks, ixti, opts);
+	return ixtiraw == "#REF" ? ixtiraw : formula_quote_sheet_name(ixtiraw, opts);
 }
 function stringify_formula(formula/*Array<any>*/, range, cell, supbooks, opts) {
 	var biff = (opts && opts.biff) || 8;
@@ -24715,7 +22908,7 @@ ixti = f[1][1]; r = f[1][2];
 					if(supbooks[bookidx] && supbooks[bookidx][nameidx]) o += supbooks[bookidx][nameidx].Name;
 					else if(supbooks[0] && supbooks[0][nameidx]) o += supbooks[0][nameidx].Name;
 					else {
-						var ixtidata = get_ixti_raw(supbooks, bookidx, opts).split(";;");
+						var ixtidata = (get_ixti_raw(supbooks, bookidx, opts)||"").split(";;");
 						if(ixtidata[nameidx - 1]) o = ixtidata[nameidx - 1]; // TODO: confirm this is correct
 						else o += "SH33TJSERRX";
 					}
@@ -24759,8 +22952,7 @@ ixti = f[1][1]; r = f[1][2];
 				if(supbooks.sharedf[encode_cell(c)]) {
 					var parsedf = (supbooks.sharedf[encode_cell(c)]);
 					stack.push(stringify_formula(parsedf, _range, q, supbooks, opts));
-				}
-				else {
+				} else {
 					var fnd = false;
 					for(e1=0;e1!=supbooks.arrayf.length; ++e1) {
 						/* TODO: should be something like range_has */
@@ -26343,6 +24535,7 @@ function col_obj_w(C, col) {
 	if(wch > -1) { p.width = char2width(wch); p.customWidth = 1; }
 	else if(col.width != null) p.width = col.width;
 	if(col.hidden) p.hidden = true;
+	if(col.level != null) { p.outlineLevel = p.level = col.level; }
 	return p;
 }
 
@@ -26386,9 +24579,9 @@ function safe_format(p, fmtid, fillid, opts, themes, styles) {
 	try {
 		if(opts.cellNF) p.z = SSF._table[fmtid];
 	} catch(e) { if(opts.WTF) throw e; }
-	if(p.t === 'z') return;
+	if(p.t === 'z' && !opts.cellStyles) return;
 	if(p.t === 'd' && typeof p.v === 'string') p.v = parseDate(p.v);
-	if(!opts || opts.cellText !== false) try {
+	if((!opts || opts.cellText !== false) && p.t !== 'z') try {
 		if(SSF._table[fmtid] == null) SSF.load(SSFImplicit[fmtid] || "General", fmtid);
 		if(p.t === 'e') p.w = p.w || BErr[p.v];
 		else if(fmtid === 0) {
@@ -26439,6 +24632,7 @@ var colregex = /<(?:\w:)?col\b[^>]*[\/]?>/g;
 var afregex = /<(?:\w:)?autoFilter[^>]*([\/]|>([\s\S]*)<\/(?:\w:)?autoFilter)>/g;
 var marginregex= /<(?:\w:)?pageMargins[^>]*\/>/g;
 var sheetprregex = /<(?:\w:)?sheetPr\b(?:[^>a-z][^>]*)?\/>/;
+var sheetprregex2= /<(?:\w:)?sheetPr[^>]*(?:[\/]|>([\s\S]*)<\/(?:\w:)?sheetPr)>/;
 var svsregex = /<(?:\w:)?sheetViews[^>]*(?:[\/]|>([\s\S]*)<\/(?:\w:)?sheetViews)>/;
 
 /* 18.3 Worksheets */
@@ -26461,6 +24655,7 @@ function parse_ws_xml(data, opts, idx, rels, wb, themes, styles) {
 	/* 18.3.1.82 sheetPr CT_SheetPr */
 	var sheetPr = data1.match(sheetprregex);
 	if(sheetPr) parse_ws_xml_sheetpr(sheetPr[0], s, wb, idx);
+	else if((sheetPr = data1.match(sheetprregex2))) parse_ws_xml_sheetpr2(sheetPr[0], sheetPr[1]||"", s, wb, idx, styles, themes);
 
 	/* 18.3.1.35 dimension CT_SheetDimension */
 	var ridx = (data1.match(/<(?:\w*:)?dimension/)||{index:-1}).index;
@@ -26533,6 +24728,9 @@ function parse_ws_xml_sheetpr(sheetPr, s, wb, idx) {
 	if(!wb.Sheets[idx]) wb.Sheets[idx] = {};
 	if(data.codeName) wb.Sheets[idx].CodeName = unescapexml(utf8read(data.codeName));
 }
+function parse_ws_xml_sheetpr2(sheetPr, body, s, wb, idx, styles, themes) {
+	parse_ws_xml_sheetpr(sheetPr.slice(0, sheetPr.indexOf(">")), s, wb, idx);
+}
 function write_ws_xml_sheetpr(ws, wb, idx, opts, o) {
 	var needed = false;
 	var props = {}, payload = null;
@@ -26580,9 +24778,9 @@ function parse_ws_xml_hlinks(s, data, rels) {
 		var rel = ((rels || {})['!id']||[])[val.id];
 		if(rel) {
 			val.Target = rel.Target;
-			if(val.location) val.Target += "#"+val.location;
+			if(val.location) val.Target += "#"+unescapexml(val.location);
 		} else {
-			val.Target = "#" + val.location;
+			val.Target = "#" + unescapexml(val.location);
 			rel = {Target: val.Target, TargetMode: 'Internal'};
 		}
 		val.Rel = rel;
@@ -26620,6 +24818,7 @@ function parse_ws_xml_cols(columns, cols) {
 		var coll = parsexmltag(cols[coli], true);
 		if(coll.hidden) coll.hidden = parsexmlbool(coll.hidden);
 		var colm=parseInt(coll.min, 10)-1, colM=parseInt(coll.max,10)-1;
+		if(coll.outlineLevel) coll.level = (+coll.outlineLevel || 0);
 		delete coll.min; delete coll.max; coll.width = +coll.width;
 		if(!seencol && coll.width) { seencol = true; find_mdw_colw(coll.width); }
 		process_col(coll);
@@ -26709,6 +24908,7 @@ function write_ws_xml_cell(cell, ref, ws, opts) {
 		case 'e': o.t = "e"; break;
 		case 'z': break;
 		default: if(cell.v == null) { delete cell.t; break; }
+			if(cell.v.length > 32767) throw new Error("Text length must not exceed 32767 characters");
 			if(opts && opts.bookSST) {
 				v = writetag('v', ''+get_sst_id(opts.Strings, cell.v, opts.revStrings));
 				o.t = "s"; break;
@@ -26748,8 +24948,26 @@ return function parse_ws_xml_data(sdata, s, opts, guess, themes, styles) {
 		if(xlen === 0) continue;
 
 		/* 18.3.1.73 row CT_Row */
-		for(ri = 0; ri < xlen; ++ri) if(x.charCodeAt(ri) === 62) break; ++ri;
-		tag = parsexmltag(x.slice(0,ri), true);
+		var rstarti = 0;
+		outa: for(ri = 0; ri < xlen; ++ri) switch(/*x.charCodeAt(ri)*/x[ri]) {
+			case ">" /*62*/:
+				if(/*x.charCodeAt(ri-1) != 47*/x[ri-1] != "/") { ++ri; break outa; }
+				if(opts && opts.cellStyles) {
+					// TODO: avoid duplication
+					tag = parsexmltag(x.slice(rstarti,ri), true);
+					tagr = tag.r != null ? parseInt(tag.r, 10) : tagr+1; tagc = -1;
+					if(opts.sheetRows && opts.sheetRows < tagr) continue;
+					rowobj = {}; rowrite = false;
+					if(tag.ht) { rowrite = true; rowobj.hpt = parseFloat(tag.ht); rowobj.hpx = pt2px(rowobj.hpt); }
+					if(tag.hidden == "1") { rowrite = true; rowobj.hidden = true; }
+					if(tag.outlineLevel != null) { rowrite = true; rowobj.level = +tag.outlineLevel; }
+					if(rowrite) rows[tagr-1] = rowobj;
+				}
+				break;
+			case "<" /*60*/: rstarti = ri; break;
+		}
+		if(rstarti >= ri) break;
+		tag = parsexmltag(x.slice(rstarti,ri), true);
 		tagr = tag.r != null ? parseInt(tag.r, 10) : tagr+1; tagc = -1;
 		if(opts.sheetRows && opts.sheetRows < tagr) continue;
 		if(guess.s.r > tagr - 1) guess.s.r = tagr - 1;
@@ -26981,7 +25199,7 @@ function write_ws_xml(idx, opts, wb, rels) {
 
 	/* sheetCalcPr */
 
-	if(ws['!protect'] != null) o[o.length] = write_ws_xml_protection(ws['!protect']);
+	if(ws['!protect']) o[o.length] = write_ws_xml_protection(ws['!protect']);
 
 	/* protectedRanges */
 	/* scenarios */
@@ -27135,14 +25353,23 @@ function parse_BrtWsFmtInfo() {
 /* [MS-XLSB] 2.4.823 BrtWsProp */
 function parse_BrtWsProp(data, length) {
 	var z = {};
+	var f = data[data.l]; ++data.l;
+	z.above = !(f & 0x40);
+	z.left  = !(f & 0x80);
 	/* TODO: pull flags */
-	data.l += 19;
+	data.l += 18;
 	z.name = parse_XLSBCodeName(data, length - 19);
 	return z;
 }
-function write_BrtWsProp(str, o) {
+function write_BrtWsProp(str, outl, o) {
 	if(o == null) o = new_buf(84+4*str.length);
-	for(var i = 0; i < 3; ++i) o.write_shift(1,0);
+	var f = 0xC0;
+	if(outl) {
+		if(outl.above) f &= ~0x40;
+		if(outl.left)  f &= ~0x80;
+	}
+	o.write_shift(1, f);
+	for(var i = 1; i < 3; ++i) o.write_shift(1,0);
 	write_BrtColor({auto:1}, o);
 	o.write_shift(-4,-1);
 	o.write_shift(-4,-1);
@@ -27159,7 +25386,14 @@ function write_BrtCellBlank(cell, ncell, o) {
 	if(o == null) o = new_buf(8);
 	return write_XLSBCell(ncell, o);
 }
-
+function parse_BrtShortBlank(data) {
+	var cell = parse_XLSBShortCell(data);
+	return [cell];
+}
+function write_BrtShortBlank(cell, ncell, o) {
+	if(o == null) o = new_buf(4);
+	return write_XLSBShortCell(ncell, o);
+}
 
 /* [MS-XLSB] 2.4.307 BrtCellBool */
 function parse_BrtCellBool(data) {
@@ -27173,6 +25407,17 @@ function write_BrtCellBool(cell, ncell, o) {
 	o.write_shift(1, cell.v ? 1 : 0);
 	return o;
 }
+function parse_BrtShortBool(data) {
+	var cell = parse_XLSBShortCell(data);
+	var fBool = data.read_shift(1);
+	return [cell, fBool, 'b'];
+}
+function write_BrtShortBool(cell, ncell, o) {
+	if(o == null) o = new_buf(5);
+	write_XLSBShortCell(ncell, o);
+	o.write_shift(1, cell.v ? 1 : 0);
+	return o;
+}
 
 /* [MS-XLSB] 2.4.308 BrtCellError */
 function parse_BrtCellError(data) {
@@ -27180,6 +25425,26 @@ function parse_BrtCellError(data) {
 	var bError = data.read_shift(1);
 	return [cell, bError, 'e'];
 }
+function write_BrtCellError(cell, ncell, o) {
+	if(o == null) o = new_buf(9);
+	write_XLSBCell(ncell, o);
+	o.write_shift(1, cell.v);
+	return o;
+}
+function parse_BrtShortError(data) {
+	var cell = parse_XLSBShortCell(data);
+	var bError = data.read_shift(1);
+	return [cell, bError, 'e'];
+}
+function write_BrtShortError(cell, ncell, o) {
+	if(o == null) o = new_buf(8);
+	write_XLSBShortCell(ncell, o);
+	o.write_shift(1, cell.v);
+	o.write_shift(2, 0);
+	o.write_shift(1, 0);
+	return o;
+}
+
 
 /* [MS-XLSB] 2.4.311 BrtCellIsst */
 function parse_BrtCellIsst(data) {
@@ -27190,6 +25455,17 @@ function parse_BrtCellIsst(data) {
 function write_BrtCellIsst(cell, ncell, o) {
 	if(o == null) o = new_buf(12);
 	write_XLSBCell(ncell, o);
+	o.write_shift(4, ncell.v);
+	return o;
+}
+function parse_BrtShortIsst(data) {
+	var cell = parse_XLSBShortCell(data);
+	var isst = data.read_shift(4);
+	return [cell, isst, 's'];
+}
+function write_BrtShortIsst(cell, ncell, o) {
+	if(o == null) o = new_buf(8);
+	write_XLSBShortCell(ncell, o);
 	o.write_shift(4, ncell.v);
 	return o;
 }
@@ -27206,6 +25482,17 @@ function write_BrtCellReal(cell, ncell, o) {
 	write_Xnum(cell.v, o);
 	return o;
 }
+function parse_BrtShortReal(data) {
+	var cell = parse_XLSBShortCell(data);
+	var value = parse_Xnum(data);
+	return [cell, value, 'n'];
+}
+function write_BrtShortReal(cell, ncell, o) {
+	if(o == null) o = new_buf(12);
+	write_XLSBShortCell(ncell, o);
+	write_Xnum(cell.v, o);
+	return o;
+}
 
 /* [MS-XLSB] 2.4.314 BrtCellRk */
 function parse_BrtCellRk(data) {
@@ -27216,6 +25503,17 @@ function parse_BrtCellRk(data) {
 function write_BrtCellRk(cell, ncell, o) {
 	if(o == null) o = new_buf(12);
 	write_XLSBCell(ncell, o);
+	write_RkNumber(cell.v, o);
+	return o;
+}
+function parse_BrtShortRk(data) {
+	var cell = parse_XLSBShortCell(data);
+	var value = parse_RkNumber(data);
+	return [cell, value, 'n'];
+}
+function write_BrtShortRk(cell, ncell, o) {
+	if(o == null) o = new_buf(8);
+	write_XLSBShortCell(ncell, o);
 	write_RkNumber(cell.v, o);
 	return o;
 }
@@ -27230,6 +25528,17 @@ function parse_BrtCellSt(data) {
 function write_BrtCellSt(cell, ncell, o) {
 	if(o == null) o = new_buf(12 + 4 * cell.v.length);
 	write_XLSBCell(ncell, o);
+	write_XLWideString(cell.v, o);
+	return o.length > o.l ? o.slice(0, o.l) : o;
+}
+function parse_BrtShortSt(data) {
+	var cell = parse_XLSBShortCell(data);
+	var value = parse_XLWideString(data);
+	return [cell, value, 'str'];
+}
+function write_BrtShortSt(cell, ncell, o) {
+	if(o == null) o = new_buf(8 + 4 * cell.v.length);
+	write_XLSBShortCell(ncell, o);
 	write_XLWideString(cell.v, o);
 	return o.length > o.l ? o.slice(0, o.l) : o;
 }
@@ -27494,6 +25803,8 @@ function parse_ws_bin(data, _opts, idx, rels, wb, themes, styles) {
 	var colinfo = [], rowinfo = [];
 	var seencol = false;
 
+	XLSBRecordEnum[0x0010] = { n:"BrtShortReal", f:parse_BrtShortReal };
+
 	recordhopper(data, function ws_parse(val, R_n, RT) {
 		if(end) return;
 		switch(RT) {
@@ -27520,6 +25831,12 @@ function parse_ws_bin(data, _opts, idx, rels, wb, themes, styles) {
 			case 0x0009: /* 'BrtFmlaNum' */
 			case 0x000A: /* 'BrtFmlaBool' */
 			case 0x000B: /* 'BrtFmlaError' */
+			case 0x000D: /* 'BrtShortRk' */
+			case 0x000E: /* 'BrtShortError' */
+			case 0x000F: /* 'BrtShortBool' */
+			case 0x0010: /* 'BrtShortReal' */
+			case 0x0011: /* 'BrtShortSt' */
+			case 0x0012: /* 'BrtShortIsst' */
 				p = ({t:val[2]});
 				switch(val[2]) {
 					case 'n': p.v = val[1]; break;
@@ -27529,7 +25846,7 @@ function parse_ws_bin(data, _opts, idx, rels, wb, themes, styles) {
 					case 'str': p.t = 's'; p.v = val[1]; break;
 				}
 				if((cf = styles.CellXf[val[0].iStyleRef])) safe_format(p,cf.numFmtId,null,opts, themes, styles);
-				C = val[0].c;
+				C = val[0].c == -1 ? C + 1 : val[0].c;
 				if(opts.dense) { if(!s[R]) s[R] = []; s[R][C] = p; }
 				else s[encode_col(C) + rr] = p;
 				if(opts.cellFormula) {
@@ -27553,9 +25870,10 @@ function parse_ws_bin(data, _opts, idx, rels, wb, themes, styles) {
 				break;
 
 			case 0x0001: /* 'BrtCellBlank' */
+			case 0x000C: /* 'BrtShortBlank' */
 				if(!opts.sheetStubs || pass) break;
 				p = ({t:'z',v:undefined});
-				C = val[0].c;
+				C = val[0].c == -1 ? C + 1 : val[0].c;
 				if(opts.dense) { if(!s[R]) s[R] = []; s[R][C] = p; }
 				else s[encode_col(C) + rr] = p;
 				if(refguess.s.r > row.r) refguess.s.r = row.r;
@@ -27624,6 +25942,7 @@ function parse_ws_bin(data, _opts, idx, rels, wb, themes, styles) {
 			case 0x0093: /* 'BrtWsProp' */
 				if(!wb.Sheets[idx]) wb.Sheets[idx] = {};
 				if(val.name) wb.Sheets[idx].CodeName = val.name;
+				if(val.above || val.left) s['!outline'] = { above: val.above, left: val.left };
 				break;
 
 			case 0x0089: /* 'BrtBeginWsView' */
@@ -27641,6 +25960,7 @@ function parse_ws_bin(data, _opts, idx, rels, wb, themes, styles) {
 
 			case 0x0097: /* 'BrtPane' */
 				break;
+			case 0x0098: /* 'BrtSel' */
 			case 0x00AF: /* 'BrtAFilterDateGroupItem' */
 			case 0x0284: /* 'BrtActiveX' */
 			case 0x0271: /* 'BrtBigName' */
@@ -27680,7 +26000,6 @@ function parse_ws_bin(data, _opts, idx, rels, wb, themes, styles) {
 			case 0x02A8: /* 'BrtRangeProtectionIso' */
 			case 0x0450: /* 'BrtRangeProtectionIso14' */
 			case 0x0400: /* 'BrtRwDescent' */
-			case 0x0098: /* 'BrtSel' */
 			case 0x0297: /* 'BrtSheetCalcProp' */
 			case 0x0217: /* 'BrtSheetProtection' */
 			case 0x02A6: /* 'BrtSheetProtectionIso' */
@@ -27733,8 +26052,8 @@ function parse_ws_bin(data, _opts, idx, rels, wb, themes, styles) {
 }
 
 /* TODO: something useful -- this is a stub */
-function write_ws_bin_cell(ba, cell, R, C, opts, ws) {
-	if(cell.v === undefined) return;
+function write_ws_bin_cell(ba, cell, R, C, opts, ws, last_seen) {
+	if(cell.v === undefined) return false;
 	var vv = "";
 	switch(cell.t) {
 		case 'b': vv = cell.v ? "1" : "0"; break;
@@ -27757,24 +26076,37 @@ function write_ws_bin_cell(ba, cell, R, C, opts, ws) {
 			if(opts.bookSST) {
 				vv = get_sst_id(opts.Strings, (cell.v), opts.revStrings);
 				o.t = "s"; o.v = vv;
-				write_record(ba, "BrtCellIsst", write_BrtCellIsst(cell, o));
+				if(last_seen) write_record(ba, "BrtShortIsst", write_BrtShortIsst(cell, o));
+				else write_record(ba, "BrtCellIsst", write_BrtCellIsst(cell, o));
 			} else {
 				o.t = "str";
-				write_record(ba, "BrtCellSt", write_BrtCellSt(cell, o));
+				if(last_seen) write_record(ba, "BrtShortSt", write_BrtShortSt(cell, o));
+				else write_record(ba, "BrtCellSt", write_BrtCellSt(cell, o));
 			}
-			return;
+			return true;
 		case 'n':
 			/* TODO: determine threshold for Real vs RK */
-			if(cell.v == (cell.v | 0) && cell.v > -1000 && cell.v < 1000) write_record(ba, "BrtCellRk", write_BrtCellRk(cell, o));
-			else write_record(ba, "BrtCellReal", write_BrtCellReal(cell, o));
-			return;
+			if(cell.v == (cell.v | 0) && cell.v > -1000 && cell.v < 1000) {
+				if(last_seen) write_record(ba, "BrtShortRk", write_BrtShortRk(cell, o));
+				else write_record(ba, "BrtCellRk", write_BrtCellRk(cell, o));
+			} else {
+				if(last_seen) write_record(ba, "BrtShortReal", write_BrtShortReal(cell, o));
+				else write_record(ba, "BrtCellReal", write_BrtCellReal(cell, o));
+			} return true;
 		case 'b':
 			o.t = "b";
-			write_record(ba, "BrtCellBool", write_BrtCellBool(cell, o));
-			return;
-		case 'e': /* TODO: error */ o.t = "e"; break;
+			if(last_seen) write_record(ba, "BrtShortBool", write_BrtShortBool(cell, o));
+			else write_record(ba, "BrtCellBool", write_BrtCellBool(cell, o));
+			return true;
+		case 'e':
+			o.t = "e";
+			if(last_seen) write_record(ba, "BrtShortError", write_BrtShortError(cell, o));
+			else write_record(ba, "BrtCellError", write_BrtCellError(cell, o));
+			return true;
 	}
-	write_record(ba, "BrtCellBlank", write_BrtCellBlank(cell, o));
+	if(last_seen) write_record(ba, "BrtShortBlank", write_BrtShortBlank(cell, o));
+	else write_record(ba, "BrtCellBlank", write_BrtCellBlank(cell, o));
+	return true;
 }
 
 function write_CELLTABLE(ba, ws, idx, opts) {
@@ -27788,14 +26120,15 @@ function write_CELLTABLE(ba, ws, idx, opts) {
 		/* [ACCELLTABLE] */
 		/* BrtRowHdr */
 		write_row_header(ba, ws, range, R);
+		var last_seen = false;
 		if(R <= range.e.r) for(var C = range.s.c; C <= range.e.c; ++C) {
 			/* *16384CELL */
 			if(R === range.s.r) cols[C] = encode_col(C);
 			ref = cols[C] + rr;
 			var cell = dense ? (ws[R]||[])[C] : ws[ref];
-			if(!cell) continue;
+			if(!cell) { last_seen = false; continue; }
 			/* write cell */
-			write_ws_bin_cell(ba, cell, R, C, opts, ws);
+			last_seen = write_ws_bin_cell(ba, cell, R, C, opts, ws, last_seen);
 		}
 	}
 	write_record(ba, 'BrtEndSheetData');
@@ -27906,7 +26239,7 @@ function write_ws_bin(idx, opts, wb, rels) {
 	/* passed back to write_zip and removed there */
 	ws['!comments'] = [];
 	write_record(ba, "BrtBeginSheet");
-	if(wb.vbaraw) write_record(ba, "BrtWsProp", write_BrtWsProp(c));
+	if(wb.vbaraw || ws['!outline']) write_record(ba, "BrtWsProp", write_BrtWsProp(c, ws['!outline']));
 	write_record(ba, "BrtWsDim", write_BrtWsDim(r));
 	write_WSVIEWS2(ba, ws, wb.Workbook);
 	write_WSFMTINFO(ba, ws);
@@ -28591,6 +26924,8 @@ function parse_wb_bin(data, opts) {
 	supbooks.SheetNames = [];
 	supbooks.XTI = [];
 
+	XLSBRecordEnum[0x0010] = { n:"BrtFRTArchID$", f:parse_BrtFRTArchID$ };
+
 	recordhopper(data, function hopper_wb(val, R_n, RT) {
 		switch(RT) {
 			case 0x009C: /* 'BrtBundleSh' */
@@ -28625,13 +26960,18 @@ function parse_wb_bin(data, opts) {
 			case 0x0169: /* 'BrtPlaceholderName' */
 				break;
 
+			case 0x0817: /* 'BrtAbsPath15' */
+			case 0x009E: /* 'BrtBookView' */
+			case 0x008F: /* 'BrtBeginBundleShs' */
+			case 0x0298: /* 'BrtBeginFnGroup' */
+			case 0x0161: /* 'BrtBeginExternals' */
+				break;
+
 			/* case 'BrtModelTimeGroupingCalcCol' */
 			case 0x0C00: /* 'BrtUid' */
 			case 0x0C01: /* 'BrtRevisionPtr' */
-			case 0x0817: /* 'BrtAbsPath15' */
 			case 0x0216: /* 'BrtBookProtection' */
 			case 0x02A5: /* 'BrtBookProtectionIso' */
-			case 0x009E: /* 'BrtBookView' */
 			case 0x009D: /* 'BrtCalcProp' */
 			case 0x0262: /* 'BrtCrashRecErr' */
 			case 0x0802: /* 'BrtDecoupledPivotCacheID' */
@@ -28700,7 +27040,6 @@ function write_BrtFileVersion(data, o) {
 	write_XLWideString(XLSX.version, o);
 	write_XLWideString(XLSX.version, o);
 	write_XLWideString("7262", o);
-	o.length = o.l;
 	return o.length > o.l ? o.slice(0, o.l) : o;
 }
 
@@ -29050,6 +27389,7 @@ function parse_xlml_xml(d, _opts) {
 		else str = utf8read(str);
 	}
 	var opening = str.slice(0, 1024).toLowerCase(), ishtml = false;
+	if((opening.indexOf(">") & 1023) > Math.min((opening.indexOf(",") & 1023), (opening.indexOf(";")&1023))) { var _o = dup(opts); _o.type = "string"; return PRN.to_workbook(str, _o); }
 	if(opening.indexOf("<?xml") == -1) ["html", "table", "head", "meta", "script", "style", "div"].forEach(function(tag) { if(opening.indexOf("<" + tag) >= 0) ishtml = true; });
 	if(ishtml) return HTML_.to_workbook(str, opts);
 	var Rn;
@@ -29093,7 +27433,7 @@ function parse_xlml_xml(d, _opts) {
 					} else cursheet[encode_col(c) + encode_row(r)] = cell;
 				}
 				if(cell.HRef) {
-					cell.l = ({Target:cell.HRef});
+					cell.l = ({Target:unescapexml(cell.HRef)});
 					if(cell.HRefScreenTip) cell.l.Tooltip = cell.HRefScreenTip;
 					delete cell.HRef; delete cell.HRefScreenTip;
 				}
@@ -29337,6 +27677,8 @@ Workbook.Names.push(_DefinedName);
 			else if(Rn[0].charAt(Rn[0].length-2) !== '/') state.push([Rn[3], true]);
 			break;
 
+		case 'null' /*case 'Null'*/: break;
+
 		default:
 			/* FODS file root is <office:document> */
 			if(state.length == 0 && Rn[3] == "document") return parse_fods(str, opts);
@@ -29483,6 +27825,7 @@ Workbook.WBProps.date1904 = true;
 
 					case 'unsynced' /*case 'Unsynced'*/: break;
 					case 'print' /*case 'Print'*/: break;
+					case 'printerrors' /*case 'PrintErrors'*/: break;
 					case 'panes' /*case 'Panes'*/: break;
 					case 'scale' /*case 'Scale'*/: break;
 					case 'pane' /*case 'Pane'*/: break;
@@ -29522,11 +27865,17 @@ Workbook.WBProps.date1904 = true;
 					case 'allowformatcells' /*case 'AllowFormatCells'*/: break;
 					case 'allowsizecols' /*case 'AllowSizeCols'*/: break;
 					case 'allowsizerows' /*case 'AllowSizeRows'*/: break;
-					case 'nosummaryrowsbelowdetail' /*case 'NoSummaryRowsBelowDetail'*/: break;
+					case 'nosummaryrowsbelowdetail' /*case 'NoSummaryRowsBelowDetail'*/:
+						if(!cursheet["!outline"]) cursheet["!outline"] = {};
+						cursheet["!outline"].above = true;
+						break;
 					case 'tabcolorindex' /*case 'TabColorIndex'*/: break;
 					case 'donotdisplayheadings' /*case 'DoNotDisplayHeadings'*/: break;
 					case 'showpagelayoutzoom' /*case 'ShowPageLayoutZoom'*/: break;
-					case 'nosummarycolumnsrightdetail' /*case 'NoSummaryColumnsRightDetail'*/: break;
+					case 'nosummarycolumnsrightdetail' /*case 'NoSummaryColumnsRightDetail'*/:
+						if(!cursheet["!outline"]) cursheet["!outline"] = {};
+						cursheet["!outline"].left = true;
+						break;
 					case 'blackandwhite' /*case 'BlackAndWhite'*/: break;
 					case 'donotdisplayzeros' /*case 'DoNotDisplayZeros'*/: break;
 					case 'displaypagebreak' /*case 'DisplayPageBreak'*/: break;
@@ -30165,7 +28514,7 @@ function safe_format_xf(p, opts, date1904) {
 			}
 			else p.w = SSF._general(p.v);
 		}
-		else p.w = SSF.format(fmtid,p.v, {date1904:!!date1904});
+		else p.w = SSF.format(fmtid,p.v, {date1904:!!date1904, dateNF: opts && opts.dateNF});
 	} catch(e) { if(opts.WTF) throw e; }
 	if(opts.cellDates && fmtid && p.t == 'n' && SSF.is_date(SSF._table[fmtid] || String(fmtid))) {
 		var _d = SSF.parse_date_code(p.v); if(_d) { p.t = 'd'; p.v = new Date(_d.y, _d.m-1,_d.d,_d.H,_d.M,_d.S,_d.u); }
@@ -30193,7 +28542,6 @@ function parse_workbook(blob, options) {
 	var arrayf = [];
 	var temp_val;
 	var country;
-	var cell_valid = true;
 	var XFs = []; /* XF records */
 	var palette = [];
 	var Workbook = ({ Sheets:[], WBProps:{date1904:false}, Views:[{}] }), wsprops = {};
@@ -30213,8 +28561,7 @@ function parse_workbook(blob, options) {
 	};
 	var addcell = function addcell(cell, line, options) {
 		if(file_depth > 1) return;
-		if(options.sheetRows && cell.r >= options.sheetRows) cell_valid = false;
-		if(!cell_valid) return;
+		if(options.sheetRows && cell.r >= options.sheetRows) return;
 		if(options.cellStyles && line.XF && line.XF.data) process_cell_style(cell, line, options);
 		delete line.ixfe; delete line.XF;
 		lastcell = cell;
@@ -30295,7 +28642,9 @@ function parse_workbook(blob, options) {
 			if(R.r === 2 || R.r == 12) {
 				var rt = blob.read_shift(2); length -= 2;
 				if(!opts.enc && rt !== RecordType && (((rt&0xFF)<<8)|(rt>>8)) !== RecordType) throw new Error("rt mismatch: " + rt + "!=" + RecordType);
-				if(R.r == 12){ blob.l += 10; length -= 10; } // skip FRT
+				if(R.r == 12){
+					blob.l += 10; length -= 10;
+				} // skip FRT
 			}
 			//console.error(R,blob.l,length,blob.length);
 			var val = ({});
@@ -30348,6 +28697,8 @@ wb.opts.Date1904 = Workbook.WBProps.date1904 = val; break;
 				case 'ForceFullCalculation': wb.opts.FullCalc = val; break;
 				case 'WsBool':
 					if(val.fDialog) out["!type"] = "dialog";
+					if(!val.fBelow) (out["!outline"] || (out["!outline"] = {})).above = true;
+					if(!val.fRight) (out["!outline"] || (out["!outline"] = {})).left = true;
 					break; // TODO
 				case 'XF':
 					XFs.push(val); break;
@@ -30433,13 +28784,15 @@ wb.opts.Date1904 = Workbook.WBProps.date1904 = val; break;
 0x0002:2,
 0x0007:2
 					}[val.BIFFVer] || 8;
+					opts.biffguess = val.BIFFVer == 0;
+					if(val.BIFFVer == 0 && val.dt == 0x1000) { opts.biff = 5; seen_codepage = true; set_cp(opts.codepage = 28591); }
 					if(opts.biff == 8 && val.BIFFVer == 0 && val.dt == 16) opts.biff = 2;
 					if(file_depth++) break;
-					cell_valid = true;
 					out = ((options.dense ? [] : {}));
 
 					if(opts.biff < 8 && !seen_codepage) { seen_codepage = true; set_cp(opts.codepage = options.codepage || 1252); }
-					if(opts.biff < 5) {
+
+					if(opts.biff < 5 || val.BIFFVer == 0 && val.dt == 0x1000) {
 						if(cur_sheet === "") cur_sheet = "Sheet1";
 						range = {s:{r:0,c:0},e:{r:0,c:0}};
 						/* fake BoundSheet8 */
@@ -30462,19 +28815,19 @@ wb.opts.Date1904 = Workbook.WBProps.date1904 = val; break;
 				case 'Number': case 'BIFF2NUM': case 'BIFF2INT': {
 					if(out["!type"] == "chart") if(options.dense ? (out[val.r]||[])[val.c]: out[encode_cell({c:val.c, r:val.r})]) ++val.c;
 					temp_val = ({ixfe: val.ixfe, XF: XFs[val.ixfe]||{}, v:val.val, t:'n'});
-					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x1F];
+					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x3F];
 					safe_format_xf(temp_val, options, wb.opts.Date1904);
 					addcell({c:val.c, r:val.r}, temp_val, options);
 				} break;
 				case 'BoolErr': {
 					temp_val = ({ixfe: val.ixfe, XF: XFs[val.ixfe], v:val.val, t:val.t});
-					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x1F];
+					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x3F];
 					safe_format_xf(temp_val, options, wb.opts.Date1904);
 					addcell({c:val.c, r:val.r}, temp_val, options);
 				} break;
 				case 'RK': {
 					temp_val = ({ixfe: val.ixfe, XF: XFs[val.ixfe], v:val.rknum, t:'n'});
-					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x1F];
+					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x3F];
 					safe_format_xf(temp_val, options, wb.opts.Date1904);
 					addcell({c:val.c, r:val.r}, temp_val, options);
 				} break;
@@ -30482,7 +28835,7 @@ wb.opts.Date1904 = Workbook.WBProps.date1904 = val; break;
 					for(var j = val.c; j <= val.C; ++j) {
 						var ixfe = val.rkrec[j-val.c][0];
 						temp_val= ({ixfe:ixfe, XF:XFs[ixfe], v:val.rkrec[j-val.c][1], t:'n'});
-						if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x1F];
+						if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x3F];
 						safe_format_xf(temp_val, options, wb.opts.Date1904);
 						addcell({c:j, r:val.r}, temp_val, options);
 					}
@@ -30500,7 +28853,7 @@ wb.opts.Date1904 = Workbook.WBProps.date1904 = val; break;
 							else temp_val.F = ((options.dense ? (out[_fr]||[])[_fc]: out[_fe]) || {}).F;
 						} else temp_val.f = ""+stringify_formula(val.formula,range,val.cell,supbooks, opts);
 					}
-					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x1F];
+					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x3F];
 					safe_format_xf(temp_val, options, wb.opts.Date1904);
 					addcell(val.cell, temp_val, options);
 					last_formula = val;
@@ -30513,7 +28866,7 @@ wb.opts.Date1904 = Workbook.WBProps.date1904 = val; break;
 						if(options.cellFormula) {
 							temp_val.f = ""+stringify_formula(last_formula.formula, range, last_formula.cell, supbooks, opts);
 						}
-						if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x1F];
+						if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x3F];
 						safe_format_xf(temp_val, options, wb.opts.Date1904);
 						addcell(last_formula.cell, temp_val, options);
 						last_formula = null;
@@ -30531,7 +28884,6 @@ wb.opts.Date1904 = Workbook.WBProps.date1904 = val; break;
 					}
 				} break;
 				case 'ShrFmla': {
-					if(!cell_valid) break;
 					if(!options.cellFormula) break;
 					if(last_cell) {
 						/* TODO: capture range */
@@ -30545,13 +28897,13 @@ wb.opts.Date1904 = Workbook.WBProps.date1904 = val; break;
 					temp_val=make_cell(sst[val.isst].t, val.ixfe, 's');
 					if(sst[val.isst].h) temp_val.h = sst[val.isst].h;
 					temp_val.XF = XFs[temp_val.ixfe];
-					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x1F];
+					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x3F];
 					safe_format_xf(temp_val, options, wb.opts.Date1904);
 					addcell({c:val.c, r:val.r}, temp_val, options);
 					break;
 				case 'Blank': if(options.sheetStubs) {
 					temp_val = ({ixfe: val.ixfe, XF: XFs[val.ixfe], t:'z'});
-					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x1F];
+					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x3F];
 					safe_format_xf(temp_val, options, wb.opts.Date1904);
 					addcell({c:val.c, r:val.r}, temp_val, options);
 				} break;
@@ -30559,7 +28911,7 @@ wb.opts.Date1904 = Workbook.WBProps.date1904 = val; break;
 					for(var _j = val.c; _j <= val.C; ++_j) {
 						var _ixfe = val.ixfe[_j-val.c];
 						temp_val= ({ixfe:_ixfe, XF:XFs[_ixfe], t:'z'});
-						if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x1F];
+						if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x3F];
 						safe_format_xf(temp_val, options, wb.opts.Date1904);
 						addcell({c:_j, r:val.r}, temp_val, options);
 					}
@@ -30568,7 +28920,7 @@ wb.opts.Date1904 = Workbook.WBProps.date1904 = val; break;
 				case 'Label': case 'BIFF2STR':
 					temp_val=make_cell(val.val, val.ixfe, 's');
 					temp_val.XF = XFs[temp_val.ixfe];
-					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x1F];
+					if(BIFF2Fmt > 0) temp_val.z = BIFF2FmtTable[(temp_val.ixfe>>8) & 0x3F];
 					safe_format_xf(temp_val, options, wb.opts.Date1904);
 					addcell({c:val.c, r:val.r}, temp_val, options);
 					break;
@@ -30646,7 +28998,7 @@ wb.opts.Date1904 = Workbook.WBProps.date1904 = val; break;
 				case 'ColInfo': {
 					if(!opts.cellStyles) break;
 					while(val.e >= val.s) {
-						colinfo[val.e--] = { width: val.w/256 };
+						colinfo[val.e--] = { width: val.w/256, level: (val.level || 0), hidden: !!(val.flags & 1) };
 						if(!seencol) { seencol = true; find_mdw_colw(val.w/256); }
 						process_col(colinfo[val.e+1]);
 					}
@@ -30668,6 +29020,8 @@ wb.opts.Date1904 = Workbook.WBProps.date1904 = val; break;
 					if(!out['!margins']) default_margins(out['!margins'] = {});
 					out['!margins'][Rn.slice(0,-6).toLowerCase()] = val;
 					break;
+
+				case 'Selection': break;
 
 				case 'Setup': // TODO
 					if(!out['!margins']) default_margins(out['!margins'] = {});
@@ -30701,7 +29055,6 @@ wb.opts.Date1904 = Workbook.WBProps.date1904 = val; break;
 				case 'SXLI': break; // TODO
 				case 'SXEx': break; // TODO
 				case 'QsiSXTag': break; // TODO
-				case 'Selection': break;
 				case 'Feat': break;
 				case 'FeatHdr': case 'FeatHdr11': break;
 				case 'Feature11': case 'Feature12': case 'List12': break;
@@ -30904,6 +29257,7 @@ if(!cur_sheet) Workbook.WBProps.CodeName = val || "ThisWorkbook";
 				/* BIFF2-4 records */
 				case 'BIFF2FONTCLR': case 'BIFF2FMTCNT': case 'BIFF2FONTXTRA': break;
 				case 'BIFF2XF': case 'BIFF3XF': case 'BIFF4XF': break;
+				case 'BIFF2XFINDEX': break;
 				case 'BIFF4FMTCNT': case 'BIFF2ROW': case 'BIFF2WINDOW2': break;
 
 				/* Miscellaneous */
@@ -30923,8 +29277,11 @@ if(!cur_sheet) Workbook.WBProps.CodeName = val || "ThisWorkbook";
 	}
 	wb.SheetNames=keys(Directory).sort(function(a,b) { return Number(a) - Number(b); }).map(function(x){return Directory[x].name;});
 	if(!options.bookSheets) wb.Sheets=Sheets;
+	if(!wb.SheetNames.length && Preamble["!ref"]) {
+		wb.SheetNames.push("Sheet1");
+		if(wb.Sheets) wb.Sheets["Sheet1"] = Preamble;
+	} else wb.Preamble=Preamble;
 	if(wb.Sheets) FilterDatabases.forEach(function(r,i) { wb.Sheets[wb.SheetNames[i]]['!autofilter'] = r; });
-	wb.Preamble=Preamble;
 	wb.Strings = sst;
 	wb.SSF = SSF.get_table();
 	if(opts.enc) wb.Encryption = opts.enc;
@@ -31064,7 +29421,13 @@ var XLSBRecordEnum = {
 0x0009: { n:"BrtFmlaNum", f:parse_BrtFmlaNum },
 0x000A: { n:"BrtFmlaBool", f:parse_BrtFmlaBool },
 0x000B: { n:"BrtFmlaError", f:parse_BrtFmlaError },
-0x0010: { n:"BrtFRTArchID$", f:parse_BrtFRTArchID$ },
+0x000C: { n:"BrtShortBlank", f:parse_BrtShortBlank },
+0x000D: { n:"BrtShortRk", f:parse_BrtShortRk },
+0x000E: { n:"BrtShortError", f:parse_BrtShortError },
+0x000F: { n:"BrtShortBool", f:parse_BrtShortBool },
+0x0010: { n:"BrtShortReal", f:parse_BrtShortReal },
+0x0011: { n:"BrtShortSt", f:parse_BrtShortSt },
+0x0012: { n:"BrtShortIsst", f:parse_BrtShortIsst },
 0x0013: { n:"BrtSSTItem", f:parse_RichStr },
 0x0014: { n:"BrtPCDIMissing" },
 0x0015: { n:"BrtPCDINumber" },
@@ -31888,13 +30251,12 @@ var XLSBRecordEnum = {
 };
 
 var XLSBRE = evert_key(XLSBRecordEnum, 'n');
+XLSBRE["BrtFRTArchID$"] = 0x0010;
 
-/* [MS-XLS] 2.3 Record Enumeration */
+/* [MS-XLS] 2.3 Record Enumeration (and other sources) */
 var XLSRecordEnum = {
-0x0003: { n:"BIFF2NUM", f:parse_BIFF2NUM },
-0x0004: { n:"BIFF2STR", f:parse_BIFF2STR },
+	/* [MS-XLS] 2.3 Record Enumeration 2021-08-17 */
 0x0006: { n:"Formula", f:parse_Formula },
-0x0009: { n:'BOF', f:parse_BOF },
 0x000a: { n:'EOF', f:parsenoop2 },
 0x000c: { n:"CalcCount", f:parseuint16 },
 0x000d: { n:"CalcMode", f:parseuint16 },
@@ -31915,7 +30277,6 @@ var XLSRecordEnum = {
 0x001d: { n:"Selection" },
 0x0022: { n:"Date1904", f:parsebool },
 0x0023: { n:"ExternName", f:parse_ExternName },
-0x0024: { n:"COLWIDTH" },
 0x0026: { n:"LeftMargin", f:parse_Xnum },
 0x0027: { n:"RightMargin", f:parse_Xnum },
 0x0028: { n:"TopMargin", f:parse_Xnum },
@@ -32085,7 +30446,6 @@ var XLSRecordEnum = {
 0x0203: { n:"Number", f:parse_Number },
 0x0204: { n:"Label", f:parse_Label },
 0x0205: { n:"BoolErr", f:parse_BoolErr },
-0x0206: { n:"Formula", f:parse_Formula },
 0x0207: { n:"String", f:parse_String },
 0x0208: { n:'Row', f:parse_Row },
 0x020b: { n:"Index" },
@@ -32095,7 +30455,6 @@ var XLSRecordEnum = {
 0x023e: { n:"Window2", f:parse_Window2 },
 0x027e: { n:"RK", f:parse_RK },
 0x0293: { n:"Style" },
-0x0406: { n:"Formula", f:parse_Formula },
 0x0418: { n:"BigName" },
 0x041e: { n:"Format", f:parse_Format },
 0x043c: { n:"ContinueBigName" },
@@ -32252,21 +30611,51 @@ var XLSRecordEnum = {
 0x1068: { n:"Fbi2" },
 
 0x0000: { n:"Dimensions", f:parse_Dimensions },
+0x0001: { n:"BIFF2BLANK" },
 0x0002: { n:"BIFF2INT", f:parse_BIFF2INT },
+0x0003: { n:"BIFF2NUM", f:parse_BIFF2NUM },
+0x0004: { n:"BIFF2STR", f:parse_BIFF2STR },
 0x0005: { n:"BoolErr", f:parse_BoolErr },
 0x0007: { n:"String", f:parse_BIFF2STRING },
 0x0008: { n:"BIFF2ROW" },
+0x0009: { n:'BOF', f:parse_BOF },
 0x000b: { n:"Index" },
 0x0016: { n:"ExternCount", f:parseuint16 },
 0x001e: { n:"BIFF2FORMAT", f:parse_BIFF2Format },
 0x001f: { n:"BIFF2FMTCNT" }, /* 16-bit cnt of BIFF2FORMAT records */
 0x0020: { n:"BIFF2COLINFO" },
 0x0021: { n:"Array", f:parse_Array },
+0x0024: { n:"COLWIDTH" },
 0x0025: { n:"DefaultRowHeight", f:parse_DefaultRowHeight },
+	// 0x2c ??
+	// 0x2d ??
+	// 0x2e ??
+	// 0x30 FONTCOUNT: number of fonts
 0x0032: { n:"BIFF2FONTXTRA", f:parse_BIFF2FONTXTRA },
-0x0034: { n:"DDEObjName" },
+	// 0x35: INFOOPTS
+	// 0x36: TABLE (BIFF2 only)
+	// 0x37: TABLE2 (BIFF2 only)
+	// 0x38: WNDESK
+	// 0x39 ??
+	// 0x3a: BEGINPREF
+	// 0x3b: ENDPREF
 0x003e: { n:"BIFF2WINDOW2" },
+	// 0x3f ??
+	// 0x46: SHOWSCROLL
+	// 0x47: SHOWFORMULA
+	// 0x48: STATUSBAR
+	// 0x49: SHORTMENUS
+	// 0x4A:
+	// 0x4B:
+	// 0x4C:
+	// 0x4E:
+	// 0x4F:
+	// 0x58: TOOLBAR (BIFF3)
+
+	/* - - - */
+0x0034: { n:"DDEObjName" },
 0x0043: { n:"BIFF2XF" },
+0x0044: { n:"BIFF2XFINDEX", f:parseuint16 },
 0x0045: { n:"BIFF2FONTCLR" },
 0x0056: { n:"BIFF4FMTCNT" }, /* 16-bit cnt, similar to BIFF2 */
 0x007e: { n:"RK" }, /* Not necessarily same as 0x027e */
@@ -32274,10 +30663,18 @@ var XLSRecordEnum = {
 0x0087: { n:"Addin" },
 0x0088: { n:"Edg" },
 0x0089: { n:"Pub" },
+	// 0x8A
+	// 0x8B LH: alternate menu key flag (BIFF3/4)
+	// 0x8E
+	// 0x8F
 0x0091: { n:"Sub" },
+	// 0x93 STYLE
 0x0094: { n:"LHRecord" },
 0x0095: { n:"LHNGraph" },
 0x0096: { n:"Sound" },
+	// 0xA2 FNPROTO: function prototypes (BIFF4)
+	// 0xA3
+	// 0xA8
 0x00a9: { n:"CoordList" },
 0x00ab: { n:"GCW" },
 0x00bc: { n:"ShrFmla" }, /* Not necessarily same as 0x04bc */
@@ -32290,11 +30687,13 @@ var XLSRecordEnum = {
 0x00ea: { n:"TabIdConf" },
 0x0162: { n:"XL5Modify" },
 0x01a5: { n:"FileSharing2" },
+0x0206: { n:"Formula", f:parse_Formula },
 0x0209: { n:'BOF', f:parse_BOF },
 0x0218: { n:"Lbl", f:parse_Lbl },
 0x0223: { n:"ExternName", f:parse_ExternName },
 0x0231: { n:"Font" },
 0x0243: { n:"BIFF3XF" },
+0x0406: { n:"Formula", f:parse_Formula },
 0x0409: { n:'BOF', f:parse_BOF },
 0x0443: { n:"BIFF4XF" },
 0x086d: { n:"FeatInfo" },
@@ -32319,7 +30718,7 @@ var XLSRecordEnum = {
 
 var XLSRE = evert_key(XLSRecordEnum, 'n');
 function write_biff_rec(ba, type, payload, length) {
-	var t = +type || +XLSRE[type];
+	var t = typeof type == "number" ? type : (+type || +XLSRE[type]);
 	if(isNaN(t)) return;
 	var len = length || (payload||[]).length || 0;
 	var o = ba.next(4);
@@ -32363,8 +30762,7 @@ function write_BIFF2Cell(out, r, c) {
 function write_BIFF2BERR(r, c, val, t) {
 	var out = new_buf(9);
 	write_BIFF2Cell(out, r, c);
-	if(t == 'e') { out.write_shift(1, val); out.write_shift(1, 1); }
-	else { out.write_shift(1, val?1:0); out.write_shift(1, 0); }
+	write_Bes(val, t || 'b', out);
 	return out;
 }
 
@@ -32389,7 +30787,7 @@ function write_ws_biff2_cell(ba, cell, R, C) {
 		case 'b': case 'e': write_biff_rec(ba, 0x0005, write_BIFF2BERR(R, C, cell.v, cell.t)); return;
 		/* TODO: codepage, sst */
 		case 's': case 'str':
-			write_biff_rec(ba, 0x0004, write_BIFF2LABEL(R, C, cell.v));
+			write_biff_rec(ba, 0x0004, write_BIFF2LABEL(R, C, (cell.v||"").slice(0,255)));
 			return;
 	}
 	write_biff_rec(ba, 0x0001, write_BIFF2Cell(null, R, C));
@@ -32425,7 +30823,7 @@ function write_biff2_buf(wb, opts) {
 	var idx = 0;
 	for(var i=0;i<wb.SheetNames.length;++i) if(wb.SheetNames[i] == o.sheet) idx=i;
 	if(idx == 0 && !!o.sheet && wb.SheetNames[0] != o.sheet) throw new Error("Sheet not found: " + o.sheet);
-	write_biff_rec(ba, 0x0009, write_BOF(wb, 0x10, o));
+	write_biff_rec(ba, (o.biff == 4 ? 0x0409 : (o.biff == 3 ? 0x0209 : 0x0009)), write_BOF(wb, 0x10, o));
 	/* ... */
 	write_ws_biff2(ba, wb.Sheets[wb.SheetNames[idx]], idx, o, wb);
 	/* ... */
@@ -32483,6 +30881,16 @@ function write_ws_biff8_hlinks(ba, ws) {
 	delete ws['!links'];
 }
 
+function write_ws_cols_biff8(ba, cols, ws) {
+	if(!cols) return;
+	var cnt = 0;
+	cols.forEach(function(col, idx) {
+		if(++cnt <= 256 && col) {
+			write_biff_rec(ba, "ColInfo", write_ColInfo(col_obj_w(idx, col), idx));
+		}
+	});
+}
+
 function write_ws_biff8_cell(ba, cell, R, C, opts) {
 	var os = 16 + get_cell_style(opts.cellXfs, cell, opts);
 	if(cell.v == null && !cell.bf) {
@@ -32504,7 +30912,7 @@ function write_ws_biff8_cell(ba, cell, R, C, opts) {
 			if(opts.bookSST) {
 				var isst = get_sst_id(opts.Strings, cell.v, opts.revStrings);
 				write_biff_rec(ba, "LabelSst", write_LabelSst(R, C, isst, os, opts));
-			} else write_biff_rec(ba, "Label", write_Label(R, C, cell.v, os, opts));
+			} else write_biff_rec(ba, "Label", write_Label(R, C, (cell.v||"").slice(0,255), os, opts));
 			break;
 		default:
 			write_biff_rec(ba, "Blank", write_XLSCell(R, C, os));
@@ -32545,6 +30953,8 @@ function write_ws_biff8(idx, opts, wb) {
 	/* Footer (string) */
 	write_biff_rec(ba, "HCenter", writebool(false));
 	write_biff_rec(ba, "VCenter", writebool(false));
+	/* ... */
+	if(b8) write_ws_cols_biff8(ba, ws["!cols"], ws);
 	/* ... */
 	write_biff_rec(ba, 0x200, write_Dimensions(range, opts));
 	/* ... */
@@ -32731,7 +31141,7 @@ var HTML_ = (function() {
 				var tag = parsexmltag(cell.slice(0, cell.indexOf(">")));
 				CS = tag.colspan ? +tag.colspan : 1;
 				if((RS = +tag.rowspan)>1 || CS>1) merges.push({s:{r:R,c:C},e:{r:R + (RS||1) - 1, c:C + CS - 1}});
-				var _t = tag.t || "";
+				var _t = tag.t || tag["data-t"] || "";
 				/* TODO: generate stub cells */
 				if(!m.length) { C += CS; continue; }
 				m = htmldecode(m);
@@ -32758,7 +31168,12 @@ var HTML_ = (function() {
 		return ws;
 	}
 	function html_to_book(str, opts) {
-		return sheet_to_workbook(html_to_sheet(str, opts), opts);
+		var mtch = str.match(/<table.*?>[\s\S]*?<\/table>/gi);
+		if(!mtch || mtch.length == 0) throw new Error("Invalid HTML: could not find <table>");
+		if(mtch.length == 1) return sheet_to_workbook(html_to_sheet(mtch[0], opts), opts);
+		var wb = utils.book_new();
+		mtch.forEach(function(s, idx) { utils.book_append_sheet(wb, html_to_sheet(s, opts), "Sheet" + (idx+1)); });
+		return wb;
 	}
 	function make_html_row(ws, r, R, o) {
 		var M = (ws['!merges'] ||[]);
@@ -32779,10 +31194,14 @@ var HTML_ = (function() {
 			var sp = ({});
 			if(RS > 1) sp.rowspan = RS;
 			if(CS > 1) sp.colspan = CS;
-			sp.t = cell && cell.t || 'z';
 			if(o.editable) w = '<span contenteditable="true">' + w + '</span>';
+			else if(cell) {
+				sp["data-t"] = cell && cell.t || 'z';
+				if(cell.v != null) sp["data-v"] = cell.v;
+				if(cell.z != null) sp["data-z"] = cell.z;
+				if(cell.l && (cell.l.Target || "#").charAt(0) != "#") w = '<a href="' + cell.l.Target +'">' + w + '</a>';
+			}
 			sp.id = (o.id || "sjs") + "-" + coord;
-			if(sp.t != "z") { sp.v = cell.v; if(cell.z != null) sp.z = cell.z; }
 			oo.push(writextag('td', w, sp));
 		}
 		var preamble = "<tr>";
@@ -32854,8 +31273,8 @@ function sheet_add_dom(ws, table, _opts) {
 		for(_C = C = 0; _C < elts.length; ++_C) {
 			var elt = elts[_C];
 			if (opts.display && is_dom_element_hidden(elt)) continue;
-			var v = elt.hasAttribute('v') ? elt.getAttribute('v') : htmldecode(elt.innerHTML);
-			var z = elt.getAttribute('z');
+			var v = elt.hasAttribute('data-v') ? elt.getAttribute('data-v') : elt.hasAttribute('v') ? elt.getAttribute('v') : htmldecode(elt.innerHTML);
+			var z = elt.getAttribute('data-z') || elt.getAttribute('z');
 			for(midx = 0; midx < merges.length; ++midx) {
 				var m = merges[midx];
 				if(m.s.c == C + or_C && m.s.r < R + or_R && R + or_R <= m.e.r) { C = m.e.c+1 - or_C; midx = -1; }
@@ -32864,7 +31283,7 @@ function sheet_add_dom(ws, table, _opts) {
 			CS = +elt.getAttribute("colspan") || 1;
 			if( ((RS = (+elt.getAttribute("rowspan") || 1)))>1 || CS>1) merges.push({s:{r:R + or_R,c:C + or_C},e:{r:R + or_R + (RS||1) - 1, c:C + or_C + (CS||1) - 1}});
 			var o = {t:'s', v:v};
-			var _t = elt.getAttribute("t") || "";
+			var _t = elt.getAttribute("data-t") || elt.getAttribute("t") || "";
 			if(v != null) {
 				if(v.length == 0) o.t = _t || 'z';
 				else if(opts.raw || v.trim().length == 0 || _t == "s"){}
@@ -32878,6 +31297,13 @@ function sheet_add_dom(ws, table, _opts) {
 				}
 			}
 			if(o.z === undefined && z != null) o.z = z;
+			/* The first link is used.  Links are assumed to be fully specified.
+			 * TODO: The right way to process relative links is to make a new <a> */
+			var l = "", Aelts = elt.getElementsByTagName("A");
+			if(Aelts && Aelts.length) for(var Aelti = 0; Aelti < Aelts.length; ++Aelti)	if(Aelts[Aelti].hasAttribute("href")) {
+				l = Aelts[Aelti].getAttribute("href"); if(l.charAt(0) != "#") break;
+			}
+			if(l && l.charAt(0) != "#") o.l = ({ Target: l });
 			if(opts.dense) { if(!ws[R + or_R]) ws[R + or_R] = []; ws[R + or_R][C + or_C] = o; }
 			else ws[encode_cell({c:C + or_C, r:R + or_R})] = o;
 			if(range.e.c < C + or_C) range.e.c = C + or_C;
@@ -33046,6 +31472,7 @@ var parse_content_xml = (function() {
 					C+= colpeat-1;
 				} else if(Rn[1]!=='/') {
 					++C;
+					textp = ""; textpidx = 0; textR = [];
 					colpeat = 1;
 					var rptR = rowpeat ? R + rowpeat - 1 : R;
 					if(C > range.e.c) range.e.c = C;
@@ -33089,7 +31516,9 @@ var parse_content_xml = (function() {
 						case 'date': q.t = 'd'; q.v = parseDate(ctag['date-value']);
 							if(!opts.cellDates) { q.t = 'n'; q.v = datenum(q.v); }
 							q.z = 'm/d/yy'; break;
-						case 'time': q.t = 'n'; q.v = parse_isodur(ctag['time-value'])/86400; break;
+						case 'time': q.t = 'n'; q.v = parse_isodur(ctag['time-value'])/86400;
+							if(opts.cellDates) { q.t = 'd'; q.v = numdate(q.v); }
+							q.z = 'HH:MM:SS'; break;
 						case 'number': q.t = 'n'; q.v = parseFloat(ctag['数据数值']); break;
 						default:
 							if(q.t === 'string' || q.t === 'text' || !q.t) {
@@ -33139,7 +31568,7 @@ var parse_content_xml = (function() {
 			case 'scripts': // 3.12 <office:scripts>
 			case 'styles': // TODO <office:styles>
 			case 'font-face-decls': // 3.14 <office:font-face-decls>
-			case 'master-styles': //3.15.4 <office:master-styles> -- relevant for FODS
+			case 'master-styles': // 3.15.4 <office:master-styles> -- relevant for FODS
 				if(Rn[1]==='/'){if((tmp=state.pop())[0]!==Rn[3]) throw "Bad state: "+tmp;}
 				else if(Rn[0].charAt(Rn[0].length-2) !== '/') state.push([Rn[3], true]);
 				break;
@@ -33433,11 +31862,11 @@ var parse_content_xml = (function() {
 				if(Rn[1]!== '/') {
 					atag = parsexmltag(Rn[0], false);
 					if(!atag.href) break;
-					atag.Target = atag.href; delete atag.href;
+					atag.Target = unescapexml(atag.href); delete atag.href;
 					if(atag.Target.charAt(0) == "#" && atag.Target.indexOf(".") > -1) {
 						_Ref = ods_to_csf_3D(atag.Target.slice(1));
 						atag.Target = "#" + _Ref[0] + "!" + _Ref[1];
-					}
+					} else if(atag.Target.match(/^\.\.[\\\/]/)) atag.Target = atag.Target.slice(3);
 				}
 				break;
 
@@ -33474,11 +31903,10 @@ var parse_content_xml = (function() {
 
 function parse_ods(zip, opts) {
 	opts = opts || ({});
-	var ods = !!safegetzipfile(zip, 'objectdata');
-	if(ods) parse_manifest(getzipdata(zip, 'META-INF/manifest.xml'), opts);
+	if(safegetzipfile(zip, 'META-INF/manifest.xml')) parse_manifest(getzipdata(zip, 'META-INF/manifest.xml'), opts);
 	var content = getzipstr(zip, 'content.xml');
-	if(!content) throw new Error("Missing content.xml in " + (ods ? "ODS" : "UOF")+ " file");
-	var wb = parse_content_xml(ods ? content : utf8read(content), opts);
+	if(!content) throw new Error("Missing content.xml in ODS / UOF file");
+	var wb = parse_content_xml(utf8read(content), opts);
 	if(safegetzipfile(zip, 'meta.xml')) wb.Props = parse_core_props(getzipdata(zip, 'meta.xml'));
 	return wb;
 }
@@ -33488,6 +31916,15 @@ function parse_fods(data, opts) {
 
 /* OpenDocument */
 var write_styles_ods = (function() {
+	var master_styles = '<office:master-styles>'
+	+ '<style:master-page style:name="mp1" style:page-layout-name="mp1">'
+	+ '<style:header/>'
+	+ '<style:header-left style:display="false"/>'
+	+ '<style:footer/>'
+	+ '<style:footer-left style:display="false"/>'
+	+ '</style:master-page>'
+	+ '</office:master-styles>';
+
 	var payload = '<office:document-styles ' + wxt_helper({
 		'xmlns:office':   "urn:oasis:names:tc:opendocument:xmlns:office:1.0",
 		'xmlns:table':    "urn:oasis:names:tc:opendocument:xmlns:table:1.0",
@@ -33501,7 +31938,8 @@ var write_styles_ods = (function() {
 		'xmlns:svg':      "urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0",
 		'xmlns:of':       "urn:oasis:names:tc:opendocument:xmlns:of:1.2",
 		'office:version': "1.2"
-	}) + '></office:document-styles>';
+	}) + '>' + master_styles + '</office:document-styles>';
+
 	return function wso() {
 		return XML_HEADER + payload;
 	};
@@ -33512,7 +31950,7 @@ var write_content_ods = (function() {
 		return escapexml(text)
 			.replace(/  +/g, function($$){return '<text:s text:c="'+$$.length+'"/>';})
 			.replace(/\t/g, "<text:tab/>")
-			.replace(/\n/g, "<text:line-break/>")
+			.replace(/\n/g, "</text:p><text:p>")
 			.replace(/^ /, "<text:s/>").replace(/ $/, "<text:s/>");
 	};
 
@@ -33522,12 +31960,20 @@ var write_content_ods = (function() {
 		/* Section 9 Tables */
 		var o = [];
 		o.push('      <table:table table:name="' + escapexml(wb.SheetNames[i]) + '" table:style-name="ta1">\n');
-		var R=0,C=0, range = decode_range(ws['!ref']);
+		var R=0,C=0, range = decode_range(ws['!ref']||"A1");
 		var marr = ws['!merges'] || [], mi = 0;
 		var dense = Array.isArray(ws);
-		for(R = 0; R < range.s.r; ++R) o.push('        <table:table-row></table:table-row>\n');
+		if(ws["!cols"]) {
+			for(C = 0; C <= range.e.c; ++C) o.push('        <table:table-column' + (ws["!cols"][C] ? ' table:style-name="co' + ws["!cols"][C].ods + '"' : '') + '></table:table-column>\n');
+		}
+		var H = "", ROWS = ws["!rows"]||[];
+		for(R = 0; R < range.s.r; ++R) {
+			H = ROWS[R] ? ' table:style-name="ro' + ROWS[R].ods + '"' : "";
+			o.push('        <table:table-row' + H + '></table:table-row>\n');
+		}
 		for(; R <= range.e.r; ++R) {
-			o.push('        <table:table-row>\n');
+			H = ROWS[R] ? ' table:style-name="ro' + ROWS[R].ods + '"' : "";
+			o.push('        <table:table-row' + H + '>\n');
 			for(C=0; C < range.s.c; ++C) o.push(null_cell_xml);
 			for(; C <= range.e.c; ++C) {
 				var skip = false, ct = {}, textp = "";
@@ -33580,8 +32026,11 @@ var write_content_ods = (function() {
 				}
 				var text_p = write_text_p(textp);
 				if(cell.l && cell.l.Target) {
-					var _tgt = cell.l.Target; _tgt = _tgt.charAt(0) == "#" ? "#" + csf_to_ods_3D(_tgt.slice(1)) : _tgt;
-					text_p = writextag('text:a', text_p, {'xlink:href': _tgt});
+					var _tgt = cell.l.Target;
+					_tgt = _tgt.charAt(0) == "#" ? "#" + csf_to_ods_3D(_tgt.slice(1)) : _tgt;
+					// TODO: choose correct parent path format based on link delimiters
+					if(_tgt.charAt(0) != "#" && !_tgt.match(/^\w+:/)) _tgt = '../' + _tgt;
+					text_p = writextag('text:a', text_p, {'xlink:href': _tgt.replace(/&/g, "&amp;")});
 				}
 				o.push('          ' + writextag('table:table-cell', writextag('text:p', text_p, {}), ct) + '\n');
 			}
@@ -33591,7 +32040,7 @@ var write_content_ods = (function() {
 		return o.join("");
 	};
 
-	var write_automatic_styles_ods = function(o) {
+	var write_automatic_styles_ods = function(o, wb) {
 		o.push(' <office:automatic-styles>\n');
 
 		o.push('  <number:date-style style:name="N37" number:automatic-order="true">\n');
@@ -33602,8 +32051,43 @@ var write_content_ods = (function() {
 		o.push('   <number:year/>\n');
 		o.push('  </number:date-style>\n');
 
+		/* column styles */
+		var cidx = 0;
+		wb.SheetNames.map(function(n) { return wb.Sheets[n]; }).forEach(function(ws) {
+			if(!ws) return;
+			if(ws["!cols"]) {
+				for(var C = 0; C < ws["!cols"].length; ++C) if(ws["!cols"][C]) {
+					var colobj = ws["!cols"][C];
+					if(colobj.width == null && colobj.wpx == null && colobj.wch == null) continue;
+					process_col(colobj);
+					colobj.ods = cidx;
+					var w = ws["!cols"][C].wpx + "px";
+					o.push('  <style:style style:name="co' + cidx + '" style:family="table-column">\n');
+					o.push('   <style:table-column-properties fo:break-before="auto" style:column-width="' + w + '"/>\n');
+					o.push('  </style:style>\n');
+					++cidx;
+				}
+			}
+		});
+
+		/* row styles */
+		var ridx = 0;
+		wb.SheetNames.map(function(n) { return wb.Sheets[n]; }).forEach(function(ws) {
+			if(!ws) return;
+			if(ws["!rows"]) {
+				for(var R = 0; R < ws["!rows"].length; ++R) if(ws["!rows"][R]) {
+					ws["!rows"][R].ods = ridx;
+					var h = ws["!rows"][R].hpx + "px";
+					o.push('  <style:style style:name="ro' + ridx + '" style:family="table-row">\n');
+					o.push('   <style:table-row-properties fo:break-before="auto" style:row-height="' + h + '"/>\n');
+					o.push('  </style:style>\n');
+					++ridx;
+				}
+			}
+		});
+
 		/* table */
-		o.push('  <style:style style:name="ta1" style:family="table">\n'); // style:master-page-name="mp1">\n');
+		o.push('  <style:style style:name="ta1" style:family="table" style:master-page-name="mp1">\n');
 		o.push('   <style:table-properties table:display="true" style:writing-mode="lr-tb"/>\n');
 		o.push('  </style:style>\n');
 
@@ -33663,9 +32147,13 @@ var write_content_ods = (function() {
 			'office:mimetype': "application/vnd.oasis.opendocument.spreadsheet"
 		});
 
-		if(opts.bookType == "fods") o.push('<office:document' + attr + fods + '>\n');
-		else o.push('<office:document-content' + attr  + '>\n');
-		write_automatic_styles_ods(o);
+		if(opts.bookType == "fods") {
+			o.push('<office:document' + attr + fods + '>\n');
+			o.push(write_meta_ods().replace(/office:document-meta/g, "office:meta"));
+			// TODO: settings (equiv of settings.xml for ODS)
+		} else o.push('<office:document-content' + attr  + '>\n');
+		// o.push('  <office:scripts/>\n');
+		write_automatic_styles_ods(o, wb);
 		o.push('  <office:body>\n');
 		o.push('    <office:spreadsheet>\n');
 		for(var i = 0; i != wb.SheetNames.length; ++i) o.push(write_ws(wb.Sheets[wb.SheetNames[i]], wb, i, opts));
@@ -33680,7 +32168,7 @@ var write_content_ods = (function() {
 function write_ods(wb, opts) {
 	if(opts.bookType == "fods") return write_content_ods(wb, opts);
 
-var zip = zip_new();
+	var zip = zip_new();
 	var f = "";
 
 	var manifest = [];
@@ -33704,7 +32192,7 @@ var zip = zip_new();
 
 	/* TODO: this is hard-coded to satiate excel */
 	f = "meta.xml";
-	zip_add_file(zip, f, write_meta_ods());
+	zip_add_file(zip, f, XML_HEADER + write_meta_ods());
 	manifest.push([f, "text/xml"]);
 	rdf.push([f, "MetadataFile"]);
 
@@ -33743,6 +32231,7 @@ var write_rtf_str = write_obj_str(typeof RTF !== "undefined" ? RTF : {});
 var write_txt_str = write_obj_str({from_sheet:sheet_to_txt});
 var write_dbf_buf = write_obj_str(typeof DBF !== "undefined" ? DBF : {});
 var write_eth_str = write_obj_str(typeof ETH !== "undefined" ? ETH : {});
+var write_wk1_buf = write_obj_str(typeof WK_ !== "undefined" ? {from_sheet:WK_.sheet_to_wk1} : {});
 
 function fix_opts_func(defaults) {
 	return function fix_opts(opts) {
@@ -33983,8 +32472,18 @@ function parse_zip(zip, opts) {
 		SSF: SSF.get_table()
 	});
 	if(opts && opts.bookFiles) {
-		out.keys = entries;
-		out.files = zip.files;
+		if(zip.files) {
+			out.keys = entries;
+			out.files = zip.files;
+		} else {
+			out.keys = [];
+			out.files = {};
+			zip.FullPaths.forEach(function(p, idx) {
+				p = p.replace(/^Root Entry[\/]/, "");
+				out.keys.push(p);
+				out.files[p] = zip.FileIndex[idx];
+			});
+		}
 	}
 	if(opts && opts.bookVBA) {
 		if(dir.vba.length > 0) out.vbaraw = getzipdata(zip,strip_front_slash(dir.vba[0]),true);
@@ -34057,7 +32556,7 @@ function write_zip(wb, opts) {
 	var vbafmt = VBAFMTS.indexOf(opts.bookType) > -1;
 	var ct = new_ct();
 	fix_write_opts(opts = opts || {});
-var zip = zip_new();
+	var zip = zip_new();
 	var f = "", rId = 0;
 
 	opts.cellXfs = [];
@@ -34183,7 +32682,7 @@ function read_cfb(cfb, opts) {
 }
 
 function read_zip(data, opts) {
-var zip, d = data;
+	var zip, d = data;
 	var o = opts||{};
 	if(!o.type) o.type = (has_buf && Buffer.isBuffer(data)) ? "buffer" : "base64";
 	zip = zip_read(d, o);
@@ -34232,9 +32731,9 @@ function read_prn(data, d, o, str) {
 
 function readSync(data, opts) {
 	reset_cp();
-	if(typeof ArrayBuffer !== 'undefined' && data instanceof ArrayBuffer) return readSync(new Uint8Array(data), opts);
-	var d = data, n = [0,0,0,0], str = false;
 	var o = opts||{};
+	if(typeof ArrayBuffer !== 'undefined' && data instanceof ArrayBuffer) return readSync(new Uint8Array(data), (o = dup(o), o.type = "array", o));
+	var d = data, n = [0,0,0,0], str = false;
 	if(o.cellStyles) { o.cellNF = true; o.sheetStubs = true; }
 	_ssfopts = {};
 	if(o.dateNF) _ssfopts.dateNF = o.dateNF;
@@ -34249,9 +32748,12 @@ function readSync(data, opts) {
 	}
 	switch((n = firstbyte(d, o))[0]) {
 		case 0xD0: if(n[1] === 0xCF && n[2] === 0x11 && n[3] === 0xE0 && n[4] === 0xA1 && n[5] === 0xB1 && n[6] === 0x1A && n[7] === 0xE1) return read_cfb(CFB.read(d, o), o); break;
-		case 0x09: if(n[1] <= 0x04) return parse_xlscfb(d, o); break;
+		case 0x09: if(n[1] <= 0x08) return parse_xlscfb(d, o); break;
 		case 0x3C: return parse_xlml(d, o);
-		case 0x49: if(n[1] === 0x44) return read_wb_ID(d, o); break;
+		case 0x49:
+			if(n[1] === 0x49 && n[2] === 0x2a && n[3] === 0x00) throw new Error("TIFF Image File is not a spreadsheet");
+			if(n[1] === 0x44) return read_wb_ID(d, o);
+			break;
 		case 0x54: if(n[1] === 0x41 && n[2] === 0x42 && n[3] === 0x4C) return DIF.to_workbook(d, o); break;
 		case 0x50: return (n[1] === 0x4B && n[2] < 0x09 && n[3] < 0x09) ? read_zip(d, o) : read_prn(data, d, o, str);
 		case 0xEF: return n[3] === 0x3C ? parse_xlml(d, o) : read_prn(data, d, o, str);
@@ -34260,6 +32762,7 @@ function readSync(data, opts) {
 		case 0x03: case 0x83: case 0x8B: case 0x8C: return DBF.to_workbook(d, o);
 		case 0x7B: if(n[1] === 0x5C && n[2] === 0x72 && n[3] === 0x74) return RTF.to_workbook(d, o); break;
 		case 0x0A: case 0x0D: case 0x20: return read_plaintext_raw(d, o);
+		case 0x89: if(n[1] === 0x50 && n[2] === 0x4E && n[3] === 0x47) throw new Error("PNG Image File is not a spreadsheet"); break; 
 	}
 	if(DBF.versions.indexOf(n[0]) > -1 && n[2] <= 12 && n[3] <= 31) return DBF.to_workbook(d, o);
 	return read_prn(data, d, o, str);
@@ -34281,7 +32784,7 @@ function write_cfb_ctr(cfb, o) {
 }
 
 function write_zip_type(wb, opts) {
-	var o = opts||{};
+	var o = dup(opts||{});
 	var z = write_zip(wb, o);
 	var oopts = {};
 	if(o.compression) oopts.compression = 'DEFLATE';
@@ -34357,7 +32860,7 @@ function write_binary_type(out, opts) {
 function writeSync(wb, opts) {
 	reset_cp();
 	check_wb(wb);
-	var o = opts||{};
+	var o = dup(opts||{});
 	if(o.cellStyles) { o.cellNF = true; o.sheetStubs = true; }
 	if(o.type == "array") { o.type = "binary"; var out = (writeSync(wb, o)); o.type = "array"; return s2ab(out); }
 	switch(o.bookType || 'xlsb') {
@@ -34375,6 +32878,8 @@ function writeSync(wb, opts) {
 		case 'rtf': return write_string_type(write_rtf_str(wb, o), o);
 		case 'eth': return write_string_type(write_eth_str(wb, o), o);
 		case 'fods': return write_string_type(write_ods(wb, o), o);
+		case 'wk1': return write_binary_type(write_wk1_buf(wb, o), o);
+		case 'wk3': return write_binary_type(WK_.book_to_wk3(wb, o), o);
 		case 'biff2': if(!o.biff) o.biff = 2; /* falls through */
 		case 'biff3': if(!o.biff) o.biff = 3; /* falls through */
 		case 'biff4': if(!o.biff) o.biff = 4; return write_binary_type(write_biff_buf(wb, o), o);
@@ -34439,13 +32944,14 @@ function make_json_row(sheet, r, R, cols, header, hdr, dense, o) {
 		var v = val.v;
 		switch(val.t){
 			case 'z': if(v == null) break; continue;
-			case 'e': v = void 0; break;
+			case 'e': v = (v == 0 ? null : void 0); break;
 			case 's': case 'd': case 'b': case 'n': break;
 			default: throw new Error('unrecognized type ' + val.t);
 		}
 		if(hdr[C] != null) {
 			if(v == null) {
-				if(defval !== undefined) row[hdr[C]] = defval;
+				if(val.t == "e" && v === null) row[hdr[C]] = null;
+				else if(defval !== undefined) row[hdr[C]] = defval;
 				else if(raw && v === null) row[hdr[C]] = null;
 				else continue;
 			} else {
@@ -34637,6 +33143,7 @@ function sheet_add_json(_ws, js, opts) {
 					if(!o.cellDates) { t = 'n'; v = datenum(v); }
 					z = (o.dateNF || SSF._table[14]);
 				}
+				else if(v === null && o.nullError) { t = 'e'; v = 0; }
 				if(!cell) ws[ref] = cell = ({t:t, v:v});
 				else {
 					cell.t = t; cell.v = v;
@@ -34939,6 +33446,8 @@ if(typeof CFB !== "undefined") XLSX.CFB = CFB;
 /*global define */
 if(true) make_xlsx_lib(exports);
 else {}
+/* NOTE: the following extra line is needed for "Lightning Locker Service" */
+if(typeof window !== 'undefined' && !window.XLSX) window.XLSX = XLSX;
 /*exported XLS, ODS */
 var XLS = XLSX, ODS = XLSX;
 

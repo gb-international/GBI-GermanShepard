@@ -22,7 +22,7 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
@@ -32,6 +32,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -194,8 +196,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.$axios.get("/api/search-gallery/" + this.searchQuery + "/domestic").then(function (response) {
         _this2.resultQuery = response.data;
 
-        if (_this2.resultQuery.length <= 0) {
-          return _this2.$swal.fire("No Results!", "This Gallery is currently not available.", "info");
+        if (_this2.resultQuery.length <= 0) {//return this.$swal.fire("No Results!", "This Gallery is currently not available.", "info"); 
         } //console.log(this.resultQuery);
 
 
@@ -218,7 +219,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -236,14 +237,14 @@ var render = function() {
                         name: "model",
                         rawName: "v-model",
                         value: _vm.searchQuery,
-                        expression: "searchQuery"
-                      }
+                        expression: "searchQuery",
+                      },
                     ],
                     staticClass: "form-control search-field",
                     attrs: { type: "search", placeholder: "Search" },
                     domProps: { value: _vm.searchQuery },
                     on: {
-                      keyup: function($event) {
+                      keyup: function ($event) {
                         if (
                           !$event.type.indexOf("key") &&
                           _vm._k(
@@ -256,20 +257,20 @@ var render = function() {
                         ) {
                           return null
                         }
-                        return _vm.SearchGal($event)
+                        return _vm.SearchGal.apply(null, arguments)
                       },
-                      input: function($event) {
+                      input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
                         _vm.searchQuery = $event.target.value
-                      }
-                    }
-                  })
-                ])
-              ])
-            ])
-          ])
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+            ]),
+          ]),
         ]),
         _vm._v(" "),
         _c(
@@ -284,11 +285,27 @@ var render = function() {
                       ? _c("image-card", { attrs: { gallery: _vm.gallery } })
                       : _vm.search && _vm.resultQuery.length > 0
                       ? _c("image-card", {
-                          attrs: { gallery: _vm.resultQuery }
+                          attrs: { gallery: _vm.resultQuery },
                         })
-                      : _c("p", { staticClass: "text-center text-muted" }, [
-                          _vm._v("Not Data Avaliable")
-                        ])
+                      : _c(
+                          "div",
+                          {
+                            staticStyle: {
+                              "object-position": "center",
+                              "max-width": "350px",
+                              margin: "auto",
+                            },
+                          },
+                          [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  _vm.$gbiAssets +
+                                  "/assets/errorImages/gallery-search.png",
+                              },
+                            }),
+                          ]
+                        ),
                   ],
                   1
                 )
@@ -304,12 +321,12 @@ var render = function() {
                     name: "show",
                     rawName: "v-show",
                     value: _vm.loading,
-                    expression: "loading"
-                  }
+                    expression: "loading",
+                  },
                 ],
-                staticClass: "row card-titles"
+                staticClass: "row card-titles",
               },
-              _vm._l(6, function(index) {
+              _vm._l(6, function (index) {
                 return _c(
                   "div",
                   { key: index, staticClass: "col-sm-4" },
@@ -318,10 +335,10 @@ var render = function() {
                 )
               }),
               0
-            )
+            ),
           ],
           1
-        )
+        ),
       ])
 }
 var staticRenderFns = []

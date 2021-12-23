@@ -197,12 +197,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h1", { staticClass: "gbi_main-heading pt-3 text-capitalize" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -223,7 +223,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -236,7 +236,7 @@ var render = function() {
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-sm-8 mb-3" }, [
               _c("h1", { staticClass: "heading mb-3" }, [
-                _vm._v("Frequently Asked Questions (FAQ)")
+                _vm._v("Frequently Asked Questions (FAQ)"),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "input-group p-2 bg-skyblue" }, [
@@ -246,29 +246,29 @@ var render = function() {
                       name: "model",
                       rawName: "v-model",
                       value: _vm.searchQuery,
-                      expression: "searchQuery"
-                    }
+                      expression: "searchQuery",
+                    },
                   ],
                   staticClass: "form-control",
                   attrs: {
                     type: "text",
                     placeholder: "Got a question? Shoot at us",
-                    title: "Type in a name"
+                    title: "Type in a name",
                   },
                   domProps: { value: _vm.searchQuery },
                   on: {
-                    input: function($event) {
+                    input: function ($event) {
                       if ($event.target.composing) {
                         return
                       }
                       _vm.searchQuery = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ])
-          ])
-        ])
+                    },
+                  },
+                }),
+              ]),
+            ]),
+          ]),
+        ]),
       ]
     ),
     _vm._v(" "),
@@ -281,14 +281,14 @@ var render = function() {
         _c("heading", {
           staticClass: "text-center mb-3",
           attrs: {
-            text: "Confused? Need not worry, we have answers to your queries."
-          }
+            text: "Confused? Need not worry, we have answers to your queries.",
+          },
         }),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "container" },
-          _vm._l(_vm.resultQuery, function(data, i) {
+          _vm._l(_vm.resultQuery, function (data, i) {
             return _c("div", { key: i, staticClass: "mb-2" }, [
               _c("div", { staticClass: "row mt-1" }, [
                 _vm._m(1, true),
@@ -296,53 +296,53 @@ var render = function() {
                 _c("div", { staticClass: "col-11" }, [
                   _vm._v(
                     "\n            " + _vm._s(data.question) + "\n          "
-                  )
-                ])
+                  ),
+                ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "row mt-1" }, [
                 _vm._m(2, true),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-11" }, [
-                  _c("div", { domProps: { innerHTML: _vm._s(data.answer) } })
-                ])
-              ])
+                  _c("div", { domProps: { innerHTML: _vm._s(data.answer) } }),
+                ]),
+              ]),
             ])
           }),
           0
-        )
+        ),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text_on_image" }, [
       _c("section", { staticClass: "banner-block faq_banner" }),
       _vm._v(" "),
-      _c("div", { staticClass: "content" })
+      _c("div", { staticClass: "content" }),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-1 text-right" }, [
-      _c("b", [_vm._v("Que. ")])
+      _c("b", [_vm._v("Que. ")]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-1 text-right" }, [
-      _c("b", [_vm._v("Ans.")])
+      _c("b", [_vm._v("Ans.")]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

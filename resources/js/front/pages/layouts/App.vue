@@ -4,7 +4,7 @@
       Edited by: @Manas
       ****************************************************-->
   <!-- Edits: Added dropdowns to Travel Encyclopedia, Added Dropdown to Profile  -->
-  <div id="app" class="relative">
+  <div id="app" class="relative" style="background: white !important;">
     <nav
       class="navbar navbar-expand-md bg-white navbar-light fixed-top z-index: 999"
       id="navbar"
@@ -334,7 +334,7 @@ export default {
       isnav_active: false,
       user: { name: "", photo: "" },
       cookies_alert: false,
-      socket : io('localhost:3000')
+      socket : io(this.$hostName)
     };
   },
 
@@ -362,9 +362,7 @@ export default {
     document.cookie = "GBIMeta =" + localStorage.getItem('front_meta.jwt') +"; path=/";
     //console.log(userData.subscription_id)
 
-    this.loginCheck();
-
-    if(userData.subscription_id){
+    if(userData){
       this.$store.dispatch('getNotifCount', userData.subscription_id) 
 
       /*Echo.channel('notifications')
@@ -381,6 +379,7 @@ export default {
       
     }    
 
+    this.loginCheck();
     //this.login = this.$cookies.get("login");
     /*if (this.login == null) {
       this.login = 1;

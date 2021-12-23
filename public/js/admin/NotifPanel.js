@@ -325,9 +325,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_TableLoader_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/TableLoader.vue */ "./resources/js/admin/components/TableLoader.vue");
 /* harmony import */ var _admin_pages_notificationPanel_notif_chart_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/pages/notificationPanel/notif-chart.vue */ "./resources/js/admin/pages/notificationPanel/notif-chart.vue");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -613,7 +613,7 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -623,7 +623,7 @@ var render = function() {
     [
       _c("b-spinner", { staticClass: "align-middle" }),
       _vm._v(" "),
-      _c("strong", [_vm._v("Loading...")])
+      _c("strong", [_vm._v("Loading...")]),
     ],
     1
   )
@@ -646,7 +646,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -655,9 +655,13 @@ var render = function() {
         "router-link",
         {
           staticClass: "text-capitalize font-weight-bold",
-          attrs: { to: _vm.url }
+          attrs: { to: _vm.url },
         },
-        [_vm._t("default", [_vm._v("add")])],
+        [
+          _vm._t("default", function () {
+            return [_vm._v("add")]
+          }),
+        ],
         2
       )
     : _vm._e()
@@ -680,7 +684,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -693,7 +697,7 @@ var render = function() {
     : _vm._e()
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -702,7 +706,7 @@ var staticRenderFns = [
       { staticClass: "badge badge-danger incrIconSize pointer" },
       [_c("i", { staticClass: "far fa-trash-alt" })]
     )
-  }
+  },
 ]
 render._withStripped = true
 
@@ -721,7 +725,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -731,10 +735,10 @@ var render = function() {
           "span",
           {
             staticClass: "badge badge-primary incrIconSize",
-            attrs: { title: "Edit Item" }
+            attrs: { title: "Edit Item" },
           },
           [_c("i", { staticClass: "fas fa-pencil-alt" })]
-        )
+        ),
       ])
     : _vm._e()
 }
@@ -756,7 +760,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -768,10 +772,10 @@ var render = function() {
         "span",
         {
           staticClass: "badge badge-primary incrIconSize",
-          attrs: { title: "View Item" }
+          attrs: { title: "View Item" },
         },
         [_c("i", { staticClass: "fas fa-eye" })]
-      )
+      ),
     ]
   )
 }
@@ -793,7 +797,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -813,7 +817,7 @@ var render = function() {
                   { staticClass: "p-0 pb-2", attrs: { cols: "3" } },
                   [_vm._t("displayType")],
                   2
-                )
+                ),
               ],
               1
             ),
@@ -848,7 +852,7 @@ var render = function() {
                   { staticClass: "p-0", attrs: { cols: "2" } },
                   [_vm._t("timeSpan")],
                   2
-                )
+                ),
               ],
               1
             ),
@@ -859,10 +863,10 @@ var render = function() {
               [
                 _vm._t("table"),
                 _vm._v(" "),
-                _c("div", { staticClass: "w-100" }, [_vm._t("pagination")], 2)
+                _c("div", { staticClass: "w-100" }, [_vm._t("pagination")], 2),
               ],
               2
-            )
+            ),
           ],
           1
         ),
@@ -872,9 +876,9 @@ var render = function() {
           { staticClass: "container container_admin_body list-section pb-5" },
           [_vm._t("graph")],
           2
-        )
-      ])
-    ])
+        ),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -895,7 +899,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -904,7 +908,7 @@ var render = function() {
       [
         {
           key: "displayType",
-          fn: function() {
+          fn: function () {
             return [
               _c(
                 "select",
@@ -914,118 +918,120 @@ var render = function() {
                       name: "model",
                       rawName: "v-model",
                       value: _vm.notifDisplay,
-                      expression: "notifDisplay"
-                    }
+                      expression: "notifDisplay",
+                    },
                   ],
                   staticClass: "customButton",
                   on: {
-                    change: function($event) {
+                    change: function ($event) {
                       var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
+                        .call($event.target.options, function (o) {
                           return o.selected
                         })
-                        .map(function(o) {
+                        .map(function (o) {
                           var val = "_value" in o ? o._value : o.value
                           return val
                         })
                       _vm.notifDisplay = $event.target.multiple
                         ? $$selectedVal
                         : $$selectedVal[0]
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("option", { attrs: { value: "Graph" } }, [
-                    _vm._v("Graph")
+                    _vm._v("Graph"),
                   ]),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "Table" } }, [_vm._v("Table")])
+                  _c("option", { attrs: { value: "Table" } }, [
+                    _vm._v("Table"),
+                  ]),
                 ]
-              )
+              ),
             ]
           },
-          proxy: true
+          proxy: true,
         },
         {
           key: "category",
-          fn: function() {
+          fn: function () {
             return [
               _c("b-form-select", {
                 staticClass: "radius-0",
                 attrs: { options: _vm.categoryOptions },
                 model: {
                   value: _vm.notifCategory,
-                  callback: function($$v) {
+                  callback: function ($$v) {
                     _vm.notifCategory = $$v
                   },
-                  expression: "notifCategory"
-                }
-              })
+                  expression: "notifCategory",
+                },
+              }),
             ]
           },
-          proxy: true
+          proxy: true,
         },
         {
           key: "status",
-          fn: function() {
+          fn: function () {
             return [
               _c("b-form-select", {
                 staticClass: "radius-0",
                 attrs: { options: _vm.statusOptions },
                 model: {
                   value: _vm.notifStatus,
-                  callback: function($$v) {
+                  callback: function ($$v) {
                     _vm.notifStatus = $$v
                   },
-                  expression: "notifStatus"
-                }
-              })
+                  expression: "notifStatus",
+                },
+              }),
             ]
           },
-          proxy: true
+          proxy: true,
         },
         {
           key: "service",
-          fn: function() {
+          fn: function () {
             return [
               _c("b-form-select", {
                 staticClass: "radius-0",
                 attrs: { options: _vm.serviceOptions },
                 model: {
                   value: _vm.notifService,
-                  callback: function($$v) {
+                  callback: function ($$v) {
                     _vm.notifService = $$v
                   },
-                  expression: "notifService"
-                }
-              })
+                  expression: "notifService",
+                },
+              }),
             ]
           },
-          proxy: true
+          proxy: true,
         },
         {
           key: "timeSpan",
-          fn: function() {
+          fn: function () {
             return [
               _c("b-form-select", {
                 staticClass: "radius-0",
                 attrs: { options: _vm.timeSpanOptions },
                 model: {
                   value: _vm.timeSpan,
-                  callback: function($$v) {
+                  callback: function ($$v) {
                     _vm.timeSpan = $$v
                   },
-                  expression: "timeSpan"
-                }
-              })
+                  expression: "timeSpan",
+                },
+              }),
             ]
           },
-          proxy: true
+          proxy: true,
         },
         _vm.notifDisplay == "Table"
           ? {
               key: "table",
-              fn: function() {
+              fn: function () {
                 return [
                   _c("b-table", {
                     staticClass: "w-100 table-layout",
@@ -1039,20 +1045,20 @@ var render = function() {
                       items: _vm.items.data,
                       busy: _vm.$store.getters.isBusy,
                       filter: _vm.filter,
-                      "primary-key": "updated_at"
+                      "primary-key": "updated_at",
                     },
                     scopedSlots: _vm._u(
                       [
                         {
                           key: "table-busy",
-                          fn: function() {
+                          fn: function () {
                             return [_c("table-loader")]
                           },
-                          proxy: true
+                          proxy: true,
                         },
                         {
                           key: "cell(status)",
-                          fn: function(data) {
+                          fn: function (data) {
                             return [
                               data.item.status == 1
                                 ? _c(
@@ -1064,28 +1070,28 @@ var render = function() {
                                     "span",
                                     {
                                       staticClass: "badge badge-default",
-                                      staticStyle: { color: "red" }
+                                      staticStyle: { color: "red" },
                                     },
                                     [_vm._v("Failed")]
-                                  )
+                                  ),
                             ]
-                          }
-                        }
+                          },
+                        },
                       ],
                       null,
                       false,
                       211789200
-                    )
-                  })
+                    ),
+                  }),
                 ]
               },
-              proxy: true
+              proxy: true,
             }
           : null,
         _vm.items.data && _vm.notifDisplay == "Table"
           ? {
               key: "pagination",
-              fn: function() {
+              fn: function () {
                 return [
                   _c(
                     "pagination",
@@ -1093,9 +1099,9 @@ var render = function() {
                       attrs: {
                         data: _vm.items,
                         align: "right",
-                        limit: _vm.limit
+                        limit: _vm.limit,
                       },
-                      on: { "pagination-change-page": _vm.getitems }
+                      on: { "pagination-change-page": _vm.getitems },
                     },
                     [
                       _c(
@@ -1108,18 +1114,18 @@ var render = function() {
                         "span",
                         { attrs: { slot: "next-nav" }, slot: "next-nav" },
                         [_vm._v("Next")]
-                      )
+                      ),
                     ]
-                  )
+                  ),
                 ]
               },
-              proxy: true
+              proxy: true,
             }
           : null,
         _vm.notifDisplay == "Graph"
           ? {
               key: "graph",
-              fn: function() {
+              fn: function () {
                 return [
                   _vm.loaded
                     ? _c("notif-chart", {
@@ -1129,19 +1135,19 @@ var render = function() {
                           labelsData: _vm.labelsData,
                           chartLabel:
                             _vm.notifCategory + " (" + _vm.notifStatus + ") ",
-                          chartStatus: _vm.notifStatus
-                        }
+                          chartStatus: _vm.notifStatus,
+                        },
                       })
-                    : _vm._e()
+                    : _vm._e(),
                 ]
               },
-              proxy: true
+              proxy: true,
             }
-          : null
+          : null,
       ],
       null,
       true
-    )
+    ),
   })
 }
 var staticRenderFns = []
@@ -1679,7 +1685,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_97b51496_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./panel.vue?vue&type=style&index=0&id=97b51496&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/notificationPanel/panel.vue?vue&type=style&index=0&id=97b51496&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_97b51496_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_97b51496_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_97b51496_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_97b51496_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_97b51496_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_97b51496_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

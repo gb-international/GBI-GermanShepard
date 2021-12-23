@@ -348,7 +348,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -356,7 +356,7 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "viewdata",
-        fn: function() {
+        fn: function () {
           return [
             _c("div", { staticClass: "row pl-4" }, [
               _c(
@@ -372,8 +372,8 @@ var render = function() {
                           "/corporate/bookedusers/" +
                           _vm.$route.params.company_id +
                           "/" +
-                          _vm.$route.params.tour_code
-                      }
+                          _vm.$route.params.tour_code,
+                      },
                     },
                     [_vm._v("Payment History")]
                   ),
@@ -385,8 +385,8 @@ var render = function() {
                           attrs: {
                             url:
                               "/update-paymentmethod-corporate/" +
-                              _vm.tour_view.id
-                          }
+                              _vm.tour_view.id,
+                          },
                         },
                         [_vm._v("Update Payment Method")]
                       )
@@ -398,14 +398,14 @@ var render = function() {
                               "/add-paymentmethod-coporate/" +
                               _vm.$route.params.company_id +
                               "/" +
-                              _vm.$route.params.tour_code
-                          }
+                              _vm.$route.params.tour_code,
+                          },
                         },
                         [_vm._v("Add Payment Method")]
-                      )
+                      ),
                 ],
                 1
-              )
+              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card_view pl-4" }, [
@@ -417,7 +417,7 @@ var render = function() {
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Tour Code")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.tour_code))])
+                          _c("p", [_vm._v(_vm._s(_vm.tour_view.tour_code))]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -436,25 +436,27 @@ var render = function() {
                               _vm._v(
                                 "\n              " +
                                   _vm._s(_vm.tour_view.user.name)
-                              )
+                              ),
                             ]
-                          )
+                          ),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("Added By")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.tour_view.added_by))])
+                      _c("p", [_vm._v(_vm._s(_vm.tour_view.added_by))]),
                     ]),
                     _vm._v(" "),
                     _vm.tour_view.bankdetail_id != null
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Company Bank Detail ID")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.bankdetail_id))])
+                          _c("p", [
+                            _vm._v(_vm._s(_vm.tour_view.bankdetail_id)),
+                          ]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -462,7 +464,7 @@ var render = function() {
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Payment By")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.payment_mode))])
+                          _c("p", [_vm._v(_vm._s(_vm.tour_view.payment_mode))]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -470,7 +472,7 @@ var render = function() {
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Payment Type")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.payment_type))])
+                          _c("p", [_vm._v(_vm._s(_vm.tour_view.payment_type))]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -478,7 +480,7 @@ var render = function() {
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("IFSC Code")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.ifsc_code))])
+                          _c("p", [_vm._v(_vm._s(_vm.tour_view.ifsc_code))]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -486,7 +488,7 @@ var render = function() {
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Amount")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.amount))])
+                          _c("p", [_vm._v(_vm._s(_vm.tour_view.amount))]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -495,8 +497,8 @@ var render = function() {
                           _c("h5", [_vm._v("Cheque Bank Name")]),
                           _vm._v(" "),
                           _c("p", [
-                            _vm._v(_vm._s(_vm.tour_view.cheque_bank_name))
-                          ])
+                            _vm._v(_vm._s(_vm.tour_view.cheque_bank_name)),
+                          ]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -504,7 +506,9 @@ var render = function() {
                       ? _c("div", { staticClass: "col-sm-4" }, [
                           _c("h5", [_vm._v("Date of Issue")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.tour_view.date_of_issue))])
+                          _c("p", [
+                            _vm._v(_vm._s(_vm.tour_view.date_of_issue)),
+                          ]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -514,20 +518,20 @@ var render = function() {
                       _vm.tour_view.status == "success"
                         ? _c("p", [
                             _c("span", { staticClass: "badge badge-success" }, [
-                              _vm._v("Success")
-                            ])
+                              _vm._v("Success"),
+                            ]),
                           ])
                         : _c("p", [
                             _c("span", { staticClass: "badge badge-primary" }, [
-                              _vm._v("Pending")
-                            ])
-                          ])
+                              _vm._v("Pending"),
+                            ]),
+                          ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("Added At")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.tour_view.created_at))])
+                      _c("p", [_vm._v(_vm._s(_vm.tour_view.created_at))]),
                     ]),
                     _vm._v(" "),
                     _vm.tour_view.payment_mode == "self"
@@ -540,20 +544,20 @@ var render = function() {
                               staticClass: "btn btn-success",
                               attrs: {
                                 "data-toggle": "modal",
-                                "data-target": "#paymentModal"
+                                "data-target": "#paymentModal",
                               },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.tourModal(_vm.tour_view)
-                                }
-                              }
+                                },
+                              },
                             },
                             [
                               _vm._v(
                                 "\n            Collect Payment\n          "
-                              )
+                              ),
                             ]
-                          )
+                          ),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -565,23 +569,23 @@ var render = function() {
                               {
                                 staticClass: "btn btn-info text-white",
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     _vm.show_json = !_vm.show_json
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [
                                 _vm._v(
                                   "\n              Payment Details\n            "
-                                )
+                                ),
                               ]
-                            )
-                          ])
+                            ),
+                          ]),
                         ])
-                      : _vm._e()
+                      : _vm._e(),
                   ])
                 : _c("div", { staticClass: "text-center text-muted" }, [
-                    _vm._v("No Data Available")
+                    _vm._v("No Data Available"),
                   ]),
               _vm._v(" "),
               _vm.show_json
@@ -589,24 +593,23 @@ var render = function() {
                     _c("table", {}, [
                       _c(
                         "tbody",
-                        _vm._l(JSON.parse(_vm.tour_view.payment_data), function(
-                          value,
-                          key,
-                          i
-                        ) {
-                          return _c("tr", { key: i }, [
-                            _c("td", [
-                              _c("p", { staticClass: "mr-5" }, [
-                                _c("b", [_vm._v(_vm._s(key) + " : ")]),
-                                _vm._v(" "),
-                                _c("i", [_vm._v(_vm._s(value) + " ")])
-                              ])
+                        _vm._l(
+                          JSON.parse(_vm.tour_view.payment_data),
+                          function (value, key, i) {
+                            return _c("tr", { key: i }, [
+                              _c("td", [
+                                _c("p", { staticClass: "mr-5" }, [
+                                  _c("b", [_vm._v(_vm._s(key) + " : ")]),
+                                  _vm._v(" "),
+                                  _c("i", [_vm._v(_vm._s(value) + " ")]),
+                                ]),
+                              ]),
                             ])
-                          ])
-                        }),
+                          }
+                        ),
                         0
-                      )
-                    ])
+                      ),
+                    ]),
                   ])
                 : _vm._e(),
               _vm._v(" "),
@@ -615,10 +618,10 @@ var render = function() {
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("h5", [_vm._v("Amount")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.tour_view.amount))])
-                    ])
+                      _c("p", [_vm._v(_vm._s(_vm.tour_view.amount))]),
+                    ]),
                   ])
-                : _vm._e()
+                : _vm._e(),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "modal", attrs: { id: "paymentModal" } }, [
@@ -626,17 +629,17 @@ var render = function() {
                 _c("div", { staticClass: "modal-content" }, [
                   _c("div", { staticClass: "modal-header" }, [
                     _c("h5", { staticClass: "modal-title" }, [
-                      _vm._v("Tour Payment")
+                      _vm._v("Tour Payment"),
                     ]),
                     _vm._v(" "),
                     _c(
                       "button",
                       {
                         staticClass: "close",
-                        attrs: { type: "button", "data-dismiss": "modal" }
+                        attrs: { type: "button", "data-dismiss": "modal" },
                       },
                       [_vm._v("\n              ×\n            ")]
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
@@ -650,21 +653,21 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.perHead,
-                              expression: "perHead"
-                            }
+                              expression: "perHead",
+                            },
                           ],
                           staticClass: "form-control",
                           attrs: { type: "number" },
                           domProps: { value: _vm.perHead },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.perHead = $event.target.value
-                            }
-                          }
-                        })
+                            },
+                          },
+                        }),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
@@ -676,21 +679,21 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.totalPax,
-                              expression: "totalPax"
-                            }
+                              expression: "totalPax",
+                            },
                           ],
                           staticClass: "form-control",
                           attrs: { type: "number", readonly: "" },
                           domProps: { value: _vm.totalPax },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.totalPax = $event.target.value
-                            }
-                          }
-                        })
+                            },
+                          },
+                        }),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
@@ -702,21 +705,21 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.totalCompl,
-                              expression: "totalCompl"
-                            }
+                              expression: "totalCompl",
+                            },
                           ],
                           staticClass: "form-control",
                           attrs: { type: "number", readonly: "" },
                           domProps: { value: _vm.totalCompl },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.totalCompl = $event.target.value
-                            }
-                          }
-                        })
+                            },
+                          },
+                        }),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
@@ -728,22 +731,22 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.amount,
-                              expression: "form.amount"
-                            }
+                              expression: "form.amount",
+                            },
                           ],
                           staticClass: "form-control",
                           attrs: { type: "number", readonly: "" },
                           domProps: { value: _vm.form.amount },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "amount", $event.target.value)
-                            }
-                          }
-                        })
-                      ])
+                            },
+                          },
+                        }),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
@@ -757,14 +760,14 @@ var render = function() {
                             staticClass: "mb-2",
                             attrs: {
                               itemList: _vm.status_list,
-                              selectedId: _vm.form.status
+                              selectedId: _vm.form.status,
                             },
-                            on: { "update:option": _vm.updateStatus }
-                          })
+                            on: { "update:option": _vm.updateStatus },
+                          }),
                         ],
                         1
-                      )
-                    ])
+                      ),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("p", { staticClass: "text-center" }, [
@@ -774,22 +777,22 @@ var render = function() {
                         staticClass: "btn btn-info itrn_add_btn",
                         attrs: { type: "button" },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.tourPaymentSave()
-                          }
-                        }
+                          },
+                        },
                       },
                       [_vm._v("\n              Save\n            ")]
-                    )
-                  ])
-                ])
-              ])
-            ])
+                    ),
+                  ]),
+                ]),
+              ]),
+            ]),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

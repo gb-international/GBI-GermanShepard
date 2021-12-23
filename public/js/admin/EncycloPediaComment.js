@@ -337,7 +337,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -350,11 +350,11 @@ var render = function() {
             {
               attrs: { role: "form", enctype: "multipart/form-data" },
               on: {
-                submit: function($event) {
+                submit: function ($event) {
                   $event.preventDefault()
                   return _vm.addItinerary()
-                }
-              }
+                },
+              },
             },
             [
               _c("div", { staticClass: "row" }, [
@@ -364,7 +364,7 @@ var render = function() {
                     { staticClass: "form-group" },
                     [
                       _c("label", { attrs: { for: "state_name" } }, [
-                        _vm._v("State")
+                        _vm._v("State"),
                       ]),
                       _vm._v(" "),
                       _c(
@@ -375,18 +375,18 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.state_name,
-                              expression: "form.state_name"
-                            }
+                              expression: "form.state_name",
+                            },
                           ],
                           staticClass: "form-control select-field",
                           on: {
                             change: [
-                              function($event) {
+                              function ($event) {
                                 var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
+                                  .call($event.target.options, function (o) {
                                     return o.selected
                                   })
-                                  .map(function(o) {
+                                  .map(function (o) {
                                     var val = "_value" in o ? o._value : o.value
                                     return val
                                   })
@@ -398,13 +398,13 @@ var render = function() {
                                     : $$selectedVal[0]
                                 )
                               },
-                              function($event) {
+                              function ($event) {
                                 return _vm.slugCreate($event)
-                              }
-                            ]
-                          }
+                              },
+                            ],
+                          },
                         },
-                        _vm._l(_vm.state_list, function(state) {
+                        _vm._l(_vm.state_list, function (state) {
                           return _c(
                             "option",
                             { key: state.id, domProps: { value: state.name } },
@@ -415,8 +415,8 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "state_name" }
-                      })
+                        attrs: { form: _vm.form, field: "state_name" },
+                      }),
                     ],
                     1
                   ),
@@ -433,8 +433,8 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: _vm.form.slug,
-                            expression: "form.slug"
-                          }
+                            expression: "form.slug",
+                          },
                         ],
                         staticClass: "form-control",
                         class: { "is-invalid": _vm.form.errors.has("slug") },
@@ -442,25 +442,25 @@ var render = function() {
                           type: "text",
                           placeholder: "Enter Map Link",
                           rows: "6",
-                          readonly: ""
+                          readonly: "",
                         },
                         domProps: { value: _vm.form.slug },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(_vm.form, "slug", $event.target.value)
-                          }
-                        }
+                          },
+                        },
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "slug" }
-                      })
+                        attrs: { form: _vm.form, field: "slug" },
+                      }),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-8" }, [
@@ -469,7 +469,7 @@ var render = function() {
                     { staticClass: "form-group" },
                     [
                       _c("label", { attrs: { for: "map_link" } }, [
-                        _vm._v("Map Link")
+                        _vm._v("Map Link"),
                       ]),
                       _vm._v(" "),
                       _c("textarea", {
@@ -478,34 +478,34 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: _vm.form.map_link,
-                            expression: "form.map_link"
-                          }
+                            expression: "form.map_link",
+                          },
                         ],
                         staticClass: "form-control",
                         class: {
-                          "is-invalid": _vm.form.errors.has("map_link")
+                          "is-invalid": _vm.form.errors.has("map_link"),
                         },
                         attrs: { placeholder: "Enter Map Link", rows: "6" },
                         domProps: { value: _vm.form.map_link },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(_vm.form, "map_link", $event.target.value)
-                          }
-                        }
+                          },
+                        },
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "map_link" }
-                      })
+                        attrs: { form: _vm.form, field: "map_link" },
+                      }),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-sm-4" })
+                _c("div", { staticClass: "col-sm-4" }),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
@@ -515,35 +515,35 @@ var render = function() {
                     { staticClass: "form-group" },
                     [
                       _c("label", { attrs: { for: "descriptionId" } }, [
-                        _vm._v("Description")
+                        _vm._v("Description"),
                       ]),
                       _vm._v(" "),
                       _c("ckeditor", {
                         staticClass: "form-control",
                         class: {
-                          "is-invalid": _vm.form.errors.has("description")
+                          "is-invalid": _vm.form.errors.has("description"),
                         },
                         attrs: {
                           editor: _vm.editor,
                           id: "description",
-                          config: _vm.editorConfig
+                          config: _vm.editorConfig,
                         },
                         model: {
                           value: _vm.form.description,
-                          callback: function($$v) {
+                          callback: function ($$v) {
                             _vm.$set(_vm.form, "description", $$v)
                           },
-                          expression: "form.description"
-                        }
+                          expression: "form.description",
+                        },
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "description" }
-                      })
+                        attrs: { form: _vm.form, field: "description" },
+                      }),
                     ],
                     1
-                  )
-                ])
+                  ),
+                ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
@@ -562,14 +562,14 @@ var render = function() {
                       _c("input", {
                         staticClass: "select_image",
                         class: {
-                          "is-invalid": _vm.form.errors.has("thumbnail")
+                          "is-invalid": _vm.form.errors.has("thumbnail"),
                         },
                         attrs: { type: "file", accept: "jpeg,jpg,png,gif" },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             return _vm.changeImage($event, "thumbnail")
-                          }
-                        }
+                          },
+                        },
                       }),
                       _vm._v(" "),
                       _c("img", {
@@ -577,16 +577,16 @@ var render = function() {
                           src: _vm.form.thumbnail,
                           alt: "",
                           width: "80",
-                          height: "80"
-                        }
+                          height: "80",
+                        },
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "thumbnail" }
-                      })
+                        attrs: { form: _vm.form, field: "thumbnail" },
+                      }),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-6" }, [
@@ -603,28 +603,28 @@ var render = function() {
                       _vm._v(" "),
                       _c("input", {
                         class: {
-                          "is-invalid": _vm.form.errors.has("banner_image")
+                          "is-invalid": _vm.form.errors.has("banner_image"),
                         },
                         attrs: { name: "banner_image", type: "file" },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             return _vm.changeImage($event, "banner")
-                          }
-                        }
+                          },
+                        },
                       }),
                       _vm._v(" "),
                       _c("img", {
                         staticClass: "banner_image",
-                        attrs: { src: _vm.form.banner_image, alt: "" }
+                        attrs: { src: _vm.form.banner_image, alt: "" },
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "banner_image" }
-                      })
+                        attrs: { form: _vm.form, field: "banner_image" },
+                      }),
                     ],
                     1
-                  )
-                ])
+                  ),
+                ]),
               ]),
               _vm._v(" "),
               _c("hr"),
@@ -644,14 +644,14 @@ var render = function() {
                       _c("input", {
                         staticClass: "select_image",
                         class: {
-                          "is-invalid": _vm.form.errors.has("image_one")
+                          "is-invalid": _vm.form.errors.has("image_one"),
                         },
                         attrs: { type: "file" },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             return _vm.changeImage($event, 1)
-                          }
-                        }
+                          },
+                        },
                       }),
                       _vm._v(" "),
                       _c("img", {
@@ -660,16 +660,16 @@ var render = function() {
                           src: _vm.form.image_one,
                           alt: "",
                           width: "80",
-                          height: "80"
-                        }
+                          height: "80",
+                        },
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "image_one" }
-                      })
+                        attrs: { form: _vm.form, field: "image_one" },
+                      }),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-6" }, [
@@ -686,14 +686,14 @@ var render = function() {
                       _c("input", {
                         staticClass: "select_image",
                         class: {
-                          "is-invalid": _vm.form.errors.has("image_two")
+                          "is-invalid": _vm.form.errors.has("image_two"),
                         },
                         attrs: { type: "file" },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             return _vm.changeImage($event, 2)
-                          }
-                        }
+                          },
+                        },
                       }),
                       _vm._v(" "),
                       _c("img", {
@@ -702,16 +702,16 @@ var render = function() {
                           src: _vm.form.image_two,
                           alt: "",
                           width: "80",
-                          height: "80"
-                        }
+                          height: "80",
+                        },
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "image_two" }
-                      })
+                        attrs: { form: _vm.form, field: "image_two" },
+                      }),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-6" }, [
@@ -728,14 +728,14 @@ var render = function() {
                       _c("input", {
                         staticClass: "select_image",
                         class: {
-                          "is-invalid": _vm.form.errors.has("image_three")
+                          "is-invalid": _vm.form.errors.has("image_three"),
                         },
                         attrs: { type: "file" },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             return _vm.changeImage($event, 3)
-                          }
-                        }
+                          },
+                        },
                       }),
                       _vm._v(" "),
                       _c("img", {
@@ -744,16 +744,16 @@ var render = function() {
                           src: _vm.form.image_three,
                           alt: "",
                           width: "80",
-                          height: "80"
-                        }
+                          height: "80",
+                        },
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "image_three" }
-                      })
+                        attrs: { form: _vm.form, field: "image_three" },
+                      }),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-6" }, [
@@ -770,14 +770,14 @@ var render = function() {
                       _c("input", {
                         staticClass: "select_image",
                         class: {
-                          "is-invalid": _vm.form.errors.has("image_four")
+                          "is-invalid": _vm.form.errors.has("image_four"),
                         },
                         attrs: { type: "file" },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             return _vm.changeImage($event, 4)
-                          }
-                        }
+                          },
+                        },
                       }),
                       _vm._v(" "),
                       _c("img", {
@@ -786,16 +786,16 @@ var render = function() {
                           src: _vm.form.image_four,
                           alt: "",
                           width: "80",
-                          height: "80"
-                        }
+                          height: "80",
+                        },
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "image_four" }
-                      })
+                        attrs: { form: _vm.form, field: "image_four" },
+                      }),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-6" }, [
@@ -812,14 +812,14 @@ var render = function() {
                       _c("input", {
                         staticClass: "select_image",
                         class: {
-                          "is-invalid": _vm.form.errors.has("image_five")
+                          "is-invalid": _vm.form.errors.has("image_five"),
                         },
                         attrs: { type: "file" },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             return _vm.changeImage($event, 5)
-                          }
-                        }
+                          },
+                        },
                       }),
                       _vm._v(" "),
                       _c("img", {
@@ -828,16 +828,16 @@ var render = function() {
                           src: _vm.form.image_five,
                           alt: "",
                           width: "80",
-                          height: "80"
-                        }
+                          height: "80",
+                        },
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "image_five" }
-                      })
+                        attrs: { form: _vm.form, field: "image_five" },
+                      }),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-6" }, [
@@ -854,14 +854,14 @@ var render = function() {
                       _c("input", {
                         staticClass: "select_image",
                         class: {
-                          "is-invalid": _vm.form.errors.has("image_six")
+                          "is-invalid": _vm.form.errors.has("image_six"),
                         },
                         attrs: { type: "file" },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             return _vm.changeImage($event, 6)
-                          }
-                        }
+                          },
+                        },
                       }),
                       _vm._v(" "),
                       _c("img", {
@@ -870,16 +870,16 @@ var render = function() {
                           src: _vm.form.image_six,
                           alt: "",
                           width: "80",
-                          height: "80"
-                        }
+                          height: "80",
+                        },
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "image_six" }
-                      })
+                        attrs: { form: _vm.form, field: "image_six" },
+                      }),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-6" }, [
@@ -896,14 +896,14 @@ var render = function() {
                       _c("input", {
                         staticClass: "select_image",
                         class: {
-                          "is-invalid": _vm.form.errors.has("image_seven")
+                          "is-invalid": _vm.form.errors.has("image_seven"),
                         },
                         attrs: { type: "file" },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             return _vm.changeImage($event, 7)
-                          }
-                        }
+                          },
+                        },
                       }),
                       _vm._v(" "),
                       _c("img", {
@@ -912,16 +912,16 @@ var render = function() {
                           src: _vm.form.image_seven,
                           alt: "",
                           width: "80",
-                          height: "80"
-                        }
+                          height: "80",
+                        },
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "image_seven" }
-                      })
+                        attrs: { form: _vm.form, field: "image_seven" },
+                      }),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-6" }, [
@@ -938,14 +938,14 @@ var render = function() {
                       _c("input", {
                         staticClass: "select_image",
                         class: {
-                          "is-invalid": _vm.form.errors.has("image_eight")
+                          "is-invalid": _vm.form.errors.has("image_eight"),
                         },
                         attrs: { type: "file" },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             return _vm.changeImage($event, 8)
-                          }
-                        }
+                          },
+                        },
                       }),
                       _vm._v(" "),
                       _c("img", {
@@ -954,17 +954,17 @@ var render = function() {
                           src: _vm.form.image_eight,
                           alt: "",
                           width: "80",
-                          height: "80"
-                        }
+                          height: "80",
+                        },
                       }),
                       _vm._v(" "),
                       _c("has-error", {
-                        attrs: { form: _vm.form, field: "image_eight" }
-                      })
+                        attrs: { form: _vm.form, field: "image_eight" },
+                      }),
                     ],
                     1
-                  )
-                ])
+                  ),
+                ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "row text-center" }, [
@@ -976,25 +976,25 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "btn btn-primary itrn_add_btn back_btn",
-                        attrs: { to: "/encyclopedia-list" }
+                        attrs: { to: "/encyclopedia-list" },
                       },
                       [_vm._v("Back")]
-                    )
+                    ),
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(0)
-              ])
+                _vm._m(0),
+              ]),
             ]
-          )
-        ])
-      ])
-    ])
+          ),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -1004,13 +1004,13 @@ var staticRenderFns = [
           "button",
           {
             staticClass: "btn btn-primary itrn_add_btn",
-            attrs: { type: "submit" }
+            attrs: { type: "submit" },
           },
           [_vm._v("SUBMIT")]
-        )
-      ])
+        ),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

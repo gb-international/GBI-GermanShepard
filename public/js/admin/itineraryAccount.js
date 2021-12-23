@@ -103,7 +103,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -116,21 +116,21 @@ var render = function() {
             {
               staticClass: "display table nowrap",
               staticStyle: { width: "100%" },
-              attrs: { id: "example" }
+              attrs: { id: "example" },
             },
             [
               _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.itineraryData, function(itinerary) {
+                _vm._l(_vm.itineraryData, function (itinerary) {
                   return _c(
                     "tr",
                     {
                       key: itinerary.id,
                       staticClass: "row_list",
                       class: { odd: _vm.oddclass, even: _vm.evenclass },
-                      attrs: { role: "row" }
+                      attrs: { role: "row" },
                     },
                     [
                       _c("td", [_vm._v(_vm._s(itinerary.title))]),
@@ -142,21 +142,21 @@ var render = function() {
                       _c("td", [
                         itinerary.status == "confirm"
                           ? _c("span", { staticClass: "badge badge-success" }, [
-                              _vm._v(_vm._s(itinerary.status))
+                              _vm._v(_vm._s(itinerary.status)),
                             ])
                           : _vm._e(),
                         _vm._v(" "),
                         itinerary.status == "cancel"
                           ? _c("span", { staticClass: "badge badge-danger" }, [
-                              _vm._v(_vm._s(itinerary.status))
+                              _vm._v(_vm._s(itinerary.status)),
                             ])
                           : _vm._e(),
                         _vm._v(" "),
                         itinerary.status == "pending"
                           ? _c("span", { staticClass: "badge badge-warning" }, [
-                              _vm._v(_vm._s(itinerary.status))
+                              _vm._v(_vm._s(itinerary.status)),
                             ])
-                          : _vm._e()
+                          : _vm._e(),
                       ]),
                       _vm._v(" "),
                       _c(
@@ -167,17 +167,17 @@ var render = function() {
                             "router-link",
                             {
                               staticClass: "edit_link",
-                              attrs: { to: "submit-details/" + itinerary.id }
+                              attrs: { to: "submit-details/" + itinerary.id },
                             },
                             [
                               _c(
                                 "span",
                                 {
                                   staticClass: "badge badge-primary",
-                                  attrs: { title: "Send Itinerary" }
+                                  attrs: { title: "Send Itinerary" },
                                 },
                                 [_c("i", { staticClass: "fas fa-paper-plane" })]
-                              )
+                              ),
                             ]
                           ),
                           _vm._v(" "),
@@ -186,39 +186,39 @@ var render = function() {
                             {
                               staticClass: "edit_link",
                               attrs: {
-                                to: "/view-itinerary/" + itinerary.itinerary_id
-                              }
+                                to: "/view-itinerary/" + itinerary.itinerary_id,
+                              },
                             },
                             [
                               _c(
                                 "span",
                                 {
                                   staticClass: "badge badge-primary",
-                                  attrs: { title: "View Itinerary" }
+                                  attrs: { title: "View Itinerary" },
                                 },
                                 [_c("i", { staticClass: "fas fa-eye" })]
-                              )
+                              ),
                             ]
-                          )
+                          ),
                         ],
                         1
-                      )
+                      ),
                     ]
                   )
                 }),
                 0
-              )
+              ),
             ]
-          )
-        ])
-      ])
+          ),
+        ]),
+      ]),
     ]),
     _vm._v(" "),
-    _c("p", { attrs: { id: "post" } })
+    _c("p", { attrs: { id: "post" } }),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -226,22 +226,22 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [
           _vm._v("Itinerary Title "),
-          _c("i", { staticClass: "fas fa-sort" })
+          _c("i", { staticClass: "fas fa-sort" }),
         ]),
         _vm._v(" "),
         _c("th", [
           _vm._v("No Of Days "),
-          _c("i", { staticClass: "fas fa-sort" })
+          _c("i", { staticClass: "fas fa-sort" }),
         ]),
         _vm._v(" "),
         _c("th", [_vm._v("Price "), _c("i", { staticClass: "fas fa-sort" })]),
         _vm._v(" "),
         _c("th", [_vm._v("Status "), _c("i", { staticClass: "fas fa-sort" })]),
         _vm._v(" "),
-        _c("th", [_vm._v("Action "), _c("i", { staticClass: "fas fa-cog" })])
-      ])
+        _c("th", [_vm._v("Action "), _c("i", { staticClass: "fas fa-cog" })]),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

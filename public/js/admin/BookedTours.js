@@ -890,7 +890,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -907,37 +907,37 @@ var render = function() {
                       ? "COMPANY NAME"
                       : "SCHOOL NAME"
                   )
-                )
+                ),
               ]),
               _vm._v(" "),
               _vm.tour.customer_type == "corporate"
                 ? _c("p", [_vm._v(_vm._s(_vm.entity["company_name"]))])
-                : _c("p", [_vm._v(_vm._s(_vm.entity["school_name"]))])
+                : _c("p", [_vm._v(_vm._s(_vm.entity["school_name"]))]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-2" }, [
               _c("h6", [_vm._v("PRICE")]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.tour.tour_price))])
+              _c("p", [_vm._v(_vm._s(_vm.tour.tour_price))]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-2" }, [
               _c("h6", [_vm._v("TOUR CODE")]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.tour.tour_id))])
+              _c("p", [_vm._v(_vm._s(_vm.tour.tour_id))]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-2" }, [
               _c("h6", [_vm._v("TOUR START DATE")]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.tour.tour_start_date))])
+              _c("p", [_vm._v(_vm._s(_vm.tour.tour_start_date))]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-2" }, [
               _c("h6", [_vm._v("TOUR END DATE")]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.tour.tour_end_date))])
-            ])
+              _c("p", [_vm._v(_vm._s(_vm.tour.tour_end_date))]),
+            ]),
           ]),
           _vm._v(" "),
           _c("hr"),
@@ -955,11 +955,11 @@ var render = function() {
                       attrs: {
                         src:
                           _vm.$gbiAssets +
-                          "/assets/admin/default/icon/tour-manager.png"
-                      }
-                    })
+                          "/assets/admin/default/icon/tour-manager.png",
+                      },
+                    }),
                   ]
-                )
+                ),
               ],
               1
             ),
@@ -976,11 +976,11 @@ var render = function() {
                       attrs: {
                         src:
                           _vm.$gbiAssets +
-                          "/assets/admin/default/icon/hotel.png"
-                      }
-                    })
+                          "/assets/admin/default/icon/hotel.png",
+                      },
+                    }),
                   ]
-                )
+                ),
               ],
               1
             ),
@@ -997,19 +997,19 @@ var render = function() {
                         "/booked-tour-restaurant/" +
                         _vm.tour.id +
                         "/" +
-                        _vm.tour.tour_id
-                    }
+                        _vm.tour.tour_id,
+                    },
                   },
                   [
                     _c("img", {
                       attrs: {
                         src:
                           _vm.$gbiAssets +
-                          "/assets/admin/default/icon/restaurant.png"
-                      }
-                    })
+                          "/assets/admin/default/icon/restaurant.png",
+                      },
+                    }),
                   ]
-                )
+                ),
               ],
               1
             ),
@@ -1026,11 +1026,11 @@ var render = function() {
                       attrs: {
                         src:
                           _vm.$gbiAssets +
-                          "/assets/admin/default/icon/airlines.png"
-                      }
-                    })
+                          "/assets/admin/default/icon/airlines.png",
+                      },
+                    }),
                   ]
-                )
+                ),
               ],
               1
             ),
@@ -1047,11 +1047,11 @@ var render = function() {
                       attrs: {
                         src:
                           _vm.$gbiAssets +
-                          "/assets/admin/default/icon/train-icon.png"
-                      }
-                    })
+                          "/assets/admin/default/icon/train-icon.png",
+                      },
+                    }),
                   ]
-                )
+                ),
               ],
               1
             ),
@@ -1068,11 +1068,11 @@ var render = function() {
                       attrs: {
                         src:
                           _vm.$gbiAssets +
-                          "/assets/admin/default/icon/bus-icon.png"
-                      }
-                    })
+                          "/assets/admin/default/icon/bus-icon.png",
+                      },
+                    }),
                   ]
-                )
+                ),
               ],
               1
             ),
@@ -1090,19 +1090,19 @@ var render = function() {
                             "/booked-tour-group/" +
                             _vm.entity["id"] +
                             "/" +
-                            _vm.tour.tour_id
-                        }
+                            _vm.tour.tour_id,
+                        },
                       },
                       [
                         _c("img", {
                           attrs: {
                             src:
                               _vm.$gbiAssets +
-                              "/assets/admin/default/icon/student.png"
-                          }
-                        })
+                              "/assets/admin/default/icon/student.png",
+                          },
+                        }),
                       ]
-                    )
+                    ),
                   ],
                   1
                 )
@@ -1118,19 +1118,19 @@ var render = function() {
                             "/booked-corp-group/" +
                             _vm.entity["id"] +
                             "/" +
-                            _vm.tour.tour_id
-                        }
+                            _vm.tour.tour_id,
+                        },
                       },
                       [
                         _c("img", {
                           attrs: {
                             src:
                               _vm.$gbiAssets +
-                              "/assets/admin/default/icon/groupList.png"
-                          }
-                        })
+                              "/assets/admin/default/icon/groupList.png",
+                          },
+                        }),
                       ]
-                    )
+                    ),
                   ],
                   1
                 ),
@@ -1148,19 +1148,19 @@ var render = function() {
                             "/payments-school/" +
                             _vm.entity["id"] +
                             "/" +
-                            _vm.tour.tour_id
-                        }
+                            _vm.tour.tour_id,
+                        },
                       },
                       [
                         _c("img", {
                           attrs: {
                             src:
                               _vm.$gbiAssets +
-                              "/assets/admin/default/icon/payment.png"
-                          }
-                        })
+                              "/assets/admin/default/icon/payment.png",
+                          },
+                        }),
                       ]
-                    )
+                    ),
                   ],
                   1
                 )
@@ -1179,19 +1179,19 @@ var render = function() {
                             "/payments-corporate/" +
                             _vm.entity["id"] +
                             "/" +
-                            _vm.tour.tour_id
-                        }
+                            _vm.tour.tour_id,
+                        },
                       },
                       [
                         _c("img", {
                           attrs: {
                             src:
                               _vm.$gbiAssets +
-                              "/assets/admin/default/icon/payment.png"
-                          }
-                        })
+                              "/assets/admin/default/icon/payment.png",
+                          },
+                        }),
                       ]
-                    )
+                    ),
                   ],
                   1
                 )
@@ -1205,19 +1205,19 @@ var render = function() {
                   "router-link",
                   {
                     attrs: {
-                      to: "/foods/" + _vm.tour.id + "/" + _vm.tour.tour_id
-                    }
+                      to: "/foods/" + _vm.tour.id + "/" + _vm.tour.tour_id,
+                    },
                   },
                   [
                     _c("img", {
                       attrs: {
                         src:
                           _vm.$gbiAssets +
-                          "/assets/admin/default/icon/snacks.png"
-                      }
-                    })
+                          "/assets/admin/default/icon/snacks.png",
+                      },
+                    }),
                   ]
-                )
+                ),
               ],
               1
             ),
@@ -1237,19 +1237,19 @@ var render = function() {
                             "/" +
                             _vm.tour.tour_id +
                             "/" +
-                            _vm.itinerary.id
-                        }
+                            _vm.itinerary.id,
+                        },
                       },
                       [
                         _c("img", {
                           attrs: {
                             src:
                               _vm.$gbiAssets +
-                              "/assets/admin/default/icon/sightseeing.png"
-                          }
-                        })
+                              "/assets/admin/default/icon/sightseeing.png",
+                          },
+                        }),
                       ]
-                    )
+                    ),
                   ],
                   1
                 )
@@ -1264,22 +1264,25 @@ var render = function() {
                   {
                     attrs: {
                       to:
-                        "/escort-update/" + _vm.tour.id + "/" + _vm.tour.tour_id
-                    }
+                        "/escort-update/" +
+                        _vm.tour.id +
+                        "/" +
+                        _vm.tour.tour_id,
+                    },
                   },
                   [
                     _c("img", {
                       attrs: {
                         src:
                           _vm.$gbiAssets +
-                          "/assets/admin/default/icon/escort_Update.png"
-                      }
-                    })
+                          "/assets/admin/default/icon/escort_Update.png",
+                      },
+                    }),
                   ]
-                )
+                ),
               ],
               1
-            )
+            ),
           ]),
           _vm._v(" "),
           _c("hr"),
@@ -1291,30 +1294,32 @@ var render = function() {
                 [
                   _c("h4", [_vm._v("Tour Manager")]),
                   _vm._v(" "),
-                  _vm._l(_vm.escorts, function(escort) {
+                  _vm._l(_vm.escorts, function (escort) {
                     return _c("div", { key: escort.id, staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Name")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(escort["escort"].name))])
+                        _c("p", [_vm._v(_vm._s(escort["escort"].name))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
                         _c("label", [_vm._v("Perday Allowance")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(escort["escort"].salaryPerday))])
+                        _c("p", [
+                          _vm._v(_vm._s(escort["escort"].salaryPerday)),
+                        ]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Contact")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(escort["escort"].phoneno))])
+                        _c("p", [_vm._v(_vm._s(escort["escort"].phoneno))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
                         _c("label", [_vm._v("Email")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(escort["escort"].email))])
+                        _c("p", [_vm._v(_vm._s(escort["escort"].email))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-1 p-0" }, [
@@ -1325,16 +1330,16 @@ var render = function() {
                           {
                             staticClass: "cursor-pointer text-info",
                             on: {
-                              click: function($event) {
+                              click: function ($event) {
                                 return _vm.sendLink(
                                   escort["escort"].phoneno,
                                   escort["escort"].name
                                 )
-                              }
-                            }
+                              },
+                            },
                           },
                           [_c("b", [_vm._v("Send Link")])]
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-1" }, [
@@ -1345,18 +1350,18 @@ var render = function() {
                                 staticClass: "delete_link",
                                 attrs: { href: "" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     $event.preventDefault()
                                     return _vm.deleteBookedEscort(escort.id)
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [_vm._m(0, true)]
                             )
-                          : _vm._e()
-                      ])
+                          : _vm._e(),
+                      ]),
                     ])
-                  })
+                  }),
                 ],
                 2
               )
@@ -1369,30 +1374,30 @@ var render = function() {
                 [
                   _c("h4", [_vm._v("Hotel")]),
                   _vm._v(" "),
-                  _vm._l(_vm.hotel, function(hotel) {
+                  _vm._l(_vm.hotel, function (hotel) {
                     return _c("div", { key: hotel.id, staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Name")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(hotel["hotel"].name))])
+                        _c("p", [_vm._v(_vm._s(hotel["hotel"].name))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
                         _c("label", [_vm._v("Address")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(hotel["hotel"].address))])
+                        _c("p", [_vm._v(_vm._s(hotel["hotel"].address))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
                         _c("label", [_vm._v("Contact")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(hotel["hotel"].phoneno))])
+                        _c("p", [_vm._v(_vm._s(hotel["hotel"].phoneno))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
                         _c("label", [_vm._v("Email")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(hotel["hotel"].email))])
+                        _c("p", [_vm._v(_vm._s(hotel["hotel"].email))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-1" }, [
@@ -1403,18 +1408,18 @@ var render = function() {
                                 staticClass: "delete_link",
                                 attrs: { href: "" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     $event.preventDefault()
                                     return _vm.deleteBookedHotel(hotel.id)
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [_vm._m(1, true)]
                             )
-                          : _vm._e()
-                      ])
+                          : _vm._e(),
+                      ]),
                     ])
-                  })
+                  }),
                 ],
                 2
               )
@@ -1427,34 +1432,34 @@ var render = function() {
                 [
                   _c("h4", [_vm._v("Restaurant")]),
                   _vm._v(" "),
-                  _vm._l(_vm.restaurant, function(rest) {
+                  _vm._l(_vm.restaurant, function (rest) {
                     return _c("div", { key: rest.id, staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Name")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(rest["restaurant"].name))])
+                        _c("p", [_vm._v(_vm._s(rest["restaurant"].name))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
                         _c("label", [_vm._v("Address")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(rest["restaurant"].address))])
+                        _c("p", [_vm._v(_vm._s(rest["restaurant"].address))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
                         _c("label", [_vm._v("Contact")]),
                         _vm._v(" "),
                         _c("p", [
-                          _vm._v(_vm._s(rest["restaurant"].contact_number))
-                        ])
+                          _vm._v(_vm._s(rest["restaurant"].contact_number)),
+                        ]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
                         _c("label", [_vm._v("Person")]),
                         _vm._v(" "),
                         _c("p", [
-                          _vm._v(_vm._s(rest["restaurant"].contact_name))
-                        ])
+                          _vm._v(_vm._s(rest["restaurant"].contact_name)),
+                        ]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-1" }, [
@@ -1465,18 +1470,18 @@ var render = function() {
                                 staticClass: "delete_link",
                                 attrs: { href: "" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     $event.preventDefault()
                                     return _vm.deleteBookedRestaurant(rest.id)
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [_vm._m(2, true)]
                             )
-                          : _vm._e()
-                      ])
+                          : _vm._e(),
+                      ]),
                     ])
-                  })
+                  }),
                 ],
                 2
               )
@@ -1490,16 +1495,16 @@ var render = function() {
                   _c(
                     "div",
                     { staticClass: "col-sm-11" },
-                    _vm._l(_vm.sightseeing, function(parent, key, i) {
+                    _vm._l(_vm.sightseeing, function (parent, key, i) {
                       return _c("div", { key: i + i, staticClass: "row" }, [
                         _c("div", { staticClass: "col-sm-4" }, [
-                          _c("p", [_vm._v("Day " + _vm._s(++i))])
+                          _c("p", [_vm._v("Day " + _vm._s(++i))]),
                         ]),
                         _vm._v(" "),
                         _c(
                           "div",
                           { staticClass: "col-sm-8" },
-                          _vm._l(parent, function(single, index) {
+                          _vm._l(parent, function (single, index) {
                             return _c(
                               "div",
                               { key: single.id, staticClass: "text-dark" },
@@ -1510,12 +1515,12 @@ var render = function() {
                                     ". " +
                                     _vm._s(single.sightseeing.name) +
                                     "\n                  "
-                                )
+                                ),
                               ]
                             )
                           }),
                           0
-                        )
+                        ),
                       ])
                     }),
                     0
@@ -1529,17 +1534,17 @@ var render = function() {
                             staticClass: "delete_link",
                             attrs: { href: "" },
                             on: {
-                              click: function($event) {
+                              click: function ($event) {
                                 $event.preventDefault()
                                 return _vm.deleteBookedsightseeing()
-                              }
-                            }
+                              },
+                            },
                           },
                           [_vm._m(3)]
                         )
-                      : _vm._e()
-                  ])
-                ])
+                      : _vm._e(),
+                  ]),
+                ]),
               ])
             : _vm._e(),
           _vm._v(" "),
@@ -1550,24 +1555,24 @@ var render = function() {
                 [
                   _c("h4", [_vm._v("Train")]),
                   _vm._v(" "),
-                  _vm._l(_vm.train, function(train) {
+                  _vm._l(_vm.train, function (train) {
                     return _c("div", { key: train.id, staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Name")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(train["train"].name))])
+                        _c("p", [_vm._v(_vm._s(train["train"].name))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Code")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(train["train"].code))])
+                        _c("p", [_vm._v(_vm._s(train["train"].code))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Price")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(train.price))])
+                        _c("p", [_vm._v(_vm._s(train.price))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
@@ -1578,8 +1583,8 @@ var render = function() {
                             _vm._s(train.source) +
                               " - " +
                               _vm._s(train.destination)
-                          )
-                        ])
+                          ),
+                        ]),
                       ]),
                       _vm._v(" "),
                       _c(
@@ -1597,13 +1602,13 @@ var render = function() {
                                 "btn btn-sm btn-primary text-white cursor-pointer mr-1",
                               attrs: {
                                 "data-toggle": "modal",
-                                "data-target": "#pnrModal"
+                                "data-target": "#pnrModal",
                               },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.tranportModal(train.id, "train")
-                                }
-                              }
+                                },
+                              },
                             },
                             [_vm._v("Add")]
                           ),
@@ -1616,11 +1621,14 @@ var render = function() {
                               attrs: {
                                 to:
                                   "/booked-tour-pnr/" +
-                                  ("train/" + train.id + "/" + _vm.tour.tour_id)
-                              }
+                                  ("train/" +
+                                    train.id +
+                                    "/" +
+                                    _vm.tour.tour_id),
+                              },
                             },
                             [_vm._v("List")]
-                          )
+                          ),
                         ],
                         1
                       ),
@@ -1633,18 +1641,18 @@ var render = function() {
                                 staticClass: "delete_link",
                                 attrs: { href: "" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     $event.preventDefault()
                                     return _vm.deleteBookedTrain(train.id)
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [_vm._m(4, true)]
                             )
-                          : _vm._e()
-                      ])
+                          : _vm._e(),
+                      ]),
                     ])
-                  })
+                  }),
                 ],
                 2
               )
@@ -1657,24 +1665,24 @@ var render = function() {
                 [
                   _c("h4", [_vm._v("Flight")]),
                   _vm._v(" "),
-                  _vm._l(_vm.flight, function(flight) {
+                  _vm._l(_vm.flight, function (flight) {
                     return _c("div", { key: flight.id, staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Name")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(flight["flight"].name))])
+                        _c("p", [_vm._v(_vm._s(flight["flight"].name))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Seat Type")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(flight["flight"].code))])
+                        _c("p", [_vm._v(_vm._s(flight["flight"].code))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Price")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(flight.price))])
+                        _c("p", [_vm._v(_vm._s(flight.price))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
@@ -1685,8 +1693,8 @@ var render = function() {
                             _vm._s(flight.source) +
                               " - " +
                               _vm._s(flight.destination)
-                          )
-                        ])
+                          ),
+                        ]),
                       ]),
                       _vm._v(" "),
                       _c(
@@ -1704,13 +1712,13 @@ var render = function() {
                                 "btn btn-sm btn-primary text-white cursor-pointer mr-1",
                               attrs: {
                                 "data-toggle": "modal",
-                                "data-target": "#pnrModal"
+                                "data-target": "#pnrModal",
                               },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.tranportModal(flight.id, "flight")
-                                }
-                              }
+                                },
+                              },
                             },
                             [_vm._v("Add")]
                           ),
@@ -1726,11 +1734,11 @@ var render = function() {
                                   ("flight/" +
                                     flight.id +
                                     "/" +
-                                    _vm.tour.tour_id)
-                              }
+                                    _vm.tour.tour_id),
+                              },
                             },
                             [_vm._v("List")]
-                          )
+                          ),
                         ],
                         1
                       ),
@@ -1743,18 +1751,18 @@ var render = function() {
                                 staticClass: "delete_link",
                                 attrs: { href: "" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     $event.preventDefault()
                                     return _vm.deleteBookedFlight(flight.id)
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [_vm._m(5, true)]
                             )
-                          : _vm._e()
-                      ])
+                          : _vm._e(),
+                      ]),
                     ])
-                  })
+                  }),
                 ],
                 2
               )
@@ -1767,24 +1775,24 @@ var render = function() {
                 [
                   _c("h4", [_vm._v("Bus")]),
                   _vm._v(" "),
-                  _vm._l(_vm.bus, function(bus) {
+                  _vm._l(_vm.bus, function (bus) {
                     return _c("div", { key: bus.id, staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Company Name")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(bus["bus"].company_name))])
+                        _c("p", [_vm._v(_vm._s(bus["bus"].company_name))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Seat Type")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(bus["bus"].seat_type))])
+                        _c("p", [_vm._v(_vm._s(bus["bus"].seat_type))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c("label", [_vm._v("Price")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(bus.price))])
+                        _c("p", [_vm._v(_vm._s(bus.price))]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-3" }, [
@@ -1793,8 +1801,8 @@ var render = function() {
                         _c("p", [
                           _vm._v(
                             _vm._s(bus.source) + " - " + _vm._s(bus.destination)
-                          )
-                        ])
+                          ),
+                        ]),
                       ]),
                       _vm._v(" "),
                       _c(
@@ -1812,13 +1820,13 @@ var render = function() {
                                 "btn btn-sm btn-primary text-white cursor-pointer mr-1",
                               attrs: {
                                 "data-toggle": "modal",
-                                "data-target": "#pnrModal"
+                                "data-target": "#pnrModal",
                               },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.tranportModal(bus.id, "bus")
-                                }
-                              }
+                                },
+                              },
                             },
                             [_vm._v("Add")]
                           ),
@@ -1831,11 +1839,11 @@ var render = function() {
                               attrs: {
                                 to:
                                   "/booked-tour-pnr/" +
-                                  ("bus/" + bus.id + "/" + _vm.tour.tour_id)
-                              }
+                                  ("bus/" + bus.id + "/" + _vm.tour.tour_id),
+                              },
                             },
                             [_vm._v("List")]
-                          )
+                          ),
                         ],
                         1
                       ),
@@ -1848,23 +1856,23 @@ var render = function() {
                                 staticClass: "delete_link",
                                 attrs: { href: "" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     $event.preventDefault()
                                     return _vm.deleteBookedBus(bus.id)
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [_vm._m(6, true)]
                             )
-                          : _vm._e()
-                      ])
+                          : _vm._e(),
+                      ]),
                     ])
-                  })
+                  }),
                 ],
                 2
               )
-            : _vm._e()
-        ])
+            : _vm._e(),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "modal", attrs: { id: "pnrModal" } }, [
@@ -1876,7 +1884,7 @@ var render = function() {
                     "button",
                     {
                       staticClass: "close",
-                      attrs: { type: "button", "data-dismiss": "modal" }
+                      attrs: { type: "button", "data-dismiss": "modal" },
                     },
                     [_vm._v("\n              ×\n            ")]
                   ),
@@ -1887,14 +1895,14 @@ var render = function() {
                     _c(
                       "div",
                       { staticClass: "row" },
-                      _vm._l(_vm.total_row, function(row, index) {
+                      _vm._l(_vm.total_row, function (row, index) {
                         return _c(
                           "div",
                           { key: index, staticClass: "col-sm-6" },
                           [
                             _c("div", { staticClass: "row mb-2" }, [
                               _c("div", { staticClass: "col pt-1" }, [
-                                _vm._v(_vm._s(++index))
+                                _vm._v(_vm._s(++index)),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-10" }, [
@@ -1904,17 +1912,17 @@ var render = function() {
                                       name: "model",
                                       rawName: "v-model",
                                       value: row.pnr_number,
-                                      expression: "row.pnr_number"
-                                    }
+                                      expression: "row.pnr_number",
+                                    },
                                   ],
                                   staticClass: "form-control",
                                   attrs: {
                                     type: "text",
-                                    placeholder: _vm.placeholderValue
+                                    placeholder: _vm.placeholderValue,
                                   },
                                   domProps: { value: row.pnr_number },
                                   on: {
-                                    input: function($event) {
+                                    input: function ($event) {
                                       if ($event.target.composing) {
                                         return
                                       }
@@ -1923,11 +1931,11 @@ var render = function() {
                                         "pnr_number",
                                         $event.target.value
                                       )
-                                    }
-                                  }
-                                })
-                              ])
-                            ])
+                                    },
+                                  },
+                                }),
+                              ]),
+                            ]),
                           ]
                         )
                       }),
@@ -1942,17 +1950,17 @@ var render = function() {
                             staticClass: "btn text-white btn-gbi",
                             attrs: { type: "button" },
                             on: {
-                              click: function($event) {
+                              click: function ($event) {
                                 return _vm.submitForm()
-                              }
-                            }
+                              },
+                            },
                           },
                           [
                             _vm._v(
                               "\n                    SAVE\n                  "
-                            )
+                            ),
                           ]
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-2" }),
@@ -1965,20 +1973,20 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: _vm.row_input,
-                                expression: "row_input"
-                              }
+                                expression: "row_input",
+                              },
                             ],
                             staticClass: "form-control",
                             attrs: { type: "number", placeholder: "Add Row.." },
                             domProps: { value: _vm.row_input },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.row_input = $event.target.value
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(" "),
                           _c("div", { staticClass: "input-group-append" }, [
@@ -1988,87 +1996,87 @@ var render = function() {
                                 staticClass: "btn text-white btn-gbi",
                                 attrs: { type: "button" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     return _vm.add_row()
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [
                                 _vm._v(
                                   "\n                        Go\n                      "
-                                )
+                                ),
                               ]
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
+                            ),
+                          ]),
+                        ]),
+                      ]),
+                    ]),
+                  ]),
                 ])
-              : _vm._e()
-          ])
-        ])
-      ])
-    ])
+              : _vm._e(),
+          ]),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "badge badge-danger" }, [
-      _c("i", { staticClass: "far fa-trash-alt" })
+      _c("i", { staticClass: "far fa-trash-alt" }),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "badge badge-danger" }, [
-      _c("i", { staticClass: "far fa-trash-alt" })
+      _c("i", { staticClass: "far fa-trash-alt" }),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "badge badge-danger" }, [
-      _c("i", { staticClass: "far fa-trash-alt" })
+      _c("i", { staticClass: "far fa-trash-alt" }),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "badge badge-danger" }, [
-      _c("i", { staticClass: "far fa-trash-alt" })
+      _c("i", { staticClass: "far fa-trash-alt" }),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "badge badge-danger" }, [
-      _c("i", { staticClass: "far fa-trash-alt" })
+      _c("i", { staticClass: "far fa-trash-alt" }),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "badge badge-danger" }, [
-      _c("i", { staticClass: "far fa-trash-alt" })
+      _c("i", { staticClass: "far fa-trash-alt" }),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "badge badge-danger" }, [
-      _c("i", { staticClass: "far fa-trash-alt" })
+      _c("i", { staticClass: "far fa-trash-alt" }),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

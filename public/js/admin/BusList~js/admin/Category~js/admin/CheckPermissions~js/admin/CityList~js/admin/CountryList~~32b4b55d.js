@@ -196,7 +196,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -206,7 +206,7 @@ var render = function() {
     [
       _c("b-spinner", { staticClass: "align-middle" }),
       _vm._v(" "),
-      _c("strong", [_vm._v("Loading...")])
+      _c("strong", [_vm._v("Loading...")]),
     ],
     1
   )
@@ -229,7 +229,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -238,9 +238,13 @@ var render = function() {
         "router-link",
         {
           staticClass: "text-capitalize font-weight-bold",
-          attrs: { to: _vm.url }
+          attrs: { to: _vm.url },
         },
-        [_vm._t("default", [_vm._v("add")])],
+        [
+          _vm._t("default", function () {
+            return [_vm._v("add")]
+          }),
+        ],
         2
       )
     : _vm._e()
@@ -263,7 +267,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -276,7 +280,7 @@ var render = function() {
     : _vm._e()
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -285,7 +289,7 @@ var staticRenderFns = [
       { staticClass: "badge badge-danger incrIconSize pointer" },
       [_c("i", { staticClass: "far fa-trash-alt" })]
     )
-  }
+  },
 ]
 render._withStripped = true
 
@@ -304,7 +308,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -328,12 +332,12 @@ var render = function() {
                           "div",
                           [
                             _c("add-button", { attrs: { url: _vm.addurl } }, [
-                              _vm._v(_vm._s(_vm.buttontext))
-                            ])
+                              _vm._v(_vm._s(_vm.buttontext)),
+                            ]),
                           ],
                           1
                         )
-                      : _vm._e()
+                      : _vm._e(),
                   ]
                 ),
                 _vm._v(" "),
@@ -351,7 +355,7 @@ var render = function() {
                   { staticClass: "p-0", attrs: { md: "3", cols: "4" } },
                   [_vm._t("searchbar")],
                   2
-                )
+                ),
               ],
               1
             ),
@@ -362,15 +366,15 @@ var render = function() {
               [
                 _vm._t("table"),
                 _vm._v(" "),
-                _c("div", { staticClass: "w-100" }, [_vm._t("pagination")], 2)
+                _c("div", { staticClass: "w-100" }, [_vm._t("pagination")], 2),
               ],
               2
-            )
+            ),
           ],
           1
-        )
-      ])
-    ])
+        ),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []

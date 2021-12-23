@@ -384,7 +384,7 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -410,23 +410,24 @@ var render = function() {
                             staticClass: "fas fa-chevron-left arrow-buttons",
                             attrs: { disabled: _vm.currentPage === 1 },
                             on: {
-                              click: function($event) {
+                              click: function ($event) {
                                 return _vm.getList((_vm.currentPage -= 1))
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(" "),
                           _c("button", {
                             staticClass: "fas fa-chevron-right arrow-buttons",
                             attrs: {
                               disabled:
-                                _vm.notif_list.meta.last_page <= _vm.currentPage
+                                _vm.notif_list.meta.last_page <=
+                                _vm.currentPage,
                             },
                             on: {
-                              click: function($event) {
+                              click: function ($event) {
                                 return _vm.getList((_vm.currentPage += 1))
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(" "),
                           _c(
@@ -437,8 +438,8 @@ var render = function() {
                                 id: "dropdown",
                                 size: "sm",
                                 text: _vm.sortType,
-                                variant: ""
-                              }
+                                variant: "",
+                              },
                             },
                             [
                               _c(
@@ -447,10 +448,10 @@ var render = function() {
                                   staticStyle: { "font-size": "13px" },
                                   attrs: { href: "#" },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.changeSort("All")
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_vm._v("All")]
                               ),
@@ -461,10 +462,10 @@ var render = function() {
                                   staticStyle: { "font-size": "13px" },
                                   attrs: { href: "#" },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.changeSort("Read")
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_vm._v("Read")]
                               ),
@@ -475,16 +476,16 @@ var render = function() {
                                   staticStyle: { "font-size": "13px" },
                                   attrs: { href: "#" },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.changeSort("Unread")
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_vm._v("Unread")]
-                              )
+                              ),
                             ],
                             1
-                          )
+                          ),
                         ],
                         1
                       ),
@@ -501,8 +502,8 @@ var render = function() {
                               _vm.currentPage +
                               " of " +
                               _vm.notif_list.meta.last_page,
-                            variant: ""
-                          }
+                            variant: "",
+                          },
                         },
                         [
                           _c(
@@ -511,10 +512,10 @@ var render = function() {
                               staticStyle: { "font-size": "13px" },
                               attrs: { href: "#" },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.changeList("all")
-                                }
-                              }
+                                },
+                              },
                             },
                             [_vm._v("Newest")]
                           ),
@@ -525,21 +526,21 @@ var render = function() {
                               staticStyle: { "font-size": "13px" },
                               attrs: { href: "#" },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.changeList("old")
-                                }
-                              }
+                                },
+                              },
                             },
                             [_vm._v("Oldest")]
-                          )
+                          ),
                         ],
                         1
-                      )
+                      ),
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _vm._l(_vm.notif_list.data, function(item) {
+                  _vm._l(_vm.notif_list.data, function (item) {
                     return _c(
                       "div",
                       {
@@ -547,11 +548,11 @@ var render = function() {
                         staticClass: "mail-card",
                         style: { "border-color": item.color },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             _vm.selectNotif(item)
                             _vm.markRead(item)
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c("div", { staticClass: "mails" }, [
@@ -559,20 +560,20 @@ var render = function() {
                             "div",
                             {
                               staticClass: "mail-names",
-                              staticStyle: { clear: "both" }
+                              staticStyle: { clear: "both" },
                             },
                             [
                               _c("b", [
                                 _vm._v(
                                   _vm._s(_vm._f("subjectFilter")(item.category))
-                                )
-                              ])
+                                ),
+                              ]),
                             ]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "date" }, [
-                            _vm._v(_vm._s(item.time))
-                          ])
+                            _vm._v(_vm._s(item.time)),
+                          ]),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "mails" }, [
@@ -581,7 +582,7 @@ var render = function() {
                             { staticClass: "mail-info" },
                             [
                               _c("p", [
-                                _vm._v("From: admin@gbinternational.in")
+                                _vm._v("From: admin@gbinternational.in"),
                               ]),
                               _vm._v(" "),
                               _c("p2", [
@@ -593,8 +594,8 @@ var render = function() {
                                       _vm._f("contentFilter")(item.category)
                                     ) +
                                     "..."
-                                )
-                              ])
+                                ),
+                              ]),
                             ],
                             1
                           ),
@@ -606,8 +607,8 @@ var render = function() {
                                   _vm.$gbiAssets +
                                   "/assets/front/icons/" +
                                   item.badge +
-                                  ".png"
-                              }
+                                  ".png",
+                              },
                             }),
                             _vm._v(" "),
                             _c(
@@ -620,19 +621,19 @@ var render = function() {
                                     : "border-color: " +
                                       item.color +
                                       "; color: " +
-                                      item.color
+                                      item.color,
                               },
                               [
                                 _vm._v(
                                   _vm._s(item.read == 0 ? "Unread" : "Read")
-                                )
+                                ),
                               ]
-                            )
-                          ])
-                        ])
+                            ),
+                          ]),
+                        ]),
                       ]
                     )
-                  })
+                  }),
                 ],
                 2
               ),
@@ -641,7 +642,7 @@ var render = function() {
                 "div",
                 {
                   staticClass: "mail-left-side-m",
-                  style: { display: _vm.leftDisplay }
+                  style: { display: _vm.leftDisplay },
                 },
                 [
                   _c(
@@ -655,23 +656,24 @@ var render = function() {
                             staticClass: "fas fa-chevron-left arrow-buttons",
                             attrs: { disabled: _vm.currentPage === 1 },
                             on: {
-                              click: function($event) {
+                              click: function ($event) {
                                 return _vm.getList((_vm.currentPage -= 1))
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(" "),
                           _c("button", {
                             staticClass: "fas fa-chevron-right arrow-buttons",
                             attrs: {
                               disabled:
-                                _vm.notif_list.meta.last_page <= _vm.currentPage
+                                _vm.notif_list.meta.last_page <=
+                                _vm.currentPage,
                             },
                             on: {
-                              click: function($event) {
+                              click: function ($event) {
                                 return _vm.getList((_vm.currentPage += 1))
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(" "),
                           _c(
@@ -682,8 +684,8 @@ var render = function() {
                                 id: "dropdown",
                                 size: "sm",
                                 text: _vm.sortType,
-                                variant: ""
-                              }
+                                variant: "",
+                              },
                             },
                             [
                               _c(
@@ -692,10 +694,10 @@ var render = function() {
                                   staticStyle: { "font-size": "13px" },
                                   attrs: { href: "#" },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.changeSort("All")
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_vm._v("All")]
                               ),
@@ -706,10 +708,10 @@ var render = function() {
                                   staticStyle: { "font-size": "13px" },
                                   attrs: { href: "#" },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.changeSort("Read")
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_vm._v("Read")]
                               ),
@@ -720,16 +722,16 @@ var render = function() {
                                   staticStyle: { "font-size": "13px" },
                                   attrs: { href: "#" },
                                   on: {
-                                    click: function($event) {
+                                    click: function ($event) {
                                       return _vm.changeSort("Unread")
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [_vm._v("Unread")]
-                              )
+                              ),
                             ],
                             1
-                          )
+                          ),
                         ],
                         1
                       ),
@@ -746,8 +748,8 @@ var render = function() {
                               _vm.currentPage +
                               " of " +
                               _vm.notif_list.meta.last_page,
-                            variant: ""
-                          }
+                            variant: "",
+                          },
                         },
                         [
                           _c(
@@ -756,10 +758,10 @@ var render = function() {
                               staticStyle: { "font-size": "13px" },
                               attrs: { href: "#" },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.changeList("all")
-                                }
-                              }
+                                },
+                              },
                             },
                             [_vm._v("Newest")]
                           ),
@@ -770,21 +772,21 @@ var render = function() {
                               staticStyle: { "font-size": "13px" },
                               attrs: { href: "#" },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.changeList("old")
-                                }
-                              }
+                                },
+                              },
                             },
                             [_vm._v("Oldest")]
-                          )
+                          ),
                         ],
                         1
-                      )
+                      ),
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _vm._l(_vm.notif_list.data, function(item) {
+                  _vm._l(_vm.notif_list.data, function (item) {
                     return _c(
                       "div",
                       {
@@ -792,11 +794,11 @@ var render = function() {
                         staticClass: "mail-card",
                         style: { "border-color": item.color },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             _vm.redirNotif(item)
                             _vm.markRead(item)
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c("div", { staticClass: "mails" }, [
@@ -804,20 +806,20 @@ var render = function() {
                             "div",
                             {
                               staticClass: "mail-names",
-                              staticStyle: { clear: "both" }
+                              staticStyle: { clear: "both" },
                             },
                             [
                               _c("b", [
                                 _vm._v(
                                   _vm._s(_vm._f("subjectFilter")(item.category))
-                                )
-                              ])
+                                ),
+                              ]),
                             ]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "date" }, [
-                            _vm._v(_vm._s(item.time))
-                          ])
+                            _vm._v(_vm._s(item.time)),
+                          ]),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "mails" }, [
@@ -836,8 +838,8 @@ var render = function() {
                                       _vm._f("contentFilter")(item.category)
                                     ) +
                                     "..."
-                                )
-                              ])
+                                ),
+                              ]),
                             ],
                             1
                           ),
@@ -849,8 +851,8 @@ var render = function() {
                                   _vm.$gbiAssets +
                                   "/assets/front/icons/" +
                                   item.badge +
-                                  ".png"
-                              }
+                                  ".png",
+                              },
                             }),
                             _vm._v(" "),
                             _c(
@@ -863,19 +865,19 @@ var render = function() {
                                     : "border-color: " +
                                       item.color +
                                       "; color: " +
-                                      item.color
+                                      item.color,
                               },
                               [
                                 _vm._v(
                                   _vm._s(item.read == 0 ? "Unread" : "Read")
-                                )
+                                ),
                               ]
-                            )
-                          ])
-                        ])
+                            ),
+                          ]),
+                        ]),
                       ]
                     )
-                  })
+                  }),
                 ],
                 2
               ),
@@ -884,7 +886,7 @@ var render = function() {
                 "div",
                 {
                   staticClass: "mail-right-side",
-                  style: { display: _vm.rightDisplay }
+                  style: { display: _vm.rightDisplay },
                 },
                 [
                   _c("div", [
@@ -892,10 +894,10 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-info customButton",
-                        on: { click: _vm.redirList }
+                        on: { click: _vm.redirList },
                       },
                       [_vm._v("Back")]
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _vm.currentItem
@@ -908,14 +910,14 @@ var render = function() {
                               _c("b", [
                                 _vm._v(
                                   "GBI " + _vm._s(_vm.currentItem.admin_email)
-                                )
+                                ),
                               ]),
                               _vm._v(" "),
                               _c("br"),
                               _c("b", [
-                                _vm._v(_vm._s(_vm.currentItem.fullDate))
-                              ])
-                            ])
+                                _vm._v(_vm._s(_vm.currentItem.fullDate)),
+                              ]),
+                            ]),
                           ]),
                           _vm._v(" "),
                           _c("img", {
@@ -923,9 +925,9 @@ var render = function() {
                             attrs: {
                               src:
                                 _vm.$gbiAssets +
-                                "/assets/admin/default/icon/admin_logo.png"
-                            }
-                          })
+                                "/assets/admin/default/icon/admin_logo.png",
+                            },
+                          }),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "message-body" }, [
@@ -937,7 +939,7 @@ var render = function() {
                                   _vm.currentItem.category
                                 )
                               )
-                            )
+                            ),
                           ]),
                           _vm._v(" "),
                           _c(
@@ -954,7 +956,7 @@ var render = function() {
                                     )
                                   ) +
                                   ", more details mentioned below.\n            "
-                              )
+                              ),
                             ]
                           ),
                           _vm._v(" "),
@@ -967,33 +969,33 @@ var render = function() {
                                   )
                                 ) +
                                 "\n            "
-                            )
-                          ])
-                        ])
+                            ),
+                          ]),
+                        ]),
                       ])
                     : _c("div", {
                         staticClass: "mail-right-body",
-                        staticStyle: { height: "80vh" }
-                      })
+                        staticStyle: { height: "80vh" },
+                      }),
                 ]
-              )
-            ])
-          ])
+              ),
+            ]),
+          ]),
         ])
-      : _vm._e()
+      : _vm._e(),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [
       _vm._v("\n                From: \n                "),
       _c("br"),
-      _vm._v("Date:\n                ")
+      _vm._v("Date:\n                "),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -1065,7 +1067,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_c7aa8a70_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./panel.vue?vue&type=style&index=0&id=c7aa8a70&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/user/Notifications/panel.vue?vue&type=style&index=0&id=c7aa8a70&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_c7aa8a70_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_c7aa8a70_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_c7aa8a70_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_c7aa8a70_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_c7aa8a70_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_style_index_0_id_c7aa8a70_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

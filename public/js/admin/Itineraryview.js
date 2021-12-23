@@ -189,7 +189,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -204,12 +204,16 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { to: _vm.url },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
           )
         : _c(
@@ -219,14 +223,18 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { type: "button" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
-          )
+          ),
     ],
     1
   )
@@ -249,7 +257,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -266,11 +274,11 @@ var render = function() {
             { staticClass: "text-center" },
             [_c("back-button", { attrs: { url: _vm.backurl } })],
             1
-          )
+          ),
         ],
         2
-      )
-    ])
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -291,7 +299,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -299,7 +307,7 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "viewdata",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "div",
@@ -308,31 +316,31 @@ var render = function() {
                 _c("div", { staticClass: "col-sm-3" }, [
                   _c("h5", [_vm._v("Source")]),
                   _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(_vm.itineraryData.source))])
+                  _c("p", [_vm._v(_vm._s(_vm.itineraryData.source))]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-3" }, [
                   _c("h5", [_vm._v("Destination")]),
                   _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(_vm.itineraryData.destination))])
+                  _c("p", [_vm._v(_vm._s(_vm.itineraryData.destination))]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-3" }, [
                   _c("h5", [_vm._v("Number of Days")]),
                   _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(_vm.itineraryData.noofdays))])
+                  _c("p", [_vm._v(_vm._s(_vm.itineraryData.noofdays))]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-3" }, [
                   _c("h5", [_vm._v("Tour Type")]),
                   _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(_vm.itineraryData.tourtype))])
+                  _c("p", [_vm._v(_vm._s(_vm.itineraryData.tourtype))]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-12" }, [
                   _c("h5", [_vm._v("Title")]),
                   _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(_vm.itineraryData.title))])
+                  _c("p", [_vm._v(_vm._s(_vm.itineraryData.title))]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-12" }, [
@@ -342,20 +350,20 @@ var render = function() {
                     _c("p", {
                       staticClass: "li-padding-18",
                       domProps: {
-                        innerHTML: _vm._s(_vm.itineraryData.description)
-                      }
-                    })
-                  ])
+                        innerHTML: _vm._s(_vm.itineraryData.description),
+                      },
+                    }),
+                  ]),
                 ]),
                 _vm._v(" "),
-                _vm._l(_vm.itineraryData.itinerarydays, function(data) {
+                _vm._l(_vm.itineraryData.itinerarydays, function (data) {
                   return _c("div", { key: data.id, staticClass: "col-sm-12" }, [
                     _c("hr"),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-12" }, [
                         _c("h4", [
-                          _c("strong", [_vm._v("Day " + _vm._s(data.day))])
+                          _c("strong", [_vm._v("Day " + _vm._s(data.day))]),
                         ]),
                         _vm._v(" "),
                         _c("h5", [_vm._v("Title")]),
@@ -365,9 +373,9 @@ var render = function() {
                             _vm._s(data.day_source) +
                               " - " +
                               _vm._s(data.day_destination)
-                          )
-                        ])
-                      ])
+                          ),
+                        ]),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
@@ -376,20 +384,20 @@ var render = function() {
                         _vm._v(" "),
                         _c("p", {
                           staticClass: "li-padding-18",
-                          domProps: { innerHTML: _vm._s(data.day_description) }
-                        })
-                      ])
-                    ])
+                          domProps: { innerHTML: _vm._s(data.day_description) },
+                        }),
+                      ]),
+                    ]),
                   ])
-                })
+                }),
               ],
               2
-            )
+            ),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

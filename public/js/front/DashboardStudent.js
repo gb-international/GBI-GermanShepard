@@ -152,7 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -165,15 +165,15 @@ var render = function() {
             _vm._m(0),
             _vm._v(" "),
             _c("h5", { staticClass: "title_section pt-4" }, [
-              _vm._v("Special Offers")
+              _vm._v("Special Offers"),
             ]),
             _vm._v(" "),
             _c("offers-crasousel", {
-              attrs: { upcoming_list: _vm.upcoming_list }
+              attrs: { upcoming_list: _vm.upcoming_list },
             }),
             _vm._v(" "),
             _c("h5", { staticClass: "title_section pt-4" }, [
-              _vm._v("\n      Upcoming Events\n    ")
+              _vm._v("\n      Upcoming Events\n    "),
             ]),
             _vm._v(" "),
             _c(
@@ -181,15 +181,15 @@ var render = function() {
               { staticClass: "popular_destination" },
               [
                 _c("popular-tour", {
-                  attrs: { upcoming_list: _vm.events_list }
-                })
+                  attrs: { upcoming_list: _vm.events_list },
+                }),
               ],
               1
             ),
             _vm._v(" "),
             _c("div", { staticClass: "pb-5" }, [
               _c("h5", { staticClass: "title_section" }, [
-                _vm._v("\n        Recent Searches ")
+                _vm._v("\n        Recent Searches "),
               ]),
               _vm._v(" "),
               _vm.rSearches.length >= 1
@@ -198,16 +198,16 @@ var render = function() {
                     { staticClass: "resent_search" },
                     [
                       _c("popular-tour", {
-                        attrs: { upcoming_list: _vm.rSearches }
-                      })
+                        attrs: { upcoming_list: _vm.rSearches },
+                      }),
                     ],
                     1
                   )
-                : _c("p", [_vm._v("You have no recent searches.")])
+                : _c("p", [_vm._v("You have no recent searches.")]),
             ]),
             _vm._v(" "),
             _c("h5", { staticClass: "title_section" }, [
-              _vm._v("\n      Popular Tours\n    ")
+              _vm._v("\n      Popular Tours\n    "),
             ]),
             _vm._v(" "),
             _c(
@@ -215,54 +215,53 @@ var render = function() {
               { staticClass: "popular_destination" },
               [
                 _c("popular-tour", {
-                  attrs: { upcoming_list: _vm.popular_list }
-                })
+                  attrs: { upcoming_list: _vm.popular_list },
+                }),
               ],
               1
             ),
             _vm._v(" "),
             _c("h5", { staticClass: "title_section" }, [
-              _vm._v("\n      Travel Blogs\n      ")
+              _vm._v("\n      Travel Blogs\n      "),
             ]),
             _vm._v(" "),
             _c(
               "div",
               { staticClass: "row" },
-              _vm._l(_vm.posts_list, function(post, index) {
+              _vm._l(_vm.posts_list, function (post, index) {
                 return _c(
                   "div",
                   {
                     key: index,
                     staticClass:
-                      "col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0 blog-list"
+                      "col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0 blog-list",
                   },
                   [_c("blog-card", { attrs: { post: post } })],
                   1
                 )
               }),
               0
-            )
+            ),
           ],
           1
-        )
+        ),
       ])
     : _vm._e()
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "advertismentpart" }, [
       _c("img", {
         attrs: {
-          src:
-            "https://cdn.pixabay.com/photo/2016/04/26/15/01/holiday-1354563_960_720.jpg",
-          loading: "lazy"
-        }
-      })
+          src: "https://cdn.pixabay.com/photo/2016/04/26/15/01/holiday-1354563_960_720.jpg",
+          loading: "lazy",
+        },
+      }),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

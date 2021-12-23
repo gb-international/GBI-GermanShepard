@@ -280,7 +280,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -288,18 +288,18 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "form",
               {
                 attrs: { enctype: "multipart/form-data" },
                 on: {
-                  submit: function($event) {
+                  submit: function ($event) {
                     $event.preventDefault()
                     return _vm.addPermission()
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("div", { staticClass: "row" }, [
@@ -309,17 +309,17 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "role_name" } }, [
-                          _vm._v("Select Permission Category")
+                          _vm._v("Select Permission Category"),
                         ]),
                         _vm._v(" "),
                         _c("dropdown-filter", {
                           staticClass: "mb-2",
                           attrs: { itemList: _vm.permissions },
-                          on: { "update:option": _vm.updatePerms }
-                        })
+                          on: { "update:option": _vm.updatePerms },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -336,12 +336,12 @@ var render = function() {
                         attrs: { name: "check-button", size: "lg", switch: "" },
                         model: {
                           value: _vm.form.create,
-                          callback: function($$v) {
+                          callback: function ($$v) {
                             _vm.$set(_vm.form, "create", $$v)
                           },
-                          expression: "form.create"
-                        }
-                      })
+                          expression: "form.create",
+                        },
+                      }),
                     ],
                     1
                   ),
@@ -360,12 +360,12 @@ var render = function() {
                         attrs: { name: "check-button", size: "lg", switch: "" },
                         model: {
                           value: _vm.form.edit,
-                          callback: function($$v) {
+                          callback: function ($$v) {
                             _vm.$set(_vm.form, "edit", $$v)
                           },
-                          expression: "form.edit"
-                        }
-                      })
+                          expression: "form.edit",
+                        },
+                      }),
                     ],
                     1
                   ),
@@ -385,16 +385,16 @@ var render = function() {
                             attrs: {
                               name: "check-button",
                               size: "lg",
-                              switch: ""
+                              switch: "",
                             },
                             model: {
                               value: _vm.form.delete,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.form, "delete", $$v)
                               },
-                              expression: "form.delete"
-                            }
-                          })
+                              expression: "form.delete",
+                            },
+                          }),
                         ],
                         1
                       )
@@ -414,12 +414,12 @@ var render = function() {
                         attrs: { name: "check-button", size: "lg", switch: "" },
                         model: {
                           value: _vm.form.publish,
-                          callback: function($$v) {
+                          callback: function ($$v) {
                             _vm.$set(_vm.form, "publish", $$v)
                           },
-                          expression: "form.publish"
-                        }
-                      })
+                          expression: "form.publish",
+                        },
+                      }),
                     ],
                     1
                   ),
@@ -438,26 +438,26 @@ var render = function() {
                         attrs: { name: "check-button", size: "lg", switch: "" },
                         model: {
                           value: _vm.form.view,
-                          callback: function($$v) {
+                          callback: function ($$v) {
                             _vm.$set(_vm.form, "view", $$v)
                           },
-                          expression: "form.view"
-                        }
-                      })
+                          expression: "form.view",
+                        },
+                      }),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
-                _c("form-buttons")
+                _c("form-buttons"),
               ],
               1
-            )
+            ),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

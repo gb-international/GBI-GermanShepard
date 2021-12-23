@@ -17,7 +17,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -136,7 +136,7 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
@@ -146,6 +146,9 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
 //
 //
 //
@@ -290,7 +293,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       posts: [],
       posts_list: [],
-      search_list: [],
+      search_list: null,
       searchQuery: '',
       category_list: [],
       loading: false,
@@ -410,20 +413,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this5 = this;
 
       if (this.form.category_id == undefined && this.form.title == '' && this.form.tag_id == undefined) {
-        //this.error_message = 'Try again!!!';
-        return this.$swal.fire("Error", "Fields Empty!", "warning");
+        this.error_message = 'Fields Empty!'; //return this.$swal.fire("Error", "Fields Empty!", "warning");
+
+        return false;
       }
 
       this.error_message = '';
+      this.search = true;
       this.$axios.post("/api/search-post", this.form).then(function (response) {
         _this5.search_list = response.data;
-
-        if (_this5.search_list.length <= 0) {
-          return _this5.$swal.fire("No Results.", "No Blogs Found!", "info");
-        } //console.log(response);
-
-
-        _this5.search = true;
+        /*if(this.search_list.length <= 0){
+         //return this.$swal.fire("No Results.", "No Blogs Found!", "info");
+        }*/
+        //console.log(response);
       });
     }
   }
@@ -442,7 +444,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -466,7 +468,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -475,8 +477,8 @@ var render = function() {
       _c("img", {
         staticClass: "card-img-top border-radius-0",
         staticStyle: { height: "200px !important", width: "320" },
-        attrs: { src: _vm.post.image, alt: "Bologna" }
-      })
+        attrs: { src: _vm.post.image, alt: "Bologna" },
+      }),
     ]),
     _vm._v(" "),
     _c(
@@ -484,23 +486,23 @@ var render = function() {
       { staticClass: "card-body" },
       [
         _c("h4", { staticClass: "card-title text-left text-primary" }, [
-          _vm._v(_vm._s(_vm.post.title))
+          _vm._v(_vm._s(_vm.post.title)),
         ]),
         _vm._v(" "),
         _c("router-link", { attrs: { to: "/blog/" + _vm.post.slug } }, [
           _c("h6", { staticClass: "card-subtitle mb-2" }, [
-            _vm._v(_vm._s(_vm.post.category.title))
+            _vm._v(_vm._s(_vm.post.category.title)),
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "card-text" }, [
-            _vm._v(_vm._s(_vm.post.summery))
-          ])
+            _vm._v(_vm._s(_vm.post.summery)),
+          ]),
         ]),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "card-tags" },
-          _vm._l(_vm.post.tags, function(tag) {
+          _vm._l(_vm.post.tags, function (tag) {
             return _c(
               "span",
               { key: tag.id, staticClass: "text-dark card-tag mr-2" },
@@ -508,10 +510,10 @@ var render = function() {
             )
           }),
           0
-        )
+        ),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []
@@ -532,7 +534,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -545,7 +547,7 @@ var render = function() {
     _vm._v(" "),
     _c("rect", { attrs: { y: "270", width: "80", height: "10" } }),
     _vm._v(" "),
-    _c("rect", { attrs: { y: "290", width: "70", height: "10" } })
+    _c("rect", { attrs: { y: "290", width: "70", height: "10" } }),
   ])
 }
 var staticRenderFns = []
@@ -566,7 +568,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -576,14 +578,14 @@ var render = function() {
         _c("div", { staticClass: "howwework_banner text_on_image banner_bg" }, [
           _c("div", { staticClass: "content-blog-banner" }, [
             _c("h1", { staticClass: "text-center blog-heading" }, [
-              _vm._v("Travel Blog")
+              _vm._v("Travel Blog"),
             ]),
             _vm._v(" "),
             _c(
               "div",
               {
                 staticClass: "search-blog-form",
-                staticStyle: { "padding-top": "35px !important" }
+                staticStyle: { "padding-top": "35px !important" },
               },
               [
                 _c(
@@ -602,17 +604,17 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.title,
-                                  expression: "form.title"
-                                }
+                                  expression: "form.title",
+                                },
                               ],
                               staticClass: "form-control search-slt",
                               attrs: {
                                 type: "text",
-                                placeholder: "Enter the title"
+                                placeholder: "Enter the title",
                               },
                               domProps: { value: _vm.form.title },
                               on: {
-                                input: function($event) {
+                                input: function ($event) {
                                   if ($event.target.composing) {
                                     return
                                   }
@@ -621,21 +623,21 @@ var render = function() {
                                     "title",
                                     $event.target.value
                                   )
-                                }
-                              }
-                            })
+                                },
+                              },
+                            }),
                           ]
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _vm.error_message != ""
                         ? _c("span", { staticClass: "text-danger" }, [
-                            _vm._v(_vm._s(_vm.error_message))
+                            _vm._v(_vm._s(_vm.error_message)),
                           ])
-                        : _vm._e()
-                    ])
+                        : _vm._e(),
+                    ]),
                   ]
-                )
+                ),
               ]
             ),
             _vm._v(" "),
@@ -662,20 +664,21 @@ var render = function() {
                                       name: "model",
                                       rawName: "v-model",
                                       value: _vm.form.category_id,
-                                      expression: "form.category_id"
-                                    }
+                                      expression: "form.category_id",
+                                    },
                                   ],
                                   staticClass: "form-control search-slt",
                                   attrs: { id: "exampleFormControlSelect1" },
                                   on: {
-                                    change: function($event) {
+                                    change: function ($event) {
                                       var $$selectedVal = Array.prototype.filter
-                                        .call($event.target.options, function(
-                                          o
-                                        ) {
-                                          return o.selected
-                                        })
-                                        .map(function(o) {
+                                        .call(
+                                          $event.target.options,
+                                          function (o) {
+                                            return o.selected
+                                          }
+                                        )
+                                        .map(function (o) {
                                           var val =
                                             "_value" in o ? o._value : o.value
                                           return val
@@ -687,8 +690,8 @@ var render = function() {
                                           ? $$selectedVal
                                           : $$selectedVal[0]
                                       )
-                                    }
-                                  }
+                                    },
+                                  },
                                 },
                                 [
                                   _c(
@@ -696,38 +699,38 @@ var render = function() {
                                     {
                                       attrs: {
                                         value: "undefined",
-                                        disabled: ""
-                                      }
+                                        disabled: "",
+                                      },
                                     },
                                     [_vm._v("Select category")]
                                   ),
                                   _vm._v(" "),
-                                  _vm._l(_vm.category_list, function(cat) {
+                                  _vm._l(_vm.category_list, function (cat) {
                                     return _c(
                                       "option",
                                       {
                                         key: cat.id,
-                                        domProps: { value: cat.id }
+                                        domProps: { value: cat.id },
                                       },
                                       [_vm._v(_vm._s(cat.title))]
                                     )
-                                  })
+                                  }),
                                 ],
                                 2
                               ),
                               _vm._v(" "),
-                              _c("i", { staticClass: "fas fa-caret-down" })
-                            ])
-                          ])
+                              _c("i", { staticClass: "fas fa-caret-down" }),
+                            ]),
+                          ]),
                         ]
                       ),
                       _vm._v(" "),
                       _vm.error_message != ""
                         ? _c("span", { staticClass: "text-danger" }, [
-                            _vm._v(_vm._s(_vm.error_message))
+                            _vm._v(_vm._s(_vm.error_message)),
                           ])
-                        : _vm._e()
-                    ])
+                        : _vm._e(),
+                    ]),
                   ]
                 ),
                 _vm._v(" "),
@@ -739,17 +742,17 @@ var render = function() {
                         "btn-defalt btn-lg center-block explore_custom_button",
                       attrs: { type: "submit" },
                       on: {
-                        click: function($event) {
+                        click: function ($event) {
                           return _vm.SearchBlog()
-                        }
-                      }
+                        },
+                      },
                     },
                     [_vm._v("\n          SEARCH\n          ")]
-                  )
-                ])
+                  ),
+                ]),
               ]
-            )
-          ])
+            ),
+          ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "blog-list mt-3" }, [
@@ -761,13 +764,31 @@ var render = function() {
                 ? _c(
                     "div",
                     { staticClass: "row" },
-                    _vm._l(_vm.posts_list, function(post, index) {
+                    _vm._l(_vm.posts_list, function (post, index) {
                       return _c(
                         "div",
                         {
                           key: index,
                           staticClass:
-                            "col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0"
+                            "col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0",
+                        },
+                        [_c("blog-card", { attrs: { post: post } })],
+                        1
+                      )
+                    }),
+                    0
+                  )
+                : _vm.search_list.length
+                ? _c(
+                    "div",
+                    { staticClass: "row" },
+                    _vm._l(_vm.search_list, function (post) {
+                      return _c(
+                        "div",
+                        {
+                          key: post.id,
+                          staticClass:
+                            "col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0",
                         },
                         [_c("blog-card", { attrs: { post: post } })],
                         1
@@ -777,51 +798,47 @@ var render = function() {
                   )
                 : _c(
                     "div",
-                    { staticClass: "row" },
-                    _vm._l(_vm.search_list, function(post) {
+                    {
+                      staticStyle: {
+                        "object-position": "center",
+                        "max-width": "350px",
+                        margin: "auto",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src:
+                            _vm.$gbiAssets +
+                            "/assets/errorImages/blog-search.png",
+                        },
+                      }),
+                    ]
+                  ),
+              _vm._v(" "),
+              _vm.loading
+                ? _c(
+                    "div",
+                    { staticClass: "row card-titles" },
+                    _vm._l(6, function (index) {
                       return _c(
                         "div",
-                        {
-                          key: post.id,
-                          staticClass:
-                            "col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0"
-                        },
-                        [_c("blog-card", { attrs: { post: post } })],
+                        { key: index, staticClass: "col-sm-4" },
+                        [_c("cardLoader")],
                         1
                       )
                     }),
                     0
-                  ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.loading,
-                      expression: "loading"
-                    }
-                  ],
-                  staticClass: "row card-titles"
-                },
-                _vm._l(6, function(index) {
-                  return _c(
-                    "div",
-                    { key: index, staticClass: "col-sm-4" },
-                    [_c("cardLoader")],
-                    1
                   )
-                }),
-                0
-              ),
+                : _vm._e(),
               _vm._v(" "),
-              _c("Observer", { on: { intersect: _vm.intersected } })
+              _vm.search == false
+                ? _c("Observer", { on: { intersect: _vm.intersected } })
+                : _vm._e(),
             ],
             1
-          )
-        ])
+          ),
+        ]),
       ])
 }
 var staticRenderFns = []

@@ -162,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -170,18 +170,18 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "form",
               {
                 attrs: { role: "form", enctype: "multipart/form-data" },
                 on: {
-                  submit: function($event) {
+                  submit: function ($event) {
                     $event.preventDefault()
                     return _vm.AddPopular()
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("div", { staticClass: "row" }, [
@@ -191,13 +191,13 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "itinerary_id" } }, [
-                          _vm._v("Select Itinerary")
+                          _vm._v("Select Itinerary"),
                         ]),
                         _vm._v(" "),
                         _c("dropdown-filter", {
                           staticClass: "mb-2",
                           attrs: { itemList: _vm.itinerary_list },
-                          on: { "update:option": _vm.itineraryUpdate }
+                          on: { "update:option": _vm.itineraryUpdate },
                         }),
                         _vm._v(" "),
                         _vm.form.errors.has("itinerary_id")
@@ -208,14 +208,14 @@ var render = function() {
                                 [
                                   _vm._v(
                                     _vm._s(_vm.form.errors.get("itinerary_id"))
-                                  )
+                                  ),
                                 ]
-                              )
+                              ),
                             ])
-                          : _vm._e()
+                          : _vm._e(),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-12" }, [
@@ -224,13 +224,13 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "season_id" } }, [
-                          _vm._v("Select Season")
+                          _vm._v("Select Season"),
                         ]),
                         _vm._v(" "),
                         _c("dropdown-filter", {
                           staticClass: "mb-2",
                           attrs: { itemList: _vm.season_list },
-                          on: { "update:option": _vm.seasonUpdate }
+                          on: { "update:option": _vm.seasonUpdate },
                         }),
                         _vm._v(" "),
                         _vm.form.errors.has("season_id")
@@ -241,26 +241,26 @@ var render = function() {
                                 [
                                   _vm._v(
                                     _vm._s(_vm.form.errors.get("season_id"))
-                                  )
+                                  ),
                                 ]
-                              )
+                              ),
                             ])
-                          : _vm._e()
+                          : _vm._e(),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
-                _c("form-buttons")
+                _c("form-buttons"),
               ],
               1
-            )
+            ),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

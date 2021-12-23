@@ -250,7 +250,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -265,12 +265,16 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { to: _vm.url },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
           )
         : _c(
@@ -280,14 +284,18 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { type: "button" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
-          )
+          ),
     ],
     1
   )
@@ -310,7 +318,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -327,11 +335,11 @@ var render = function() {
             { staticClass: "text-center" },
             [_c("back-button", { attrs: { url: _vm.backurl } })],
             1
-          )
+          ),
         ],
         2
-      )
-    ])
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -352,7 +360,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -360,7 +368,7 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "viewdata",
-        fn: function() {
+        fn: function () {
           return [
             _vm.tour_view.tour_code
               ? _c("div", { staticClass: "row pl-3" }, [
@@ -374,26 +382,26 @@ var render = function() {
                           "router-link",
                           {
                             attrs: {
-                              to: "/view-school/" + _vm.tour_view.school_id
-                            }
+                              to: "/view-school/" + _vm.tour_view.school_id,
+                            },
                           },
                           [
                             _vm._v(
                               "\n            " +
                                 _vm._s(_vm.tour_view.school_name)
-                            )
+                            ),
                           ]
-                        )
+                        ),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _vm.tour_view.tour_code != null
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Tour Code")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour_view.tour_code))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour_view.tour_code))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -403,7 +411,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Tour Price")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour_view.amount) + "/-")])
+                        _c("p", [_vm._v(_vm._s(_vm.tour_view.amount) + "/-")]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -419,18 +427,18 @@ var render = function() {
                           [
                             _vm._v(
                               "\n            " + _vm._s(_vm.tour_view.user_name)
-                            )
+                            ),
                           ]
-                        )
+                        ),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
                     _c("h5", [_vm._v("Added By")]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.tour_view.added_by))])
+                    _c("p", [_vm._v(_vm._s(_vm.tour_view.added_by))]),
                   ]),
                   _vm._v(" "),
                   _vm.tour_view.schoolbankdetail_id != null
@@ -438,8 +446,8 @@ var render = function() {
                         _c("h5", [_vm._v("School Bank Detail ID")]),
                         _vm._v(" "),
                         _c("p", [
-                          _vm._v(_vm._s(_vm.tour_view.schoolbankdetail_id))
-                        ])
+                          _vm._v(_vm._s(_vm.tour_view.schoolbankdetail_id)),
+                        ]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -447,7 +455,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Payment By")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour_view.payment_mode))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour_view.payment_mode))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -455,7 +463,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Payment Type")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour_view.payment_type))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour_view.payment_type))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -463,7 +471,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("IFSC Code")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour_view.ifsc_code))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour_view.ifsc_code))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -471,7 +479,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Amount")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour_view.amount))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour_view.amount))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -480,8 +488,8 @@ var render = function() {
                         _c("h5", [_vm._v("Cheque Bank Name")]),
                         _vm._v(" "),
                         _c("p", [
-                          _vm._v(_vm._s(_vm.tour_view.cheque_bank_name))
-                        ])
+                          _vm._v(_vm._s(_vm.tour_view.cheque_bank_name)),
+                        ]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -489,7 +497,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Date of Issue")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour_view.date_of_issue))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour_view.date_of_issue))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -497,14 +505,14 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Status")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour_view.status))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour_view.status))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
                     _c("h5", [_vm._v("Added At")]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.tour_view.created_at))])
+                    _c("p", [_vm._v(_vm._s(_vm.tour_view.created_at))]),
                   ]),
                   _vm._v(" "),
                   _vm.tour_view.total_tour_price != null
@@ -512,8 +520,8 @@ var render = function() {
                         _c("h5", [_vm._v("Amount Need to pay")]),
                         _vm._v(" "),
                         _c("p", [
-                          _vm._v(_vm._s(_vm.tour_view.total_tour_price))
-                        ])
+                          _vm._v(_vm._s(_vm.tour_view.total_tour_price)),
+                        ]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -521,7 +529,7 @@ var render = function() {
                     ? _c("div", { staticClass: "col-sm-4" }, [
                         _c("h5", [_vm._v("Amount Collected")]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.tour_view.collect_amount))])
+                        _c("p", [_vm._v(_vm._s(_vm.tour_view.collect_amount))]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -533,20 +541,20 @@ var render = function() {
                             {
                               staticClass: "btn btn-info text-white",
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   _vm.show_json = !_vm.show_json
-                                }
-                              }
+                                },
+                              },
                             },
                             [
                               _vm._v(
                                 "\n            Payment Details\n          "
-                              )
+                              ),
                             ]
-                          )
-                        ])
+                          ),
+                        ]),
                       ])
-                    : _vm._e()
+                    : _vm._e(),
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -555,31 +563,30 @@ var render = function() {
                   _c("table", [
                     _c(
                       "tbody",
-                      _vm._l(_vm.tour_view.payment_data, function(
-                        value,
-                        key,
-                        i
-                      ) {
-                        return _c("tr", { key: i }, [
-                          _c("td", [
-                            _c("p", { staticClass: "mr-5" }, [
-                              _c("b", [_vm._v(_vm._s(key) + " : ")]),
-                              _vm._v(" "),
-                              _c("i", [_vm._v(_vm._s(value) + " ")])
-                            ])
+                      _vm._l(
+                        _vm.tour_view.payment_data,
+                        function (value, key, i) {
+                          return _c("tr", { key: i }, [
+                            _c("td", [
+                              _c("p", { staticClass: "mr-5" }, [
+                                _c("b", [_vm._v(_vm._s(key) + " : ")]),
+                                _vm._v(" "),
+                                _c("i", [_vm._v(_vm._s(value) + " ")]),
+                              ]),
+                            ]),
                           ])
-                        ])
-                      }),
+                        }
+                      ),
                       0
-                    )
-                  ])
+                    ),
+                  ]),
                 ])
-              : _vm._e()
+              : _vm._e(),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

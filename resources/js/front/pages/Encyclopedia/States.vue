@@ -61,7 +61,11 @@
               </div>
             </router-link>
           </div>
-          <p v-show="resultQuery.length < 1" style="color: black; margin-top: 10vh; font-size: 20px;">Information about this State/Region is current not available, we will update it soon.</p>
+
+          <div v-show="resultQuery.length < 1" style="object-position: center; max-width: 350px; margin: auto;">
+            <img :src="$gbiAssets+'/assets/errorImages/encyclopedia-search.png'"/> 
+          </div>
+         <!-- <p v-show="resultQuery.length < 1" style="color: black; margin-top: 10vh; font-size: 20px;">Information about this State/Region is current not available, we will update it soon.</p> -->
         </div>
         <!-- If Loading -->
         <div class="row" v-else>

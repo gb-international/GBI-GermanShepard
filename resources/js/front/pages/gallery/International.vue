@@ -24,7 +24,9 @@
 
       <div v-if="gallery.length || !loading">
         <image-card :gallery="gallery" v-if="gallery.length > 0"></image-card>
-        <p v-else class="text-center text-muted">Not Data Avaliable</p>
+        <div v-else style="object-position: center; max-width: 350px; margin: auto;">
+          <img :src="$gbiAssets+'/assets/errorImages/gallery-search.png'"/> 
+        </div>
       </div>
 
       <Observer @intersect="intersected" />

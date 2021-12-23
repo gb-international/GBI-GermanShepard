@@ -106,19 +106,22 @@
           </div>
         </div>
         
-        <div class="row" v-else>
+        <div class="row" v-else-if="search_list.length">
           <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0" v-for="post in search_list" :key="post.id">
             <blog-card :post="post" />
           </div>
         </div>
 
+        <div v-else style="object-position: center; max-width: 350px; margin: auto;">
+          <img :src="$gbiAssets+'/assets/errorImages/blog-search.png'"/> 
+        </div>
         <div v-if="loading" class="row card-titles">
           <div class="col-sm-4"  v-for="(index) in 6" :key="index">
             <cardLoader />
           </div>
         </div>
 
-        <Observer @intersect="intersected" />
+        <Observer @intersect="intersected" v-if="search==false"/>
 
       </div>
     </div>
@@ -141,7 +144,7 @@ export default {
     return {
       posts:[],
       posts_list:[],
-      search_list:[],
+      search_list:null,
       searchQuery:'',
       category_list:[],
       loading: false,
@@ -241,16 +244,16 @@ export default {
       if((this.form.category_id == undefined ) && (this.form.title == '') && (this.form.tag_id == undefined)){
         this.error_message = 'Fields Empty!';
         //return this.$swal.fire("Error", "Fields Empty!", "warning");
+        return false;
       }
-      
       this.error_message = '';
+      this.search = true;
       this.$axios.post("/api/search-post",this.form).then(response => {
         this.search_list = response.data;
         /*if(this.search_list.length <= 0){
          //return this.$swal.fire("No Results.", "No Blogs Found!", "info");
         }*/
         //console.log(response);
-        this.search = true;
       });
     }
 

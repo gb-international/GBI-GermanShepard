@@ -257,6 +257,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -413,6 +418,7 @@ __webpack_require__.r(__webpack_exports__);
         return false;
       }
 
+      this.form.itinerary_id = this.$route.params.id;
       this.form.post("/api/booking", {
         headers: {
           Authorization: "Bearer ".concat(this.$cookies.get('access_token'))
@@ -424,13 +430,13 @@ __webpack_require__.r(__webpack_exports__);
 
         _this3.$swal.fire({
           icon: "success",
-          title: "Successfull",
+          title: "Booking Inquiry Sent",
           text: "We will contact you soon !!"
         });
       })["catch"](function (error) {
         _this3.$swal.fire({
           icon: "error",
-          title: "Please provide valide details"
+          title: "Please provide valid details"
         });
 
         _this3.handleError(error);
@@ -453,7 +459,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.marginT[data-v-31645f64] {\n  margin-top: 10px !important;\n}\nlegend[data-v-31645f64] {\n    padding-bottom: 14px;\n    text-align: left;\n}\nfieldset[data-v-31645f64] {\n    margin-bottom: 14px;\n    padding-bottom: 14px;\n}\nfieldset[data-v-31645f64], input[type=\"button\"][data-v-31645f64] {\n    border: 0;\n}\ninput[type=\"button\"][data-v-31645f64] {\n    background-color: #3490dc;\n    color: #fff;\n    cursor: pointer;\n    width: 35px;\n    height: 35px;\n    font-size: 17px;\n    border-radius: 20px;\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-31645f64] {\n    border: 1px solid #F4F3F3;\n    height: 40px;\n    width: 60%;\n    text-align: center;\n    outline: 2px solid transparent;\n    outline-offset: 2px;\n}\n.personLables[data-v-31645f64]{\n  color: grey;\n  text-align: center;\n  font-weight: 600;\n}\n.btn-primary[data-v-31645f64]{\n  background-color: #3490dc !important;\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n", ""]);
+exports.push([module.i, "\n.marginT[data-v-31645f64] {\n  margin-top: 10px !important;\n}\nlegend[data-v-31645f64] {\n    padding-bottom: 14px;\n    text-align: left;\n}\nfieldset[data-v-31645f64] {\n    margin-bottom: 14px;\n    padding-bottom: 14px;\n}\nfieldset[data-v-31645f64], input[type=\"button\"][data-v-31645f64] {\n    border: 0;\n}\ninput[type=\"button\"][data-v-31645f64] {\n    background: #01c5c4;\n    color: #fff;\n    cursor: pointer;\n    width: 35px;\n    height: 35px;\n    font-size: 17px;\n    border-radius: 20px;\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-31645f64] {\n    border: 1px solid #F4F3F3;\n    height: 40px;\n    width: 60%;\n    text-align: center;\n    outline: 2px solid transparent;\n    outline-offset: 2px;\n}\n.personLables[data-v-31645f64]{\n  color: grey;\n  text-align: center;\n  font-weight: 600;\n}\n.btn-primary[data-v-31645f64]{\n  background: #01c5c4 !important;\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.profile_button[data-v-31645f64]{\n  background: #01c5c4 !important;\n}\n", ""]);
 
 // exports
 
@@ -501,7 +507,7 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -524,11 +530,11 @@ var render = function() {
         staticClass: "form",
         attrs: { method: "POST" },
         on: {
-          submit: function($event) {
+          submit: function ($event) {
             $event.preventDefault()
-            return _vm.BookingSubmit($event)
-          }
-        }
+            return _vm.BookingSubmit.apply(null, arguments)
+          },
+        },
       },
       [
         _vm.first_form
@@ -539,7 +545,7 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "startdate" } }, [
-                      _vm._v("Start Journy Date")
+                      _vm._v("Start Journy Date"),
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -548,31 +554,31 @@ var render = function() {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.form.start_date,
-                          expression: "form.start_date"
-                        }
+                          expression: "form.start_date",
+                        },
                       ],
                       staticClass: "form-control",
                       class: {
-                        "is-invalid": _vm.form.errors.has("start_date")
+                        "is-invalid": _vm.form.errors.has("start_date"),
                       },
                       attrs: { type: "date", id: "startdate", required: "" },
                       domProps: { value: _vm.form.start_date },
                       on: {
-                        input: function($event) {
+                        input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(_vm.form, "start_date", $event.target.value)
-                        }
-                      }
+                        },
+                      },
                     }),
                     _vm._v(" "),
                     _c("has-error", {
-                      attrs: { form: _vm.form, field: "start_date" }
-                    })
+                      attrs: { form: _vm.form, field: "start_date" },
+                    }),
                   ],
                   1
-                )
+                ),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-6" }, [
@@ -581,7 +587,7 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "end_date" } }, [
-                      _vm._v("End Journy Date")
+                      _vm._v("End Journy Date"),
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -590,29 +596,29 @@ var render = function() {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.form.end_date,
-                          expression: "form.end_date"
-                        }
+                          expression: "form.end_date",
+                        },
                       ],
                       staticClass: "form-control",
                       class: { "is-invalid": _vm.form.errors.has("end_date") },
                       attrs: { type: "date", id: "end_date", required: "" },
                       domProps: { value: _vm.form.end_date },
                       on: {
-                        input: function($event) {
+                        input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(_vm.form, "end_date", $event.target.value)
-                        }
-                      }
+                        },
+                      },
                     }),
                     _vm._v(" "),
                     _c("has-error", {
-                      attrs: { form: _vm.form, field: "end_date" }
-                    })
+                      attrs: { form: _vm.form, field: "end_date" },
+                    }),
                   ],
                   1
-                )
+                ),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-6" }, [
@@ -621,7 +627,7 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "number_of_person" } }, [
-                      _vm._v("Number of Person")
+                      _vm._v("Number of Person"),
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -630,8 +636,8 @@ var render = function() {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.people,
-                          expression: "people"
-                        }
+                          expression: "people",
+                        },
                       ],
                       staticClass: "form-control",
                       attrs: {
@@ -639,25 +645,25 @@ var render = function() {
                         id: "number_of_person",
                         "data-toggle": "modal",
                         "data-target": "#personsModal",
-                        readonly: ""
+                        readonly: "",
                       },
                       domProps: { value: _vm.people },
                       on: {
-                        click: function($event) {
+                        click: function ($event) {
                           _vm.showPersonModal = true
                         },
-                        input: function($event) {
+                        input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.people = $event.target.value
-                        }
-                      }
+                        },
+                      },
                     }),
                     _vm._v(" "),
                     _c("has-error", {
-                      attrs: { form: _vm.form, field: "start_date" }
-                    })
+                      attrs: { form: _vm.form, field: "start_date" },
+                    }),
                   ],
                   1
                 ),
@@ -670,21 +676,21 @@ var render = function() {
                         attrs: {
                           tabindex: "-1",
                           role: "dialog",
-                          id: "personsModal"
-                        }
+                          id: "personsModal",
+                        },
                       },
                       [
                         _c(
                           "div",
                           {
                             staticClass: "modal-dialog",
-                            attrs: { role: "document" }
+                            attrs: { role: "document" },
                           },
                           [
                             _c("div", { staticClass: "modal-content" }, [
                               _c("div", { staticClass: "modal-header" }, [
                                 _c("h5", { staticClass: "modal-title" }, [
-                                  _vm._v("Passengers")
+                                  _vm._v("Passengers"),
                                 ]),
                                 _vm._v(" "),
                                 _c(
@@ -693,22 +699,22 @@ var render = function() {
                                     staticClass: "close",
                                     attrs: {
                                       type: "button",
-                                      "aria-label": "Close"
+                                      "aria-label": "Close",
                                     },
                                     on: {
-                                      click: function($event) {
+                                      click: function ($event) {
                                         _vm.showPersonModal = false
-                                      }
-                                    }
+                                      },
+                                    },
                                   },
                                   [
                                     _c(
                                       "span",
                                       { attrs: { "aria-hidden": "true" } },
                                       [_vm._v("×")]
-                                    )
+                                    ),
                                   ]
-                                )
+                                ),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "modal-body" }, [
@@ -717,7 +723,7 @@ var render = function() {
                                     "label",
                                     {
                                       staticClass: "personLables",
-                                      attrs: { for: "number_of_adults" }
+                                      attrs: { for: "number_of_adults" },
                                     },
                                     [_vm._v("Adults(>12 years)")]
                                   ),
@@ -727,10 +733,10 @@ var render = function() {
                                       staticClass: "decrease",
                                       attrs: { type: "button", value: "-" },
                                       on: {
-                                        click: function($event) {
+                                        click: function ($event) {
                                           return _vm.decrVal("adults")
-                                        }
-                                      }
+                                        },
+                                      },
                                     }),
                                     _vm._v(" "),
                                     _c("input", {
@@ -739,17 +745,17 @@ var render = function() {
                                           name: "model",
                                           rawName: "v-model",
                                           value: _vm.form.adults,
-                                          expression: "form.adults"
-                                        }
+                                          expression: "form.adults",
+                                        },
                                       ],
                                       attrs: {
                                         type: "passengers",
                                         id: "incrdcr",
-                                        readonly: ""
+                                        readonly: "",
                                       },
                                       domProps: { value: _vm.form.adults },
                                       on: {
-                                        input: function($event) {
+                                        input: function ($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
@@ -758,20 +764,20 @@ var render = function() {
                                             "adults",
                                             $event.target.value
                                           )
-                                        }
-                                      }
+                                        },
+                                      },
                                     }),
                                     _vm._v(" "),
                                     _c("input", {
                                       staticClass: "increase",
                                       attrs: { type: "button", value: "+" },
                                       on: {
-                                        click: function($event) {
+                                        click: function ($event) {
                                           return _vm.incrVal("adults")
-                                        }
-                                      }
-                                    })
-                                  ])
+                                        },
+                                      },
+                                    }),
+                                  ]),
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "marginT" }, [
@@ -779,7 +785,7 @@ var render = function() {
                                     "label",
                                     {
                                       staticClass: "personLables",
-                                      attrs: { for: "number_of_children" }
+                                      attrs: { for: "number_of_children" },
                                     },
                                     [_vm._v("Children(2 to 12 years)")]
                                   ),
@@ -789,10 +795,10 @@ var render = function() {
                                       staticClass: "decrease",
                                       attrs: { type: "button", value: "-" },
                                       on: {
-                                        click: function($event) {
+                                        click: function ($event) {
                                           return _vm.decrVal("children")
-                                        }
-                                      }
+                                        },
+                                      },
                                     }),
                                     _vm._v(" "),
                                     _c("input", {
@@ -801,17 +807,17 @@ var render = function() {
                                           name: "model",
                                           rawName: "v-model",
                                           value: _vm.form.children,
-                                          expression: "form.children"
-                                        }
+                                          expression: "form.children",
+                                        },
                                       ],
                                       attrs: {
                                         type: "passengers",
                                         id: "incrdcr",
-                                        readonly: ""
+                                        readonly: "",
                                       },
                                       domProps: { value: _vm.form.children },
                                       on: {
-                                        input: function($event) {
+                                        input: function ($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
@@ -820,20 +826,20 @@ var render = function() {
                                             "children",
                                             $event.target.value
                                           )
-                                        }
-                                      }
+                                        },
+                                      },
                                     }),
                                     _vm._v(" "),
                                     _c("input", {
                                       staticClass: "increase",
                                       attrs: { type: "button", value: "+" },
                                       on: {
-                                        click: function($event) {
+                                        click: function ($event) {
                                           return _vm.incrVal("children")
-                                        }
-                                      }
-                                    })
-                                  ])
+                                        },
+                                      },
+                                    }),
+                                  ]),
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "marginT" }, [
@@ -841,7 +847,7 @@ var render = function() {
                                     "label",
                                     {
                                       staticClass: "personLables",
-                                      attrs: { for: "number_of_infants" }
+                                      attrs: { for: "number_of_infants" },
                                     },
                                     [_vm._v("Infants(3 days to 2 years)")]
                                   ),
@@ -851,10 +857,10 @@ var render = function() {
                                       staticClass: "decrease",
                                       attrs: { type: "button", value: "-" },
                                       on: {
-                                        click: function($event) {
+                                        click: function ($event) {
                                           return _vm.decrVal("infants")
-                                        }
-                                      }
+                                        },
+                                      },
                                     }),
                                     _vm._v(" "),
                                     _c("input", {
@@ -863,17 +869,17 @@ var render = function() {
                                           name: "model",
                                           rawName: "v-model",
                                           value: _vm.form.infants,
-                                          expression: "form.infants"
-                                        }
+                                          expression: "form.infants",
+                                        },
                                       ],
                                       attrs: {
                                         type: "passengers",
                                         id: "incrdcr",
-                                        readonly: ""
+                                        readonly: "",
                                       },
                                       domProps: { value: _vm.form.infants },
                                       on: {
-                                        input: function($event) {
+                                        input: function ($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
@@ -882,21 +888,21 @@ var render = function() {
                                             "infants",
                                             $event.target.value
                                           )
-                                        }
-                                      }
+                                        },
+                                      },
                                     }),
                                     _vm._v(" "),
                                     _c("input", {
                                       staticClass: "increase",
                                       attrs: { type: "button", value: "+" },
                                       on: {
-                                        click: function($event) {
+                                        click: function ($event) {
                                           return _vm.incrVal("infants")
-                                        }
-                                      }
-                                    })
-                                  ])
-                                ])
+                                        },
+                                      },
+                                    }),
+                                  ]),
+                                ]),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "modal-footer" }, [
@@ -905,17 +911,17 @@ var render = function() {
                                   {
                                     staticClass: "btn btn-primary",
                                     attrs: { type: "button" },
-                                    on: { click: _vm.savePersons }
+                                    on: { click: _vm.savePersons },
                                   },
                                   [_vm._v("Confirm")]
-                                )
-                              ])
-                            ])
+                                ),
+                              ]),
+                            ]),
                           ]
-                        )
+                        ),
                       ]
                     )
-                  : _vm._e()
+                  : _vm._e(),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-6" }, [
@@ -924,7 +930,7 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "number_of_person" } }, [
-                      _vm._v("Number of Rooms")
+                      _vm._v("Number of Rooms"),
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -933,8 +939,8 @@ var render = function() {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.form.room,
-                          expression: "form.room"
-                        }
+                          expression: "form.room",
+                        },
                       ],
                       staticClass: "form-control",
                       class: { "is-invalid": _vm.form.errors.has("room") },
@@ -942,25 +948,25 @@ var render = function() {
                         type: "number",
                         id: "number_of_person",
                         min: "1",
-                        required: ""
+                        required: "",
                       },
                       domProps: { value: _vm.form.room },
                       on: {
-                        input: function($event) {
+                        input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(_vm.form, "room", $event.target.value)
-                        }
-                      }
+                        },
+                      },
                     }),
                     _vm._v(" "),
                     _c("has-error", {
-                      attrs: { form: _vm.form, field: "start_date" }
-                    })
+                      attrs: { form: _vm.form, field: "start_date" },
+                    }),
                   ],
                   1
-                )
+                ),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-12" }, [
@@ -969,7 +975,7 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "occupancy" } }, [
-                      _vm._v("Occupancy Types")
+                      _vm._v("Occupancy Types"),
                     ]),
                     _vm._v(" "),
                     _c(
@@ -980,21 +986,21 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: _vm.form.occupancy_type,
-                            expression: "form.occupancy_type"
-                          }
+                            expression: "form.occupancy_type",
+                          },
                         ],
                         staticClass: "form-control",
                         class: {
-                          "is-invalid": _vm.form.errors.has("occupancy_type")
+                          "is-invalid": _vm.form.errors.has("occupancy_type"),
                         },
                         attrs: { required: "" },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
+                              .call($event.target.options, function (o) {
                                 return o.selected
                               })
-                              .map(function(o) {
+                              .map(function (o) {
                                 var val = "_value" in o ? o._value : o.value
                                 return val
                               })
@@ -1005,10 +1011,10 @@ var render = function() {
                                 ? $$selectedVal
                                 : $$selectedVal[0]
                             )
-                          }
-                        }
+                          },
+                        },
                       },
-                      _vm._l(_vm.occupancy_list, function(occ, i) {
+                      _vm._l(_vm.occupancy_list, function (occ, i) {
                         return _c(
                           "option",
                           { key: i, domProps: { value: occ } },
@@ -1017,7 +1023,7 @@ var render = function() {
                               "\n              " +
                                 _vm._s(occ) +
                                 "\n            "
-                            )
+                            ),
                           ]
                         )
                       }),
@@ -1025,12 +1031,12 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c("has-error", {
-                      attrs: { form: _vm.form, field: "occupancy_type" }
-                    })
+                      attrs: { form: _vm.form, field: "occupancy_type" },
+                    }),
                   ],
                   1
-                )
-              ])
+                ),
+              ]),
             ])
           : _vm._e(),
         _vm._v(" "),
@@ -1042,7 +1048,7 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "cities" } }, [
-                      _vm._v("Cities")
+                      _vm._v("Cities"),
                     ]),
                     _vm._v(" "),
                     _c("multiselect", {
@@ -1052,19 +1058,19 @@ var render = function() {
                         "track-by": "name",
                         label: "name",
                         "close-on-select": true,
-                        placeholder: "Select City"
+                        placeholder: "Select City",
                       },
                       model: {
                         value: _vm.form.city_id,
-                        callback: function($$v) {
+                        callback: function ($$v) {
                           _vm.$set(_vm.form, "city_id", $$v)
                         },
-                        expression: "form.city_id"
-                      }
-                    })
+                        expression: "form.city_id",
+                      },
+                    }),
                   ],
                   1
-                )
+                ),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-12" }, [
@@ -1073,7 +1079,7 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "sightseeing" } }, [
-                      _vm._v("Places(Sightseeing)")
+                      _vm._v("Places(Sightseeing)"),
                     ]),
                     _vm._v(" "),
                     _vm.sightseeing_list
@@ -1084,20 +1090,20 @@ var render = function() {
                             "track-by": "name",
                             label: "name",
                             "close-on-select": true,
-                            placeholder: "Select Sightseeing"
+                            placeholder: "Select Sightseeing",
                           },
                           model: {
                             value: _vm.form.sightseen,
-                            callback: function($$v) {
+                            callback: function ($$v) {
                               _vm.$set(_vm.form, "sightseen", $$v)
                             },
-                            expression: "form.sightseen"
-                          }
+                            expression: "form.sightseen",
+                          },
                         })
-                      : _vm._e()
+                      : _vm._e(),
                   ],
                   1
-                )
+                ),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-12" }, [
@@ -1106,7 +1112,7 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "transport" } }, [
-                      _vm._v("Mode of Transport")
+                      _vm._v("Mode of Transport"),
                     ]),
                     _vm._v(" "),
                     _c("multiselect", {
@@ -1114,25 +1120,25 @@ var render = function() {
                         options: _vm.transports,
                         multiple: true,
                         "close-on-select": true,
-                        placeholder: "Mode of transport"
+                        placeholder: "Mode of transport",
                       },
                       model: {
                         value: _vm.form.transport,
-                        callback: function($$v) {
+                        callback: function ($$v) {
                           _vm.$set(_vm.form, "transport", $$v)
                         },
-                        expression: "form.transport"
-                      }
-                    })
+                        expression: "form.transport",
+                      },
+                    }),
                   ],
                   1
-                )
+                ),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-6" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "numofday" } }, [
-                    _vm._v("Number of Days")
+                    _vm._v("Number of Days"),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row align-content-center" }, [
@@ -1140,14 +1146,14 @@ var render = function() {
                       _c("img", {
                         staticClass: "w-40 link",
                         attrs: {
-                          src: _vm.$gbiAssets + "/images/icons/minus.png"
+                          src: _vm.$gbiAssets + "/images/icons/minus.png",
                         },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.down()
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col" }, [
@@ -1155,29 +1161,29 @@ var render = function() {
                         "\n              " +
                           _vm._s(_vm.form.noofday) +
                           "\n            "
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col" }, [
                       _c("img", {
                         staticClass: "w-40 link",
                         attrs: {
-                          src: _vm.$gbiAssets + "/images/icons/add.png"
+                          src: _vm.$gbiAssets + "/images/icons/add.png",
                         },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.up()
-                          }
-                        }
-                      })
-                    ])
-                  ])
-                ])
+                          },
+                        },
+                      }),
+                    ]),
+                  ]),
+                ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-6" }, [
                 _c("label", { attrs: { for: "accommodation" } }, [
-                  _vm._v("Accommodation Preference")
+                  _vm._v("Accommodation Preference"),
                 ]),
                 _vm._v(" "),
                 _c(
@@ -1188,18 +1194,18 @@ var render = function() {
                         name: "model",
                         rawName: "v-model",
                         value: _vm.form.accommodation,
-                        expression: "form.accommodation"
-                      }
+                        expression: "form.accommodation",
+                      },
                     ],
                     staticClass: "form-control",
                     attrs: { id: "accomodation" },
                     on: {
-                      change: function($event) {
+                      change: function ($event) {
                         var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
+                          .call($event.target.options, function (o) {
                             return o.selected
                           })
-                          .map(function(o) {
+                          .map(function (o) {
                             var val = "_value" in o ? o._value : o.value
                             return val
                           })
@@ -1210,8 +1216,8 @@ var render = function() {
                             ? $$selectedVal
                             : $$selectedVal[0]
                         )
-                      }
-                    }
+                      },
+                    },
                   },
                   [
                     _c("option", { attrs: { value: "2" } }, [_vm._v("2 Star")]),
@@ -1220,10 +1226,10 @@ var render = function() {
                     _vm._v(" "),
                     _c("option", { attrs: { value: "4" } }, [_vm._v("4 Star")]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "5" } }, [_vm._v("5 Star")])
+                    _c("option", { attrs: { value: "5" } }, [_vm._v("5 Star")]),
                   ]
-                )
-              ])
+                ),
+              ]),
             ])
           : _vm._e(),
         _vm._v(" "),
@@ -1235,10 +1241,10 @@ var render = function() {
                   staticClass: "btn profile_button",
                   attrs: { type: "button" },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.secondForm()
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("\n        Customize")]
               )
@@ -1252,29 +1258,42 @@ var render = function() {
                   staticClass: "btn profile_button",
                   attrs: { type: "button" },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.secondForm()
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("\n        Back")]
               )
             : _vm._e(),
           _c("span", { staticClass: "mr-10" }),
           _vm._v(" "),
-          _vm.book_btn
+          _vm.book_btn && _vm.customize_btn
             ? _c(
                 "button",
                 {
                   staticClass: "btn profile_button text-capitalize",
-                  attrs: { type: "submit" }
+                  attrs: { type: "submit" },
                 },
                 [_vm._v("\n        send inquiry\n      ")]
               )
-            : _vm._e()
-        ])
+            : _c(
+                "button",
+                {
+                  staticClass: "btn profile_button text-capitalize",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.secondForm()
+                    },
+                  },
+                },
+                [_vm._v("\n        Confirm\n      ")]
+              ),
+        ]),
       ]
-    )
+    ),
   ])
 }
 var staticRenderFns = []
@@ -1348,7 +1367,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_style_index_0_id_31645f64_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/components/Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_style_index_0_id_31645f64_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_style_index_0_id_31645f64_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_style_index_0_id_31645f64_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_style_index_0_id_31645f64_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_style_index_0_id_31645f64_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_style_index_0_id_31645f64_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

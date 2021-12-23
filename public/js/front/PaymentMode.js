@@ -189,14 +189,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm._m(0)
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -208,54 +208,54 @@ var staticRenderFns = [
           _c("div", { staticClass: "col-sm-4" }, [
             _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "father_name" } }, [
-                _vm._v("Bank Name")
+                _vm._v("Bank Name"),
               ]),
               _vm._v(" "),
               _c("input", {
                 staticClass: "form-control",
-                attrs: { type: "text" }
-              })
-            ])
+                attrs: { type: "text" },
+              }),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-4" }, [
             _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "father_name" } }, [
-                _vm._v("Date of Issue")
+                _vm._v("Date of Issue"),
               ]),
               _vm._v(" "),
               _c("input", {
                 staticClass: "form-control",
-                attrs: { type: "date" }
-              })
-            ])
+                attrs: { type: "date" },
+              }),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-4" }, [
             _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "father_name" } }, [
-                _vm._v("IFSC Code")
+                _vm._v("IFSC Code"),
               ]),
               _vm._v(" "),
               _c("input", {
                 staticClass: "form-control",
-                attrs: { type: "text" }
-              })
-            ])
+                attrs: { type: "text" },
+              }),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-4" }, [
             _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "father_name" } }, [
-                _vm._v("Cheque Number")
+                _vm._v("Cheque Number"),
               ]),
               _vm._v(" "),
               _c("input", {
                 staticClass: "form-control",
-                attrs: { type: "text" }
-              })
-            ])
-          ])
+                attrs: { type: "text" },
+              }),
+            ]),
+          ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "text-center" }, [
@@ -263,14 +263,14 @@ var staticRenderFns = [
             "button",
             {
               staticClass: "btn btn-outline-primary btn-square",
-              attrs: { type: "button" }
+              attrs: { type: "button" },
             },
             [_vm._v("\n        PAY\n      ")]
-          )
-        ])
-      ])
+          ),
+        ]),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

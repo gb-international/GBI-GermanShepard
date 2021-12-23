@@ -60,7 +60,7 @@ Vue.config.productionTip = false;
 Vue.config.devtools = false;
 Vue.config.debug = false;
 Vue.config.silent = true;
-//console.log = function() {};
+console.log = function() {};
 // End
 
 
@@ -82,6 +82,9 @@ const toast = swal.mixin({
 });
 Vue.prototype.$toast = toast;
 Vue.prototype.$gbiAssets = 'https://gbi-assets.s3.ap-south-1.amazonaws.com';
+//Vue.prototype.$hostName = 'http://localhost:81'
+Vue.prototype.$hostName = 'localhost:3000'
+
 sync(store, router);
 
 router.beforeEach((to, from, next) => {

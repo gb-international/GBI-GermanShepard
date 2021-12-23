@@ -330,7 +330,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -341,7 +341,7 @@ var render = function() {
       "div",
       {
         staticClass: "modal fade modal-border-radius",
-        attrs: { id: "itinerayrFormModal" }
+        attrs: { id: "itinerayrFormModal" },
       },
       [
         _c("div", { staticClass: "modal-dialog modal-lg" }, [
@@ -353,11 +353,11 @@ var render = function() {
                   staticClass: "form p-3",
                   attrs: { method: "post" },
                   on: {
-                    submit: function($event) {
+                    submit: function ($event) {
                       $event.preventDefault()
                       return _vm.submitForm()
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("div", { staticClass: "row pb-3 break-word" }, [
@@ -366,27 +366,27 @@ var render = function() {
                         _c("div", { staticClass: "col" }, [
                           _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "tour_code" } }, [
-                              _vm._v("Source")
+                              _vm._v("Source"),
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "text-muted" }, [
-                              _vm._v(_vm._s(_vm.sources.value))
-                            ])
-                          ])
+                              _vm._v(_vm._s(_vm.sources.value)),
+                            ]),
+                          ]),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col" }, [
                           _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "tour_code" } }, [
-                              _vm._v(" Destination ")
+                              _vm._v(" Destination "),
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "text-muted" }, [
-                              _vm._v(_vm._s(_vm.destinations.value))
-                            ])
-                          ])
-                        ])
-                      ])
+                              _vm._v(_vm._s(_vm.destinations.value)),
+                            ]),
+                          ]),
+                        ]),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-7" }, [
@@ -394,28 +394,28 @@ var render = function() {
                         _c("div", { staticClass: "col" }, [
                           _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "tour_code" } }, [
-                              _vm._v("In Mood For")
+                              _vm._v("In Mood For"),
                             ]),
                             _vm._v(" "),
                             _c("p", { staticClass: "text-muted" }, [
-                              _vm._v(_vm._s(_vm.tourtypes))
-                            ])
-                          ])
+                              _vm._v(_vm._s(_vm.tourtypes)),
+                            ]),
+                          ]),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col" }, [
                           _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "tour_code" } }, [
-                              _vm._v(" No. of Days ")
+                              _vm._v(" No. of Days "),
                             ]),
                             _vm._v(" "),
                             _c("p", { staticClass: "text-muted pl-4" }, [
-                              _vm._v(_vm._s(_vm.noofdays))
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
+                              _vm._v(_vm._s(_vm.noofdays)),
+                            ]),
+                          ]),
+                        ]),
+                      ]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
@@ -425,7 +425,7 @@ var render = function() {
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "tour_code" } }, [
-                            _vm._v("Mobile Number")
+                            _vm._v("Mobile Number"),
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -435,21 +435,21 @@ var render = function() {
                                 rawName: "v-model.number",
                                 value: _vm.form.phoneno,
                                 expression: "form.phoneno",
-                                modifiers: { number: true }
-                              }
+                                modifiers: { number: true },
+                              },
                             ],
                             staticClass: "form-control input-border",
                             class: {
-                              "is-invalid": _vm.form.errors.has("phoneno")
+                              "is-invalid": _vm.form.errors.has("phoneno"),
                             },
                             attrs: {
                               type: "number",
                               placeholder: "Enter Mobile Number",
-                              required: ""
+                              required: "",
                             },
                             domProps: { value: _vm.form.phoneno },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
@@ -459,18 +459,18 @@ var render = function() {
                                   _vm._n($event.target.value)
                                 )
                               },
-                              blur: function($event) {
+                              blur: function ($event) {
                                 return _vm.$forceUpdate()
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(" "),
                           _c("has-error", {
-                            attrs: { form: _vm.form, field: "phoneno" }
-                          })
+                            attrs: { form: _vm.form, field: "phoneno" },
+                          }),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-6" }, [
@@ -479,7 +479,7 @@ var render = function() {
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "tour_code" } }, [
-                            _vm._v("Email ID")
+                            _vm._v("Email ID"),
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -488,50 +488,50 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: _vm.form.email,
-                                expression: "form.email"
-                              }
+                                expression: "form.email",
+                              },
                             ],
                             staticClass: "form-control input-border",
                             class: {
-                              "is-invalid": _vm.form.errors.has("email")
+                              "is-invalid": _vm.form.errors.has("email"),
                             },
                             attrs: {
                               type: "email",
                               placeholder: "Enter Email",
-                              required: ""
+                              required: "",
                             },
                             domProps: { value: _vm.form.email },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(_vm.form, "email", $event.target.value)
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(" "),
                           _c("has-error", {
-                            attrs: { form: _vm.form, field: "email" }
-                          })
+                            attrs: { form: _vm.form, field: "email" },
+                          }),
                         ],
                         1
-                      )
-                    ])
+                      ),
+                    ]),
                   ]),
                   _vm._v(" "),
-                  _vm._m(1)
+                  _vm._m(1),
                 ]
-              )
-            ])
-          ])
-        ])
+              ),
+            ]),
+          ]),
+        ]),
       ]
-    )
+    ),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -539,7 +539,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass: "modal fade modal-border-radius",
-        attrs: { id: "AlertModalForExplore", role: "dialog" }
+        attrs: { id: "AlertModalForExplore", role: "dialog" },
       },
       [
         _c("div", { staticClass: "modal-dialog" }, [
@@ -549,24 +549,24 @@ var staticRenderFns = [
                 _c("h4", [_vm._v("Sorry")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "text-muted" }, [
-                  _vm._v("Itinerary Not Available")
+                  _vm._v("Itinerary Not Available"),
                 ]),
                 _vm._v(" "),
                 _c(
                   "button",
                   {
                     staticClass: "btn swal-close-button mt-3 text-center",
-                    attrs: { type: "button", "data-dismiss": "modal" }
+                    attrs: { type: "button", "data-dismiss": "modal" },
                   },
                   [_vm._v("\n              OK\n            ")]
-                )
+                ),
               ]),
               _vm._v(" "),
               _c(
                 "p",
                 {
                   staticClass: "modal-footer-link-custom",
-                  attrs: { "data-dismiss": "modal" }
+                  attrs: { "data-dismiss": "modal" },
                 },
                 [
                   _vm._v("\n            For Itinerary\n            "),
@@ -576,20 +576,20 @@ var staticRenderFns = [
                       staticClass: "pointer",
                       attrs: {
                         "data-toggle": "modal",
-                        "data-target": "#itinerayrFormModal"
-                      }
+                        "data-target": "#itinerayrFormModal",
+                      },
                     },
                     [_vm._v("Click Here")]
-                  )
+                  ),
                 ]
-              )
-            ])
-          ])
-        ])
+              ),
+            ]),
+          ]),
+        ]),
       ]
     )
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -598,12 +598,12 @@ var staticRenderFns = [
         "button",
         {
           staticClass: "btn swal-close-button mt-3 text-center",
-          attrs: { type: "submit" }
+          attrs: { type: "submit" },
         },
         [_vm._v("\n                OK\n              ")]
-      )
+      ),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -622,14 +622,14 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "div",
     { staticClass: "row mt-35" },
-    _vm._l(_vm.list, function(itinerary, index) {
+    _vm._l(_vm.list, function (itinerary, index) {
       return _c(
         "div",
         { key: index, staticClass: "col-lg-4 col-md-6 col-12 newCardList" },
@@ -640,10 +640,10 @@ var render = function() {
               staticClass: "card-1",
               staticStyle: { cursor: "pointer" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.$router.push("/explore-detail/" + itinerary.id)
-                }
-              }
+                },
+              },
             },
             [
               _c("div", { staticClass: "image-col" }, [
@@ -651,7 +651,7 @@ var render = function() {
                   "figure",
                   {
                     directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper"
+                    staticClass: "image__wrapper",
                   },
                   [
                     _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -661,12 +661,12 @@ var render = function() {
                       attrs: {
                         src: itinerary.photo,
                         "data-url": itinerary.photo,
-                        alt: itinerary.title
-                      }
-                    })
+                        alt: itinerary.title,
+                      },
+                    }),
                   ],
                   1
-                )
+                ),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "cardtext-col text-left pl-1 pr-1" }, [
@@ -675,7 +675,7 @@ var render = function() {
                   {
                     staticClass: "m-0 pl-10 font-weight-bold text-capitalize",
                     class: itinerary.title.length <= 34 ? "cardPadding" : "",
-                    staticStyle: { "font-size": "18px" }
+                    staticStyle: { "font-size": "18px" },
                   },
                   [
                     _vm._v(
@@ -684,7 +684,7 @@ var render = function() {
                           _vm._f("sortlength")(itinerary.title, 50, "")
                         )
                       )
-                    )
+                    ),
                   ]
                 ),
                 _vm._v(" "),
@@ -693,7 +693,7 @@ var render = function() {
                   {
                     staticClass: "pl-10 mb-1",
                     class: itinerary.title.length <= 34 ? "-mt-2" : "",
-                    staticStyle: { "font-size": "16px" }
+                    staticStyle: { "font-size": "16px" },
                   },
                   [_vm._v(_vm._s(itinerary.noofdays) + " Days Tour")]
                 ),
@@ -704,7 +704,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "d-flex flex-row justify-content-between pb-2 mt-1"
+                      "d-flex flex-row justify-content-between pb-2 mt-1",
                   },
                   [
                     _c("div", { staticClass: "pl-10" }, [
@@ -718,11 +718,11 @@ var render = function() {
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_hotel_icon.png"
-                                }
+                                    "/images/icons/Itinerary_hotel_icon.png",
+                                },
                               }),
                               _vm._v(" "),
-                              _c("br")
+                              _c("br"),
                             ]
                           )
                         : _vm._e(),
@@ -737,11 +737,11 @@ var render = function() {
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_bus_icon.png"
-                                }
+                                    "/images/icons/Itinerary_bus_icon.png",
+                                },
                               }),
                               _vm._v(" "),
-                              _c("br")
+                              _c("br"),
                             ]
                           )
                         : _vm._e(),
@@ -756,11 +756,11 @@ var render = function() {
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_bus_icon.png"
-                                }
+                                    "/images/icons/Itinerary_bus_icon.png",
+                                },
                               }),
                               _vm._v(" "),
-                              _c("br")
+                              _c("br"),
                             ]
                           )
                         : _vm._e(),
@@ -775,11 +775,11 @@ var render = function() {
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_flight_icon.png"
-                                }
+                                    "/images/icons/Itinerary_flight_icon.png",
+                                },
                               }),
                               _vm._v(" "),
-                              _c("br")
+                              _c("br"),
                             ]
                           )
                         : _vm._e(),
@@ -794,22 +794,22 @@ var render = function() {
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_lunch_icon.png"
-                                }
+                                    "/images/icons/Itinerary_lunch_icon.png",
+                                },
                               }),
                               _vm._v(" "),
-                              _c("br")
+                              _c("br"),
                             ]
                           )
-                        : _vm._e()
+                        : _vm._e(),
                     ]),
                     _vm._v(" "),
-                    _vm._m(1, true)
+                    _vm._m(1, true),
                   ]
-                )
-              ])
+                ),
+              ]),
             ]
-          )
+          ),
         ]
       )
     }),
@@ -817,7 +817,7 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -830,8 +830,8 @@ var staticRenderFns = [
             "font-size": "19.5px",
             "font-weight": "550",
             "margin-bottom": "0px !important",
-            color: "#4a4343"
-          }
+            color: "#4a4343",
+          },
         },
         [_vm._v("Rs. 10,000/-")]
       ),
@@ -844,14 +844,14 @@ var staticRenderFns = [
             "font-size": "15px",
             "font-weight": "400",
             color: "grey",
-            "margin-top": "-6px"
-          }
+            "margin-top": "-6px",
+          },
         },
         [_vm._v("per person")]
-      )
+      ),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -860,9 +860,9 @@ var staticRenderFns = [
         "button",
         { staticClass: "btn bookbtn-custom", attrs: { type: "button" } },
         [_vm._v("BOOK")]
-      )
+      ),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -881,7 +881,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -899,22 +899,22 @@ var render = function() {
               { staticClass: "row" },
               [_c("itinerary-list", { attrs: { list: _vm.allSearchdata } })],
               1
-            )
-          ])
-        ])
-      ])
+            ),
+          ]),
+        ]),
+      ]),
     ]
   )
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "banner-block" }, [
-      _c("img", { staticClass: "top-imgs", attrs: { alt: "image" } })
+      _c("img", { staticClass: "top-imgs", attrs: { alt: "image" } }),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -1156,7 +1156,7 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 

@@ -111,6 +111,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -144,8 +146,7 @@ __webpack_require__.r(__webpack_exports__);
   watch: {
     resultQuery: function resultQuery() {
       //console.log(this.searchQuery);
-      if (this.resultQuery.length <= 0) {
-        return this.$swal.fire("No Results!", "Information about this State/Region is current not available.", "info");
+      if (this.resultQuery.length <= 0) {// return this.$swal.fire("No Results!", "Information about this State/Region is current not available.", "info"); 
       }
     }
   },
@@ -213,12 +214,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("vue-content-loading", { attrs: { width: 300, height: 170 } }, [
-    _c("rect", { attrs: { y: "30", r: "30", width: "300", height: "170" } })
+    _c("rect", { attrs: { y: "30", r: "30", width: "300", height: "170" } }),
   ])
 }
 var staticRenderFns = []
@@ -239,7 +240,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -250,7 +251,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "encyclopedia_banner text_on_image banner_bg explore_bg_img"
+              "encyclopedia_banner text_on_image banner_bg explore_bg_img",
           },
           [
             _c("div", { staticClass: "content encyclopedia" }, [
@@ -259,15 +260,15 @@ var render = function() {
                   _c("div", { staticClass: "col-sm-4" }, [
                     _c("div", { staticClass: "encyclopedia-content" }, [
                       _c("h1", { staticClass: "heading" }, [
-                        _vm._v("International Encyclopedia")
+                        _vm._v("International Encyclopedia"),
                       ]),
                       _vm._v(" "),
                       _c("span", { staticClass: "sub" }, [
                         _vm._v(
                           "Explore and embrace the vibrancy of cultures and traditions of the beautiful countries and states of the globe"
-                        )
-                      ])
-                    ])
+                        ),
+                      ]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-8 search_filter" }, [
@@ -279,26 +280,26 @@ var render = function() {
                           _c("model-select", {
                             attrs: {
                               options: _vm.options,
-                              placeholder: "Search encyclopedia..."
+                              placeholder: "Search encyclopedia...",
                             },
                             model: {
                               value: _vm.searchQuery,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.searchQuery = $$v
                               },
-                              expression: "searchQuery"
-                            }
-                          })
+                              expression: "searchQuery",
+                            },
+                          }),
                         ],
                         1
-                      )
-                    ])
+                      ),
+                    ]),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-2" })
-                ])
-              ])
-            ])
+                  _c("div", { staticClass: "col-sm-2" }),
+                ]),
+              ]),
+            ]),
           ]
         ),
         _vm._v(" "),
@@ -311,7 +312,7 @@ var render = function() {
                   "div",
                   { staticClass: "row" },
                   [
-                    _vm._l(_vm.resultQuery, function(state) {
+                    _vm._l(_vm.resultQuery, function (state) {
                       return _c(
                         "div",
                         { key: state.id, staticClass: "col-sm-4 states_card" },
@@ -327,15 +328,15 @@ var render = function() {
                                     directives: [
                                       {
                                         name: "lazyload",
-                                        rawName: "v-lazyload"
-                                      }
+                                        rawName: "v-lazyload",
+                                      },
                                     ],
                                     staticClass:
-                                      "image__wrapper card_image_ency"
+                                      "image__wrapper card_image_ency",
                                   },
                                   [
                                     _c("ImageSpinner", {
-                                      staticClass: "image__spinner"
+                                      staticClass: "image__spinner",
                                     }),
                                     _vm._v(" "),
                                     _c("img", {
@@ -343,9 +344,9 @@ var render = function() {
                                       attrs: {
                                         src: state.thumbnail,
                                         "data-url": state.thumbnail,
-                                        alt: state.state_name
-                                      }
-                                    })
+                                        alt: state.state_name,
+                                      },
+                                    }),
                                   ],
                                   1
                                 ),
@@ -353,54 +354,58 @@ var render = function() {
                                 _c(
                                   "div",
                                   {
-                                    staticClass: "card-img-overlay text-center"
+                                    staticClass: "card-img-overlay text-center",
                                   },
                                   [
                                     _c(
                                       "p",
                                       { staticClass: "card-text text-white" },
                                       [_vm._v(_vm._s(state.state_name))]
-                                    )
+                                    ),
                                   ]
-                                )
-                              ])
+                                ),
+                              ]),
                             ]
-                          )
+                          ),
                         ],
                         1
                       )
                     }),
                     _vm._v(" "),
                     _c(
-                      "p",
+                      "div",
                       {
                         directives: [
                           {
                             name: "show",
                             rawName: "v-show",
                             value: _vm.resultQuery.length < 1,
-                            expression: "resultQuery.length < 1"
-                          }
+                            expression: "resultQuery.length < 1",
+                          },
                         ],
                         staticStyle: {
-                          color: "black",
-                          "margin-top": "10vh",
-                          "font-size": "20px"
-                        }
+                          "object-position": "center",
+                          "max-width": "350px",
+                          margin: "auto",
+                        },
                       },
                       [
-                        _vm._v(
-                          "Information about this State/Region is current not available, we will update it soon."
-                        )
+                        _c("img", {
+                          attrs: {
+                            src:
+                              _vm.$gbiAssets +
+                              "/assets/errorImages/encyclopedia-search.png",
+                          },
+                        }),
                       ]
-                    )
+                    ),
                   ],
                   2
                 )
               : _c(
                   "div",
                   { staticClass: "row" },
-                  _vm._l(12, function(index) {
+                  _vm._l(12, function (index) {
                     return _c(
                       "div",
                       { key: index, staticClass: "col-sm-4 states_card" },
@@ -409,11 +414,11 @@ var render = function() {
                     )
                   }),
                   0
-                )
+                ),
           ]),
           _vm._v(" "),
-          _c("br")
-        ])
+          _c("br"),
+        ]),
       ])
 }
 var staticRenderFns = []

@@ -230,9 +230,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_icons_AssignUserIcon_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/admin/components/icons/AssignUserIcon.vue */ "./resources/js/admin/components/icons/AssignUserIcon.vue");
 /* harmony import */ var _admin_components_TableLoader_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/admin/components/TableLoader.vue */ "./resources/js/admin/components/TableLoader.vue");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -406,9 +406,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_icons_DeleteIcon_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/icons/DeleteIcon.vue */ "./resources/js/admin/components/icons/DeleteIcon.vue");
 /* harmony import */ var _admin_components_TableLoader_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/TableLoader.vue */ "./resources/js/admin/components/TableLoader.vue");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -563,7 +563,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -573,10 +573,10 @@ var render = function() {
           "span",
           {
             staticClass: "badge badge-info incrIconSize",
-            attrs: { title: "Assign Permissions" }
+            attrs: { title: "Assign Permissions" },
           },
           [_c("i", { staticClass: "fas fa-plus-square" })]
-        )
+        ),
       ])
     : _vm._e()
 }
@@ -598,7 +598,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -608,10 +608,10 @@ var render = function() {
           "span",
           {
             staticClass: "badge badge-warning incrIconSize",
-            attrs: { title: "Assign Users" }
+            attrs: { title: "Assign Users" },
           },
           [_c("i", { staticClass: "fas fa-user-plus" })]
-        )
+        ),
       ])
     : _vm._e()
 }
@@ -633,7 +633,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -643,10 +643,10 @@ var render = function() {
           "span",
           {
             staticClass: "badge badge-success incrIconSize",
-            attrs: { title: "Check Permissions" }
+            attrs: { title: "Check Permissions" },
           },
           [_c("i", { staticClass: "fas fa-check-square" })]
-        )
+        ),
       ])
     : _vm._e()
 }
@@ -668,7 +668,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -678,10 +678,10 @@ var render = function() {
           "span",
           {
             staticClass: "badge badge-primary incrIconSize",
-            attrs: { title: "Edit Item" }
+            attrs: { title: "Edit Item" },
           },
           [_c("i", { staticClass: "fas fa-pencil-alt" })]
-        )
+        ),
       ])
     : _vm._e()
 }
@@ -703,7 +703,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -715,10 +715,10 @@ var render = function() {
         "span",
         {
           staticClass: "badge badge-primary incrIconSize",
-          attrs: { title: "View Item" }
+          attrs: { title: "View Item" },
         },
         [_c("i", { staticClass: "fas fa-eye" })]
-      )
+      ),
     ]
   )
 }
@@ -740,7 +740,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -750,7 +750,7 @@ var render = function() {
       [
         {
           key: "perpage",
-          fn: function() {
+          fn: function () {
             return [
               _c(
                 "b-form-group",
@@ -763,8 +763,8 @@ var render = function() {
                     "label-cols-md": "4",
                     "label-cols-lg": "3",
                     "label-align-sm": "right",
-                    "label-size": "sm"
-                  }
+                    "label-size": "sm",
+                  },
                 },
                 [
                   _c("b-form-select", {
@@ -772,41 +772,41 @@ var render = function() {
                     attrs: { id: "per-page-select", options: _vm.options },
                     model: {
                       value: _vm.perPage,
-                      callback: function($$v) {
+                      callback: function ($$v) {
                         _vm.perPage = $$v
                       },
-                      expression: "perPage"
-                    }
-                  })
+                      expression: "perPage",
+                    },
+                  }),
                 ],
                 1
-              )
+              ),
             ]
           },
-          proxy: true
+          proxy: true,
         },
         {
           key: "searchbar",
-          fn: function() {
+          fn: function () {
             return [
               _c("b-form-input", {
                 staticClass: "radius-0",
                 attrs: { type: "search", placeholder: "Type to Search" },
                 model: {
                   value: _vm.filter,
-                  callback: function($$v) {
+                  callback: function ($$v) {
                     _vm.filter = $$v
                   },
-                  expression: "filter"
-                }
-              })
+                  expression: "filter",
+                },
+              }),
             ]
           },
-          proxy: true
+          proxy: true,
         },
         {
           key: "table",
-          fn: function() {
+          fn: function () {
             return [
               _c("b-table", {
                 staticClass: "w-100 table-layout",
@@ -820,19 +820,19 @@ var render = function() {
                   items: _vm.items.data,
                   busy: _vm.$store.getters.isBusy,
                   filter: _vm.filter,
-                  "primary-key": "updated_at"
+                  "primary-key": "updated_at",
                 },
                 scopedSlots: _vm._u([
                   {
                     key: "table-busy",
-                    fn: function() {
+                    fn: function () {
                       return [_c("table-loader")]
                     },
-                    proxy: true
+                    proxy: true,
                   },
                   {
                     key: "cell(action)",
-                    fn: function(data) {
+                    fn: function (data) {
                       return [
                         _c("assignUser-icon", {
                           attrs: {
@@ -842,14 +842,14 @@ var render = function() {
                               "/" +
                               data.item.id +
                               "/" +
-                              data.item.department
-                          }
+                              data.item.department,
+                          },
                         }),
                         _vm._v(" "),
                         _c("check-icon", {
                           attrs: {
-                            url: "/check-permissions/" + data.item.user_role_id
-                          }
+                            url: "/check-permissions/" + data.item.user_role_id,
+                          },
                         }),
                         _vm._v(" "),
                         _c("assign-icon", {
@@ -858,38 +858,38 @@ var render = function() {
                               "/assign-permission/" +
                               data.item.user_role_id +
                               "/" +
-                              data.item.role
-                          }
+                              data.item.role,
+                          },
                         }),
                         _vm._v(" "),
                         _c("view-icon", {
-                          attrs: { url: "/user/" + data.item.id }
+                          attrs: { url: "/user/" + data.item.id },
                         }),
                         _vm._v(" "),
                         _c("edit-icon", {
-                          attrs: { url: "/edit-member/" + data.item.id }
+                          attrs: { url: "/edit-member/" + data.item.id },
                         }),
                         _vm._v(" "),
                         _c("delete-icon", {
                           nativeOn: {
-                            click: function($event) {
+                            click: function ($event) {
                               return _vm.deleteItem(data.item.id, data.index)
-                            }
-                          }
-                        })
+                            },
+                          },
+                        }),
                       ]
-                    }
-                  }
-                ])
-              })
+                    },
+                  },
+                ]),
+              }),
             ]
           },
-          proxy: true
+          proxy: true,
         },
         _vm.items.data
           ? {
               key: "pagination",
-              fn: function() {
+              fn: function () {
                 return [
                   _c(
                     "pagination",
@@ -897,9 +897,9 @@ var render = function() {
                       attrs: {
                         data: _vm.items,
                         align: "right",
-                        limit: _vm.limit
+                        limit: _vm.limit,
                       },
-                      on: { "pagination-change-page": _vm.getitems }
+                      on: { "pagination-change-page": _vm.getitems },
                     },
                     [
                       _c(
@@ -912,18 +912,18 @@ var render = function() {
                         "span",
                         { attrs: { slot: "next-nav" }, slot: "next-nav" },
                         [_vm._v("Next")]
-                      )
+                      ),
                     ]
-                  )
+                  ),
                 ]
               },
-              proxy: true
+              proxy: true,
             }
-          : null
+          : null,
       ],
       null,
       true
-    )
+    ),
   })
 }
 var staticRenderFns = []
@@ -944,7 +944,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -952,7 +952,7 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "perpage",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "b-form-group",
@@ -965,8 +965,8 @@ var render = function() {
                   "label-cols-md": "4",
                   "label-cols-lg": "3",
                   "label-align-sm": "right",
-                  "label-size": "sm"
-                }
+                  "label-size": "sm",
+                },
               },
               [
                 _c("b-form-select", {
@@ -974,41 +974,41 @@ var render = function() {
                   attrs: { id: "per-page-select", options: _vm.options },
                   model: {
                     value: _vm.perPage,
-                    callback: function($$v) {
+                    callback: function ($$v) {
                       _vm.perPage = $$v
                     },
-                    expression: "perPage"
-                  }
-                })
+                    expression: "perPage",
+                  },
+                }),
               ],
               1
-            )
+            ),
           ]
         },
-        proxy: true
+        proxy: true,
       },
       {
         key: "searchbar",
-        fn: function() {
+        fn: function () {
           return [
             _c("b-form-input", {
               staticClass: "radius-0",
               attrs: { type: "search", placeholder: "Type to Search" },
               model: {
                 value: _vm.filter,
-                callback: function($$v) {
+                callback: function ($$v) {
                   _vm.filter = $$v
                 },
-                expression: "filter"
-              }
-            })
+                expression: "filter",
+              },
+            }),
           ]
         },
-        proxy: true
+        proxy: true,
       },
       {
         key: "table",
-        fn: function() {
+        fn: function () {
           return [
             _c("b-table", {
               staticClass: "w-100 table-layout",
@@ -1022,53 +1022,53 @@ var render = function() {
                 items: _vm.items.data,
                 busy: _vm.$store.getters.isBusy,
                 filter: _vm.filter,
-                "primary-key": "updated_at"
+                "primary-key": "updated_at",
               },
               scopedSlots: _vm._u([
                 {
                   key: "table-busy",
-                  fn: function() {
+                  fn: function () {
                     return [_c("table-loader")]
                   },
-                  proxy: true
+                  proxy: true,
                 },
                 {
                   key: "cell(status)",
-                  fn: function(data) {
+                  fn: function (data) {
                     return [
                       data.item.status == 1
                         ? _c("span", { staticClass: "badge badge-success" }, [
-                            _vm._v("active")
+                            _vm._v("active"),
                           ])
                         : _c("span", { staticClass: "badge badge-danger" }, [
-                            _vm._v("not active")
-                          ])
+                            _vm._v("not active"),
+                          ]),
                     ]
-                  }
+                  },
                 },
                 {
                   key: "cell(action)",
-                  fn: function(data) {
+                  fn: function (data) {
                     return [
                       _c("delete-icon", {
                         nativeOn: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.deleteItem(data.item.id, data.index)
-                          }
-                        }
-                      })
+                          },
+                        },
+                      }),
                     ]
-                  }
-                }
-              ])
-            })
+                  },
+                },
+              ]),
+            }),
           ]
         },
-        proxy: true
+        proxy: true,
       },
       {
         key: "pagination",
-        fn: function() {
+        fn: function () {
           return [
             _vm.items.data
               ? _c(
@@ -1081,9 +1081,9 @@ var render = function() {
                         attrs: {
                           data: _vm.items,
                           align: "right",
-                          limit: _vm.limit
+                          limit: _vm.limit,
                         },
-                        on: { "pagination-change-page": _vm.getitems }
+                        on: { "pagination-change-page": _vm.getitems },
                       },
                       [
                         _c(
@@ -1096,18 +1096,18 @@ var render = function() {
                           "span",
                           { attrs: { slot: "next-nav" }, slot: "next-nav" },
                           [_vm._v("Next")]
-                        )
+                        ),
                       ]
-                    )
+                    ),
                   ],
                   1
                 )
-              : _vm._e()
+              : _vm._e(),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

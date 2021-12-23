@@ -95,11 +95,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       if (this.form.name == '' || this.form.email == '' || this.form.mobile == '' || this.form.messagecon == '') {
-        this.$swal.fire({
-          text: "Please fillup all the fields!",
-          icon: "info",
-          animation: true
-        });
+        /*this.$swal.fire({
+            text: "Please fillup all the fields!",
+            icon: "info",
+            animation: true,
+          });*/
       }
 
       this.form.post("/api/contact-us/send").then(function (response) {
@@ -325,7 +325,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -335,11 +335,11 @@ var render = function() {
       {
         attrs: { role: "form", enctype: "multipart/form-data" },
         on: {
-          submit: function($event) {
+          submit: function ($event) {
             $event.preventDefault()
             return _vm.sendmail()
-          }
-        }
+          },
+        },
       },
       [
         _c(
@@ -354,8 +354,8 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.form.name,
-                  expression: "form.name"
-                }
+                  expression: "form.name",
+                },
               ],
               staticClass: "form-control",
               class: { "is-invalid": _vm.form.errors.has("name") },
@@ -363,20 +363,20 @@ var render = function() {
                 type: "text",
                 id: "name",
                 placeholder: "Name",
-                name: "name"
+                name: "name",
               },
               domProps: { value: _vm.form.name },
               on: {
-                input: function($event) {
+                input: function ($event) {
                   if ($event.target.composing) {
                     return
                   }
                   _vm.$set(_vm.form, "name", $event.target.value)
-                }
-              }
+                },
+              },
             }),
             _vm._v(" "),
-            _c("has-error", { attrs: { form: _vm.form, field: "name" } })
+            _c("has-error", { attrs: { form: _vm.form, field: "name" } }),
           ],
           1
         ),
@@ -393,8 +393,8 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.form.email,
-                  expression: "form.email"
-                }
+                  expression: "form.email",
+                },
               ],
               staticClass: "form-control",
               class: { "is-invalid": _vm.form.errors.has("email") },
@@ -402,20 +402,20 @@ var render = function() {
                 type: "text",
                 id: "email",
                 placeholder: "Email",
-                name: "email"
+                name: "email",
               },
               domProps: { value: _vm.form.email },
               on: {
-                input: function($event) {
+                input: function ($event) {
                   if ($event.target.composing) {
                     return
                   }
                   _vm.$set(_vm.form, "email", $event.target.value)
-                }
-              }
+                },
+              },
             }),
             _vm._v(" "),
-            _c("has-error", { attrs: { form: _vm.form, field: "email" } })
+            _c("has-error", { attrs: { form: _vm.form, field: "email" } }),
           ],
           1
         ),
@@ -432,8 +432,8 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.form.mobile,
-                  expression: "form.mobile"
-                }
+                  expression: "form.mobile",
+                },
               ],
               staticClass: "form-control",
               class: { "is-invalid": _vm.form.errors.has("mobile") },
@@ -441,20 +441,20 @@ var render = function() {
                 type: "text",
                 id: "mobile",
                 placeholder: "Mobile",
-                name: "mobile"
+                name: "mobile",
               },
               domProps: { value: _vm.form.mobile },
               on: {
-                input: function($event) {
+                input: function ($event) {
                   if ($event.target.composing) {
                     return
                   }
                   _vm.$set(_vm.form, "mobile", $event.target.value)
-                }
-              }
+                },
+              },
             }),
             _vm._v(" "),
-            _c("has-error", { attrs: { form: _vm.form, field: "mobile" } })
+            _c("has-error", { attrs: { form: _vm.form, field: "mobile" } }),
           ],
           1
         ),
@@ -471,44 +471,44 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.form.messagecon,
-                  expression: "form.messagecon"
-                }
+                  expression: "form.messagecon",
+                },
               ],
               staticClass: "form-control",
               class: { "is-invalid": _vm.form.errors.has("messagecon") },
               attrs: { rows: "5", placeholder: "Message....." },
               domProps: { value: _vm.form.messagecon },
               on: {
-                input: function($event) {
+                input: function ($event) {
                   if ($event.target.composing) {
                     return
                   }
                   _vm.$set(_vm.form, "messagecon", $event.target.value)
-                }
-              }
+                },
+              },
             }),
             _vm._v(" "),
-            _c("has-error", { attrs: { form: _vm.form, field: "messagecon" } })
+            _c("has-error", { attrs: { form: _vm.form, field: "messagecon" } }),
           ],
           1
         ),
         _vm._v(" "),
-        _vm._m(0)
+        _vm._m(0),
       ]
-    )
+    ),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-fullwidth alignbtn" }, [
       _c("input", {
-        attrs: { type: "submit", value: "Submit", name: "submit" }
-      })
+        attrs: { type: "submit", value: "Submit", name: "submit" },
+      }),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -527,12 +527,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h1", { staticClass: "gbi_main-heading pt-3 text-capitalize" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -553,7 +553,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -572,7 +572,7 @@ var render = function() {
                   [
                     _c("heading", {
                       staticClass: "mb-3",
-                      attrs: { text: "Head Office" }
+                      attrs: { text: "Head Office" },
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "row mb-3" }, [
@@ -581,13 +581,13 @@ var render = function() {
                           "figure",
                           {
                             directives: [
-                              { name: "lazyload", rawName: "v-lazyload" }
+                              { name: "lazyload", rawName: "v-lazyload" },
                             ],
-                            staticClass: "image__wrapper"
+                            staticClass: "image__wrapper",
                           },
                           [
                             _c("ImageSpinner", {
-                              staticClass: "image__spinner"
+                              staticClass: "image__spinner",
                             }),
                             _vm._v(" "),
                             _c("img", {
@@ -595,19 +595,19 @@ var render = function() {
                               attrs: {
                                 "data-url":
                                   "assets/front/images/address_icon.png",
-                                alt: "address"
-                              }
-                            })
+                                alt: "address",
+                              },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-11" }, [
                         _vm._v(
                           "G-32,DDA Commercial Complex, Sheikh Sarai Phase-1, New Delhi 110017"
-                        )
-                      ])
+                        ),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row mb-3" }, [
@@ -616,13 +616,13 @@ var render = function() {
                           "figure",
                           {
                             directives: [
-                              { name: "lazyload", rawName: "v-lazyload" }
+                              { name: "lazyload", rawName: "v-lazyload" },
                             ],
-                            staticClass: "image__wrapper"
+                            staticClass: "image__wrapper",
                           },
                           [
                             _c("ImageSpinner", {
-                              staticClass: "image__spinner"
+                              staticClass: "image__spinner",
                             }),
                             _vm._v(" "),
                             _c("img", {
@@ -630,15 +630,15 @@ var render = function() {
                               attrs: {
                                 "data-url":
                                   "assets/front/images/phone_icon.png",
-                                alt: "address"
-                              }
-                            })
+                                alt: "address",
+                              },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
-                      _vm._m(1)
+                      _vm._m(1),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row mb-3" }, [
@@ -647,13 +647,13 @@ var render = function() {
                           "figure",
                           {
                             directives: [
-                              { name: "lazyload", rawName: "v-lazyload" }
+                              { name: "lazyload", rawName: "v-lazyload" },
                             ],
-                            staticClass: "image__wrapper"
+                            staticClass: "image__wrapper",
                           },
                           [
                             _c("ImageSpinner", {
-                              staticClass: "image__spinner"
+                              staticClass: "image__spinner",
                             }),
                             _vm._v(" "),
                             _c("img", {
@@ -661,15 +661,15 @@ var render = function() {
                               attrs: {
                                 "data-url":
                                   "assets/front/images/email_icon.png",
-                                alt: "address"
-                              }
-                            })
+                                alt: "address",
+                              },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
-                      _vm._m(2)
+                      _vm._m(2),
                     ]),
                     _vm._v(" "),
                     _c(
@@ -685,13 +685,13 @@ var render = function() {
                           "figure",
                           {
                             directives: [
-                              { name: "lazyload", rawName: "v-lazyload" }
+                              { name: "lazyload", rawName: "v-lazyload" },
                             ],
-                            staticClass: "image__wrapper"
+                            staticClass: "image__wrapper",
                           },
                           [
                             _c("ImageSpinner", {
-                              staticClass: "image__spinner"
+                              staticClass: "image__spinner",
                             }),
                             _vm._v(" "),
                             _c("img", {
@@ -699,19 +699,19 @@ var render = function() {
                               attrs: {
                                 "data-url":
                                   "assets/front/images/address_icon.png",
-                                alt: "address"
-                              }
-                            })
+                                alt: "address",
+                              },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-11" }, [
                         _vm._v(
                           "302, Zeenath Residency Srinagar Colony, Plot #29, Hyderabad - 500073 Andhra Pradesh"
-                        )
-                      ])
+                        ),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row mb-3" }, [
@@ -720,13 +720,13 @@ var render = function() {
                           "figure",
                           {
                             directives: [
-                              { name: "lazyload", rawName: "v-lazyload" }
+                              { name: "lazyload", rawName: "v-lazyload" },
                             ],
-                            staticClass: "image__wrapper"
+                            staticClass: "image__wrapper",
                           },
                           [
                             _c("ImageSpinner", {
-                              staticClass: "image__spinner"
+                              staticClass: "image__spinner",
                             }),
                             _vm._v(" "),
                             _c("img", {
@@ -734,21 +734,21 @@ var render = function() {
                               attrs: {
                                 "data-url":
                                   "assets/front/images/phone_icon.png",
-                                alt: "number"
-                              }
-                            })
+                                alt: "number",
+                              },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
-                      _vm._m(3)
-                    ])
+                      _vm._m(3),
+                    ]),
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(4)
+                _vm._m(4),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-lg-6" }, [
@@ -757,17 +757,17 @@ var render = function() {
                   { staticClass: "contact-form" },
                   [_vm._m(5), _vm._v(" "), _c("ContactusForm")],
                   1
-                )
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
+                ),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -776,42 +776,42 @@ var staticRenderFns = [
       { staticClass: "contact_us_banner text_on_image banner_bg" },
       [
         _c("div", { staticClass: "content" }, [
-          _c("p", { staticClass: "heading" }, [_vm._v("Contact Us")])
-        ])
+          _c("p", { staticClass: "heading" }, [_vm._v("Contact Us")]),
+        ]),
       ]
     )
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-11" }, [
       _vm._v("011-26017120, 26011683 ,\n                        "),
       _c("br"),
-      _vm._v("+91 9810055102")
+      _vm._v("+91 9810055102"),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-11" }, [
       _vm._v("info@gbinternational.in\n                        "),
       _c("br"),
-      _vm._v("reservations@gbinternational.in")
+      _vm._v("reservations@gbinternational.in"),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-11" }, [
       _vm._v("+91 9717922240,"),
       _c("br"),
-      _vm._v("+91 9810055102")
+      _vm._v("+91 9810055102"),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -819,25 +819,24 @@ var staticRenderFns = [
       _c("iframe", {
         staticStyle: { border: "0" },
         attrs: {
-          src:
-            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.1110823555123!2d77.22139051508042!3d28.536380682455928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2214a7825c5%3A0xbef6ae1702026f1c!2sGB+International!5e0!3m2!1sen!2sin!4v1554198180729!5m2!1sen!2sin",
+          src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.1110823555123!2d77.22139051508042!3d28.536380682455928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2214a7825c5%3A0xbef6ae1702026f1c!2sGB+International!5e0!3m2!1sen!2sin!4v1554198180729!5m2!1sen!2sin",
           width: "100%",
           height: "190",
           frameborder: "0",
           loading: "lazy",
-          allowfullscreen: ""
-        }
-      })
+          allowfullscreen: "",
+        },
+      }),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "title-contact" }, [
-      _c("h2", [_vm._v("Contact Us")])
+      _c("h2", [_vm._v("Contact Us")]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

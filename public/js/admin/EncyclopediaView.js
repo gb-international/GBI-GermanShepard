@@ -200,7 +200,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -215,12 +215,16 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { to: _vm.url },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
           )
         : _c(
@@ -230,14 +234,18 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { type: "button" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
-          )
+          ),
     ],
     1
   )
@@ -260,7 +268,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -277,11 +285,11 @@ var render = function() {
             { staticClass: "text-center" },
             [_c("back-button", { attrs: { url: _vm.backurl } })],
             1
-          )
+          ),
         ],
         2
-      )
-    ])
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -302,7 +310,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -311,7 +319,7 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "viewdata",
-        fn: function() {
+        fn: function () {
           return [
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-sm-7" }, [
@@ -319,13 +327,13 @@ var render = function() {
                   _c("div", { staticClass: "col-sm-6" }, [
                     _c("h5", [_vm._v("State Name")]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.list_data.state_name))])
+                    _c("p", [_vm._v(_vm._s(_vm.list_data.state_name))]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
                     _c("h5", [_vm._v("Slug")]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.list_data.slug))])
+                    _c("p", [_vm._v(_vm._s(_vm.list_data.slug))]),
                   ]),
                   _vm._v(" "),
                   _c("hr"),
@@ -335,8 +343,8 @@ var render = function() {
                     _vm._v(" "),
                     _c("img", {
                       staticClass: "img-thumbnail",
-                      attrs: { src: _vm.list_data.banner_image }
-                    })
+                      attrs: { src: _vm.list_data.banner_image },
+                    }),
                   ]),
                   _vm._v(" "),
                   _c("br"),
@@ -345,16 +353,18 @@ var render = function() {
                     _c("h5", [_vm._v("Description")]),
                     _vm._v(" "),
                     _c("p", {
-                      domProps: { innerHTML: _vm._s(_vm.list_data.description) }
-                    })
-                  ])
-                ])
+                      domProps: {
+                        innerHTML: _vm._s(_vm.list_data.description),
+                      },
+                    }),
+                  ]),
+                ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-5" }, [
                 _c("div", {
                   staticClass: "col-sm-12 card map_link p-0 w-100",
-                  domProps: { innerHTML: _vm._s(_vm.list_data.map_link) }
+                  domProps: { innerHTML: _vm._s(_vm.list_data.map_link) },
                 }),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-5" }, [
@@ -362,10 +372,10 @@ var render = function() {
                   _vm._v(" "),
                   _c("img", {
                     staticClass: "img-thumbnail",
-                    attrs: { src: _vm.list_data.thumbnail }
-                  })
-                ])
-              ])
+                    attrs: { src: _vm.list_data.thumbnail },
+                  }),
+                ]),
+              ]),
             ]),
             _vm._v(" "),
             _c("h5", [_vm._v("Images")]),
@@ -378,18 +388,18 @@ var render = function() {
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
-                _vm._l(_vm.list_data.images, function(image) {
+                _vm._l(_vm.list_data.images, function (image) {
                   return _c(
                     "div",
                     { key: image.image, staticClass: "col-sm-3" },
                     [
                       _c("img", {
                         staticClass: "img-thumbnail",
-                        attrs: { src: image.image }
-                      })
+                        attrs: { src: image.image },
+                      }),
                     ]
                   )
-                })
+                }),
               ],
               2
             ),
@@ -402,22 +412,22 @@ var render = function() {
               _c("div", { staticClass: "col-sm-6" }, [
                 _c(
                   "ul",
-                  _vm._l(_vm.list_data.itinerarypdfs, function(pdf) {
+                  _vm._l(_vm.list_data.itinerarypdfs, function (pdf) {
                     return _c("li", { key: pdf.name }, [
                       _vm._v(
                         "\n            " + _vm._s(pdf.name) + "\n          "
-                      )
+                      ),
                     ])
                   }),
                   0
-                )
-              ])
-            ])
+                ),
+              ]),
+            ]),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

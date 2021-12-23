@@ -427,7 +427,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -449,17 +449,17 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.teacherform.user_id,
-                              expression: "teacherform.user_id"
-                            }
+                              expression: "teacherform.user_id",
+                            },
                           ],
                           staticClass: "form-control",
                           on: {
-                            change: function($event) {
+                            change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
+                                .call($event.target.options, function (o) {
                                   return o.selected
                                 })
-                                .map(function(o) {
+                                .map(function (o) {
                                   var val = "_value" in o ? o._value : o.value
                                   return val
                                 })
@@ -470,27 +470,27 @@ var render = function() {
                                   ? $$selectedVal
                                   : $$selectedVal[0]
                               )
-                            }
-                          }
+                            },
+                          },
                         },
-                        _vm._l(_vm.userinfo, function(user) {
+                        _vm._l(_vm.userinfo, function (user) {
                           return _c(
                             "option",
                             {
                               key: user.user_id,
-                              domProps: { value: user.user.id }
+                              domProps: { value: user.user.id },
                             },
                             [
                               _vm._v(
                                 "\n                " +
                                   _vm._s(user.user.name) +
                                   "\n              "
-                              )
+                              ),
                             ]
                           )
                         }),
                         0
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
@@ -502,14 +502,14 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: _vm.teacherform.amount,
-                            expression: "teacherform.amount"
-                          }
+                            expression: "teacherform.amount",
+                          },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "number" },
                         domProps: { value: _vm.teacherform.amount },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
@@ -518,17 +518,17 @@ var render = function() {
                               "amount",
                               $event.target.value
                             )
-                          }
-                        }
-                      })
-                    ])
+                          },
+                        },
+                      }),
+                    ]),
                   ])
                 : _vm._e(),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-sm-4" }, [
                   _c("label", { attrs: { for: "payment_mode mt-20" } }, [
-                    _vm._v("Payment By")
+                    _vm._v("Payment By"),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "teacher-section" }, [
@@ -540,33 +540,33 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.teacherform.payment_mode,
-                              expression: "teacherform.payment_mode"
-                            }
+                              expression: "teacherform.payment_mode",
+                            },
                           ],
                           staticClass: "form-check-input",
                           attrs: {
                             type: "radio",
                             value: "student",
-                            name: "payment_mode"
+                            name: "payment_mode",
                           },
                           domProps: {
                             checked: _vm._q(
                               _vm.teacherform.payment_mode,
                               "student"
-                            )
+                            ),
                           },
                           on: {
-                            change: function($event) {
+                            change: function ($event) {
                               return _vm.$set(
                                 _vm.teacherform,
                                 "payment_mode",
                                 "student"
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
-                        _vm._v("By Student\n                ")
-                      ])
+                        _vm._v("By Student\n                "),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-check-inline" }, [
@@ -577,36 +577,36 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.teacherform.payment_mode,
-                              expression: "teacherform.payment_mode"
-                            }
+                              expression: "teacherform.payment_mode",
+                            },
                           ],
                           staticClass: "form-check-input",
                           attrs: {
                             type: "radio",
                             value: "self",
-                            name: "payment_mode"
+                            name: "payment_mode",
                           },
                           domProps: {
                             checked: _vm._q(
                               _vm.teacherform.payment_mode,
                               "self"
-                            )
+                            ),
                           },
                           on: {
-                            change: function($event) {
+                            change: function ($event) {
                               return _vm.$set(
                                 _vm.teacherform,
                                 "payment_mode",
                                 "self"
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
-                        _vm._v("By Self\n                ")
-                      ])
-                    ])
-                  ])
-                ])
+                        _vm._v("By Self\n                "),
+                      ]),
+                    ]),
+                  ]),
+                ]),
               ]),
               _vm._v(" "),
               _vm.teacherform.payment_mode == "self"
@@ -620,34 +620,34 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: _vm.teacherform.payment_type,
-                                expression: "teacherform.payment_type"
-                              }
+                                expression: "teacherform.payment_type",
+                              },
                             ],
                             staticClass: "form-check-input",
                             attrs: {
                               type: "radio",
                               name: "option",
-                              value: "cheque"
+                              value: "cheque",
                             },
                             domProps: {
                               checked: _vm._q(
                                 _vm.teacherform.payment_type,
                                 "cheque"
-                              )
+                              ),
                             },
                             on: {
-                              change: function($event) {
+                              change: function ($event) {
                                 return _vm.$set(
                                   _vm.teacherform,
                                   "payment_type",
                                   "cheque"
                                 )
-                              }
-                            }
+                              },
+                            },
                           }),
-                          _vm._v("\n                Cheque/DD\n              ")
-                        ])
-                      ])
+                          _vm._v("\n                Cheque/DD\n              "),
+                        ]),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
@@ -659,34 +659,34 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: _vm.teacherform.payment_type,
-                                expression: "teacherform.payment_type"
-                              }
+                                expression: "teacherform.payment_type",
+                              },
                             ],
                             staticClass: "form-check-input",
                             attrs: {
                               type: "radio",
                               name: "option",
-                              value: "cash"
+                              value: "cash",
                             },
                             domProps: {
                               checked: _vm._q(
                                 _vm.teacherform.payment_type,
                                 "cash"
-                              )
+                              ),
                             },
                             on: {
-                              change: function($event) {
+                              change: function ($event) {
                                 return _vm.$set(
                                   _vm.teacherform,
                                   "payment_type",
                                   "cash"
                                 )
-                              }
-                            }
+                              },
+                            },
                           }),
-                          _vm._v("\n                Cash\n              ")
-                        ])
-                      ])
+                          _vm._v("\n                Cash\n              "),
+                        ]),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
@@ -698,41 +698,41 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: _vm.teacherform.payment_type,
-                                expression: "teacherform.payment_type"
-                              }
+                                expression: "teacherform.payment_type",
+                              },
                             ],
                             staticClass: "form-check-input",
                             attrs: {
                               type: "radio",
                               name: "option",
-                              value: "net"
+                              value: "net",
                             },
                             domProps: {
                               checked: _vm._q(
                                 _vm.teacherform.payment_type,
                                 "net"
-                              )
+                              ),
                             },
                             on: {
-                              change: function($event) {
+                              change: function ($event) {
                                 return _vm.$set(
                                   _vm.teacherform,
                                   "payment_type",
                                   "net"
                                 )
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(
                             "\n                Net Banking\n              "
-                          )
-                        ])
-                      ])
-                    ])
+                          ),
+                        ]),
+                      ]),
+                    ]),
                   ])
-                : _vm._e()
-            ])
-          ])
+                : _vm._e(),
+            ]),
+          ]),
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -746,7 +746,7 @@ var render = function() {
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "father_name" } }, [
-                    _vm._v("Bank Name")
+                    _vm._v("Bank Name"),
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -755,14 +755,14 @@ var render = function() {
                         name: "model",
                         rawName: "v-model",
                         value: _vm.teacherform.cheque_bank_name,
-                        expression: "teacherform.cheque_bank_name"
-                      }
+                        expression: "teacherform.cheque_bank_name",
+                      },
                     ],
                     staticClass: "form-control",
                     attrs: { type: "text" },
                     domProps: { value: _vm.teacherform.cheque_bank_name },
                     on: {
-                      input: function($event) {
+                      input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
@@ -771,16 +771,16 @@ var render = function() {
                           "cheque_bank_name",
                           $event.target.value
                         )
-                      }
-                    }
-                  })
-                ])
+                      },
+                    },
+                  }),
+                ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "father_name" } }, [
-                    _vm._v("Date of Issue")
+                    _vm._v("Date of Issue"),
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -789,14 +789,14 @@ var render = function() {
                         name: "model",
                         rawName: "v-model",
                         value: _vm.teacherform.date_of_issue,
-                        expression: "teacherform.date_of_issue"
-                      }
+                        expression: "teacherform.date_of_issue",
+                      },
                     ],
                     staticClass: "form-control",
                     attrs: { type: "date" },
                     domProps: { value: _vm.teacherform.date_of_issue },
                     on: {
-                      input: function($event) {
+                      input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
@@ -805,16 +805,16 @@ var render = function() {
                           "date_of_issue",
                           $event.target.value
                         )
-                      }
-                    }
-                  })
-                ])
+                      },
+                    },
+                  }),
+                ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "father_name" } }, [
-                    _vm._v("IFSC Code")
+                    _vm._v("IFSC Code"),
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -823,14 +823,14 @@ var render = function() {
                         name: "model",
                         rawName: "v-model",
                         value: _vm.teacherform.ifsc_code,
-                        expression: "teacherform.ifsc_code"
-                      }
+                        expression: "teacherform.ifsc_code",
+                      },
                     ],
                     staticClass: "form-control",
                     attrs: { type: "text" },
                     domProps: { value: _vm.teacherform.ifsc_code },
                     on: {
-                      input: function($event) {
+                      input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
@@ -839,16 +839,16 @@ var render = function() {
                           "ifsc_code",
                           $event.target.value
                         )
-                      }
-                    }
-                  })
-                ])
+                      },
+                    },
+                  }),
+                ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "father_name" } }, [
-                    _vm._v("Cheque Number")
+                    _vm._v("Cheque Number"),
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -857,14 +857,14 @@ var render = function() {
                         name: "model",
                         rawName: "v-model",
                         value: _vm.teacherform.cheque_number,
-                        expression: "teacherform.cheque_number"
-                      }
+                        expression: "teacherform.cheque_number",
+                      },
                     ],
                     staticClass: "form-control",
                     attrs: { type: "number" },
                     domProps: { value: _vm.teacherform.cheque_number },
                     on: {
-                      input: function($event) {
+                      input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
@@ -873,11 +873,11 @@ var render = function() {
                           "cheque_number",
                           $event.target.value
                         )
-                      }
-                    }
-                  })
-                ])
-              ])
+                      },
+                    },
+                  }),
+                ]),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "text-center" }, [
@@ -888,10 +888,10 @@ var render = function() {
                     "btn btn-outline-primary btn-square itrn_add_btn",
                   attrs: { type: "button" },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.goBack()
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("\n          BACK\n        ")]
               ),
@@ -903,15 +903,15 @@ var render = function() {
                     "btn btn-outline-primary btn-square itrn_add_btn",
                   attrs: { type: "button" },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.validateCheque()
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("\n          SUBMIT\n        ")]
-              )
-            ])
-          ])
+              ),
+            ]),
+          ]),
         ])
       : _c("div", { staticClass: "row justify-content-center mt-5" }, [
           _c(
@@ -921,10 +921,10 @@ var render = function() {
                 "btn btn-outline-primary btn-square itrn_add_btn mr-3",
               attrs: { type: "button" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
             [_vm._v("\n      BACK\n    ")]
           ),
@@ -935,14 +935,14 @@ var render = function() {
               staticClass: "btn btn-outline-primary btn-square itrn_add_btn",
               attrs: { type: "button" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.submitPayment()
-                }
-              }
+                },
+              },
             },
             [_vm._v("\n      SUBMIT\n    ")]
-          )
-        ])
+          ),
+        ]),
   ])
 }
 var staticRenderFns = []

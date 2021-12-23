@@ -180,12 +180,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("vue-content-loading", { attrs: { width: 300, height: 350 } }, [
-    _c("rect", { attrs: { y: "30", r: "30", width: "300", height: "350" } })
+    _c("rect", { attrs: { y: "30", r: "30", width: "300", height: "350" } }),
   ])
 }
 var staticRenderFns = []
@@ -206,7 +206,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -214,12 +214,12 @@ var render = function() {
     _vm.gallery
       ? _c("div", [
           _c("p", { staticClass: "p-0 m-0" }, [
-            _c("b", [_vm._v(_vm._s(_vm.gallery.school.school_name))])
+            _c("b", [_vm._v(_vm._s(_vm.gallery.school.school_name))]),
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "p-0 m-0" }, [
-            _vm._v(_vm._s(_vm.gallery.title))
-          ])
+            _vm._v(_vm._s(_vm.gallery.title)),
+          ]),
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -229,7 +229,7 @@ var render = function() {
           ? _c(
               "div",
               { staticClass: "row" },
-              _vm._l(_vm.gallery.images, function(data, index) {
+              _vm._l(_vm.gallery.images, function (data, index) {
                 return _c(
                   "div",
                   { key: data.id, staticClass: "col-sm-4 mb-4 pb-1 blog-list" },
@@ -240,13 +240,13 @@ var render = function() {
                         staticClass: "card p-3 border-radius-0",
                         attrs: {
                           "data-toggle": "modal",
-                          "data-target": "#ImagePreviewModal"
+                          "data-target": "#ImagePreviewModal",
                         },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.show(index)
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c("img", {
@@ -254,13 +254,13 @@ var render = function() {
                           attrs: {
                             src: data.path,
                             alt: data.alt,
-                            title: data.alt
-                          }
+                            title: data.alt,
+                          },
                         }),
                         _vm._v(" "),
-                        _c("div", { staticClass: "shera-img" })
+                        _c("div", { staticClass: "shera-img" }),
                       ]
-                    )
+                    ),
                   ]
                 )
               }),
@@ -269,7 +269,7 @@ var render = function() {
           : _c(
               "div",
               { staticClass: "row card-titles" },
-              _vm._l(6, function(index) {
+              _vm._l(6, function (index) {
                 return _c(
                   "div",
                   { key: index, staticClass: "col-sm-4" },
@@ -278,8 +278,8 @@ var render = function() {
                 )
               }),
               0
-            )
-      ])
+            ),
+      ]),
     ]),
     _vm._v(" "),
     _c(
@@ -290,8 +290,8 @@ var render = function() {
           id: "ImagePreviewModal",
           tabindex: "-1",
           role: "dialog",
-          "aria-labelledby": "myModalLabel"
-        }
+          "aria-labelledby": "myModalLabel",
+        },
       },
       [
         _c(
@@ -303,7 +303,7 @@ var render = function() {
                 _c("div", { staticClass: "img-preview" }, [
                   _c("img", {
                     class: "main-img " + _vm.imgclass,
-                    attrs: { src: _vm.preview_img }
+                    attrs: { src: _vm.preview_img },
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "shera-img shera-img-modal" }),
@@ -314,66 +314,66 @@ var render = function() {
                         _c("img", {
                           staticClass: "w-35",
                           attrs: {
-                            src: _vm.$gbiAssets + "/images/icons/back.png"
+                            src: _vm.$gbiAssets + "/images/icons/back.png",
                           },
                           on: {
-                            click: function($event) {
+                            click: function ($event) {
                               return _vm.LeftImage()
-                            }
-                          }
-                        })
+                            },
+                          },
+                        }),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col" }, [
                         _c("img", {
                           staticClass: "w-20",
                           attrs: {
-                            src: _vm.$gbiAssets + "/images/icons/zoom-out.png"
+                            src: _vm.$gbiAssets + "/images/icons/zoom-out.png",
                           },
                           on: {
-                            click: function($event) {
+                            click: function ($event) {
                               return _vm.zoomOut()
-                            }
-                          }
-                        })
+                            },
+                          },
+                        }),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col" }, [
                         _c("img", {
                           staticClass: "w-20",
                           attrs: {
-                            src: _vm.$gbiAssets + "/images/icons/zoom-in.png"
+                            src: _vm.$gbiAssets + "/images/icons/zoom-in.png",
                           },
                           on: {
-                            click: function($event) {
+                            click: function ($event) {
                               return _vm.zoomIn()
-                            }
-                          }
-                        })
+                            },
+                          },
+                        }),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col" }, [
                         _c("img", {
                           staticClass: "w-35",
                           attrs: {
-                            src: _vm.$gbiAssets + "/images/icons/forward.png"
+                            src: _vm.$gbiAssets + "/images/icons/forward.png",
                           },
                           on: {
-                            click: function($event) {
+                            click: function ($event) {
                               return _vm.RightImage()
-                            }
-                          }
-                        })
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                  ]),
+                ]),
+              ]),
+            ]),
           ]
-        )
+        ),
       ]
-    )
+    ),
   ])
 }
 var staticRenderFns = []

@@ -346,7 +346,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -361,12 +361,16 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { to: _vm.url },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
           )
         : _c(
@@ -376,14 +380,18 @@ var render = function() {
                 "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
               attrs: { type: "button" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
-            [_vm._t("default", [_vm._v("Back")])],
+            [
+              _vm._t("default", function () {
+                return [_vm._v("Back")]
+              }),
+            ],
             2
-          )
+          ),
     ],
     1
   )
@@ -406,7 +414,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -414,9 +422,13 @@ var render = function() {
     "button",
     {
       staticClass:
-        "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold"
+        "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold",
     },
-    [_vm._t("default", [_vm._v("submit")])],
+    [
+      _vm._t("default", function () {
+        return [_vm._v("submit")]
+      }),
+    ],
     2
   )
 }
@@ -438,7 +450,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -449,13 +461,13 @@ var render = function() {
           "div",
           {
             staticClass: "col-md-12 pl-4 pb-5",
-            staticStyle: { position: "relative" }
+            staticStyle: { position: "relative" },
           },
           [_vm._t("formdata")],
           2
-        )
-      ])
-    ])
+        ),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -476,7 +488,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -484,18 +496,18 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "form",
               {
                 attrs: { role: "form", enctype: "multipart/form-data" },
                 on: {
-                  submit: function($event) {
+                  submit: function ($event) {
                     $event.preventDefault()
                     return _vm.addItinerary()
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("div", { staticClass: "row" }, [
@@ -509,23 +521,23 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: _vm.form.title,
-                            expression: "form.title"
-                          }
+                            expression: "form.title",
+                          },
                         ],
                         staticClass: "form-control",
                         class: { "is-invalid": _vm.form.errors.has("title") },
                         attrs: { type: "text" },
                         domProps: { value: _vm.form.title },
                         on: {
-                          input: function($event) {
+                          input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(_vm.form, "title", $event.target.value)
-                          }
-                        }
-                      })
-                    ])
+                          },
+                        },
+                      }),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
@@ -545,10 +557,10 @@ var render = function() {
                           class: { "is-invalid": _vm.form.errors.has("image") },
                           attrs: { type: "file", accept: "jpeg,jpg,png,gif" },
                           on: {
-                            change: function($event) {
+                            change: function ($event) {
                               return _vm.changeImage($event, "image")
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("img", {
@@ -556,17 +568,17 @@ var render = function() {
                             src: _vm.img_image,
                             alt: "",
                             width: "80",
-                            height: "80"
-                          }
+                            height: "80",
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "image" }
-                        })
+                          attrs: { form: _vm.form, field: "image" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
@@ -576,43 +588,43 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "descriptionId" } }, [
-                          _vm._v("Description")
+                          _vm._v("Description"),
                         ]),
                         _vm._v(" "),
                         _c("vue-editor", {
                           class: {
-                            "is-invalid": _vm.form.errors.has("description")
+                            "is-invalid": _vm.form.errors.has("description"),
                           },
                           attrs: {
                             customModules: _vm.customModulesForEditor,
                             editorOptions: _vm.editorSettings,
                             id: "editor",
-                            useCustomImageHandler: ""
+                            useCustomImageHandler: "",
                           },
                           on: {
                             "image-added": _vm.handleImageAdded,
-                            "image-removed": _vm.handleImageRemoved
+                            "image-removed": _vm.handleImageRemoved,
                           },
                           model: {
                             value: _vm.form.description,
-                            callback: function($$v) {
+                            callback: function ($$v) {
                               _vm.$set(_vm.form, "description", $$v)
                             },
-                            expression: "form.description"
-                          }
+                            expression: "form.description",
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "description" }
+                          attrs: { form: _vm.form, field: "description" },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "description" }
-                        })
+                          attrs: { form: _vm.form, field: "description" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("hr"),
@@ -624,7 +636,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "mode_of_transport" } }, [
-                          _vm._v("Tour itinerary")
+                          _vm._v("Tour itinerary"),
                         ]),
                         _c("br"),
                         _vm._v(" "),
@@ -635,20 +647,20 @@ var render = function() {
                             "close-on-select": true,
                             placeholder: "Pick some",
                             label: "name",
-                            "track-by": "name"
+                            "track-by": "name",
                           },
                           model: {
                             value: _vm.form.itinerary,
-                            callback: function($$v) {
+                            callback: function ($$v) {
                               _vm.$set(_vm.form, "itinerary", $$v)
                             },
-                            expression: "form.itinerary"
-                          }
-                        })
+                            expression: "form.itinerary",
+                          },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
@@ -667,18 +679,18 @@ var render = function() {
                       { staticClass: "form-group text-center" },
                       [_c("submit-button")],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-2" })
-                ])
+                  _c("div", { staticClass: "col-sm-2" }),
+                ]),
               ]
-            )
+            ),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

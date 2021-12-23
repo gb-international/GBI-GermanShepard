@@ -57,7 +57,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -66,7 +66,7 @@ var render = function() {
     [
       _vm.isStudent ? _c("billing-student") : _vm._e(),
       _vm._v(" "),
-      _vm.isTeacher ? _c("billing-teacher") : _vm._e()
+      _vm.isTeacher ? _c("billing-teacher") : _vm._e(),
     ],
     1
   )

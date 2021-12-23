@@ -27,13 +27,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     DashboardStudent: function DashboardStudent() {
-      return Promise.all(/*! import() | js/front/DashboardStudent */[__webpack_require__.e("vendors~js/front/BlogDetail~js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeach~c5f0408e"), __webpack_require__.e("js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeacher"), __webpack_require__.e("js/front/DashboardStudent")]).then(__webpack_require__.bind(null, /*! @/front/pages/user/student/Dashboard.vue */ "./resources/js/front/pages/user/student/Dashboard.vue"));
+      return Promise.all(/*! import() | js/front/DashboardStudent */[__webpack_require__.e("vendors~js/front/BlogsList~js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeache~70fee0aa"), __webpack_require__.e("vendors~js/front/BlogDetail~js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeach~c5f0408e"), __webpack_require__.e("js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeacher"), __webpack_require__.e("js/front/DashboardStudent")]).then(__webpack_require__.bind(null, /*! @/front/pages/user/student/Dashboard.vue */ "./resources/js/front/pages/user/student/Dashboard.vue"));
     },
     DashboardTeacher: function DashboardTeacher() {
-      return Promise.all(/*! import() | js/front/DashboardTeacher */[__webpack_require__.e("vendors~js/front/BlogDetail~js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeach~c5f0408e"), __webpack_require__.e("js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeacher"), __webpack_require__.e("js/front/DashboardTeacher")]).then(__webpack_require__.bind(null, /*! @/front/pages/user/teacher/Dashboard.vue */ "./resources/js/front/pages/user/teacher/Dashboard.vue"));
+      return Promise.all(/*! import() | js/front/DashboardTeacher */[__webpack_require__.e("vendors~js/front/BlogsList~js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeache~70fee0aa"), __webpack_require__.e("vendors~js/front/BlogDetail~js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeach~c5f0408e"), __webpack_require__.e("js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeacher"), __webpack_require__.e("js/front/DashboardTeacher")]).then(__webpack_require__.bind(null, /*! @/front/pages/user/teacher/Dashboard.vue */ "./resources/js/front/pages/user/teacher/Dashboard.vue"));
     },
     DashboardCorp: function DashboardCorp() {
-      return Promise.all(/*! import() | js/front/DashboardCorp */[__webpack_require__.e("vendors~js/front/BlogDetail~js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeach~c5f0408e"), __webpack_require__.e("js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeacher"), __webpack_require__.e("js/front/DashboardCorp")]).then(__webpack_require__.bind(null, /*! @/front/pages/user/corporate/Dashboard.vue */ "./resources/js/front/pages/user/corporate/Dashboard.vue"));
+      return Promise.all(/*! import() | js/front/DashboardCorp */[__webpack_require__.e("vendors~js/front/BlogsList~js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeache~70fee0aa"), __webpack_require__.e("vendors~js/front/BlogDetail~js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeach~c5f0408e"), __webpack_require__.e("js/front/DashboardCorp~js/front/DashboardStudent~js/front/DashboardTeacher"), __webpack_require__.e("js/front/DashboardCorp")]).then(__webpack_require__.bind(null, /*! @/front/pages/user/corporate/Dashboard.vue */ "./resources/js/front/pages/user/corporate/Dashboard.vue"));
     }
   },
   created: function created() {
@@ -68,7 +68,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -79,7 +79,7 @@ var render = function() {
       _vm._v(" "),
       _vm.isTeacher ? _c("dashboard-teacher") : _vm._e(),
       _vm._v(" "),
-      _vm.isCorporate ? _c("dashboard-corp") : _vm._e()
+      _vm.isCorporate ? _c("dashboard-corp") : _vm._e(),
     ],
     1
   )

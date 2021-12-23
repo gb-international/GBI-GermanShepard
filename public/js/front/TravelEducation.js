@@ -247,12 +247,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h1", { staticClass: "gbi_main-heading pt-3 text-capitalize" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -273,12 +273,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("p", { staticClass: "gbi_paragraph largeFirstLetter pt-2" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -299,12 +299,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h4", { staticClass: "gbi_sub-heading text-capitalize m-0 p-0" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -325,7 +325,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -338,7 +338,7 @@ var render = function() {
       [
         _c("heading", {
           staticClass: "mb-3 text-center",
-          attrs: { text: "Education and Travel" }
+          attrs: { text: "Education and Travel" },
         }),
         _vm._v(" "),
         _c("section", { staticClass: "bgcolor-section" }, [
@@ -347,27 +347,25 @@ var render = function() {
             { staticClass: "edutravel-content p-3" },
             [
               _c("sub-heading", {
-                attrs: { text: "Stimulate the Craze to Reinvent the Self" }
+                attrs: { text: "Stimulate the Craze to Reinvent the Self" },
               }),
               _vm._v(" "),
               _c("paragraph", {
                 attrs: {
-                  text:
-                    "Travel is exciting, also scary at times but the outcome ought to be memorable. Leaving expectations of lives at home and embracing the customs of different culture, such journey can result in a lifelong personal transformation. Travel not only bring a new level of understanding about global culture but also opens the door to the unexpected and the wonderful. There is something surreal about stepping away from your wallflower persona, isn’t it!! The wander and awe at a sight, the typical emotions of a traveler leaves an overwhelming impact on the pretty much monotonous life. One trip push you constantly to embark on another. Tours can help you become more confident, adventures and open to the world around you."
-                }
+                  text: "Travel is exciting, also scary at times but the outcome ought to be memorable. Leaving expectations of lives at home and embracing the customs of different culture, such journey can result in a lifelong personal transformation. Travel not only bring a new level of understanding about global culture but also opens the door to the unexpected and the wonderful. There is something surreal about stepping away from your wallflower persona, isn’t it!! The wander and awe at a sight, the typical emotions of a traveler leaves an overwhelming impact on the pretty much monotonous life. One trip push you constantly to embark on another. Tours can help you become more confident, adventures and open to the world around you.",
+                },
               }),
               _vm._v(" "),
               _c("sub-heading", { attrs: { text: "Boost Your Conscious" } }),
               _vm._v(" "),
               _c("paragraph", {
                 attrs: {
-                  text:
-                    "GBI curate tours in a way that foster respect, inquisitiveness and appreciation. We are dedicated to provide real world learning opportunities that support your academic objective besides some amazing memories. Our experiential learning helps students return to the classroom refreshed and reinvigorated with practical knowledge and new skills."
-                }
-              })
+                  text: "GBI curate tours in a way that foster respect, inquisitiveness and appreciation. We are dedicated to provide real world learning opportunities that support your academic objective besides some amazing memories. Our experiential learning helps students return to the classroom refreshed and reinvigorated with practical knowledge and new skills.",
+                },
+              }),
             ],
             1
-          )
+          ),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-sm-12 mb-30" }, [
@@ -378,9 +376,8 @@ var render = function() {
               _c("sub-heading", {
                 staticClass: "text-center mt-4 mb-4",
                 attrs: {
-                  text:
-                    "education happens outside the classroom and travel is the best way to learn. Get the opportunity to engage with the real"
-                }
+                  text: "education happens outside the classroom and travel is the best way to learn. Get the opportunity to engage with the real",
+                },
               }),
               _vm._v(" "),
               _c("article", { staticClass: "edu-blockcontent" }, [
@@ -389,7 +386,7 @@ var render = function() {
                     "figure",
                     {
                       directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                      staticClass: "image__wrapper"
+                      staticClass: "image__wrapper",
                     },
                     [
                       _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -398,9 +395,9 @@ var render = function() {
                         staticClass: "image__item",
                         attrs: {
                           "data-url": "/assets/front/images/img/edu1.png",
-                          alt: "GBI science"
-                        }
-                      })
+                          alt: "GBI science",
+                        },
+                      }),
                     ],
                     1
                   ),
@@ -410,9 +407,9 @@ var render = function() {
                   _c("p", [
                     _vm._v(
                       "Acknowledge about the human discoveries and learn how science and Tech have influenced the mundane reality of people"
-                    )
-                  ])
-                ])
+                    ),
+                  ]),
+                ]),
               ]),
               _vm._v(" "),
               _c(
@@ -424,9 +421,9 @@ var render = function() {
                       "figure",
                       {
                         directives: [
-                          { name: "lazyload", rawName: "v-lazyload" }
+                          { name: "lazyload", rawName: "v-lazyload" },
                         ],
-                        staticClass: "image__wrapper"
+                        staticClass: "image__wrapper",
                       },
                       [
                         _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -435,9 +432,9 @@ var render = function() {
                           staticClass: "image__item",
                           attrs: {
                             "data-url": "/assets/front/images/img/edu2.png",
-                            alt: "GBI flora"
-                          }
-                        })
+                            alt: "GBI flora",
+                          },
+                        }),
                       ],
                       1
                     ),
@@ -447,9 +444,9 @@ var render = function() {
                     _c("p", [
                       _vm._v(
                         "Visit the National Parks, Theme Parks and take pleasure in the awe-inspiring natural wonders of the world"
-                      )
-                    ])
-                  ])
+                      ),
+                    ]),
+                  ]),
                 ]
               ),
               _vm._v(" "),
@@ -462,9 +459,9 @@ var render = function() {
                       "figure",
                       {
                         directives: [
-                          { name: "lazyload", rawName: "v-lazyload" }
+                          { name: "lazyload", rawName: "v-lazyload" },
                         ],
-                        staticClass: "image__wrapper"
+                        staticClass: "image__wrapper",
                       },
                       [
                         _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -473,9 +470,9 @@ var render = function() {
                           staticClass: "image__item",
                           attrs: {
                             "data-url": "/assets/front/images/img/edu3.png",
-                            alt: "GBI adventure"
-                          }
-                        })
+                            alt: "GBI adventure",
+                          },
+                        }),
                       ],
                       1
                     ),
@@ -485,9 +482,9 @@ var render = function() {
                     _c("p", [
                       _vm._v(
                         "We indulge students in adventure activities like camping, Trekking, Rafting, Ziplining and many more"
-                      )
-                    ])
-                  ])
+                      ),
+                    ]),
+                  ]),
                 ]
               ),
               _vm._v(" "),
@@ -500,9 +497,9 @@ var render = function() {
                       "figure",
                       {
                         directives: [
-                          { name: "lazyload", rawName: "v-lazyload" }
+                          { name: "lazyload", rawName: "v-lazyload" },
                         ],
-                        staticClass: "image__wrapper"
+                        staticClass: "image__wrapper",
                       },
                       [
                         _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -511,9 +508,9 @@ var render = function() {
                           staticClass: "image__item",
                           attrs: {
                             "data-url": "/assets/front/images/img/edu4.png",
-                            alt: "GBI heritage"
-                          }
-                        })
+                            alt: "GBI heritage",
+                          },
+                        }),
                       ],
                       1
                     ),
@@ -523,9 +520,9 @@ var render = function() {
                     _c("p", [
                       _vm._v(
                         "Get a hands on experience of age old art and craft from long standing history popular across the world"
-                      )
-                    ])
-                  ])
+                      ),
+                    ]),
+                  ]),
                 ]
               ),
               _vm._v(" "),
@@ -533,7 +530,7 @@ var render = function() {
                 "article",
                 {
                   staticClass:
-                    "edu-blockcontent border-topcontent border-leftcontent"
+                    "edu-blockcontent border-topcontent border-leftcontent",
                 },
                 [
                   _c("div", { staticClass: "col-sm-12" }, [
@@ -541,9 +538,9 @@ var render = function() {
                       "figure",
                       {
                         directives: [
-                          { name: "lazyload", rawName: "v-lazyload" }
+                          { name: "lazyload", rawName: "v-lazyload" },
                         ],
-                        staticClass: "image__wrapper"
+                        staticClass: "image__wrapper",
                       },
                       [
                         _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -552,9 +549,9 @@ var render = function() {
                           staticClass: "image__item",
                           attrs: {
                             "data-url": "/assets/front/images/img/edu5.png",
-                            alt: "GBI brand"
-                          }
-                        })
+                            alt: "GBI brand",
+                          },
+                        }),
                       ],
                       1
                     ),
@@ -564,9 +561,9 @@ var render = function() {
                     _c("p", [
                       _vm._v(
                         "Visit to developed industries to help students gain a clear understanding of the nuances and strategies of setting up a successful business"
-                      )
-                    ])
-                  ])
+                      ),
+                    ]),
+                  ]),
                 ]
               ),
               _vm._v(" "),
@@ -574,7 +571,7 @@ var render = function() {
                 "article",
                 {
                   staticClass:
-                    "edu-blockcontent border-topcontent border-leftcontent"
+                    "edu-blockcontent border-topcontent border-leftcontent",
                 },
                 [
                   _c("div", { staticClass: "col-sm-12" }, [
@@ -582,9 +579,9 @@ var render = function() {
                       "figure",
                       {
                         directives: [
-                          { name: "lazyload", rawName: "v-lazyload" }
+                          { name: "lazyload", rawName: "v-lazyload" },
                         ],
-                        staticClass: "image__wrapper"
+                        staticClass: "image__wrapper",
                       },
                       [
                         _c("ImageSpinner", { staticClass: "image__spinner" }),
@@ -593,9 +590,9 @@ var render = function() {
                           staticClass: "image__item",
                           attrs: {
                             "data-url": "/assets/front/images/img/edu6.png",
-                            alt: "GBI history"
-                          }
-                        })
+                            alt: "GBI history",
+                          },
+                        }),
                       ],
                       1
                     ),
@@ -605,24 +602,24 @@ var render = function() {
                     _c("p", [
                       _vm._v(
                         "Acknowledge the diverse culture reflected in distinct architectural styles, regional cuisines, traditional dance form and music."
-                      )
-                    ])
-                  ])
+                      ),
+                    ]),
+                  ]),
                 ]
-              )
+              ),
             ],
             1
-          )
-        ])
+          ),
+        ]),
       ],
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "clear" })
+    _c("div", { staticClass: "clear" }),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -631,11 +628,11 @@ var staticRenderFns = [
       { staticClass: "education_banner text_on_image banner_bg" },
       [
         _c("div", { staticClass: "content" }, [
-          _c("p", { staticClass: "heading" }, [_vm._v("Travel & Education")])
-        ])
+          _c("p", { staticClass: "heading" }, [_vm._v("Travel & Education")]),
+        ]),
       ]
     )
-  }
+  },
 ]
 render._withStripped = true
 

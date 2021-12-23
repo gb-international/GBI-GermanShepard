@@ -25,8 +25,9 @@ const ExploreSearchMixin = {
             panel: "Itinerary",
             tripType: 'return',
             portType: 'car',
-            sources: { value: "", text: "" },
-            destinations: { value: "", text: "" },
+            sources: { value: "", text: "", city: "" },
+            destinations: { value: "", text: "", city: "" },
+            room_type: '',
             multi_source: { value: "", text: "" },
             multi_destination: { value: "", text: "" },
             rows: [
@@ -109,6 +110,7 @@ const ExploreSearchMixin = {
                       this.optionsHotel.push({
                           value: res.data[i].name,
                           text: res.data[i].name,
+                          city: res.data[i].city
                       });
                   }
               });
@@ -189,6 +191,7 @@ const ExploreSearchMixin = {
                         this.destinationCities.push({
                             value: res.data[i].name,
                             text: res.data[i].name,
+                            city: res.data[i].city
                         });
                     }
                 });
@@ -244,6 +247,9 @@ const ExploreSearchMixin = {
         },
         noofdaysOnChange(event) {
             this.noofday = event.target.value;
+        },
+        changeRoomType(event) {
+            this.room_type = event.target.value;
         },
         //add rows multiple location itinerary
         addRow: function () {

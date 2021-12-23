@@ -15,9 +15,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -253,7 +253,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -272,16 +272,16 @@ var render = function() {
               attrs: {
                 href: "#",
                 "data-toggle": "modal",
-                "data-target": "#foodModal"
+                "data-target": "#foodModal",
               },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.foodModal()
-                }
-              }
+                },
+              },
             },
             [_vm._v("NEW FOOD")]
-          )
+          ),
         ]
       ),
       _vm._v(" "),
@@ -289,26 +289,26 @@ var render = function() {
         scopedSlots: _vm._u([
           {
             key: "searchbar",
-            fn: function() {
+            fn: function () {
               return [
                 _c("b-form-input", {
                   staticClass: "radius-0",
                   attrs: { type: "search", placeholder: "Type to Search" },
                   model: {
                     value: _vm.filter,
-                    callback: function($$v) {
+                    callback: function ($$v) {
                       _vm.filter = $$v
                     },
-                    expression: "filter"
-                  }
-                })
+                    expression: "filter",
+                  },
+                }),
               ]
             },
-            proxy: true
+            proxy: true,
           },
           {
             key: "table",
-            fn: function() {
+            fn: function () {
               return [
                 _c("b-table", {
                   staticClass: "w-100 table-layout",
@@ -322,19 +322,19 @@ var render = function() {
                     items: _vm.items.data,
                     busy: _vm.$store.getters.isBusy,
                     filter: _vm.filter,
-                    "primary-key": "id"
+                    "primary-key": "id",
                   },
                   scopedSlots: _vm._u([
                     {
                       key: "table-busy",
-                      fn: function() {
+                      fn: function () {
                         return [_c("table-loader")]
                       },
-                      proxy: true
+                      proxy: true,
                     },
                     {
                       key: "cell(action)",
-                      fn: function(data) {
+                      fn: function (data) {
                         return [
                           _c(
                             "span",
@@ -342,37 +342,37 @@ var render = function() {
                               staticClass: "edit_link pointer",
                               attrs: {
                                 "data-toggle": "modal",
-                                "data-target": "#foodModal"
+                                "data-target": "#foodModal",
                               },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.editFood(data.item, data.index)
-                                }
-                              }
+                                },
+                              },
                             },
                             [
                               _c(
                                 "span",
                                 {
                                   staticClass: "badge badge-primary",
-                                  attrs: { title: "View Itinerary" }
+                                  attrs: { title: "View Itinerary" },
                                 },
                                 [_c("i", { staticClass: "fas fa-pencil-alt" })]
-                              )
+                              ),
                             ]
                           ),
                           _vm._v(" "),
                           _c("delete-icon", {
                             nativeOn: {
-                              click: function($event) {
+                              click: function ($event) {
                                 return _vm.deleteItem(data.item.id, data.index)
-                              }
-                            }
-                          })
+                              },
+                            },
+                          }),
                         ]
-                      }
-                    }
-                  ])
+                      },
+                    },
+                  ]),
                 }),
                 _vm._v(" "),
                 _c(
@@ -391,8 +391,8 @@ var render = function() {
                                 staticClass: "close",
                                 attrs: {
                                   type: "button",
-                                  "data-dismiss": "modal"
-                                }
+                                  "data-dismiss": "modal",
+                                },
                               },
                               [_vm._v("\n                ×\n              ")]
                             ),
@@ -403,11 +403,11 @@ var render = function() {
                               "form",
                               {
                                 on: {
-                                  submit: function($event) {
+                                  submit: function ($event) {
                                     $event.preventDefault()
                                     return _vm.submitForm()
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [
                                 _c(
@@ -415,7 +415,7 @@ var render = function() {
                                   { staticClass: "form-group" },
                                   [
                                     _c("label", { attrs: { for: "name" } }, [
-                                      _vm._v("Name")
+                                      _vm._v("Name"),
                                     ]),
                                     _vm._v(" "),
                                     _c("input", {
@@ -424,19 +424,18 @@ var render = function() {
                                           name: "model",
                                           rawName: "v-model",
                                           value: _vm.form.name,
-                                          expression: "form.name"
-                                        }
+                                          expression: "form.name",
+                                        },
                                       ],
                                       staticClass: "form-control",
                                       class: {
-                                        "is-invalid": _vm.form.errors.has(
-                                          "name"
-                                        )
+                                        "is-invalid":
+                                          _vm.form.errors.has("name"),
                                       },
                                       attrs: { type: "text" },
                                       domProps: { value: _vm.form.name },
                                       on: {
-                                        input: function($event) {
+                                        input: function ($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
@@ -445,13 +444,13 @@ var render = function() {
                                             "name",
                                             $event.target.value
                                           )
-                                        }
-                                      }
+                                        },
+                                      },
                                     }),
                                     _vm._v(" "),
                                     _c("has-error", {
-                                      attrs: { form: _vm.form, field: "name" }
-                                    })
+                                      attrs: { form: _vm.form, field: "name" },
+                                    }),
                                   ],
                                   1
                                 ),
@@ -461,7 +460,7 @@ var render = function() {
                                   { staticClass: "form-group" },
                                   [
                                     _c("label", { attrs: { for: "name" } }, [
-                                      _vm._v("Quantity")
+                                      _vm._v("Quantity"),
                                     ]),
                                     _vm._v(" "),
                                     _c("input", {
@@ -470,19 +469,18 @@ var render = function() {
                                           name: "model",
                                           rawName: "v-model",
                                           value: _vm.form.quantity,
-                                          expression: "form.quantity"
-                                        }
+                                          expression: "form.quantity",
+                                        },
                                       ],
                                       staticClass: "form-control",
                                       class: {
-                                        "is-invalid": _vm.form.errors.has(
-                                          "quantity"
-                                        )
+                                        "is-invalid":
+                                          _vm.form.errors.has("quantity"),
                                       },
                                       attrs: { type: "text" },
                                       domProps: { value: _vm.form.quantity },
                                       on: {
-                                        input: function($event) {
+                                        input: function ($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
@@ -491,16 +489,16 @@ var render = function() {
                                             "quantity",
                                             $event.target.value
                                           )
-                                        }
-                                      }
+                                        },
+                                      },
                                     }),
                                     _vm._v(" "),
                                     _c("has-error", {
                                       attrs: {
                                         form: _vm.form,
-                                        field: "quantity"
-                                      }
-                                    })
+                                        field: "quantity",
+                                      },
+                                    }),
                                   ],
                                   1
                                 ),
@@ -514,12 +512,12 @@ var render = function() {
                                           "button",
                                           {
                                             staticClass: "btn itrn_add_btn",
-                                            attrs: { type: "submit" }
+                                            attrs: { type: "submit" },
                                           },
                                           [
                                             _vm._v(
                                               "\n                    SAVE\n                  "
-                                            )
+                                            ),
                                           ]
                                         )
                                       : _vm._e(),
@@ -531,34 +529,34 @@ var render = function() {
                                             staticClass: "btn itrn_add_btn",
                                             attrs: { type: "button" },
                                             on: {
-                                              click: function($event) {
+                                              click: function ($event) {
                                                 return _vm.updateFood()
-                                              }
-                                            }
+                                              },
+                                            },
                                           },
                                           [
                                             _vm._v(
                                               "\n                    UPDATE\n                  "
-                                            )
+                                            ),
                                           ]
                                         )
-                                      : _vm._e()
+                                      : _vm._e(),
                                   ]
-                                )
+                                ),
                               ]
-                            )
-                          ])
+                            ),
+                          ]),
                         ]
-                      )
-                    ])
+                      ),
+                    ]),
                   ]
-                )
+                ),
               ]
             },
-            proxy: true
-          }
-        ])
-      })
+            proxy: true,
+          },
+        ]),
+      }),
     ],
     1
   )

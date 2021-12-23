@@ -2,12 +2,13 @@
   <!--************************************************
       Author: @Manas
   ****************************************************-->
-<section style="background: white !important; padding-top: 20px;">
-  <section class="d-flex flex-row justify-content-between customCard card card-1" style="background: white !important" v-for="index in 5" :key="index">
+<errorState :imgName="'explore_destination_500x500.png'" v-if="apiFailed"/>
+<section style="background: white !important; padding-top: 20px;" v-else-if="!apiFailed && hotel_data">
+  <section class="d-flex flex-row justify-content-between customCard card card-1" style="background: white !important" v-for="data in hotel_data" :key="data.id">
     <div class="MainRow">
       <div class="d-flex flex-column justify-content-start align-items-start mainRow1">
-        <p class="hotelName">Hotel Aman Continental</p>
-        <p class="locName">Kerala</p>
+        <p class="hotelName">{{data.name}}</p>
+        <p class="locName">{{data.city}}</p>
         <div class="d-flex stars">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -19,11 +20,12 @@
         <p class="amenP"><i class="fas fa-wind mr-2"></i> Air Condition</p>
         <p class="amenP"><i class="fas fa-warehouse mr-2"></i> Banquet Hall</p>
         <p class="amenity">Amenities</p>
-        <button class="bookBtn" @click="$router.push('/hotel-detail')">BOOK</button>
+       <!-- <button class="bookBtn" @click="$router.push('/hotel-detail')">BOOK</button> -->
+        <button class="bookBtn">BOOK</button>
       </div>
       <div class="detailsRow">
-        <p class="guests">8 Guests 2 Rooms</p>
-        <p class="price">Rs. 2450/-</p>
+        <p class="guests">{{data.room}} Rooms</p>
+        <p class="price">Rs. {{data.price}}/-</p>
         <p class="taxes">+ Rs.537 Taxes & Fees</p>
         <p class="perRoom">per room / night</p>
       </div>
@@ -83,12 +85,14 @@
 <script>
 import  booking  from "@/front/components/Booking.vue";
 import VueSlickCarousel from "vue-slick-carousel";
+import { Form, HasError } from "vform";
 
 export default {
-  name: "ExploreDetail",
+  name: "HotelSearch",
   components: {
     booking,
-    VueSlickCarousel
+    VueSlickCarousel,
+    Form
   },
   metaInfo: {
     title: "GBI Hotel Search",
@@ -111,6 +115,14 @@ export default {
   },
   data() {
     return {
+      hotel_data: null,
+      apiFailed: false,
+      searchForm: new Form({
+        location: '',
+        rooms: '',
+        room_type: '',
+        guests: ''
+     }),
     };
   },   
   watch: {
@@ -120,8 +132,27 @@ export default {
   beforeCreate(){
   },
   created(){
+    this.getHotels();
   },
   methods: {
+    getHotels(){
+      this.searchForm.location = this.$cookies.get("hotelSearch_Location");
+      this.searchForm.rooms = this.$cookies.get("hotelSearch_rooms");
+      this.searchForm.room_type = this.$cookies.get("hotelSearch_room_type");
+      this.searchForm.guests = this.$cookies.get("hotelSearch_guests");
+      this.searchForm.post("/api/hotel-search").then(response => {
+        console.log(response)
+        if(!response.data){
+          this.apiFailed = true
+          return false;
+        }
+        this.hotel_data = response.data;
+        if(response.data.length <= 0){
+          this.$swal.fire("Sorry", "No Hotels found.", "info");
+          //this.$router.push('/explore-destination')
+        }
+      });
+    }
   }
 };
 </script>

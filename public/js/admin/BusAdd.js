@@ -179,7 +179,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -187,18 +187,18 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "form",
               {
                 attrs: { role: "form", enctype: "multipart/form-data" },
                 on: {
-                  submit: function($event) {
+                  submit: function ($event) {
                     $event.preventDefault()
                     return _vm.AddBus()
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("div", { staticClass: "row" }, [
@@ -208,7 +208,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "company_name" } }, [
-                          _vm._v("Bus Company name")
+                          _vm._v("Bus Company name"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -217,17 +217,17 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.company_name,
-                              expression: "form.company_name"
-                            }
+                              expression: "form.company_name",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("company_name")
+                            "is-invalid": _vm.form.errors.has("company_name"),
                           },
                           attrs: { type: "text", placeholder: "Enter name" },
                           domProps: { value: _vm.form.company_name },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -236,16 +236,16 @@ var render = function() {
                                 "company_name",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "company_name" }
-                        })
+                          attrs: { form: _vm.form, field: "company_name" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -254,21 +254,21 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "seater" } }, [
-                          _vm._v("Seater ")
+                          _vm._v("Seater "),
                         ]),
                         _vm._v(" "),
                         _c("dropdown-filter", {
                           staticClass: "mb-2",
                           attrs: { itemList: _vm.seater },
-                          on: { "update:option": _vm.UpdateSeater }
+                          on: { "update:option": _vm.UpdateSeater },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "seater" }
-                        })
+                          attrs: { form: _vm.form, field: "seater" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -277,21 +277,21 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "seat_type" } }, [
-                          _vm._v("Seat type")
+                          _vm._v("Seat type"),
                         ]),
                         _vm._v(" "),
                         _c("dropdown-filter", {
                           staticClass: "mb-2",
                           attrs: { itemList: _vm.seat_type },
-                          on: { "update:option": _vm.updateSeatType }
+                          on: { "update:option": _vm.updateSeatType },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "seat_type" }
-                        })
+                          attrs: { form: _vm.form, field: "seat_type" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4" }, [
@@ -300,7 +300,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "Price" } }, [
-                          _vm._v("Price")
+                          _vm._v("Price"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -309,41 +309,41 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.price,
-                              expression: "form.price"
-                            }
+                              expression: "form.price",
+                            },
                           ],
                           staticClass: "form-control",
                           class: { "is-invalid": _vm.form.errors.has("price") },
                           attrs: { type: "number", placeholder: "Enter Price" },
                           domProps: { value: _vm.form.price },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "price", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "price" }
-                        })
+                          attrs: { form: _vm.form, field: "price" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
-                _c("form-buttons")
+                _c("form-buttons"),
               ],
               1
-            )
+            ),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

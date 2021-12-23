@@ -162,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -172,7 +172,7 @@ var render = function() {
         _c("div", { staticClass: "container container_admin_body" }, [
           _c("div", { staticClass: "card_view admin_encyclopedia" }, [
             _c("h3", { staticClass: "text-center" }, [
-              _vm._v("Escort Detail #" + _vm._s(this.$route.params.id))
+              _vm._v("Escort Detail #" + _vm._s(this.$route.params.id)),
             ]),
             _vm._v(" "),
             _c("br"),
@@ -183,13 +183,13 @@ var render = function() {
                   _c("div", { staticClass: "col-sm-6" }, [
                     _c("h5", [_vm._v("State Name")]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.list_data.state_name))])
+                    _c("p", [_vm._v(_vm._s(_vm.list_data.state_name))]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
                     _c("h5", [_vm._v("Slug")]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.list_data.slug))])
+                    _c("p", [_vm._v(_vm._s(_vm.list_data.slug))]),
                   ]),
                   _vm._v(" "),
                   _c("hr"),
@@ -199,8 +199,8 @@ var render = function() {
                     _vm._v(" "),
                     _c("img", {
                       staticClass: "img-thumbnail",
-                      attrs: { src: _vm.getImgUrl(_vm.list_data.banner_image) }
-                    })
+                      attrs: { src: _vm.getImgUrl(_vm.list_data.banner_image) },
+                    }),
                   ]),
                   _vm._v(" "),
                   _c("br"),
@@ -209,18 +209,20 @@ var render = function() {
                     _c("h5", [_vm._v("Description")]),
                     _vm._v(" "),
                     _c("p", {
-                      domProps: { innerHTML: _vm._s(_vm.list_data.description) }
-                    })
-                  ])
-                ])
+                      domProps: {
+                        innerHTML: _vm._s(_vm.list_data.description),
+                      },
+                    }),
+                  ]),
+                ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-5" }, [
                 _c("div", { staticClass: "col-sm-12 card map_link p-0" }, [
                   _c("p", {
                     staticClass: "p-0 m-0",
-                    domProps: { innerHTML: _vm._s(_vm.list_data.map_link) }
-                  })
+                    domProps: { innerHTML: _vm._s(_vm.list_data.map_link) },
+                  }),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-5" }, [
@@ -228,10 +230,10 @@ var render = function() {
                   _vm._v(" "),
                   _c("img", {
                     staticClass: "img-thumbnail",
-                    attrs: { src: _vm.getImgUrl(_vm.list_data.thumbnail) }
-                  })
-                ])
-              ])
+                    attrs: { src: _vm.getImgUrl(_vm.list_data.thumbnail) },
+                  }),
+                ]),
+              ]),
             ]),
             _vm._v(" "),
             _c("h5", [_vm._v("Images")]),
@@ -244,58 +246,58 @@ var render = function() {
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("img", {
                   staticClass: "img-thumbnail",
-                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_one) }
-                })
+                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_one) },
+                }),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("img", {
                   staticClass: "img-thumbnail",
-                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_two) }
-                })
+                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_two) },
+                }),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("img", {
                   staticClass: "img-thumbnail",
-                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_three) }
-                })
+                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_three) },
+                }),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("img", {
                   staticClass: "img-thumbnail",
-                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_four) }
-                })
+                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_four) },
+                }),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("img", {
                   staticClass: "img-thumbnail",
-                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_five) }
-                })
+                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_five) },
+                }),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("img", {
                   staticClass: "img-thumbnail",
-                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_six) }
-                })
+                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_six) },
+                }),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("img", {
                   staticClass: "img-thumbnail",
-                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_seven) }
-                })
+                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_seven) },
+                }),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("img", {
                   staticClass: "img-thumbnail",
-                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_eight) }
-                })
-              ])
+                  attrs: { src: _vm.getImgUrl(_vm.list_data.image_eight) },
+                }),
+              ]),
             ]),
             _vm._v(" "),
             _c("hr"),
@@ -309,10 +311,10 @@ var render = function() {
                   _vm._v(" "),
                   _c("li", [_vm._v(_vm._s(_vm.list_data.two["title"]))]),
                   _vm._v(" "),
-                  _c("li", [_vm._v(_vm._s(_vm.list_data.three["title"]))])
-                ])
-              ])
-            ])
+                  _c("li", [_vm._v(_vm._s(_vm.list_data.three["title"]))]),
+                ]),
+              ]),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-4 content-justify-center" }, [
@@ -322,17 +324,17 @@ var render = function() {
                 staticClass: "btn btn-primary itrn_add_btn back_btn",
                 attrs: { type: "button" },
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.goBack()
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("BACK")]
-            )
-          ])
-        ])
-      ])
-    ])
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []

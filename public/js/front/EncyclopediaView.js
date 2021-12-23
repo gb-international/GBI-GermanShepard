@@ -21,7 +21,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -450,7 +450,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -459,36 +459,36 @@ var render = function() {
         _c("section", { staticClass: "banner-block" }, [
           _c("img", {
             staticClass: "top-img",
-            attrs: { id: "traveleduimg", src: _vm.state_data.banner_image }
-          })
+            attrs: { id: "traveleduimg", src: _vm.state_data.banner_image },
+          }),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "container state_body mt-30" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-sm-8" }, [
               _c("h4", { staticClass: "state_name mb-20" }, [
-                _vm._v(_vm._s(_vm.state_data.state_name))
+                _vm._v(_vm._s(_vm.state_data.state_name)),
               ]),
               _vm._v(" "),
               _c("div", {
                 staticClass: "state_description",
-                domProps: { innerHTML: _vm._s(_vm.state_data.description) }
-              })
+                domProps: { innerHTML: _vm._s(_vm.state_data.description) },
+              }),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-4" }, [
               _c("div", { staticClass: "card state_card" }, [
                 _c("div", {
                   staticClass: "map_show",
-                  domProps: { innerHTML: _vm._s(_vm.state_data.map_link) }
-                })
+                  domProps: { innerHTML: _vm._s(_vm.state_data.map_link) },
+                }),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "state_images p-0" }, [
                 _c(
                   "div",
                   { staticClass: "row p-0" },
-                  _vm._l(_vm.state_data.images, function(img) {
+                  _vm._l(_vm.state_data.images, function (img) {
                     return _c(
                       "div",
                       { key: img.id, staticClass: "col-6 p-0" },
@@ -498,14 +498,14 @@ var render = function() {
                           attrs: {
                             src: img.image,
                             loading: "lazy",
-                            alt: img.alt
-                          }
-                        })
+                            alt: img.alt,
+                          },
+                        }),
                       ]
                     )
                   }),
                   0
-                )
+                ),
               ]),
               _vm._v(" "),
               _c(
@@ -514,7 +514,7 @@ var render = function() {
                 [
                   _c("p", { staticClass: "p-0 m-0" }, [_vm._v("Itinerary")]),
                   _vm._v(" "),
-                  _vm._l(_vm.state_data.itinerarypdfs, function(pdf) {
+                  _vm._l(_vm.state_data.itinerarypdfs, function (pdf) {
                     return _c(
                       "p",
                       { key: pdf.id, staticClass: "link pl-2" },
@@ -530,19 +530,19 @@ var render = function() {
                             _c("img", {
                               staticClass: "encylopedia-pdf",
                               attrs: {
-                                src: _vm.$gbiAssets + "/images/icons/pdf.png"
-                              }
-                            })
+                                src: _vm.$gbiAssets + "/images/icons/pdf.png",
+                              },
+                            }),
                           ]
-                        )
+                        ),
                       ],
                       1
                     )
-                  })
+                  }),
                 ],
                 2
-              )
-            ])
+              ),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
@@ -560,12 +560,12 @@ var render = function() {
                           _vm.settings,
                           false
                         ),
-                        _vm._l(_vm.state_list, function(state) {
+                        _vm._l(_vm.state_list, function (state) {
                           return _c(
                             "div",
                             {
                               key: state.id,
-                              staticClass: "card_scroll states_card"
+                              staticClass: "card_scroll states_card",
                             },
                             [
                               _c("div", { staticClass: "card" }, [
@@ -574,14 +574,14 @@ var render = function() {
                                   attrs: {
                                     src: state.thumbnail,
                                     loading: "lazy",
-                                    alt: state.state_name
-                                  }
+                                    alt: state.state_name,
+                                  },
                                 }),
                                 _vm._v(" "),
                                 _c(
                                   "div",
                                   {
-                                    staticClass: "card-img-overlay text-center"
+                                    staticClass: "card-img-overlay text-center",
                                   },
                                   [
                                     _c(
@@ -592,26 +592,26 @@ var render = function() {
                                           "router-link",
                                           {
                                             attrs: {
-                                              to: "/encyclopedia/" + state.slug
-                                            }
+                                              to: "/encyclopedia/" + state.slug,
+                                            },
                                           },
                                           [_vm._v(_vm._s(state.state_name))]
-                                        )
+                                        ),
                                       ],
                                       1
-                                    )
+                                    ),
                                   ]
-                                )
-                              ])
+                                ),
+                              ]),
                             ]
                           )
                         }),
                         0
-                      )
+                      ),
                     ],
                     1
                   )
-                : _vm._e()
+                : _vm._e(),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-12 p-0" }, [
@@ -628,11 +628,11 @@ var render = function() {
                         {
                           staticClass: "form",
                           on: {
-                            submit: function($event) {
+                            submit: function ($event) {
                               $event.preventDefault()
                               return _vm.addComment()
-                            }
-                          }
+                            },
+                          },
                         },
                         [
                           _c(
@@ -645,21 +645,21 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.body,
-                                    expression: "form.body"
-                                  }
+                                    expression: "form.body",
+                                  },
                                 ],
                                 staticClass: "form-control",
                                 class: {
-                                  "is-invalid": _vm.form.errors.has("body")
+                                  "is-invalid": _vm.form.errors.has("body"),
                                 },
                                 attrs: {
                                   rows: "3",
                                   placeholder:
-                                    "Share your experiences and insights with us"
+                                    "Share your experiences and insights with us",
                                 },
                                 domProps: { value: _vm.form.body },
                                 on: {
-                                  input: function($event) {
+                                  input: function ($event) {
                                     if ($event.target.composing) {
                                       return
                                     }
@@ -668,27 +668,27 @@ var render = function() {
                                       "body",
                                       $event.target.value
                                     )
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(" "),
                               _c("has-error", {
-                                attrs: { form: _vm.form, field: "body" }
+                                attrs: { form: _vm.form, field: "body" },
                               }),
                               _vm._v(" "),
-                              _vm._m(0)
+                              _vm._m(0),
                             ],
                             1
-                          )
+                          ),
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._l(_vm.comment_list, function(comment) {
+                      _vm._l(_vm.comment_list, function (comment) {
                         return _c(
                           "div",
                           {
                             key: comment.id,
-                            staticClass: "comment_section w-100"
+                            staticClass: "comment_section w-100",
                           },
                           [
                             comment.parent_id == null
@@ -700,8 +700,8 @@ var render = function() {
                                             "mr-3 rounded-circle w-45",
                                           attrs: {
                                             src: comment.user.information.photo,
-                                            alt: "John Doe"
-                                          }
+                                            alt: "John Doe",
+                                          },
                                         }),
                                         _vm._v(" "),
                                         _c(
@@ -725,8 +725,8 @@ var render = function() {
                                                           comment.created_at
                                                         )
                                                       )
-                                                    )
-                                                  ])
+                                                    ),
+                                                  ]),
                                                 ]
                                               ),
                                               _vm._v(" "),
@@ -736,23 +736,23 @@ var render = function() {
                                                   staticClass:
                                                     "btn btn-outline-dark float-right replybtn",
                                                   on: {
-                                                    click: function($event) {
+                                                    click: function ($event) {
                                                       return _vm.ReplyModal(
                                                         comment.id
                                                       )
-                                                    }
-                                                  }
+                                                    },
+                                                  },
                                                 },
                                                 [
                                                   _vm._v(
                                                     "\n                          Reply\n                        "
-                                                  )
+                                                  ),
                                                 ]
-                                              )
+                                              ),
                                             ]),
                                             _vm._v(" "),
                                             _c("p", [
-                                              _vm._v(_vm._s(comment.body))
+                                              _vm._v(_vm._s(comment.body)),
                                             ]),
                                             _vm._v(" "),
                                             _vm.reply_modal == true &&
@@ -763,20 +763,20 @@ var render = function() {
                                                     {
                                                       staticClass: "form",
                                                       on: {
-                                                        submit: function(
+                                                        submit: function (
                                                           $event
                                                         ) {
                                                           $event.preventDefault()
                                                           return _vm.ReplySubmit()
-                                                        }
-                                                      }
+                                                        },
+                                                      },
                                                     },
                                                     [
                                                       _c(
                                                         "div",
                                                         {
                                                           staticClass:
-                                                            "form-group"
+                                                            "form-group",
                                                         },
                                                         [
                                                           _c("textarea", {
@@ -788,22 +788,22 @@ var render = function() {
                                                                 value:
                                                                   _vm.reply_input,
                                                                 expression:
-                                                                  "reply_input"
-                                                              }
+                                                                  "reply_input",
+                                                              },
                                                             ],
                                                             staticClass:
                                                               "form-control",
                                                             attrs: {
                                                               rows: "3",
                                                               placeholder:
-                                                                "Type here..."
+                                                                "Type here...",
                                                             },
                                                             domProps: {
                                                               value:
-                                                                _vm.reply_input
+                                                                _vm.reply_input,
                                                             },
                                                             on: {
-                                                              input: function(
+                                                              input: function (
                                                                 $event
                                                               ) {
                                                                 if (
@@ -814,21 +814,21 @@ var render = function() {
                                                                 }
                                                                 _vm.reply_input =
                                                                   $event.target.value
-                                                              }
-                                                            }
+                                                              },
+                                                            },
                                                           }),
                                                           _vm._v(" "),
-                                                          _vm._m(1, true)
+                                                          _vm._m(1, true),
                                                         ]
-                                                      )
+                                                      ),
                                                     ]
-                                                  )
+                                                  ),
                                                 ])
                                               : _vm._e(),
                                             _vm._v(" "),
                                             _vm._l(
                                               _vm.state_data.comments,
-                                              function(reply) {
+                                              function (reply) {
                                                 return _c(
                                                   "div",
                                                   { key: reply.id },
@@ -839,26 +839,26 @@ var render = function() {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "media p-0"
+                                                              "media p-0",
                                                           },
                                                           [
                                                             _c("img", {
                                                               staticClass:
                                                                 "mr-3 rounded-circle w-45",
                                                               attrs: {
-                                                                src:
-                                                                  comment.user
-                                                                    .information
-                                                                    .photo,
-                                                                alt: "Jane Doe"
-                                                              }
+                                                                src: comment
+                                                                  .user
+                                                                  .information
+                                                                  .photo,
+                                                                alt: "Jane Doe",
+                                                              },
                                                             }),
                                                             _vm._v(" "),
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "media-body"
+                                                                  "media-body",
                                                               },
                                                               [
                                                                 _c("h6", [
@@ -875,7 +875,7 @@ var render = function() {
                                                                     "small",
                                                                     {
                                                                       staticClass:
-                                                                        "text-small"
+                                                                        "text-small",
                                                                     },
                                                                     [
                                                                       _c("i", [
@@ -887,10 +887,10 @@ var render = function() {
                                                                               comment.created_at
                                                                             )
                                                                           )
-                                                                        )
-                                                                      ])
+                                                                        ),
+                                                                      ]),
                                                                     ]
-                                                                  )
+                                                                  ),
                                                                 ]),
                                                                 _vm._v(" "),
                                                                 _c("p", [
@@ -898,40 +898,40 @@ var render = function() {
                                                                     _vm._s(
                                                                       reply.body
                                                                     )
-                                                                  )
-                                                                ])
+                                                                  ),
+                                                                ]),
                                                               ]
-                                                            )
+                                                            ),
                                                           ]
                                                         )
-                                                      : _vm._e()
+                                                      : _vm._e(),
                                                   ]
                                                 )
                                               }
-                                            )
+                                            ),
                                           ],
                                           2
-                                        )
+                                        ),
                                       ])
-                                    : _vm._e()
+                                    : _vm._e(),
                                 ])
-                              : _vm._e()
+                              : _vm._e(),
                           ]
                         )
-                      })
+                      }),
                     ],
                     2
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
       ])
     : _vm._e()
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -941,14 +941,14 @@ var staticRenderFns = [
           "button",
           {
             staticClass: "btn btn-info profile_button comment_btn",
-            attrs: { type: "submit" }
+            attrs: { type: "submit" },
           },
           [_vm._v("\n                        Submit\n                      ")]
-        )
-      ])
+        ),
+      ]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -958,17 +958,17 @@ var staticRenderFns = [
           "button",
           {
             staticClass: "btn btn-info profile_button comment_btn",
-            attrs: { type: "submit" }
+            attrs: { type: "submit" },
           },
           [
             _vm._v(
               "\n                                  Submit\n                                "
-            )
+            ),
           ]
-        )
-      ])
+        ),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

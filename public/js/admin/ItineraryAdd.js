@@ -819,7 +819,7 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -827,7 +827,7 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _c("section", { staticClass: "formSection" }, [
               _c(
@@ -838,18 +838,18 @@ var render = function() {
                       name: "show",
                       rawName: "v-show",
                       value: _vm.loading,
-                      expression: "loading"
-                    }
+                      expression: "loading",
+                    },
                   ],
-                  staticClass: "LoaderDiv"
+                  staticClass: "LoaderDiv",
                 },
                 [
                   _c("img", {
                     staticClass: "loaderLogo",
-                    attrs: { src: "/loader/logo_gif.gif" }
+                    attrs: { src: "/loader/logo_gif.gif" },
                   }),
                   _vm._v(" "),
-                  _c("p", { staticClass: "loadText" }, [_vm._v("Loading..")])
+                  _c("p", { staticClass: "loadText" }, [_vm._v("Loading..")]),
                 ]
               ),
               _vm._v(" "),
@@ -859,11 +859,11 @@ var render = function() {
                   style: !_vm.loading ? "" : "opacity: 0.5",
                   attrs: { role: "form", enctype: "multipart/form-data" },
                   on: {
-                    submit: function($event) {
+                    submit: function ($event) {
                       $event.preventDefault()
                       return _vm.addItinerary()
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("div", { staticClass: "row" }, [
@@ -873,7 +873,7 @@ var render = function() {
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "meta_title" } }, [
-                            _vm._v("Meta Title")
+                            _vm._v("Meta Title"),
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -882,20 +882,20 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: _vm.form.meta_title,
-                                expression: "form.meta_title"
-                              }
+                                expression: "form.meta_title",
+                              },
                             ],
                             staticClass: "form-control",
                             class: {
-                              "is-invalid": _vm.form.errors.has("meta_title")
+                              "is-invalid": _vm.form.errors.has("meta_title"),
                             },
                             attrs: {
                               type: "text",
-                              placeholder: "Enter meta title"
+                              placeholder: "Enter meta title",
                             },
                             domProps: { value: _vm.form.meta_title },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
@@ -904,16 +904,16 @@ var render = function() {
                                   "meta_title",
                                   $event.target.value
                                 )
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(" "),
                           _c("has-error", {
-                            attrs: { form: _vm.form, field: "meta_title" }
-                          })
+                            attrs: { form: _vm.form, field: "meta_title" },
+                          }),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-6" }, [
@@ -922,37 +922,37 @@ var render = function() {
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "meta_keyword" } }, [
-                            _vm._v("Meta Keywords")
+                            _vm._v("Meta Keywords"),
                           ]),
                           _vm._v(" "),
                           _c("tags-input", {
                             attrs: {
                               "element-id": "tags",
                               "existing-tags": _vm.tags,
-                              typeahead: true
+                              typeahead: true,
                             },
                             on: { "tags-updated": _vm.updateTags },
                             model: {
                               value: _vm.meta_key,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.meta_key = $$v
                               },
-                              expression: "meta_key"
-                            }
+                              expression: "meta_key",
+                            },
                           }),
                           _vm._v(" "),
                           _c("has-error", {
-                            attrs: { form: _vm.form, field: "tags" }
+                            attrs: { form: _vm.form, field: "tags" },
                           }),
                           _vm._v(" "),
                           _vm.tagsWarn && _vm.meta_key.length < 1
                             ? _c("p", { staticClass: "warn-error" }, [
-                                _vm._v("Please choose keywords.")
+                                _vm._v("Please choose keywords."),
                               ])
-                            : _vm._e()
+                            : _vm._e(),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-12" }, [
@@ -961,7 +961,7 @@ var render = function() {
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "description" } }, [
-                            _vm._v("Meta Description")
+                            _vm._v("Meta Description"),
                           ]),
                           _vm._v(" "),
                           _c("textarea", {
@@ -970,23 +970,22 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: _vm.form.meta_description,
-                                expression: "form.meta_description"
-                              }
+                                expression: "form.meta_description",
+                              },
                             ],
                             staticClass: "form-control",
                             class: {
-                              "is-invalid": _vm.form.errors.has(
-                                "meta_description"
-                              )
+                              "is-invalid":
+                                _vm.form.errors.has("meta_description"),
                             },
                             attrs: {
                               row: "3",
                               type: "text",
-                              placeholder: "Enter Meta Description"
+                              placeholder: "Enter Meta Description",
                             },
                             domProps: { value: _vm.form.meta_description },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
@@ -995,16 +994,19 @@ var render = function() {
                                   "meta_description",
                                   $event.target.value
                                 )
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(" "),
                           _c("has-error", {
-                            attrs: { form: _vm.form, field: "meta_description" }
-                          })
+                            attrs: {
+                              form: _vm.form,
+                              field: "meta_description",
+                            },
+                          }),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
@@ -1013,7 +1015,7 @@ var render = function() {
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "sourceId" } }, [
-                            _vm._v("Source")
+                            _vm._v("Source"),
                           ]),
                           _vm._v(" "),
                           _c("dropdown-list", {
@@ -1021,19 +1023,19 @@ var render = function() {
                             attrs: { itemList: _vm.options, select: "name" },
                             model: {
                               value: _vm.form.source,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.form, "source", $$v)
                               },
-                              expression: "form.source"
-                            }
+                              expression: "form.source",
+                            },
                           }),
                           _vm._v(" "),
                           _c("has-error", {
-                            attrs: { form: _vm.form, field: "source" }
-                          })
+                            attrs: { form: _vm.form, field: "source" },
+                          }),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
@@ -1042,7 +1044,7 @@ var render = function() {
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "destinationId" } }, [
-                            _vm._v("Destination")
+                            _vm._v("Destination"),
                           ]),
                           _vm._v(" "),
                           _c("dropdown-list", {
@@ -1050,19 +1052,19 @@ var render = function() {
                             attrs: { itemList: _vm.options, select: "name" },
                             model: {
                               value: _vm.form.destination,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.form, "destination", $$v)
                               },
-                              expression: "form.destination"
-                            }
+                              expression: "form.destination",
+                            },
                           }),
                           _vm._v(" "),
                           _c("has-error", {
-                            attrs: { form: _vm.form, field: "destination" }
-                          })
+                            attrs: { form: _vm.form, field: "destination" },
+                          }),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
@@ -1076,13 +1078,13 @@ var render = function() {
                               staticClass: "btn btn_plus text-white mt-35",
                               attrs: { type: "button" },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.removeRow()
-                                }
-                              }
+                                },
+                              },
                             },
                             [_c("i", { staticClass: "fas fa-minus" })]
-                          )
+                          ),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-6" }, [
@@ -1091,7 +1093,7 @@ var render = function() {
                             { staticClass: "form-group" },
                             [
                               _c("label", { attrs: { for: "noofdaysId" } }, [
-                                _vm._v("Number Of Days")
+                                _vm._v("Number Of Days"),
                               ]),
                               _vm._v(" "),
                               _c("input", {
@@ -1100,23 +1102,23 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.noofdays,
-                                    expression: "form.noofdays"
-                                  }
+                                    expression: "form.noofdays",
+                                  },
                                 ],
                                 staticClass: "form-control text-center",
                                 class: {
-                                  "is-invalid": _vm.form.errors.has("noofdays")
+                                  "is-invalid": _vm.form.errors.has("noofdays"),
                                 },
                                 attrs: {
                                   type: "text",
                                   readonly: "readonly",
                                   placeholder: "Enter Number Of Days",
                                   name: "noofdays",
-                                  min: "1"
+                                  min: "1",
                                 },
                                 domProps: { value: _vm.form.noofdays },
                                 on: {
-                                  input: function($event) {
+                                  input: function ($event) {
                                     if ($event.target.composing) {
                                       return
                                     }
@@ -1125,16 +1127,16 @@ var render = function() {
                                       "noofdays",
                                       $event.target.value
                                     )
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(" "),
                               _c("has-error", {
-                                attrs: { form: _vm.form, field: "noofdays" }
-                              })
+                                attrs: { form: _vm.form, field: "noofdays" },
+                              }),
                             ],
                             1
-                          )
+                          ),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-3" }, [
@@ -1146,23 +1148,23 @@ var render = function() {
                               staticClass: "btn btn_plus text-white mt-35",
                               attrs: { type: "button" },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.addRow()
-                                }
-                              }
+                                },
+                              },
                             },
                             [_c("i", { staticClass: "fas fa-plus" })]
-                          )
-                        ])
-                      ])
-                    ])
+                          ),
+                        ]),
+                      ]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "tourtypeId" } }, [
-                          _vm._v("Tour Type")
+                          _vm._v("Tour Type"),
                         ]),
                         _vm._v(" "),
                         _c("div", [
@@ -1170,7 +1172,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "custom-control custom-radio custom-control-inline"
+                                "custom-control custom-radio custom-control-inline",
                             },
                             [
                               _c("input", {
@@ -1179,38 +1181,41 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.tourtype,
-                                    expression: "form.tourtype"
-                                  }
+                                    expression: "form.tourtype",
+                                  },
                                 ],
                                 staticClass: "custom-control-input",
                                 attrs: {
                                   type: "radio",
                                   id: "NationalId",
                                   value: "National",
-                                  name: "tourtype"
+                                  name: "tourtype",
                                 },
                                 domProps: {
-                                  checked: _vm._q(_vm.form.tourtype, "National")
+                                  checked: _vm._q(
+                                    _vm.form.tourtype,
+                                    "National"
+                                  ),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.$set(
                                       _vm.form,
                                       "tourtype",
                                       "National"
                                     )
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(" "),
                               _c(
                                 "label",
                                 {
                                   staticClass: "custom-control-label",
-                                  attrs: { for: "NationalId" }
+                                  attrs: { for: "NationalId" },
                                 },
                                 [_vm._v("National")]
-                              )
+                              ),
                             ]
                           ),
                           _vm._v(" "),
@@ -1218,7 +1223,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "custom-control custom-radio custom-control-inline"
+                                "custom-control custom-radio custom-control-inline",
                             },
                             [
                               _c("input", {
@@ -1227,43 +1232,43 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.tourtype,
-                                    expression: "form.tourtype"
-                                  }
+                                    expression: "form.tourtype",
+                                  },
                                 ],
                                 staticClass: "custom-control-input",
                                 attrs: {
                                   type: "radio",
                                   value: "International",
                                   id: "InternationalId",
-                                  name: "tourtype"
+                                  name: "tourtype",
                                 },
                                 domProps: {
                                   checked: _vm._q(
                                     _vm.form.tourtype,
                                     "International"
-                                  )
+                                  ),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.$set(
                                       _vm.form,
                                       "tourtype",
                                       "International"
                                     )
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(" "),
                               _c(
                                 "label",
                                 {
                                   staticClass: "custom-control-label",
-                                  attrs: { for: "InternationalId" }
+                                  attrs: { for: "InternationalId" },
                                 },
                                 [_vm._v("International")]
-                              )
+                              ),
                             ]
-                          )
+                          ),
                         ]),
                         _vm._v(" "),
                         _vm.form.errors.has("tourtype")
@@ -1277,14 +1282,14 @@ var render = function() {
                                   [
                                     _vm._v(
                                       _vm._s(_vm.form.errors.get("tourtype"))
-                                    )
+                                    ),
                                   ]
-                                )
+                                ),
                               ],
                               1
                             )
-                          : _vm._e()
-                      ])
+                          : _vm._e(),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-5" }, [
@@ -1293,7 +1298,7 @@ var render = function() {
                         { staticClass: "form-group aligen_top_input" },
                         [
                           _c("label", { attrs: { for: "hoteltype" } }, [
-                            _vm._v("Hotel Type")
+                            _vm._v("Hotel Type"),
                           ]),
                           _vm._v(" "),
                           _c("br"),
@@ -1302,7 +1307,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "custom-control custom-radio custom-control-inline"
+                                "custom-control custom-radio custom-control-inline",
                             },
                             [
                               _c("input", {
@@ -1311,34 +1316,34 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.hoteltype,
-                                    expression: "form.hoteltype"
-                                  }
+                                    expression: "form.hoteltype",
+                                  },
                                 ],
                                 staticClass: "custom-control-input",
                                 attrs: {
                                   type: "radio",
                                   id: "nohotelRadio",
                                   name: "hoteltype",
-                                  value: "0"
+                                  value: "0",
                                 },
                                 domProps: {
-                                  checked: _vm._q(_vm.form.hoteltype, "0")
+                                  checked: _vm._q(_vm.form.hoteltype, "0"),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.$set(_vm.form, "hoteltype", "0")
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(" "),
                               _c(
                                 "label",
                                 {
                                   staticClass: "custom-control-label",
-                                  attrs: { for: "nohotelRadio" }
+                                  attrs: { for: "nohotelRadio" },
                                 },
                                 [_vm._v("No Hotel")]
-                              )
+                              ),
                             ]
                           ),
                           _vm._v(" "),
@@ -1346,7 +1351,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "custom-control custom-radio custom-control-inline"
+                                "custom-control custom-radio custom-control-inline",
                             },
                             [
                               _c("input", {
@@ -1355,34 +1360,34 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.hoteltype,
-                                    expression: "form.hoteltype"
-                                  }
+                                    expression: "form.hoteltype",
+                                  },
                                 ],
                                 staticClass: "custom-control-input",
                                 attrs: {
                                   type: "radio",
                                   id: "hotelRadio",
                                   name: "hoteltype",
-                                  value: "3"
+                                  value: "3",
                                 },
                                 domProps: {
-                                  checked: _vm._q(_vm.form.hoteltype, "3")
+                                  checked: _vm._q(_vm.form.hoteltype, "3"),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.$set(_vm.form, "hoteltype", "3")
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(" "),
                               _c(
                                 "label",
                                 {
                                   staticClass: "custom-control-label",
-                                  attrs: { for: "hotelRadio" }
+                                  attrs: { for: "hotelRadio" },
                                 },
                                 [_vm._v("3 Star")]
-                              )
+                              ),
                             ]
                           ),
                           _vm._v(" "),
@@ -1390,7 +1395,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "custom-control custom-radio custom-control-inline"
+                                "custom-control custom-radio custom-control-inline",
                             },
                             [
                               _c("input", {
@@ -1399,34 +1404,34 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.hoteltype,
-                                    expression: "form.hoteltype"
-                                  }
+                                    expression: "form.hoteltype",
+                                  },
                                 ],
                                 staticClass: "custom-control-input",
                                 attrs: {
                                   type: "radio",
                                   id: "hotelRadio1",
                                   name: "hoteltype",
-                                  value: "4"
+                                  value: "4",
                                 },
                                 domProps: {
-                                  checked: _vm._q(_vm.form.hoteltype, "4")
+                                  checked: _vm._q(_vm.form.hoteltype, "4"),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.$set(_vm.form, "hoteltype", "4")
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(" "),
                               _c(
                                 "label",
                                 {
                                   staticClass: "custom-control-label",
-                                  attrs: { for: "hotelRadio1" }
+                                  attrs: { for: "hotelRadio1" },
                                 },
                                 [_vm._v("4 Star")]
-                              )
+                              ),
                             ]
                           ),
                           _vm._v(" "),
@@ -1434,7 +1439,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "custom-control custom-radio custom-control-inline"
+                                "custom-control custom-radio custom-control-inline",
                             },
                             [
                               _c("input", {
@@ -1443,34 +1448,34 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.hoteltype,
-                                    expression: "form.hoteltype"
-                                  }
+                                    expression: "form.hoteltype",
+                                  },
                                 ],
                                 staticClass: "custom-control-input",
                                 attrs: {
                                   type: "radio",
                                   id: "hotelRadio2",
                                   name: "hoteltype",
-                                  value: "5"
+                                  value: "5",
                                 },
                                 domProps: {
-                                  checked: _vm._q(_vm.form.hoteltype, "5")
+                                  checked: _vm._q(_vm.form.hoteltype, "5"),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.$set(_vm.form, "hoteltype", "5")
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(" "),
                               _c(
                                 "label",
                                 {
                                   staticClass: "custom-control-label",
-                                  attrs: { for: "hotelRadio2" }
+                                  attrs: { for: "hotelRadio2" },
                                 },
                                 [_vm._v("5 Star")]
-                              )
+                              ),
                             ]
                           ),
                           _vm._v(" "),
@@ -1485,21 +1490,21 @@ var render = function() {
                                     [
                                       _vm._v(
                                         _vm._s(_vm.form.errors.get("hoteltype"))
-                                      )
+                                      ),
                                     ]
-                                  )
+                                  ),
                                 ],
                                 1
                               )
-                            : _vm._e()
+                            : _vm._e(),
                         ]
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-3" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "mode_of_transport" } }, [
-                          _vm._v("Mode of Transport")
+                          _vm._v("Mode of Transport"),
                         ]),
                         _vm._v(" "),
                         _c("br"),
@@ -1508,7 +1513,7 @@ var render = function() {
                           "div",
                           {
                             staticClass:
-                              "custom-control custom-checkbox custom-control-inline"
+                              "custom-control custom-checkbox custom-control-inline",
                           },
                           [
                             _c("input", {
@@ -1517,8 +1522,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.flight,
-                                  expression: "form.flight"
-                                }
+                                  expression: "form.flight",
+                                },
                               ],
                               staticClass: "custom-control-input",
                               attrs: {
@@ -1526,15 +1531,15 @@ var render = function() {
                                 id: "transport",
                                 name: "transport",
                                 "true-value": "1",
-                                "false-value": "0"
+                                "false-value": "0",
                               },
                               domProps: {
                                 checked: Array.isArray(_vm.form.flight)
                                   ? _vm._i(_vm.form.flight, null) > -1
-                                  : _vm._q(_vm.form.flight, "1")
+                                  : _vm._q(_vm.form.flight, "1"),
                               },
                               on: {
-                                change: function($event) {
+                                change: function ($event) {
                                   var $$a = _vm.form.flight,
                                     $$el = $event.target,
                                     $$c = $$el.checked ? "1" : "0"
@@ -1561,18 +1566,18 @@ var render = function() {
                                   } else {
                                     _vm.$set(_vm.form, "flight", $$c)
                                   }
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c(
                               "label",
                               {
                                 staticClass: "custom-control-label",
-                                attrs: { for: "transport" }
+                                attrs: { for: "transport" },
                               },
                               [_vm._v("Flight")]
-                            )
+                            ),
                           ]
                         ),
                         _vm._v(" "),
@@ -1580,7 +1585,7 @@ var render = function() {
                           "div",
                           {
                             staticClass:
-                              "custom-control custom-checkbox custom-control-inline"
+                              "custom-control custom-checkbox custom-control-inline",
                           },
                           [
                             _c("input", {
@@ -1589,8 +1594,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.bus,
-                                  expression: "form.bus"
-                                }
+                                  expression: "form.bus",
+                                },
                               ],
                               staticClass: "custom-control-input",
                               attrs: {
@@ -1598,15 +1603,15 @@ var render = function() {
                                 id: "transport1",
                                 name: "transport",
                                 "true-value": "1",
-                                "false-value": "0"
+                                "false-value": "0",
                               },
                               domProps: {
                                 checked: Array.isArray(_vm.form.bus)
                                   ? _vm._i(_vm.form.bus, null) > -1
-                                  : _vm._q(_vm.form.bus, "1")
+                                  : _vm._q(_vm.form.bus, "1"),
                               },
                               on: {
-                                change: function($event) {
+                                change: function ($event) {
                                   var $$a = _vm.form.bus,
                                     $$el = $event.target,
                                     $$c = $$el.checked ? "1" : "0"
@@ -1633,18 +1638,18 @@ var render = function() {
                                   } else {
                                     _vm.$set(_vm.form, "bus", $$c)
                                   }
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c(
                               "label",
                               {
                                 staticClass: "custom-control-label",
-                                attrs: { for: "transport1" }
+                                attrs: { for: "transport1" },
                               },
                               [_vm._v("Bus")]
-                            )
+                            ),
                           ]
                         ),
                         _vm._v(" "),
@@ -1652,7 +1657,7 @@ var render = function() {
                           "div",
                           {
                             staticClass:
-                              "custom-control custom-checkbox custom-control-inline"
+                              "custom-control custom-checkbox custom-control-inline",
                           },
                           [
                             _c("input", {
@@ -1661,8 +1666,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.train,
-                                  expression: "form.train"
-                                }
+                                  expression: "form.train",
+                                },
                               ],
                               staticClass: "custom-control-input",
                               attrs: {
@@ -1670,15 +1675,15 @@ var render = function() {
                                 id: "transport2",
                                 name: "transport",
                                 "true-value": "1",
-                                "false-value": "0"
+                                "false-value": "0",
                               },
                               domProps: {
                                 checked: Array.isArray(_vm.form.train)
                                   ? _vm._i(_vm.form.train, null) > -1
-                                  : _vm._q(_vm.form.train, "1")
+                                  : _vm._q(_vm.form.train, "1"),
                               },
                               on: {
-                                change: function($event) {
+                                change: function ($event) {
                                   var $$a = _vm.form.train,
                                     $$el = $event.target,
                                     $$c = $$el.checked ? "1" : "0"
@@ -1705,18 +1710,18 @@ var render = function() {
                                   } else {
                                     _vm.$set(_vm.form, "train", $$c)
                                   }
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c(
                               "label",
                               {
                                 staticClass: "custom-control-label",
-                                attrs: { for: "transport2" }
+                                attrs: { for: "transport2" },
                               },
                               [_vm._v("Train")]
-                            )
+                            ),
                           ]
                         ),
                         _vm._v(" "),
@@ -1731,15 +1736,15 @@ var render = function() {
                                   [
                                     _vm._v(
                                       _vm._s(_vm.form.errors.get("transport"))
-                                    )
+                                    ),
                                   ]
-                                )
+                                ),
                               ],
                               1
                             )
-                          : _vm._e()
-                      ])
-                    ])
+                          : _vm._e(),
+                      ]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
@@ -1749,7 +1754,7 @@ var render = function() {
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "category" } }, [
-                            _vm._v("Category")
+                            _vm._v("Category"),
                           ]),
                           _vm._v(" "),
                           _c("br"),
@@ -1761,19 +1766,19 @@ var render = function() {
                               "close-on-select": true,
                               placeholder: "Pick some",
                               label: "name",
-                              "track-by": "name"
+                              "track-by": "name",
                             },
                             model: {
                               value: _vm.form.tourtypes,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.form, "tourtypes", $$v)
                               },
-                              expression: "form.tourtypes"
-                            }
-                          })
+                              expression: "form.tourtypes",
+                            },
+                          }),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
@@ -1782,7 +1787,7 @@ var render = function() {
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "client_type" } }, [
-                            _vm._v("Client Type")
+                            _vm._v("Client Type"),
                           ]),
                           _vm._v(" "),
                           _c(
@@ -1793,17 +1798,17 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.client_type,
-                                  expression: "form.client_type"
-                                }
+                                  expression: "form.client_type",
+                                },
                               ],
                               staticClass: "form-control customSelect",
                               on: {
-                                change: function($event) {
+                                change: function ($event) {
                                   var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
+                                    .call($event.target.options, function (o) {
                                       return o.selected
                                     })
-                                    .map(function(o) {
+                                    .map(function (o) {
                                       var val =
                                         "_value" in o ? o._value : o.value
                                       return val
@@ -1815,8 +1820,8 @@ var render = function() {
                                       ? $$selectedVal
                                       : $$selectedVal[0]
                                   )
-                                }
-                              }
+                                },
+                              },
                             },
                             [
                               _c(
@@ -1826,22 +1831,22 @@ var render = function() {
                               ),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "corporate" } }, [
-                                _vm._v("Corporate")
+                                _vm._v("Corporate"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "general" } }, [
-                                _vm._v("General")
-                              ])
+                                _vm._v("General"),
+                              ]),
                             ]
                           ),
                           _vm._v(" "),
                           _c("has-error", {
-                            attrs: { form: _vm.form, field: "client_type" }
-                          })
+                            attrs: { form: _vm.form, field: "client_type" },
+                          }),
                         ],
                         1
-                      )
-                    ])
+                      ),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
@@ -1851,7 +1856,7 @@ var render = function() {
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "titleId" } }, [
-                            _vm._v("Title")
+                            _vm._v("Title"),
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -1860,41 +1865,41 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: _vm.form.title,
-                                expression: "form.title"
-                              }
+                                expression: "form.title",
+                              },
                             ],
                             staticClass: "form-control",
                             class: {
-                              "is-invalid": _vm.form.errors.has("title")
+                              "is-invalid": _vm.form.errors.has("title"),
                             },
                             attrs: {
                               type: "text",
                               placeholder: "Enter Title",
-                              name: "title"
+                              name: "title",
                             },
                             domProps: { value: _vm.form.title },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(_vm.form, "title", $event.target.value)
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(" "),
                           _c("has-error", {
-                            attrs: { form: _vm.form, field: "title" }
-                          })
+                            attrs: { form: _vm.form, field: "title" },
+                          }),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "tourtypeId" } }, [
-                          _vm._v("Food")
+                          _vm._v("Food"),
                         ]),
                         _vm._v(" "),
                         _c("div", [
@@ -1902,7 +1907,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "custom-control custom-radio custom-control-inline"
+                                "custom-control custom-radio custom-control-inline",
                             },
                             [
                               _c("input", {
@@ -1911,34 +1916,34 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.food,
-                                    expression: "form.food"
-                                  }
+                                    expression: "form.food",
+                                  },
                                 ],
                                 staticClass: "custom-control-input",
                                 attrs: {
                                   type: "radio",
                                   id: "food_yes",
                                   value: "1",
-                                  name: "food"
+                                  name: "food",
                                 },
                                 domProps: {
-                                  checked: _vm._q(_vm.form.food, "1")
+                                  checked: _vm._q(_vm.form.food, "1"),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.$set(_vm.form, "food", "1")
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(" "),
                               _c(
                                 "label",
                                 {
                                   staticClass: "custom-control-label",
-                                  attrs: { for: "food_yes" }
+                                  attrs: { for: "food_yes" },
                                 },
                                 [_vm._v("Yes")]
-                              )
+                              ),
                             ]
                           ),
                           _vm._v(" "),
@@ -1946,7 +1951,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "custom-control custom-radio custom-control-inline"
+                                "custom-control custom-radio custom-control-inline",
                             },
                             [
                               _c("input", {
@@ -1955,36 +1960,36 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.food,
-                                    expression: "form.food"
-                                  }
+                                    expression: "form.food",
+                                  },
                                 ],
                                 staticClass: "custom-control-input",
                                 attrs: {
                                   type: "radio",
                                   value: "0",
                                   id: "food_no",
-                                  name: "food"
+                                  name: "food",
                                 },
                                 domProps: {
-                                  checked: _vm._q(_vm.form.food, "0")
+                                  checked: _vm._q(_vm.form.food, "0"),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     return _vm.$set(_vm.form, "food", "0")
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(" "),
                               _c(
                                 "label",
                                 {
                                   staticClass: "custom-control-label",
-                                  attrs: { for: "food_no" }
+                                  attrs: { for: "food_no" },
                                 },
                                 [_vm._v("No")]
-                              )
+                              ),
                             ]
-                          )
+                          ),
                         ]),
                         _vm._v(" "),
                         _vm.form.errors.has("food")
@@ -1996,13 +2001,13 @@ var render = function() {
                                   "lable",
                                   { staticClass: "danger text-danger" },
                                   [_vm._v(_vm._s(_vm.form.errors.get("food")))]
-                                )
+                                ),
                               ],
                               1
                             )
-                          : _vm._e()
-                      ])
-                    ])
+                          : _vm._e(),
+                      ]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
@@ -2012,39 +2017,39 @@ var render = function() {
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "descriptionId" } }, [
-                            _vm._v("Description")
+                            _vm._v("Description"),
                           ]),
                           _vm._v(" "),
                           _c("vue-editor", {
                             class: {
-                              "is-invalid": _vm.form.errors.has("description")
+                              "is-invalid": _vm.form.errors.has("description"),
                             },
                             attrs: {
                               customModules: _vm.customModulesForEditor,
                               editorOptions: _vm.editorSettings,
                               id: "editor",
-                              useCustomImageHandler: ""
+                              useCustomImageHandler: "",
                             },
                             on: {
                               "image-added": _vm.handleImageAdded,
-                              "image-removed": _vm.handleImageRemoved
+                              "image-removed": _vm.handleImageRemoved,
                             },
                             model: {
                               value: _vm.form.description,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.form, "description", $$v)
                               },
-                              expression: "form.description"
-                            }
+                              expression: "form.description",
+                            },
                           }),
                           _vm._v(" "),
                           _c("has-error", {
-                            attrs: { form: _vm.form, field: "description" }
-                          })
+                            attrs: { form: _vm.form, field: "description" },
+                          }),
                         ],
                         1
-                      )
-                    ])
+                      ),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
@@ -2064,19 +2069,19 @@ var render = function() {
                           _c("input", {
                             staticClass: "select_image overflow-hidden",
                             class: {
-                              "is-invalid": _vm.form.errors.has("photo")
+                              "is-invalid": _vm.form.errors.has("photo"),
                             },
                             attrs: {
                               name: "photo",
                               type: "file",
                               required: "",
-                              accept: "jpeg, jpg, png, gif"
+                              accept: "jpeg, jpg, png, gif",
                             },
                             on: {
-                              change: function($event) {
+                              change: function ($event) {
                                 return _vm.changePhoto($event)
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(" "),
                           _vm.form.photo != ""
@@ -2085,17 +2090,17 @@ var render = function() {
                                   src: _vm.form.photo,
                                   alt: "",
                                   width: "80",
-                                  height: "80"
-                                }
+                                  height: "80",
+                                },
                               })
                             : _vm._e(),
                           _vm._v(" "),
                           _c("has-error", {
-                            attrs: { form: _vm.form, field: "photo" }
-                          })
+                            attrs: { form: _vm.form, field: "photo" },
+                          }),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-6" }, [
@@ -2114,39 +2119,39 @@ var render = function() {
                           _c("input", {
                             staticClass: "overflow-hiden",
                             class: {
-                              "is-invalid": _vm.form.errors.has("detail_photo")
+                              "is-invalid": _vm.form.errors.has("detail_photo"),
                             },
                             attrs: {
                               name: "detail_photo",
                               type: "file",
-                              required: ""
+                              required: "",
                             },
                             on: {
-                              change: function($event) {
+                              change: function ($event) {
                                 return _vm.changeDetailPhoto($event)
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(" "),
                           _vm.form.detail_photo != ""
                             ? _c("img", {
                                 staticClass: "detail_photo",
-                                attrs: { src: _vm.form.detail_photo, alt: "" }
+                                attrs: { src: _vm.form.detail_photo, alt: "" },
                               })
                             : _vm._e(),
                           _vm._v(" "),
                           _c("has-error", {
-                            attrs: { form: _vm.form, field: "detail_photo" }
-                          })
+                            attrs: { form: _vm.form, field: "detail_photo" },
+                          }),
                         ],
                         1
-                      )
-                    ])
+                      ),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("hr"),
                   _vm._v(" "),
-                  _vm._l(_vm.form.itinerarydays, function(data) {
+                  _vm._l(_vm.form.itinerarydays, function (data) {
                     return _c(
                       "div",
                       { key: data.id, staticClass: "card content" },
@@ -2164,16 +2169,16 @@ var render = function() {
                                 staticClass: "mb-2",
                                 attrs: {
                                   itemList: _vm.options,
-                                  select: "name"
+                                  select: "name",
                                 },
                                 model: {
                                   value: data.day_source,
-                                  callback: function($$v) {
+                                  callback: function ($$v) {
                                     _vm.$set(data, "day_source", $$v)
                                   },
-                                  expression: "data.day_source"
-                                }
-                              })
+                                  expression: "data.day_source",
+                                },
+                              }),
                             ],
                             1
                           ),
@@ -2188,16 +2193,16 @@ var render = function() {
                                 staticClass: "mb-2",
                                 attrs: {
                                   itemList: _vm.options,
-                                  select: "name"
+                                  select: "name",
                                 },
                                 model: {
                                   value: data.day_destination,
-                                  callback: function($$v) {
+                                  callback: function ($$v) {
                                     _vm.$set(data, "day_destination", $$v)
                                   },
-                                  expression: "data.day_destination"
-                                }
-                              })
+                                  expression: "data.day_destination",
+                                },
+                              }),
                             ],
                             1
                           ),
@@ -2210,46 +2215,45 @@ var render = function() {
                               _vm._v(" "),
                               _c("vue-editor", {
                                 class: {
-                                  "is-invalid": _vm.form.errors.has(
-                                    "description"
-                                  )
+                                  "is-invalid":
+                                    _vm.form.errors.has("description"),
                                 },
                                 attrs: {
                                   customModules: _vm.customModulesForEditor,
                                   editorOptions: _vm.editorSettings,
                                   id: "editor",
-                                  useCustomImageHandler: ""
+                                  useCustomImageHandler: "",
                                 },
                                 on: {
                                   "image-added": _vm.handleImageAdded,
-                                  "image-removed": _vm.handleImageRemoved
+                                  "image-removed": _vm.handleImageRemoved,
                                 },
                                 model: {
                                   value: data.day_description,
-                                  callback: function($$v) {
+                                  callback: function ($$v) {
                                     _vm.$set(data, "day_description", $$v)
                                   },
-                                  expression: "data.day_description"
-                                }
-                              })
+                                  expression: "data.day_description",
+                                },
+                              }),
                             ],
                             1
-                          )
-                        ])
+                          ),
+                        ]),
                       ]
                     )
                   }),
                   _vm._v(" "),
-                  _c("form-buttons")
+                  _c("form-buttons"),
                 ],
                 2
-              )
-            ])
+              ),
+            ]),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []
@@ -2399,7 +2403,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_New_itinerary_vue_vue_type_style_index_0_id_b62c933e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./New-itinerary.vue?vue&type=style&index=0&id=b62c933e&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/pages/itinerary/New-itinerary.vue?vue&type=style&index=0&id=b62c933e&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_New_itinerary_vue_vue_type_style_index_0_id_b62c933e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_New_itinerary_vue_vue_type_style_index_0_id_b62c933e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_New_itinerary_vue_vue_type_style_index_0_id_b62c933e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_New_itinerary_vue_vue_type_style_index_0_id_b62c933e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_New_itinerary_vue_vue_type_style_index_0_id_b62c933e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_New_itinerary_vue_vue_type_style_index_0_id_b62c933e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

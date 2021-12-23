@@ -2,7 +2,7 @@
       <!--************************************************
       Author:@Manas
       ****************************************************-->
-  <section class="absolute" style="right: 0px; bottom: 0px; position: fixed; z-index: 9999">
+  <section class="absolute chatFace">
    <VueBotUI
     :messages="data"
     :options="botOptions"
@@ -139,5 +139,10 @@ export default {
 </script>
 
 <style scoped>
-
+.chatFace {
+  right: 0px; 
+  bottom: 0px; 
+  position: fixed; 
+  z-index: 9999999
+}
 </style>

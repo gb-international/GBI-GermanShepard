@@ -187,7 +187,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -195,18 +195,18 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "form",
               {
                 attrs: { role: "form", enctype: "multipart/form-data" },
                 on: {
-                  submit: function($event) {
+                  submit: function ($event) {
                     $event.preventDefault()
                     return _vm.AddPost()
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("div", { staticClass: "row" }, [
@@ -216,21 +216,21 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "category" } }, [
-                          _vm._v("Gallery Category")
+                          _vm._v("Gallery Category"),
                         ]),
                         _vm._v(" "),
                         _c("dropdown-filter", {
                           staticClass: "mb-2",
                           attrs: { itemList: _vm.categories },
-                          on: { "update:option": _vm.UpdateCategory }
+                          on: { "update:option": _vm.UpdateCategory },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "category" }
-                        })
+                          attrs: { form: _vm.form, field: "category" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-8" }, [
@@ -239,7 +239,7 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "title" } }, [
-                          _vm._v("Gallery Title")
+                          _vm._v("Gallery Title"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -248,28 +248,28 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.title,
-                              expression: "form.title"
-                            }
+                              expression: "form.title",
+                            },
                           ],
                           staticClass: "form-control",
                           attrs: { type: "text", placeholder: "Tour to Surat" },
                           domProps: { value: _vm.form.title },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "title", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "title" }
-                        })
+                          attrs: { form: _vm.form, field: "title" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-8" }, [
@@ -278,50 +278,50 @@ var render = function() {
                       { staticClass: "form-group" },
                       [
                         _c("label", { attrs: { for: "category" } }, [
-                          _vm._v("School")
+                          _vm._v("School"),
                         ]),
                         _vm._v(" "),
                         _c("dropdown-filter", {
                           staticClass: "mb-2",
                           attrs: { itemList: _vm.schools },
-                          on: { "update:option": _vm.updateSchool }
+                          on: { "update:option": _vm.updateSchool },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "school_id" }
-                        })
+                          attrs: { form: _vm.form, field: "school_id" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-sm-4" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "images" } }, [
-                        _vm._v("Select Multiple Images")
+                        _vm._v("Select Multiple Images"),
                       ]),
                       _vm._v(" "),
                       _c("input", {
                         ref: "attachments",
                         staticClass: "form-control w-100",
                         attrs: { type: "file", multiple: "multiple" },
-                        on: { change: _vm.changePhoto }
-                      })
-                    ])
-                  ])
+                        on: { change: _vm.changePhoto },
+                      }),
+                    ]),
+                  ]),
                 ]),
                 _vm._v(" "),
-                _c("form-buttons")
+                _c("form-buttons"),
               ],
               1
-            )
+            ),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

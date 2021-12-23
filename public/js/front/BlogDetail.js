@@ -333,7 +333,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -341,8 +341,8 @@ var render = function() {
     _c("div", { staticClass: "container pt-3" }, [
       _c("img", {
         staticClass: "card-img-top border-radius-0",
-        attrs: { src: _vm.post.image, alt: "Bologna" }
-      })
+        attrs: { src: _vm.post.image, alt: "Bologna" },
+      }),
     ]),
     _vm._v(" "),
     _c(
@@ -350,23 +350,23 @@ var render = function() {
       { staticClass: "card-body" },
       [
         _c("h4", { staticClass: "card-title text-left text-primary" }, [
-          _vm._v(_vm._s(_vm.post.title))
+          _vm._v(_vm._s(_vm.post.title)),
         ]),
         _vm._v(" "),
         _c("router-link", { attrs: { to: "/blog/" + _vm.post.slug } }, [
           _c("h6", { staticClass: "card-subtitle mb-2" }, [
-            _vm._v(_vm._s(_vm.post.category.title))
+            _vm._v(_vm._s(_vm.post.category.title)),
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "card-text" }, [
-            _vm._v(_vm._s(_vm.post.summery))
-          ])
+            _vm._v(_vm._s(_vm.post.summery)),
+          ]),
         ]),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "card-tags" },
-          _vm._l(_vm.post.tags, function(tag) {
+          _vm._l(_vm.post.tags, function (tag) {
             return _c(
               "span",
               { key: tag.id, staticClass: "text-dark card-tag mr-2" },
@@ -374,10 +374,10 @@ var render = function() {
             )
           }),
           0
-        )
+        ),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []
@@ -398,7 +398,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -409,10 +409,10 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "blog-title" }, [
           _c("h1", { staticClass: "text-center blog-heading" }, [
-            _vm._v(_vm._s(_vm.posts.title))
-          ])
-        ])
-      ])
+            _vm._v(_vm._s(_vm.posts.title)),
+          ]),
+        ]),
+      ]),
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "container mt-2" }, [
@@ -423,18 +423,18 @@ var render = function() {
               { staticClass: "text-muted pt-3 pb-3" },
               [
                 _c("router-link", { attrs: { to: "/blog" } }, [
-                  _vm._v("GBI Travel Blog ")
+                  _vm._v("GBI Travel Blog "),
                 ]),
                 _vm._v(">\n        "),
                 _c(
                   "router-link",
                   {
                     staticClass: "text-underscore",
-                    attrs: { to: "/blog/category/" + _vm.posts.category.slug }
+                    attrs: { to: "/blog/category/" + _vm.posts.category.slug },
                   },
                   [_c("b", [_vm._v(_vm._s(_vm.posts.category.title))])]
                 ),
-                _vm._v("\n        >" + _vm._s(_vm.posts.slug) + "\n      ")
+                _vm._v("\n        >" + _vm._s(_vm.posts.slug) + "\n      "),
               ],
               1
             )
@@ -444,8 +444,8 @@ var render = function() {
           _c("img", {
             staticClass: "img-rounded avatar-author mr-2",
             attrs: {
-              src: _vm.$gbiAssets + "/assets/front/images/logo-avatar.png"
-            }
+              src: _vm.$gbiAssets + "/assets/front/images/logo-avatar.png",
+            },
           }),
           _vm._v(" "),
           _c("p", { staticClass: "m-0 font-14 text-muted" }, [
@@ -453,31 +453,31 @@ var render = function() {
             _c("br"),
             _vm._v(
               "Last updated : " + _vm._s(_vm.posts.updated_at) + "\n        "
-            )
-          ])
+            ),
+          ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "description mb-2" }, [
           _c("p", {
             staticClass: "largeFirstLetter",
-            domProps: { innerHTML: _vm._s(_vm.posts.description) }
+            domProps: { innerHTML: _vm._s(_vm.posts.description) },
           }),
           _vm._v(" "),
           _c(
             "div",
             { staticClass: "mt-3" },
-            _vm._l(_vm.posts.tags, function(tag) {
+            _vm._l(_vm.posts.tags, function (tag) {
               return _c(
                 "span",
                 {
                   key: tag.id,
-                  staticClass: "text-dark card-tag mr-2 p-1 pr-2 pl-2"
+                  staticClass: "text-dark card-tag mr-2 p-1 pr-2 pl-2",
                 },
                 [_vm._v(_vm._s(tag.title))]
               )
             }),
             0
-          )
+          ),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "mt-4" }, [
@@ -492,7 +492,7 @@ var render = function() {
                     _c(
                       "VueSlickCarousel",
                       _vm._b({}, "VueSlickCarousel", _vm.settings, false),
-                      _vm._l(_vm.RelatedPosts, function(relatedPost) {
+                      _vm._l(_vm.RelatedPosts, function (relatedPost) {
                         return _c(
                           "div",
                           { key: relatedPost.id, staticClass: "mr-1 p-2" },
@@ -501,12 +501,12 @@ var render = function() {
                         )
                       }),
                       0
-                    )
+                    ),
                   ],
                   1
                 )
-              : _vm._e()
-          ])
+              : _vm._e(),
+          ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "comment-section mt-2" }, [
@@ -522,11 +522,11 @@ var render = function() {
                   {
                     staticClass: "form",
                     on: {
-                      submit: function($event) {
+                      submit: function ($event) {
                         $event.preventDefault()
                         return _vm.addComment()
-                      }
-                    }
+                      },
+                    },
                   },
                   [
                     _c(
@@ -539,20 +539,20 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.name,
-                              expression: "form.name"
-                            }
+                              expression: "form.name",
+                            },
                           ],
                           staticClass: "form-control border-1-grey",
                           attrs: { type: "text", placeholder: "Enter name" },
                           domProps: { value: _vm.form.name },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "name", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _c("br"),
                         _vm._v(" "),
@@ -562,17 +562,17 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.description,
-                              expression: "form.description"
-                            }
+                              expression: "form.description",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("description")
+                            "is-invalid": _vm.form.errors.has("description"),
                           },
                           attrs: { rows: "3", placeholder: "Type here..." },
                           domProps: { value: _vm.form.description },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -581,12 +581,12 @@ var render = function() {
                                 "description",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "description" }
+                          attrs: { form: _vm.form, field: "description" },
                         }),
                         _vm._v(" "),
                         _vm.error_message != ""
@@ -595,18 +595,18 @@ var render = function() {
                                 "\n                  " +
                                   _vm._s(_vm.error_message) +
                                   "\n                "
-                              )
+                              ),
                             ])
                           : _vm._e(),
                         _vm._v(" "),
-                        _vm._m(0)
+                        _vm._m(0),
                       ],
                       1
-                    )
+                    ),
                   ]
                 ),
                 _vm._v(" "),
-                _vm._l(_vm.posts.comments, function(comment) {
+                _vm._l(_vm.posts.comments, function (comment) {
                   return _c(
                     "div",
                     { key: comment.id, staticClass: "media border p-3 mb-2" },
@@ -614,10 +614,9 @@ var render = function() {
                       _c("img", {
                         staticClass: "avatar-author mr-3 mt-3 rounded-circle",
                         attrs: {
-                          src:
-                            "https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png",
-                          alt: "John Doe"
-                        }
+                          src: "https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png",
+                          alt: "John Doe",
+                        },
                       }),
                       _vm._v(" "),
                       _c("div", { staticClass: "media-body" }, [
@@ -628,26 +627,26 @@ var render = function() {
                               "\n                  "
                           ),
                           _c("small", [
-                            _c("i", [_vm._v(_vm._s(comment.created_at))])
-                          ])
+                            _c("i", [_vm._v(_vm._s(comment.created_at))]),
+                          ]),
                         ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(comment.description))])
-                      ])
+                        _c("p", [_vm._v(_vm._s(comment.description))]),
+                      ]),
                     ]
                   )
-                })
+                }),
               ],
               2
-            )
-          ])
-        ])
-      ])
-    ])
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -657,13 +656,13 @@ var staticRenderFns = [
           "button",
           {
             staticClass: "btn btn-info profile_button comment_btn",
-            attrs: { type: "submit" }
+            attrs: { type: "submit" },
           },
           [_vm._v("\n                      Submit\n                    ")]
-        )
-      ])
+        ),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

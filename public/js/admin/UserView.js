@@ -163,7 +163,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -178,23 +178,23 @@ var render = function() {
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Name")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.user.name))])
+                _c("p", [_vm._v(_vm._s(_vm.user.name))]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3" }, [
                 _c("h5", [_vm._v("Email")]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.user.email))])
+                _c("p", [_vm._v(_vm._s(_vm.user.email))]),
               ]),
               _vm._v(" "),
               _vm.user.information
                 ? _c("div", { staticClass: "col-sm-6 text-center" }, [
                     _c("img", {
                       staticClass: "img-circle w-80",
-                      attrs: { src: _vm.user.information.photo }
-                    })
+                      attrs: { src: _vm.user.information.photo },
+                    }),
                   ])
-                : _vm._e()
+                : _vm._e(),
             ]),
             _vm._v(" "),
             _vm.user.information
@@ -203,43 +203,43 @@ var render = function() {
                     _c("div", { staticClass: "col-sm-3" }, [
                       _c("h5", [_vm._v("Phone Number")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.user.information.phone_no))])
+                      _c("p", [_vm._v(_vm._s(_vm.user.information.phone_no))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-3" }, [
                       _c("h5", [_vm._v("Father Name")]),
                       _vm._v(" "),
                       _c("p", [
-                        _vm._v(_vm._s(_vm.user.information.father_name))
-                      ])
+                        _vm._v(_vm._s(_vm.user.information.father_name)),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-3" }, [
                       _c("h5", [_vm._v("Mother Name")]),
                       _vm._v(" "),
                       _c("p", [
-                        _vm._v(_vm._s(_vm.user.information.mother_name))
-                      ])
+                        _vm._v(_vm._s(_vm.user.information.mother_name)),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-3" }, [
                       _c("h5", [_vm._v("DOB")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.user.information.dob))])
+                      _c("p", [_vm._v(_vm._s(_vm.user.information.dob))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-3" }, [
                       _c("h5", [_vm._v("Gender")]),
                       _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.user.information.gender))])
+                      _c("p", [_vm._v(_vm._s(_vm.user.information.gender))]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-3" }, [
                       _c("h5", [_vm._v("User Profession")]),
                       _vm._v(" "),
                       _c("p", [
-                        _vm._v(_vm._s(_vm.user.information.user_profession))
-                      ])
+                        _vm._v(_vm._s(_vm.user.information.user_profession)),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _vm.user.information.school_id != null
@@ -255,8 +255,8 @@ var render = function() {
                                   attrs: {
                                     to:
                                       "/view-school/" +
-                                      _vm.user.information.school.id
-                                  }
+                                      _vm.user.information.school.id,
+                                  },
                                 },
                                 [
                                   _vm._v(
@@ -266,12 +266,12 @@ var render = function() {
                                       " (ID :\n                    " +
                                       _vm._s(_vm.user.information.school.id) +
                                       ")"
-                                  )
+                                  ),
                                 ]
-                              )
+                              ),
                             ],
                             1
-                          )
+                          ),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -280,7 +280,9 @@ var render = function() {
                           _c("h5", [_vm._v("Corporate")]),
                           _vm._v(" "),
                           _c("p", [
-                            _vm._v(_vm._s(_vm.user.information.profession_name))
+                            _vm._v(
+                              _vm._s(_vm.user.information.profession_name)
+                            ),
                           ]),
                           _vm._v(" "),
                           _c("p", [
@@ -288,8 +290,8 @@ var render = function() {
                             _vm._v(
                               _vm._s(_vm.user.information.profession_address) +
                                 "\n                "
-                            )
-                          ])
+                            ),
+                          ]),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -297,8 +299,8 @@ var render = function() {
                       _c("h5", [_vm._v("Code")]),
                       _vm._v(" "),
                       _c("p", [
-                        _vm._v(_vm._s(_vm.user.information.institution_code))
-                      ])
+                        _vm._v(_vm._s(_vm.user.information.institution_code)),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-6" }, [
@@ -317,12 +319,12 @@ var render = function() {
                             "," +
                             _vm._s(_vm.user.information.country) +
                             "\n                "
-                        )
-                      ])
-                    ])
-                  ])
+                        ),
+                      ]),
+                    ]),
+                  ]),
                 ])
-              : _vm._e()
+              : _vm._e(),
           ]),
           _vm._v(" "),
           _c(
@@ -330,16 +332,16 @@ var render = function() {
             {
               staticClass: "btn btn-primary itrn_add_btn back_btn",
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.goBack()
-                }
-              }
+                },
+              },
             },
             [_vm._v("\n          Back\n        ")]
-          )
-        ])
-      ])
-    ])
+          ),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []

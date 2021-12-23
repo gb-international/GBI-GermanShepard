@@ -1008,7 +1008,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _obj
   var _vm = this
   var _h = _vm.$createElement
@@ -1025,47 +1025,49 @@ var render = function() {
             (_obj[_vm.wrapperClass + " tags-input"] = true),
             (_obj["active"] = _vm.isActive),
             (_obj["disabled"] = _vm.disabled),
-            _obj)
+            _obj),
         },
         [
-          _vm._l(_vm.tags, function(tag, index) {
+          _vm._l(_vm.tags, function (tag, index) {
             return _c(
               "span",
               {
                 key: index,
                 staticClass:
                   "tags-input-badge tags-input-badge-pill tags-input-badge-selected-default",
-                class: { disabled: _vm.disabled }
+                class: { disabled: _vm.disabled },
               },
               [
                 _vm._t(
                   "selected-tag",
-                  [
-                    _c("span", {
-                      domProps: { innerHTML: _vm._s(tag[_vm.textField]) }
-                    }),
-                    _vm._v(" "),
-                    _c("a", {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: !_vm.disabled,
-                          expression: "!disabled"
-                        }
-                      ],
-                      staticClass: "tags-input-remove",
-                      attrs: { href: "#" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.removeTag(index)
-                        }
-                      }
-                    })
-                  ],
+                  function () {
+                    return [
+                      _c("span", {
+                        domProps: { innerHTML: _vm._s(tag[_vm.textField]) },
+                      }),
+                      _vm._v(" "),
+                      _c("a", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: !_vm.disabled,
+                            expression: "!disabled",
+                          },
+                        ],
+                        staticClass: "tags-input-remove",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function ($event) {
+                            $event.preventDefault()
+                            return _vm.removeTag(index)
+                          },
+                        },
+                      }),
+                    ]
+                  },
                   { tag: tag, index: index, removeTag: _vm.removeTag }
-                )
+                ),
               ],
               2
             )
@@ -1077,29 +1079,29 @@ var render = function() {
                 name: "show",
                 rawName: "v-show",
                 value: !_vm.hideInputField,
-                expression: "!hideInputField"
-              }
+                expression: "!hideInputField",
+              },
             ],
             ref: "taginput",
             attrs: {
               type: "text",
               id: _vm.inputId,
               name: _vm.inputId,
-              placeholder: _vm.placeholder
+              placeholder: _vm.placeholder,
             },
             domProps: { value: _vm.input },
             on: {
-              input: function(e) {
+              input: function (e) {
                 return (_vm.input = e.target.value)
               },
-              compositionstart: function($event) {
+              compositionstart: function ($event) {
                 _vm.composing = true
               },
-              compositionend: function($event) {
+              compositionend: function ($event) {
                 _vm.composing = false
               },
               keydown: [
-                function($event) {
+                function ($event) {
                   if (
                     !$event.type.indexOf("key") &&
                     _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
@@ -1109,74 +1111,74 @@ var render = function() {
                   $event.preventDefault()
                   return _vm.tagFromInput(false)
                 },
-                function($event) {
+                function ($event) {
                   if (!$event.type.indexOf("key") && $event.keyCode !== 8) {
                     return null
                   }
-                  return _vm.removeLastTag($event)
+                  return _vm.removeLastTag.apply(null, arguments)
                 },
-                function($event) {
+                function ($event) {
                   if (
                     !$event.type.indexOf("key") &&
                     _vm._k($event.keyCode, "down", 40, $event.key, [
                       "Down",
-                      "ArrowDown"
+                      "ArrowDown",
                     ])
                   ) {
                     return null
                   }
-                  return _vm.nextSearchResult($event)
+                  return _vm.nextSearchResult.apply(null, arguments)
                 },
-                function($event) {
+                function ($event) {
                   if (
                     !$event.type.indexOf("key") &&
                     _vm._k($event.keyCode, "up", 38, $event.key, [
                       "Up",
-                      "ArrowUp"
+                      "ArrowUp",
                     ])
                   ) {
                     return null
                   }
-                  return _vm.prevSearchResult($event)
+                  return _vm.prevSearchResult.apply(null, arguments)
                 },
-                _vm.onKeyDown
+                _vm.onKeyDown,
               ],
               keyup: [
                 _vm.onKeyUp,
-                function($event) {
+                function ($event) {
                   if (
                     !$event.type.indexOf("key") &&
                     _vm._k($event.keyCode, "esc", 27, $event.key, [
                       "Esc",
-                      "Escape"
+                      "Escape",
                     ])
                   ) {
                     return null
                   }
-                  return _vm.clearSearchResults($event)
-                }
+                  return _vm.clearSearchResults.apply(null, arguments)
+                },
               ],
               focus: _vm.onFocus,
               click: _vm.onClick,
               blur: _vm.onBlur,
-              value: _vm.tags
-            }
+              value: _vm.tags,
+            },
           }),
           _vm._v(" "),
           _vm.elementId
             ? _c(
                 "div",
                 { staticStyle: { display: "none" } },
-                _vm._l(_vm.tags, function(tag, index) {
+                _vm._l(_vm.tags, function (tag, index) {
                   return _c("input", {
                     key: index,
                     attrs: { type: "hidden", name: _vm.elementId + "[]" },
-                    domProps: { value: _vm.hiddenInputValue(tag) }
+                    domProps: { value: _vm.hiddenInputValue(tag) },
                   })
                 }),
                 0
               )
-            : _vm._e()
+            : _vm._e(),
         ],
         2
       ),
@@ -1189,9 +1191,9 @@ var render = function() {
               name: "show",
               rawName: "v-show",
               value: _vm.searchResults.length,
-              expression: "searchResults.length"
-            }
-          ]
+              expression: "searchResults.length",
+            },
+          ],
         },
         [
           _vm.typeaheadStyle === "badges"
@@ -1204,18 +1206,18 @@ var render = function() {
                         staticClass:
                           "tags-input-badge typeahead-hide-btn tags-input-typeahead-item-default",
                         domProps: {
-                          textContent: _vm._s(_vm.discardSearchText)
+                          textContent: _vm._s(_vm.discardSearchText),
                         },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             $event.preventDefault()
                             return _vm.clearSearchResults(true)
-                          }
-                        }
+                          },
+                        },
                       })
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm._l(_vm.searchResults, function(tag, index) {
+                  _vm._l(_vm.searchResults, function (tag, index) {
                     return _c("span", {
                       key: index,
                       staticClass: "tags-input-badge",
@@ -1223,20 +1225,20 @@ var render = function() {
                         "tags-input-typeahead-item-default":
                           index != _vm.searchSelection,
                         "tags-input-typeahead-item-highlighted-default":
-                          index == _vm.searchSelection
+                          index == _vm.searchSelection,
                       },
                       domProps: { innerHTML: _vm._s(tag[_vm.textField]) },
                       on: {
-                        mouseover: function($event) {
+                        mouseover: function ($event) {
                           _vm.searchSelection = index
                         },
-                        mousedown: function($event) {
+                        mousedown: function ($event) {
                           $event.preventDefault()
                           return _vm.tagFromSearchOnClick(tag)
-                        }
-                      }
+                        },
+                      },
                     })
-                  })
+                  }),
                 ],
                 2
               )
@@ -1250,44 +1252,44 @@ var render = function() {
                         staticClass:
                           "tags-input-typeahead-item-default typeahead-hide-btn",
                         domProps: {
-                          textContent: _vm._s(_vm.discardSearchText)
+                          textContent: _vm._s(_vm.discardSearchText),
                         },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             $event.preventDefault()
                             return _vm.clearSearchResults(true)
-                          }
-                        }
+                          },
+                        },
                       })
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm._l(_vm.searchResults, function(tag, index) {
+                  _vm._l(_vm.searchResults, function (tag, index) {
                     return _c("li", {
                       key: index,
                       class: {
                         "tags-input-typeahead-item-default":
                           index != _vm.searchSelection,
                         "tags-input-typeahead-item-highlighted-default":
-                          index == _vm.searchSelection
+                          index == _vm.searchSelection,
                       },
                       domProps: { innerHTML: _vm._s(_vm.getDisplayField(tag)) },
                       on: {
-                        mouseover: function($event) {
+                        mouseover: function ($event) {
                           _vm.searchSelection = index
                         },
-                        mousedown: function($event) {
+                        mousedown: function ($event) {
                           $event.preventDefault()
                           return _vm.tagFromSearchOnClick(tag)
-                        }
-                      }
+                        },
+                      },
                     })
-                  })
+                  }),
                 ],
                 2
               )
-            : _vm._e()
+            : _vm._e(),
         ]
-      )
+      ),
     ]
   )
 }

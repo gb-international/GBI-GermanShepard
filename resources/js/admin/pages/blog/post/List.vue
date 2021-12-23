@@ -117,7 +117,7 @@ export default {
       perPage:7,
       options:[7,25,50,100],
       user_id: window.userId,
-      socket : io('localhost:3000')
+      socket : io(this.$hostName)
     };
   },
   mounted() {

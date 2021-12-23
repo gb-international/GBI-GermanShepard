@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard-body-part-two-2" v-if="upcoming_list.length > 0">
+  <div class="dashboard-body-part-two-2" v-if="upcoming_list.length">
     <VueSlickCarousel :dots="true" v-bind="settings">
       <div
         class="states_card card_scroll"
@@ -24,12 +24,19 @@
       </div>
     </VueSlickCarousel>
   </div>
+  <div v-else class="row card-titles reviewContainer mb-5">
+    <div class="col-sm-4"  v-for="(index) in 3" :key="index">
+      <cardLoader />
+    </div>
+  </div>
 </template>
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
+import cardLoader from "@/front/components/loaders/cardLoaderDash";
+
 export default {
   name: "UpcomingTourCarousel",
-  components: { VueSlickCarousel },
+  components: { VueSlickCarousel, cardLoader },
   props: {
     upcoming_list: {
       required: true,

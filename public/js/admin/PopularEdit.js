@@ -159,7 +159,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -167,7 +167,7 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _vm.allCreated
               ? _c(
@@ -175,11 +175,11 @@ var render = function() {
                   {
                     attrs: { role: "form", enctype: "multipart/form-data" },
                     on: {
-                      submit: function($event) {
+                      submit: function ($event) {
                         $event.preventDefault()
                         return _vm.UpdatePopular()
-                      }
-                    }
+                      },
+                    },
                   },
                   [
                     _c("div", { staticClass: "row" }, [
@@ -189,7 +189,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "itinerary_id" } }, [
-                              _vm._v("Select Itinerary")
+                              _vm._v("Select Itinerary"),
                             ]),
                             _vm._v(" "),
                             _c("dropdown-filter", {
@@ -198,11 +198,11 @@ var render = function() {
                               on: { "update:option": _vm.itineraryUpdate },
                               model: {
                                 value: _vm.form.itinerary_id,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(_vm.form, "itinerary_id", $$v)
                                 },
-                                expression: "form.itinerary_id"
-                              }
+                                expression: "form.itinerary_id",
+                              },
                             }),
                             _vm._v(" "),
                             _vm.form.errors.has("itinerary_id")
@@ -215,14 +215,14 @@ var render = function() {
                                         _vm._s(
                                           _vm.form.errors.get("itinerary_id")
                                         )
-                                      )
+                                      ),
                                     ]
-                                  )
+                                  ),
                                 ])
-                              : _vm._e()
+                              : _vm._e(),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-12" }, [
@@ -231,7 +231,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "season_id" } }, [
-                              _vm._v("Select Season")
+                              _vm._v("Select Season"),
                             ]),
                             _vm._v(" "),
                             _c("dropdown-filter", {
@@ -240,11 +240,11 @@ var render = function() {
                               on: { "update:option": _vm.seasonUpdate },
                               model: {
                                 value: _vm.form.season_id,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(_vm.form, "season_id", $$v)
                                 },
-                                expression: "form.season_id"
-                              }
+                                expression: "form.season_id",
+                              },
                             }),
                             _vm._v(" "),
                             _vm.form.errors.has("season_id")
@@ -255,27 +255,27 @@ var render = function() {
                                     [
                                       _vm._v(
                                         _vm._s(_vm.form.errors.get("season_id"))
-                                      )
+                                      ),
                                     ]
-                                  )
+                                  ),
                                 ])
-                              : _vm._e()
+                              : _vm._e(),
                           ],
                           1
-                        )
-                      ])
+                        ),
+                      ]),
                     ]),
                     _vm._v(" "),
-                    _c("form-buttons")
+                    _c("form-buttons"),
                   ],
                   1
                 )
-              : _vm._e()
+              : _vm._e(),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

@@ -510,7 +510,7 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
@@ -722,15 +722,15 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -953,26 +953,26 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.flights.data
     ? _c(
         "div",
-        _vm._l(_vm.flights.data, function(flight, index) {
+        _vm._l(_vm.flights.data, function (flight, index) {
           return _c("div", { key: index }, [
             flight.flight_date == _vm.flightDate
               ? _c("div", { staticClass: "row align-items-center mb-20" }, [
                   _c("div", { staticClass: "col-md-3 col" }, [
                     _c("p", [
                       _c("b", { staticClass: "underline" }, [
-                        _vm._v(_vm._s(flight.airline.name))
+                        _vm._v(_vm._s(flight.airline.name)),
                       ]),
                       _vm._v(" "),
                       _c("b", { staticClass: "text-upper" }, [
-                        _vm._v(_vm._s(_vm.list))
-                      ])
+                        _vm._v(_vm._s(_vm.list)),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("p", [
@@ -983,12 +983,14 @@ var render = function() {
                             " ( " +
                             _vm._s(flight.departure.iata) +
                             " )"
-                        )
-                      ])
+                        ),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("p", [
-                      _vm._v(_vm._s(_vm.timeFormat(flight.departure.scheduled)))
+                      _vm._v(
+                        _vm._s(_vm.timeFormat(flight.departure.scheduled))
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("p", [
@@ -998,8 +1000,8 @@ var render = function() {
                           ", Gate :\n          " +
                           _vm._s(flight.departure.gate) +
                           "\n        "
-                      )
-                    ])
+                      ),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -1020,15 +1022,15 @@ var render = function() {
                             ),
                             _c("i", {
                               staticClass: "fas fa-plane-departure",
-                              style: { "margin-left": _vm.progress + "%" }
+                              style: { "margin-left": _vm.progress + "%" },
                             }),
                             _vm._v(" "),
                             _c("div", { staticClass: "progress" }, [
                               _c("div", {
                                 staticClass:
                                   "progress-bar progress-bar-striped progress-bar-animated",
-                                style: { width: _vm.progress + "%" }
-                              })
+                                style: { width: _vm.progress + "%" },
+                              }),
                             ]),
                             _vm._v(" "),
                             _c("p", { staticClass: "text-center" }, [
@@ -1038,15 +1040,15 @@ var render = function() {
                                     _vm.timeCalculate(flight.arrival.estimated)
                                   ) +
                                   "\n          "
-                              )
-                            ])
+                              ),
+                            ]),
                           ])
                         : _vm._e(),
                       _vm._v(" "),
                       _c("p", { staticClass: "text-center w-100" }, [
                         _vm._v("\n          Flight Status : "),
-                        _c("b", [_vm._v(_vm._s(flight.flight_status))])
-                      ])
+                        _c("b", [_vm._v(_vm._s(flight.flight_status))]),
+                      ]),
                     ]
                   ),
                   _vm._v(" "),
@@ -1056,8 +1058,8 @@ var render = function() {
                     [
                       _c("p", [
                         _c("b", { staticClass: "underline" }, [
-                          _vm._v(_vm._s(flight.airline.name))
-                        ])
+                          _vm._v(_vm._s(flight.airline.name)),
+                        ]),
                       ]),
                       _vm._v(" "),
                       _c("P", [
@@ -1068,12 +1070,14 @@ var render = function() {
                               " ( " +
                               _vm._s(flight.arrival.iata) +
                               " )"
-                          )
-                        ])
+                          ),
+                        ]),
                       ]),
                       _vm._v(" "),
                       _c("p", [
-                        _vm._v(_vm._s(_vm.timeFormat(flight.arrival.scheduled)))
+                        _vm._v(
+                          _vm._s(_vm.timeFormat(flight.arrival.scheduled))
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("p", [
@@ -1083,13 +1087,13 @@ var render = function() {
                             ", Gate :\n          " +
                             _vm._s(flight.arrival.gate) +
                             "\n        "
-                        )
-                      ])
+                        ),
+                      ]),
                     ],
                     1
-                  )
+                  ),
                 ])
-              : _vm._e()
+              : _vm._e(),
           ])
         }),
         0
@@ -1114,7 +1118,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1132,7 +1136,7 @@ var render = function() {
                 "div",
                 { staticClass: "star-rating" },
                 [
-                  _vm._l(_vm.max, function(n) {
+                  _vm._l(_vm.max, function (n) {
                     return _c("span", { key: n.id }, [_vm._v("☆")])
                   }),
                   _vm._v(" "),
@@ -1141,19 +1145,19 @@ var render = function() {
                     {
                       staticClass: "star-rating__current",
                       style: {
-                        width: _vm.getRating(_vm.hotel.hotel.type) + "%"
-                      }
+                        width: _vm.getRating(_vm.hotel.hotel.type) + "%",
+                      },
                     },
-                    _vm._l(_vm.integer(_vm.hotel.hotel.type), function(n) {
+                    _vm._l(_vm.integer(_vm.hotel.hotel.type), function (n) {
                       return _c("span", { key: n.id }, [_vm._v("★")])
                     }),
                     0
-                  )
+                  ),
                 ],
                 2
-              )
-            ])
-          ])
+              ),
+            ]),
+          ]),
         ]),
         _vm._v(" "),
         _c("p", [
@@ -1164,8 +1168,8 @@ var render = function() {
               "\n          : " +
                 _vm._s(_vm.dateFormat(_vm.hotel.check_in)) +
                 "\n        "
-            )
-          ])
+            ),
+          ]),
         ]),
         _vm._v(" "),
         _c("p", [
@@ -1181,11 +1185,11 @@ var render = function() {
               "\n          : " +
                 _vm._s(_vm.dateFormat(_vm.hotel.check_out)) +
                 "\n        "
-            )
-          ])
-        ])
-      ])
-    ])
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -1206,13 +1210,13 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("span", { staticClass: "underline" }, [
-      _c("b", [_vm._v("Day " + _vm._s(_vm.itinerary.day))])
+      _c("b", [_vm._v("Day " + _vm._s(_vm.itinerary.day))]),
     ]),
     _vm._v(" "),
     _vm.itinerary.day_source != _vm.itinerary.day_destination
@@ -1222,20 +1226,20 @@ var render = function() {
               _vm._s(_vm.itinerary.day_source.toUpperCase()) +
                 " -\n      " +
                 _vm._s(_vm.itinerary.day_destination.toUpperCase())
-            )
-          ])
+            ),
+          ]),
         ])
       : _c(
           "a",
           {
-            attrs: { target: "_blank", href: "https://www.totoprayogo.com/#" }
+            attrs: { target: "_blank", href: "https://www.totoprayogo.com/#" },
           },
           [_vm._v(_vm._s(_vm.itinerary.day_source.toUpperCase()))]
         ),
     _vm._v(" "),
     _c("span", { staticClass: "float-right" }),
     _vm._v(" "),
-    _c("p", { domProps: { innerHTML: _vm._s(_vm.itinerary.day_description) } })
+    _c("p", { domProps: { innerHTML: _vm._s(_vm.itinerary.day_description) } }),
   ])
 }
 var staticRenderFns = []
@@ -1256,7 +1260,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1274,13 +1278,13 @@ var render = function() {
                     src:
                       "http://openweathermap.org/img/w/" +
                       _vm.current.weather[0].icon +
-                      ".png"
-                  }
+                      ".png",
+                  },
                 }),
-                _vm._v("Today\n        ")
+                _vm._v("Today\n        "),
               ]),
               _vm._v(" "),
-              _c("small", [_vm._v(_vm._s(_vm.toDayDate()))])
+              _c("small", [_vm._v(_vm._s(_vm.toDayDate()))]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-6 text_right" }, [
@@ -1290,7 +1294,7 @@ var render = function() {
                     _vm._s(_vm.RemoveDecimal(_vm.current.main.temp)) +
                     "\n          "
                 ),
-                _c("sup", [_vm._v("℃")])
+                _c("sup", [_vm._v("℃")]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "select-city" }, [
@@ -1302,27 +1306,27 @@ var render = function() {
                         name: "model",
                         rawName: "v-model",
                         value: _vm.cityName,
-                        expression: "cityName"
-                      }
+                        expression: "cityName",
+                      },
                     ],
                     staticClass: "minimal text-white",
                     on: {
-                      change: function($event) {
+                      change: function ($event) {
                         var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
+                          .call($event.target.options, function (o) {
                             return o.selected
                           })
-                          .map(function(o) {
+                          .map(function (o) {
                             var val = "_value" in o ? o._value : o.value
                             return val
                           })
                         _vm.cityName = $event.target.multiple
                           ? $$selectedVal
                           : $$selectedVal[0]
-                      }
-                    }
+                      },
+                    },
                   },
-                  _vm._l(_vm.cityList, function(city) {
+                  _vm._l(_vm.cityList, function (city) {
                     return _c(
                       "option",
                       { key: city, domProps: { value: city } },
@@ -1330,7 +1334,7 @@ var render = function() {
                     )
                   }),
                   0
-                )
+                ),
               ]),
               _vm._v(" "),
               _c("small", [
@@ -1338,7 +1342,7 @@ var render = function() {
                   _vm._s(_vm.current.name) +
                     ", " +
                     _vm._s(_vm.current.sys.country)
-                )
+                ),
               ]),
               _vm._v(" "),
               _c("br"),
@@ -1347,15 +1351,15 @@ var render = function() {
                 _vm._v(
                   "Feels like " +
                     _vm._s(_vm.RemoveDecimal(_vm.current.main.feels_like))
-                )
+                ),
               ]),
               _vm._v(".\n        "),
               _c("small", [
                 _vm._v(
                   " Sunset " + _vm._s(_vm.dateToString(_vm.current.sys.sunset))
-                )
-              ])
-            ])
+                ),
+              ]),
+            ]),
           ]),
           _vm._v(" "),
           _vm.forcast.list
@@ -1373,7 +1377,7 @@ var render = function() {
                       _vm.settings,
                       false
                     ),
-                    _vm._l(_vm.forcast.list, function(list) {
+                    _vm._l(_vm.forcast.list, function (list) {
                       return _c(
                         "div",
                         { key: list.dt, staticClass: "weather_card" },
@@ -1385,7 +1389,7 @@ var render = function() {
                                   _vm._s(
                                     _vm.tConvert(list.dt_txt.split(" ")[1])
                                   )
-                                )
+                                ),
                               ]),
                               _vm._v(" "),
                               _c("img", {
@@ -1394,8 +1398,8 @@ var render = function() {
                                   src:
                                     "http://openweathermap.org/img/w/" +
                                     list.weather[0].icon +
-                                    ".png"
-                                }
+                                    ".png",
+                                },
                               }),
                               _vm._v(" "),
                               _c("p", [
@@ -1404,9 +1408,9 @@ var render = function() {
                                     _vm._s(_vm.RemoveDecimal(list.main.temp)) +
                                     "\n                "
                                 ),
-                                _c("sup", [_vm._v("℃")])
-                              ])
-                            ])
+                                _c("sup", [_vm._v("℃")]),
+                              ]),
+                            ]),
                           ]),
                           _vm._v(" "),
                           _c("p", { staticClass: "text-center" }, [
@@ -1416,30 +1420,30 @@ var render = function() {
                                   list.dt_txt.split(" ")[0]
                                 )
                               )
-                            )
-                          ])
+                            ),
+                          ]),
                         ]
                       )
                     }),
                     0
-                  )
+                  ),
                 ],
                 1
               )
-            : _vm._e()
+            : _vm._e(),
         ])
-      : _vm._e()
+      : _vm._e(),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col" }, [
-      _c("p", { staticClass: "text-center p-1" }, [_vm._v("Weather Forcast")])
+      _c("p", { staticClass: "text-center p-1" }, [_vm._v("Weather Forcast")]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -1458,7 +1462,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1473,7 +1477,7 @@ var render = function() {
                 _c(
                   "ul",
                   { staticClass: "timeline" },
-                  _vm._l(_vm.itineraryData.itinerarydays, function(data) {
+                  _vm._l(_vm.itineraryData.itinerarydays, function (data) {
                     return _c(
                       "li",
                       { key: data.id },
@@ -1482,13 +1486,13 @@ var render = function() {
                     )
                   }),
                   0
-                )
-              ])
+                ),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "things-to-carrry mb-35" }, [
               _c("h3", { staticClass: "text-center mb-35" }, [
-                _vm._v("THINGS TO CARRY")
+                _vm._v("THINGS TO CARRY"),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "row align-items-center" }, [
@@ -1496,19 +1500,19 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom"
+                      "col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom",
                   },
                   [
                     _c("div", { staticClass: "item" }, [
                       _c("img", {
                         staticClass: "bottel",
                         attrs: {
-                          src: _vm.$gbiAssets + "/images/tour/bottel.png"
-                        }
+                          src: _vm.$gbiAssets + "/images/tour/bottel.png",
+                        },
                       }),
                       _vm._v(" "),
-                      _c("p", [_vm._v("Water Bottel")])
-                    ])
+                      _c("p", [_vm._v("Water Bottel")]),
+                    ]),
                   ]
                 ),
                 _vm._v(" "),
@@ -1516,19 +1520,19 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom"
+                      "col-md-4 col-sm-6 col-6 bottom-border border-right mb-bottom",
                   },
                   [
                     _c("div", { staticClass: "item text-center" }, [
                       _c("img", {
                         staticClass: "common shoes",
                         attrs: {
-                          src: _vm.$gbiAssets + "/images/tour/shoes.png"
-                        }
+                          src: _vm.$gbiAssets + "/images/tour/shoes.png",
+                        },
                       }),
                       _vm._v(" "),
-                      _c("p", [_vm._v("Light Shoes")])
-                    ])
+                      _c("p", [_vm._v("Light Shoes")]),
+                    ]),
                   ]
                 ),
                 _vm._v(" "),
@@ -1538,19 +1542,19 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "col-md-4 col-sm-6 col-6 bottom-border mb-bottom mb-right"
+                      "col-md-4 col-sm-6 col-6 bottom-border mb-bottom mb-right",
                   },
                   [
                     _c("div", { staticClass: "item" }, [
                       _c("img", {
                         staticClass: "common",
                         attrs: {
-                          src: _vm.$gbiAssets + "/images/tour/tourch.png"
-                        }
+                          src: _vm.$gbiAssets + "/images/tour/tourch.png",
+                        },
                       }),
                       _vm._v(" "),
-                      _c("p", [_vm._v("Tourch")])
-                    ])
+                      _c("p", [_vm._v("Tourch")]),
+                    ]),
                   ]
                 ),
                 _vm._v(" "),
@@ -1558,19 +1562,19 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "col-md-4 col-sm-6 col-6 border-right mb-bottom"
+                      "col-md-4 col-sm-6 col-6 border-right mb-bottom",
                   },
                   [
                     _c("div", { staticClass: "item text-center" }, [
                       _c("img", {
                         staticClass: "common",
                         attrs: {
-                          src: _vm.$gbiAssets + "/images/tour/towel.png"
-                        }
+                          src: _vm.$gbiAssets + "/images/tour/towel.png",
+                        },
                       }),
                       _vm._v(" "),
-                      _c("p", [_vm._v("Towel")])
-                    ])
+                      _c("p", [_vm._v("Towel")]),
+                    ]),
                   ]
                 ),
                 _vm._v(" "),
@@ -1582,12 +1586,12 @@ var render = function() {
                       _c("img", {
                         staticClass: "common",
                         attrs: {
-                          src: _vm.$gbiAssets + "/images/tour/umbrelaa.png"
-                        }
+                          src: _vm.$gbiAssets + "/images/tour/umbrelaa.png",
+                        },
                       }),
                       _vm._v(" "),
-                      _c("p", [_vm._v("Umbrelaa")])
-                    ])
+                      _c("p", [_vm._v("Umbrelaa")]),
+                    ]),
                   ]
                 ),
                 _vm._v(" "),
@@ -1595,25 +1599,27 @@ var render = function() {
                   _c("div", { staticClass: "item" }, [
                     _c("img", {
                       staticClass: "common",
-                      attrs: { src: _vm.$gbiAssets + "/images/tour/jacket.png" }
+                      attrs: {
+                        src: _vm.$gbiAssets + "/images/tour/jacket.png",
+                      },
                     }),
                     _vm._v(" "),
-                    _c("p", [_vm._v("Jacket")])
-                  ])
-                ])
-              ])
+                    _c("p", [_vm._v("Jacket")]),
+                  ]),
+                ]),
+              ]),
             ]),
             _vm._v(" "),
             _vm.hotelData
               ? _c("div", { staticClass: "hotel-section mb-35" }, [
                   _c("h3", { staticClass: "text-center mb-35" }, [
-                    _vm._v("YOU WILL STAY HERE")
+                    _vm._v("YOU WILL STAY HERE"),
                   ]),
                   _vm._v(" "),
                   _c(
                     "div",
                     { staticClass: "row justify-content-center" },
-                    _vm._l(_vm.hotelData, function(hotel) {
+                    _vm._l(_vm.hotelData, function (hotel) {
                       return _c(
                         "div",
                         { key: hotel.id, staticClass: "col-sm-4" },
@@ -1622,7 +1628,7 @@ var render = function() {
                       )
                     }),
                     0
-                  )
+                  ),
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -1632,12 +1638,12 @@ var render = function() {
                   { staticClass: "airline-section mb-35" },
                   [
                     _c("h3", { staticClass: "text-center mb-35" }, [
-                      _vm._v("AIRLINES DETAILS")
+                      _vm._v("AIRLINES DETAILS"),
                     ]),
                     _vm._v(" "),
                     _c("hr"),
                     _vm._v(" "),
-                    _vm._l(_vm.flightData, function(air) {
+                    _vm._l(_vm.flightData, function (air) {
                       return _c(
                         "div",
                         { key: air.id },
@@ -1645,13 +1651,13 @@ var render = function() {
                           _c("flight-app", {
                             attrs: {
                               list: air.flight_number,
-                              flightDate: _vm.simpleDate(air.departure)
-                            }
-                          })
+                              flightDate: _vm.simpleDate(air.departure),
+                            },
+                          }),
                         ],
                         1
                       )
-                    })
+                    }),
                   ],
                   2
                 )
@@ -1665,9 +1671,9 @@ var render = function() {
                   attrs: {
                     start: { latLng: _vm.alldata.startLoc },
                     end: { latLng: _vm.alldata.endLoc },
-                    aSights: _vm.alldata.sights
-                  }
-                })
+                    aSights: _vm.alldata.sights,
+                  },
+                }),
               ],
               1
             ),
@@ -1677,10 +1683,10 @@ var render = function() {
               { staticClass: "weather-section mb-35" },
               [_c("weather-app", { attrs: { cityList: _vm.cityList } })],
               1
-            )
+            ),
           ])
-        : _vm._e()
-    ])
+        : _vm._e(),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -1701,7 +1707,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1713,7 +1719,7 @@ var render = function() {
         "button",
         { staticClass: "btn btn-reset", on: { click: _vm.resetMap } },
         [_vm._v("Reset")]
-      )
+      ),
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
@@ -1728,17 +1734,17 @@ var render = function() {
                   ref: "map",
                   staticStyle: { width: "100%", height: "500px" },
                   attrs: { zoom: _vm.mapZoom, center: this.center },
-                  on: { click: _vm.changeZoom }
+                  on: { click: _vm.changeZoom },
                 },
                 [
                   _vm.cStart && !_vm.completed
                     ? _c("GmapMarker", {
                         attrs: { position: _vm.cStart.latLng, label: "◉" },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.zoomSight(_vm.index, _vm.cStart)
-                          }
-                        }
+                          },
+                        },
                       })
                     : _vm._e(),
                   _vm._v(" "),
@@ -1746,44 +1752,44 @@ var render = function() {
                     ? _c("GmapMarker", {
                         attrs: {
                           position: _vm.cEnd.latLng,
-                          label: _vm.cEnd.mark_arrive ? "✔" : "🏳️"
+                          label: _vm.cEnd.mark_arrive ? "✔" : "🏳️",
                         },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.zoomSight(_vm.index, _vm.cEnd)
-                          }
-                        }
+                          },
+                        },
                       })
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm._l(_vm.sights, function(item, index) {
+                  _vm._l(_vm.sights, function (item, index) {
                     return item.mark_arrive
                       ? _c("GmapMarker", {
                           key: item.latLng.lat,
                           attrs: {
                             position: item.latLng,
-                            label: item.mark_arrive ? "✔" : "🏳️"
+                            label: item.mark_arrive ? "✔" : "🏳️",
                           },
                           on: {
-                            click: function($event) {
+                            click: function ($event) {
                               return _vm.zoomSight(index, item)
-                            }
-                          }
+                            },
+                          },
                         })
                       : _vm._e()
                   }),
                   _vm._v(" "),
                   _vm.curvedPath && !_vm.completed
                     ? _c("GmapPolyline", { attrs: { path: _vm.curvedPath } })
-                    : _vm._e()
+                    : _vm._e(),
                 ],
                 2
               )
-            : _vm._e()
+            : _vm._e(),
         ],
         1
-      )
-    ])
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -2202,7 +2208,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_maps_vue_vue_type_style_index_0_id_92d0580e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./maps.vue?vue&type=style&index=0&id=92d0580e&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/user/tour/maps.vue?vue&type=style&index=0&id=92d0580e&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_maps_vue_vue_type_style_index_0_id_92d0580e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_maps_vue_vue_type_style_index_0_id_92d0580e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_maps_vue_vue_type_style_index_0_id_92d0580e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_maps_vue_vue_type_style_index_0_id_92d0580e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_maps_vue_vue_type_style_index_0_id_92d0580e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_maps_vue_vue_type_style_index_0_id_92d0580e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

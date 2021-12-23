@@ -568,7 +568,7 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -577,7 +577,7 @@ var render = function() {
       "article",
       {
         staticClass: "join-team",
-        staticStyle: { background: "#dcdcdc !important" }
+        staticStyle: { background: "#dcdcdc !important" },
       },
       [
         _c(
@@ -586,7 +586,7 @@ var render = function() {
           [
             _c("heading", {
               staticClass: "text-center",
-              attrs: { text: "Join Our Brilliant Minds" }
+              attrs: { text: "Join Our Brilliant Minds" },
             }),
             _vm._v(" "),
             _c(
@@ -595,14 +595,14 @@ var render = function() {
                 attrs: {
                   role: "form",
                   method: "POST",
-                  enctype: "multipart/form-data"
+                  enctype: "multipart/form-data",
                 },
                 on: {
-                  submit: function($event) {
+                  submit: function ($event) {
                     $event.preventDefault()
                     return _vm.sendmailResume()
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("div", { staticClass: "row" }, [
@@ -617,20 +617,20 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.firstname,
-                              expression: "form.firstname"
-                            }
+                              expression: "form.firstname",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("firstname")
+                            "is-invalid": _vm.form.errors.has("firstname"),
                           },
                           attrs: {
                             type: "text",
-                            placeholder: "Enter first name"
+                            placeholder: "Enter first name",
                           },
                           domProps: { value: _vm.form.firstname },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -639,16 +639,16 @@ var render = function() {
                                 "firstname",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "firstname" }
-                        })
+                          attrs: { form: _vm.form, field: "firstname" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
@@ -662,20 +662,20 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.lastname,
-                              expression: "form.lastname"
-                            }
+                              expression: "form.lastname",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("lastname")
+                            "is-invalid": _vm.form.errors.has("lastname"),
                           },
                           attrs: {
                             type: "text",
-                            placeholder: "Enter last name"
+                            placeholder: "Enter last name",
                           },
                           domProps: { value: _vm.form.lastname },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -684,16 +684,16 @@ var render = function() {
                                 "lastname",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "lastname" }
-                        })
+                          attrs: { form: _vm.form, field: "lastname" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
@@ -707,20 +707,21 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.current_company,
-                              expression: "form.current_company"
-                            }
+                              expression: "form.current_company",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("current_company")
+                            "is-invalid":
+                              _vm.form.errors.has("current_company"),
                           },
                           attrs: {
                             type: "text",
-                            placeholder: "Last/current Company"
+                            placeholder: "Last/current Company",
                           },
                           domProps: { value: _vm.form.current_company },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -729,16 +730,16 @@ var render = function() {
                                 "current_company",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "current_company" }
-                        })
+                          attrs: { form: _vm.form, field: "current_company" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
@@ -753,21 +754,21 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: _vm.form.job_exp,
-                                expression: "form.job_exp"
-                              }
+                                expression: "form.job_exp",
+                              },
                             ],
                             staticClass: "form-control",
                             class: {
-                              "is-invalid": _vm.form.errors.has("job_exp")
+                              "is-invalid": _vm.form.errors.has("job_exp"),
                             },
                             attrs: {
                               type: "number",
                               min: "0",
-                              placeholder: "Job Exp."
+                              placeholder: "Job Exp.",
                             },
                             domProps: { value: _vm.form.job_exp },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
@@ -776,19 +777,19 @@ var render = function() {
                                   "job_exp",
                                   $event.target.value
                                 )
-                              }
-                            }
+                              },
+                            },
                           }),
                           _vm._v(" "),
-                          _vm._m(0)
+                          _vm._m(0),
                         ]),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "job_exp" }
-                        })
+                          attrs: { form: _vm.form, field: "job_exp" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
@@ -802,29 +803,29 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.email,
-                              expression: "form.email"
-                            }
+                              expression: "form.email",
+                            },
                           ],
                           staticClass: "form-control",
                           class: { "is-invalid": _vm.form.errors.has("email") },
                           attrs: { type: "email", placeholder: "Enter Email" },
                           domProps: { value: _vm.form.email },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "email", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "email" }
-                        })
+                          attrs: { form: _vm.form, field: "email" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
@@ -838,20 +839,20 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.contactno,
-                              expression: "form.contactno"
-                            }
+                              expression: "form.contactno",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("contactno")
+                            "is-invalid": _vm.form.errors.has("contactno"),
                           },
                           attrs: {
                             type: "text",
-                            placeholder: "Enter Mobile number"
+                            placeholder: "Enter Mobile number",
                           },
                           domProps: { value: _vm.form.contactno },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -860,16 +861,16 @@ var render = function() {
                                 "contactno",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "contactno" }
-                        })
+                          attrs: { form: _vm.form, field: "contactno" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
@@ -883,31 +884,31 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.address,
-                              expression: "form.address"
-                            }
+                              expression: "form.address",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("address")
+                            "is-invalid": _vm.form.errors.has("address"),
                           },
                           attrs: { type: "text", placeholder: "Enter Address" },
                           domProps: { value: _vm.form.address },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "address", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "address" }
-                        })
+                          attrs: { form: _vm.form, field: "address" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
@@ -921,29 +922,29 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.state,
-                              expression: "form.state"
-                            }
+                              expression: "form.state",
+                            },
                           ],
                           staticClass: "form-control",
                           class: { "is-invalid": _vm.form.errors.has("state") },
                           attrs: { type: "text", placeholder: "Enter State" },
                           domProps: { value: _vm.form.state },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "state", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "state" }
-                        })
+                          attrs: { form: _vm.form, field: "state" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
@@ -957,29 +958,29 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.city,
-                              expression: "form.city"
-                            }
+                              expression: "form.city",
+                            },
                           ],
                           staticClass: "form-control",
                           class: { "is-invalid": _vm.form.errors.has("city") },
                           attrs: { type: "text", placeholder: "Enter City" },
                           domProps: { value: _vm.form.city },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "city", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "city" }
-                        })
+                          attrs: { form: _vm.form, field: "city" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
@@ -993,31 +994,31 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.zipcode,
-                              expression: "form.zipcode"
-                            }
+                              expression: "form.zipcode",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("zipcode")
+                            "is-invalid": _vm.form.errors.has("zipcode"),
                           },
                           attrs: { type: "text", placeholder: "Enter Zipcode" },
                           domProps: { value: _vm.form.zipcode },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
                               _vm.$set(_vm.form, "zipcode", $event.target.value)
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "zipcode" }
-                        })
+                          attrs: { form: _vm.form, field: "zipcode" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
@@ -1028,18 +1029,18 @@ var render = function() {
                         _c("input", {
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("applyingfor")
+                            "is-invalid": _vm.form.errors.has("applyingfor"),
                           },
                           attrs: { type: "text", readonly: "" },
-                          domProps: { value: _vm.form.applyingfor }
+                          domProps: { value: _vm.form.applyingfor },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "applyingfor" }
-                        })
+                          attrs: { form: _vm.form, field: "applyingfor" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-6" }, [
@@ -1052,7 +1053,7 @@ var render = function() {
                             "button",
                             {
                               staticClass: "btn button3",
-                              staticStyle: { "font-size": "16px" }
+                              staticStyle: { "font-size": "16px" },
                             },
                             [
                               _vm._v(
@@ -1061,25 +1062,25 @@ var render = function() {
                                     ? "Select File"
                                     : "Uploaded"
                                 )
-                              )
+                              ),
                             ]
                           ),
                           _vm._v(" "),
                           _c("input", {
                             class: {
-                              "is-invalid": _vm.form.errors.has("resume")
+                              "is-invalid": _vm.form.errors.has("resume"),
                             },
                             attrs: {
                               name: "resume",
                               type: "file",
-                              accept: ".pdf"
+                              accept: ".pdf",
                             },
-                            on: { change: _vm.onFileChange }
+                            on: { change: _vm.onFileChange },
                           }),
                           _vm._v(" "),
                           _c("has-error", {
-                            attrs: { form: _vm.form, field: "resume" }
-                          })
+                            attrs: { form: _vm.form, field: "resume" },
+                          }),
                         ],
                         1
                       ),
@@ -1092,10 +1093,10 @@ var render = function() {
                                 ? _vm.form.filename
                                 : "Please uplod PDF file only"
                             )
-                          )
-                        ])
-                      ])
-                    ])
+                          ),
+                        ]),
+                      ]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-12" }, [
@@ -1109,20 +1110,20 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.form.messagescon,
-                              expression: "form.messagescon"
-                            }
+                              expression: "form.messagescon",
+                            },
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("messagescon")
+                            "is-invalid": _vm.form.errors.has("messagescon"),
                           },
                           attrs: {
                             rows: "4",
-                            placeholder: "Write something.."
+                            placeholder: "Write something..",
                           },
                           domProps: { value: _vm.form.messagescon },
                           on: {
-                            input: function($event) {
+                            input: function ($event) {
                               if ($event.target.composing) {
                                 return
                               }
@@ -1131,39 +1132,39 @@ var render = function() {
                                 "messagescon",
                                 $event.target.value
                               )
-                            }
-                          }
+                            },
+                          },
                         }),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "messagescon" }
-                        })
+                          attrs: { form: _vm.form, field: "messagescon" },
+                        }),
                       ],
                       1
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
-                _vm._m(1)
+                _vm._m(1),
               ]
-            )
+            ),
           ],
           1
-        )
+        ),
       ]
-    )
+    ),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "input-group-prepend" }, [
-      _c("div", { staticClass: "input-group-text" }, [_vm._v("Years")])
+      _c("div", { staticClass: "input-group-text" }, [_vm._v("Years")]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -1172,12 +1173,12 @@ var staticRenderFns = [
         "button",
         {
           staticClass: "btn profile_button",
-          attrs: { type: "submit", value: "Submit" }
+          attrs: { type: "submit", value: "Submit" },
         },
         [_vm._v("\n                Submit\n              ")]
-      )
+      ),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -1196,12 +1197,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h1", { staticClass: "gbi_main-heading pt-3 text-capitalize" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -1222,12 +1223,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("p", { staticClass: "gbi_paragraph largeFirstLetter pt-2" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -1248,12 +1249,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h4", { staticClass: "gbi_sub-heading text-capitalize m-0 p-0" }, [
-    _vm._v("\n    " + _vm._s(_vm.text) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.text) + "\n"),
   ])
 }
 var staticRenderFns = []
@@ -1274,7 +1275,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1284,9 +1285,9 @@ var render = function() {
         staticStyle: { height: "100%", width: "100%" },
         attrs: {
           src: _vm.$gbiAssets + "/assets/front/images/job-banner.png",
-          loading: "lazy"
-        }
-      })
+          loading: "lazy",
+        },
+      }),
     ]),
     _vm._v(" "),
     _c(
@@ -1296,17 +1297,17 @@ var render = function() {
         _c("heading", {
           staticStyle: {
             "margin-bottom": "35px !important",
-            "font-size": "26px !important"
+            "font-size": "26px !important",
           },
-          attrs: { text: "Jobs" }
+          attrs: { text: "Jobs" },
         }),
         _vm._v(" "),
         _c("sub-heading", {
           staticStyle: {
             "margin-bottom": "10px !important",
-            "font-weight": "600 !important"
+            "font-weight": "600 !important",
           },
-          attrs: { text: _vm.jobDetails.title }
+          attrs: { text: _vm.jobDetails.title },
         }),
         _vm._v(" "),
         _c("paragraph", { attrs: { text: _vm.jobDetails.description } }),
@@ -1318,11 +1319,11 @@ var render = function() {
             attrs: {
               value: "Submit",
               "data-toggle": "modal",
-              "data-target": "#applyModal"
-            }
+              "data-target": "#applyModal",
+            },
           },
           [_vm._v("\n      Apply\n    ")]
-        )
+        ),
       ],
       1
     ),
@@ -1334,14 +1335,14 @@ var render = function() {
             "div",
             {
               staticClass: "modal-body",
-              staticStyle: { background: "#dcdcdc !important" }
+              staticStyle: { background: "#dcdcdc !important" },
             },
             [
               _c(
                 "button",
                 {
                   staticClass: "close",
-                  attrs: { type: "button", "data-dismiss": "modal" }
+                  attrs: { type: "button", "data-dismiss": "modal" },
                 },
                 [_vm._v("×")]
               ),
@@ -1349,15 +1350,15 @@ var render = function() {
               _vm.jobDetails.title
                 ? _c("applicationForm", {
                     staticClass: "appDiv",
-                    attrs: { job: _vm.jobDetails.title }
+                    attrs: { job: _vm.jobDetails.title },
                   })
-                : _vm._e()
+                : _vm._e(),
             ],
             1
-          )
-        ])
-      ])
-    ])
+          ),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -1707,7 +1708,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JobPage_vue_vue_type_style_index_0_id_204b032e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./JobPage.vue?vue&type=style&index=0&id=204b032e&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/front/pages/AboutUs/JobPage.vue?vue&type=style&index=0&id=204b032e&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JobPage_vue_vue_type_style_index_0_id_204b032e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JobPage_vue_vue_type_style_index_0_id_204b032e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JobPage_vue_vue_type_style_index_0_id_204b032e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JobPage_vue_vue_type_style_index_0_id_204b032e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JobPage_vue_vue_type_style_index_0_id_204b032e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_JobPage_vue_vue_type_style_index_0_id_204b032e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

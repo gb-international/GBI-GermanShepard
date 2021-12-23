@@ -175,7 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -183,18 +183,18 @@ var render = function() {
     scopedSlots: _vm._u([
       {
         key: "formdata",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "form",
               {
                 attrs: { role: "form", enctype: "multipart/form-data" },
                 on: {
-                  submit: function($event) {
+                  submit: function ($event) {
                     $event.preventDefault()
                     return _vm.updateCity()
-                  }
-                }
+                  },
+                },
               },
               [
                 _vm.form.country_id
@@ -205,7 +205,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "country_id" } }, [
-                              _vm._v("Country name")
+                              _vm._v("Country name"),
                             ]),
                             _vm._v(" "),
                             _c("dropdown-list", {
@@ -213,19 +213,19 @@ var render = function() {
                               attrs: { itemList: _vm.options },
                               model: {
                                 value: _vm.form.country_id,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(_vm.form, "country_id", $$v)
                                 },
-                                expression: "form.country_id"
-                              }
+                                expression: "form.country_id",
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "country_id" }
-                            })
+                              attrs: { form: _vm.form, field: "country_id" },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-4" }, [
@@ -234,7 +234,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "state_id" } }, [
-                              _vm._v("State name")
+                              _vm._v("State name"),
                             ]),
                             _vm._v(" "),
                             _c("dropdown-list", {
@@ -242,19 +242,19 @@ var render = function() {
                               attrs: { itemList: _vm.state_list },
                               model: {
                                 value: _vm.form.state_id,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(_vm.form, "state_id", $$v)
                                 },
-                                expression: "form.state_id"
-                              }
+                                expression: "form.state_id",
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "state_id" }
-                            })
+                              attrs: { form: _vm.form, field: "state_id" },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-4" }, [
@@ -263,7 +263,7 @@ var render = function() {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "name" } }, [
-                              _vm._v("City Name")
+                              _vm._v("City Name"),
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -272,20 +272,20 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.name,
-                                  expression: "form.name"
-                                }
+                                  expression: "form.name",
+                                },
                               ],
                               staticClass: "form-control",
                               class: {
-                                "is-invalid": _vm.form.errors.has("name")
+                                "is-invalid": _vm.form.errors.has("name"),
                               },
                               attrs: {
                                 type: "text",
-                                placeholder: "Enter City Name"
+                                placeholder: "Enter City Name",
                               },
                               domProps: { value: _vm.form.name },
                               on: {
-                                input: function($event) {
+                                input: function ($event) {
                                   if ($event.target.composing) {
                                     return
                                   }
@@ -294,29 +294,29 @@ var render = function() {
                                     "name",
                                     $event.target.value
                                   )
-                                }
-                              }
+                                },
+                              },
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "name" }
-                            })
+                              attrs: { form: _vm.form, field: "name" },
+                            }),
                           ],
                           1
-                        )
-                      ])
+                        ),
+                      ]),
                     ])
                   : _vm._e(),
                 _vm._v(" "),
-                _c("form-buttons")
+                _c("form-buttons"),
               ],
               1
-            )
+            ),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []

@@ -89,7 +89,7 @@ class TourController extends Controller{
         // if user is incharge
         if($user->is_incharge == 1){
             $travels = Tour::where('school_id',$request->school_id)
-                ->with('itinerary:id,title,detail_photo')
+                ->with('itinerary')
                 ->select('id','tour_start_date','travel_code','tour_end_date','itinerary_id','tour_id')
                 ->get();
             foreach ($travels as $travel) {

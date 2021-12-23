@@ -312,7 +312,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -331,7 +331,7 @@ var render = function() {
                         " - ( " +
                         _vm._s(_vm.transport_info.code) +
                         " )"
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("p", [
@@ -340,15 +340,15 @@ var render = function() {
                         _vm._s(_vm.transport_info.source) +
                           " - " +
                           _vm._s(_vm.transport_info.destination)
-                      )
-                    ])
-                  ])
+                      ),
+                    ]),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-6" }, [
                   _c("p", [
                     _c("b", [_vm._v("Tour Code")]),
-                    _vm._v(" : " + _vm._s(_vm.$route.params.tour_id))
+                    _vm._v(" : " + _vm._s(_vm.$route.params.tour_id)),
                   ]),
                   _vm._v(" "),
                   _c("p", [
@@ -358,14 +358,14 @@ var render = function() {
                         _vm._s(_vm.transport_info.departure) +
                         " - " +
                         _vm._s(_vm.transport_info.arrival)
-                    )
-                  ])
-                ])
+                    ),
+                  ]),
+                ]),
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "text-center" }, [
-                _c("b", [_vm._v(_vm._s(_vm.heading))])
-              ])
+                _c("b", [_vm._v(_vm._s(_vm.heading))]),
+              ]),
             ]),
             _vm._v(" "),
             _c(
@@ -376,17 +376,17 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "tbody",
-                  _vm._l(_vm.resultQuery, function(user, index) {
+                  _vm._l(_vm.resultQuery, function (user, index) {
                     return _c("tr", { key: index }, [
                       _c("td", [_vm._v(_vm._s(user.name))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(user.pnr_number))])
+                      _c("td", [_vm._v(_vm._s(user.pnr_number))]),
                     ])
                   }),
                   0
-                )
+                ),
               ]
-            )
+            ),
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -399,46 +399,46 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.searchQuery,
-                  expression: "searchQuery"
-                }
+                  expression: "searchQuery",
+                },
               ],
               staticClass: "form-control py-2 border-right-0 border",
               attrs: {
                 type: "search",
                 value: "search",
                 id: "example-search-input",
-                placeholder: "Search .."
+                placeholder: "Search ..",
               },
               domProps: { value: _vm.searchQuery },
               on: {
-                input: function($event) {
+                input: function ($event) {
                   if ($event.target.composing) {
                     return
                   }
                   _vm.searchQuery = $event.target.value
-                }
-              }
+                },
+              },
             }),
             _vm._v(" "),
-            _vm._m(1)
-          ])
-        ])
+            _vm._m(1),
+          ]),
+        ]),
       ]),
       _vm._v(" "),
       _c("hr", { staticClass: "pb-2" }),
       _vm._v(" "),
-      _vm._l(_vm.resultQuery, function(user, index) {
+      _vm._l(_vm.resultQuery, function (user, index) {
         return _c("div", { key: user.id, staticClass: "row mb-1" }, [
           _c("div", { staticClass: "col-sm-1 text-center pt-1" }, [
-            _c("span", [_vm._v(_vm._s(++index))])
+            _c("span", [_vm._v(_vm._s(++index))]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-5 pt-1" }, [
             _c("input", {
               staticClass: "pl-2",
               attrs: { type: "text", readonly: "" },
-              domProps: { value: user.name }
-            })
+              domProps: { value: user.name },
+            }),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-5" }, [
@@ -450,17 +450,17 @@ var render = function() {
                     name: "model",
                     rawName: "v-model",
                     value: user.pnr_id,
-                    expression: "user.pnr_id"
-                  }
+                    expression: "user.pnr_id",
+                  },
                 ],
                 staticClass: "form-control select-field",
                 on: {
-                  change: function($event) {
+                  change: function ($event) {
                     var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
+                      .call($event.target.options, function (o) {
                         return o.selected
                       })
-                      .map(function(o) {
+                      .map(function (o) {
                         var val = "_value" in o ? o._value : o.value
                         return val
                       })
@@ -469,10 +469,10 @@ var render = function() {
                       "pnr_id",
                       $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                     )
-                  }
-                }
+                  },
+                },
               },
-              _vm._l(_vm.pnrList, function(pnr) {
+              _vm._l(_vm.pnrList, function (pnr) {
                 return _c(
                   "option",
                   { key: pnr.pnr_number, domProps: { value: pnr.id } },
@@ -480,7 +480,7 @@ var render = function() {
                 )
               }),
               0
-            )
+            ),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-1" }, [
@@ -488,16 +488,16 @@ var render = function() {
               ? _c("img", {
                   staticClass: "edit",
                   attrs: {
-                    src: _vm.$gbiAssets + "/assets/front/icons/update.png"
+                    src: _vm.$gbiAssets + "/assets/front/icons/update.png",
                   },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.update_row(user.pnr_id, user.id)
-                    }
-                  }
+                    },
+                  },
                 })
-              : _vm._e()
-          ])
+              : _vm._e(),
+          ]),
         ])
       }),
       _vm._v(" "),
@@ -510,13 +510,13 @@ var render = function() {
                   staticClass: "btn p-1 btn-gbi text-white text-uppercase",
                   attrs: { type: "button" },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.addData()
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("Submit")]
-              )
+              ),
             ])
           : _c("div", { staticClass: "col-sm-3 mt-4" }, [
               _c(
@@ -524,28 +524,28 @@ var render = function() {
                 {
                   staticClass: "btn text-white p-1 btn-gbi",
                   attrs: { type: "button" },
-                  on: { click: _vm.print }
+                  on: { click: _vm.print },
                 },
                 [_vm._v("Print")]
-              )
-            ])
-      ])
+              ),
+            ]),
+      ]),
     ],
     2
   )
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("th", [_vm._v("User Name")]),
       _vm._v(" "),
-      _c("th", [_vm._v("PNR Number")])
+      _c("th", [_vm._v("PNR Number")]),
     ])
   },
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -554,12 +554,12 @@ var staticRenderFns = [
         "button",
         {
           staticClass: "btn btn-outline-secondary border-left-0 border",
-          attrs: { type: "button" }
+          attrs: { type: "button" },
         },
         [_c("i", { staticClass: "fa fa-search" })]
-      )
+      ),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
