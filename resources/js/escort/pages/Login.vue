@@ -90,7 +90,7 @@ export default {
     },
 
     validateOTP() {
-      //if (this.form.otp != "" && this.form.otp_id != "") {
+      if (this.form.otp != "" && this.form.otp_id != "") {
         this.$toast.fire({
             icon: "success",
             title: "Welcome to dashbaord",
@@ -98,7 +98,7 @@ export default {
         this.$cookies.set("escort_id", this.form.escort_id);
         this.$cookies.set("escort_name", this.form.escort_name);
         this.$router.go('/escort/tour-list');
-        /*axios.post("/escort/login-verify", this.form).then((response) => {
+        axios.post("/escort/login-verify", this.form).then((response) => {
             if (response.data.type == "success") {
                 this.$toast.fire({
                 icon: "success",
@@ -114,8 +114,8 @@ export default {
                 title: "Please Enter Valid OTP",
                 });
             }
-        });*/
-      //}
+        });
+      }
     },
   },
 };

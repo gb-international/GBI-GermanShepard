@@ -16,7 +16,7 @@ class HotelController extends Controller{
     {
         $data = Hotel::where('city', $request->location)
             ->where('category',$request->room_type)
-            ->where('room', '>=', $request->rooms)
+            //->where('room', '>=', $request->rooms)
             ->get();
         return response()->json($data);
     }

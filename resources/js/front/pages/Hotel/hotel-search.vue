@@ -149,7 +149,7 @@ export default {
         this.hotel_data = response.data;
         if(response.data.length <= 0){
           this.$swal.fire("Sorry", "No Hotels found.", "info");
-          //this.$router.push('/explore-destination')
+          this.$router.push('/explore-destination')
         }
       });
     }

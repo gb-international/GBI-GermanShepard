@@ -1,14 +1,16 @@
 @extends('admin.app')
 
 @section('content')
+{{-- <form method="POST" action="{{ secure_asset(env('APP_URL').'/login') }}"> --}}
+<form method="POST" action="{{ route('login') }}">
+    @csrf
 <div>
     <div class="row justify-content-center" style="margin:auto;">
         <div class="col-md-4" id="admin_login_form">
             
             <p class="text-center"><img class="admin_logo" src="{{asset('assets/admin/default/icon/admin_logo.png')}}"></p>
             {{-- <p class="text-center"><img class="admin_logo" src="{{secure_asset('assets/admin/default/icon/admin_logo.png')}}"></p> --}}
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
+            
 
                 <div class="form-group">
                     <input id="email" type="email" placeholder="Enter Email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
@@ -52,10 +54,11 @@
                     @endif
                    
                 </div>
-            </form>
+            
         </div>
     </div>
 </div>
+</form>
 @endsection
 @section('style')
 <style>
