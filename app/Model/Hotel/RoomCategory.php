@@ -8,7 +8,7 @@ class RoomCategory extends Model
 {
     protected $guarded = [];
 
-    protected $table = "room-categories";
+    protected $table = "room_categories";
 
 
     public function hotel(){

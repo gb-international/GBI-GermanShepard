@@ -8,7 +8,7 @@ class BanquetCategory extends Model
 {
     protected $guarded = [];
 
-    protected $table = "banquet-categories";
+    protected $table = "banquet_categories";
 
 
     public function hotel(){

@@ -4,7 +4,7 @@
   ****************************************************-->
 <section class="d-flex flex-column justify-content-center" style="background: white !important">
   <!-- Row 1 -->
-  <div class="d-flex justify-content-center align-items-center mainRow1 container" style="background: white !important">
+  <div class="d-flex justify-content-center align-items-start mainRow1 container" style="background: white !important">
     <div class="p-2 d-flex flex-column expDetCol1">
         <img 
           :src="selectedPhoto"
@@ -24,6 +24,48 @@
             </div>
           </VueSlickCarousel>
         </div>
+
+      <div class="custom-div mt-4">
+        <div class="custom-flex mt-2">
+          <div class="icons" :style="iconSelected == 'Safety' ? 'border-bottom: 2px solid #00c4c4' : ''" @click="changeIcon('Safety')">
+            Safety
+          </div>
+          <div class="icons" :style="iconSelected == 'Rooms' ? 'border-bottom: 2px solid #00c4c4' : ''" @click="changeIcon('Rooms')">
+            Rooms
+          </div>
+          <div class="icons" :style="iconSelected == 'Amenities' ? 'border-bottom: 2px solid #00c4c4' : ''" @click="changeIcon('Amenities')">
+            Amenities
+          </div>
+          <div class="icons" :style="iconSelected == 'Policies' ? 'border-bottom: 2px solid #00c4c4' : ''" @click="changeIcon('Policies')">
+            Policies
+          </div>
+          <div class="icons" :style="iconSelected == 'Location' ? 'border-bottom: 2px solid #00c4c4;' : ''" @click="changeIcon('Location')">
+            Location
+          </div>
+          <div class="icons" :style="iconSelected == 'Property' ? 'border-bottom: 2px solid #00c4c4;' : ''" @click="changeIcon('Property')">
+            Property
+          </div>
+          <div class="icons" :style="iconSelected == 'Similar' ? 'border-bottom: 2px solid #00c4c4;' : ''" @click="changeIcon('Similar')">
+            Similar
+          </div>
+        </div>
+        <div v-if="iconSelected == 'Rooms'" class="mx-3 my-3">
+          <Rooms class="mb-2"/>
+          <Rooms />
+        </div>
+        <div v-if="iconSelected == 'Amenities'" class="mx-3 my-3">
+          <div class="d-flex justify-content-around">
+            <p class="amenP"><i class="fas fa-bed mr-2"></i> Superior Room Twin Beds</p>
+            <p class="amenP"><i class="fas fa-wind mr-2"></i> Air Condition</p>
+            <p class="amenP"><i class="fas fa-warehouse mr-2"></i> Banquet Hall</p>
+          </div>
+          <p class="amenity">Amenities</p>
+        </div>
+        <div v-else style="margin: 20vh 2vw;">
+
+        </div>
+      </div>
+
     </div>
     <div class="expDetCol2Main">
       <div class="expDetCol2">
@@ -84,13 +126,15 @@
 
 <script>
 import  booking  from "@/front/components/Booking.vue";
+import  Rooms  from "@/front/components/hotel/rooms.vue";
 import VueSlickCarousel from "vue-slick-carousel";
 
 export default {
   name: "HotelDetail",
   components: {
     booking,
-    VueSlickCarousel
+    VueSlickCarousel,
+    Rooms
   },
   metaInfo: {
     title: "GBI Hotel Details",
@@ -130,7 +174,8 @@ export default {
       city_list:[],
       login:false,
       loading:true,
-      photo: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg"
+      photo: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+      iconSelected: 'Safety',
     };
   },   
   watch: {
@@ -168,6 +213,9 @@ export default {
     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
   },
   methods: {
+    changeIcon(val){
+      this.iconSelected = val;
+    },
     changeItDiv(id){
       if(this.selectedDay == id){
         this.selectedDay = null
@@ -214,6 +262,39 @@ export default {
 </script>
 
 <style scoped>
+.amenP{
+  font-size: 14px;
+  font-weight: 400;
+  color: #767676;
+}
+.amenity{
+  margin: 5px 0px;
+  color: #00c4c4;
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+.icons{
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 6px;
+}
+.custom-div{
+  margin-top: 26px !important;
+  padding-top: 0.2vh !important;
+  margin-right: 20px;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2px 7px 0 rgb(0 0 0 / 19%);
+}
+.custom-flex {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  flex-direction: row;
+  font-size: 18px;
+  font-weight: 400;
+}
 .mainRow1{
   margin-top: 20px;
   margin-bottom: 21px;
