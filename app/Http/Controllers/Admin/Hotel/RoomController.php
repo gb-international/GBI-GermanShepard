@@ -26,16 +26,16 @@ class RoomController extends Controller
     public function all($size)
     {
         return response()->json(HotelRooms::select([
-            'id','type','name','address','phoneno'
+            'id','name', 'room_category', 'room_price'
             ])
             ->latest('updated_at')
             ->paginate($size));
     }
     public function index()
     {
-        $room = HotelRooms::select('name','id')->get();
+        $room = HotelRooms::select('id','name', 'room_category', 'room_price')->get();
         return response()->json($room);
-        return RoomCollection::collection(HotelRooms::all());
+        //return RoomCollection::collection(HotelRooms::all());
     }
 
     /**
@@ -58,8 +58,13 @@ class RoomController extends Controller
     {
         $data = $this->validateRoom($request);
         if($request->image){
-            $data['image'] = $this->AwsFileUpload($request->image,config('gbi.room_image'),$request->alt);
+            $count = 0;
+            foreach($request->image as $img){
+              $data['image'][$count] = $this->AwsFileUpload($img,config('gbi.room_image'),$request->alt);
+              $count++;
+            }
         }
+        $data['image'] = serialize($data['image']);
         $room = HotelRooms::create($data);
         return response()->json(['Message'=> 'Successfully Added...']);
     }
@@ -95,15 +100,16 @@ class RoomController extends Controller
      */
     public function update(Request $request, HotelRooms $room)
     {
-
         $data = $this->validateRoom($request);
-        if($request->image != $room->image){
-          
-            $data['image'] = $this->AwsFileUpload($request->image,config('gbi.room_image'),$request->alt);
-            $this->AwsDeleteImage($room->image);
-        }else{
-            unset($data['image']);
-            unset($data['alt']);
+        if($request->image){
+            $count = 0;
+            foreach($request->image as $img){
+             if($img != $room->image[$count]){
+                $data['image'][$count] = $this->AwsFileUpload($img,config('gbi.room_image'),$request->alt);
+                $this->AwsDeleteImage($room->image[$count]);
+             }
+             $count++;
+            }
         }
         $room->update($data);
         return response()->json(['message'=>$data]);
@@ -129,19 +135,23 @@ class RoomController extends Controller
     {
          return $this->validate($request, [
 
-            'type' => 'required',
+            'hotel_id' => 'required',
             'name' => ['required',new AlphaSpace],
             'room_category' => 'required',
-            'max_occ' => 'required',
-            'description' => 'required',
-            'banquet_category' => 'required',
+            'room_price' => 'required',
+            'ep_price' => 'required',
+            'cp_price' => 'required',
+            'map_price' => 'required',
+            'apai_price' => 'required',
             'amenities' => 'required',
             'description' => 'required',
             'dimensions' => 'required',
-            'room_photos' => 'required',
-            'amenities' => 'required',
-            'booked_from' => 'required',
-            'booked_till' => 'required',          
+            'room_images' => 'required',
+            'occupancy_type' => 'required',
+            'occ_price' => 'required',
+            'max_occ' => 'required',
+            'check_in' => 'required',
+            'chceck_out' => 'required',          
       ]);
     }
 

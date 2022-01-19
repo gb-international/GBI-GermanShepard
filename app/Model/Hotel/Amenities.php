@@ -11,12 +11,16 @@ class Amenities extends Model
     protected $table = "amenities";
 
 
-    public function hotel(){
-        return $this->hasMany('App\Model\Hotel\HotelNew');
+    public function hotels(){
+        return $this->hasMany('App\Model\Hotel\Hotel');
+    }
+
+    public function banquets(){
+        return $this->hasMany('App\Model\Hotel\Banquet');
     }
 
     public function rooms(){
-        return $this->hasMany('App\Model\Hotel\HotelNew');
+        return $this->hasMany('App\Model\Hotel\HotelRooms');
     }
 
 }

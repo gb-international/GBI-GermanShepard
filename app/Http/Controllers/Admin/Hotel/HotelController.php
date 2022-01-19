@@ -26,15 +26,12 @@ class HotelController extends Controller
 
     public function all($size)
     {
-        return response()->json(Hotel::select([
-            'id','type','name','address','phoneno'
-            ])
-            ->latest('updated_at')
+        return response()->json(Hotel::latest('updated_at')
             ->paginate($size));
     }
     public function index()
     {
-        $hotel = Hotel::select('name','id')->get();
+        $hotel = Hotel::get();
         return response()->json($hotel);
         return HotelCollection::collection(Hotel::all());
     }

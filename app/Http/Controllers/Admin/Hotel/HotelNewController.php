@@ -36,7 +36,7 @@ class HotelNewController extends Controller
     {
         $hotel = Hotel::select('name','id')->get();
         return response()->json($hotel);
-        return HotelCollection::collection(Hotel::all());
+        //return HotelCollection::collection(Hotel::all());
     }
 
     /**
@@ -130,13 +130,12 @@ class HotelNewController extends Controller
     {
          return $this->validate($request, [
 
-            'address' => 'required|min:3',
             'type' => 'required',
             'name' => ['required',new AlphaSpace],
             'state'=>'required',
             'city' =>'required',
             'pincode' => 'required',
-            'country' => required,
+            'country' => 'required',
             'address' => 'required',
             'phoneno' => ['required','numeric',new PhoneNubmerValidate],
             'email' => ['required','email',new EmailValidate],

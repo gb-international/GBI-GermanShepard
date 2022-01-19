@@ -54,8 +54,8 @@ mix.webpackConfig(webpack => {
 
 
 //admin
- mix.js('resources/js/admin/admin.js', 'public/js/admin').vue()
-   .sass('resources/sass/admin/app.scss', 'public/css/admin')
+mix.js('resources/js/admin/admin.js', 'public/js/admin').vue()
+  .sass('resources/sass/admin/app.scss', 'public/css/admin')
 
 
 //escort

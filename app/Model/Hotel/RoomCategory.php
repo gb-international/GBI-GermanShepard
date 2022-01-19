@@ -12,11 +12,11 @@ class RoomCategory extends Model
 
 
     public function hotel(){
-        return $this->hasMany('App\Model\Hotel\HotelNew');
+        return $this->hasMany('App\Model\Hotel\Hotel');
     }
 
     public function rooms(){
-        return $this->hasMany('App\Model\Hotel\HotelNew');
+        return $this->hasMany('App\Model\Hotel\HotelRooms');
     }
 
 }

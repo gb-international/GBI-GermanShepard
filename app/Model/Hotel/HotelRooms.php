@@ -8,7 +8,7 @@ class HotelRooms extends Model
 {
     protected $guarded = [];
 
-    protected $table = "hotel-rooms";
+    protected $table = "hotel_rooms";
 
     public function getImageAttribute($image)
     {
@@ -20,11 +20,11 @@ class HotelRooms extends Model
     }
 
     public function hotel(){
-        return $this->belongsTo('App\Model\Hotel\HotelNew');
+        return $this->belongsTo('App\Model\Hotel\Hotel');
     }
 
     public function category(){
-        return $this->hasMany('App\Model\Hotel\RoomCategory');
+        return $this->hasOne('App\Model\Hotel\RoomCategory');
     }
 
     public function amenities(){

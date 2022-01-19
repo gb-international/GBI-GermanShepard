@@ -49,6 +49,34 @@
             Similar
           </div>
         </div>
+      </div>
+      <!-- <div class="itineraryDiv">
+        <div class="singleItneraryDivMain" v-for="data in icon_list" :key="data" @click="changeIcon(data)">
+          <div class="singleItneraryDiv d-flex justify-content-between">
+            <p>{{data}}</p>
+            <i :class="iconSelected == data ? 'fas fa-sort-up mt-2' : 'fas fa-sort-down' "></i>
+          </div>
+          <div v-if="iconSelected == data" class="singleItneraryDiv2">
+             <div v-if="iconSelected == 'Rooms'" class="mx-3 my-3">
+              <Rooms class="mb-2"/>
+              <Rooms />
+            </div>
+            <div v-if="iconSelected == 'Amenities'" class="mx-3 my-3">
+              <div class="d-flex justify-content-around">
+                <p class="amenP"><i class="fas fa-bed mr-2"></i> Superior Room Twin Beds</p>
+                <p class="amenP"><i class="fas fa-wind mr-2"></i> Air Condition</p>
+                <p class="amenP"><i class="fas fa-warehouse mr-2"></i> Banquet Hall</p>
+              </div>
+              <p class="amenity">Amenities</p>
+            </div>
+            <div v-else style="margin: 20vh 2vw;">
+
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="custom-div2">
         <div v-if="iconSelected == 'Rooms'" class="mx-3 my-3">
           <Rooms class="mb-2"/>
           <Rooms />
@@ -106,7 +134,7 @@
           <p class="ml-auto p2">₹10000</p>
         </div>
       </div>
-      <button class="btn btnPay">Pay Now</button>
+      <button class="btn btnPay">Book Now</button>
     </div>
   </div>
 
@@ -117,7 +145,7 @@
       <span class="smallP">(Incl. all taxes)</span>
       <p class="p2">₹10000</p>
     </div>
-    <button class="btn btnConfirm ml-auto">Pay Now</button>
+    <button class="btn btnConfirm ml-auto">Book Now</button>
   </div>
 
 </section>
@@ -159,6 +187,7 @@ export default {
     return {
       selectedPhoto: 'https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg',
       selectedDay: null,
+      icon_list: ['Safety', 'Rooms', 'Amenities', 'Policies', 'Location', 'Property', 'Similar'],
       settings: {
         dots: true,
         infinite: true,
@@ -282,7 +311,14 @@ export default {
   padding: 2px 6px;
 }
 .custom-div{
+  display: none;
   margin-top: 26px !important;
+  padding-top: 0.2vh !important;
+  margin-right: 20px;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2px 7px 0 rgb(0 0 0 / 19%);
+}
+.custom-div2{
+  margin-top: 5px !important;
   padding-top: 0.2vh !important;
   margin-right: 20px;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2px 7px 0 rgb(0 0 0 / 19%);
@@ -330,6 +366,9 @@ export default {
   background: white;
 }
 @media (min-width: 768px) {
+  .custom-div {
+    display: inline;
+  }
   .expDetailImgSmall{
     width:  100px;
     height: 100px;

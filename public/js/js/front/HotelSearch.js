@@ -1,9 +1,9 @@
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["js/front/HotelSearch"],{
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Booking.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Booking.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/HotelBooking.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/HotelBooking.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -192,78 +192,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -272,28 +200,30 @@ __webpack_require__.r(__webpack_exports__);
     multiselect: (vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default()),
     "has-error": vform__WEBPACK_IMPORTED_MODULE_1__.HasError
   },
-  props: ["list", "title", "selected_cities", "city_list"],
+  props: ["title", "n_guests", "n_rooms", "n_room_type", "n_hotel_price", "n_hotel_id"],
   data: function data() {
     return {
       transports: ["Bus", "Train", "Air"],
       sightseeing_list: "",
       travel_type_list: ["Train", "AC Bus", "Flight", "Train", "Flight", "Train", "AC Bus"],
-      occupancy_list: ["Single", "Double", "Triple", "Quad"],
+      room_list: ["Single", "Double", "Triple", "Quad"],
+      meal_list: ["No Meals", "Breakfast", "Breakfast + 1 Meal", "All 3 meals"],
+      roomCat_list: ["Normal", "Twin Bed", "Single Bed", "Deluxe"],
       form: new vform__WEBPACK_IMPORTED_MODULE_1__.Form({
-        state_date: "",
+        user_id: "",
+        start_date: "",
         end_date: "",
         person: 2,
         adults: 2,
         children: 0,
         infants: 0,
         room: 1,
-        occupancy_type: "",
-        city_id: [],
-        sightseen: "",
-        transport: "",
-        noofday: 1,
-        accommodation: 3,
-        itinerary_id: ""
+        room_type: "",
+        meal_plan: "",
+        customer_id: "",
+        hotel_id: "",
+        price: "",
+        room_category: ""
       }),
       customize_btn: true,
       back_btn: false,
@@ -302,7 +232,8 @@ __webpack_require__.r(__webpack_exports__);
       second_form: false,
       groupAlert: false,
       showPersonModal: false,
-      people: 2
+      people: 2,
+      loading: true
     };
   },
   watch: {
@@ -310,9 +241,13 @@ __webpack_require__.r(__webpack_exports__);
       this.sightseeingData(this.form.city_id);
     }
   },
-  created: function created() {
-    this.form.itinerary_id = this.$route.params.id;
-    this.selectedItineraryCities();
+  mounted: function mounted() {
+    this.form.room = this.n_rooms;
+    this.form.person = this.n_guests;
+    this.form.room_type = this.n_room_type;
+    this.form.hotel_id = this.n_hotel_id;
+    this.form.price = this.n_hotel_price;
+    this.loading = false;
   },
   methods: {
     incrVal: function incrVal(data) {
@@ -375,19 +310,6 @@ __webpack_require__.r(__webpack_exports__);
         _this.sightseeing_list = response.data;
       });
     },
-    secondForm: function secondForm() {
-      if (this.back_btn == false) {
-        this.back_btn = true;
-        this.customize_btn = false;
-        this.first_form = false;
-        this.second_form = true;
-      } else {
-        this.customize_btn = true;
-        this.back_btn = false;
-        this.first_form = true;
-        this.second_form = false;
-      }
-    },
     down: function down() {
       if (this.form.noofday > 1) {
         this.form.noofday = this.form.noofday - 1;
@@ -396,19 +318,8 @@ __webpack_require__.r(__webpack_exports__);
     up: function up() {
       this.form.noofday = this.form.noofday + 1;
     },
-    cityList: function cityList() {
-      var _this2 = this;
-
-      this.$axios.get("/api/city").then(function (response) {
-        for (var i = 0; i < response.data.data.length; i++) {
-          _this2.options.push({
-            value: response.data.data[i].name
-          });
-        }
-      });
-    },
     BookingSubmit: function BookingSubmit() {
-      var _this3 = this;
+      var _this2 = this;
 
       if (this.$cookies.get('access_token') == null) {
         window.$(".close").click();
@@ -420,28 +331,30 @@ __webpack_require__.r(__webpack_exports__);
         return false;
       }
 
-      this.form.itinerary_id = this.$route.params.id;
-      this.form.post("/api/booking", {
+      var user = this.$cookies.get('user');
+      console.log(user);
+      this.form.user_id = user.id;
+      this.form.post("/api/hotel-booking", {
         headers: {
           Authorization: "Bearer ".concat(this.$cookies.get('access_token'))
         }
       }).then(function (response) {
-        _this3.form.reset();
+        _this2.form.reset();
 
         window.$(".close").click();
 
-        _this3.$swal.fire({
+        _this2.$swal.fire({
           icon: "success",
           title: "Booking Inquiry Sent",
           text: "We will contact you soon !!"
         });
       })["catch"](function (error) {
-        _this3.$swal.fire({
+        _this2.$swal.fire({
           icon: "error",
           title: "Please provide valid details"
         });
 
-        _this3.handleError(error);
+        _this2.handleError(error);
       });
     }
   }
@@ -460,11 +373,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _front_components_Booking_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/front/components/Booking.vue */ "./resources/js/front/components/Booking.vue");
+/* harmony import */ var _front_components_HotelBooking_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/front/components/HotelBooking.vue */ "./resources/js/front/components/HotelBooking.vue");
 /* harmony import */ var vue_slick_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-slick-carousel */ "./node_modules/vue-slick-carousel/dist/vue-slick-carousel.umd.js");
 /* harmony import */ var vue_slick_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_slick_carousel__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_2__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -555,7 +516,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "HotelSearch",
   components: {
-    booking: _front_components_Booking_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    booking: _front_components_HotelBooking_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     VueSlickCarousel: (vue_slick_carousel__WEBPACK_IMPORTED_MODULE_1___default()),
     Form: vform__WEBPACK_IMPORTED_MODULE_2__.Form
   },
@@ -576,6 +537,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       hotel_data: null,
       apiFailed: false,
+      login: false,
       searchForm: new vform__WEBPACK_IMPORTED_MODULE_2__.Form({
         location: '',
         rooms: '',
@@ -584,8 +546,18 @@ __webpack_require__.r(__webpack_exports__);
       })
     };
   },
-  watch: {},
-  mounted: function mounted() {},
+  watch: {
+    '$store.state.token': function $storeStateToken() {
+      if (this.$store.state.token) {
+        this.login = true;
+      }
+    }
+  },
+  mounted: function mounted() {
+    if (this.$cookies.get('access_token') != null) {
+      this.login = true;
+    }
+  },
   beforeCreate: function beforeCreate() {},
   created: function created() {
     this.getHotels();
@@ -620,10 +592,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/HotelBooking.vue?vue&type=style&index=0&id=4a2cc9ec&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/HotelBooking.vue?vue&type=style&index=0&id=4a2cc9ec&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -637,7 +609,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.marginT[data-v-31645f64] {\n  margin-top: 10px !important;\n}\nlegend[data-v-31645f64] {\n    padding-bottom: 14px;\n    text-align: left;\n}\nfieldset[data-v-31645f64] {\n    margin-bottom: 14px;\n    padding-bottom: 14px;\n}\nfieldset[data-v-31645f64], input[type=\"button\"][data-v-31645f64] {\n    border: 0;\n}\ninput[type=\"button\"][data-v-31645f64] {\n    background: #01c5c4;\n    color: #fff;\n    cursor: pointer;\n    width: 35px;\n    height: 35px;\n    font-size: 17px;\n    border-radius: 20px;\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-31645f64] {\n    border: 1px solid #F4F3F3;\n    height: 40px;\n    width: 60%;\n    text-align: center;\n    outline: 2px solid transparent;\n    outline-offset: 2px;\n}\n.personLables[data-v-31645f64]{\n  color: grey;\n  text-align: center;\n  font-weight: 600;\n}\n.btn-primary[data-v-31645f64]{\n  background: #01c5c4 !important;\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.profile_button[data-v-31645f64]{\n  background: #01c5c4 !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.marginT[data-v-4a2cc9ec] {\r\n  margin-top: 10px !important;\n}\nlegend[data-v-4a2cc9ec] {\r\n    padding-bottom: 14px;\r\n    text-align: left;\n}\nfieldset[data-v-4a2cc9ec] {\r\n    margin-bottom: 14px;\r\n    padding-bottom: 14px;\n}\nfieldset[data-v-4a2cc9ec], input[type=\"button\"][data-v-4a2cc9ec] {\r\n    border: 0;\n}\ninput[type=\"button\"][data-v-4a2cc9ec] {\r\n    background: #01c5c4;\r\n    color: #fff;\r\n    cursor: pointer;\r\n    width: 35px;\r\n    height: 35px;\r\n    font-size: 17px;\r\n    border-radius: 20px;\r\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-4a2cc9ec] {\r\n    border: 1px solid #F4F3F3;\r\n    height: 40px;\r\n    width: 60%;\r\n    text-align: center;\r\n    outline: 2px solid transparent;\r\n    outline-offset: 2px;\n}\n.personLables[data-v-4a2cc9ec]{\r\n  color: grey;\r\n  text-align: center;\r\n  font-weight: 600;\n}\n.btn-primary[data-v-4a2cc9ec]{\r\n  background: #01c5c4 !important;\r\n  outline: 2px solid transparent;\r\n  outline-offset: 2px;\n}\n.profile_button[data-v-4a2cc9ec]{\r\n  background: #01c5c4 !important;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -661,17 +633,17 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.MainRow[data-v-afd2bd6a] {\r\n  display: flex;\r\n  justify-content: space-between !important;\r\n  width: 100%;\r\n  align-items: center;\n}\n.expDetailImg[data-v-afd2bd6a]{\r\n  width: 230px;\r\n  height: 170px;\r\n  margin-bottom: 10px;\n}\n.expDetailImgSmall[data-v-afd2bd6a]{\r\n  width:  50px;\r\n  height: 50px;\n}\n.customCard[data-v-afd2bd6a]{\r\n  border: 1px solid #8080804d !important;\r\n  border-radius: 0px;\r\n  width: 890px;\r\n  height: 270px;\r\n  padding: 10px;\r\n  margin-bottom: 20px;\n}\n.detailsRow[data-v-afd2bd6a]{\r\n  padding: 0px 20px;\r\n  text-align: right;\n}\np[data-v-afd2bd6a] {\r\n  font-family: Calibri (Body) !important;\n}\n.mainRow1 p[data-v-afd2bd6a] {\r\n    margin-bottom: 5px !important;\n}\n.detailsRow p[data-v-afd2bd6a]{\r\n  margin-bottom: 0px !important;\n}\n.hotelName[data-v-afd2bd6a]{\r\n  font-weight: 600;\r\n  font-size: 18px;\n}\n.locName[data-v-afd2bd6a]{\r\n  font-weight: 400;\r\n  font-size: 18px;\r\n  color: gray;\n}\n.stars[data-v-afd2bd6a]{\r\n  margin-bottom: 20px;\n}\n.stars i[data-v-afd2bd6a]{\r\n  font-size: 18px;\r\n  color: #ffa500;\n}\n.amenP[data-v-afd2bd6a]{\r\n  font-size: 14px;\r\n  font-weight: 400;\r\n  color: #767676;\n}\n.bookBtn[data-v-afd2bd6a]{\r\n    margin: 5px 0px;\r\n    color: white;\r\n    background-color: #00c4c4;\r\n    border-color: #00c4c4;\r\n    padding: 6px 25px 6px 25px;\r\n    width: 95px;\r\n    height: 35px;\r\n    border: 0px;\r\n    font-size: 15px;\r\n    font-weight: 500;\n}\n.bookBtn[data-v-afd2bd6a]:hover{\r\n  box-shadow: 2px 2px grey;\r\n  color: #212529;\n}\n.amenity[data-v-afd2bd6a]{\r\n  margin: 5px 0px;\r\n  color: #00c4c4;\r\n  text-decoration: underline;\r\n  font-weight: 500;\r\n  font-size: 14px;\r\n  cursor: pointer;\n}\n.guests[data-v-afd2bd6a]{\r\n  font-size: 14px;\r\n  font-weight: 500;\n}\n.price[data-v-afd2bd6a]{\r\n  margin-top: 20px;\r\n  font-size: 25px;\r\n  font-weight: 500;\n}\n.taxes[data-v-afd2bd6a]{\r\n  font-size: 14px;\r\n  font-weight: 400;\r\n  color: #2c2929;\n}\n.perRoom[data-v-afd2bd6a]{\r\n  font-size: 13px;\r\n  font-weight: 400;\r\n  color: #2c2929;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.MainRow[data-v-afd2bd6a] {\r\n  display: flex;\r\n  justify-content: space-between !important;\r\n  width: 100%;\r\n  align-items: center;\n}\n.expDetailImg[data-v-afd2bd6a]{\r\n  width: 100%;\r\n  height: auto;\r\n  margin-bottom: 10px;\n}\n.expImgSm[data-v-afd2bd6a]{\r\n  display: none;\n}\n.expDetailImgSmall[data-v-afd2bd6a]{\r\n  width:  50px;\r\n  height: 50px;\n}\n.customCard[data-v-afd2bd6a]{\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n  justify-content: space-between;\r\n  border: 1px solid #8080804d !important;\r\n  border-radius: 0px;\r\n  width: 80vw;\r\n  height: auto;\r\n  padding: 10px;\r\n  margin-bottom: 20px;\n}\n.detailsRow[data-v-afd2bd6a]{\r\n  padding: 0px 20px;\r\n  text-align: right;\n}\np[data-v-afd2bd6a] {\r\n  font-family: Calibri (Body) !important;\n}\n.mainRow1 p[data-v-afd2bd6a] {\r\n    margin-bottom: 5px !important;\n}\n.detailsRow p[data-v-afd2bd6a]{\r\n  margin-bottom: 0px !important;\n}\n.hotelName[data-v-afd2bd6a]{\r\n  font-weight: 600;\r\n  font-size: 16px;\n}\n.locName[data-v-afd2bd6a]{\r\n  font-weight: 400;\r\n  font-size: 16px;\r\n  color: gray;\n}\n.stars[data-v-afd2bd6a]{\r\n  margin-bottom: 20px;\n}\n.stars i[data-v-afd2bd6a]{\r\n  font-size: 18px;\r\n  color: #ffa500;\n}\n.amenP[data-v-afd2bd6a]{\r\n  font-size: 12px;\r\n  font-weight: 400;\r\n  color: #767676;\n}\n.bookBtn[data-v-afd2bd6a]{\r\n    margin: 5px 0px;\r\n    color: white;\r\n    background-color: #00c4c4;\r\n    border-color: #00c4c4;\r\n    padding: 6px 25px 6px 25px;\r\n    width: 95px;\r\n    height: 35px;\r\n    border: 0px;\r\n    font-size: 15px;\r\n    font-weight: 500;\n}\n.bookBtn[data-v-afd2bd6a]:hover{\r\n  box-shadow: 2px 2px grey;\r\n  color: #212529;\n}\n.amenity[data-v-afd2bd6a]{\r\n  margin: 5px 0px;\r\n  color: #00c4c4;\r\n  text-decoration: underline;\r\n  font-weight: 500;\r\n  font-size: 14px;\r\n  cursor: pointer;\n}\n.guests[data-v-afd2bd6a]{\r\n  font-size: 14px;\r\n  font-weight: 500;\n}\n.price[data-v-afd2bd6a]{\r\n  margin-top: 20px;\r\n  font-size: 22px;\r\n  font-weight: 500;\n}\n.taxes[data-v-afd2bd6a]{\r\n  font-size: 13px;\r\n  font-weight: 400;\r\n  color: #2c2929;\n}\n.perRoom[data-v-afd2bd6a]{\r\n  font-size: 13px;\r\n  font-weight: 400;\r\n  color: #2c2929;\n}\n@media (max-width: 768px) and (min-width: 640px) {\n.customCard[data-v-afd2bd6a]{\r\n    width: 65vw;\n}\n}\n@media (min-width: 768px){\n.expDetailImg[data-v-afd2bd6a]{\r\n    width: 230px;\r\n    height: 170px;\r\n    margin-bottom: 10px;\n}\n.expImgSm[data-v-afd2bd6a]{\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: center;\n}\n}\n@media (max-width: 1279px ) and (min-width: 768px){\n.customCard[data-v-afd2bd6a]{\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    border: 1px solid #8080804d !important;\r\n    border-radius: 0px;\r\n    width: 80vw;\r\n    height: 270px;\r\n    padding: 10px;\r\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1280px) {\n.customCard[data-v-afd2bd6a]{\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    border: 1px solid #8080804d !important;\r\n    border-radius: 0px;\r\n    width: 65vw;\r\n    height: 270px;\r\n    padding: 10px;\r\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1536px) {\n.customCard[data-v-afd2bd6a]{\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    border: 1px solid #8080804d !important;\r\n    border-radius: 0px;\r\n    width: 50vw;\r\n    height: 270px;\r\n    padding: 10px;\r\n    margin-bottom: 20px;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/HotelBooking.vue?vue&type=style&index=0&id=4a2cc9ec&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/HotelBooking.vue?vue&type=style&index=0&id=4a2cc9ec&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -681,7 +653,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_style_index_0_id_31645f64_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_style_index_0_id_4a2cc9ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HotelBooking.vue?vue&type=style&index=0&id=4a2cc9ec&scoped=true&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/HotelBooking.vue?vue&type=style&index=0&id=4a2cc9ec&scoped=true&lang=css&");
 
             
 
@@ -690,11 +662,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_style_index_0_id_31645f64_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_style_index_0_id_4a2cc9ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_style_index_0_id_31645f64_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_style_index_0_id_4a2cc9ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -728,10 +700,10 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./resources/js/front/components/Booking.vue":
-/*!***************************************************!*\
-  !*** ./resources/js/front/components/Booking.vue ***!
-  \***************************************************/
+/***/ "./resources/js/front/components/HotelBooking.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/front/components/HotelBooking.vue ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -739,9 +711,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Booking_vue_vue_type_template_id_31645f64_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Booking.vue?vue&type=template&id=31645f64&scoped=true& */ "./resources/js/front/components/Booking.vue?vue&type=template&id=31645f64&scoped=true&");
-/* harmony import */ var _Booking_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Booking.vue?vue&type=script&lang=js& */ "./resources/js/front/components/Booking.vue?vue&type=script&lang=js&");
-/* harmony import */ var _Booking_vue_vue_type_style_index_0_id_31645f64_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css& */ "./resources/js/front/components/Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css&");
+/* harmony import */ var _HotelBooking_vue_vue_type_template_id_4a2cc9ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HotelBooking.vue?vue&type=template&id=4a2cc9ec&scoped=true& */ "./resources/js/front/components/HotelBooking.vue?vue&type=template&id=4a2cc9ec&scoped=true&");
+/* harmony import */ var _HotelBooking_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HotelBooking.vue?vue&type=script&lang=js& */ "./resources/js/front/components/HotelBooking.vue?vue&type=script&lang=js&");
+/* harmony import */ var _HotelBooking_vue_vue_type_style_index_0_id_4a2cc9ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HotelBooking.vue?vue&type=style&index=0&id=4a2cc9ec&scoped=true&lang=css& */ "./resources/js/front/components/HotelBooking.vue?vue&type=style&index=0&id=4a2cc9ec&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -752,19 +724,19 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _Booking_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Booking_vue_vue_type_template_id_31645f64_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _Booking_vue_vue_type_template_id_31645f64_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _HotelBooking_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _HotelBooking_vue_vue_type_template_id_4a2cc9ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _HotelBooking_vue_vue_type_template_id_4a2cc9ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  "31645f64",
+  "4a2cc9ec",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/front/components/Booking.vue"
+component.options.__file = "resources/js/front/components/HotelBooking.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -810,10 +782,10 @@ component.options.__file = "resources/js/front/pages/Hotel/hotel-search.vue"
 
 /***/ }),
 
-/***/ "./resources/js/front/components/Booking.vue?vue&type=script&lang=js&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/front/components/Booking.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
+/***/ "./resources/js/front/components/HotelBooking.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/front/components/HotelBooking.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -821,8 +793,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Booking.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Booking.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HotelBooking.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/HotelBooking.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -842,10 +814,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/front/components/Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css&":
-/*!************************************************************************************************************!*\
-  !*** ./resources/js/front/components/Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css& ***!
-  \************************************************************************************************************/
+/***/ "./resources/js/front/components/HotelBooking.vue?vue&type=style&index=0&id=4a2cc9ec&scoped=true&lang=css&":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/front/components/HotelBooking.vue?vue&type=style&index=0&id=4a2cc9ec&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -853,8 +825,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_style_index_0_id_31645f64_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Booking.vue?vue&type=style&index=0&id=31645f64&scoped=true&lang=css&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_style_index_0_id_31645f64_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_style_index_0_id_4a2cc9ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HotelBooking.vue?vue&type=style&index=0&id=4a2cc9ec&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/HotelBooking.vue?vue&type=style&index=0&id=4a2cc9ec&scoped=true&lang=css&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_style_index_0_id_4a2cc9ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -874,19 +846,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/front/components/Booking.vue?vue&type=template&id=31645f64&scoped=true&":
-/*!**********************************************************************************************!*\
-  !*** ./resources/js/front/components/Booking.vue?vue&type=template&id=31645f64&scoped=true& ***!
-  \**********************************************************************************************/
+/***/ "./resources/js/front/components/HotelBooking.vue?vue&type=template&id=4a2cc9ec&scoped=true&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/front/components/HotelBooking.vue?vue&type=template&id=4a2cc9ec&scoped=true& ***!
+  \***************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_template_id_31645f64_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_template_id_31645f64_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_template_id_4a2cc9ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_template_id_4a2cc9ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_template_id_31645f64_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Booking.vue?vue&type=template&id=31645f64&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Booking.vue?vue&type=template&id=31645f64&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_template_id_4a2cc9ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HotelBooking.vue?vue&type=template&id=4a2cc9ec&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/HotelBooking.vue?vue&type=template&id=4a2cc9ec&scoped=true&");
 
 
 /***/ }),
@@ -908,10 +880,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Booking.vue?vue&type=template&id=31645f64&scoped=true&":
-/*!*************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Booking.vue?vue&type=template&id=31645f64&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/HotelBooking.vue?vue&type=template&id=4a2cc9ec&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/HotelBooking.vue?vue&type=template&id=4a2cc9ec&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -924,790 +896,718 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "booking-form grey-form" }, [
-    _c(
-      "p",
-      { staticClass: "font-weight-bold text-dark text-capitalize p-0 m-0" },
-      [_vm._v(_vm._s(_vm._f("CapitalizeString")(_vm.title)))]
-    ),
-    _vm._v(" "),
-    _vm.first_form ? _c("p", [_vm._v("When would you like to go?")]) : _vm._e(),
-    _vm._v(" "),
-    _vm.second_form
-      ? _c("p", [_vm._v("Please Specify Your Requirements.")])
-      : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "form",
-      {
-        staticClass: "form",
-        attrs: { method: "POST" },
-        on: {
-          submit: function ($event) {
-            $event.preventDefault()
-            return _vm.BookingSubmit($event)
-          },
-        },
-      },
-      [
+  return !_vm.loading
+    ? _c("div", { staticClass: "booking-form grey-form" }, [
+        _c(
+          "p",
+          { staticClass: "font-weight-bold text-dark text-capitalize p-0 m-0" },
+          [_vm._v(_vm._s(_vm._f("CapitalizeString")(_vm.title)))]
+        ),
+        _vm._v(" "),
         _vm.first_form
-          ? _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-6" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "startdate" } }, [
-                      _vm._v("Start Journy Date"),
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.start_date,
-                          expression: "form.start_date",
-                        },
-                      ],
-                      staticClass: "form-control",
-                      class: {
-                        "is-invalid": _vm.form.errors.has("start_date"),
-                      },
-                      attrs: { type: "date", id: "startdate", required: "" },
-                      domProps: { value: _vm.form.start_date },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "start_date", $event.target.value)
-                        },
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "start_date" },
-                    }),
-                  ],
-                  1
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "end_date" } }, [
-                      _vm._v("End Journy Date"),
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.end_date,
-                          expression: "form.end_date",
-                        },
-                      ],
-                      staticClass: "form-control",
-                      class: { "is-invalid": _vm.form.errors.has("end_date") },
-                      attrs: { type: "date", id: "end_date", required: "" },
-                      domProps: { value: _vm.form.end_date },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "end_date", $event.target.value)
-                        },
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "end_date" },
-                    }),
-                  ],
-                  1
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "number_of_person" } }, [
-                      _vm._v("Number of Person"),
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.people,
-                          expression: "people",
-                        },
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        id: "number_of_person",
-                        "data-toggle": "modal",
-                        "data-target": "#personsModal",
-                        readonly: "",
-                      },
-                      domProps: { value: _vm.people },
-                      on: {
-                        click: function ($event) {
-                          _vm.showPersonModal = true
-                        },
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.people = $event.target.value
-                        },
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "start_date" },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm.showPersonModal
-                  ? _c(
+          ? _c("p", [_vm._v("Please select the booking dates.")])
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            staticClass: "form",
+            attrs: { method: "POST" },
+            on: {
+              submit: function ($event) {
+                $event.preventDefault()
+                return _vm.BookingSubmit($event)
+              },
+            },
+          },
+          [
+            _vm.first_form
+              ? _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-6" }, [
+                    _c(
                       "div",
-                      {
-                        staticClass: "modal",
-                        attrs: {
-                          tabindex: "-1",
-                          role: "dialog",
-                          id: "personsModal",
-                        },
-                      },
+                      { staticClass: "form-group" },
                       [
-                        _c(
+                        _c("label", { attrs: { for: "startdate" } }, [
+                          _vm._v("CheckIn Date"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.start_date,
+                              expression: "form.start_date",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("start_date"),
+                          },
+                          attrs: {
+                            type: "date",
+                            id: "startdate",
+                            required: "",
+                          },
+                          domProps: { value: _vm.form.start_date },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "start_date",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "start_date" },
+                        }),
+                      ],
+                      1
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-6" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "end_date" } }, [
+                          _vm._v("CheckOut Date"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.end_date,
+                              expression: "form.end_date",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("end_date"),
+                          },
+                          attrs: { type: "date", id: "end_date", required: "" },
+                          domProps: { value: _vm.form.end_date },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "end_date",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "end_date" },
+                        }),
+                      ],
+                      1
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-6" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "number_of_person" } }, [
+                          _vm._v("Number of Guests"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.people,
+                              expression: "people",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "number_of_person",
+                            "data-toggle": "modal",
+                            "data-target": "#personsModal",
+                            readonly: "",
+                          },
+                          domProps: { value: _vm.people },
+                          on: {
+                            click: function ($event) {
+                              _vm.showPersonModal = true
+                            },
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.people = $event.target.value
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "start_date" },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm.showPersonModal
+                      ? _c(
                           "div",
                           {
-                            staticClass: "modal-dialog",
-                            attrs: { role: "document" },
+                            staticClass: "modal",
+                            attrs: {
+                              tabindex: "-1",
+                              role: "dialog",
+                              id: "personsModal",
+                            },
                           },
                           [
-                            _c("div", { staticClass: "modal-content" }, [
-                              _c("div", { staticClass: "modal-header" }, [
-                                _c("h5", { staticClass: "modal-title" }, [
-                                  _vm._v("Passengers"),
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "close",
-                                    attrs: {
-                                      type: "button",
-                                      "aria-label": "Close",
-                                    },
-                                    on: {
-                                      click: function ($event) {
-                                        _vm.showPersonModal = false
-                                      },
-                                    },
-                                  },
-                                  [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "modal-dialog",
+                                attrs: { role: "document" },
+                              },
+                              [
+                                _c("div", { staticClass: "modal-content" }, [
+                                  _c("div", { staticClass: "modal-header" }, [
+                                    _c("h5", { staticClass: "modal-title" }, [
+                                      _vm._v("Guests"),
+                                    ]),
+                                    _vm._v(" "),
                                     _c(
-                                      "span",
-                                      { attrs: { "aria-hidden": "true" } },
-                                      [_vm._v("×")]
+                                      "button",
+                                      {
+                                        staticClass: "close",
+                                        attrs: {
+                                          type: "button",
+                                          "aria-label": "Close",
+                                        },
+                                        on: {
+                                          click: function ($event) {
+                                            _vm.showPersonModal = false
+                                          },
+                                        },
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          { attrs: { "aria-hidden": "true" } },
+                                          [_vm._v("×")]
+                                        ),
+                                      ]
                                     ),
-                                  ]
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "modal-body" }, [
-                                _c("div", { staticClass: "marginT" }, [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass: "personLables",
-                                      attrs: { for: "number_of_adults" },
-                                    },
-                                    [_vm._v("Adults(>12 years)")]
-                                  ),
+                                  ]),
                                   _vm._v(" "),
-                                  _c("fieldset", [
-                                    _c("input", {
-                                      staticClass: "decrease",
-                                      attrs: { type: "button", value: "-" },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.decrVal("adults")
-                                        },
-                                      },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
+                                  _c("div", { staticClass: "modal-body" }, [
+                                    _c("div", { staticClass: "marginT" }, [
+                                      _c(
+                                        "label",
                                         {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.form.adults,
-                                          expression: "form.adults",
+                                          staticClass: "personLables",
+                                          attrs: { for: "number_of_adults" },
                                         },
-                                      ],
-                                      attrs: {
-                                        type: "passengers",
-                                        id: "incrdcr",
-                                        readonly: "",
-                                      },
-                                      domProps: { value: _vm.form.adults },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.form,
-                                            "adults",
-                                            $event.target.value
-                                          )
-                                        },
-                                      },
-                                    }),
+                                        [_vm._v("Adults(>12 years)")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("fieldset", [
+                                        _c("input", {
+                                          staticClass: "decrease",
+                                          attrs: { type: "button", value: "-" },
+                                          on: {
+                                            click: function ($event) {
+                                              return _vm.decrVal("adults")
+                                            },
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.adults,
+                                              expression: "form.adults",
+                                            },
+                                          ],
+                                          attrs: {
+                                            type: "passengers",
+                                            id: "incrdcr",
+                                            readonly: "",
+                                          },
+                                          domProps: { value: _vm.form.adults },
+                                          on: {
+                                            input: function ($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "adults",
+                                                $event.target.value
+                                              )
+                                            },
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          staticClass: "increase",
+                                          attrs: { type: "button", value: "+" },
+                                          on: {
+                                            click: function ($event) {
+                                              return _vm.incrVal("adults")
+                                            },
+                                          },
+                                        }),
+                                      ]),
+                                    ]),
                                     _vm._v(" "),
-                                    _c("input", {
-                                      staticClass: "increase",
-                                      attrs: { type: "button", value: "+" },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.incrVal("adults")
+                                    _c("div", { staticClass: "marginT" }, [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass: "personLables",
+                                          attrs: { for: "number_of_children" },
                                         },
+                                        [_vm._v("Children(2 to 12 years)")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("fieldset", [
+                                        _c("input", {
+                                          staticClass: "decrease",
+                                          attrs: { type: "button", value: "-" },
+                                          on: {
+                                            click: function ($event) {
+                                              return _vm.decrVal("children")
+                                            },
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.children,
+                                              expression: "form.children",
+                                            },
+                                          ],
+                                          attrs: {
+                                            type: "passengers",
+                                            id: "incrdcr",
+                                            readonly: "",
+                                          },
+                                          domProps: {
+                                            value: _vm.form.children,
+                                          },
+                                          on: {
+                                            input: function ($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "children",
+                                                $event.target.value
+                                              )
+                                            },
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          staticClass: "increase",
+                                          attrs: { type: "button", value: "+" },
+                                          on: {
+                                            click: function ($event) {
+                                              return _vm.incrVal("children")
+                                            },
+                                          },
+                                        }),
+                                      ]),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "marginT" }, [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass: "personLables",
+                                          attrs: { for: "number_of_infants" },
+                                        },
+                                        [_vm._v("Infants(3 days to 2 years)")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("fieldset", [
+                                        _c("input", {
+                                          staticClass: "decrease",
+                                          attrs: { type: "button", value: "-" },
+                                          on: {
+                                            click: function ($event) {
+                                              return _vm.decrVal("infants")
+                                            },
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.infants,
+                                              expression: "form.infants",
+                                            },
+                                          ],
+                                          attrs: {
+                                            type: "passengers",
+                                            id: "incrdcr",
+                                            readonly: "",
+                                          },
+                                          domProps: { value: _vm.form.infants },
+                                          on: {
+                                            input: function ($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "infants",
+                                                $event.target.value
+                                              )
+                                            },
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          staticClass: "increase",
+                                          attrs: { type: "button", value: "+" },
+                                          on: {
+                                            click: function ($event) {
+                                              return _vm.incrVal("infants")
+                                            },
+                                          },
+                                        }),
+                                      ]),
+                                    ]),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "modal-footer" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-primary",
+                                        attrs: { type: "button" },
+                                        on: { click: _vm.savePersons },
                                       },
-                                    }),
+                                      [_vm._v("Confirm")]
+                                    ),
                                   ]),
                                 ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "marginT" }, [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass: "personLables",
-                                      attrs: { for: "number_of_children" },
-                                    },
-                                    [_vm._v("Children(2 to 12 years)")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("fieldset", [
-                                    _c("input", {
-                                      staticClass: "decrease",
-                                      attrs: { type: "button", value: "-" },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.decrVal("children")
-                                        },
-                                      },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.form.children,
-                                          expression: "form.children",
-                                        },
-                                      ],
-                                      attrs: {
-                                        type: "passengers",
-                                        id: "incrdcr",
-                                        readonly: "",
-                                      },
-                                      domProps: { value: _vm.form.children },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.form,
-                                            "children",
-                                            $event.target.value
-                                          )
-                                        },
-                                      },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      staticClass: "increase",
-                                      attrs: { type: "button", value: "+" },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.incrVal("children")
-                                        },
-                                      },
-                                    }),
-                                  ]),
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "marginT" }, [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass: "personLables",
-                                      attrs: { for: "number_of_infants" },
-                                    },
-                                    [_vm._v("Infants(3 days to 2 years)")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("fieldset", [
-                                    _c("input", {
-                                      staticClass: "decrease",
-                                      attrs: { type: "button", value: "-" },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.decrVal("infants")
-                                        },
-                                      },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.form.infants,
-                                          expression: "form.infants",
-                                        },
-                                      ],
-                                      attrs: {
-                                        type: "passengers",
-                                        id: "incrdcr",
-                                        readonly: "",
-                                      },
-                                      domProps: { value: _vm.form.infants },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.form,
-                                            "infants",
-                                            $event.target.value
-                                          )
-                                        },
-                                      },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      staticClass: "increase",
-                                      attrs: { type: "button", value: "+" },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.incrVal("infants")
-                                        },
-                                      },
-                                    }),
-                                  ]),
-                                ]),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "modal-footer" }, [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-primary",
-                                    attrs: { type: "button" },
-                                    on: { click: _vm.savePersons },
-                                  },
-                                  [_vm._v("Confirm")]
-                                ),
-                              ]),
-                            ]),
-                          ]
-                        ),
-                      ]
-                    )
-                  : _vm._e(),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "number_of_person" } }, [
-                      _vm._v("Number of Rooms"),
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.room,
-                          expression: "form.room",
-                        },
-                      ],
-                      staticClass: "form-control",
-                      class: { "is-invalid": _vm.form.errors.has("room") },
-                      attrs: {
-                        type: "number",
-                        id: "number_of_person",
-                        min: "1",
-                        required: "",
-                      },
-                      domProps: { value: _vm.form.room },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "room", $event.target.value)
-                        },
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "start_date" },
-                    }),
-                  ],
-                  1
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-12" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "occupancy" } }, [
-                      _vm._v("Occupancy Types"),
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.occupancy_type,
-                            expression: "form.occupancy_type",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        class: {
-                          "is-invalid": _vm.form.errors.has("occupancy_type"),
-                        },
-                        attrs: { required: "" },
-                        on: {
-                          change: function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.form,
-                              "occupancy_type",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
-                        },
-                      },
-                      _vm._l(_vm.occupancy_list, function (occ, i) {
-                        return _c(
-                          "option",
-                          { key: i, domProps: { value: occ } },
-                          [
-                            _vm._v(
-                              "\n              " +
-                                _vm._s(occ) +
-                                "\n            "
+                              ]
                             ),
                           ]
                         )
-                      }),
-                      0
-                    ),
-                    _vm._v(" "),
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "occupancy_type" },
-                    }),
-                  ],
-                  1
-                ),
-              ]),
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.second_form
-          ? _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-12" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "cities" } }, [
-                      _vm._v("Cities"),
-                    ]),
-                    _vm._v(" "),
-                    _c("multiselect", {
-                      attrs: {
-                        options: _vm.city_list,
-                        multiple: true,
-                        "track-by": "name",
-                        label: "name",
-                        "close-on-select": true,
-                        placeholder: "Select City",
-                      },
-                      model: {
-                        value: _vm.form.city_id,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form, "city_id", $$v)
-                        },
-                        expression: "form.city_id",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-12" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "sightseeing" } }, [
-                      _vm._v("Places(Sightseeing)"),
-                    ]),
-                    _vm._v(" "),
-                    _vm.sightseeing_list
-                      ? _c("multiselect", {
-                          attrs: {
-                            options: _vm.sightseeing_list,
-                            multiple: true,
-                            "track-by": "name",
-                            label: "name",
-                            "close-on-select": true,
-                            placeholder: "Select Sightseeing",
-                          },
-                          model: {
-                            value: _vm.form.sightseen,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form, "sightseen", $$v)
-                            },
-                            expression: "form.sightseen",
-                          },
-                        })
                       : _vm._e(),
-                  ],
-                  1
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-12" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "transport" } }, [
-                      _vm._v("Mode of Transport"),
-                    ]),
-                    _vm._v(" "),
-                    _c("multiselect", {
-                      attrs: {
-                        options: _vm.transports,
-                        multiple: true,
-                        "close-on-select": true,
-                        placeholder: "Mode of transport",
-                      },
-                      model: {
-                        value: _vm.form.transport,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form, "transport", $$v)
-                        },
-                        expression: "form.transport",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "numofday" } }, [
-                    _vm._v("Number of Days"),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "row align-content-center" }, [
-                    _c("div", { staticClass: "col" }, [
-                      _c("img", {
-                        staticClass: "w-40 link",
-                        attrs: {
-                          src: _vm.$gbiAssets + "/images/icons/minus.png",
-                        },
-                        on: {
-                          click: function ($event) {
-                            return _vm.down()
+                  _c("div", { staticClass: "col-sm-6" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "number_of_person" } }, [
+                          _vm._v("Number of Rooms"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.room,
+                              expression: "form.room",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          class: { "is-invalid": _vm.form.errors.has("room") },
+                          attrs: {
+                            type: "number",
+                            id: "number_of_person",
+                            min: "1",
+                            required: "",
                           },
-                        },
-                      }),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col" }, [
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(_vm.form.noofday) +
-                          "\n            "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col" }, [
-                      _c("img", {
-                        staticClass: "w-40 link",
-                        attrs: {
-                          src: _vm.$gbiAssets + "/images/icons/add.png",
-                        },
-                        on: {
-                          click: function ($event) {
-                            return _vm.up()
+                          domProps: { value: _vm.form.room },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "room", $event.target.value)
+                            },
                           },
-                        },
-                      }),
-                    ]),
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "start_date" },
+                        }),
+                      ],
+                      1
+                    ),
                   ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6" }, [
-                _c("label", { attrs: { for: "accommodation" } }, [
-                  _vm._v("Accommodation Preference"),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.accommodation,
-                        expression: "form.accommodation",
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6 col-sm-12" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "occupancy" } }, [
+                          _vm._v("Occupancy Type"),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.room_type,
+                                expression: "form.room_type",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("room_type"),
+                            },
+                            attrs: { required: "" },
+                            on: {
+                              change: function ($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function (o) {
+                                    return o.selected
+                                  })
+                                  .map(function (o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "room_type",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
+                            },
+                          },
+                          _vm._l(_vm.room_list, function (occ, i) {
+                            return _c(
+                              "option",
+                              { key: i, domProps: { value: occ } },
+                              [
+                                _vm._v(
+                                  "\n              " +
+                                    _vm._s(occ) +
+                                    "\n            "
+                                ),
+                              ]
+                            )
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "room_type" },
+                        }),
+                      ],
+                      1
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6 col-sm-12" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "meal_plan" } }, [
+                          _vm._v("Meal Plan"),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.meal_plan,
+                                expression: "form.meal_plan",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("meal_plan"),
+                            },
+                            attrs: { required: "" },
+                            on: {
+                              change: function ($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function (o) {
+                                    return o.selected
+                                  })
+                                  .map(function (o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "meal_plan",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
+                            },
+                          },
+                          _vm._l(_vm.meal_list, function (occ, i) {
+                            return _c(
+                              "option",
+                              { key: i, domProps: { value: occ } },
+                              [
+                                _vm._v(
+                                  "\n              " +
+                                    _vm._s(occ) +
+                                    "\n            "
+                                ),
+                              ]
+                            )
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "meal_plan" },
+                        }),
+                      ],
+                      1
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-12" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "room_category" } }, [
+                          _vm._v("Room Category"),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.room_category,
+                                expression: "form.room_category",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid":
+                                _vm.form.errors.has("room_category"),
+                            },
+                            attrs: { required: "" },
+                            on: {
+                              change: function ($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function (o) {
+                                    return o.selected
+                                  })
+                                  .map(function (o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "room_category",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
+                            },
+                          },
+                          _vm._l(_vm.roomCat_list, function (occ, i) {
+                            return _c(
+                              "option",
+                              { key: i, domProps: { value: occ } },
+                              [
+                                _vm._v(
+                                  "\n              " +
+                                    _vm._s(occ) +
+                                    "\n            "
+                                ),
+                              ]
+                            )
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "room_category" },
+                        }),
+                      ],
+                      1
+                    ),
+                  ]),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-center" }, [
+              _vm.book_btn && _vm.customize_btn
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn profile_button text-capitalize",
+                      attrs: { type: "submit" },
+                    },
+                    [_vm._v("\n        send inquiry\n      ")]
+                  )
+                : _c(
+                    "button",
+                    {
+                      staticClass: "btn profile_button text-capitalize",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.secondForm()
+                        },
                       },
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "accomodation" },
-                    on: {
-                      change: function ($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function (o) {
-                            return o.selected
-                          })
-                          .map(function (o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.form,
-                          "accommodation",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      },
                     },
-                  },
-                  [
-                    _c("option", { attrs: { value: "2" } }, [_vm._v("2 Star")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "3" } }, [_vm._v("3 Star")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "4" } }, [_vm._v("4 Star")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "5" } }, [_vm._v("5 Star")]),
-                  ]
-                ),
-              ]),
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _c("div", { staticClass: "text-center" }, [
-          _vm.customize_btn
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn profile_button",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.secondForm()
-                    },
-                  },
-                },
-                [_vm._v("\n        Customize")]
-              )
-            : _vm._e(),
-          _c("span", { staticClass: "mr-10" }),
-          _vm._v(" "),
-          _vm.back_btn
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn profile_button",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.secondForm()
-                    },
-                  },
-                },
-                [_vm._v("\n        Back")]
-              )
-            : _vm._e(),
-          _c("span", { staticClass: "mr-10" }),
-          _vm._v(" "),
-          _vm.book_btn && _vm.customize_btn
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn profile_button text-capitalize",
-                  attrs: { type: "submit" },
-                },
-                [_vm._v("\n        send inquiry\n      ")]
-              )
-            : _c(
-                "button",
-                {
-                  staticClass: "btn profile_button text-capitalize",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function ($event) {
-                      $event.preventDefault()
-                      return _vm.secondForm()
-                    },
-                  },
-                },
-                [_vm._v("\n        Confirm\n      ")]
-              ),
-        ]),
-      ]
-    ),
-  ])
+                    [_vm._v("\n        Confirm\n      ")]
+                  ),
+            ]),
+          ]
+        ),
+      ])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1732,181 +1632,247 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.apiFailed
-    ? _c("errorState", {
-        attrs: { imgName: "explore_destination_500x500.png" },
-      })
-    : !_vm.apiFailed && _vm.hotel_data
-    ? _c(
+  return _c(
+    "section",
+    { staticStyle: { background: "white !important", "padding-top": "20px" } },
+    _vm._l(_vm.hotel_data, function (data) {
+      return _c(
         "section",
         {
-          staticStyle: {
-            background: "white !important",
-            "padding-top": "20px",
-          },
+          key: data.id,
+          staticClass: "customCard card card-1",
+          staticStyle: { background: "white !important" },
         },
-        _vm._l(_vm.hotel_data, function (data) {
-          return _c(
-            "section",
-            {
-              key: data.id,
-              staticClass:
-                "d-flex flex-row justify-content-between customCard card card-1",
-              staticStyle: { background: "white !important" },
-            },
-            [
-              _c("div", { staticClass: "MainRow" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "d-flex flex-column justify-content-start align-items-start mainRow1",
-                  },
-                  [
-                    _c("p", { staticClass: "hotelName" }, [
-                      _vm._v(_vm._s(data.name)),
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "locName" }, [
-                      _vm._v(_vm._s(data.city)),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "d-flex stars" }, [
-                      _c("i", { staticClass: "fas fa-star" }),
-                      _vm._v(" "),
-                      _c("i", { staticClass: "fas fa-star" }),
-                      _vm._v(" "),
-                      _c("i", { staticClass: "fas fa-star" }),
-                      _vm._v(" "),
-                      _c("i", { staticClass: "far fa-star" }),
-                      _vm._v(" "),
-                      _c("i", { staticClass: "far fa-star" }),
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "amenP" }, [
-                      _c("i", { staticClass: "fas fa-bed mr-2" }),
-                      _vm._v(" Superior Room Twin Beds"),
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "amenP" }, [
-                      _c("i", { staticClass: "fas fa-wind mr-2" }),
-                      _vm._v(" Air Condition"),
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "amenP" }, [
-                      _c("i", { staticClass: "fas fa-warehouse mr-2" }),
-                      _vm._v(" Banquet Hall"),
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "amenity" }, [_vm._v("Amenities")]),
-                    _vm._v(" "),
-                    _c("button", { staticClass: "bookBtn" }, [_vm._v("BOOK")]),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "detailsRow" }, [
-                  _c("p", { staticClass: "guests" }, [
-                    _vm._v(_vm._s(data.room) + " Rooms"),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "price" }, [
-                    _vm._v("Rs. " + _vm._s(data.price) + "/-"),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "taxes" }, [
-                    _vm._v("+ Rs.537 Taxes & Fees"),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "perRoom" }, [
-                    _vm._v("per room / night"),
-                  ]),
+        [
+          _c("div", { staticClass: "MainRow" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "d-flex flex-column justify-content-start align-items-start mainRow1",
+              },
+              [
+                _c("p", { staticClass: "hotelName" }, [
+                  _vm._v(_vm._s(data.name)),
                 ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "locName" }, [
+                  _vm._v(_vm._s(data.city)),
+                ]),
+                _vm._v(" "),
+                _vm._m(0, true),
+                _vm._v(" "),
+                _vm._m(1, true),
+                _vm._v(" "),
+                _vm._m(2, true),
+                _vm._v(" "),
+                _vm._m(3, true),
+                _vm._v(" "),
+                _c("p", { staticClass: "amenity" }, [_vm._v("Amenities")]),
+                _vm._v(" "),
+                _vm.login
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "bookBtn",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": "#bookModal",
+                        },
+                      },
+                      [_vm._v("\n          BOOK\n        ")]
+                    )
+                  : _c(
+                      "button",
+                      {
+                        staticClass: "bookBtn",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": "#LoginForm",
+                          id: "loginButton",
+                        },
+                      },
+                      [_vm._v("BOOK\n        ")]
+                    ),
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "detailsRow" }, [
+              _c("p", { staticClass: "guests" }, [
+                _vm._v(_vm._s(_vm.searchForm.rooms) + " Rooms"),
               ]),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "d-flex justify-content-center align-items-center mainRow2",
-                  staticStyle: { background: "white !important" },
-                },
-                [
-                  _c("div", { staticClass: "d-flex flex-column expDetCol1" }, [
-                    _c("img", {
-                      staticClass: "expDetailImg",
-                      attrs: {
-                        src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
-                        loading: "lazy",
-                        alt: "itinerary",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c(
+              _c("p", { staticClass: "price" }, [
+                _vm._v("Rs. " + _vm._s(data.price) + "/-"),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "taxes" }, [_vm._v("+ Rs.537 Taxes")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "perRoom" }, [_vm._v("per room / night")]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _vm._m(4, true),
+          _vm._v(" "),
+          _c("div", { staticClass: "modal", attrs: { id: "bookModal" } }, [
+            _c("div", { staticClass: "modal-dialog" }, [
+              _c("div", { staticClass: "modal-content modal-color" }, [
+                data.name
+                  ? _c(
                       "div",
-                      {
-                        staticClass:
-                          "d-flex justify-content-center align-items-center",
-                      },
+                      { staticClass: "modal-body" },
                       [
-                        _c("div", [
-                          _c("img", {
-                            staticClass: "expDetailImgSmall",
-                            staticStyle: { "margin-right": "10px" },
-                            attrs: {
-                              src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
-                              loading: "lazy",
-                              alt: "itinerary",
-                            },
-                          }),
-                        ]),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "close",
+                            attrs: { type: "button", "data-dismiss": "modal" },
+                          },
+                          [_vm._v("×")]
+                        ),
                         _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            staticClass: "expDetailImgSmall",
-                            staticStyle: { "margin-right": "10px" },
-                            attrs: {
-                              src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
-                              loading: "lazy",
-                              alt: "itinerary",
-                            },
-                          }),
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            staticClass: "expDetailImgSmall",
-                            staticStyle: { "margin-right": "10px" },
-                            attrs: {
-                              src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
-                              loading: "lazy",
-                              alt: "itinerary",
-                            },
-                          }),
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            staticClass: "expDetailImgSmall",
-                            attrs: {
-                              src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
-                              loading: "lazy",
-                              alt: "itinerary",
-                            },
-                          }),
-                        ]),
-                      ]
-                    ),
-                  ]),
-                ]
-              ),
-            ]
-          )
-        }),
-        0
+                        _c("booking", {
+                          attrs: {
+                            title: data.name,
+                            n_guests: _vm.searchForm.guests,
+                            n_rooms: _vm.searchForm.rooms,
+                            n_room_type: _vm.searchForm.room_type,
+                            n_hotel_id: data.id,
+                            n_hotel_price: data.price,
+                          },
+                        }),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+              ]),
+            ]),
+          ]),
+        ]
       )
-    : _vm._e()
+    }),
+    0
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-flex stars" }, [
+      _c("i", { staticClass: "fas fa-star" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fas fa-star" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fas fa-star" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "far fa-star" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "far fa-star" }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "amenP" }, [
+      _c("i", { staticClass: "fas fa-bed mr-2" }),
+      _vm._v("Superior Room Twin Beds"),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "amenP" }, [
+      _c("i", { staticClass: "fas fa-wind mr-2" }),
+      _vm._v("Air Condition"),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "amenP" }, [
+      _c("i", { staticClass: "fas fa-warehouse mr-2" }),
+      _vm._v("Banquet Hall"),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "d-flex justify-content-center align-items-center mainRow2",
+        staticStyle: { background: "white !important" },
+      },
+      [
+        _c("div", { staticClass: "d-flex flex-column expDetCol1" }, [
+          _c("img", {
+            staticClass: "expDetailImg",
+            attrs: {
+              src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+              loading: "lazy",
+              alt: "itinerary",
+            },
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "expImgSm" }, [
+            _c("div", [
+              _c("img", {
+                staticClass: "expDetailImgSmall",
+                staticStyle: { "margin-right": "10px" },
+                attrs: {
+                  src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+                  loading: "lazy",
+                  alt: "itinerary",
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                staticClass: "expDetailImgSmall",
+                staticStyle: { "margin-right": "10px" },
+                attrs: {
+                  src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+                  loading: "lazy",
+                  alt: "itinerary",
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                staticClass: "expDetailImgSmall",
+                staticStyle: { "margin-right": "10px" },
+                attrs: {
+                  src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+                  loading: "lazy",
+                  alt: "itinerary",
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                staticClass: "expDetailImgSmall",
+                attrs: {
+                  src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+                  loading: "lazy",
+                  alt: "itinerary",
+                },
+              }),
+            ]),
+          ]),
+        ]),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 

@@ -1,6 +1,6 @@
 <template>
   <!--************************************************
-      Author:@Ajay
+      Author:@Manas
   ****************************************************-->
   <div class="booking-form grey-form">
     <p class="font-weight-bold text-dark text-capitalize p-0 m-0">{{title | CapitalizeString}}</p>

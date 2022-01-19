@@ -181,7 +181,7 @@
             <ul class="nav nav-treeview">
             @if(auth()->user()->hasPermissionTo(60) || auth()->user()->hasRole(1))
             <li class="nav-item">
-                <router-link to="/hotel-list" class="nav-link nav-cols" title="Hotel List">
+                <router-link to="/hotels" class="nav-link nav-cols" title="Hotel List">
                 
                 <p> Hotel</p>
                 </router-link>

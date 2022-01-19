@@ -20,7 +20,11 @@ class RoomBookingController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(BookedRooms::select([
+            'id','hotel_id','room_id','room_category','customer_id', 'occupancy_type'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
     }
 
     /**
@@ -45,15 +49,17 @@ class RoomBookingController extends Controller
             'price'=>'required',
             'check_in'=>'required',
             'check_out'=>'required',
-            'hotel_id' => 'required' 
+            'hotel_id' => 'required',
+            'room_category' => 'required',
+            'price' => 'required',
+            'person' => 'required',
+            'customer_id' => 'required',
+            'max_capacity' => 'required',
+            'meal_plan' => 'required'
         ]);
-        $check = BookedRooms::where(['tour_code' => $request->tour_code, 'hotel_id' => $request->hotel_id])->get();
-        if(count($check->all()) > 0){
-            return '1';
-        }else{
-            BookedRooms::create($request->all());
-            return response()->json('Successfully Created');            
-        }
+       
+        BookedRooms::create($request->all());
+        return response()->json('Successfully Created');         
     }
 
     /**
@@ -64,7 +70,7 @@ class RoomBookingController extends Controller
      */
     public function show(BookedRooms $bookedroom)
     {
-        //
+        return response()->json($bookedroom);
     }
 
     /**

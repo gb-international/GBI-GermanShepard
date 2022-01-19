@@ -1,6 +1,7 @@
 
 
 // //Hotel
+const Hotels = () => import(/* webpackChunkName: "js/admin/hotels" */ '@/admin/pages/hotel/hotels.vue');
 const HotelList = () => import(/* webpackChunkName: "js/admin/hotel" */ '@/admin/pages/hotel/List-hotel.vue');
 const HotelAdd = () => import(/* webpackChunkName: "js/admin/hoteladd" */'@/admin/pages/hotel/New-hotel.vue');
 const HotelEdit = () => import(/* webpackChunkName: "js/admin/hoteledit" */ '@/admin/pages/hotel/Edit-hotel.vue');
@@ -27,6 +28,7 @@ const banquetCategoryView = () => import(/* webpackChunkName: "js/admin/banquetC
 
 export default[
     //Hotel
+    { meta: {permId: 60}, path: '/hotels', component: Hotels },
     { meta: {permId: 60}, path: '/hotel-list', component: HotelList },
     { meta: {permId: 60}, path: '/add-hotel', component: HotelAdd },
     { meta: {permId: 60}, path: '/edit-hotel/:id', component: HotelEdit },

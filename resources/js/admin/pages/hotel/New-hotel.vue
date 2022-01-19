@@ -7,6 +7,31 @@ to submit the data we are using a function.
 <template>
   <form-layout>
     <template #formdata>
+      <div class="custom-div mt-4">
+        <div class="custom-flex mt-2">
+          <div class="icons" :style="iconSelected == 'Safety' ? 'border-bottom: 2px solid #00c4c4' : ''" @click="changeIcon('Safety')">
+            Safety
+          </div>
+          <div class="icons" :style="iconSelected == 'Rooms' ? 'border-bottom: 2px solid #00c4c4' : ''" @click="changeIcon('Rooms')">
+            Rooms
+          </div>
+          <div class="icons" :style="iconSelected == 'Amenities' ? 'border-bottom: 2px solid #00c4c4' : ''" @click="changeIcon('Amenities')">
+            Amenities
+          </div>
+          <div class="icons" :style="iconSelected == 'Policies' ? 'border-bottom: 2px solid #00c4c4' : ''" @click="changeIcon('Policies')">
+            Policies
+          </div>
+          <div class="icons" :style="iconSelected == 'Location' ? 'border-bottom: 2px solid #00c4c4;' : ''" @click="changeIcon('Location')">
+            Location
+          </div>
+          <div class="icons" :style="iconSelected == 'Property' ? 'border-bottom: 2px solid #00c4c4;' : ''" @click="changeIcon('Property')">
+            Property
+          </div>
+          <div class="icons" :style="iconSelected == 'Similar' ? 'border-bottom: 2px solid #00c4c4;' : ''" @click="changeIcon('Similar')">
+            Similar
+          </div>
+        </div>
+      </div>
       <form
         id="formDiv"
         role="form"
@@ -93,7 +118,8 @@ to submit the data we are using a function.
                 @input="checkKeyword(data)"
                 label="title"
                 track-by="title"
-              ></multiselect> -->
+              ></multiselect> 
+              -->
 
                 <tags-input element-id="tags"
                   v-model="meta_key"
@@ -111,7 +137,7 @@ to submit the data we are using a function.
 
          <div class="col-sm-4">
             <div class="form-group">
-              <label for="room">Rooms</label>
+              <label for="room">No. of Rooms</label>
               <input
                 type="number"
                 class="form-control"
@@ -127,7 +153,7 @@ to submit the data we are using a function.
 
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="room">Banquets</label>
+              <label for="room">No. of Banquets</label>
               <input
                 type="number"
                 class="form-control"
@@ -143,13 +169,13 @@ to submit the data we are using a function.
 
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="status">Star Category</label>
+              <label for="star">Star Category</label>
               <status-dd class="mb-2" 
                 :itemList="star_list"
                 @update:option="updateStatus" 
               />
-              <has-error :form="form" field="status"></has-error>
-              <p v-if="statusWarn && form.status === '' " class="warn-error">Select Star Category</p>
+              <has-error :form="form" field="star"></has-error>
+              <p v-if="starWarn && form.star === '' " class="warn-error">Select Star Category</p>
             </div>
           </div>
 
@@ -513,5 +539,24 @@ export default {
   background: #e5e5e5;
   border: solid 2px #e5e5e5;
   border-radius: 5px;
+}
+.custom-div{
+  margin-top: 26px !important;
+  padding-top: 0.2vh !important;
+  margin-right: 20px;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2px 7px 0 rgb(0 0 0 / 19%);
+}
+.custom-div2{
+  margin-top: 5px !important;
+  padding-top: 0.2vh !important;
+  margin-right: 20px;
+}
+.custom-flex {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  flex-direction: row;
+  font-size: 18px;
+  font-weight: 400;
 }
 </style>

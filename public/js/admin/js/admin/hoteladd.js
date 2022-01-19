@@ -683,6 +683,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3041,7 +3067,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.btn-custom-indr[data-v-3871e41a] {\n    color: #212529;\n    background-color: #dee2e6;\n    border-color: #dee2e6;\n    font-size: 15px !important;\n    font-weight: 400;\n    padding: 6px 15px;\n}\n.custom-card[data-v-3871e41a] {\n  display: flex;\n  justify-content: center;\n  align-content: center;\n  height: 12vh;\n  width: 10vw;\n  background: #e5e5e5;\n  border: solid 2px #e5e5e5;\n  border-radius: 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.btn-custom-indr[data-v-3871e41a] {\n    color: #212529;\n    background-color: #dee2e6;\n    border-color: #dee2e6;\n    font-size: 15px !important;\n    font-weight: 400;\n    padding: 6px 15px;\n}\n.custom-card[data-v-3871e41a] {\n  display: flex;\n  justify-content: center;\n  align-content: center;\n  height: 12vh;\n  width: 10vw;\n  background: #e5e5e5;\n  border: solid 2px #e5e5e5;\n  border-radius: 5px;\n}\n.custom-div[data-v-3871e41a]{\n  margin-top: 26px !important;\n  padding-top: 0.2vh !important;\n  margin-right: 20px;\n  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2px 7px 0 rgb(0 0 0 / 19%);\n}\n.custom-div2[data-v-3871e41a]{\n  margin-top: 5px !important;\n  padding-top: 0.2vh !important;\n  margin-right: 20px;\n}\n.custom-flex[data-v-3871e41a] {\n  display: flex;\n  align-content: center;\n  justify-content: space-around;\n  flex-direction: row;\n  font-size: 18px;\n  font-weight: 400;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30153,6 +30179,129 @@ var render = function () {
         key: "formdata",
         fn: function () {
           return [
+            _c("div", { staticClass: "custom-div mt-4" }, [
+              _c("div", { staticClass: "custom-flex mt-2" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "icons",
+                    style:
+                      _vm.iconSelected == "Safety"
+                        ? "border-bottom: 2px solid #00c4c4"
+                        : "",
+                    on: {
+                      click: function ($event) {
+                        return _vm.changeIcon("Safety")
+                      },
+                    },
+                  },
+                  [_vm._v("\n          Safety\n        ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "icons",
+                    style:
+                      _vm.iconSelected == "Rooms"
+                        ? "border-bottom: 2px solid #00c4c4"
+                        : "",
+                    on: {
+                      click: function ($event) {
+                        return _vm.changeIcon("Rooms")
+                      },
+                    },
+                  },
+                  [_vm._v("\n          Rooms\n        ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "icons",
+                    style:
+                      _vm.iconSelected == "Amenities"
+                        ? "border-bottom: 2px solid #00c4c4"
+                        : "",
+                    on: {
+                      click: function ($event) {
+                        return _vm.changeIcon("Amenities")
+                      },
+                    },
+                  },
+                  [_vm._v("\n          Amenities\n        ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "icons",
+                    style:
+                      _vm.iconSelected == "Policies"
+                        ? "border-bottom: 2px solid #00c4c4"
+                        : "",
+                    on: {
+                      click: function ($event) {
+                        return _vm.changeIcon("Policies")
+                      },
+                    },
+                  },
+                  [_vm._v("\n          Policies\n        ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "icons",
+                    style:
+                      _vm.iconSelected == "Location"
+                        ? "border-bottom: 2px solid #00c4c4;"
+                        : "",
+                    on: {
+                      click: function ($event) {
+                        return _vm.changeIcon("Location")
+                      },
+                    },
+                  },
+                  [_vm._v("\n          Location\n        ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "icons",
+                    style:
+                      _vm.iconSelected == "Property"
+                        ? "border-bottom: 2px solid #00c4c4;"
+                        : "",
+                    on: {
+                      click: function ($event) {
+                        return _vm.changeIcon("Property")
+                      },
+                    },
+                  },
+                  [_vm._v("\n          Property\n        ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "icons",
+                    style:
+                      _vm.iconSelected == "Similar"
+                        ? "border-bottom: 2px solid #00c4c4;"
+                        : "",
+                    on: {
+                      click: function ($event) {
+                        return _vm.changeIcon("Similar")
+                      },
+                    },
+                  },
+                  [_vm._v("\n          Similar\n        ")]
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
             _c(
               "form",
               {
@@ -30402,7 +30551,7 @@ var render = function () {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "room" } }, [
-                              _vm._v("Rooms"),
+                              _vm._v("No. of Rooms"),
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -30453,7 +30602,7 @@ var render = function () {
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "room" } }, [
-                              _vm._v("Banquets"),
+                              _vm._v("No. of Banquets"),
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -30503,7 +30652,7 @@ var render = function () {
                           "div",
                           { staticClass: "form-group" },
                           [
-                            _c("label", { attrs: { for: "status" } }, [
+                            _c("label", { attrs: { for: "star" } }, [
                               _vm._v("Star Category"),
                             ]),
                             _vm._v(" "),
@@ -30514,10 +30663,10 @@ var render = function () {
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "status" },
+                              attrs: { form: _vm.form, field: "star" },
                             }),
                             _vm._v(" "),
-                            _vm.statusWarn && _vm.form.status === ""
+                            _vm.starWarn && _vm.form.star === ""
                               ? _c("p", { staticClass: "warn-error" }, [
                                   _vm._v("Select Star Category"),
                                 ])

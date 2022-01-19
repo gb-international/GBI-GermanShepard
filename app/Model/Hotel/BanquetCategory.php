@@ -12,7 +12,11 @@ class BanquetCategory extends Model
 
 
     public function hotel(){
-        return $this->hasMany('App\Model\Hotel\HotelNew');
+        return $this->hasMany('App\Model\Hotel\Hotel');
+    }
+
+    public function banquet(){
+        return $this->hasMany('App\Model\Hotel\Banquet');
     }
 
 }

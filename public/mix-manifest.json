@@ -72,6 +72,7 @@
     "/js/admin/js/admin/encyclopediaViewComment.js": "/js/admin/js/admin/encyclopediaViewComment.js",
     "/js/admin/js/admin/EncycloPediaComment.js": "/js/admin/js/admin/EncycloPediaComment.js",
     "/js/admin/js/admin/AdminDashboard.js": "/js/admin/js/admin/AdminDashboard.js",
+    "/js/admin/js/admin/hotels.js": "/js/admin/js/admin/hotels.js",
     "/js/admin/js/admin/hotel.js": "/js/admin/js/admin/hotel.js",
     "/js/admin/js/admin/hoteladd.js": "/js/admin/js/admin/hoteladd.js",
     "/js/admin/js/admin/hoteledit.js": "/js/admin/js/admin/hoteledit.js",

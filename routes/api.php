@@ -30,6 +30,7 @@ Route::namespace('Front')->group(function(){
 	Route::get('/itinerary-view/{id}','ItineraryController@view');
 
 	Route::post('/hotel-search','HotelController@searchHotel');
+	Route::post('/hotel-booking','HotelController@HotelBooking');
 
 	Route::post('/user-logout','FrontUserController@logout');
 	Route::get('/tour-list/{id}','FrontUserController@user_tour_list');
