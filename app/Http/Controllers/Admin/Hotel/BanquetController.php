@@ -25,7 +25,7 @@ class BanquetController extends Controller
 
     public function all($size)
     {
-        $data = Bnaquet::latest('updated_at')
+        $data = Banquet::latest('updated_at')
         ->paginate($size);
         foreach ($data as $d){
             $d->images = unserialize($d->images);
