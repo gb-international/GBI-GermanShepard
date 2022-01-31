@@ -6,7 +6,7 @@ data from the api to display the data about the Category from the backend .
   
          <div class="row py-2 mx-3 py-4">
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/ahemdabad')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -19,7 +19,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/bangalore')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -32,7 +32,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/chennai')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -45,7 +45,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/coimbatore')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -58,7 +58,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
            <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/delhi')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -71,7 +71,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/hyderabad')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -84,7 +84,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/jaipur')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -97,7 +97,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/jodhpur')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -110,7 +110,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/jaipur')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -123,7 +123,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/kanpur')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -136,7 +136,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/kochi')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -149,7 +149,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/madurai')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -162,7 +162,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/mumbai')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -176,7 +176,7 @@ data from the api to display the data about the Category from the backend .
 
             
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/patna')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -189,7 +189,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/pune')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -202,7 +202,7 @@ data from the api to display the data about the Category from the backend .
             </div>
 
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/thiruvananthapuram')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -215,7 +215,7 @@ data from the api to display the data about the Category from the backend .
             </div>
             
             <div class="col-md-3 col-6">
-              <div @click="$router.push('/hotel-list')" class="card shadow py-2 mb-3 cityDiv">
+              <div @click="$router.push('/hotel-list/west-bengal')" class="card shadow py-2 mb-3 cityDiv">
                 <div class="card-body d-flex justify-content-center align-items-center flex-column">
                   <img
                     class="customImgJ"
@@ -298,5 +298,6 @@ export default {
   }
 .cityDiv{
     border-radius: 10px;
+    cursor: pointer;
 }
 </style>

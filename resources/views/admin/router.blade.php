@@ -169,12 +169,12 @@
         </li>
         @endcanany --}}
 
-        @if(auth()->user()->hasAnyPermission([60 , 61, 98, 99]) || auth()->user()->hasRole(1))
+        @if(auth()->user()->hasAnyPermission([60 , 102, 98, 99]) || auth()->user()->hasRole(1))
         <li class="nav-item has-treeview" title="Hotel">
             <a href="#" class="nav-link nav-cols">
             <i class="nav-icon fas fa-hotel"></i>
             <p>
-                Hotel & Restaurant
+                Hotels & Banquets
                 <i class="right fas fa-angle-right"></i>
             </p>
             </a>
@@ -182,15 +182,20 @@
             @if(auth()->user()->hasPermissionTo(60) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/hotels" class="nav-link nav-cols" title="Hotel List">
-                
-                <p> Hotel</p>
+                <p>Hotels</p>
+                </router-link>
+            </li>
+            @endif
+            @if(auth()->user()->hasPermissionTo(102) || auth()->user()->hasRole(1))
+            <li class="nav-item">
+                <router-link to="/banquet-list" class="nav-link nav-cols" title="Banquet List">
+                <p>Banquets</p>
                 </router-link>
             </li>
             @endif
             @if(auth()->user()->hasPermissionTo(98) || auth()->user()->hasRole(1))
             <li class="nav-item">
                 <router-link to="/room-categories" class="nav-link nav-cols" title="Room Category">
-                
                 <p> Room Category</p>
                 </router-link>
             </li>
@@ -203,16 +208,16 @@
                 </router-link>
             </li>
             @endif
-            @if(auth()->user()->hasPermissionTo(61) || auth()->user()->hasRole(1))
-            <li class="nav-item">
-                <router-link to="/restaurant-list" class="nav-link nav-cols" title="Restaurant List">
-                
-                <p> Restaurant List</p>
-                </router-link>
-            </li>
-            @endif
             </ul>
         </li>
+        @endif
+
+        @if(auth()->user()->hasPermissionTo(61) || auth()->user()->hasRole(1))
+            <li class="nav-item">
+            <router-link to="/restaurant-list" class="nav-link nav-cols" title="Restaurant List">
+                <i class="nav-icon fas fa-male"></i>
+                <p> Restaurant List</p></router-link>
+            </li>
         @endif
         
         @if(auth()->user()->hasAnyPermission([62 , 63, 64]) || auth()->user()->hasRole(1))

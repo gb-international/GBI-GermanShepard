@@ -413,9 +413,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 
 
@@ -478,7 +475,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     getitems: function getitems() {
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       var size = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.perPage;
-      this.$store.dispatch('getItems', '/hotel/all/' + size + '?page=' + page);
+      var state = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.$route.params.state;
+      this.$store.dispatch('getItems', '/hotel/all/' + size + '/' + state + '?page=' + page);
     },
     deleteItem: function deleteItem(id) {
       var index = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : -1;
@@ -512,7 +510,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.MainRow[data-v-66b4c2c9] {\n  display: flex;\n  justify-content: space-between !important;\n  width: 100%;\n  align-items: center;\n}\n.sideDiv[data-v-66b4c2c9]{\n  width: 62px;\n  margin-left: 5px;\n  height: auto;\n  background: #000000d4;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-around;\n  text-align: center;\n}\n.sideDiv i[data-v-66b4c2c9]{\n  color: white;\n  font-size: 16px;\n}\n.expDetailImg[data-v-66b4c2c9]{\n  width: 100%;\n  height: auto;\n  margin-bottom: 10px;\n}\n.expImgSm[data-v-66b4c2c9]{\n  display: none;\n}\n.expDetailImgSmall[data-v-66b4c2c9]{\n  width:  50px;\n  height: 50px;\n}\n.customCard[data-v-66b4c2c9]{\n  display: flex;\n  flex-direction: column-reverse;\n  justify-content: space-between;\n  border: 1px solid #8080804d !important;\n  border-radius: 0px;\n  width: 80vw;\n  height: auto;\n  padding: 10px;\n  margin-bottom: 20px;\n}\n.detailsRow[data-v-66b4c2c9]{\n  padding: 0px 20px;\n  text-align: right;\n}\np[data-v-66b4c2c9] {\n  font-family: Calibri (Body) !important;\n}\n.mainRow1 p[data-v-66b4c2c9] {\n    margin-bottom: 5px !important;\n}\n.detailsRow p[data-v-66b4c2c9]{\n  margin-bottom: 0px !important;\n}\n.hotelName[data-v-66b4c2c9]{\n  font-weight: 600;\n  font-size: 16px;\n}\n.locName[data-v-66b4c2c9]{\n  font-weight: 400;\n  font-size: 16px;\n  color: gray;\n}\n.stars[data-v-66b4c2c9]{\n  margin-bottom: 20px;\n}\n.stars i[data-v-66b4c2c9]{\n  font-size: 18px;\n  color: #ffa500;\n}\n.amenP[data-v-66b4c2c9]{\n  font-size: 12px;\n  font-weight: 400;\n  color: #767676;\n}\n.bookBtn[data-v-66b4c2c9]{\n    margin: 5px 0px;\n    color: white;\n    background-color: #00c4c4;\n    border-color: #00c4c4;\n    padding: 6px 25px 6px 25px;\n    width: 95px;\n    height: 35px;\n    border: 0px;\n    font-size: 15px;\n    font-weight: 500;\n}\n.bookBtn[data-v-66b4c2c9]:hover{\n  box-shadow: 2px 2px grey;\n  color: #212529;\n}\n.amenity[data-v-66b4c2c9]{\n  margin: 5px 0px;\n  color: #00c4c4;\n  text-decoration: underline;\n  font-weight: 500;\n  font-size: 14px;\n  cursor: pointer;\n}\n.guests[data-v-66b4c2c9]{\n  font-size: 14px;\n  font-weight: 500;\n}\n.price[data-v-66b4c2c9]{\n  margin-top: 20px;\n  font-size: 22px;\n  font-weight: 500;\n}\n.taxes[data-v-66b4c2c9]{\n  font-size: 13px;\n  font-weight: 400;\n  color: #2c2929;\n}\n.perRoom[data-v-66b4c2c9]{\n  font-size: 13px;\n  font-weight: 400;\n  color: #2c2929;\n}\n@media (max-width: 768px) and (min-width: 640px) {\n.customCard[data-v-66b4c2c9]{\n    width: 65vw;\n}\n}\n@media (min-width: 768px){\n.expDetailImg[data-v-66b4c2c9]{\n    width: 230px;\n    height: 170px;\n    margin-bottom: 10px;\n}\n.expImgSm[data-v-66b4c2c9]{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n}\n}\n@media (max-width: 1279px ) and (min-width: 768px){\n.customCard[data-v-66b4c2c9]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    border: 1px solid #8080804d !important;\n    border-radius: 0px;\n    width: 80vw;\n    height: 270px;\n    padding: 10px;\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1280px) {\n.customCard[data-v-66b4c2c9]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    border: 1px solid #8080804d !important;\n    border-radius: 0px;\n    width: 65vw;\n    height: 270px;\n    padding: 10px;\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1536px) {\n.customCard[data-v-66b4c2c9]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    border: 1px solid #8080804d !important;\n    border-radius: 0px;\n    width: 50vw;\n    height: 270px;\n    padding: 10px;\n    margin-bottom: 20px;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.MainRow[data-v-66b4c2c9] {\n  display: flex;\n  justify-content: space-between !important;\n  width: 100%;\n  align-items: center;\n}\n.sideDiv[data-v-66b4c2c9]{\n  width: 62px;\n  margin-left: 5px;\n  height: auto;\n  background: #000000d4;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-around;\n  text-align: center;\n}\n.sideDiv i[data-v-66b4c2c9]{\n  color: white;\n  font-size: 16px;\n}\n.expDetailImg[data-v-66b4c2c9]{\n  width: 100%;\n  height: auto;\n  margin-bottom: 10px;\n}\n.expImgSm[data-v-66b4c2c9]{\n  display: none;\n}\n.expDetailImgSmall[data-v-66b4c2c9]{\n  width:  50px;\n  height: 50px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.customCard[data-v-66b4c2c9]{\n  display: flex;\n  flex-direction: column-reverse;\n  justify-content: space-between;\n  border: 1px solid #8080804d !important;\n  border-radius: 0px;\n  width: 80vw;\n  height: auto;\n  padding: 5px;\n  margin-bottom: 20px;\n}\n.detailsRow[data-v-66b4c2c9]{\n  padding: 0px 20px;\n  text-align: right;\n}\np[data-v-66b4c2c9] {\n  font-family: Calibri (Body) !important;\n}\n.mainRow1 p[data-v-66b4c2c9] {\n    margin-bottom: 5px !important;\n}\n.detailsRow p[data-v-66b4c2c9]{\n  margin-bottom: 0px !important;\n}\n.hotelName[data-v-66b4c2c9]{\n  font-weight: 600;\n  font-size: 20px;\n}\n.locName[data-v-66b4c2c9]{\n  font-weight: 400;\n  font-size: 16px;\n  color: gray;\n}\n.stars[data-v-66b4c2c9]{\n  margin-bottom: 20px;\n}\n.stars i[data-v-66b4c2c9]{\n  font-size: 18px;\n  color: #ffa500;\n}\n.amenP[data-v-66b4c2c9]{\n  font-size: 12px;\n  font-weight: 400;\n  color: #767676;\n}\n.bookBtn[data-v-66b4c2c9]{\n    margin: 5px 0px;\n    color: white;\n    background-color: #00c4c4;\n    border-color: #00c4c4;\n    padding: 6px 25px 6px 25px;\n    width: 95px;\n    height: 35px;\n    border: 0px;\n    font-size: 15px;\n    font-weight: 500;\n}\n.bookBtn[data-v-66b4c2c9]:hover{\n  box-shadow: 2px 2px grey;\n  color: #212529;\n}\n.amenity[data-v-66b4c2c9]{\n  margin: 5px 0px;\n  color: #00c4c4;\n  text-decoration: underline;\n  font-weight: 500;\n  font-size: 14px;\n  cursor: pointer;\n}\n.guests[data-v-66b4c2c9]{\n  font-size: 14px;\n  font-weight: 500;\n}\n.price[data-v-66b4c2c9]{\n  margin-top: 20px;\n  font-size: 22px;\n  font-weight: 500;\n}\n.taxes[data-v-66b4c2c9]{\n  font-size: 13px;\n  font-weight: 400;\n  color: #2c2929;\n}\n.perRoom[data-v-66b4c2c9]{\n  font-size: 13px;\n  font-weight: 400;\n  color: #2c2929;\n}\n@media (max-width: 768px) and (min-width: 640px) {\n.customCard[data-v-66b4c2c9]{\n    width: 65vw;\n}\n}\n@media (min-width: 768px){\n.expDetailImg[data-v-66b4c2c9]{\n    width: 230px;\n    height: 170px;\n    margin-bottom: 10px;\n}\n.expImgSm[data-v-66b4c2c9]{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n}\n}\n@media (max-width: 1279px ) and (min-width: 768px){\n.customCard[data-v-66b4c2c9]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    border: 1px solid #8080804d !important;\n    border-radius: 0px;\n    width: 80vw;\n    height: 270px;\n    padding: 10px;\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1280px) {\n.customCard[data-v-66b4c2c9]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    border: 1px solid #8080804d !important;\n    border-radius: 0px;\n    width: 65vw;\n    height: 270px;\n    padding: 10px;\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1536px) {\n.customCard[data-v-66b4c2c9]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    border: 1px solid #8080804d !important;\n    border-radius: 0px;\n    width: 50vw;\n    height: 270px;\n    padding: 10px;\n    margin-bottom: 20px;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2403,17 +2401,29 @@ var render = function () {
                               _vm._v(_vm._s(data.city)),
                             ]),
                             _vm._v(" "),
-                            _c("div", { staticClass: "d-flex stars" }, [
-                              _c("i", { staticClass: "fas fa-star" }),
-                              _vm._v(" "),
-                              _c("i", { staticClass: "fas fa-star" }),
-                              _vm._v(" "),
-                              _c("i", { staticClass: "fas fa-star" }),
-                              _vm._v(" "),
-                              _c("i", { staticClass: "far fa-star" }),
-                              _vm._v(" "),
-                              _c("i", { staticClass: "far fa-star" }),
-                            ]),
+                            _c(
+                              "div",
+                              { staticClass: "d-flex stars" },
+                              [
+                                _vm._l(data.star_category, function (index) {
+                                  return _c("i", {
+                                    key: index,
+                                    staticClass: "fas fa-star",
+                                  })
+                                }),
+                                _vm._v(" "),
+                                _vm._l(
+                                  5 - data.star_category,
+                                  function (index) {
+                                    return _c("i", {
+                                      key: index,
+                                      staticClass: "far fa-star",
+                                    })
+                                  }
+                                ),
+                              ],
+                              2
+                            ),
                             _vm._v(" "),
                             _c("p", { staticClass: "amenP" }, [
                               _c("i", { staticClass: "fas fa-bed mr-2" }),
@@ -2442,7 +2452,7 @@ var render = function () {
                           ]),
                           _vm._v(" "),
                           _c("p", { staticClass: "price" }, [
-                            _vm._v("Rs. " + _vm._s(data.price) + "/-"),
+                            _vm._v("Rs. 2500/-"),
                           ]),
                           _vm._v(" "),
                           _c("p", { staticClass: "taxes" }, [
@@ -2479,9 +2489,12 @@ var render = function () {
                                   _c("img", {
                                     staticClass: "expDetailImg",
                                     attrs: {
-                                      src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+                                      src:
+                                        _vm.$gbiAssets +
+                                        "/images/hotel/" +
+                                        data.images[0],
                                       loading: "lazy",
-                                      alt: "itinerary",
+                                      alt: "hotel",
                                     },
                                   }),
                                   _vm._v(" "),
@@ -2491,9 +2504,12 @@ var render = function () {
                                         staticClass: "expDetailImgSmall",
                                         staticStyle: { "margin-right": "10px" },
                                         attrs: {
-                                          src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+                                          src:
+                                            _vm.$gbiAssets +
+                                            "/images/hotel/" +
+                                            data.images[1],
                                           loading: "lazy",
-                                          alt: "itinerary",
+                                          alt: "hotel",
                                         },
                                       }),
                                     ]),
@@ -2503,9 +2519,12 @@ var render = function () {
                                         staticClass: "expDetailImgSmall",
                                         staticStyle: { "margin-right": "10px" },
                                         attrs: {
-                                          src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+                                          src:
+                                            _vm.$gbiAssets +
+                                            "/images/hotel/" +
+                                            data.images[2],
                                           loading: "lazy",
-                                          alt: "itinerary",
+                                          alt: "hotel",
                                         },
                                       }),
                                     ]),
@@ -2515,9 +2534,12 @@ var render = function () {
                                         staticClass: "expDetailImgSmall",
                                         staticStyle: { "margin-right": "10px" },
                                         attrs: {
-                                          src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+                                          src:
+                                            _vm.$gbiAssets +
+                                            "/images/hotel/" +
+                                            data.images[3],
                                           loading: "lazy",
-                                          alt: "itinerary",
+                                          alt: "hotel",
                                         },
                                       }),
                                     ]),
@@ -2526,9 +2548,12 @@ var render = function () {
                                       _c("img", {
                                         staticClass: "expDetailImgSmall",
                                         attrs: {
-                                          src: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg",
+                                          src:
+                                            _vm.$gbiAssets +
+                                            "/images/hotel/" +
+                                            data.images[4],
                                           loading: "lazy",
-                                          alt: "itinerary",
+                                          alt: "hotel",
                                         },
                                       }),
                                     ]),
@@ -2538,7 +2563,12 @@ var render = function () {
                               _vm._v(" "),
                               _c("div", { staticClass: "sideDiv" }, [
                                 _c("i", {
-                                  staticClass: "fas fa-eye cursor-pointer",
+                                  staticClass: "fas fa-plus cursor-pointer",
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.$router.push("/add-room")
+                                    },
+                                  },
                                 }),
                                 _vm._v(" "),
                                 _c("i", {

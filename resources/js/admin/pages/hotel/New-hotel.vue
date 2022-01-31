@@ -7,28 +7,22 @@ to submit the data we are using a function.
 <template>
   <form-layout>
     <template #formdata>
-      <div class="custom-div mt-4">
+      <div class="custom-div my-2">
         <div class="custom-flex mt-2">
-          <div class="icons" :style="iconSelected == 'Safety' ? 'border-bottom: 2px solid #00c4c4' : ''" @click="changeIcon('Safety')">
-            Safety
+          <div class="icons" :style="currStep == 'step1' ? 'border-bottom: 2px solid #00c4c4' : 'border-bottom: 2px solid #38353538'" @click="changeStep('step1')">
+            Hotel Information
           </div>
-          <div class="icons" :style="iconSelected == 'Rooms' ? 'border-bottom: 2px solid #00c4c4' : ''" @click="changeIcon('Rooms')">
-            Rooms
+          <div class="icons" :style="currStep == 'step2' ? 'border-bottom: 2px solid #00c4c4' : 'border-bottom: 2px solid #38353538'" @click="changeStep('step2')">
+            Categories
           </div>
-          <div class="icons" :style="iconSelected == 'Amenities' ? 'border-bottom: 2px solid #00c4c4' : ''" @click="changeIcon('Amenities')">
+          <div class="icons" :style="currStep == 'step3' ? 'border-bottom: 2px solid #00c4c4' : 'border-bottom: 2px solid #38353538'" @click="changeStep('step3')">
+            Photos
+          </div>
+           <div class="icons" :style="currStep == 'step4' ? 'border-bottom: 2px solid #00c4c4' : 'border-bottom: 2px solid #38353538'" @click="changeStep('step4')">
             Amenities
           </div>
-          <div class="icons" :style="iconSelected == 'Policies' ? 'border-bottom: 2px solid #00c4c4' : ''" @click="changeIcon('Policies')">
-            Policies
-          </div>
-          <div class="icons" :style="iconSelected == 'Location' ? 'border-bottom: 2px solid #00c4c4;' : ''" @click="changeIcon('Location')">
-            Location
-          </div>
-          <div class="icons" :style="iconSelected == 'Property' ? 'border-bottom: 2px solid #00c4c4;' : ''" @click="changeIcon('Property')">
-            Property
-          </div>
-          <div class="icons" :style="iconSelected == 'Similar' ? 'border-bottom: 2px solid #00c4c4;' : ''" @click="changeIcon('Similar')">
-            Similar
+          <div class="icons" :style="currStep == 'step5' ? 'border-bottom: 2px solid #00c4c4;' : 'border-bottom: 2px solid #38353538'" @click="changeStep('step5')">
+            Address
           </div>
         </div>
       </div>
@@ -37,7 +31,7 @@ to submit the data we are using a function.
         role="form"
         enctype="multipart/form-data"
       >
-        <div class="row" v-if="step1">
+        <div class="row" v-if="currStep=='step1'">
           <div class="col-sm-8">
             <div class="form-group">
               <label for="name">Hotel Name</label>
@@ -77,11 +71,11 @@ to submit the data we are using a function.
                 row="3"
                 type="text"
                 class="form-control"
-                v-model="form.description"
-                :class="{ 'is-invalid': form.errors.has('description') }"
+                v-model="form.meta_description"
+                :class="{ 'is-invalid': form.errors.has('meta_description') }"
                 placeholder="Enter Meta Description"
               ></textarea>
-              <has-error :form="form" field="description"></has-error>
+              <has-error :form="form" field="meta_description"></has-error>
             </div>
           </div>
 
@@ -120,7 +114,6 @@ to submit the data we are using a function.
                 track-by="title"
               ></multiselect> 
               -->
-
                 <tags-input element-id="tags"
                   v-model="meta_key"
                   :existing-tags="tags"
@@ -137,14 +130,14 @@ to submit the data we are using a function.
 
          <div class="col-sm-4">
             <div class="form-group">
-              <label for="room">No. of Rooms</label>
+              <label for="rooms">No. of Rooms</label>
               <input
                 type="number"
                 class="form-control"
                 placeholder="Enter No. of Room in hotel"
-                id="room"
-                name="room"
-                v-model="form.room"
+                id="rooms"
+                name="rooms"
+                v-model="form.rooms"
                 :class="{ 'is-invalid': form.errors.has('room') }"
               />
               <has-error :form="form" field="room"></has-error>
@@ -153,17 +146,17 @@ to submit the data we are using a function.
 
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="room">No. of Banquets</label>
+              <label for="banquets">No. of Banquets</label>
               <input
                 type="number"
                 class="form-control"
                 placeholder="Enter No. of Banquets in hotel"
-                id="room"
-                name="room"
+                id="banquets"
+                name="banquets"
                 v-model="form.banquets"
-                :class="{ 'is-invalid': form.errors.has('room') }"
+                :class="{ 'is-invalid': form.errors.has('banquets') }"
               />
-              <has-error :form="form" field="room"></has-error>
+              <has-error :form="form" field="banquets"></has-error>
             </div>
           </div>
 
@@ -175,7 +168,7 @@ to submit the data we are using a function.
                 @update:option="updateStatus" 
               />
               <has-error :form="form" field="star"></has-error>
-              <p v-if="starWarn && form.star === '' " class="warn-error">Select Star Category</p>
+              <p v-if="starWarn && form.star_category === '' " class="warn-error">Select Star Category</p>
             </div>
           </div>
 
@@ -213,11 +206,11 @@ to submit the data we are using a function.
         </div>
 
         <!-- Step 2 -->
-        <div class="row" v-else-if="step2">
+        <div class="row" v-else-if="currStep=='step2'">
           <div class="col-sm-6">
             <label for="state">Room Category</label>
              <div class="row">
-              <div class="col-sm-9 mb-2" v-for="index in form.room_categories" :key="index">
+              <div class="col-sm-9 mb-2" v-for="(cat, index) in form.room_categories" :key="index">
                 <input
                     type="text"
                     class="form-control"
@@ -237,7 +230,7 @@ to submit the data we are using a function.
           <div class="col-sm-6">
             <label for="state">Banquet Category</label>
             <div class="row">
-              <div class="col-sm-9 mb-2" v-for="index in form.banquet_categories" :key="index">
+              <div class="col-sm-9 mb-2" v-for="(cat, index) in form.banquet_categories" :key="index">
                 <input
                     type="text"
                     class="form-control"
@@ -256,15 +249,19 @@ to submit the data we are using a function.
           </div>
         </div>
 
-        <div class="row" v-else-if="step3">
-          <div class="custom-card shadow" @click="fileInput">
-            <i class="fas fa-plus-circle" style="margin-top: 4vh; font-size: 35px;"></i>
+        <div class="row" v-else-if="currStep=='step3'">
+          <div v-for="(img, index) in img_images" :key="index" class="mr-2 mb-2 shadow smallImages">
+            <img :src="img" alt class="smallImages"/>
+            <i class="fas fa-trash-alt delImgBtn" @click="delImg(index)"></i>
           </div>
-          <input type="file" ref="fileInput" style="display: none" @change="onFileInput" accept=".png, .jpg, .jpeg, .pdf">
+          <div class="custom-card shadow ml-2 mb-2" @click="fileInput">
+            <i class="fas fa-plus-circle" style="font-size: 35px;"></i>
+          </div>
+          <input type="file" ref="fileInput" style="display: none" @change="onFileInput" multiple accept=".png, .jpg, .jpeg, .pdf">
         </div>
 
         <!-- Step 4 -->
-        <div class="row" v-else-if="step4">
+        <div class="row" v-else-if="currStep=='step5'">
           <div class="col-sm-3">
             <div class="form-group">
               <label for="city">City</label>
@@ -352,7 +349,7 @@ to submit the data we are using a function.
             <button
                 @click.prevent="next()"
                 class="btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold"
-                >Next
+                >{{ currStep == 'step5' ? 'Submit' : 'Next'}}
             </button>
           </div>
         </div>
@@ -383,11 +380,8 @@ export default {
   mixins:[Vue2EditorMixin],
   data() {
     return {
-      step1: true,
-      step2: false,
-      step3: false,
-      step4: false,
-      img_image: "",
+      currStep: 'step1',
+      img_images: [],
       star_list: [
         {name:"5",id:0},
         {name:"4",id:1},
@@ -396,47 +390,54 @@ export default {
         {name:"1",id:4},
       ],
       form: new Form({
-        type: "",
         name: "",
         state: "",
         city: "",
         country: "",
         pincode: "",
-        image: '',
-        alt:'',
-        star: "",
-        room: "",
+        //image: "",
+        alt:[],
+        star_category: "",
+        rooms: "",
         banquets: "",
         phoneno: "",
         email: "",
         address: "",
-        room_categories: [ '' ],
-        banquet_categories: [ '' ],
-        photos: [''],
-        apai_single: "",
-        apai_double: "",
-        apai_triple: "",
-        apai_quad: "",
-
-        mapai_single: "",
-        mapai_double: "",
-        mapai_triple: "",
-        mapai_quad: "",
-
-        cpai_single: "",
-        cpai_double: "",
-        cpai_triple: "",
-        cpai_quad: "",
+        room_categories: [''],
+        banquet_categories: [''],
+        images: [],
+        description: "",
+        meta_keywords: [],
+        meta_title: "",
+        meta_description: "",
+        amenities: []
       }),
     };
   },
   methods: {
+    changeStep(val){
+      this.currStep = val;
+    },
     fileInput(){
       this.$refs.fileInput.click()
     },
-    onFileInput(e){
-        this.form.photos[1] = e.target.files[0];
-        console.log(this.form.photos[1])
+    onFileInput(event){
+        for(let i=0; i<event.target.files.length; i++){
+          let file = event.target.files[i];
+          this.form.alt[i] = file.name;
+          let reader = new FileReader();
+          reader.onload = (event) => {
+            this.form.images.push(event.target.result);
+            this.img_images.push(event.target.result);
+          };
+          reader.readAsDataURL(file);
+        }
+        //console.log(this.form.images[1])
+    },
+    delImg(index){
+       this.img_images = this.img_images.slice(0, index).concat(this.img_images.slice(index + 1));
+       this.form.images = this.form.images.slice(0, index).concat(this.form.images.slice(index + 1));
+       this.form.alt = this.form.alt.slice(0, index).concat(this.form.alt.slice(index + 1));
     },
     incr(val){
       let col = ""
@@ -462,54 +463,46 @@ export default {
       }, 500);
     },
     next(){
-      if(this.step1 == true){
-        this.step1 = false;
-        this.step2 = true;
+      if(this.currStep == 'step1'){
+        this.currStep = 'step2'
         //this.scrollTop()
-      } else if(this.step2 == true){
-        this.step2 = false;
-        this.step3 = true;
+      } else if(this.currStep == 'step2'){
+        this.currStep = 'step3'
         //this.scrollTop()
-      } else if(this.step3 == true){
-        this.step3 = false;
-        this.step4 = true;
+      } else if(this.currStep == 'step3'){
+        this.currStep = 'step4'
         //this.scrollTop()
+      } else if(this.currStep == 'step4'){
+        this.currStep = 'step5'
+        //this.scrollTop()
+      } else if(this.currStep == 'step5'){
+        this.addHotel();
       }
     },
     back(){
-      if(this.step1 == true){
+      if(this.currStep == 'step1'){
         this.$router.push('/hotel-list');
-      }else if(this.step2 == true){
-        this.step2 = false;
-        this.step1 = true;
+      }else if(this.currStep == 'step2'){
+        this.currStep = 'step1'
         //this.scrollTop()
-      } else if(this.step3 == true){
-        this.step3 = false;
-        this.step2 = true;
+      } else if(this.currStep == 'step3'){
+        this.currStep = 'step2'
         //this.scrollTop()
-      } else if(this.step4 == true){
-        this.step4 = false;
-        this.step3 = true;
+      } else if(this.currStep == 'step4'){
+        this.currStep = 'step3'
+        //this.scrollTop()
+      } else if(this.currStep == 'step5'){
+        this.currStep = 'step4'
         //this.scrollTop()
       }
     },
-    updateStatus(v){ this.form.star = v.name},
-    changeDetailPhoto(event) {
-      let file = event.target.files[0];
-      this.form.alt = file.name;
-      let reader = new FileReader();
-      reader.onload = (event) => {
-        this.form.image  = event.target.result;
-        this.img_image = event.target.result;
-      };
-      reader.readAsDataURL(file);
-    },
+    updateStatus(v){ this.form.star_category = v.name},
     addHotel() {
       // Submit the form via a itinerary request
       this.form
         .post("/api/hotel")
         .then((response) => {
-          this.$router.push(`/hotel-list/`);
+          this.$router.push(`/hotel-list`);
           this.$toast.fire({
             icon: "success",
             title: "Hotel Added successfully",
@@ -522,6 +515,19 @@ export default {
 </script>
 
 <style scoped>
+.smallImages{
+  width: 140px; 
+  height: 93px;
+  position: relative;
+}
+.delImgBtn{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 4px;
+  font-size: 16px;
+  color: #d12121;
+}
 .btn-custom-indr {
     color: #212529;
     background-color: #dee2e6;
@@ -533,9 +539,9 @@ export default {
 .custom-card {
   display: flex;
   justify-content: center;
-  align-content: center;
-  height: 12vh;
-  width: 10vw;
+  align-items: center;
+  height: 93px;
+  width: 143px;
   background: #e5e5e5;
   border: solid 2px #e5e5e5;
   border-radius: 5px;
@@ -544,19 +550,22 @@ export default {
   margin-top: 26px !important;
   padding-top: 0.2vh !important;
   margin-right: 20px;
-  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2px 7px 0 rgb(0 0 0 / 19%);
-}
-.custom-div2{
-  margin-top: 5px !important;
-  padding-top: 0.2vh !important;
-  margin-right: 20px;
+  margin-bottom: 10px;
 }
 .custom-flex {
   display: flex;
   align-content: center;
   justify-content: space-around;
   flex-direction: row;
-  font-size: 18px;
-  font-weight: 400;
+  font-weight: 470;
+  color: grey;
+}
+.icons{
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 2px 2px 10px 2px;
+  text-align: center;
+  width: 20%;
 }
 </style>

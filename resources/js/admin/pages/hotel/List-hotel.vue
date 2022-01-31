@@ -34,11 +34,8 @@ data from the api to display the data about the Category from the backend .
           <p class="hotelName">{{data.name}}</p>
           <p class="locName">{{data.city}}</p>
           <div class="d-flex stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
+            <i class="fas fa-star" v-for="index in data.star_category" :key="index"></i>
+            <i class="far fa-star" v-for="index in  (5 - data.star_category)" :key="index"></i>
           </div>
           <p class="amenP"><i class="fas fa-bed mr-2"></i>Superior Room Twin Beds</p>
           <p class="amenP"><i class="fas fa-wind mr-2"></i>Air Condition</p>
@@ -47,7 +44,7 @@ data from the api to display the data about the Category from the backend .
         </div>
         <div class="detailsRow">
           <p class="guests">{{data.rooms}} Rooms</p>
-          <p class="price">Rs. {{data.price}}/-</p>
+          <p class="price">Rs. 2500/-</p>
           <p class="taxes">+ Rs.537 Taxes</p>
           <p class="perRoom">per room / night</p>
         </div>
@@ -57,51 +54,51 @@ data from the api to display the data about the Category from the backend .
         <div class="d-flex flex-row justify-content-center">
             <div class="d-flex flex-column expDetCol1">
               <img 
-                src="https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg"
+                :src="$gbiAssets+'/images/hotel/'+data.images[0]"
                 loading="lazy"
-                alt="itinerary"
+                alt="hotel"
                 class="expDetailImg"
               >
               <div class="expImgSm">
                   <div>
                     <img 
-                      src="https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg"
+                      :src="$gbiAssets+'/images/hotel/'+data.images[1]"
                       loading="lazy"
-                      alt="itinerary"
+                      alt="hotel"
                       class="expDetailImgSmall"
                       style="margin-right: 10px"
                       >
                   </div>
                   <div>
                     <img 
-                      src="https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg"
+                      :src="$gbiAssets+'/images/hotel/'+data.images[2]"
                       loading="lazy"
-                      alt="itinerary"
+                      alt="hotel"
                       class="expDetailImgSmall"
                       style="margin-right: 10px"
                       >
                   </div>
                   <div>
                     <img 
-                      src="https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg"
+                      :src="$gbiAssets+'/images/hotel/'+data.images[3]"
                       loading="lazy"
-                      alt="itinerary"
+                      alt="hotel"
                       class="expDetailImgSmall"
                       style="margin-right: 10px"
                       >
                   </div>
                   <div>
                     <img 
-                      src="https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_960_720.jpg"
+                      :src="$gbiAssets+'/images/hotel/'+data.images[4]"
                       loading="lazy"
-                      alt="itinerary"
+                      alt="hotel"
                       class="expDetailImgSmall"
                       >
                   </div>
               </div>
           </div>
           <div class="sideDiv">
-            <i class="fas fa-eye cursor-pointer"></i>
+            <i class="fas fa-plus cursor-pointer" @click="$router.push('/add-room')"></i>
             <i class="fas fa-pen cursor-pointer"></i>
           </div>
         </div>
@@ -166,8 +163,8 @@ export default {
   },
 
   methods: {
-    getitems(page=1,size= this.perPage) {
-      this.$store.dispatch('getItems','/hotel/all/'+size+'?page='+page);
+    getitems(page=1,size= this.perPage,state= this.$route.params.state) {
+      this.$store.dispatch('getItems','/hotel/all/'+size+'/'+state+'?page='+page);
     },
     deleteItem(id,index=-1) {
       let payload = {'api':"/hotel/"+id,index,'index':index};
@@ -209,6 +206,7 @@ export default {
 .expDetailImgSmall{
   width:  50px;
   height: 50px;
+  object-fit: cover;
 }
 .customCard{
   display: flex;
@@ -218,7 +216,7 @@ export default {
   border-radius: 0px;
   width: 80vw;
   height: auto;
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 20px;
 }
 .detailsRow{
@@ -236,7 +234,7 @@ p {
 }
 .hotelName{
   font-weight: 600;
-  font-size: 16px;
+  font-size: 20px;
 }
 .locName{
   font-weight: 400;

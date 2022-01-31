@@ -9,11 +9,11 @@ class Hotel extends Model
     protected $guarded = [];
     public function getImageAttribute($image)
     {
-        if($image){
+        /*if($image){
             return \Storage::disk('s3')->url(config('gbi.hotel_image').$image);
         }else{
             return '';
-        }
+        }*/
     }
 
     public function setEmailAttribute($value){

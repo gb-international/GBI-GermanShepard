@@ -706,9 +706,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -728,11 +725,8 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
   data: function data() {
     return {
-      step1: true,
-      step2: false,
-      step3: false,
-      step4: false,
-      img_image: "",
+      currStep: 'step1',
+      img_images: [],
       star_list: [{
         name: "5",
         id: 0
@@ -750,45 +744,59 @@ __webpack_require__.r(__webpack_exports__);
         id: 4
       }],
       form: new vform__WEBPACK_IMPORTED_MODULE_0__.Form({
-        type: "",
         name: "",
         state: "",
         city: "",
         country: "",
         pincode: "",
-        image: '',
-        alt: '',
-        star: "",
-        room: "",
+        //image: "",
+        alt: [],
+        star_category: "",
+        rooms: "",
         banquets: "",
         phoneno: "",
         email: "",
         address: "",
         room_categories: [''],
         banquet_categories: [''],
-        photos: [''],
-        apai_single: "",
-        apai_double: "",
-        apai_triple: "",
-        apai_quad: "",
-        mapai_single: "",
-        mapai_double: "",
-        mapai_triple: "",
-        mapai_quad: "",
-        cpai_single: "",
-        cpai_double: "",
-        cpai_triple: "",
-        cpai_quad: ""
+        images: [],
+        description: "",
+        meta_keywords: [],
+        meta_title: "",
+        meta_description: "",
+        amenities: []
       })
     };
   },
   methods: {
+    changeStep: function changeStep(val) {
+      this.currStep = val;
+    },
     fileInput: function fileInput() {
       this.$refs.fileInput.click();
     },
-    onFileInput: function onFileInput(e) {
-      this.form.photos[1] = e.target.files[0];
-      console.log(this.form.photos[1]);
+    onFileInput: function onFileInput(event) {
+      var _this = this;
+
+      for (var i = 0; i < event.target.files.length; i++) {
+        var file = event.target.files[i];
+        this.form.alt[i] = file.name;
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+          _this.form.images.push(event.target.result);
+
+          _this.img_images.push(event.target.result);
+        };
+
+        reader.readAsDataURL(file);
+      } //console.log(this.form.images[1])
+
+    },
+    delImg: function delImg(index) {
+      this.img_images = this.img_images.slice(0, index).concat(this.img_images.slice(index + 1));
+      this.form.images = this.form.images.slice(0, index).concat(this.form.images.slice(index + 1));
+      this.form.alt = this.form.alt.slice(0, index).concat(this.form.alt.slice(index + 1));
     },
     incr: function incr(val) {
       var col = "";
@@ -814,54 +822,40 @@ __webpack_require__.r(__webpack_exports__);
       }, 500);
     },
     next: function next() {
-      if (this.step1 == true) {
-        this.step1 = false;
-        this.step2 = true; //this.scrollTop()
-      } else if (this.step2 == true) {
-        this.step2 = false;
-        this.step3 = true; //this.scrollTop()
-      } else if (this.step3 == true) {
-        this.step3 = false;
-        this.step4 = true; //this.scrollTop()
+      if (this.currStep == 'step1') {
+        this.currStep = 'step2'; //this.scrollTop()
+      } else if (this.currStep == 'step2') {
+        this.currStep = 'step3'; //this.scrollTop()
+      } else if (this.currStep == 'step3') {
+        this.currStep = 'step4'; //this.scrollTop()
+      } else if (this.currStep == 'step4') {
+        this.currStep = 'step5'; //this.scrollTop()
+      } else if (this.currStep == 'step5') {
+        this.addHotel();
       }
     },
     back: function back() {
-      if (this.step1 == true) {
+      if (this.currStep == 'step1') {
         this.$router.push('/hotel-list');
-      } else if (this.step2 == true) {
-        this.step2 = false;
-        this.step1 = true; //this.scrollTop()
-      } else if (this.step3 == true) {
-        this.step3 = false;
-        this.step2 = true; //this.scrollTop()
-      } else if (this.step4 == true) {
-        this.step4 = false;
-        this.step3 = true; //this.scrollTop()
+      } else if (this.currStep == 'step2') {
+        this.currStep = 'step1'; //this.scrollTop()
+      } else if (this.currStep == 'step3') {
+        this.currStep = 'step2'; //this.scrollTop()
+      } else if (this.currStep == 'step4') {
+        this.currStep = 'step3'; //this.scrollTop()
+      } else if (this.currStep == 'step5') {
+        this.currStep = 'step4'; //this.scrollTop()
       }
     },
     updateStatus: function updateStatus(v) {
-      this.form.star = v.name;
-    },
-    changeDetailPhoto: function changeDetailPhoto(event) {
-      var _this = this;
-
-      var file = event.target.files[0];
-      this.form.alt = file.name;
-      var reader = new FileReader();
-
-      reader.onload = function (event) {
-        _this.form.image = event.target.result;
-        _this.img_image = event.target.result;
-      };
-
-      reader.readAsDataURL(file);
+      this.form.star_category = v.name;
     },
     addHotel: function addHotel() {
       var _this2 = this;
 
       // Submit the form via a itinerary request
       this.form.post("/api/hotel").then(function (response) {
-        _this2.$router.push("/hotel-list/");
+        _this2.$router.push("/hotel-list");
 
         _this2.$toast.fire({
           icon: "success",
@@ -3067,7 +3061,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.btn-custom-indr[data-v-3871e41a] {\n    color: #212529;\n    background-color: #dee2e6;\n    border-color: #dee2e6;\n    font-size: 15px !important;\n    font-weight: 400;\n    padding: 6px 15px;\n}\n.custom-card[data-v-3871e41a] {\n  display: flex;\n  justify-content: center;\n  align-content: center;\n  height: 12vh;\n  width: 10vw;\n  background: #e5e5e5;\n  border: solid 2px #e5e5e5;\n  border-radius: 5px;\n}\n.custom-div[data-v-3871e41a]{\n  margin-top: 26px !important;\n  padding-top: 0.2vh !important;\n  margin-right: 20px;\n  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2px 7px 0 rgb(0 0 0 / 19%);\n}\n.custom-div2[data-v-3871e41a]{\n  margin-top: 5px !important;\n  padding-top: 0.2vh !important;\n  margin-right: 20px;\n}\n.custom-flex[data-v-3871e41a] {\n  display: flex;\n  align-content: center;\n  justify-content: space-around;\n  flex-direction: row;\n  font-size: 18px;\n  font-weight: 400;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.smallImages[data-v-3871e41a]{\n  width: 140px; \n  height: 93px;\n  position: relative;\n}\n.delImgBtn[data-v-3871e41a]{\n  position: absolute;\n  top: 0px;\n  right: 0px;\n  margin: 4px;\n  font-size: 16px;\n  color: #d12121;\n}\n.btn-custom-indr[data-v-3871e41a] {\n    color: #212529;\n    background-color: #dee2e6;\n    border-color: #dee2e6;\n    font-size: 15px !important;\n    font-weight: 400;\n    padding: 6px 15px;\n}\n.custom-card[data-v-3871e41a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 93px;\n  width: 143px;\n  background: #e5e5e5;\n  border: solid 2px #e5e5e5;\n  border-radius: 5px;\n}\n.custom-div[data-v-3871e41a]{\n  margin-top: 26px !important;\n  padding-top: 0.2vh !important;\n  margin-right: 20px;\n  margin-bottom: 10px;\n}\n.custom-flex[data-v-3871e41a] {\n  display: flex;\n  align-content: center;\n  justify-content: space-around;\n  flex-direction: row;\n  font-weight: 470;\n  color: grey;\n}\n.icons[data-v-3871e41a]{\n  cursor: pointer;\n  font-size: 17px;\n  font-weight: 500;\n  padding: 2px 2px 10px 2px;\n  text-align: center;\n  width: 20%;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30179,23 +30173,23 @@ var render = function () {
         key: "formdata",
         fn: function () {
           return [
-            _c("div", { staticClass: "custom-div mt-4" }, [
+            _c("div", { staticClass: "custom-div my-2" }, [
               _c("div", { staticClass: "custom-flex mt-2" }, [
                 _c(
                   "div",
                   {
                     staticClass: "icons",
                     style:
-                      _vm.iconSelected == "Safety"
+                      _vm.currStep == "step1"
                         ? "border-bottom: 2px solid #00c4c4"
-                        : "",
+                        : "border-bottom: 2px solid #38353538",
                     on: {
                       click: function ($event) {
-                        return _vm.changeIcon("Safety")
+                        return _vm.changeStep("step1")
                       },
                     },
                   },
-                  [_vm._v("\n          Safety\n        ")]
+                  [_vm._v("\n          Hotel Information\n        ")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -30203,16 +30197,16 @@ var render = function () {
                   {
                     staticClass: "icons",
                     style:
-                      _vm.iconSelected == "Rooms"
+                      _vm.currStep == "step2"
                         ? "border-bottom: 2px solid #00c4c4"
-                        : "",
+                        : "border-bottom: 2px solid #38353538",
                     on: {
                       click: function ($event) {
-                        return _vm.changeIcon("Rooms")
+                        return _vm.changeStep("step2")
                       },
                     },
                   },
-                  [_vm._v("\n          Rooms\n        ")]
+                  [_vm._v("\n          Categories\n        ")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -30220,12 +30214,29 @@ var render = function () {
                   {
                     staticClass: "icons",
                     style:
-                      _vm.iconSelected == "Amenities"
+                      _vm.currStep == "step3"
                         ? "border-bottom: 2px solid #00c4c4"
-                        : "",
+                        : "border-bottom: 2px solid #38353538",
                     on: {
                       click: function ($event) {
-                        return _vm.changeIcon("Amenities")
+                        return _vm.changeStep("step3")
+                      },
+                    },
+                  },
+                  [_vm._v("\n          Photos\n        ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "icons",
+                    style:
+                      _vm.currStep == "step4"
+                        ? "border-bottom: 2px solid #00c4c4"
+                        : "border-bottom: 2px solid #38353538",
+                    on: {
+                      click: function ($event) {
+                        return _vm.changeStep("step4")
                       },
                     },
                   },
@@ -30237,67 +30248,16 @@ var render = function () {
                   {
                     staticClass: "icons",
                     style:
-                      _vm.iconSelected == "Policies"
-                        ? "border-bottom: 2px solid #00c4c4"
-                        : "",
-                    on: {
-                      click: function ($event) {
-                        return _vm.changeIcon("Policies")
-                      },
-                    },
-                  },
-                  [_vm._v("\n          Policies\n        ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "icons",
-                    style:
-                      _vm.iconSelected == "Location"
+                      _vm.currStep == "step5"
                         ? "border-bottom: 2px solid #00c4c4;"
-                        : "",
+                        : "border-bottom: 2px solid #38353538",
                     on: {
                       click: function ($event) {
-                        return _vm.changeIcon("Location")
+                        return _vm.changeStep("step5")
                       },
                     },
                   },
-                  [_vm._v("\n          Location\n        ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "icons",
-                    style:
-                      _vm.iconSelected == "Property"
-                        ? "border-bottom: 2px solid #00c4c4;"
-                        : "",
-                    on: {
-                      click: function ($event) {
-                        return _vm.changeIcon("Property")
-                      },
-                    },
-                  },
-                  [_vm._v("\n          Property\n        ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "icons",
-                    style:
-                      _vm.iconSelected == "Similar"
-                        ? "border-bottom: 2px solid #00c4c4;"
-                        : "",
-                    on: {
-                      click: function ($event) {
-                        return _vm.changeIcon("Similar")
-                      },
-                    },
-                  },
-                  [_vm._v("\n          Similar\n        ")]
+                  [_vm._v("\n          Address\n        ")]
                 ),
               ]),
             ]),
@@ -30312,7 +30272,7 @@ var render = function () {
                 },
               },
               [
-                _vm.step1
+                _vm.currStep == "step1"
                   ? _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-8" }, [
                         _c(
@@ -30419,21 +30379,21 @@ var render = function () {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.form.description,
-                                  expression: "form.description",
+                                  value: _vm.form.meta_description,
+                                  expression: "form.meta_description",
                                 },
                               ],
                               staticClass: "form-control",
                               class: {
                                 "is-invalid":
-                                  _vm.form.errors.has("description"),
+                                  _vm.form.errors.has("meta_description"),
                               },
                               attrs: {
                                 row: "3",
                                 type: "text",
                                 placeholder: "Enter Meta Description",
                               },
-                              domProps: { value: _vm.form.description },
+                              domProps: { value: _vm.form.meta_description },
                               on: {
                                 input: function ($event) {
                                   if ($event.target.composing) {
@@ -30441,7 +30401,7 @@ var render = function () {
                                   }
                                   _vm.$set(
                                     _vm.form,
-                                    "description",
+                                    "meta_description",
                                     $event.target.value
                                   )
                                 },
@@ -30449,7 +30409,10 @@ var render = function () {
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "description" },
+                              attrs: {
+                                form: _vm.form,
+                                field: "meta_description",
+                              },
                             }),
                           ],
                           1
@@ -30550,7 +30513,7 @@ var render = function () {
                           "div",
                           { staticClass: "form-group" },
                           [
-                            _c("label", { attrs: { for: "room" } }, [
+                            _c("label", { attrs: { for: "rooms" } }, [
                               _vm._v("No. of Rooms"),
                             ]),
                             _vm._v(" "),
@@ -30559,8 +30522,8 @@ var render = function () {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.form.room,
-                                  expression: "form.room",
+                                  value: _vm.form.rooms,
+                                  expression: "form.rooms",
                                 },
                               ],
                               staticClass: "form-control",
@@ -30570,10 +30533,10 @@ var render = function () {
                               attrs: {
                                 type: "number",
                                 placeholder: "Enter No. of Room in hotel",
-                                id: "room",
-                                name: "room",
+                                id: "rooms",
+                                name: "rooms",
                               },
-                              domProps: { value: _vm.form.room },
+                              domProps: { value: _vm.form.rooms },
                               on: {
                                 input: function ($event) {
                                   if ($event.target.composing) {
@@ -30581,7 +30544,7 @@ var render = function () {
                                   }
                                   _vm.$set(
                                     _vm.form,
-                                    "room",
+                                    "rooms",
                                     $event.target.value
                                   )
                                 },
@@ -30601,7 +30564,7 @@ var render = function () {
                           "div",
                           { staticClass: "form-group" },
                           [
-                            _c("label", { attrs: { for: "room" } }, [
+                            _c("label", { attrs: { for: "banquets" } }, [
                               _vm._v("No. of Banquets"),
                             ]),
                             _vm._v(" "),
@@ -30616,13 +30579,13 @@ var render = function () {
                               ],
                               staticClass: "form-control",
                               class: {
-                                "is-invalid": _vm.form.errors.has("room"),
+                                "is-invalid": _vm.form.errors.has("banquets"),
                               },
                               attrs: {
                                 type: "number",
                                 placeholder: "Enter No. of Banquets in hotel",
-                                id: "room",
-                                name: "room",
+                                id: "banquets",
+                                name: "banquets",
                               },
                               domProps: { value: _vm.form.banquets },
                               on: {
@@ -30640,7 +30603,7 @@ var render = function () {
                             }),
                             _vm._v(" "),
                             _c("has-error", {
-                              attrs: { form: _vm.form, field: "room" },
+                              attrs: { form: _vm.form, field: "banquets" },
                             }),
                           ],
                           1
@@ -30666,7 +30629,7 @@ var render = function () {
                               attrs: { form: _vm.form, field: "star" },
                             }),
                             _vm._v(" "),
-                            _vm.starWarn && _vm.form.star === ""
+                            _vm.starWarn && _vm.form.star_category === ""
                               ? _c("p", { staticClass: "warn-error" }, [
                                   _vm._v("Select Star Category"),
                                 ])
@@ -30778,7 +30741,7 @@ var render = function () {
                         ),
                       ]),
                     ])
-                  : _vm.step2
+                  : _vm.currStep == "step2"
                   ? _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-6" }, [
                         _c("label", { attrs: { for: "state" } }, [
@@ -30789,51 +30752,57 @@ var render = function () {
                           "div",
                           { staticClass: "row" },
                           [
-                            _vm._l(_vm.form.room_categories, function (index) {
-                              return _c(
-                                "div",
-                                { key: index, staticClass: "col-sm-9 mb-2" },
-                                [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
+                            _vm._l(
+                              _vm.form.room_categories,
+                              function (cat, index) {
+                                return _c(
+                                  "div",
+                                  { key: index, staticClass: "col-sm-9 mb-2" },
+                                  [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.form.room_categories[index],
+                                          expression:
+                                            "form.room_categories[index]",
+                                        },
+                                      ],
+                                      staticClass: "form-control",
+                                      class: {
+                                        "is-invalid":
+                                          _vm.form.errors.has(
+                                            "room_categories"
+                                          ),
+                                      },
+                                      attrs: {
+                                        type: "text",
+                                        placeholder: "Select Category",
+                                        id: "room_categories",
+                                        name: "room_categories",
+                                      },
+                                      domProps: {
                                         value: _vm.form.room_categories[index],
-                                        expression:
-                                          "form.room_categories[index]",
                                       },
-                                    ],
-                                    staticClass: "form-control",
-                                    class: {
-                                      "is-invalid":
-                                        _vm.form.errors.has("room_categories"),
-                                    },
-                                    attrs: {
-                                      type: "text",
-                                      placeholder: "Select Category",
-                                      id: "room_categories",
-                                      name: "room_categories",
-                                    },
-                                    domProps: {
-                                      value: _vm.form.room_categories[index],
-                                    },
-                                    on: {
-                                      input: function ($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.form.room_categories,
-                                          index,
-                                          $event.target.value
-                                        )
+                                      on: {
+                                        input: function ($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form.room_categories,
+                                            index,
+                                            $event.target.value
+                                          )
+                                        },
                                       },
-                                    },
-                                  }),
-                                ]
-                              )
-                            }),
+                                    }),
+                                  ]
+                                )
+                              }
+                            ),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-sm-3 mt-2" }, [
                               _c(
@@ -30882,7 +30851,7 @@ var render = function () {
                           [
                             _vm._l(
                               _vm.form.banquet_categories,
-                              function (index) {
+                              function (cat, index) {
                                 return _c(
                                   "div",
                                   { key: index, staticClass: "col-sm-9 mb-2" },
@@ -30969,36 +30938,64 @@ var render = function () {
                         ),
                       ]),
                     ])
-                  : _vm.step3
-                  ? _c("div", { staticClass: "row" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "custom-card shadow",
-                          on: { click: _vm.fileInput },
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fas fa-plus-circle",
-                            staticStyle: {
-                              "margin-top": "4vh",
-                              "font-size": "35px",
+                  : _vm.currStep == "step3"
+                  ? _c(
+                      "div",
+                      { staticClass: "row" },
+                      [
+                        _vm._l(_vm.img_images, function (img, index) {
+                          return _c(
+                            "div",
+                            {
+                              key: index,
+                              staticClass: "mr-2 mb-2 shadow smallImages",
                             },
-                          }),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        ref: "fileInput",
-                        staticStyle: { display: "none" },
-                        attrs: {
-                          type: "file",
-                          accept: ".png, .jpg, .jpeg, .pdf",
-                        },
-                        on: { change: _vm.onFileInput },
-                      }),
-                    ])
-                  : _vm.step4
+                            [
+                              _c("img", {
+                                staticClass: "smallImages",
+                                attrs: { src: img, alt: "" },
+                              }),
+                              _vm._v(" "),
+                              _c("i", {
+                                staticClass: "fas fa-trash-alt delImgBtn",
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.delImg(index)
+                                  },
+                                },
+                              }),
+                            ]
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "custom-card shadow ml-2 mb-2",
+                            on: { click: _vm.fileInput },
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-plus-circle",
+                              staticStyle: { "font-size": "35px" },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          ref: "fileInput",
+                          staticStyle: { display: "none" },
+                          attrs: {
+                            type: "file",
+                            multiple: "",
+                            accept: ".png, .jpg, .jpeg, .pdf",
+                          },
+                          on: { change: _vm.onFileInput },
+                        }),
+                      ],
+                      2
+                    )
+                  : _vm.currStep == "step5"
                   ? _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-3" }, [
                         _c(
@@ -31286,7 +31283,12 @@ var render = function () {
                           },
                         },
                       },
-                      [_vm._v("Next\n          ")]
+                      [
+                        _vm._v(
+                          _vm._s(_vm.currStep == "step5" ? "Submit" : "Next") +
+                            "\n          "
+                        ),
+                      ]
                     ),
                   ]),
                 ]),

@@ -623,7 +623,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.customImgJ[data-v-5d6565ba]{\r\n    margin-top: 2vh;\r\n    margin-bottom: 2px;\r\n    height: 5.5vh !important;\n}\n.cardCText[data-v-5d6565ba]{\r\n    font-weight: 500;\n}\n.cityDiv[data-v-5d6565ba]{\r\n    border-radius: 10px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.customImgJ[data-v-5d6565ba]{\r\n    margin-top: 2vh;\r\n    margin-bottom: 2px;\r\n    height: 5.5vh !important;\n}\n.cardCText[data-v-5d6565ba]{\r\n    font-weight: 500;\n}\n.cityDiv[data-v-5d6565ba]{\r\n    border-radius: 10px;\r\n    cursor: pointer;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2426,7 +2426,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/ahemdabad")
             },
           },
         },
@@ -2462,7 +2462,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/bangalore")
             },
           },
         },
@@ -2498,7 +2498,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/chennai")
             },
           },
         },
@@ -2534,7 +2534,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/coimbatore")
             },
           },
         },
@@ -2570,7 +2570,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/delhi")
             },
           },
         },
@@ -2606,7 +2606,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/hyderabad")
             },
           },
         },
@@ -2642,7 +2642,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/jaipur")
             },
           },
         },
@@ -2678,7 +2678,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/jodhpur")
             },
           },
         },
@@ -2714,7 +2714,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/jaipur")
             },
           },
         },
@@ -2750,7 +2750,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/kanpur")
             },
           },
         },
@@ -2786,7 +2786,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/kochi")
             },
           },
         },
@@ -2822,7 +2822,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/madurai")
             },
           },
         },
@@ -2858,7 +2858,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/mumbai")
             },
           },
         },
@@ -2894,7 +2894,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/patna")
             },
           },
         },
@@ -2930,7 +2930,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/pune")
             },
           },
         },
@@ -2966,7 +2966,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/thiruvananthapuram")
             },
           },
         },
@@ -3002,7 +3002,7 @@ var render = function () {
           staticClass: "card shadow py-2 mb-3 cityDiv",
           on: {
             click: function ($event) {
-              return _vm.$router.push("/hotel-list")
+              return _vm.$router.push("/hotel-list/west-bengal")
             },
           },
         },
