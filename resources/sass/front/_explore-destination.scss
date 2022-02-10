@@ -385,7 +385,7 @@ select {
 	.button_group{
 		margin-bottom: 10px;
 	}
-	input[type="text"], select, textarea
+	input[type="text"], input[type="number"], select, textarea
 	{
 		border: 0px solid #ccc !important;
 	    width: 100%;

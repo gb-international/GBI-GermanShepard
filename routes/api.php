@@ -27,6 +27,13 @@ Route::namespace('Front')->group(function(){
 	Route::get('/itinerary-list/{count?}','ItineraryController@list');
 	Route::get('/itinerary-view/{id}','ItineraryController@view');
 
+<<<<<<< Updated upstream
+=======
+	Route::post('/hotel-search','HotelController@searchHotel');
+	Route::post('/banquet-search','BanquetController@searchBanquet');
+	Route::post('/hotel-booking','HotelController@HotelBooking');
+
+>>>>>>> Stashed changes
 	Route::post('/user-logout','FrontUserController@logout');
 	Route::get('/tour-list/{id}','FrontUserController@user_tour_list');
 	Route::get('/userdata/{id}','FrontUserController@userdata');

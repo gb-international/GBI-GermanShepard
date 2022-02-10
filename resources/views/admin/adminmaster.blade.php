@@ -51,7 +51,7 @@
         </div>
     </aside>
 
-        <div class="content-wrapper pr-3 pl-3">
+        <div class="content-wrapper pr-3 pl-3" style="background: white">
             <admin-main></admin-main>
         </div>
 

@@ -12,6 +12,13 @@ import AboutUs from '@/front/routes/AboutUs.js';
 import ContactUs from '@/front/routes/ContactUs.js';
 import ExploreDestination from '@/front/routes/ExploreDestination.js';
 import ErrorPage from '@/front/routes/Error.js';
+<<<<<<< Updated upstream
+=======
+import Hotel from '@/front/routes/Hotel.js';
+import Banquet from '@/front/routes/Banquet.js';
+import Notification from '@/front/routes/Notification.js';
+import PaymentLink from '@/front/routes/PaymentLink.js';
+>>>>>>> Stashed changes
 import User from '@/front/routes/User.js';
 
 export function createRouter() {
@@ -24,6 +31,7 @@ export function createRouter() {
             ...Resources,
             ...GBIBlog,
             ...AboutUs,
+            ...Banquet,
             ...ContactUs,
             ...ExploreDestination,
             ...User,

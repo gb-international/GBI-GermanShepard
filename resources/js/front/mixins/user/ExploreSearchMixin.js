@@ -18,11 +18,33 @@ const ExploreSearchMixin = {
             multicity: false,
             region: "national",
             noofdays_option: 10,
+            GuestsList: [
+                'Less than 100',
+                '100 +',
+                '500 +',
+                '1,000 +',
+                '2,000 +',
+                '5,000 +',
+                '10,000 & above '
+            ],
             tourtype_option: [],
             options: [],
             destinationCities: [],
+<<<<<<< Updated upstream
             sources: { value: "", text: "" },
             destinations: { value: "", text: "" },
+=======
+            panel: "Itinerary",
+            max_occupancy: '',
+            tripType: 'return',
+            hotelType: 'hotel',
+            star_type: '',
+            portType: 'car',
+            sources: { value: "", text: "", city: "" },
+            destinations: { value: "", text: "", city: "" },
+            room_type: '',
+            banquetGuests: '',
+>>>>>>> Stashed changes
             multi_source: { value: "", text: "" },
             multi_destination: { value: "", text: "" },
             rows: [
@@ -166,6 +188,18 @@ const ExploreSearchMixin = {
         noofdaysOnChange(event) {
             this.noofday = event.target.value;
         },
+<<<<<<< Updated upstream
+=======
+        changeRoomType(event) {
+            this.room_type = event.target.value;
+        },
+        changeBanquetGuests(event){
+            this.banquetGuests = event.target.value;
+        },
+        changeStarType(event){
+            this.star_type = event.target.value;
+        },
+>>>>>>> Stashed changes
         //add rows multiple location itinerary
         addRow: function () {
             var vm = this;
@@ -194,14 +228,12 @@ const ExploreSearchMixin = {
             if (this.isAsync) {
                 this.isLoading = true;
             } else {
-                // Let's search our flat array
                 // this.filterResults();
                 this.isOpen = true;
             }
         },
         onChanges() {
             this.$emit("input", this.searchs);
-            // Let's search our flat array
             this.isOpens = true;
         },
         setResult(result) {

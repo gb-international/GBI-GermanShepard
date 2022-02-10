@@ -459,11 +459,16 @@
 	}
 
 }
+input, textarea {
+    border: 1px solid #cccccc !important;
+}
 // Active Link in admin navigation
 .router-link-active{background-color: $admin-sidebar;color: white !important;}
 // Top navigation bar with searchbar
 #sidebarnavigation{
 	background-color: $admin-top;height: 100px;
+	box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+    margin-bottom: 1rem;
 	.admin_top_right_icon{
 		.user_icon{
 			font-size: 20px;

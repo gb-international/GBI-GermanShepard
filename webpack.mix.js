@@ -23,8 +23,21 @@ mix.webpackConfig({
 //       };
 //    });
 // }
+<<<<<<< Updated upstream
 // mix.js('resources/js/front/app.js', 'public/js')
 //    .sass('resources/sass/front/app.scss', 'public/css')
+=======
+//front
+  //mix.js('resources/js/front/app.js', 'public/js').vue()
+   //.sass('resources/sass/front/app.scss', 'public/css')
+
+//Front with SSR
+// mix
+//   .sass('resources/sass/front/app.scss', 'public/css');
+//   .js('resources/js/front/app.js', 'public/js')
+//   .js('resources/js/front/app-server.js', 'public/js')
+  
+>>>>>>> Stashed changes
 
 
 mix.webpackConfig(webpack => {

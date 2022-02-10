@@ -18,6 +18,8 @@ return [
     'tourprogram_image' => 'images/tourprogram/',
     'itinerary_image' => 'images/itinerary/',
     'hotel_image' => 'images/hotel/',
+    'banquet_image' => 'images/banquet/',
+    'room_image' => 'images/room/',
     'sightseeing_image' => 'images/sightseeing/',
     'gallery_image' => 'images/gallery/',
     'encyclopedia_image' => 'images/encyclopedia/',
