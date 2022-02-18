@@ -145,23 +145,7 @@ to submit the data we are using a function.
               />
               <has-error :form="form" field="room"></has-error>
             </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="banquets">No. of Banquets</label>
-              <input
-                type="number"
-                class="form-control"
-                placeholder="Enter No. of Banquets in hotel"
-                id="banquets"
-                name="banquets"
-                v-model="form.banquets"
-                :class="{ 'is-invalid': form.errors.has('banquets') }"
-              />
-              <has-error :form="form" field="banquets"></has-error>
-            </div>
-          </div>
+          </div>         
 
           <div class="col-sm-4">
             <div class="form-group">
@@ -209,7 +193,8 @@ to submit the data we are using a function.
         </div>
 
         <!-- Step 2 -->
-         <div class="row" v-if="currStep=='step2'">
+        <div v-if="currStep=='step2'">
+         <div class="row">
           <div class="col-sm-8">
             <div class="form-group">
               <label for="name">Banquet Name</label>
@@ -252,6 +237,7 @@ to submit the data we are using a function.
                 id="banquets"
                 name="banquets"
                 v-model="form.banquets"
+                @change="updateBanquets(form.banquets)"
                 :class="{ 'is-invalid': form.errors.has('banquets') }"
               />
               <has-error :form="form" field="banquets"></has-error>
@@ -319,6 +305,158 @@ to submit the data we are using a function.
           </div>
         </div>
 
+
+          <!-- Banquet Info -->
+          <div class="mx-4">
+            <div class="banquetDiv mt-2">
+              <div class="banquetSubDiv" v-for="(data, index) in Number(form.banquets)" :key="index">
+                <div class="singleBanquetDiv d-flex justify-content-between cursor-pointer" @click="selectBanquet(index)">
+                  <p>Banquet {{index + 1}}</p>
+                  <i class="cursor-pointer" :class="selectedBanquet == (index) ? 'fas fa-chevron-up mt-2' : 'fas fa-chevron-down' "></i>
+                </div>
+                <div v-if="selectedBanquet == (index) " class="singleBanquetDiv2">
+                  <div class="card-text card-text-ul">
+                    <!-- The Tabs -->
+                    <div class="custom-div2">
+                      <div class="custom-flex2">
+                        <div class="banquetFields" :style="currField == '1' ? 'border-bottom: 3px solid #00c4c4' : ''" @click="changeField('1')">
+                          Dimension
+                        </div>
+                        <div class="banquetFields" :style="currField == '2' ? 'border-bottom: 3px solid #00c4c4' : ''" @click="changeField('2')">
+                          Sitting Capicty
+                        </div>
+                        <div class="banquetFields" :style="currField == '3' ? 'border-bottom: 3px solid #00c4c4' : ''" @click="changeField('3')">
+                          Amenities
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Dimensions -->
+                    <div v-if="currField == '1'" class="my-4">
+                      <label for="dimensions">Dimensions</label>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Inches"
+                              id="dimensions"
+                              name="dimensions"
+                              v-model="form.dimensions[index].type"
+                              :class="{ 'is-invalid': form.errors.has('dimensions') }"
+                              />
+                            <has-error :form="form" field="dimensions"></has-error>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <input
+                              type="number"
+                              class="form-control"
+                              placeholder="Length"
+                              min="0"
+                              id="length"
+                              name="length"
+                              v-model="form.dimensions[index].length"
+                              :class="{ 'is-invalid': form.errors.has('length') }"
+                              />
+                            <has-error :form="form" field="length"></has-error>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <input
+                              type="number"
+                              class="form-control"
+                              placeholder="Width"
+                              min="0"
+                              id="width"
+                              name="width"
+                              v-model="form.dimensions[index].width"
+                              :class="{ 'is-invalid': form.errors.has('width') }"
+                              />
+                            <has-error :form="form" field="width"></has-error>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <input
+                              type="number"
+                              class="form-control"
+                              placeholder="Height"
+                              min="0"
+                              id="height"
+                              name="height"
+                              v-model="form.dimensions[index].height"
+                              :class="{ 'is-invalid': form.errors.has('height') }"
+                              />
+                            <has-error :form="form" field="height"></has-error>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <label for="area">Area</label>
+                            <input
+                              type="number"
+                              class="form-control"
+                              placeholder="Area"
+                              min="0"
+                              id="area"
+                              name="area"
+                              v-model="form.dimensions[index].area"
+                              :class="{ 'is-invalid': form.errors.has('area') }"
+                              />
+                            <has-error :form="form" field="area"></has-error>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Sitting Capicty -->
+                    <div v-else-if="currField == '2'" class="my-4">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="seating">Seating Type</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Round Table"
+                              id="seating"
+                              name="seating"
+                              v-model="form.seating[index].type"
+                              :class="{ 'is-invalid': form.errors.has('seating') }"
+                              />
+                            <has-error :form="form" field="seating"></has-error>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="people">Number of People</label>
+                            <input
+                              type="number"
+                              class="form-control"
+                              placeholder="0"
+                              min="0"
+                              id="people"
+                              name="people"
+                              v-model="form.seating[index].people"
+                              :class="{ 'is-invalid': form.errors.has('people') }"
+                              />
+                            <has-error :form="form" field="people"></has-error>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Amenities -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Step 3 -->
         <div class="row" v-else-if="currStep=='step3'">
           <div class="col-sm-6">
@@ -338,26 +476,6 @@ to submit the data we are using a function.
               <div class="col-sm-3 mt-2">
                 <button class="btn btn-custom-indr" @click.prevent="incr('room')"><i class="fas fa-plus"></i></button>
                 <button v-if="form.room_categories.length > 1" class="btn btn-custom-indr" @click.prevent="decr('room')"><i class="fas fa-minus"></i></button>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <label for="state">Banquet Category</label>
-            <div class="row">
-              <div class="col-sm-9 mb-2" v-for="index in form.banquet_categories" :key="index">
-                <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Select Category"
-                    id="banquet_categories"
-                    name="banquet_categories"
-                    v-model="form.banquet_categories[index]"
-                    :class="{ 'is-invalid': form.errors.has('banquet_categories') }"
-                    />
-              </div>
-              <div class="col-sm-3 mt-2">
-                <button class="btn btn-custom-indr" @click.prevent="incr('banquet')"><i class="fas fa-plus"></i></button>
-                <button v-if="form.banquet_categories.length > 1" class="btn btn-custom-indr" @click.prevent="decr('banquet')"><i class="fas fa-minus"></i></button>
               </div>
             </div>
           </div>
@@ -497,6 +615,8 @@ export default {
   data() {
     return {
       currStep: 'step1',
+      currField: '1',
+      selectedBanquet: null,
       img_image: "",
       star_list: [
         {name:"5",id:0},
@@ -520,18 +640,54 @@ export default {
         email: "",
         address: "",
         room_categories: [''],
-        banquet_categories: [''],
+        banquet_categories: [],
         //photos: [],
         description: "",
         meta_keywords: [],
         meta_title: "",
         meta_description: "",
         amenities: [],
-        banquet_price: ''
+        banquet_price: '',
+        seating: [],
+        dimensions: [],
       }),
     };
   },
   methods: {
+    updateBanquets(val){
+      //console.log('yes');
+      for(let i = 0; i < val; i++ ){
+
+        let dimen = [
+          {
+            type: '',
+            length: '',
+            height: '',
+            width: '',
+            area: '',
+          },
+        ];
+        let seat = [
+          {
+            type: '',
+            people: ''
+          },
+        ];
+
+        this.form.dimensions.push(dimen);
+        this.form.seating.push(seat);
+      }
+    },
+    changeField(val){
+      this.currField = val;
+    },
+    selectBanquet(index){
+      if(this.selectedBanquet == index){
+        this.selectedBanquet = null;
+      } else {
+        this.selectedBanquet = index;
+      }
+    },
     changeStep(val){
       this.currStep = val;
     },
@@ -613,6 +769,19 @@ export default {
 </script>
 
 <style scoped>
+.smallImages{
+  width: 140px; 
+  height: 93px;
+  position: relative;
+}
+.delImgBtn{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 4px;
+  font-size: 16px;
+  color: #d12121;
+}
 .btn-custom-indr {
     color: #212529;
     background-color: #dee2e6;
@@ -624,9 +793,9 @@ export default {
 .custom-card {
   display: flex;
   justify-content: center;
-  align-content: center;
-  height: 12vh;
-  width: 10vw;
+  align-items: center;
+  height: 93px;
+  width: 143px;
   background: #e5e5e5;
   border: solid 2px #e5e5e5;
   border-radius: 5px;
@@ -652,5 +821,54 @@ export default {
   padding: 2px 2px 10px 2px;
   text-align: center;
   width: 20%;
+}
+.banquetFields{
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 2px 2px 10px 2px;
+  text-align: center;
+  width: 15%;
+}
+.banquetDiv{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-content: space-between;
+}
+
+.banquetSubDiv{
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.singleBanquetDiv{
+  height: 55px; 
+  width: 100%; 
+  padding: 14px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  background: white;
+}
+.singleBanquetDiv2{
+  height: auto; 
+  width: 100%; 
+  padding: 8px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  background: white;
+}
+.custom-div2{
+  padding-top: 0.2vh !important;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.custom-flex2{
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  font-weight: 470;
+  color: grey;
 }
 </style>

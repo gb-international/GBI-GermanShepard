@@ -98,9 +98,9 @@ Route::namespace('Front')->group(function(){
 		Route::post('/tour-submit-payment', 'UserpaymentController@store');
 		Route::post('/tour-payment-status', 'UserpaymentController@tourPayStatus');
 		// payment by ccavenue
-		Route::post('/user-tour-payment','PaymentController@payment');
+		Route::post('/user-tour-payment','FrontPaymentController@payment');
 		//Payment History - School
-		Route::post('/schoool/payment-history','PaymentController@viewPaymentDeails');
+		Route::post('/schoool/payment-history','FrontPaymentController@viewPaymentDeails');
 		// Comments
 		Route::post('/encyclopedia-comments','EncyclopediaController@PostComment');
 		Route::post('/booking','FrontbookingController@booking');

@@ -623,7 +623,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.customImgJ[data-v-5d6565ba]{\r\n    margin-top: 2vh;\r\n    margin-bottom: 2px;\r\n    height: 5.5vh !important;\n}\n.cardCText[data-v-5d6565ba]{\r\n    font-weight: 500;\n}\n.cityDiv[data-v-5d6565ba]{\r\n    border-radius: 10px;\r\n    cursor: pointer;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.customImgJ[data-v-5d6565ba]{\n    margin-top: 2vh;\n    margin-bottom: 2px;\n    height: 5.5vh !important;\n}\n.cardCText[data-v-5d6565ba]{\n    font-weight: 500;\n}\n.cityDiv[data-v-5d6565ba]{\n    border-radius: 10px;\n    cursor: pointer;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

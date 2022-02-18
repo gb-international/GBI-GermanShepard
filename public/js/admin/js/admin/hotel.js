@@ -2573,6 +2573,13 @@ var render = function () {
                                 _vm._v(" "),
                                 _c("i", {
                                   staticClass: "fas fa-pen cursor-pointer",
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.$router.push(
+                                        "/edit-hotel/" + data.id
+                                      )
+                                    },
+                                  },
                                 }),
                               ]),
                             ]

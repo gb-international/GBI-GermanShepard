@@ -36,7 +36,7 @@ class HotelController extends Controller
             $d->amenities = unserialize($d->amenities);
             $d->alt = unserialize($d->alt);
             $d->meta_keywords = unserialize($d->meta_keywords);
-            $d->room_categories] = unserialize($d->room_categories);
+            $d->room_categories = unserialize($d->room_categories);
         }
         return response()->json($data);
     }
@@ -100,7 +100,7 @@ class HotelController extends Controller
         $d->amenities = unserialize($d->amenities);
         $d->alt = unserialize($d->alt);
         $d->meta_keywords = unserialize($d->meta_keywords);
-        $d->room_categories] = unserialize($d->room_categories);
+        $d->room_categories = unserialize($d->room_categories);
         return response()->json($hotel);
     }
 
@@ -117,7 +117,7 @@ class HotelController extends Controller
         $hotel->amenities = unserialize($hotel->amenities);
         $hotel->alt = unserialize($hotel->alt);
         $hotel->meta_keywords = unserialize($hotel->meta_keywords);
-        $hotel->room_categories] = unserialize($hotel->room_categories);
+        $hotel->room_categories = unserialize($hotel->room_categories);
         return response()->json($hotel);
     }
 

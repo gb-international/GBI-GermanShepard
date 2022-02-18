@@ -18,6 +18,8 @@ Route::get('/event-test', function () {
     return "Notif has been sent!";
 });
 
+Route::resource('projects', 'ProjectsController');
+
 Route::get('/sh/{shCode}','Front\ShortLinkController@index');
 
 Route::post('/payment','Front\PaymentController@payment');

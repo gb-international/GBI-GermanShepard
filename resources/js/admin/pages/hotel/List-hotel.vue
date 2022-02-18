@@ -99,7 +99,7 @@ data from the api to display the data about the Category from the backend .
           </div>
           <div class="sideDiv">
             <i class="fas fa-plus cursor-pointer" @click="$router.push('/add-room')"></i>
-            <i class="fas fa-pen cursor-pointer"></i>
+            <i class="fas fa-pen cursor-pointer" @click="$router.push('/edit-hotel/'+data.id)"></i>
           </div>
         </div>
       </div>

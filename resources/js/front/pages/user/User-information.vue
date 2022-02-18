@@ -68,7 +68,7 @@
                   type="text"
                   class="form-control"
                   v-model="institution_code"
-                  placeholder="Enter Your School/College ID"
+                  :placeholder=" profession == 'student' ? 'Enter Your School/College ID' : 'Enter Your Affiliation Number' "
                 />
               </div>
             </tab-content>

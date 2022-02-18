@@ -53,52 +53,64 @@ This page is used to list Banquet data
         <div class="d-flex flex-row justify-content-center">
             <div class="d-flex flex-column expDetCol1">
               <img 
-                src="https://cdn.pixabay.com/photo/2017/08/08/00/17/events-2609526_960_720.jpg"
+                v-if="data.images[0]"
+                :src="$gbiAssets+'/images/banquet/'+data.images[0]"
                 loading="lazy"
-                alt="itinerary"
+                alt="banquet"
+                class="expDetailImg"
+              >
+              <img 
+                v-else
+                src="https://cdn.pixabay.com/photo/2020/05/02/11/24/banquet-hall-5120991_960_720.jpg"
+                loading="lazy"
+                alt="banquet"
                 class="expDetailImg"
               >
               <div class="expImgSm">
                   <div>
                     <img 
-                      src="https://cdn.pixabay.com/photo/2017/08/08/00/17/events-2609526_960_720.jpg"
+                      v-if="data.images[1]"
+                      :src="$gbiAssets+'/images/banquet/'+data.images[1]"
                       loading="lazy"
-                      alt="itinerary"
+                      alt="banquet"
                       class="expDetailImgSmall"
                       style="margin-right: 10px"
                       >
                   </div>
                   <div>
                     <img 
-                      src="https://cdn.pixabay.com/photo/2017/08/08/00/17/events-2609526_960_720.jpg"
+                      v-if="data.images[2]"
+                      :src="$gbiAssets+'/images/banquet/'+data.images[2]"
                       loading="lazy"
-                      alt="itinerary"
+                      alt="banquet"
                       class="expDetailImgSmall"
                       style="margin-right: 10px"
                       >
                   </div>
                   <div>
                     <img 
-                      src="https://cdn.pixabay.com/photo/2017/08/08/00/17/events-2609526_960_720.jpg"
+                      v-if="data.images[3]"
+                      :src="$gbiAssets+'/images/banquet/'+data.images[3]"
                       loading="lazy"
-                      alt="itinerary"
+                      alt="banquet"
                       class="expDetailImgSmall"
                       style="margin-right: 10px"
                       >
                   </div>
                   <div>
                     <img 
-                      src="https://cdn.pixabay.com/photo/2017/08/08/00/17/events-2609526_960_720.jpg"
+                      v-if="data.images[4]"
+                      :src="$gbiAssets+'/images/banquet/'+data.images[4]"
                       loading="lazy"
-                      alt="itinerary"
+                      alt="banquet"
                       class="expDetailImgSmall"
                       >
                   </div>
               </div>
           </div>
           <div class="sideDiv">
-            <i class="fas fa-eye cursor-pointer"></i>
             <i class="fas fa-pen cursor-pointer" @click="$router.push('/edit-banquet/'+data.id)"></i>
+            <i class="fas fa-trash-alt cursor-pointer" @click="deleteItem(data.id)"></i>
           </div>
         </div>
       </div>

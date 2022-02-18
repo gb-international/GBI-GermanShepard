@@ -15,7 +15,7 @@ use Image;
 use App\Rules\EmailValidate;
 use App\Rules\PhoneNubmerValidate;
 use App\Rules\AlphaSpace;
-class HotelController extends Controller
+class OldHotelController extends Controller
 {
     /**
      * Display a listing of the resource.

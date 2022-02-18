@@ -412,6 +412,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -483,7 +495,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.MainRow[data-v-220af318] {\r\n  display: flex;\r\n  justify-content: space-between !important;\r\n  width: 100%;\r\n  align-items: center;\n}\n.sideDiv[data-v-220af318]{\r\n  width: 62px;\r\n  margin-left: 5px;\r\n  height: auto;\r\n  background: #000000d4;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-around;\r\n  text-align: center;\n}\n.sideDiv i[data-v-220af318]{\r\n  color: white;\r\n  font-size: 16px;\n}\n.expDetailImg[data-v-220af318]{\r\n  width: 100%;\r\n  height: auto;\r\n  margin-bottom: 10px;\n}\n.expImgSm[data-v-220af318]{\r\n  display: none;\n}\n.expDetailImgSmall[data-v-220af318]{\r\n  width:  50px;\r\n  height: 50px;\n}\n.customCard[data-v-220af318]{\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n  justify-content: space-between;\r\n  border: 1px solid #8080804d !important;\r\n  border-radius: 0px;\r\n  width: 80vw;\r\n  height: auto;\r\n  padding: 5px;\r\n  margin-bottom: 20px;\n}\n.detailsRow[data-v-220af318]{\r\n  padding: 0px 20px;\r\n  text-align: right;\n}\np[data-v-220af318] {\r\n  font-family: Calibri (Body) !important;\n}\n.mainRow1 p[data-v-220af318] {\r\n    margin-bottom: 5px !important;\n}\n.detailsRow p[data-v-220af318]{\r\n  margin-bottom: 0px !important;\n}\n.hotelName[data-v-220af318]{\r\n  font-weight: 600;\r\n  font-size: 20px;\n}\n.locName[data-v-220af318]{\r\n  font-weight: 400;\r\n  font-size: 16px;\r\n  color: gray;\n}\n.stars[data-v-220af318]{\r\n  margin-bottom: 20px;\n}\n.stars i[data-v-220af318]{\r\n  font-size: 18px;\r\n  color: #ffa500;\n}\n.amenP[data-v-220af318]{\r\n  font-size: 12px;\r\n  font-weight: 400;\r\n  color: #767676;\n}\n.bookBtn[data-v-220af318]{\r\n    margin: 5px 0px;\r\n    color: white;\r\n    background-color: #00c4c4;\r\n    border-color: #00c4c4;\r\n    padding: 6px 25px 6px 25px;\r\n    width: 95px;\r\n    height: 35px;\r\n    border: 0px;\r\n    font-size: 15px;\r\n    font-weight: 500;\n}\n.bookBtn[data-v-220af318]:hover{\r\n  box-shadow: 2px 2px grey;\r\n  color: #212529;\n}\n.amenity[data-v-220af318]{\r\n  margin: 5px 0px;\r\n  color: #00c4c4;\r\n  text-decoration: underline;\r\n  font-weight: 500;\r\n  font-size: 14px;\r\n  cursor: pointer;\n}\n.guests[data-v-220af318]{\r\n  font-size: 14px;\r\n  font-weight: 500;\n}\n.price[data-v-220af318]{\r\n  margin-top: 20px;\r\n  font-size: 22px;\r\n  font-weight: 500;\n}\n.taxes[data-v-220af318]{\r\n  font-size: 13px;\r\n  font-weight: 400;\r\n  color: #2c2929;\n}\n.perRoom[data-v-220af318]{\r\n  font-size: 13px;\r\n  font-weight: 400;\r\n  color: #2c2929;\n}\n@media (max-width: 768px) and (min-width: 640px) {\n.customCard[data-v-220af318]{\r\n    width: 65vw;\n}\n}\n@media (min-width: 768px){\n.expDetailImg[data-v-220af318]{\r\n    width: 230px;\r\n    height: 170px;\r\n    margin-bottom: 10px;\n}\n.expImgSm[data-v-220af318]{\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: center;\n}\n}\n@media (max-width: 1279px ) and (min-width: 768px){\n.customCard[data-v-220af318]{\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    border: 1px solid #8080804d !important;\r\n    border-radius: 0px;\r\n    width: 80vw;\r\n    height: 270px;\r\n    padding: 10px;\r\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1280px) {\n.customCard[data-v-220af318]{\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    border: 1px solid #8080804d !important;\r\n    border-radius: 0px;\r\n    width: 65vw;\r\n    height: 270px;\r\n    padding: 10px;\r\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1536px) {\n.customCard[data-v-220af318]{\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    border: 1px solid #8080804d !important;\r\n    border-radius: 0px;\r\n    width: 50vw;\r\n    height: 270px;\r\n    padding: 10px;\r\n    margin-bottom: 20px;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.MainRow[data-v-220af318] {\n  display: flex;\n  justify-content: space-between !important;\n  width: 100%;\n  align-items: center;\n}\n.sideDiv[data-v-220af318]{\n  width: 62px;\n  margin-left: 5px;\n  height: auto;\n  background: #000000d4;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-around;\n  text-align: center;\n}\n.sideDiv i[data-v-220af318]{\n  color: white;\n  font-size: 16px;\n}\n.expDetailImg[data-v-220af318]{\n  width: 100%;\n  height: auto;\n  margin-bottom: 10px;\n}\n.expImgSm[data-v-220af318]{\n  display: none;\n}\n.expDetailImgSmall[data-v-220af318]{\n  width:  50px;\n  height: 50px;\n}\n.customCard[data-v-220af318]{\n  display: flex;\n  flex-direction: column-reverse;\n  justify-content: space-between;\n  border: 1px solid #8080804d !important;\n  border-radius: 0px;\n  width: 80vw;\n  height: auto;\n  padding: 5px;\n  margin-bottom: 20px;\n}\n.detailsRow[data-v-220af318]{\n  padding: 0px 20px;\n  text-align: right;\n}\np[data-v-220af318] {\n  font-family: Calibri (Body) !important;\n}\n.mainRow1 p[data-v-220af318] {\n    margin-bottom: 5px !important;\n}\n.detailsRow p[data-v-220af318]{\n  margin-bottom: 0px !important;\n}\n.hotelName[data-v-220af318]{\n  font-weight: 600;\n  font-size: 20px;\n}\n.locName[data-v-220af318]{\n  font-weight: 400;\n  font-size: 16px;\n  color: gray;\n}\n.stars[data-v-220af318]{\n  margin-bottom: 20px;\n}\n.stars i[data-v-220af318]{\n  font-size: 18px;\n  color: #ffa500;\n}\n.amenP[data-v-220af318]{\n  font-size: 12px;\n  font-weight: 400;\n  color: #767676;\n}\n.bookBtn[data-v-220af318]{\n    margin: 5px 0px;\n    color: white;\n    background-color: #00c4c4;\n    border-color: #00c4c4;\n    padding: 6px 25px 6px 25px;\n    width: 95px;\n    height: 35px;\n    border: 0px;\n    font-size: 15px;\n    font-weight: 500;\n}\n.bookBtn[data-v-220af318]:hover{\n  box-shadow: 2px 2px grey;\n  color: #212529;\n}\n.amenity[data-v-220af318]{\n  margin: 5px 0px;\n  color: #00c4c4;\n  text-decoration: underline;\n  font-weight: 500;\n  font-size: 14px;\n  cursor: pointer;\n}\n.guests[data-v-220af318]{\n  font-size: 14px;\n  font-weight: 500;\n}\n.price[data-v-220af318]{\n  margin-top: 20px;\n  font-size: 22px;\n  font-weight: 500;\n}\n.taxes[data-v-220af318]{\n  font-size: 13px;\n  font-weight: 400;\n  color: #2c2929;\n}\n.perRoom[data-v-220af318]{\n  font-size: 13px;\n  font-weight: 400;\n  color: #2c2929;\n}\n@media (max-width: 768px) and (min-width: 640px) {\n.customCard[data-v-220af318]{\n    width: 65vw;\n}\n}\n@media (min-width: 768px){\n.expDetailImg[data-v-220af318]{\n    width: 230px;\n    height: 170px;\n    margin-bottom: 10px;\n}\n.expImgSm[data-v-220af318]{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n}\n}\n@media (max-width: 1279px ) and (min-width: 768px){\n.customCard[data-v-220af318]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    border: 1px solid #8080804d !important;\n    border-radius: 0px;\n    width: 80vw;\n    height: 270px;\n    padding: 10px;\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1280px) {\n.customCard[data-v-220af318]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    border: 1px solid #8080804d !important;\n    border-radius: 0px;\n    width: 65vw;\n    height: 270px;\n    padding: 10px;\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1536px) {\n.customCard[data-v-220af318]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    border: 1px solid #8080804d !important;\n    border-radius: 0px;\n    width: 50vw;\n    height: 270px;\n    padding: 10px;\n    margin-bottom: 20px;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2459,61 +2471,99 @@ var render = function () {
                                   staticClass: "d-flex flex-column expDetCol1",
                                 },
                                 [
-                                  _c("img", {
-                                    staticClass: "expDetailImg",
-                                    attrs: {
-                                      src: "https://cdn.pixabay.com/photo/2017/08/08/00/17/events-2609526_960_720.jpg",
-                                      loading: "lazy",
-                                      alt: "itinerary",
-                                    },
-                                  }),
+                                  data.images[0]
+                                    ? _c("img", {
+                                        staticClass: "expDetailImg",
+                                        attrs: {
+                                          src:
+                                            _vm.$gbiAssets +
+                                            "/images/banquet/" +
+                                            data.images[0],
+                                          loading: "lazy",
+                                          alt: "banquet",
+                                        },
+                                      })
+                                    : _c("img", {
+                                        staticClass: "expDetailImg",
+                                        attrs: {
+                                          src: "https://cdn.pixabay.com/photo/2020/05/02/11/24/banquet-hall-5120991_960_720.jpg",
+                                          loading: "lazy",
+                                          alt: "banquet",
+                                        },
+                                      }),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "expImgSm" }, [
                                     _c("div", [
-                                      _c("img", {
-                                        staticClass: "expDetailImgSmall",
-                                        staticStyle: { "margin-right": "10px" },
-                                        attrs: {
-                                          src: "https://cdn.pixabay.com/photo/2017/08/08/00/17/events-2609526_960_720.jpg",
-                                          loading: "lazy",
-                                          alt: "itinerary",
-                                        },
-                                      }),
+                                      data.images[1]
+                                        ? _c("img", {
+                                            staticClass: "expDetailImgSmall",
+                                            staticStyle: {
+                                              "margin-right": "10px",
+                                            },
+                                            attrs: {
+                                              src:
+                                                _vm.$gbiAssets +
+                                                "/images/banquet/" +
+                                                data.images[1],
+                                              loading: "lazy",
+                                              alt: "banquet",
+                                            },
+                                          })
+                                        : _vm._e(),
                                     ]),
                                     _vm._v(" "),
                                     _c("div", [
-                                      _c("img", {
-                                        staticClass: "expDetailImgSmall",
-                                        staticStyle: { "margin-right": "10px" },
-                                        attrs: {
-                                          src: "https://cdn.pixabay.com/photo/2017/08/08/00/17/events-2609526_960_720.jpg",
-                                          loading: "lazy",
-                                          alt: "itinerary",
-                                        },
-                                      }),
+                                      data.images[2]
+                                        ? _c("img", {
+                                            staticClass: "expDetailImgSmall",
+                                            staticStyle: {
+                                              "margin-right": "10px",
+                                            },
+                                            attrs: {
+                                              src:
+                                                _vm.$gbiAssets +
+                                                "/images/banquet/" +
+                                                data.images[2],
+                                              loading: "lazy",
+                                              alt: "banquet",
+                                            },
+                                          })
+                                        : _vm._e(),
                                     ]),
                                     _vm._v(" "),
                                     _c("div", [
-                                      _c("img", {
-                                        staticClass: "expDetailImgSmall",
-                                        staticStyle: { "margin-right": "10px" },
-                                        attrs: {
-                                          src: "https://cdn.pixabay.com/photo/2017/08/08/00/17/events-2609526_960_720.jpg",
-                                          loading: "lazy",
-                                          alt: "itinerary",
-                                        },
-                                      }),
+                                      data.images[3]
+                                        ? _c("img", {
+                                            staticClass: "expDetailImgSmall",
+                                            staticStyle: {
+                                              "margin-right": "10px",
+                                            },
+                                            attrs: {
+                                              src:
+                                                _vm.$gbiAssets +
+                                                "/images/banquet/" +
+                                                data.images[3],
+                                              loading: "lazy",
+                                              alt: "banquet",
+                                            },
+                                          })
+                                        : _vm._e(),
                                     ]),
                                     _vm._v(" "),
                                     _c("div", [
-                                      _c("img", {
-                                        staticClass: "expDetailImgSmall",
-                                        attrs: {
-                                          src: "https://cdn.pixabay.com/photo/2017/08/08/00/17/events-2609526_960_720.jpg",
-                                          loading: "lazy",
-                                          alt: "itinerary",
-                                        },
-                                      }),
+                                      data.images[4]
+                                        ? _c("img", {
+                                            staticClass: "expDetailImgSmall",
+                                            attrs: {
+                                              src:
+                                                _vm.$gbiAssets +
+                                                "/images/banquet/" +
+                                                data.images[4],
+                                              loading: "lazy",
+                                              alt: "banquet",
+                                            },
+                                          })
+                                        : _vm._e(),
                                     ]),
                                   ]),
                                 ]
@@ -2521,16 +2571,22 @@ var render = function () {
                               _vm._v(" "),
                               _c("div", { staticClass: "sideDiv" }, [
                                 _c("i", {
-                                  staticClass: "fas fa-eye cursor-pointer",
-                                }),
-                                _vm._v(" "),
-                                _c("i", {
                                   staticClass: "fas fa-pen cursor-pointer",
                                   on: {
                                     click: function ($event) {
                                       return _vm.$router.push(
                                         "/edit-banquet/" + data.id
                                       )
+                                    },
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c("i", {
+                                  staticClass:
+                                    "fas fa-trash-alt cursor-pointer",
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.deleteItem(data.id)
                                     },
                                   },
                                 }),

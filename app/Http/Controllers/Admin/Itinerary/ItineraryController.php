@@ -16,6 +16,14 @@ use App\Http\Controllers\Controller;
 use App\Traits\ImageTrait;
 use App\Jobs\Notifications;
 
+/**
+     *
+     * @OA\Tag(
+     *     name="Itineraries",
+     *     description="API Endpoints of Itineraries"
+     * )
+*/
+
 class ItineraryController extends Controller
 {
     /**

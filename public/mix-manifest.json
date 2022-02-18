@@ -77,6 +77,7 @@
     "/js/admin/js/admin/hoteladd.js": "/js/admin/js/admin/hoteladd.js",
     "/js/admin/js/admin/hoteledit.js": "/js/admin/js/admin/hoteledit.js",
     "/js/admin/js/admin/hotelview.js": "/js/admin/js/admin/hotelview.js",
+    "/js/admin/js/admin/hotelbanquetadd.js": "/js/admin/js/admin/hotelbanquetadd.js",
     "/js/admin/js/admin/restaurant.js": "/js/admin/js/admin/restaurant.js",
     "/js/admin/js/admin/restauradd.js": "/js/admin/js/admin/restauradd.js",
     "/js/admin/js/admin/restauedit.js": "/js/admin/js/admin/restauedit.js",

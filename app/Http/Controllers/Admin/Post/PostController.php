@@ -19,7 +19,13 @@ use App\Model\Post\Category;
 use App\Model\Post\Tag;
 use App\Jobs\Notifications;
 
-
+/**
+     *
+     * @OA\Tag(
+     *     name="Blogs",
+     *     description="API Endpoints of Blogs"
+     * )
+*/
 class PostController extends Controller
 {
     /**
@@ -28,6 +34,36 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     use ImageTrait;
+
+    /**
+     * @OA\Get(
+     *      path="/posts/all/{size}",
+     *      tags={"Blogs"},
+     *      summary="Get list of blogs",
+     *      description="Returns list of blogs, paginated by page size mentioned",
+     *      @OA\Parameter(
+     *          name="size",
+     *          description="Pagination size per page",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
     public function all($size)
     {
         return response()->json(Post::select([
@@ -37,6 +73,7 @@ class PostController extends Controller
             ->paginate($size));
     }
     
+
     public function index()
     {
         return response()->json(Post::select([
@@ -63,6 +100,35 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    /**
+     * @OA\Post(
+     *      path="/posts",
+     *      tags={"Blogs"},
+     *      summary="Store new blog",
+     *      description="Stores new data to the database and returns the stored data",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent
+     *      ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
+    */
     public function store(PostRequest $request)
     {
         $data = $request->except('meta_keyword');
@@ -125,6 +191,39 @@ class PostController extends Controller
      * @param  \App\Model\Post\Post  $post
      * @return \Illuminate\Http\Response
      */
+     /**
+     * @OA\Get(
+     *      path="/posts/{id}",
+     *      tags={"Blogs"},
+     *      summary="Get blog information",
+     *      description="Returns blog data of the blog id provided.",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Blog Id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
+     */
     public function show(Post $post)
     {
         $category = Category::find($post->category_id);
@@ -152,6 +251,47 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Model\Post\Post  $post
      * @return \Illuminate\Http\Response
+     */
+    /**
+     * @OA\Put(
+     *      path="/posts/{id}",
+     *      tags={"Blogs"},
+     *      summary="Update existing Blog",
+     *      description="Updates blog data of the blog id provided and returns the updated data",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Blog Id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent
+     *      ),
+     *      @OA\Response(
+     *          response=202,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Resource Not Found"
+     *      )
+     * )
      */
     public function update(Request $request, Post $post)
     {
@@ -198,7 +338,7 @@ class PostController extends Controller
 
         return $data;
     }
-
+    
     public function publish(Post $post, $status, $user_id){
 
         $post->published_by = $user_id;
@@ -219,7 +359,7 @@ class PostController extends Controller
             $post->save();
         }
     }
-
+    
     public function sendNotif($data){
         return redirect()->route('notifRoute', $data);
     }
@@ -229,6 +369,40 @@ class PostController extends Controller
      *
      * @param  \App\Model\Post\Post  $post
      * @return \Illuminate\Http\Response
+     */
+
+    /**
+     * @OA\Delete(
+     *      path="/posts/{id}",
+     *      tags={"Blogs"},
+     *      summary="Delete existing Blog",
+     *      description="Deletes a record and returns no content",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Blog Id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=204,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Resource Not Found"
+     *      )
+     * )
      */
     public function destroy(Post $post)
     {
