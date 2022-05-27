@@ -11,10 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-    
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 {{-- Dropdown fail if u remove one cdn among of them --}}
 
@@ -32,7 +31,6 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.gowithgbi.com/assets/front/images/banner2.jpg">
 
-    
     <!-- Styles -->
     {{-- <link href="{{ secure_asset('css/escort/app.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/escort/app.css') }}" rel="stylesheet">
@@ -45,7 +43,7 @@
     <escort></escort>
    </div>
   
-  {{-- <script src="{{ secure_asset('js/escort/app.js') }}" type="text/javascript"></script> --}}
+  {{-- <script src="{{ secure_asset('js/escort/app.js') }}" type="text/javascript"></script>  --}}
   <script src="{{ asset('js/escort/app.js') }}" type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

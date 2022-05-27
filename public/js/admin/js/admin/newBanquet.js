@@ -737,17 +737,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -770,6 +759,20 @@ __webpack_require__.r(__webpack_exports__);
       currStep: 'step1',
       currField: '1',
       img_images: [],
+      dimen_list: [{
+        name: "Inches",
+        id: 0
+      }, {
+        name: "Centimeter",
+        id: 1
+      }],
+      seat_list: [{
+        name: "Round Table",
+        id: 0
+      }, {
+        name: "U Table",
+        id: 1
+      }],
       star_list: [{
         name: "5",
         id: 0
@@ -796,14 +799,12 @@ __webpack_require__.r(__webpack_exports__);
         //image: "",
         alt: [],
         star_category: "",
-        rooms: "",
         banquets: "",
         phoneno: "",
         email: "",
         address: "",
-        banquet_categories: [],
-        seating: [],
-        dimensions: [],
+        //seating: [],
+        banquetCategory: [],
         //photos: [],
         images: [],
         description: "",
@@ -814,21 +815,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     updateBanquets: function updateBanquets(val) {
+      this.form.banquetCategory = [];
+
       for (var i = 0; i < val; i++) {
-        banquet[1];
-        var dimen = [{
-          type: '',
+        var bCat = [{
+          dimen_type: '',
           length: '',
           height: '',
           width: '',
-          area: ''
-        }];
-        var seat = [{
-          type: '',
+          area: '',
+          seat_type: '',
           people: ''
         }];
-        this.form.dimensions.push(dimen);
-        this.form.seating.push(seat);
+        this.form.banquetCategory.push(bCat);
       }
     },
     changeField: function changeField(val) {
@@ -921,6 +920,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     updateStatus: function updateStatus(v) {
       this.form.star_category = v.name;
+    },
+    updateDimen: function updateDimen(v) {
+      this.form.banquetCategory[this.selectedBanquet].dimen_type = v.name;
+    },
+    updateSeat: function updateSeat(v) {
+      this.form.banquetCategory[this.selectedBanquet].seat_type = v.name;
     },
     changeDetailPhoto: function changeDetailPhoto(event) {
       var _this2 = this;
@@ -28828,82 +28833,108 @@ var render = function () {
                                                                   "form-group",
                                                               },
                                                               [
-                                                                _c("input", {
-                                                                  directives: [
-                                                                    {
-                                                                      name: "model",
-                                                                      rawName:
-                                                                        "v-model",
-                                                                      value:
-                                                                        _vm.form
-                                                                          .dimensions[
-                                                                          index
-                                                                        ].type,
-                                                                      expression:
-                                                                        "form.dimensions[index].type",
-                                                                    },
-                                                                  ],
-                                                                  staticClass:
-                                                                    "form-control",
-                                                                  class: {
-                                                                    "is-invalid":
-                                                                      _vm.form.errors.has(
-                                                                        "dimensions"
-                                                                      ),
-                                                                  },
-                                                                  attrs: {
-                                                                    type: "text",
-                                                                    placeholder:
-                                                                      "Inches",
-                                                                    id: "dimensions",
-                                                                    name: "dimensions",
-                                                                  },
-                                                                  domProps: {
-                                                                    value:
-                                                                      _vm.form
-                                                                        .dimensions[
-                                                                        index
-                                                                      ].type,
-                                                                  },
-                                                                  on: {
-                                                                    input:
-                                                                      function (
-                                                                        $event
-                                                                      ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .form
-                                                                            .dimensions[
-                                                                            index
-                                                                          ],
-                                                                          "type",
-                                                                          $event
-                                                                            .target
-                                                                            .value
-                                                                        )
-                                                                      },
-                                                                  },
-                                                                }),
-                                                                _vm._v(" "),
                                                                 _c(
-                                                                  "has-error",
+                                                                  "select",
                                                                   {
-                                                                    attrs: {
-                                                                      form: _vm.form,
-                                                                      field:
-                                                                        "dimensions",
+                                                                    directives:
+                                                                      [
+                                                                        {
+                                                                          name: "model",
+                                                                          rawName:
+                                                                            "v-model",
+                                                                          value:
+                                                                            _vm
+                                                                              .form
+                                                                              .banquetCategory[
+                                                                              index
+                                                                            ]
+                                                                              .dimen_type,
+                                                                          expression:
+                                                                            "form.banquetCategory[index].dimen_type",
+                                                                        },
+                                                                      ],
+                                                                    staticClass:
+                                                                      "select-field",
+                                                                    on: {
+                                                                      change:
+                                                                        function (
+                                                                          $event
+                                                                        ) {
+                                                                          var $$selectedVal =
+                                                                            Array.prototype.filter
+                                                                              .call(
+                                                                                $event
+                                                                                  .target
+                                                                                  .options,
+                                                                                function (
+                                                                                  o
+                                                                                ) {
+                                                                                  return o.selected
+                                                                                }
+                                                                              )
+                                                                              .map(
+                                                                                function (
+                                                                                  o
+                                                                                ) {
+                                                                                  var val =
+                                                                                    "_value" in
+                                                                                    o
+                                                                                      ? o._value
+                                                                                      : o.value
+                                                                                  return val
+                                                                                }
+                                                                              )
+                                                                          _vm.$set(
+                                                                            _vm
+                                                                              .form
+                                                                              .banquetCategory[
+                                                                              index
+                                                                            ],
+                                                                            "dimen_type",
+                                                                            $event
+                                                                              .target
+                                                                              .multiple
+                                                                              ? $$selectedVal
+                                                                              : $$selectedVal[0]
+                                                                          )
+                                                                        },
                                                                     },
-                                                                  }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "Inches",
+                                                                          selected:
+                                                                            "",
+                                                                        },
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Inches"
+                                                                        ),
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "Centimeter",
+                                                                        },
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Centimeter"
+                                                                        ),
+                                                                      ]
+                                                                    ),
+                                                                  ]
                                                                 ),
-                                                              ],
-                                                              1
+                                                              ]
                                                             ),
                                                           ]
                                                         ),
@@ -28930,12 +28961,12 @@ var render = function () {
                                                                         "v-model",
                                                                       value:
                                                                         _vm.form
-                                                                          .dimensions[
+                                                                          .banquetCategory[
                                                                           index
                                                                         ]
                                                                           .length,
                                                                       expression:
-                                                                        "form.dimensions[index].length",
+                                                                        "form.banquetCategory[index].length",
                                                                     },
                                                                   ],
                                                                   staticClass:
@@ -28957,7 +28988,7 @@ var render = function () {
                                                                   domProps: {
                                                                     value:
                                                                       _vm.form
-                                                                        .dimensions[
+                                                                        .banquetCategory[
                                                                         index
                                                                       ].length,
                                                                   },
@@ -28976,7 +29007,7 @@ var render = function () {
                                                                         _vm.$set(
                                                                           _vm
                                                                             .form
-                                                                            .dimensions[
+                                                                            .banquetCategory[
                                                                             index
                                                                           ],
                                                                           "length",
@@ -29026,11 +29057,11 @@ var render = function () {
                                                                         "v-model",
                                                                       value:
                                                                         _vm.form
-                                                                          .dimensions[
+                                                                          .banquetCategory[
                                                                           index
                                                                         ].width,
                                                                       expression:
-                                                                        "form.dimensions[index].width",
+                                                                        "form.banquetCategory[index].width",
                                                                     },
                                                                   ],
                                                                   staticClass:
@@ -29052,7 +29083,7 @@ var render = function () {
                                                                   domProps: {
                                                                     value:
                                                                       _vm.form
-                                                                        .dimensions[
+                                                                        .banquetCategory[
                                                                         index
                                                                       ].width,
                                                                   },
@@ -29071,7 +29102,7 @@ var render = function () {
                                                                         _vm.$set(
                                                                           _vm
                                                                             .form
-                                                                            .dimensions[
+                                                                            .banquetCategory[
                                                                             index
                                                                           ],
                                                                           "width",
@@ -29121,12 +29152,12 @@ var render = function () {
                                                                         "v-model",
                                                                       value:
                                                                         _vm.form
-                                                                          .dimensions[
+                                                                          .banquetCategory[
                                                                           index
                                                                         ]
                                                                           .height,
                                                                       expression:
-                                                                        "form.dimensions[index].height",
+                                                                        "form.banquetCategory[index].height",
                                                                     },
                                                                   ],
                                                                   staticClass:
@@ -29148,7 +29179,7 @@ var render = function () {
                                                                   domProps: {
                                                                     value:
                                                                       _vm.form
-                                                                        .dimensions[
+                                                                        .banquetCategory[
                                                                         index
                                                                       ].height,
                                                                   },
@@ -29167,7 +29198,7 @@ var render = function () {
                                                                         _vm.$set(
                                                                           _vm
                                                                             .form
-                                                                            .dimensions[
+                                                                            .banquetCategory[
                                                                             index
                                                                           ],
                                                                           "height",
@@ -29231,11 +29262,11 @@ var render = function () {
                                                                         "v-model",
                                                                       value:
                                                                         _vm.form
-                                                                          .dimensions[
+                                                                          .banquetCategory[
                                                                           index
                                                                         ].area,
                                                                       expression:
-                                                                        "form.dimensions[index].area",
+                                                                        "form.banquetCategory[index].area",
                                                                     },
                                                                   ],
                                                                   staticClass:
@@ -29257,7 +29288,7 @@ var render = function () {
                                                                   domProps: {
                                                                     value:
                                                                       _vm.form
-                                                                        .dimensions[
+                                                                        .banquetCategory[
                                                                         index
                                                                       ].area,
                                                                   },
@@ -29276,7 +29307,7 @@ var render = function () {
                                                                         _vm.$set(
                                                                           _vm
                                                                             .form
-                                                                            .dimensions[
+                                                                            .banquetCategory[
                                                                             index
                                                                           ],
                                                                           "area",
@@ -29334,7 +29365,7 @@ var render = function () {
                                                                   "label",
                                                                   {
                                                                     attrs: {
-                                                                      for: "seating",
+                                                                      for: "people",
                                                                     },
                                                                   },
                                                                   [
@@ -29344,82 +29375,106 @@ var render = function () {
                                                                   ]
                                                                 ),
                                                                 _vm._v(" "),
-                                                                _c("input", {
-                                                                  directives: [
-                                                                    {
-                                                                      name: "model",
-                                                                      rawName:
-                                                                        "v-model",
-                                                                      value:
-                                                                        _vm.form
-                                                                          .seating[
-                                                                          index
-                                                                        ].type,
-                                                                      expression:
-                                                                        "form.seating[index].type",
-                                                                    },
-                                                                  ],
-                                                                  staticClass:
-                                                                    "form-control",
-                                                                  class: {
-                                                                    "is-invalid":
-                                                                      _vm.form.errors.has(
-                                                                        "seating"
-                                                                      ),
-                                                                  },
-                                                                  attrs: {
-                                                                    type: "text",
-                                                                    placeholder:
-                                                                      "Round Table",
-                                                                    id: "seating",
-                                                                    name: "seating",
-                                                                  },
-                                                                  domProps: {
-                                                                    value:
-                                                                      _vm.form
-                                                                        .seating[
-                                                                        index
-                                                                      ].type,
-                                                                  },
-                                                                  on: {
-                                                                    input:
-                                                                      function (
-                                                                        $event
-                                                                      ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .form
-                                                                            .seating[
-                                                                            index
-                                                                          ],
-                                                                          "type",
-                                                                          $event
-                                                                            .target
-                                                                            .value
-                                                                        )
-                                                                      },
-                                                                  },
-                                                                }),
-                                                                _vm._v(" "),
                                                                 _c(
-                                                                  "has-error",
+                                                                  "select",
                                                                   {
-                                                                    attrs: {
-                                                                      form: _vm.form,
-                                                                      field:
-                                                                        "seating",
+                                                                    directives:
+                                                                      [
+                                                                        {
+                                                                          name: "model",
+                                                                          rawName:
+                                                                            "v-model",
+                                                                          value:
+                                                                            _vm
+                                                                              .form
+                                                                              .banquetCategory[
+                                                                              index
+                                                                            ]
+                                                                              .seat_type,
+                                                                          expression:
+                                                                            "form.banquetCategory[index].seat_type",
+                                                                        },
+                                                                      ],
+                                                                    staticClass:
+                                                                      "select-field",
+                                                                    on: {
+                                                                      change:
+                                                                        function (
+                                                                          $event
+                                                                        ) {
+                                                                          var $$selectedVal =
+                                                                            Array.prototype.filter
+                                                                              .call(
+                                                                                $event
+                                                                                  .target
+                                                                                  .options,
+                                                                                function (
+                                                                                  o
+                                                                                ) {
+                                                                                  return o.selected
+                                                                                }
+                                                                              )
+                                                                              .map(
+                                                                                function (
+                                                                                  o
+                                                                                ) {
+                                                                                  var val =
+                                                                                    "_value" in
+                                                                                    o
+                                                                                      ? o._value
+                                                                                      : o.value
+                                                                                  return val
+                                                                                }
+                                                                              )
+                                                                          _vm.$set(
+                                                                            _vm
+                                                                              .form
+                                                                              .banquetCategory[
+                                                                              index
+                                                                            ],
+                                                                            "seat_type",
+                                                                            $event
+                                                                              .target
+                                                                              .multiple
+                                                                              ? $$selectedVal
+                                                                              : $$selectedVal[0]
+                                                                          )
+                                                                        },
                                                                     },
-                                                                  }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "Round Table",
+                                                                        },
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Round Table"
+                                                                        ),
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "U Table",
+                                                                        },
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "U Table"
+                                                                        ),
+                                                                      ]
+                                                                    ),
+                                                                  ]
                                                                 ),
-                                                              ],
-                                                              1
+                                                              ]
                                                             ),
                                                           ]
                                                         ),
@@ -29460,12 +29515,12 @@ var render = function () {
                                                                         "v-model",
                                                                       value:
                                                                         _vm.form
-                                                                          .seating[
+                                                                          .banquetCategory[
                                                                           index
                                                                         ]
                                                                           .people,
                                                                       expression:
-                                                                        "form.seating[index].people",
+                                                                        "form.banquetCategory[index].people",
                                                                     },
                                                                   ],
                                                                   staticClass:
@@ -29487,7 +29542,7 @@ var render = function () {
                                                                   domProps: {
                                                                     value:
                                                                       _vm.form
-                                                                        .seating[
+                                                                        .banquetCategory[
                                                                         index
                                                                       ].people,
                                                                   },
@@ -29506,7 +29561,7 @@ var render = function () {
                                                                         _vm.$set(
                                                                           _vm
                                                                             .form
-                                                                            .seating[
+                                                                            .banquetCategory[
                                                                             index
                                                                           ],
                                                                           "people",

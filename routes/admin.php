@@ -267,6 +267,7 @@ Route::namespace('Admin')->group(function (){
 		Route::get('feedbacks/old','FeedbackController@indexOld');
 		Route::post('feedback/send-link','FeedbackController@sendLink');
 		Route::post('feedback/post-comment','FeedbackController@postComment');
+		Route::post('finalprogram/send','FeedbackController@sendSms');
 		
 	});
 
@@ -314,6 +315,11 @@ Route::namespace('Admin')->group(function (){
 		Route::resource('season','SeasonController');
 		Route::put('current-season/set', 'SeasonController@setSeason');
 		Route::get('current-season', 'SeasonController@currentSeason');
+	});
+
+	//Final Program
+	Route::namespace('FinalProgram')->group(function(){
+		Route::post('finalprogram/send-sms','SmsController@sendSms');
 	});
 
 });

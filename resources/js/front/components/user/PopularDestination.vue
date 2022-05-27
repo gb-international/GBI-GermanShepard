@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard-body-part-two-2" v-if="upcoming_list.length">
+  <div class="dashboard-body-part-two-2" v-if="upcoming_list.length>=0">
     <VueSlickCarousel :dots="true" v-bind="settings">
       <div
         class="states_card card_scroll"

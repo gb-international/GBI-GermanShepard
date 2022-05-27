@@ -1351,7 +1351,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         })["catch"](function (error) {
           //console.log(error)
-          _this3.$swal.fire("Sorry", "No Itinerary found.", "info");
+          _this3.$swal.fire("Sorry", "No results found.", "info");
         });
       } else {
         this.$swal.fire("Alert", "please select locations", "error");

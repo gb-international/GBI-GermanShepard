@@ -925,7 +925,7 @@ export default {
           })
           .catch((error) => {
             //console.log(error)
-            this.$swal.fire("Sorry", "No Itinerary found.", "info");
+            this.$swal.fire("Sorry", "No results found.", "info");
           });
       } else {
         this.$swal.fire("Alert", "please select locations", "error");

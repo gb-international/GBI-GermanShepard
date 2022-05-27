@@ -14,12 +14,32 @@ use App\Rules\AlphaSpace;
 
 class HotelController extends Controller{
 
-    public function searchHotel(Request $request)
+    public function HotelSearch(Request $request)
     {
-        $data = Hotel::where('city', $request->location)
-            ->where('category',$request->room_type)
-            //->where('room', '>=', $request->rooms)
+
+        $data = [];
+        $location = $request->location;
+        $destination = $request->destination;
+        $roomtype = $request->roomtype;
+        if(count($location) > 1){
+            $data = DB::table('hotels')
+                ->where('room_type',$room_type)
+                ->whereIn('location',$location)
+                ->get();
+            return response()->json([
+                'data'=>$data
+            ],200);
+        }
+       // return  $request->all();
+        if($source !=null ){
+            $source = explode(",",$request->location[0])[0];
+            $data = Hotel::where([
+                'location'=>$location,
+                // 'noofdays' => $noofday,
+            ])
             ->get();
+        }
+
         return response()->json($data);
     }
 
@@ -69,5 +89,18 @@ class HotelController extends Controller{
             );
         FrontBookingAdminJob::dispatch($data);
     }*/
+
+    public function HotelSearch(Request $request)
+    {
+
+        $data = Hotel::where('city', $request->location)
+        ->where('category',$request->room_type)
+        //->where('room', '>=', $request->rooms)
+        ->get();
+
+        return response()->json($data);
+    }
+
+    
 
 }

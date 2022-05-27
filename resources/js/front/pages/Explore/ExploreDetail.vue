@@ -100,8 +100,23 @@
     >Book Now
     </button>
   </div>
+
+      <div class="container mt-4">
+        <div class="custom-flex mt-2">
+          <div class="tabs" :style="tabSelected == 'Itinerary' ? 'border-bottom: 3px solid #00c4c4' : ''" @click="changeTab('Itinerary')">
+            Itinerary
+          </div>
+          <div class="tabs" :style="tabSelected == 'Neighbourhood' ? 'border-bottom: 3px solid #00c4c4' : ''" @click="changeTab('Neighbourhood')">
+            Your Neighbourhood
+          </div>
+          <div class="tabs" :style="tabSelected == 'Encylopedia' ? 'border-bottom: 3px solid #00c4c4' : ''" @click="changeTab('Encylopedia')">
+            Encylopedia
+          </div>
+        </div>
+      </div>
+
   <!-- Row 2 -->
-  <div class="mainRow2 container">
+  <div class="mainRow2 container" v-if="tabSelected == 'Itinerary' " style="margin-top: 5vh">
     <p class="rowheadings">Your Experience Includes</p>
     <div class="iconMainDiv">
       <div class="iconClass">
@@ -143,7 +158,7 @@
     </div>
   </div>
 
-  <div class="mainRow3 container">
+  <div class="mainRow3 container" v-if="tabSelected == 'Itinerary' ">
     <p class="rowheadings">ITINERARY</p>
     <div class="itineraryDiv">
       <div class="singleItneraryDivMain" v-for="(data, index) in itineraryData.itinerarydays" :key="data.id" @click="changeItDiv(data.id)">
@@ -177,6 +192,65 @@
         </div>
       </div>
     </div>
+
+    <!-- Neightbourhood -->
+     <div class="container mt-4" v-if="tabSelected == 'Neighbourhood' ">
+      <p class="heading2 mb-4" style="margin-top: 4vh">Explore Neighbourhood</p>
+        <!-- Icons -->
+        <div class="icons-flex mt-2">
+          <div class="icons" :style="iconSelected == 'Communication' ? 'color: #00c4c4' : ''" @click="changeIcon('Communication')">
+            Communication
+          </div>
+          <div class="icons" :style="iconSelected == 'Movie' ? 'color: #00c4c4' : ''" @click="changeIcon('Movie')">
+            Movie
+          </div>
+          <div class="icons" :style="iconSelected == 'School' ? 'color: #00c4c4' : ''" @click="changeIcon('School')">
+            School
+          </div>
+          <div class="icons" :style="iconSelected == 'Bank' ? 'color: #00c4c4' : ''" @click="changeIcon('Bank')">
+            Bank
+          </div>
+          <div class="icons" :style="iconSelected == 'Food' ? 'color: #00c4c4' : ''" @click="changeIcon('Food')">
+            Food
+          </div>
+          <div class="icons" :style="iconSelected == 'Sightseeing' ? 'color: #00c4c4' : ''" @click="changeIcon('Sightseeing')">
+            Sightseeing
+          </div>
+        </div>
+
+        <!-- Communication -->
+        <div v-if="iconSelected == 'Communication'" style="margin-bottom: 22vh">
+          <p class="heading2 mb-4" style="margin-top: 4vh">Communication</p>
+        </div>
+
+        <!-- Movie -->
+        <div v-if="iconSelected == 'Movie'" style="margin-bottom: 22vh">
+          <p class="heading2 mb-4" style="margin-top: 4vh">Movie</p>
+        </div>
+
+        <!-- School -->
+        <div v-if="iconSelected == 'School'" style="margin-bottom: 22vh">
+          <p class="heading2 mb-4" style="margin-top: 4vh">School</p>
+        </div>
+
+        <!-- Bank -->
+        <div v-if="iconSelected == 'Bank'" style="margin-bottom: 22vh">
+          <p class="heading2 mb-4" style="margin-top: 4vh">Bank</p>
+        </div>
+
+        <!-- Food -->
+        <div v-if="iconSelected == 'Food'" style="margin-bottom: 22vh">
+          <p class="heading2 mb-4" style="margin-top: 4vh">Food</p>
+        </div>
+
+        <!-- Sightseeing -->
+        <div v-if="iconSelected == 'Sightseeing'" style="margin-bottom: 22vh">
+          <p class="heading2 mb-4" style="margin-top: 4vh">Sightseeing</p>
+        </div>
+
+      </div>
+
+      
 
 </section>
   
@@ -230,6 +304,8 @@ export default {
       city_list:[],
       login:false,
       loading:true,
+      tabSelected: 'Itinerary',
+      iconSelected: 'Communication',
     };
   },   
   watch: {
@@ -267,6 +343,12 @@ export default {
     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
   },
   methods: {
+    changeTab(val){
+      this.tabSelected = val;
+    },
+    changeIcon(val){
+      this.iconSelected = val;
+    },
     changeItDiv(id){
       if(this.selectedDay == id){
         this.selectedDay = null
@@ -313,6 +395,12 @@ export default {
 </script>
 
 <style scoped>
+
+.heading2{
+ font-size: 17px;
+ font-weight: 500;
+ color: black;
+}
 .mainRow1{
   margin-top: 20px;
   margin-bottom: 21px;
@@ -347,6 +435,46 @@ export default {
   border-radius: 5px;
   background: white;
 }
+
+.icons{
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 6px 10px;
+}
+
+.icons-flex {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  flex-direction: row;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.tabs{
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 5px 22px;
+}
+
+.custom-div{
+  display: inline;
+  margin-top: 26px !important;
+  padding-top: 0.2vh !important;
+  margin-right: 20px;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2px 7px 0 rgb(0 0 0 / 19%);
+}
+.custom-flex {
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  font-size: 18px;
+  font-weight: 400;
+}
+
 @media (min-width: 768px) {
   .expDetailImgSmall{
     width:  100px;

@@ -13,20 +13,20 @@
               alt="GBI slide"
             ></div>
           </div>
-          <div class="carousel-item">
+          <!-- <div class="carousel-item">
             <div
               class="img-fluid banner_img image-slide-2 banner_bg"
               id="bannerimg2"
               alt="GBI slide"
             ></div>
           </div>
-          <div class="carousel-item">
+           <div class="carousel-item">
             <div
               class="img-fluid banner_img image-slide-3 banner_bg"
               id="bannerimg3"
               alt="GBI slide"
             ></div>
-          </div>
+          </div> -->
         </div>
         <a
           class="carousel-control-prev"
@@ -50,8 +50,8 @@
     </div>
 
     <div class="container">
-      <heading class="text-center" text="Our Travel Programs" />
-      <sub-heading class="text-center" text="Immerge in a Riveting Journey" />
+      <heading class="text-start mt-4" text="Our Travel Programs" />
+      <sub-heading class="text-start mb-4" text="Immerge in a Riveting Journey" />
       
       <!-- If Loaded -->
       <div class="row card-titles" v-if="travel_Loaded">

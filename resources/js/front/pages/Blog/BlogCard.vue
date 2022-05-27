@@ -1,5 +1,5 @@
 <template>
-    <div class="card border-radius-0">
+    <div class="card border-radius-0" @click="router.push(`/blog/${post.slug}`)">
         <div class="container pt-3">
         <img
             class="card-img-top border-radius-0"

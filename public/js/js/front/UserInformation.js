@@ -616,7 +616,10 @@ var render = function () {
                         staticClass: "form-control",
                         attrs: {
                           type: "text",
-                          placeholder: "Enter Your School/College ID",
+                          placeholder:
+                            _vm.profession == "student"
+                              ? "Enter Your School/College ID"
+                              : "Enter Your Affiliation Number",
                         },
                         domProps: { value: _vm.institution_code },
                         on: {

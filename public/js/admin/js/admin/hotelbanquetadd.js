@@ -940,6 +940,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -962,7 +966,7 @@ __webpack_require__.r(__webpack_exports__);
       currStep: 'step1',
       currField: '1',
       selectedBanquet: null,
-      img_image: "",
+      img_images: [],
       star_list: [{
         name: "5",
         id: 0
@@ -986,7 +990,8 @@ __webpack_require__.r(__webpack_exports__);
         country: "",
         pincode: "",
         //image: "",
-        alt: "",
+        alt: [],
+        images: [],
         star_category: "",
         rooms: "",
         banquets: "",
@@ -1042,9 +1047,28 @@ __webpack_require__.r(__webpack_exports__);
     fileInput: function fileInput() {
       this.$refs.fileInput.click();
     },
-    onFileInput: function onFileInput(e) {
-      this.form.photos[1] = e.target.files[0];
-      console.log(this.form.photos[1]);
+    onFileInput: function onFileInput(event) {
+      var _this = this;
+
+      for (var i = 0; i < event.target.files.length; i++) {
+        var file = event.target.files[i];
+        this.form.alt[i] = file.name;
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+          _this.form.images.push(event.target.result);
+
+          _this.img_images.push(event.target.result);
+        };
+
+        reader.readAsDataURL(file);
+      } //console.log(this.form.images[1])
+
+    },
+    delImg: function delImg(index) {
+      this.img_images = this.img_images.slice(0, index).concat(this.img_images.slice(index + 1));
+      this.form.images = this.form.images.slice(0, index).concat(this.form.images.slice(index + 1));
+      this.form.alt = this.form.alt.slice(0, index).concat(this.form.alt.slice(index + 1));
     },
     incr: function incr(val) {
       var col = "";
@@ -1091,27 +1115,27 @@ __webpack_require__.r(__webpack_exports__);
       this.form.star_category = v.name;
     },
     changeDetailPhoto: function changeDetailPhoto(event) {
-      var _this = this;
+      var _this2 = this;
 
       var file = event.target.files[0];
       this.form.alt = file.name;
       var reader = new FileReader();
 
       reader.onload = function (event) {
-        _this.form.image = event.target.result;
-        _this.img_image = event.target.result;
+        _this2.form.image = event.target.result;
+        _this2.img_image = event.target.result;
       };
 
       reader.readAsDataURL(file);
     },
     addHotel: function addHotel() {
-      var _this2 = this;
+      var _this3 = this;
 
       // Submit the form via a itinerary request
       this.form.post("/api/hotel").then(function (response) {
-        _this2.$router.push("/hotel-list/");
+        _this3.$router.push("/hotel-list/");
 
-        _this2.$toast.fire({
+        _this3.$toast.fire({
           icon: "success",
           title: "Hotel Added successfully"
         });
@@ -30277,34 +30301,62 @@ var render = function () {
                       ]),
                     ])
                   : _vm.currStep == "step4"
-                  ? _c("div", { staticClass: "row" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "custom-card shadow",
-                          on: { click: _vm.fileInput },
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fas fa-plus-circle",
-                            staticStyle: {
-                              "margin-top": "4vh",
-                              "font-size": "35px",
+                  ? _c(
+                      "div",
+                      { staticClass: "row" },
+                      [
+                        _vm._l(_vm.img_images, function (img, index) {
+                          return _c(
+                            "div",
+                            {
+                              key: index,
+                              staticClass: "mr-2 mb-2 shadow smallImages",
                             },
-                          }),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        ref: "fileInput",
-                        staticStyle: { display: "none" },
-                        attrs: {
-                          type: "file",
-                          accept: ".png, .jpg, .jpeg, .pdf",
-                        },
-                        on: { change: _vm.onFileInput },
-                      }),
-                    ])
+                            [
+                              _c("img", {
+                                staticClass: "smallImages",
+                                attrs: { src: img, alt: "" },
+                              }),
+                              _vm._v(" "),
+                              _c("i", {
+                                staticClass: "fas fa-trash-alt delImgBtn",
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.delImg(index)
+                                  },
+                                },
+                              }),
+                            ]
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "custom-card shadow ml-2 mb-2",
+                            on: { click: _vm.fileInput },
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-plus-circle",
+                              staticStyle: { "font-size": "35px" },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          ref: "fileInput",
+                          staticStyle: { display: "none" },
+                          attrs: {
+                            type: "file",
+                            multiple: "",
+                            accept: ".png, .jpg, .jpeg, .pdf",
+                          },
+                          on: { change: _vm.onFileInput },
+                        }),
+                      ],
+                      2
+                    )
                   : _vm.currStep == "step5"
                   ? _c("div", { staticClass: "row" })
                   : _vm.currStep == "step6"

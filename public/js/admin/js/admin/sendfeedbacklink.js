@@ -1169,7 +1169,7 @@ var render = function () {
         staticClass:
           "btn btn-primary itrn_add_btn back_btn text-capitalize font-weight-bold text-center",
       },
-      [_vm._t("default", [_vm._v("SEND LINK")])],
+      [_vm._t("default", [_vm._v("SEND")])],
       2
     ),
   ])

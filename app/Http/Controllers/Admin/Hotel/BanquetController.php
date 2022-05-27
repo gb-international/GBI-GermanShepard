@@ -6,6 +6,7 @@ Purpose : Manage Banquets
 */
 namespace App\Http\Controllers\Admin\Hotel;
 use App\Model\Hotel\Banquet;
+use App\Model\Hotel\BanquetCategories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Traits\ImageTrait;
@@ -29,8 +30,8 @@ class BanquetController extends Controller
         ->paginate($size);
         foreach ($data as $d){
             $d->images = unserialize($d->images);
-            $d->banquet_categories = unserialize($d->banquet_categories);
-            $d->amenities = unserialize($d->amenities);
+            //$d->banquet_categories = unserialize($d->banquet_categories);
+            //$d->amenities = unserialize($d->amenities);
             $d->alt = unserialize($d->alt);
         }
         return response()->json($data);
@@ -63,9 +64,9 @@ class BanquetController extends Controller
     public function store(Request $request)
     {
          //$data = $this->validateBanquet($request);
-         $data = $request->all();
-         $data['banquet_categories'] = serialize($request->banquet_categories);
-         $data['amenities'] = serialize($request->amenities);
+         $data = $request->except(['banquetCategory', 'amenities']);
+         //$data['banquet_categories'] = serialize($request->banquet_categories);
+         //$data['amenities'] = serialize($request->amenities);
          $data['alt'] = serialize($request->alt);
  
          $images = array();
@@ -77,8 +78,24 @@ class BanquetController extends Controller
              }
          }
          $data['images'] = serialize($images);
-         
-         $hotel = Banquet::create($data);
+         $banquet = Banquet::create($data);
+         $bCount = 0;
+
+         foreach($request->banquetCategory[0] as $dimen){
+            BanquetCategories::create([
+                'banquet_id' => $banquet->id,
+                'amenities' => serialize($request->amenities),
+                'dimension_type' => $dimen['dimen_type'],
+                'length' => $dimen['length'],
+                'width' => $dimen['width'],
+                'height' => $dimen['height'],
+                'area' => $dimen['area'],
+                'seating_type' => $dimen['seat_type'],
+                'people' => $dimen['people']
+            ]);
+            $bCount++;
+         }
+
          return response()->json(['Message'=> 'Successfully Added...']);
     }
 
@@ -90,7 +107,7 @@ class BanquetController extends Controller
      */
     public function show(Banquet $banquet)
     {
-        $banquet->banquet_categories = unserialize($banquet->banquet_categories);
+        //$banquet->banquet_categories = unserialize($banquet->banquet_categories);
         $banquet->amenities = unserialize($banquet->amenities);
         $banquet->alt = unserialize($banquet->alt);
         return response()->json($banquet);
@@ -104,7 +121,7 @@ class BanquetController extends Controller
      */
     public function edit(Banquet $banquet)
     {
-        $banquet->banquet_categories = unserialize($banquet->banquet_categories);
+        //$banquet->banquet_categories = unserialize($banquet->banquet_categories);
         $banquet->amenities = unserialize($banquet->amenities);
         $banquet->alt = unserialize($banquet->alt);
         return response()->json($banquet);
@@ -122,9 +139,9 @@ class BanquetController extends Controller
 
         //$data = $this->validateBanquet($request);
         $data = $request->all();
-        $data->meta_keywords = serialize($data->meta_keywords);
-        $data->room_categories = serialize($data->room_categories);
-        $data->banquet_categories = serialize($data->banquet_categories);
+        //$data->meta_keywords = serialize($data->meta_keywords);
+        //$data->room_categories = serialize($data->room_categories);
+        //$data->banquet_categories = serialize($data->banquet_categories);
         $data->amenities = serialize($data->amenities);
 
         if($request->images){
@@ -175,7 +192,6 @@ class BanquetController extends Controller
             'amenities' => 'required',
             'image' => 'required',
             'description' => 'required',
-            'dimensions' => 'required',
             'check_in' => 'required',
             'check_out' => 'required',
             'price' => 'required',

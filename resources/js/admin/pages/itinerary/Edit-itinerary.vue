@@ -90,41 +90,46 @@
             </div>
             <div class="col-sm-4">
               <div class="row">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="noofdaysId">Number Of Days</label>
-                    <input
-                      type="text"
-                      readonly="readonly"
-                      class="form-control"
-                      v-model="form.noofdays"
-                      :class="{ 'is-invalid': form.errors.has('noofdays') }"
-                      placeholder="Enter Number Of Days"
-                      name="noofdays"
-                      min="1"
-                    />
-                    <has-error :form="form" field="noofdays"></has-error>
-                  </div>
-                </div>
-                <div class="col-sm-3">
-                  <button
-                    type="button"
-                    class="btn btn_plus text-white mt-35"
-                    @click="addRow()"
-                  >
-                    <i class="fas fa-plus"></i>
-                  </button>
-                </div>
-                <div class="col-sm-3">
-                  <button
-                    type="button"
-                    class="btn btn_plus text-white mt-35"
-                    @click="removeRow()"
-                  >
-                    <i class="fas fa-minus"></i>
-                  </button>
+
+              <div class="col-sm-2">
+                <label></label>
+                <button
+                  type="button"
+                  class="btn btn_plus text-white mt-35"
+                  @click="removeRow()"
+                >
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+              
+              <div class="col-sm-5 pl-2">
+                <div class="form-group">
+                  <label for="noofdaysId">Number Of Days</label>
+                  <input
+                    type="text"
+                    readonly="readonly"
+                    class="form-control text-center"
+                    v-model="form.noofdays"
+                    :class="{ 'is-invalid': form.errors.has('noofdays') }"
+                    placeholder="Enter Number Of Days"
+                    name="noofdays"
+                    min="1"
+                  />
+                  <has-error :form="form" field="noofdays"></has-error>
                 </div>
               </div>
+
+              <div class="col-sm-2">
+                <label></label>
+                <button
+                  type="button"
+                  class="btn btn_plus text-white mt-35"
+                  @click="addRow()"
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
             </div>
           </div>
           <div class="row mb-30">

@@ -172,18 +172,13 @@ This Form is used to add new Banquet data
                     <div class="row">
                       <div class="col-sm-3">
                         <div class="form-group">
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Inches"
-                            id="dimensions"
-                            name="dimensions"
-                            v-model="form.dimensions[index].type"
-                            :class="{ 'is-invalid': form.errors.has('dimensions') }"
-                            />
-                          <has-error :form="form" field="dimensions"></has-error>
+                          <select class="select-field" v-model="form.banquetCategory[index].dimen_type">
+                            <option value="Inches" selected>Inches</option>
+                            <option value="Centimeter">Centimeter</option>
+                          </select>
                         </div>
                       </div>
+                      
                       <div class="col-sm-3">
                         <div class="form-group">
                           <input
@@ -193,7 +188,7 @@ This Form is used to add new Banquet data
                             min="0"
                             id="length"
                             name="length"
-                            v-model="form.dimensions[index].length"
+                            v-model="form.banquetCategory[index].length"
                             :class="{ 'is-invalid': form.errors.has('length') }"
                             />
                           <has-error :form="form" field="length"></has-error>
@@ -208,7 +203,7 @@ This Form is used to add new Banquet data
                             min="0"
                             id="width"
                             name="width"
-                            v-model="form.dimensions[index].width"
+                            v-model="form.banquetCategory[index].width"
                             :class="{ 'is-invalid': form.errors.has('width') }"
                             />
                           <has-error :form="form" field="width"></has-error>
@@ -223,7 +218,7 @@ This Form is used to add new Banquet data
                             min="0"
                             id="height"
                             name="height"
-                            v-model="form.dimensions[index].height"
+                            v-model="form.banquetCategory[index].height"
                             :class="{ 'is-invalid': form.errors.has('height') }"
                             />
                           <has-error :form="form" field="height"></has-error>
@@ -239,7 +234,7 @@ This Form is used to add new Banquet data
                             min="0"
                             id="area"
                             name="area"
-                            v-model="form.dimensions[index].area"
+                            v-model="form.banquetCategory[index].area"
                             :class="{ 'is-invalid': form.errors.has('area') }"
                             />
                           <has-error :form="form" field="area"></has-error>
@@ -252,17 +247,11 @@ This Form is used to add new Banquet data
                     <div class="row">
                       <div class="col-sm-6">
                         <div class="form-group">
-                          <label for="seating">Seating Type</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Round Table"
-                            id="seating"
-                            name="seating"
-                            v-model="form.seating[index].type"
-                            :class="{ 'is-invalid': form.errors.has('seating') }"
-                            />
-                          <has-error :form="form" field="seating"></has-error>
+                          <label for="people">Seating Type</label>
+                          <select class="select-field" v-model="form.banquetCategory[index].seat_type">
+                            <option value="Round Table">Round Table</option>
+                            <option value="U Table">U Table</option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -275,7 +264,7 @@ This Form is used to add new Banquet data
                             min="0"
                             id="people"
                             name="people"
-                            v-model="form.seating[index].people"
+                            v-model="form.banquetCategory[index].people"
                             :class="{ 'is-invalid': form.errors.has('people') }"
                             />
                           <has-error :form="form" field="people"></has-error>
@@ -425,6 +414,14 @@ export default {
       currStep: 'step1',
       currField: '1',
       img_images: [],
+      dimen_list: [
+        {name:"Inches",id:0},
+        {name:"Centimeter",id:1},
+      ],
+      seat_list: [
+        {name:"Round Table",id:0},
+        {name:"U Table",id:1},
+      ],
       star_list: [
         {name:"5",id:0},
         {name:"4",id:1},
@@ -442,46 +439,37 @@ export default {
         //image: "",
         alt:[],
         star_category: "",
-        rooms: "",
         banquets: "",
         phoneno: "",
         email: "",
         address: "",
-        banquet_categories: [],
-        seating: [],
-        dimensions: [],
+        //seating: [],
+        banquetCategory: [],
         //photos: [],
         images: [],
         description: "",
         amenities: [],
         price: '',
       }),
-    };
+    }; 
   },
   methods: {
     updateBanquets(val){
-      for(let i = 0; i < val; i++ ){
-
-        banquet[1]
-         
-        let dimen = [
+      this.form.banquetCategory = [];
+      
+      for(let i = 0; i < val; i++ ){         
+        let bCat = [
           {
-            type: '',
+            dimen_type: '',
             length: '',
             height: '',
             width: '',
             area: '',
-          },
-        ];
-        let seat = [
-          {
-            type: '',
+            seat_type: '',
             people: ''
           },
         ];
-
-        this.form.dimensions.push(dimen);
-        this.form.seating.push(seat);
+        this.form.banquetCategory.push(bCat);
       }
     },
     changeField(val){
@@ -576,6 +564,8 @@ export default {
       }
     },
     updateStatus(v){ this.form.star_category = v.name},
+    updateDimen(v){ this.form.banquetCategory[this.selectedBanquet].dimen_type = v.name},
+    updateSeat(v){ this.form.banquetCategory[this.selectedBanquet].seat_type = v.name},
     changeDetailPhoto(event) {
       let file = event.target.files[0];
       this.form.alt = file.name;

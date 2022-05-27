@@ -6,6 +6,7 @@ import Corporate from '@/admin/routes/Corporate.js';
 import Escort from '@/admin/routes/Escort.js';
 import Events from '@/admin/routes/Events.js';
 import Feedback from '@/admin/routes/Feedback.js';
+import finalProgram from '@/admin/routes/finalProgram.js';
 import GalleryEncyclopedia from '@/admin/routes/GalleryEncyclopedia.js';
 import Home from '@/admin/routes/Home.js';
 import Hotel from '@/admin/routes/Hotel.js';
@@ -34,6 +35,7 @@ export const routes = [
     ...Escort,
     ...Events,
     ...Feedback,
+    ...finalProgram,
     ...GalleryEncyclopedia,
     ...Home,
     ...Hotel,

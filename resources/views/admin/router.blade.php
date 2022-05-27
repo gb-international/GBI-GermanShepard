@@ -9,6 +9,16 @@
                 <p>Dashboard</p>
             </router-link>
         </li>
+
+        @if(auth()->user()->hasPermissionTo(103) || auth()->user()->hasRole(1))
+         <li class="nav-item">
+            <router-link to="/final-program-link" class="nav-link nav-cols" title="Send Itinerary">
+                <i class="nav-icon fas fa-atlas"></i>
+                <p>Send Itinerary</p>
+            </router-link>
+        </li>
+        @endif
+
         @if(auth()->user()->hasPermissionTo(86) || auth()->user()->hasRole(1))
         <li class="nav-item">
             <router-link to="/feedbacks" class="nav-link nav-cols" title="Feedback">
@@ -190,6 +200,13 @@
             <li class="nav-item">
                 <router-link to="/banquet-list" class="nav-link nav-cols" title="Banquet List">
                 <p>Banquets</p>
+                </router-link>
+            </li>
+            @endif
+            @if(auth()->user()->hasPermissionTo(60) || auth()->user()->hasRole(1))
+            <li class="nav-item">
+                <router-link to="/add-hotel-banquet" class="nav-link nav-cols" title="Hotel & Banquet">
+                <p>Hotel & Banquet</p>
                 </router-link>
             </li>
             @endif

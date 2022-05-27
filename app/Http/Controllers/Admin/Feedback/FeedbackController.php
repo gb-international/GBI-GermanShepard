@@ -120,7 +120,24 @@ class FeedbackController extends Controller
        }
     }
 
+    public function sendSms(Request $request)
+    {
+        $this->validate($request, [
+            //'message'=>'required',
+            'ph_no'=>'required',
+            'it_name'=>'required',
+            'start_date'=>'required',
+            'link'=>'required',
+        ]);
 
+        $phArray = explode(',', $request->ph_no);
+
+        foreach($phArray as $ph_no){
+            $sendsms = new SendSms;
+            $sendsms->finalProgram($ph_no, $request->it_name, $request->start_date, $request->link);
+        }
+        return response()->json(['message'=>'SMS Successfully Sent']);
+    }
 
     /**
      * Display the specified resource.

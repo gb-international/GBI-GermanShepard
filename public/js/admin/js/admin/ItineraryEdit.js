@@ -848,6 +848,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -28732,7 +28737,26 @@ var render = function () {
                           _vm._v(" "),
                           _c("div", { staticClass: "col-sm-4" }, [
                             _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col-sm-6" }, [
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label"),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn_plus text-white mt-35",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.removeRow()
+                                      },
+                                    },
+                                  },
+                                  [_c("i", { staticClass: "fas fa-minus" })]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-5 pl-2" }, [
                                 _c(
                                   "div",
                                   { staticClass: "form-group" },
@@ -28752,7 +28776,7 @@ var render = function () {
                                           expression: "form.noofdays",
                                         },
                                       ],
-                                      staticClass: "form-control",
+                                      staticClass: "form-control text-center",
                                       class: {
                                         "is-invalid":
                                           _vm.form.errors.has("noofdays"),
@@ -28790,7 +28814,9 @@ var render = function () {
                                 ),
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-2" }, [
+                                _c("label"),
+                                _vm._v(" "),
                                 _c(
                                   "button",
                                   {
@@ -28804,23 +28830,6 @@ var render = function () {
                                     },
                                   },
                                   [_c("i", { staticClass: "fas fa-plus" })]
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn btn_plus text-white mt-35",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.removeRow()
-                                      },
-                                    },
-                                  },
-                                  [_c("i", { staticClass: "fas fa-minus" })]
                                 ),
                               ]),
                             ]),

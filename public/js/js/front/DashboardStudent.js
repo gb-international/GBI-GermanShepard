@@ -1400,49 +1400,60 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card border-radius-0" }, [
-    _c("div", { staticClass: "container pt-3" }, [
-      _c("img", {
-        staticClass: "card-img-top border-radius-0",
-        staticStyle: { height: "200px !important", width: "320" },
-        attrs: { src: _vm.post.image, alt: "Bologna" },
-      }),
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "card-body" },
-      [
-        _c("h4", { staticClass: "card-title text-left text-primary" }, [
-          _vm._v(_vm._s(_vm.post.title)),
-        ]),
-        _vm._v(" "),
-        _c("router-link", { attrs: { to: "/blog/" + _vm.post.slug } }, [
-          _c("h6", { staticClass: "card-subtitle mb-2" }, [
-            _vm._v(_vm._s(_vm.post.category.title)),
+  return _c(
+    "div",
+    {
+      staticClass: "card border-radius-0",
+      on: {
+        click: function ($event) {
+          return _vm.router.push("/blog/" + _vm.post.slug)
+        },
+      },
+    },
+    [
+      _c("div", { staticClass: "container pt-3" }, [
+        _c("img", {
+          staticClass: "card-img-top border-radius-0",
+          staticStyle: { height: "200px !important", width: "320" },
+          attrs: { src: _vm.post.image, alt: "Bologna" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "card-body" },
+        [
+          _c("h4", { staticClass: "card-title text-left text-primary" }, [
+            _vm._v(_vm._s(_vm.post.title)),
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(_vm._s(_vm.post.summery)),
+          _c("router-link", { attrs: { to: "/blog/" + _vm.post.slug } }, [
+            _c("h6", { staticClass: "card-subtitle mb-2" }, [
+              _vm._v(_vm._s(_vm.post.category.title)),
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _vm._v(_vm._s(_vm.post.summery)),
+            ]),
           ]),
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "card-tags" },
-          _vm._l(_vm.post.tags, function (tag) {
-            return _c(
-              "span",
-              { key: tag.id, staticClass: "text-dark card-tag mr-2" },
-              [_vm._v(_vm._s(tag.title))]
-            )
-          }),
-          0
-        ),
-      ],
-      1
-    ),
-  ])
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "card-tags" },
+            _vm._l(_vm.post.tags, function (tag) {
+              return _c(
+                "span",
+                { key: tag.id, staticClass: "text-dark card-tag mr-2" },
+                [_vm._v(_vm._s(tag.title))]
+              )
+            }),
+            0
+          ),
+        ],
+        1
+      ),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1579,7 +1590,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.upcoming_list.length > 0
+  return _vm.upcoming_list.length >= 0
     ? _c(
         "div",
         { staticClass: "dashboard-body-part-two-2" },
@@ -1654,7 +1665,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.upcoming_list.length
+  return _vm.upcoming_list.length >= 0
     ? _c(
         "div",
         { staticClass: "dashboard-body-part-two-2" },
@@ -1766,7 +1777,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.upcoming_list.length > 0
+  return _vm.upcoming_list.length >= 0
     ? _c(
         "div",
         { staticClass: "dashboard-body-part-two-2" },

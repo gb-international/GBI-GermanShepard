@@ -1191,12 +1191,12 @@ var render = function () {
         { staticClass: "container" },
         [
           _c("heading", {
-            staticClass: "text-center",
+            staticClass: "text-start mt-4",
             attrs: { text: "Our Travel Programs" },
           }),
           _vm._v(" "),
           _c("sub-heading", {
-            staticClass: "text-center",
+            staticClass: "text-start mb-4",
             attrs: { text: "Immerge in a Riveting Journey" },
           }),
           _vm._v(" "),
@@ -1339,20 +1339,6 @@ var staticRenderFns = [
               _c("div", {
                 staticClass: "img-fluid banner_img image-slide-1 banner_bg",
                 attrs: { id: "bannerimg1", alt: "GBI slide" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "carousel-item" }, [
-              _c("div", {
-                staticClass: "img-fluid banner_img image-slide-2 banner_bg",
-                attrs: { id: "bannerimg2", alt: "GBI slide" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "carousel-item" }, [
-              _c("div", {
-                staticClass: "img-fluid banner_img image-slide-3 banner_bg",
-                attrs: { id: "bannerimg3", alt: "GBI slide" },
               }),
             ]),
           ]),

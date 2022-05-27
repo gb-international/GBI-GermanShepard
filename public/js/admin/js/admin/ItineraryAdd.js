@@ -870,6 +870,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -896,6 +914,7 @@ __webpack_require__.r(__webpack_exports__);
       options: [],
       cities: [],
       tour_type_list: [],
+      season_list: [],
       selected: null,
       tags: [],
       meta_key: [],
@@ -923,6 +942,7 @@ __webpack_require__.r(__webpack_exports__);
         meta_title: "",
         meta_keyword: [],
         tags: [],
+        seasons: [],
         itinerarydays: [{
           day: 1,
           day_source: '',
@@ -937,6 +957,7 @@ __webpack_require__.r(__webpack_exports__);
     this.cityList();
     this.tourTypeData();
     this.getTags();
+    this.seasonsData();
   },
   methods: {
     cityList: function cityList() {
@@ -960,8 +981,15 @@ __webpack_require__.r(__webpack_exports__);
         _this2.tour_type_list = response.data;
       });
     },
-    changePhoto: function changePhoto(event) {
+    seasonsData: function seasonsData() {
       var _this3 = this;
+
+      axios.get("/api/season").then(function (response) {
+        _this3.season_list = response.data;
+      });
+    },
+    changePhoto: function changePhoto(event) {
+      var _this4 = this;
 
       var file = event.target.files[0];
 
@@ -975,21 +1003,21 @@ __webpack_require__.r(__webpack_exports__);
         var reader = new FileReader();
 
         reader.onload = function (event) {
-          _this3.form.photo = event.target.result;
-          _this3.form.photo_alt = file.name;
+          _this4.form.photo = event.target.result;
+          _this4.form.photo_alt = file.name;
         };
 
         reader.readAsDataURL(file);
       }
     },
     getTags: function getTags() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.get("/api/tags").then(function (res) {
         //this.tags = response.data;
         if (res) {
           for (var i = 0; i < res.data.length; i++) {
-            _this4.tags.push({
+            _this5.tags.push({
               value: res.data[i].title,
               key: res.data[i].id
             });
@@ -1009,7 +1037,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     changeDetailPhoto: function changeDetailPhoto(event) {
-      var _this5 = this;
+      var _this6 = this;
 
       var file = event.target.files[0];
 
@@ -1023,18 +1051,36 @@ __webpack_require__.r(__webpack_exports__);
         var reader = new FileReader();
 
         reader.onload = function (event) {
-          _this5.form.detail_photo = event.target.result;
-          _this5.form.detail_photo_alt = file.name;
+          _this6.form.detail_photo = event.target.result;
+          _this6.form.detail_photo_alt = file.name;
         };
 
         reader.readAsDataURL(file);
       }
     },
     addItinerary: function addItinerary() {
-      var _this6 = this;
+      var _this7 = this;
 
       if (this.form.meta_keyword.length < 1) {
         this.tagsWarn = true;
+        return false;
+      } else if (this.form.meta_description == '') {
+        this.$toast.fire({
+          icon: "error",
+          title: "Meta Description Required"
+        });
+        return false;
+      } else if (this.form.meta_title == '') {
+        this.$toast.fire({
+          icon: "error",
+          title: "Meta Title Required"
+        });
+        return false;
+      } else if (!this.form.seasons || this.form.seasons <= 0) {
+        this.$toast.fire({
+          icon: "error",
+          title: "Season field is required"
+        });
         return false;
       }
 
@@ -1058,14 +1104,14 @@ __webpack_require__.r(__webpack_exports__);
       this.loading = true;
       this.form.tags = this.form.meta_keyword;
       this.form.post("/api/itinerary").then(function (response) {
-        _this6.$router.push("/itinerary-list");
+        _this7.$router.push("/itinerary-list");
 
-        _this6.$toast.fire({
+        _this7.$toast.fire({
           icon: "success",
           title: "Itinerary Added successfully"
         });
 
-        _this6.loading = false;
+        _this7.loading = false;
       })["catch"](function () {});
     },
     addRow: function addRow() {
@@ -28614,7 +28660,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
                       _c("div", { staticClass: "row" }, [
-                        _c("div", { staticClass: "col-sm-3" }, [
+                        _c("div", { staticClass: "col-sm-2" }, [
                           _c("label"),
                           _vm._v(" "),
                           _c(
@@ -28632,7 +28678,7 @@ var render = function () {
                           ),
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-6" }, [
+                        _c("div", { staticClass: "col-sm-5 pl-2" }, [
                           _c(
                             "div",
                             { staticClass: "form-group" },
@@ -28684,7 +28730,7 @@ var render = function () {
                           ),
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-3" }, [
+                        _c("div", { staticClass: "col-sm-2" }, [
                           _c("label"),
                           _vm._v(" "),
                           _c(
@@ -29387,6 +29433,40 @@ var render = function () {
                           _vm._v(" "),
                           _c("has-error", {
                             attrs: { form: _vm.form, field: "client_type" },
+                          }),
+                        ],
+                        1
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "season" } }, [
+                            _vm._v("Season"),
+                          ]),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("multiselect", {
+                            attrs: {
+                              options: _vm.season_list,
+                              multiple: true,
+                              "close-on-select": true,
+                              "show-labels": false,
+                              placeholder: "Pick seasons",
+                              label: "name",
+                              "track-by": "name",
+                            },
+                            model: {
+                              value: _vm.form.seasons,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.form, "seasons", $$v)
+                              },
+                              expression: "form.seasons",
+                            },
                           }),
                         ],
                         1

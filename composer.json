@@ -13,6 +13,7 @@
         "alexpechkarev/google-maps": "^8.0",
         "beyondcode/laravel-websockets": "^1.12",
         "botman/botman": "^2.6",
+        "calebporzio/sushi": "^2.4",
         "codebar-ag/laravel-prerender": "^3.1",
         "darkaonline/l5-swagger": "^8.3",
         "fideloper/proxy": "^4.0",

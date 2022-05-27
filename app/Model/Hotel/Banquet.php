@@ -31,6 +31,10 @@ class Banquet extends Model
         return $this->hasMany('App\Model\Hotel\BanquetCategory');
     }
 
+    public function banquetCategories(){
+        return $this->hasMany('App\Model\Hotel\BanquetCategories');
+    }
+
     public function amenities(){
         return $this->hasMany('App\Model\Hotel\Amenities');
     }

@@ -113,7 +113,7 @@ to submit the data we are using a function.
           <div class="col-sm-4">
             <div class="row">
 
-              <div class="col-sm-3">
+              <div class="col-sm-2">
                 <label></label>
                 <button
                   type="button"
@@ -124,7 +124,7 @@ to submit the data we are using a function.
                 </button>
               </div>
               
-              <div class="col-sm-6">
+              <div class="col-sm-5 pl-2">
                 <div class="form-group">
                   <label for="noofdaysId">Number Of Days</label>
                   <input
@@ -141,7 +141,7 @@ to submit the data we are using a function.
                 </div>
               </div>
 
-              <div class="col-sm-3">
+              <div class="col-sm-2">
                 <label></label>
                 <button
                   type="button"
@@ -335,17 +335,35 @@ to submit the data we are using a function.
               ></multiselect>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="client_type">Client Type</label>
-              <select class="form-control customSelect" v-model="form.client_type">
-                <option value="eduInstitute">Educational Institute</option>
-                <option value="corporate">Corporate</option>
-                <option value="general">General</option>
-              </select>
-              <has-error :form="form" field="client_type"></has-error>
+           <div class="col-sm-4">
+              <div class="form-group">
+                <label for="client_type">Client Type</label>
+                <select class="form-control customSelect" v-model="form.client_type">
+                  <option value="eduInstitute">Educational Institute</option>
+                  <option value="corporate">Corporate</option>
+                  <option value="general">General</option>
+                </select>
+                <has-error :form="form" field="client_type"></has-error>
+              </div>
             </div>
-          </div>
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="season">Season</label>
+                <br />
+
+                <multiselect
+                  v-model="form.seasons"
+                  :options="season_list"
+                  :multiple="true"
+                  :close-on-select="true"
+                  :show-labels="false"
+                  placeholder="Pick seasons"
+                  label="name"
+                  track-by="name"
+                ></multiselect>
+              </div>
+            </div>
         </div>
         <!-- Title and description for the itinerary -->
         <div class="row">
@@ -540,6 +558,7 @@ export default {
       options: [],
       cities:[],
       tour_type_list: [],
+      season_list: [],
       selected: null,
       tags:[],
       meta_key: [],
@@ -568,6 +587,7 @@ export default {
         meta_title: "",
         meta_keyword: [],
         tags:[],
+        seasons: [],
         itinerarydays: [
           {
             day: 1,
@@ -584,6 +604,7 @@ export default {
     this.cityList();
     this.tourTypeData();
     this.getTags();
+    this.seasonsData();
   },
 
   methods: {
@@ -602,6 +623,11 @@ export default {
     tourTypeData() {
       axios.get("/api/tourtype").then((response) => {
         this.tour_type_list = response.data;
+      });
+    },
+    seasonsData() {
+      axios.get("/api/season").then((response) => {
+        this.season_list = response.data;
       });
     },
     changePhoto(event) {
@@ -664,6 +690,27 @@ export default {
     addItinerary() {
       if (this.form.meta_keyword.length < 1 ) {
         this.tagsWarn = true
+        return false;
+      }
+      else if(this.form.meta_description == ''){
+          this.$toast.fire({
+            icon: "error",
+            title: "Meta Description Required",
+          });
+          return false;
+      }
+      else if(this.form.meta_title == ''){
+          this.$toast.fire({
+            icon: "error",
+            title: "Meta Title Required",
+          });
+          return false;
+      }
+      else if (!this.form.seasons || this.form.seasons<=0) {
+        this.$toast.fire({
+            icon: "error",
+            title: "Season field is required",
+        });
         return false;
       }
       localStorage.setItem("noofdays", this.form.noofdays);

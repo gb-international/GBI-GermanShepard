@@ -922,7 +922,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.btn-reset[data-v-92d0580e]{\r\n    color: #fff;\r\n    background-color: #dc3545;\r\n    border-color: #dc3545;\r\n    border-radius: 25px;\r\n    border: solid 2px;\r\n    padding: 3px 22px;\r\n    margin-top: -6px;\n}\n.btn-reset[data-v-92d0580e]:hover{\r\n\tcolor: #fff;\r\n    background-color: #c12a38;\r\n    border-color: #c12a38;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.btn-reset[data-v-92d0580e]{\n    color: #fff;\n    background-color: #dc3545;\n    border-color: #dc3545;\n    border-radius: 25px;\n    border: solid 2px;\n    padding: 3px 22px;\n    margin-top: -6px;\n}\n.btn-reset[data-v-92d0580e]:hover{\n\tcolor: #fff;\n    background-color: #c12a38;\n    border-color: #c12a38;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

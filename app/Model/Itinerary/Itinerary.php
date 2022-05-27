@@ -3,33 +3,12 @@
 namespace App\Model\Itinerary;
 
 use Illuminate\Database\Eloquent\Model;
+use \Sushi\Sushi;
 
 class Itinerary extends Model
 {
-	protected $fillable = [
-		'source',
-		'destination',
-		'title','photo',
-		'photo_alt',
-		'detail_photo',
-		'detail_photo_alt',
-		'noofdays',
-		'description',
-		'tourtype',
-		'hotel_type',
-		'bus',
-		'train',
-		'flight',
-		'food',
-		'price',
-		'status',
-		'client_type',
-		'meta_title',
-        'meta_keyword',
-        'meta_description',
-		'startLoc',
-		'endLoc'
-	];
+
+	protected $guarded = [];
 
 	public function getPhotoAttribute($image)
     {
@@ -47,7 +26,6 @@ class Itinerary extends Model
             return '';
         }
     }
-
 
 	public function itinerarydays()
 	{

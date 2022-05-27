@@ -483,10 +483,14 @@ to submit the data we are using a function.
 
         <!-- Step 4 -->
         <div class="row" v-else-if="currStep=='step4'">
-          <div class="custom-card shadow" @click="fileInput">
-            <i class="fas fa-plus-circle" style="margin-top: 4vh; font-size: 35px;"></i>
+          <div v-for="(img, index) in img_images" :key="index" class="mr-2 mb-2 shadow smallImages">
+            <img :src="img" alt class="smallImages"/>
+            <i class="fas fa-trash-alt delImgBtn" @click="delImg(index)"></i>
           </div>
-          <input type="file" ref="fileInput" style="display: none" @change="onFileInput" accept=".png, .jpg, .jpeg, .pdf">
+          <div class="custom-card shadow ml-2 mb-2" @click="fileInput">
+            <i class="fas fa-plus-circle" style="font-size: 35px;"></i>
+          </div>
+          <input type="file" ref="fileInput" style="display: none" @change="onFileInput" multiple accept=".png, .jpg, .jpeg, .pdf">
         </div>
 
         <!-- Step 5 -->
@@ -617,7 +621,7 @@ export default {
       currStep: 'step1',
       currField: '1',
       selectedBanquet: null,
-      img_image: "",
+      img_images: [],
       star_list: [
         {name:"5",id:0},
         {name:"4",id:1},
@@ -632,7 +636,8 @@ export default {
         country: "",
         pincode: "",
         //image: "",
-        alt:"",
+        alt: [],
+        images: [],
         star_category: "",
         rooms: "",
         banquets: "",
@@ -657,7 +662,6 @@ export default {
     updateBanquets(val){
       //console.log('yes');
       for(let i = 0; i < val; i++ ){
-
         let dimen = [
           {
             type: '',
@@ -694,9 +698,23 @@ export default {
     fileInput(){
       this.$refs.fileInput.click()
     },
-    onFileInput(e){
-        this.form.photos[1] = e.target.files[0];
-        console.log(this.form.photos[1])
+    onFileInput(event){
+        for(let i=0; i<event.target.files.length; i++){
+          let file = event.target.files[i];
+          this.form.alt[i] = file.name;
+          let reader = new FileReader();
+          reader.onload = (event) => {
+            this.form.images.push(event.target.result);
+            this.img_images.push(event.target.result);
+          };
+          reader.readAsDataURL(file);
+        }
+        //console.log(this.form.images[1])
+    },
+    delImg(index){
+       this.img_images = this.img_images.slice(0, index).concat(this.img_images.slice(index + 1));
+       this.form.images = this.form.images.slice(0, index).concat(this.form.images.slice(index + 1));
+       this.form.alt = this.form.alt.slice(0, index).concat(this.form.alt.slice(index + 1));
     },
     incr(val){
       let col = ""

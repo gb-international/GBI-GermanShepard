@@ -54447,7 +54447,7 @@ bh=banner header |bp=banner para |ch=content header|cp=content para|cardh=card h
 
 #adminmain {
   min-height: 500px;
-  background-color: #f4f6f9;
+  background-color: white;
 }
 
 #adminmain .custom-radio,
@@ -55000,7 +55000,8 @@ bh=banner header |bp=banner para |ch=content header|cp=content para|cardh=card h
 }
 
 #sidebarnavigation {
-  background-color: #e1e1e1e1;
+  background-color: white;
+  border-bottom: 1px solid #e3e3e3;
   height: 100px;
 }
 
@@ -55338,7 +55339,13 @@ iframe {
 }
 
 .content {
-  background-color: #f4f6f9;
+  background-color: white;
+}
+
+input,
+textarea,
+select {
+  border: 1px solid #d6d6d6 !important;
 }
 
 .pdf_show .fa-file-pdf {

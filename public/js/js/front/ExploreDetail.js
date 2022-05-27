@@ -659,6 +659,80 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -698,7 +772,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       selected_cities: [],
       city_list: [],
       login: false,
-      loading: true
+      loading: true,
+      tabSelected: 'Itinerary',
+      iconSelected: 'Communication'
     };
   },
   watch: {
@@ -736,6 +812,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
   },
   methods: {
+    changeTab: function changeTab(val) {
+      this.tabSelected = val;
+    },
+    changeIcon: function changeIcon(val) {
+      this.iconSelected = val;
+    },
     changeItDiv: function changeItDiv(id) {
       if (this.selectedDay == id) {
         this.selectedDay = null;
@@ -831,7 +913,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.mainRow1[data-v-2bb87509]{\n  margin-top: 20px;\n  margin-bottom: 21px;\n}\n.mainRow2[data-v-2bb87509]{\n  margin-bottom: 17px;\n}\n.mainRow3[data-v-2bb87509]{\n  margin-bottom: 21px;\n}\n.expDetailImg[data-v-2bb87509]{\n  width: 100%;\n  height: 170px;\n  margin-bottom: 10px;\n  margin-right: 15px;\n}\n.expDetailImgSmall[data-v-2bb87509]{\n  width:  45px;\n  height: 45px;\n}\n.expDetCol1[data-v-2bb87509]{\n  width: 100%;\n}\n.expDetCol2Main[data-v-2bb87509]{\n  display: none;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n}\n.expDetCol2[data-v-2bb87509]{\n  display: none;\n  width: 30%; \n  height: 423px; \n  border-radius: 5px;\n  background: white;\n}\n@media (min-width: 768px) {\n.expDetailImgSmall[data-v-2bb87509]{\n    width:  100px;\n    height: 100px;\n}\n.expDetailImg[data-v-2bb87509]{\n    height: 330px;\n    margin-bottom: 16.5px;\n}\n.mainRow1[data-v-2bb87509]{\n    margin-top: 35px;\n    margin-bottom: 35px;\n}\n.mainRow2[data-v-2bb87509]{\n    margin-bottom: 32px;\n}\n.mainRow3[data-v-2bb87509]{\n    margin-bottom: 35px;\n}\n.rowheadings[data-v-2bb87509]{\n    font-size: 25px !important;\n}\n.iconClass p[data-v-2bb87509]{\n    font-size: 19px !important;\n}\n.grandTotalMob[data-v-2bb87509]{\n    margin-bottom: 35px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\n    font-size: 18px !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\n    font-size: 12.5px !important;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\n    margin-top: 5px !important;\n    font-size: 20px !important;\n}\n.btnConfirm[data-v-2bb87509]{\n    font-size: 20px !important;\n    height: 55px !important;\n    width: 200px !important;\n}\n}\n@media (min-width: 1024px) {\n.grandTotalMob[data-v-2bb87509]{\n    display: none !important;\n}\n.expDetCol2Main[data-v-2bb87509]{\n    display: inline;\n}\n.expDetCol2[data-v-2bb87509]{\n    display: inline;\n}\n.expDetCol1[data-v-2bb87509]{\n    width: 70%;\n}\n.iconClass[data-v-2bb87509]{\n    width: 18% !important;\n}\n.mainRow1[data-v-2bb87509]{\n    margin-top: 55px;\n    margin-bottom: 55px;\n}\n.mainRow2[data-v-2bb87509]{\n    padding: 5px 65px;\n    margin-bottom: 55px;\n}\n.mainRow3[data-v-2bb87509]{\n    padding: 5px 65px;\n    margin-bottom: 55px;\n}\n}\n.iconMainDiv[data-v-2bb87509]{\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: row;\n  width: 100%;\n  justify-content: flex-start\n}\n.iconClass[data-v-2bb87509]{\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-content: center;\n  width: 45%;\n  margin-right: 15px;\n  margin-bottom: 50px;\n}\n.iconClass img[data-v-2bb87509]{\n  height: 40px;\n  width: 40px;\n  margin-right: 12px;\n}\n.iconClass p[data-v-2bb87509]{\n  margin-top: 8px;\n  font-size: 14.2px;\n  font-weight: 400;\n  color: #1d1b1b;\n}\n.rowheadings[data-v-2bb87509]{\n  font-size: 16px;\n  font-weight: 600;\n  text-transform: uppercase;\n  margin-bottom: 30px;\n  color: #101010;\n  font-family: sans-serif;\n}\n.itineraryDiv[data-v-2bb87509]{\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  justify-content: center;\n  align-content: space-between;\n}\n.singleItneraryDivMain[data-v-2bb87509]{\n}\n.singleItneraryDiv[data-v-2bb87509]{\n  height: 55px; \n  width: 100%; \n  padding: 14px 30px;\n  font-size: 18px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n  background: white;\n}\n.singleItneraryDiv2[data-v-2bb87509]{\n  height: auto; \n  width: 100%; \n  padding: 16px 30px;\n  font-size: 18px;\n  font-weight: 600;\n  margin-top: 15px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n  background: white;\n}\n.priceSingleDiv[data-v-2bb87509]{\n  padding: 12px 18px !important;\n  margin-top: 10px !important; \n  border-bottom: 1px solid #8080806b;\n}\n.priceSingleDiv p[data-v-2bb87509]{\n  font-size: 15.5px;\n  font-weight: 500;\n  font-family: sans-serif;\n  color: #1d1b1b;\n  margin-right: 3px;\n}\n.priceSingleDiv .p2[data-v-2bb87509]{\n  font-size: 16.2px;\n  font-weight: 600;\n  font-family: sans-serif;\n  color: #1d1b1b;\n}\n.grandTotalDiv[data-v-2bb87509]{\n  padding: 13px 18px !important;\n  border-bottom: 1px solid #8080806b;\n  background: #007bff2b\n}\n.grandTotalMob[data-v-2bb87509]{\n  padding: 18px !important;\n  background: #007bff2b;\n  margin-bottom: 26.9px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\n  font-size: 15px;\n  font-weight: 600;\n  font-family: sans-serif;\n  color: #1d1b1b;\n  margin-bottom: 0rem !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\n  font-size: 10px;\n  font-weight: 500;\n  font-family: sans-serif;\n  color: #1d1b1b;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\n  margin-top: 5px;\n  font-size: 15.7px;\n  font-weight: 600;\n  font-family: sans-serif;\n  color: black;\n}\n.grandTotalDiv p[data-v-2bb87509]{\n  font-size: 14px;\n  font-weight: 500;\n  font-family: sans-serif;\n  color: #1d1b1b;\n}\n.grandTotalDiv .smallP[data-v-2bb87509]{\n  font-size: 11px;\n  font-weight: 500;\n  font-family: sans-serif;\n  color: #1d1b1b;\n}\n.grandTotalDiv .p2[data-v-2bb87509]{\n  margin-top: 6px;\n  font-size: 16.7px;\n  font-weight: 600;\n  font-family: sans-serif;\n  color: #1d1b1b;\n  color: black;\n}\n.couponDivMain[data-v-2bb87509]{\n  padding: 12px 18px !important;\n  margin-top: 10px !important; \n  border-bottom: 1px solid #8080806b;\n}\n.couponDiv[data-v-2bb87509]{\n}\n.couponDiv p[data-v-2bb87509]{\n  font-size: 15.5px;\n  font-weight: 400;\n  font-family: sans-serif;\n  color: #3490dc;\n  margin-right: 3px;\n}\n.couponDiv .p2[data-v-2bb87509]{\n  font-size: 16.2px;\n  font-weight: 500;\n  font-family: sans-serif;\n  color: #3490dc;\n}\n.btnCpn[data-v-2bb87509]{\n  color: #fff;\n  background-color: #01c5c4;\n  border-color: #01c5c4;\n  border-radius: 0px;\n}\n.btnPay[data-v-2bb87509]{\n  color: #fff;\n  background-color: #01c5c4;\n  border-color: #01c5c4;\n  height: 50px;\n  width: 100%;\n  margin-top: 5px;\n  border-radius: 0px;\n}\n.btnConfirm[data-v-2bb87509]{\n  color: #fff;\n  background-color: #01c5c4;\n  border-color: #01c5c4;\n  height: 45px;\n  width: 150px;\n  border-radius: 0px;\n}\n.verticalStep[data-v-2bb87509]{\n  height: 20px;\n  width: 1px; \n  background: gray; \n  margin-left: 45px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.heading2[data-v-2bb87509]{\n font-size: 17px;\n font-weight: 500;\n color: black;\n}\n.mainRow1[data-v-2bb87509]{\n  margin-top: 20px;\n  margin-bottom: 21px;\n}\n.mainRow2[data-v-2bb87509]{\n  margin-bottom: 17px;\n}\n.mainRow3[data-v-2bb87509]{\n  margin-bottom: 21px;\n}\n.expDetailImg[data-v-2bb87509]{\n  width: 100%;\n  height: 170px;\n  margin-bottom: 10px;\n  margin-right: 15px;\n}\n.expDetailImgSmall[data-v-2bb87509]{\n  width:  45px;\n  height: 45px;\n}\n.expDetCol1[data-v-2bb87509]{\n  width: 100%;\n}\n.expDetCol2Main[data-v-2bb87509]{\n  display: none;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n}\n.expDetCol2[data-v-2bb87509]{\n  display: none;\n  width: 30%; \n  height: 423px; \n  border-radius: 5px;\n  background: white;\n}\n.icons[data-v-2bb87509]{\n  cursor: pointer;\n  font-size: 17px;\n  font-weight: 500;\n  padding: 6px 10px;\n}\n.icons-flex[data-v-2bb87509] {\n  display: flex;\n  align-content: center;\n  justify-content: space-around;\n  flex-direction: row;\n  font-size: 18px;\n  font-weight: 400;\n}\n.tabs[data-v-2bb87509]{\n  cursor: pointer;\n  font-size: 17px;\n  font-weight: 500;\n  padding: 5px 22px;\n}\n.custom-div[data-v-2bb87509]{\n  display: inline;\n  margin-top: 26px !important;\n  padding-top: 0.2vh !important;\n  margin-right: 20px;\n  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2px 7px 0 rgb(0 0 0 / 19%);\n}\n.custom-flex[data-v-2bb87509] {\n  display: flex;\n  align-content: center;\n  justify-content: flex-start;\n  flex-direction: row;\n  font-size: 18px;\n  font-weight: 400;\n}\n@media (min-width: 768px) {\n.expDetailImgSmall[data-v-2bb87509]{\n    width:  100px;\n    height: 100px;\n}\n.expDetailImg[data-v-2bb87509]{\n    height: 330px;\n    margin-bottom: 16.5px;\n}\n.mainRow1[data-v-2bb87509]{\n    margin-top: 35px;\n    margin-bottom: 35px;\n}\n.mainRow2[data-v-2bb87509]{\n    margin-bottom: 32px;\n}\n.mainRow3[data-v-2bb87509]{\n    margin-bottom: 35px;\n}\n.rowheadings[data-v-2bb87509]{\n    font-size: 25px !important;\n}\n.iconClass p[data-v-2bb87509]{\n    font-size: 19px !important;\n}\n.grandTotalMob[data-v-2bb87509]{\n    margin-bottom: 35px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\n    font-size: 18px !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\n    font-size: 12.5px !important;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\n    margin-top: 5px !important;\n    font-size: 20px !important;\n}\n.btnConfirm[data-v-2bb87509]{\n    font-size: 20px !important;\n    height: 55px !important;\n    width: 200px !important;\n}\n}\n@media (min-width: 1024px) {\n.grandTotalMob[data-v-2bb87509]{\n    display: none !important;\n}\n.expDetCol2Main[data-v-2bb87509]{\n    display: inline;\n}\n.expDetCol2[data-v-2bb87509]{\n    display: inline;\n}\n.expDetCol1[data-v-2bb87509]{\n    width: 70%;\n}\n.iconClass[data-v-2bb87509]{\n    width: 18% !important;\n}\n.mainRow1[data-v-2bb87509]{\n    margin-top: 55px;\n    margin-bottom: 55px;\n}\n.mainRow2[data-v-2bb87509]{\n    padding: 5px 65px;\n    margin-bottom: 55px;\n}\n.mainRow3[data-v-2bb87509]{\n    padding: 5px 65px;\n    margin-bottom: 55px;\n}\n}\n.iconMainDiv[data-v-2bb87509]{\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: row;\n  width: 100%;\n  justify-content: flex-start\n}\n.iconClass[data-v-2bb87509]{\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-content: center;\n  width: 45%;\n  margin-right: 15px;\n  margin-bottom: 50px;\n}\n.iconClass img[data-v-2bb87509]{\n  height: 40px;\n  width: 40px;\n  margin-right: 12px;\n}\n.iconClass p[data-v-2bb87509]{\n  margin-top: 8px;\n  font-size: 14.2px;\n  font-weight: 400;\n  color: #1d1b1b;\n}\n.rowheadings[data-v-2bb87509]{\n  font-size: 16px;\n  font-weight: 600;\n  text-transform: uppercase;\n  margin-bottom: 30px;\n  color: #101010;\n  font-family: sans-serif;\n}\n.itineraryDiv[data-v-2bb87509]{\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  justify-content: center;\n  align-content: space-between;\n}\n.singleItneraryDivMain[data-v-2bb87509]{\n}\n.singleItneraryDiv[data-v-2bb87509]{\n  height: 55px; \n  width: 100%; \n  padding: 14px 30px;\n  font-size: 18px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n  background: white;\n}\n.singleItneraryDiv2[data-v-2bb87509]{\n  height: auto; \n  width: 100%; \n  padding: 16px 30px;\n  font-size: 18px;\n  font-weight: 600;\n  margin-top: 15px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n  background: white;\n}\n.priceSingleDiv[data-v-2bb87509]{\n  padding: 12px 18px !important;\n  margin-top: 10px !important; \n  border-bottom: 1px solid #8080806b;\n}\n.priceSingleDiv p[data-v-2bb87509]{\n  font-size: 15.5px;\n  font-weight: 500;\n  font-family: sans-serif;\n  color: #1d1b1b;\n  margin-right: 3px;\n}\n.priceSingleDiv .p2[data-v-2bb87509]{\n  font-size: 16.2px;\n  font-weight: 600;\n  font-family: sans-serif;\n  color: #1d1b1b;\n}\n.grandTotalDiv[data-v-2bb87509]{\n  padding: 13px 18px !important;\n  border-bottom: 1px solid #8080806b;\n  background: #007bff2b\n}\n.grandTotalMob[data-v-2bb87509]{\n  padding: 18px !important;\n  background: #007bff2b;\n  margin-bottom: 26.9px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\n  font-size: 15px;\n  font-weight: 600;\n  font-family: sans-serif;\n  color: #1d1b1b;\n  margin-bottom: 0rem !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\n  font-size: 10px;\n  font-weight: 500;\n  font-family: sans-serif;\n  color: #1d1b1b;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\n  margin-top: 5px;\n  font-size: 15.7px;\n  font-weight: 600;\n  font-family: sans-serif;\n  color: black;\n}\n.grandTotalDiv p[data-v-2bb87509]{\n  font-size: 14px;\n  font-weight: 500;\n  font-family: sans-serif;\n  color: #1d1b1b;\n}\n.grandTotalDiv .smallP[data-v-2bb87509]{\n  font-size: 11px;\n  font-weight: 500;\n  font-family: sans-serif;\n  color: #1d1b1b;\n}\n.grandTotalDiv .p2[data-v-2bb87509]{\n  margin-top: 6px;\n  font-size: 16.7px;\n  font-weight: 600;\n  font-family: sans-serif;\n  color: #1d1b1b;\n  color: black;\n}\n.couponDivMain[data-v-2bb87509]{\n  padding: 12px 18px !important;\n  margin-top: 10px !important; \n  border-bottom: 1px solid #8080806b;\n}\n.couponDiv[data-v-2bb87509]{\n}\n.couponDiv p[data-v-2bb87509]{\n  font-size: 15.5px;\n  font-weight: 400;\n  font-family: sans-serif;\n  color: #3490dc;\n  margin-right: 3px;\n}\n.couponDiv .p2[data-v-2bb87509]{\n  font-size: 16.2px;\n  font-weight: 500;\n  font-family: sans-serif;\n  color: #3490dc;\n}\n.btnCpn[data-v-2bb87509]{\n  color: #fff;\n  background-color: #01c5c4;\n  border-color: #01c5c4;\n  border-radius: 0px;\n}\n.btnPay[data-v-2bb87509]{\n  color: #fff;\n  background-color: #01c5c4;\n  border-color: #01c5c4;\n  height: 50px;\n  width: 100%;\n  margin-top: 5px;\n  border-radius: 0px;\n}\n.btnConfirm[data-v-2bb87509]{\n  color: #fff;\n  background-color: #01c5c4;\n  border-color: #01c5c4;\n  height: 45px;\n  width: 150px;\n  border-radius: 0px;\n}\n.verticalStep[data-v-2bb87509]{\n  height: 20px;\n  width: 1px; \n  background: gray; \n  margin-left: 45px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2142,129 +2224,211 @@ var render = function () {
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "mainRow2 container" }, [
-        _c("p", { staticClass: "rowheadings" }, [
-          _vm._v("Your Experience Includes"),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "iconMainDiv" }, [
-          _c("div", { staticClass: "iconClass" }, [
-            _c("img", { attrs: { src: _vm.$gbiAssets + "/hotel_icon.png" } }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Hotel")]),
-          ]),
+      _c("div", { staticClass: "container mt-4" }, [
+        _c("div", { staticClass: "custom-flex mt-2" }, [
+          _c(
+            "div",
+            {
+              staticClass: "tabs",
+              style:
+                _vm.tabSelected == "Itinerary"
+                  ? "border-bottom: 3px solid #00c4c4"
+                  : "",
+              on: {
+                click: function ($event) {
+                  return _vm.changeTab("Itinerary")
+                },
+              },
+            },
+            [_vm._v("\n            Itinerary\n          ")]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "iconClass" }, [
-            _c("img", { attrs: { src: _vm.$gbiAssets + "/flight_icon.png" } }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Flight")]),
-          ]),
+          _c(
+            "div",
+            {
+              staticClass: "tabs",
+              style:
+                _vm.tabSelected == "Neighbourhood"
+                  ? "border-bottom: 3px solid #00c4c4"
+                  : "",
+              on: {
+                click: function ($event) {
+                  return _vm.changeTab("Neighbourhood")
+                },
+              },
+            },
+            [_vm._v("\n            Your Neighbourhood\n          ")]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "iconClass" }, [
-            _c("img", {
-              attrs: { src: _vm.$gbiAssets + "/passport_icon.png" },
-            }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Passport/Visa")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "iconClass" }, [
-            _c("img", {
-              attrs: { src: _vm.$gbiAssets + "/transport_icon.png" },
-            }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Transfers")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "iconClass" }, [
-            _c("img", { attrs: { src: _vm.$gbiAssets + "/dinner_icon.png" } }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Dinner")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "iconClass" }, [
-            _c("img", {
-              attrs: { src: _vm.$gbiAssets + "/citytour_icon.png" },
-            }),
-            _vm._v(" "),
-            _c("p", [_vm._v("City Tour")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "iconClass" }, [
-            _c("img", { attrs: { src: _vm.$gbiAssets + "/taxes_icon.png" } }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Taxes")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "iconClass" }, [
-            _c("img", { attrs: { src: _vm.$gbiAssets + "/sightseeing.png" } }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Sightseeing")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "iconClass" }, [
-            _c("img", { attrs: { src: _vm.$gbiAssets + "/breakfast.png" } }),
-            _vm._v(" "),
-            _c("p", [_vm._v("Breakfast")]),
-          ]),
+          _c(
+            "div",
+            {
+              staticClass: "tabs",
+              style:
+                _vm.tabSelected == "Encylopedia"
+                  ? "border-bottom: 3px solid #00c4c4"
+                  : "",
+              on: {
+                click: function ($event) {
+                  return _vm.changeTab("Encylopedia")
+                },
+              },
+            },
+            [_vm._v("\n            Encylopedia\n          ")]
+          ),
         ]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "mainRow3 container" }, [
-        _c("p", { staticClass: "rowheadings" }, [_vm._v("ITINERARY")]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "itineraryDiv" },
-          _vm._l(_vm.itineraryData.itinerarydays, function (data, index) {
-            return _c(
+      _vm.tabSelected == "Itinerary"
+        ? _c(
+            "div",
+            {
+              staticClass: "mainRow2 container",
+              staticStyle: { "margin-top": "5vh" },
+            },
+            [
+              _c("p", { staticClass: "rowheadings" }, [
+                _vm._v("Your Experience Includes"),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "iconMainDiv" }, [
+                _c("div", { staticClass: "iconClass" }, [
+                  _c("img", {
+                    attrs: { src: _vm.$gbiAssets + "/hotel_icon.png" },
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Hotel")]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "iconClass" }, [
+                  _c("img", {
+                    attrs: { src: _vm.$gbiAssets + "/flight_icon.png" },
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Flight")]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "iconClass" }, [
+                  _c("img", {
+                    attrs: { src: _vm.$gbiAssets + "/passport_icon.png" },
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Passport/Visa")]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "iconClass" }, [
+                  _c("img", {
+                    attrs: { src: _vm.$gbiAssets + "/transport_icon.png" },
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Transfers")]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "iconClass" }, [
+                  _c("img", {
+                    attrs: { src: _vm.$gbiAssets + "/dinner_icon.png" },
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Dinner")]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "iconClass" }, [
+                  _c("img", {
+                    attrs: { src: _vm.$gbiAssets + "/citytour_icon.png" },
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("City Tour")]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "iconClass" }, [
+                  _c("img", {
+                    attrs: { src: _vm.$gbiAssets + "/taxes_icon.png" },
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Taxes")]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "iconClass" }, [
+                  _c("img", {
+                    attrs: { src: _vm.$gbiAssets + "/sightseeing.png" },
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Sightseeing")]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "iconClass" }, [
+                  _c("img", {
+                    attrs: { src: _vm.$gbiAssets + "/breakfast.png" },
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Breakfast")]),
+                ]),
+              ]),
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.tabSelected == "Itinerary"
+        ? _c("div", { staticClass: "mainRow3 container" }, [
+            _c("p", { staticClass: "rowheadings" }, [_vm._v("ITINERARY")]),
+            _vm._v(" "),
+            _c(
               "div",
-              {
-                key: data.id,
-                staticClass: "singleItneraryDivMain",
-                on: {
-                  click: function ($event) {
-                    return _vm.changeItDiv(data.id)
-                  },
-                },
-              },
-              [
-                _c(
+              { staticClass: "itineraryDiv" },
+              _vm._l(_vm.itineraryData.itinerarydays, function (data, index) {
+                return _c(
                   "div",
                   {
-                    staticClass:
-                      "singleItneraryDiv d-flex justify-content-between",
+                    key: data.id,
+                    staticClass: "singleItneraryDivMain",
+                    on: {
+                      click: function ($event) {
+                        return _vm.changeItDiv(data.id)
+                      },
+                    },
                   },
                   [
-                    _c("p", [_vm._v("Itinerary : Day " + _vm._s(data.day))]),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "singleItneraryDiv d-flex justify-content-between",
+                      },
+                      [
+                        _c("p", [
+                          _vm._v("Itinerary : Day " + _vm._s(data.day)),
+                        ]),
+                        _vm._v(" "),
+                        _c("i", {
+                          class:
+                            _vm.selectedDay == data.id
+                              ? "fas fa-sort-up mt-2"
+                              : "fas fa-sort-down",
+                        }),
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("i", {
-                      class:
-                        _vm.selectedDay == data.id
-                          ? "fas fa-sort-up mt-2"
-                          : "fas fa-sort-down",
-                    }),
+                    _vm.selectedDay == data.id
+                      ? _c("div", { staticClass: "singleItneraryDiv2" }, [
+                          _c("div", {
+                            staticClass: "card-text card-text-ul py-2",
+                            domProps: {
+                              innerHTML: _vm._s(data.day_description),
+                            },
+                          }),
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.itineraryData.itinerarydays.length - 1 !== index
+                      ? _c("div", { staticClass: "verticalStep" })
+                      : _vm._e(),
                   ]
-                ),
-                _vm._v(" "),
-                _vm.selectedDay == data.id
-                  ? _c("div", { staticClass: "singleItneraryDiv2" }, [
-                      _c("div", {
-                        staticClass: "card-text card-text-ul py-2",
-                        domProps: { innerHTML: _vm._s(data.day_description) },
-                      }),
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.itineraryData.itinerarydays.length - 1 !== index
-                  ? _c("div", { staticClass: "verticalStep" })
-                  : _vm._e(),
-              ]
-            )
-          }),
-          0
-        ),
-      ]),
+                )
+              }),
+              0
+            ),
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "modal", attrs: { id: "bookModal" } }, [
         _c("div", { staticClass: "modal-dialog" }, [
@@ -2299,6 +2463,185 @@ var render = function () {
           ]),
         ]),
       ]),
+      _vm._v(" "),
+      _vm.tabSelected == "Neighbourhood"
+        ? _c("div", { staticClass: "container mt-4" }, [
+            _c(
+              "p",
+              {
+                staticClass: "heading2 mb-4",
+                staticStyle: { "margin-top": "4vh" },
+              },
+              [_vm._v("Explore Neighbourhood")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "icons-flex mt-2" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "icons",
+                  style:
+                    _vm.iconSelected == "Communication" ? "color: #00c4c4" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.changeIcon("Communication")
+                    },
+                  },
+                },
+                [_vm._v("\n            Communication\n          ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "icons",
+                  style: _vm.iconSelected == "Movie" ? "color: #00c4c4" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.changeIcon("Movie")
+                    },
+                  },
+                },
+                [_vm._v("\n            Movie\n          ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "icons",
+                  style: _vm.iconSelected == "School" ? "color: #00c4c4" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.changeIcon("School")
+                    },
+                  },
+                },
+                [_vm._v("\n            School\n          ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "icons",
+                  style: _vm.iconSelected == "Bank" ? "color: #00c4c4" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.changeIcon("Bank")
+                    },
+                  },
+                },
+                [_vm._v("\n            Bank\n          ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "icons",
+                  style: _vm.iconSelected == "Food" ? "color: #00c4c4" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.changeIcon("Food")
+                    },
+                  },
+                },
+                [_vm._v("\n            Food\n          ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "icons",
+                  style:
+                    _vm.iconSelected == "Sightseeing" ? "color: #00c4c4" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.changeIcon("Sightseeing")
+                    },
+                  },
+                },
+                [_vm._v("\n            Sightseeing\n          ")]
+              ),
+            ]),
+            _vm._v(" "),
+            _vm.iconSelected == "Communication"
+              ? _c("div", { staticStyle: { "margin-bottom": "22vh" } }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "heading2 mb-4",
+                      staticStyle: { "margin-top": "4vh" },
+                    },
+                    [_vm._v("Communication")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.iconSelected == "Movie"
+              ? _c("div", { staticStyle: { "margin-bottom": "22vh" } }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "heading2 mb-4",
+                      staticStyle: { "margin-top": "4vh" },
+                    },
+                    [_vm._v("Movie")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.iconSelected == "School"
+              ? _c("div", { staticStyle: { "margin-bottom": "22vh" } }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "heading2 mb-4",
+                      staticStyle: { "margin-top": "4vh" },
+                    },
+                    [_vm._v("School")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.iconSelected == "Bank"
+              ? _c("div", { staticStyle: { "margin-bottom": "22vh" } }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "heading2 mb-4",
+                      staticStyle: { "margin-top": "4vh" },
+                    },
+                    [_vm._v("Bank")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.iconSelected == "Food"
+              ? _c("div", { staticStyle: { "margin-bottom": "22vh" } }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "heading2 mb-4",
+                      staticStyle: { "margin-top": "4vh" },
+                    },
+                    [_vm._v("Food")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.iconSelected == "Sightseeing"
+              ? _c("div", { staticStyle: { "margin-bottom": "22vh" } }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "heading2 mb-4",
+                      staticStyle: { "margin-top": "4vh" },
+                    },
+                    [_vm._v("Sightseeing")]
+                  ),
+                ])
+              : _vm._e(),
+          ])
+        : _vm._e(),
     ]
   )
 }
