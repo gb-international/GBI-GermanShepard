@@ -82,17 +82,130 @@
         </div>
       </div>
 
-      <sub-heading class="text-center pb-2" text="Join our adventures at GB International" />
+      <!-- <sub-heading class="text-center pb-2" text="Join our adventures at GB International" />
       <section class="content-video">
         <div class="content" v-if="video_data.length > 0">
           <div class="rwd-media">
-            <video width="400" controls controlslist="nodownload">
+           <video width="400" controls controlslist="nodownload">
               <source :src="video_path" type="video/mp4" />Your browser does not support HTML5 video.
-            </video>
+            </video> 
           </div>
         </div>
-      </section>
+      </section> -->
     </div>
+    
+    <!-- VTour Section -->
+    <div class="container">
+      <heading class="text-start mt-4" text="Virtual Tourism" />
+      <sub-heading class="text-start mb-4" text="Lorem ipsum dolor sit amet" />
+      
+      <!-- If Loaded -->
+      <div class="row card-titles" v-if="travel_Loaded">
+        <div class="col-sm-4">
+          <div class="card">
+              <div class="card-horizontal">
+                  <div class="mt-3" style="width: 50% !important; height: 100% !important">
+                      <img class="" style="width: 100% !important; height: 100% !important" src="https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_960_720.jpg" alt="Card image cap">
+                  </div>
+                   <div class="card-body" style="width: 50% !important">
+                    <h5 class="card-title">Lorem ipsum</h5>
+                    <p class="card-text" v-html="'Lorem ipsum dolor sit amet, consectetur..'"></p>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="card">
+              <div class="card-horizontal">
+                  <div class="mt-3" style="width: 50% !important; height: 100% !important">
+                      <img class="" style="width: 100% !important; height: 100% !important" src="https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_960_720.jpg" alt="Card image cap">
+                  </div>
+                   <div class="card-body" style="width: 50% !important">
+                    <h5 class="card-title">Lorem ipsum</h5>
+                    <p class="card-text" v-html="'Lorem ipsum dolor sit amet, consectetur..'"></p>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="card">
+              <div class="card-horizontal">
+                  <div class="mt-3" style="width: 50% !important; height: 100% !important">
+                      <img class="" style="width: 100% !important; height: 100% !important" src="https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_960_720.jpg" alt="Card image cap">
+                  </div>
+                   <div class="card-body" style="width: 50% !important">
+                    <h5 class="card-title">Lorem ipsum</h5>
+                    <p class="card-text" v-html="'Lorem ipsum dolor sit amet, consectetur..'"></p>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- If Loading -->
+      <div class="row card-titles" my-2 mb-4 v-else>
+        <div class="col-sm-4"  v-for="(index) in 3" :key="index">
+         <cardLoader />
+        </div>
+      </div>     
+    </div>
+
+    <!-- VTour Section -->
+    <div class="container">
+      <heading class="text-start mt-4" text="Offers And Coupons" />
+      <sub-heading class="text-start mb-4" text="Lorem ipsum dolor sit amet" />
+      
+      <!-- If Loaded -->
+      <div class="row card-titles" v-if="travel_Loaded">
+        <div class="col-sm-4">
+          <div class="card">
+            <figure v-lazyload class="image__wrapper">
+              <ImageSpinner class="image__spinner" />
+              <img
+                class="image__item card-img-top"
+                data-url="https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_960_720.jpg"
+                alt="image"
+              />
+            </figure>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="card">
+            <figure v-lazyload class="image__wrapper">
+              <ImageSpinner class="image__spinner" />
+              <img
+                class="image__item card-img-top"
+                data-url="https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_960_720.jpg"
+                alt="image"
+              />
+            </figure>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="card">
+            <figure v-lazyload class="image__wrapper">
+              <ImageSpinner class="image__spinner" />
+              <img
+                class="image__item card-img-top"
+                data-url="https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_960_720.jpg"
+                alt="image"
+              />
+            </figure>
+          </div>
+        </div>
+
+      </div>
+      <!-- If Loading -->
+      <div class="row card-titles" my-2 mb-4 v-else>
+        <div class="col-sm-4"  v-for="(index) in 6" :key="index">
+         <cardLoader />
+        </div>
+      </div>     
+    </div>
+
     <Review />
   </div>
 </template>

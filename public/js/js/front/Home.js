@@ -337,6 +337,119 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1280,38 +1393,249 @@ var render = function () {
                 }),
                 0
               ),
-          _vm._v(" "),
-          _c("sub-heading", {
-            staticClass: "text-center pb-2",
-            attrs: { text: "Join our adventures at GB International" },
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _c("heading", {
+            staticClass: "text-start mt-4",
+            attrs: { text: "Virtual Tourism" },
           }),
           _vm._v(" "),
-          _c("section", { staticClass: "content-video" }, [
-            _vm.video_data.length > 0
-              ? _c("div", { staticClass: "content" }, [
-                  _c("div", { staticClass: "rwd-media" }, [
-                    _c(
-                      "video",
-                      {
-                        attrs: {
-                          width: "400",
-                          controls: "",
-                          controlslist: "nodownload",
+          _c("sub-heading", {
+            staticClass: "text-start mb-4",
+            attrs: { text: "Lorem ipsum dolor sit amet" },
+          }),
+          _vm._v(" "),
+          _vm.travel_Loaded
+            ? _c("div", { staticClass: "row card-titles" }, [
+                _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _c("div", { staticClass: "card-horizontal" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "card-body",
+                          staticStyle: { width: "50% !important" },
                         },
+                        [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v("Lorem ipsum"),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", {
+                            staticClass: "card-text",
+                            domProps: {
+                              innerHTML: _vm._s(
+                                "Lorem ipsum dolor sit amet, consectetur.."
+                              ),
+                            },
+                          }),
+                        ]
+                      ),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _c("div", { staticClass: "card-horizontal" }, [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "card-body",
+                          staticStyle: { width: "50% !important" },
+                        },
+                        [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v("Lorem ipsum"),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", {
+                            staticClass: "card-text",
+                            domProps: {
+                              innerHTML: _vm._s(
+                                "Lorem ipsum dolor sit amet, consectetur.."
+                              ),
+                            },
+                          }),
+                        ]
+                      ),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _c("div", { staticClass: "card-horizontal" }, [
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "card-body",
+                          staticStyle: { width: "50% !important" },
+                        },
+                        [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v("Lorem ipsum"),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", {
+                            staticClass: "card-text",
+                            domProps: {
+                              innerHTML: _vm._s(
+                                "Lorem ipsum dolor sit amet, consectetur.."
+                              ),
+                            },
+                          }),
+                        ]
+                      ),
+                    ]),
+                  ]),
+                ]),
+              ])
+            : _c(
+                "div",
+                {
+                  staticClass: "row card-titles",
+                  attrs: { "my-2": "", "mb-4": "" },
+                },
+                _vm._l(3, function (index) {
+                  return _c(
+                    "div",
+                    { key: index, staticClass: "col-sm-4" },
+                    [_c("cardLoader")],
+                    1
+                  )
+                }),
+                0
+              ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _c("heading", {
+            staticClass: "text-start mt-4",
+            attrs: { text: "Offers And Coupons" },
+          }),
+          _vm._v(" "),
+          _c("sub-heading", {
+            staticClass: "text-start mb-4",
+            attrs: { text: "Lorem ipsum dolor sit amet" },
+          }),
+          _vm._v(" "),
+          _vm.travel_Loaded
+            ? _c("div", { staticClass: "row card-titles" }, [
+                _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "figure",
+                      {
+                        directives: [
+                          { name: "lazyload", rawName: "v-lazyload" },
+                        ],
+                        staticClass: "image__wrapper",
                       },
                       [
-                        _c("source", {
-                          attrs: { src: _vm.video_path, type: "video/mp4" },
+                        _c("ImageSpinner", { staticClass: "image__spinner" }),
+                        _vm._v(" "),
+                        _c("img", {
+                          staticClass: "image__item card-img-top",
+                          attrs: {
+                            "data-url":
+                              "https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_960_720.jpg",
+                            alt: "image",
+                          },
                         }),
-                        _vm._v(
-                          "Your browser does not support HTML5 video.\n          "
-                        ),
-                      ]
+                      ],
+                      1
                     ),
                   ]),
-                ])
-              : _vm._e(),
-          ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "figure",
+                      {
+                        directives: [
+                          { name: "lazyload", rawName: "v-lazyload" },
+                        ],
+                        staticClass: "image__wrapper",
+                      },
+                      [
+                        _c("ImageSpinner", { staticClass: "image__spinner" }),
+                        _vm._v(" "),
+                        _c("img", {
+                          staticClass: "image__item card-img-top",
+                          attrs: {
+                            "data-url":
+                              "https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_960_720.jpg",
+                            alt: "image",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "figure",
+                      {
+                        directives: [
+                          { name: "lazyload", rawName: "v-lazyload" },
+                        ],
+                        staticClass: "image__wrapper",
+                      },
+                      [
+                        _c("ImageSpinner", { staticClass: "image__spinner" }),
+                        _vm._v(" "),
+                        _c("img", {
+                          staticClass: "image__item card-img-top",
+                          attrs: {
+                            "data-url":
+                              "https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_960_720.jpg",
+                            alt: "image",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                  ]),
+                ]),
+              ])
+            : _c(
+                "div",
+                {
+                  staticClass: "row card-titles",
+                  attrs: { "my-2": "", "mb-4": "" },
+                },
+                _vm._l(6, function (index) {
+                  return _c(
+                    "div",
+                    { key: index, staticClass: "col-sm-4" },
+                    [_c("cardLoader")],
+                    1
+                  )
+                }),
+                0
+              ),
         ],
         1
       ),
@@ -1385,6 +1709,69 @@ var staticRenderFns = [
         ]
       ),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "mt-3",
+        staticStyle: { width: "50% !important", height: "100% !important" },
+      },
+      [
+        _c("img", {
+          staticStyle: { width: "100% !important", height: "100% !important" },
+          attrs: {
+            src: "https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_960_720.jpg",
+            alt: "Card image cap",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "mt-3",
+        staticStyle: { width: "50% !important", height: "100% !important" },
+      },
+      [
+        _c("img", {
+          staticStyle: { width: "100% !important", height: "100% !important" },
+          attrs: {
+            src: "https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_960_720.jpg",
+            alt: "Card image cap",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "mt-3",
+        staticStyle: { width: "50% !important", height: "100% !important" },
+      },
+      [
+        _c("img", {
+          staticStyle: { width: "100% !important", height: "100% !important" },
+          attrs: {
+            src: "https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_960_720.jpg",
+            alt: "Card image cap",
+          },
+        }),
+      ]
+    )
   },
 ]
 render._withStripped = true
