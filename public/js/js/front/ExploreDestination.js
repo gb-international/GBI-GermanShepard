@@ -13593,7 +13593,7 @@ var render = function () {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding",
+                                                  "col-6 col-sm-6 col-lg-3 input-p nopadding",
                                               },
                                               [
                                                 _c("model-select", {
@@ -13618,7 +13618,7 @@ var render = function () {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding",
+                                                  "col-6 col-sm-6 col-lg-3 input-p nopadding",
                                               },
                                               [
                                                 _c("model-select", {
@@ -13643,7 +13643,7 @@ var render = function () {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding",
+                                                  "col-6 col-sm-6 col-lg-3 input-p nopadding",
                                               },
                                               [
                                                 _c(
@@ -13720,7 +13720,7 @@ var render = function () {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-6 col-sm-6 col-lg-6 input-p nopadding",
+                                                  "col-6 col-sm-6 col-lg-3 input-p nopadding",
                                               },
                                               [
                                                 _c(

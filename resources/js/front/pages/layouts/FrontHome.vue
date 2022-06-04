@@ -164,7 +164,7 @@
               <ImageSpinner class="image__spinner" />
               <img
                 class="image__item card-img-top"
-                data-url="https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_960_720.jpg"
+                data-url="https://cdn.pixabay.com/photo/2015/08/11/08/21/coupon-883641_960_720.jpg"
                 alt="image"
               />
             </figure>
@@ -177,7 +177,7 @@
               <ImageSpinner class="image__spinner" />
               <img
                 class="image__item card-img-top"
-                data-url="https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_960_720.jpg"
+                data-url="https://cdn.pixabay.com/photo/2015/08/11/08/21/coupon-883641_960_720.jpg"
                 alt="image"
               />
             </figure>
@@ -190,7 +190,7 @@
               <ImageSpinner class="image__spinner" />
               <img
                 class="image__item card-img-top"
-                data-url="https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_960_720.jpg"
+                data-url="https://cdn.pixabay.com/photo/2015/08/11/08/21/coupon-883641_960_720.jpg"
                 alt="image"
               />
             </figure>

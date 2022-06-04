@@ -103,13 +103,13 @@
 
       <div class="container mt-4">
         <div class="custom-flex mt-2">
-          <div class="tabs" :style="tabSelected == 'Itinerary' ? 'border-bottom: 3px solid #00c4c4' : ''" @click="changeTab('Itinerary')">
+          <div class="tabs" :style="tabSelected == 'Itinerary' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Itinerary')">
             Itinerary
           </div>
-          <div class="tabs" :style="tabSelected == 'Neighbourhood' ? 'border-bottom: 3px solid #00c4c4' : ''" @click="changeTab('Neighbourhood')">
+          <div class="tabs" :style="tabSelected == 'Neighbourhood' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Neighbourhood')">
             Your Neighbourhood
           </div>
-          <div class="tabs" :style="tabSelected == 'Encylopedia' ? 'border-bottom: 3px solid #00c4c4' : ''" @click="changeTab('Encylopedia')">
+          <div class="tabs" :style="tabSelected == 'Encylopedia' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Encylopedia')">
             Encylopedia
           </div>
         </div>
@@ -198,22 +198,22 @@
       <p class="heading2 mb-4" style="margin-top: 4vh">Explore Neighbourhood</p>
         <!-- Icons -->
         <div class="icons-flex mt-2">
-          <div class="icons" :style="iconSelected == 'Communication' ? 'color: #00c4c4' : ''" @click="changeIcon('Communication')">
+          <div class="icons" :style="iconSelected == 'Communication' ? 'color: #f77736' : ''" @click="changeIcon('Communication')">
             Communication
           </div>
-          <div class="icons" :style="iconSelected == 'Movie' ? 'color: #00c4c4' : ''" @click="changeIcon('Movie')">
+          <div class="icons" :style="iconSelected == 'Movie' ? 'color: #f77736' : ''" @click="changeIcon('Movie')">
             Movie
           </div>
-          <div class="icons" :style="iconSelected == 'School' ? 'color: #00c4c4' : ''" @click="changeIcon('School')">
+          <div class="icons" :style="iconSelected == 'School' ? 'color: #f77736' : ''" @click="changeIcon('School')">
             School
           </div>
-          <div class="icons" :style="iconSelected == 'Bank' ? 'color: #00c4c4' : ''" @click="changeIcon('Bank')">
+          <div class="icons" :style="iconSelected == 'Bank' ? 'color: #f77736' : ''" @click="changeIcon('Bank')">
             Bank
           </div>
-          <div class="icons" :style="iconSelected == 'Food' ? 'color: #00c4c4' : ''" @click="changeIcon('Food')">
+          <div class="icons" :style="iconSelected == 'Food' ? 'color: #f77736' : ''" @click="changeIcon('Food')">
             Food
           </div>
-          <div class="icons" :style="iconSelected == 'Sightseeing' ? 'color: #00c4c4' : ''" @click="changeIcon('Sightseeing')">
+          <div class="icons" :style="iconSelected == 'Sightseeing' ? 'color: #f77736' : ''" @click="changeIcon('Sightseeing')">
             Sightseeing
           </div>
         </div>
@@ -701,14 +701,14 @@ export default {
 }
 .btnCpn{
   color: #fff;
-  background-color: #01c5c4;
-  border-color: #01c5c4;
+  background-color: #f77736;
+  border-color: #f77736;
   border-radius: 0px;
 }
 .btnPay{
   color: #fff;
-  background-color: #01c5c4;
-  border-color: #01c5c4;
+  background-color: #f77736;
+  border-color: #f77736;
   height: 50px;
   width: 100%;
   margin-top: 5px;
@@ -716,8 +716,8 @@ export default {
 }
 .btnConfirm{
   color: #fff;
-  background-color: #01c5c4;
-  border-color: #01c5c4;
+  background-color: #f77736;
+  border-color: #f77736;
   height: 45px;
   width: 150px;
   border-radius: 0px;

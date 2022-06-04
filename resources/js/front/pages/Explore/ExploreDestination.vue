@@ -77,7 +77,7 @@
                         </div>
                       </div>
                       <div class="row p-0 parent_padding">
-                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-3 input-p nopadding">
                           <model-select
                             :options="options"
                             v-model="sources"
@@ -85,7 +85,7 @@
                             autocomplete="off"
                           ></model-select>
                         </div>
-                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-3 input-p nopadding">
                           <model-select
                             :options="destinationCities"
                             v-model="destinations"
@@ -93,7 +93,7 @@
                           ></model-select>
                         </div>
 
-                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-3 input-p nopadding">
                           <div class="select">
                             <select
                               class="placeholder_color ui fluid search selection dropdown"
@@ -111,7 +111,7 @@
                             </select>
                           </div>
                         </div>
-                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-3 input-p nopadding">
                           <div class="select">
                             <select
                               class="selectpicker ui selection dropdown"
