@@ -18,7 +18,7 @@
   <title>{{ config('app.name', 'GBI') }}</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="icon" type="image/png" href="{{ asset('assets/front/images/favicon.png') }}" />
-  {{-- <link rel="icon" type="image/png" href="{{ secure_asset('assets/front/images/favicon.png') }}" />  --}}
+  {{-- <link rel="icon" type="image/png" href="{{ secure_asset('assets/front/images/favicon.png') }}" /> --}}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
   <!-- Font awesome Icons -->
@@ -60,7 +60,7 @@
 
    <script src="{{ asset('js/app.js') }}" defer></script>
    {{-- <script src="{{ secure_asset('js/app.js') }}" defer></script> --}}
- {{-- {!! $ssr !!}
+   {{-- {!! $ssr !!}
   <script src="{{ asset('js/app-client.js') }}" type="text/javascript"></script> 
 
   {!! ssr('js/app-server.js')->render() !!}

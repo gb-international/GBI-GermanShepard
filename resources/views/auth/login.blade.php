@@ -9,7 +9,7 @@
         <div class="col-md-4" id="admin_login_form">
             
             <p class="text-center"><img class="admin_logo" src="{{asset('assets/admin/default/icon/admin_logo.png')}}"></p>
-             {{-- <p class="text-center"><img class="admin_logo" src="{{secure_asset('assets/admin/default/icon/admin_logo.png')}}"></p>  --}}
+            {{-- <p class="text-center"><img class="admin_logo" src="{{secure_asset('assets/admin/default/icon/admin_logo.png')}}"></p> --}}
             
 
                 <div class="form-group">

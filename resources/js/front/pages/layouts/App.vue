@@ -165,7 +165,7 @@
                 data-target="#LoginForm"
               >
                 login
-                <img :src="$gbiAssets+'/images/icons/profile.png'" class="bell-icon-width" style="width: 20px;"/>
+                <img :src="$gbiAssets+'/images/icons/profile.png'" class="bell-icon-width" style="width: 20px; height: 20px;"/>
               </a>
             </li>
 
@@ -294,7 +294,7 @@
       </div>
     </div>
 
-    <div class="body-content mt-85 pb-5">
+    <div :class="$route.name == 'wonderla' ? 'body-content mt-85 py-5' : 'body-content mt-85 pb-5' ">
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
@@ -505,12 +505,8 @@ export default {
 @media only screen and (max-width: 720px) {
 
   .dd_icons_2 {
-    width: 31px !important; 
-    height: auto !important;
-  }
- .dd_icons_2 {
-    width: 28px !important; 
-    height: auto !important;
+    width: 31px !important;
+    height: 31px !important;
   }
 }
 </style>

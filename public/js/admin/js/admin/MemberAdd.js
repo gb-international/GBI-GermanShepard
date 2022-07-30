@@ -470,6 +470,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -491,6 +509,7 @@ __webpack_require__.r(__webpack_exports__);
       // Create a new form instance
       form: new vform__WEBPACK_IMPORTED_MODULE_0__.Form({
         name: "",
+        gender: "",
         email: "",
         password: "",
         c_password: "",
@@ -655,7 +674,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ninput[type='password'][data-v-18ec8378] {\n    border: 0px;\n    font-size: 15px;\n    background-color: #fff;\n    color: #737879;\n    display: block;\n    width: 100%;\n    height: 53px;\n    margin-bottom: 5px;\n    font-weight: 600;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ninput[type='password'][data-v-18ec8378] {\n    border: 0px;\n    font-size: 15px;\n    background-color: #fff;\n    color: #737879;\n    display: block;\n    width: 100%;\n    height: 53px;\n    margin-bottom: 5px;\n    font-weight: 600;\n}\nselect[data-v-18ec8378] {\n    border: 0px;\n    font-size: 15px;\n    background-color: #fff;\n    color: #737879;\n    display: block;\n    width: 100%;\n    height: 52px;\n    margin-bottom: 5px;\n    font-weight: 600;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1843,7 +1862,7 @@ var render = function () {
               },
               [
                 _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "col-sm-6" }, [
                     _c(
                       "div",
                       { staticClass: "form-group" },
@@ -1887,7 +1906,74 @@ var render = function () {
                     ),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "col-sm-6" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "gender" } }, [
+                          _vm._v("Gender"),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.gender,
+                                expression: "form.gender",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("gender"),
+                            },
+                            attrs: {
+                              name: "gender",
+                              placeholder: "Select Gender",
+                            },
+                            on: {
+                              change: function ($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function (o) {
+                                    return o.selected
+                                  })
+                                  .map(function (o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "gender",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
+                            },
+                          },
+                          [
+                            _c("option", { attrs: { value: "M" } }, [
+                              _vm._v("Male"),
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "F" } }, [
+                              _vm._v("Female"),
+                            ]),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "gender" },
+                        }),
+                      ],
+                      1
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-6" }, [
                     _c(
                       "div",
                       { staticClass: "form-group" },
@@ -1931,7 +2017,7 @@ var render = function () {
                     ),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "col-sm-6" }, [
                     _c(
                       "div",
                       { staticClass: "form-group" },

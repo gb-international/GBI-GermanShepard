@@ -13,7 +13,7 @@ to submit the data we are using a function.
         @submit.prevent="updateMember()"
       >
         <div class="row" v-if="form.name">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <div class="form-group">
               <label for="name">Name</label>
               <input
@@ -27,7 +27,23 @@ to submit the data we are using a function.
               <has-error :form="form" field="name"></has-error>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select 
+                class="form-control"
+                name="gender"
+                v-model="form.gender"
+                :class="{ 'is-invalid': form.errors.has('gender') }"
+                placeholder="Select Gender"
+              >
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+              </select>
+              <has-error :form="form" field="gender"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-6">
             <div class="form-group">
               <label for="email">Email</label>
               <input
@@ -41,7 +57,7 @@ to submit the data we are using a function.
               <has-error :form="form" field="email"></has-error>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <div class="form-group">
               <label for="phone_no">Phone Number</label>
               <input
@@ -140,6 +156,7 @@ export default {
       // Create a new form instance
       form: new Form({
         name: "",
+        gender: "",
         email: "",
         phone_no: "",
         address: "",
@@ -202,6 +219,7 @@ export default {
     },
 
     updateMember() {
+      console.log(this.form);
       if(checkBday(this.form.dob) == false){
         this.$toast.fire({
             icon: "warning",
@@ -230,3 +248,16 @@ export default {
   },
 };
 </script>
+<style scoped>
+select {
+    border: 0px;
+    font-size: 15px;
+    background-color: #fff;
+    color: #737879;
+    display: block;
+    width: 100%;
+    height: 52px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+</style>

@@ -53,6 +53,7 @@ class GBIMemberController extends Controller
 
         $this->validate($request, [ 
             'name' => ['required',new AlphaSpace],
+            'gender' => 'required',
             'address' => 'required|min:3',
             'email' => ['required','email',new EmailValidate],
             'phone_no' => ['required','numeric',new PhoneNubmerValidate],
@@ -180,6 +181,7 @@ class GBIMemberController extends Controller
        $user = User::where('id',$id)->first();
        $this->validate($request, [ 
             'name' => ['required',new AlphaSpace],
+            'gender' => 'required',
             'address' => 'required|min:3',
             'email' => [
                 'required','email',new EmailValidate,
@@ -234,6 +236,7 @@ class GBIMemberController extends Controller
         
         $user->update([
             'name' => $request->name,
+            'gender' => $request->gender,
             'email' => $request->email,
             'department_id' => $request->department_id,
             'user_role' => $request->role_id

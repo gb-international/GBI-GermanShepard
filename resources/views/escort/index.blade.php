@@ -32,8 +32,8 @@
     <meta property="og:image" content="https://www.gowithgbi.com/assets/front/images/banner2.jpg">
 
     <!-- Styles -->
-    {{-- <link href="{{ secure_asset('css/escort/app.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/escort/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/escort/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/escort/app.css') }}" rel="stylesheet"> --}}
     
 </head>
 <body>
@@ -43,8 +43,8 @@
     <escort></escort>
    </div>
   
-  {{-- <script src="{{ secure_asset('js/escort/app.js') }}" type="text/javascript"></script>  --}}
-  <script src="{{ asset('js/escort/app.js') }}" type="text/javascript"></script>
+  <script src="{{ secure_asset('js/escort/app.js') }}" type="text/javascript"></script>
+  {{-- <script src="{{ asset('js/escort/app.js') }}" type="text/javascript"></script>  --}}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </body>
