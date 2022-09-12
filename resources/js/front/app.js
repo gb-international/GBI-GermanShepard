@@ -20,8 +20,10 @@ import VueGtag from "vue-gtag";
 import * as VueGoogleMaps from 'vue2-google-maps'
 //import errorState from '@/front/components/errorState.vue';
 import api from '@/front/helpers/api';
-Object.defineProperty(Vue.prototype, '$api', { value: api })
+import JsonExcel from 'vue-json-excel';
 
+
+Object.defineProperty(Vue.prototype, '$api', { value: api })
 
 Vue.use(VueGoogleMaps, {
     installComponents: true,
@@ -30,6 +32,8 @@ Vue.use(VueGoogleMaps, {
       libraries: 'places'
     }
   })
+
+Vue.component('downloadExcel', JsonExcel)
 
 Vue.use(VueMeta)
 Vue.use(VueSweetalert2);

@@ -39,12 +39,12 @@
         <!-- Coupon Div -->
         <div class="d-flex flex-column justify-content-start couponDivMain">
           <div class="d-flex justify-content-start couponDiv">
-            <p>GBITRIP</p>
-            <p class="ml-auto p2">- ₹2,000</p>
+            <p>Coupon</p>
+            <p class="ml-auto p2">N/A</p>
           </div>
           <div class="d-flex justify-content-start couponEnterDiv">
-            <input type="text">
-            <button class="btn btnCpn">Add</button>
+            <input type="text" v-model="coupon_val">
+            <button class="btn btnCpn" @click="couponsAlert(coupon_val)">Add</button>
           </div>
         </div>
         <!-- End Coupon Div -->
@@ -61,7 +61,7 @@
           <p class="d-flex flex-column justify-content-start align-items-center" style=" margin-top: 5px; margin-right: 3px;">Grand Total
             <span class="smallP">(Incl. all taxes)</span>
           </p>
-          <p class="ml-auto p2">₹{{itineraryData.price * 5/100 + itineraryData.price - 2000}} </p>
+          <p class="ml-auto p2">₹{{itineraryData.price * 5/100 + itineraryData.price}} </p>
         </div>
       </div>
 
@@ -84,7 +84,7 @@
     <div class="d-flex flex-column justify-content-start align-items-start">  
       <p>Grand Total</p>
       <span class="smallP">(Incl. all taxes)</span>
-      <p class="p2">₹{{itineraryData.price * 5/100 + itineraryData.price - 2000}}</p>
+      <p class="p2">₹{{itineraryData.price * 5/100 + itineraryData.price}}</p>
     </div>
     <button v-if="login" 
       class="btn btnConfirm ml-auto" 
@@ -109,9 +109,9 @@
           <div class="tabs" :style="tabSelected == 'Neighbourhood' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Neighbourhood')">
             Your Neighbourhood
           </div>
-          <div class="tabs" :style="tabSelected == 'Encylopedia' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Encylopedia')">
+          <!-- <div class="tabs" :style="tabSelected == 'Encylopedia' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Encylopedia')">
             Encylopedia
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -195,9 +195,15 @@
 
     <!-- Neightbourhood -->
      <div class="container mt-4" v-if="tabSelected == 'Neighbourhood' ">
-      <p class="heading2 mb-4" style="margin-top: 4vh">Explore Neighbourhood</p>
+      <!-- <p class="heading2 mb-4" style="margin-top: 4vh">Explore Neighbourhood</p> -->
+
+       <div style="background-color: #f77736; padding: 45px;"> 
+            <div style="background-color: white; padding: 35px;">
+              <p class="text-center" style="color: black; font-weight: bold; font-size: 20px; font-family: Raleway">Feature Under Development</p>
+            </div>
+        </div>
         <!-- Icons -->
-        <div class="icons-flex mt-2">
+        <!-- <div class="icons-flex mt-2">
           <div class="icons" :style="iconSelected == 'Communication' ? 'color: #f77736' : ''" @click="changeIcon('Communication')">
             Communication
           </div>
@@ -216,37 +222,37 @@
           <div class="icons" :style="iconSelected == 'Sightseeing' ? 'color: #f77736' : ''" @click="changeIcon('Sightseeing')">
             Sightseeing
           </div>
-        </div>
+        </div> -->
 
-        <!-- Communication -->
+        <!-- Communication 
         <div v-if="iconSelected == 'Communication'" style="margin-bottom: 22vh">
           <p class="heading2 mb-4" style="margin-top: 4vh">Communication</p>
-        </div>
+        </div> -->
 
-        <!-- Movie -->
+        <!-- Movie 
         <div v-if="iconSelected == 'Movie'" style="margin-bottom: 22vh">
           <p class="heading2 mb-4" style="margin-top: 4vh">Movie</p>
-        </div>
+        </div> -->
 
-        <!-- School -->
+        <!-- School 
         <div v-if="iconSelected == 'School'" style="margin-bottom: 22vh">
           <p class="heading2 mb-4" style="margin-top: 4vh">School</p>
-        </div>
+        </div> -->
 
-        <!-- Bank -->
+        <!-- Bank
         <div v-if="iconSelected == 'Bank'" style="margin-bottom: 22vh">
           <p class="heading2 mb-4" style="margin-top: 4vh">Bank</p>
-        </div>
+        </div>  -->
 
-        <!-- Food -->
+        <!-- Food 
         <div v-if="iconSelected == 'Food'" style="margin-bottom: 22vh">
           <p class="heading2 mb-4" style="margin-top: 4vh">Food</p>
-        </div>
+        </div> -->
 
-        <!-- Sightseeing -->
+        <!-- Sightseeing 
         <div v-if="iconSelected == 'Sightseeing'" style="margin-bottom: 22vh">
           <p class="heading2 mb-4" style="margin-top: 4vh">Sightseeing</p>
-        </div>
+        </div> -->
 
       </div>
 
@@ -287,6 +293,7 @@ export default {
   },
   data() {
     return {
+      coupon_val: '',
       selectedPhoto: '',
       selectedDay: null,
       settings: {
@@ -343,6 +350,13 @@ export default {
     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
   },
   methods: {
+    couponsAlert(val){
+      if(val){
+        return this.$swal.fire("Error", "No Coupons Found", "warning");
+      } else {
+        return this.$swal.fire("No Value", "Coupon Code Not Entered", "warning");
+      }
+    },
     changeTab(val){
       this.tabSelected = val;
     },

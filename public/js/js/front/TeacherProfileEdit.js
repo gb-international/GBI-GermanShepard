@@ -459,12 +459,11 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         _this2.allSocial = res.data.data;
         console.log(_this2.allSocial);
-
-        _this2.$swal.fire({
-          icon: "success",
-          title: "Success",
-          text: "Social Account Connected."
-        });
+        /*this.$swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Social Account Connected."
+        })*/
       })["catch"](function (error) {
         return console.log(_this2.$swal.fire({
           icon: "warning",

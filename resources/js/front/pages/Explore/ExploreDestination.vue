@@ -467,11 +467,15 @@
                     <!-- end multiple location Tab panes serach bar for source and destination-->
                   </div>
                   <!--Start menu2 -->
-                  <!-- start single location Tab panes serach bar for source and destination-->                      
+                  <!-- start single location Tab panes serach bar for source and destination -->                 
 
-                  <div class="explor-content pb-1" style="padding-top: 5.6vh !important;" v-else>
+                  <div class="explor-content pb-1" style="padding: 4.5vh !important;" v-else>
                     <div class="container">
-                      <div class="row p-0 parent_padding">
+
+                      <div style="background-color: white; padding: 45px;"> 
+                        <p class="text-center" style="color: black; font-weight: bold; font-size: 20px; font-family: Raleway">Feature Under Development</p>
+                      </div>
+                      <!-- <div class="row p-0 parent_padding">
                         <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
                           <model-select
                             :options="optionsHotel"
@@ -669,11 +673,11 @@
                         >
                           SEARCH
                         </button>
-                      </p>
+                      </p>  --> 
                     </div>
-                    <!-- end single location Tab panes serach bar for source and destination-->
+                    <!-- end single location Tab panes serach bar for source and destination -->
                   </div>
-                </div>
+                </div> 
               </form>
             </div>
           </div>

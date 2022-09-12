@@ -733,6 +733,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -756,6 +762,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   data: function data() {
     return {
+      coupon_val: '',
       selectedPhoto: '',
       selectedDay: null,
       settings: {
@@ -812,6 +819,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
   },
   methods: {
+    couponsAlert: function couponsAlert(val) {
+      if (val) {
+        return this.$swal.fire("Error", "No Coupons Found", "warning");
+      } else {
+        return this.$swal.fire("No Value", "Coupon Code Not Entered", "warning");
+      }
+    },
     changeTab: function changeTab(val) {
       this.tabSelected = val;
     },
@@ -2090,7 +2104,59 @@ var render = function () {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(0),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "d-flex flex-column justify-content-start couponDivMain",
+                    },
+                    [
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex justify-content-start couponEnterDiv",
+                        },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.coupon_val,
+                                expression: "coupon_val",
+                              },
+                            ],
+                            attrs: { type: "text" },
+                            domProps: { value: _vm.coupon_val },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.coupon_val = $event.target.value
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btnCpn",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.couponsAlert(_vm.coupon_val)
+                                },
+                              },
+                            },
+                            [_vm._v("Add")]
+                          ),
+                        ]
+                      ),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -2124,8 +2190,7 @@ var render = function () {
                               "₹" +
                                 _vm._s(
                                   (_vm.itineraryData.price * 5) / 100 +
-                                    _vm.itineraryData.price -
-                                    2000
+                                    _vm.itineraryData.price
                                 ) +
                                 " "
                             ),
@@ -2189,8 +2254,7 @@ var render = function () {
                   "₹" +
                     _vm._s(
                       (_vm.itineraryData.price * 5) / 100 +
-                        _vm.itineraryData.price -
-                        2000
+                        _vm.itineraryData.price
                     )
                 ),
               ]),
@@ -2258,23 +2322,6 @@ var render = function () {
               },
             },
             [_vm._v("\n            Your Neighbourhood\n          ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "tabs",
-              style:
-                _vm.tabSelected == "Encylopedia"
-                  ? "border-bottom: 3px solid #f77736"
-                  : "",
-              on: {
-                click: function ($event) {
-                  return _vm.changeTab("Encylopedia")
-                },
-              },
-            },
-            [_vm._v("\n            Encylopedia\n          ")]
           ),
         ]),
       ]),
@@ -2465,182 +2512,7 @@ var render = function () {
       ]),
       _vm._v(" "),
       _vm.tabSelected == "Neighbourhood"
-        ? _c("div", { staticClass: "container mt-4" }, [
-            _c(
-              "p",
-              {
-                staticClass: "heading2 mb-4",
-                staticStyle: { "margin-top": "4vh" },
-              },
-              [_vm._v("Explore Neighbourhood")]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "icons-flex mt-2" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "icons",
-                  style:
-                    _vm.iconSelected == "Communication" ? "color: #f77736" : "",
-                  on: {
-                    click: function ($event) {
-                      return _vm.changeIcon("Communication")
-                    },
-                  },
-                },
-                [_vm._v("\n            Communication\n          ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "icons",
-                  style: _vm.iconSelected == "Movie" ? "color: #f77736" : "",
-                  on: {
-                    click: function ($event) {
-                      return _vm.changeIcon("Movie")
-                    },
-                  },
-                },
-                [_vm._v("\n            Movie\n          ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "icons",
-                  style: _vm.iconSelected == "School" ? "color: #f77736" : "",
-                  on: {
-                    click: function ($event) {
-                      return _vm.changeIcon("School")
-                    },
-                  },
-                },
-                [_vm._v("\n            School\n          ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "icons",
-                  style: _vm.iconSelected == "Bank" ? "color: #f77736" : "",
-                  on: {
-                    click: function ($event) {
-                      return _vm.changeIcon("Bank")
-                    },
-                  },
-                },
-                [_vm._v("\n            Bank\n          ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "icons",
-                  style: _vm.iconSelected == "Food" ? "color: #f77736" : "",
-                  on: {
-                    click: function ($event) {
-                      return _vm.changeIcon("Food")
-                    },
-                  },
-                },
-                [_vm._v("\n            Food\n          ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "icons",
-                  style:
-                    _vm.iconSelected == "Sightseeing" ? "color: #f77736" : "",
-                  on: {
-                    click: function ($event) {
-                      return _vm.changeIcon("Sightseeing")
-                    },
-                  },
-                },
-                [_vm._v("\n            Sightseeing\n          ")]
-              ),
-            ]),
-            _vm._v(" "),
-            _vm.iconSelected == "Communication"
-              ? _c("div", { staticStyle: { "margin-bottom": "22vh" } }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass: "heading2 mb-4",
-                      staticStyle: { "margin-top": "4vh" },
-                    },
-                    [_vm._v("Communication")]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.iconSelected == "Movie"
-              ? _c("div", { staticStyle: { "margin-bottom": "22vh" } }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass: "heading2 mb-4",
-                      staticStyle: { "margin-top": "4vh" },
-                    },
-                    [_vm._v("Movie")]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.iconSelected == "School"
-              ? _c("div", { staticStyle: { "margin-bottom": "22vh" } }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass: "heading2 mb-4",
-                      staticStyle: { "margin-top": "4vh" },
-                    },
-                    [_vm._v("School")]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.iconSelected == "Bank"
-              ? _c("div", { staticStyle: { "margin-bottom": "22vh" } }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass: "heading2 mb-4",
-                      staticStyle: { "margin-top": "4vh" },
-                    },
-                    [_vm._v("Bank")]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.iconSelected == "Food"
-              ? _c("div", { staticStyle: { "margin-bottom": "22vh" } }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass: "heading2 mb-4",
-                      staticStyle: { "margin-top": "4vh" },
-                    },
-                    [_vm._v("Food")]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.iconSelected == "Sightseeing"
-              ? _c("div", { staticStyle: { "margin-bottom": "22vh" } }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass: "heading2 mb-4",
-                      staticStyle: { "margin-top": "4vh" },
-                    },
-                    [_vm._v("Sightseeing")]
-                  ),
-                ])
-              : _vm._e(),
-          ])
+        ? _c("div", { staticClass: "container mt-4" }, [_vm._m(2)])
         : _vm._e(),
     ]
   )
@@ -2652,23 +2524,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "d-flex flex-column justify-content-start couponDivMain" },
+      { staticClass: "d-flex justify-content-start couponDiv" },
       [
-        _c("div", { staticClass: "d-flex justify-content-start couponDiv" }, [
-          _c("p", [_vm._v("GBITRIP")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "ml-auto p2" }, [_vm._v("- ₹2,000")]),
-        ]),
+        _c("p", [_vm._v("Coupon")]),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "d-flex justify-content-start couponEnterDiv" },
-          [
-            _c("input", { attrs: { type: "text" } }),
-            _vm._v(" "),
-            _c("button", { staticClass: "btn btnCpn" }, [_vm._v("Add")]),
-          ]
-        ),
+        _c("p", { staticClass: "ml-auto p2" }, [_vm._v("N/A")]),
       ]
     )
   },
@@ -2686,6 +2546,36 @@ var staticRenderFns = [
       [
         _vm._v("Grand Total\n            "),
         _c("span", { staticClass: "smallP" }, [_vm._v("(Incl. all taxes)")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticStyle: { "background-color": "#f77736", padding: "45px" } },
+      [
+        _c(
+          "div",
+          { staticStyle: { "background-color": "white", padding: "35px" } },
+          [
+            _c(
+              "p",
+              {
+                staticClass: "text-center",
+                staticStyle: {
+                  color: "black",
+                  "font-weight": "bold",
+                  "font-size": "20px",
+                  "font-family": "Raleway",
+                },
+              },
+              [_vm._v("Feature Under Development")]
+            ),
+          ]
+        ),
       ]
     )
   },

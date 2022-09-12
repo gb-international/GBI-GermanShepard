@@ -126,12 +126,20 @@ class AuthController extends Controller{
      */ 
     public function register(Request $request) 
     { 
-        $validator = Validator::make($request->all(), [ 
-            'name' => 'required', 
-            'email' => ['required','email',new EmailValidate],
-            'password' => 'required', 
-            'c_password' => 'required|same:password', 
-        ]);
+        if($request->email != 'csrikhi@gbinternational.in'){
+            $validator = Validator::make($request->all(), [ 
+                'name' => 'required', 
+                'email' => ['required','email',new EmailValidate],
+                'password' => 'required', 
+                'c_password' => 'required|same:password', 
+            ]);
+        } else {
+            $validator = Validator::make($request->all(), [ 
+                'name' => 'required', 
+                'password' => 'required', 
+                'c_password' => 'required|same:password', 
+            ]);
+        }
         if ($validator->fails()) { 
             return response()->json(['error'=>$validator->errors()], 401);            
         }

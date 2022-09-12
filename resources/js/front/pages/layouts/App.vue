@@ -299,9 +299,9 @@
         <router-view></router-view>
       </transition>
       <!-- Alert for cookies -->
-      <Cookies />
+      <Cookies v-if="$route.name != 'TourForm'"/>
       <!-- Intro modal -->
-      <intro></intro>
+      <intro v-if="$route.name != 'TourForm'"></intro>
     </div>
     <gbi-footer></gbi-footer>
     <chat> </chat>

@@ -15,13 +15,14 @@
       </div>
       
       <h5 class="title_section pt-4">Special Offers</h5>
-      <offers-crasousel  :upcoming_list="upcoming_list"/>
-
+      <!-- <offers-crasousel  :upcoming_list="upcoming_list"/> -->
+      <p class="pl-2" style="font-size: 16px; font-family: Raleway">No Offers Available.</p>
       <h5 class="title_section pt-4">
         Upcoming Events
       </h5>
       <div class="popular_destination">
-         <popular-tour  :upcoming_list="events_list"/>
+         <popular-tour v-if="events_list.length>=1" :upcoming_list="events_list"/>
+         <p v-else style="font-size: 16px; font-family: Raleway">No Events Available.</p>
       </div>
 
       <div class="pb-5">
@@ -30,18 +31,12 @@
         <div class="resent_search" v-if="rSearches.length>=1">
           <popular-tour  :upcoming_list="rSearches"/>
         </div>
-        <p v-else>You have no recent searches.</p>
+        <p v-else style="font-size: 16px; font-family: Raleway">You have no recent searches.</p>
       </div>
       <h5 class="title_section">
         Popular Tours
       <!-- <router-link class="view_link" :to="`/explore-list`">View more</router-link> -->
       </h5>
-      <div class="popular_destination">
-         <popular-tour  :upcoming_list="popular_list"/>
-      </div>
-       <h5 class="title_section">
-        Travel Blogs
-        </h5>
        <div class="row">
           <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0 blog-list" v-for="(post,index) in posts_list" :key="index">
             <blog-card :post="post" />

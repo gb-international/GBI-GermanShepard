@@ -28,6 +28,7 @@
     "/js/js/front/error404.js": "/js/js/front/error404.js",
     "/js/js/front/HotelSearch.js": "/js/js/front/HotelSearch.js",
     "/js/js/front/HotelDetail.js": "/js/js/front/HotelDetail.js",
+    "/js/js/front/TourNameList.js": "/js/js/front/TourNameList.js",
     "/js/js/front/userNotifications.js": "/js/js/front/userNotifications.js",
     "/js/js/front/PaymentLink.js": "/js/js/front/PaymentLink.js",
     "/js/js/front/UserInformation.js": "/js/js/front/UserInformation.js",

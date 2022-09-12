@@ -26,6 +26,7 @@
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-header"></span>
             <div class="dropdown-divider"></div>
+            {{-- <a class="dropdown-item" href="{{ secure_asset(env('APP_URL').'/logout') }}" --}}
             <a class="dropdown-item" href="{{ route('logout') }}"
                onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">

@@ -637,7 +637,8 @@ var render = function () {
                       {
                         key: item.id,
                         staticClass: "mail-card",
-                        style: { "border-color": item.color },
+                        style:
+                          "border-color: " + (item.read == 0 ? "red" : "green"),
                         on: {
                           click: function ($event) {
                             _vm.selectNotif(item)
@@ -692,27 +693,18 @@ var render = function () {
                           ),
                           _vm._v(" "),
                           _c("div", [
-                            _c("img", {
-                              attrs: {
-                                src:
-                                  _vm.$gbiAssets +
-                                  "/assets/front/icons/" +
-                                  item.badge +
-                                  ".png",
-                              },
-                            }),
-                            _vm._v(" "),
                             _c(
                               "p",
                               {
                                 staticClass: "ReadStatus",
+                                staticStyle: {
+                                  "font-size": "12px",
+                                  padding: "5px",
+                                },
                                 style:
                                   item.read == 0
-                                    ? "border-color: black; color: black"
-                                    : "border-color: " +
-                                      item.color +
-                                      "; color: " +
-                                      item.color,
+                                    ? "border-color: red; color: red"
+                                    : "border-color: green; color: green",
                               },
                               [
                                 _vm._v(
@@ -883,7 +875,8 @@ var render = function () {
                       {
                         key: item.id,
                         staticClass: "mail-card",
-                        style: { "border-color": item.color },
+                        style:
+                          "border-color: " + (item.read == 0 ? "red" : "green"),
                         on: {
                           click: function ($event) {
                             _vm.redirNotif(item)
@@ -936,27 +929,18 @@ var render = function () {
                           ),
                           _vm._v(" "),
                           _c("div", [
-                            _c("img", {
-                              attrs: {
-                                src:
-                                  _vm.$gbiAssets +
-                                  "/assets/front/icons/" +
-                                  item.badge +
-                                  ".png",
-                              },
-                            }),
-                            _vm._v(" "),
                             _c(
                               "p",
                               {
                                 staticClass: "ReadStatus",
+                                staticStyle: {
+                                  "font-size": "12px",
+                                  padding: "5px",
+                                },
                                 style:
                                   item.read == 0
-                                    ? "border-color: black; color: black"
-                                    : "border-color: " +
-                                      item.color +
-                                      "; color: " +
-                                      item.color,
+                                    ? "border-color: red; color: red"
+                                    : "border-color: green; color: green",
                               },
                               [
                                 _vm._v(

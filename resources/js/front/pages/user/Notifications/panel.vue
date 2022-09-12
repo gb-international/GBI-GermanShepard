@@ -45,7 +45,7 @@ contentFilter() - Filter categories into content starting lines.
           </b-dropdown>
         </div>
         <!-- Single Mail Card Web-->
-        <div class="mail-card" v-for="item in notif_list.data" v-bind:key="item.id" @click="selectNotif(item); markRead(item)" :style="{ 'border-color': item.color }">
+        <div class="mail-card" v-for="item in notif_list.data" v-bind:key="item.id" @click="selectNotif(item); markRead(item)" :style="`border-color: ${item.read == 0 ? 'red' : 'green'}`">
           <div class="mails">
             <div class="mail-names" style="clear: both;">
             <b>{{item.category | subjectFilter}}</b>
@@ -58,8 +58,8 @@ contentFilter() - Filter categories into content starting lines.
               <p2>Dear {{userData.name}}, please check out {{item.category | contentFilter}}...</p2>
             </div>
             <div>
-              <img :src="$gbiAssets+'/assets/front/icons/'+item.badge+'.png'" />
-              <p class="ReadStatus" :style="item.read == 0 ? 'border-color: black; color: black' : `border-color: ${item.color}; color: ${item.color}`">{{item.read == 0 ? 'Unread' : 'Read'}}</p>
+              <!-- <img :src="$gbiAssets+'/assets/front/icons/'+item.badge+'.png'" /> -->
+              <p class="ReadStatus" style="font-size: 12px; padding: 5px" :style="item.read == 0 ? 'border-color: red; color: red' : 'border-color: green; color: green' ">{{item.read == 0 ? 'Unread' : 'Read'}}</p>
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@ contentFilter() - Filter categories into content starting lines.
           </b-dropdown>
         </div>
         <!-- Single Mail Card -->
-        <div class="mail-card" v-for="item in notif_list.data" v-bind:key="item.id" @click="redirNotif(item); markRead(item)" :style="{ 'border-color': item.color }">
+        <div class="mail-card" v-for="item in notif_list.data" v-bind:key="item.id" @click="redirNotif(item); markRead(item)" :style="`border-color: ${item.read == 0 ? 'red' : 'green'}`">
           <div class="mails">
             <div class="mail-names" style="clear: both;">
             <b>{{item.category | subjectFilter}}</b>
@@ -97,8 +97,8 @@ contentFilter() - Filter categories into content starting lines.
               <p2>Dear {{userData.name}}, please check out {{item.category | contentFilter}}...</p2>
             </div>
             <div>
-              <img :src="$gbiAssets+'/assets/front/icons/'+item.badge+'.png'" />
-              <p class="ReadStatus" :style="item.read == 0 ? 'border-color: black; color: black' : `border-color: ${item.color}; color: ${item.color}`">{{item.read == 0 ? 'Unread' : 'Read'}}</p>
+              <!-- <img :src="$gbiAssets+'/assets/front/icons/'+item.badge+'.png'" /> -->
+              <p class="ReadStatus" style="font-size: 12px; padding: 5px" :style="item.read == 0 ? 'border-color: red; color: red' : 'border-color: green; color: green' ">{{item.read == 0 ? 'Unread' : 'Read'}}</p>
             </div>
           </div>
         </div>

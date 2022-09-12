@@ -538,6 +538,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2025,93 +2026,113 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _vm.valid
     ? _c("div", [
-        _c(
-          "div",
-          { staticClass: "container" },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("h5", { staticClass: "title_section pt-4" }, [
-              _vm._v("Special Offers"),
-            ]),
-            _vm._v(" "),
-            _c("offers-crasousel", {
-              attrs: { upcoming_list: _vm.upcoming_list },
-            }),
-            _vm._v(" "),
-            _c("h5", { staticClass: "title_section pt-4" }, [
-              _vm._v("\n      Upcoming Events\n    "),
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "popular_destination" },
-              [
-                _c("popular-tour", {
-                  attrs: { upcoming_list: _vm.events_list },
-                }),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "pb-5" }, [
-              _c("h5", { staticClass: "title_section" }, [
-                _vm._v("\n        Recent Searches "),
-              ]),
-              _vm._v(" "),
-              _vm.rSearches.length >= 1
-                ? _c(
-                    "div",
-                    { staticClass: "resent_search" },
-                    [
-                      _c("popular-tour", {
-                        attrs: { upcoming_list: _vm.rSearches },
-                      }),
-                    ],
-                    1
-                  )
-                : _c("p", [_vm._v("You have no recent searches.")]),
-            ]),
-            _vm._v(" "),
+        _c("div", { staticClass: "container" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("h5", { staticClass: "title_section pt-4" }, [
+            _vm._v("Special Offers"),
+          ]),
+          _vm._v(" "),
+          _c(
+            "p",
+            {
+              staticClass: "pl-2",
+              staticStyle: { "font-size": "16px", "font-family": "Raleway" },
+            },
+            [_vm._v("No Offers Available.")]
+          ),
+          _vm._v(" "),
+          _c("h5", { staticClass: "title_section pt-4" }, [
+            _vm._v("\n      Upcoming Events\n    "),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "popular_destination" },
+            [
+              _vm.events_list.length >= 1
+                ? _c("popular-tour", {
+                    attrs: { upcoming_list: _vm.events_list },
+                  })
+                : _c(
+                    "p",
+                    {
+                      staticStyle: {
+                        "font-size": "16px",
+                        "font-family": "Raleway",
+                      },
+                    },
+                    [_vm._v("No Events Available.")]
+                  ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "pb-5" }, [
             _c("h5", { staticClass: "title_section" }, [
-              _vm._v("\n      Popular Tours\n    "),
+              _vm._v("\n        Recent Searches "),
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "popular_destination" },
-              [
-                _c("popular-tour", {
-                  attrs: { upcoming_list: _vm.popular_list },
-                }),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("h5", { staticClass: "title_section" }, [
-              _vm._v("\n      Travel Blogs\n      "),
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "row" },
-              _vm._l(_vm.posts_list, function (post, index) {
-                return _c(
+            _vm.rSearches.length >= 1
+              ? _c(
                   "div",
-                  {
-                    key: index,
-                    staticClass:
-                      "col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0 blog-list",
-                  },
-                  [_c("blog-card", { attrs: { post: post } })],
+                  { staticClass: "resent_search" },
+                  [
+                    _c("popular-tour", {
+                      attrs: { upcoming_list: _vm.rSearches },
+                    }),
+                  ],
                   1
                 )
+              : _c(
+                  "p",
+                  {
+                    staticStyle: {
+                      "font-size": "16px",
+                      "font-family": "Raleway",
+                    },
+                  },
+                  [_vm._v("You have no recent searches.")]
+                ),
+          ]),
+          _vm._v(" "),
+          _c("h5", { staticClass: "title_section" }, [
+            _vm._v("\n      Popular Tours\n    "),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "popular_destination" },
+            [
+              _c("popular-tour", {
+                attrs: { upcoming_list: _vm.popular_list },
               }),
-              0
-            ),
-          ],
-          1
-        ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("h5", { staticClass: "title_section" }, [
+            _vm._v("\n      Travel Blogs\n      "),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "row" },
+            _vm._l(_vm.posts_list, function (post, index) {
+              return _c(
+                "div",
+                {
+                  key: index,
+                  staticClass:
+                    "col-12 col-sm-8 col-md-6 col-lg-4 mb-4 border-radius-0 blog-list",
+                },
+                [_c("blog-card", { attrs: { post: post } })],
+                1
+              )
+            }),
+            0
+          ),
+        ]),
       ])
     : _vm._e()
 }

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
+<head base href="/">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138734768-1"></script>
   <script>
@@ -20,7 +20,7 @@
   <link rel="icon" type="image/png" href="{{ asset('assets/front/images/favicon.png') }}" />
   {{-- <link rel="icon" type="image/png" href="{{ secure_asset('assets/front/images/favicon.png') }}" /> --}}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
+  
   <!-- Font awesome Icons -->
   <script src="https://kit.fontawesome.com/5810dc9d6a.js" crossorigin="anonymous"></script>
   
@@ -88,7 +88,12 @@
         });
     </script> --}}
     <style>
-
+        .jexcel_container td tr{
+          z-index: 10 !important;
+          }
+        .jexcel_content {
+          z-index: 100 !important;
+        }
         .vhd__datepicker__months {
             display: flex;
             flex-wrap: wrap;

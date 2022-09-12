@@ -14,6 +14,7 @@ import ContactUs from '@/front/routes/ContactUs.js';
 import ExploreDestination from '@/front/routes/ExploreDestination.js';
 import ErrorPage from '@/front/routes/Error.js';
 import Hotel from '@/front/routes/Hotel.js';
+import NameList from '@/front/routes/NameList.js';
 import Notification from '@/front/routes/Notification.js';
 import PaymentLink from '@/front/routes/PaymentLink.js';
 import User from '@/front/routes/User.js';
@@ -33,6 +34,7 @@ export function createRouter() {
             ...ErrorPage,
             ...Hotel,
             ...Feedback,
+            ...NameList,
             ...Notification,
             ...PaymentLink,
             ...User,

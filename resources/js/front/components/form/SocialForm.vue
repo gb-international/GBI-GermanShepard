@@ -120,11 +120,11 @@ export default {
         }).then((res) => {
           this.allSocial = res.data.data
           console.log(this.allSocial)
-          this.$swal.fire({
+          /*this.$swal.fire({
           icon: "success",
           title: "Success",
           text: "Social Account Connected."
-        })
+        })*/
       })
       .catch((error) => console.log(
         this.$swal.fire({
