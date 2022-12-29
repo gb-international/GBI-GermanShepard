@@ -1378,6 +1378,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1399,6 +1401,16 @@ var ExploreSearchMixin = {
       region: "national",
       noofdays_option: 10,
       tourtype_option: [],
+      clientType_option: [{
+        name: "Student",
+        id: "1"
+      }, {
+        name: "Corporate",
+        id: "2"
+      }, {
+        name: "General",
+        id: "3"
+      }],
       options: [],
       optionsHotel: [],
       destinationCities: [],
@@ -1450,18 +1462,19 @@ var ExploreSearchMixin = {
       allSearchdata: [],
       noofday: "",
       tourtype: "",
+      clientType: "",
       loading: false,
       page: 1,
       items_list: [],
       modoals_show: false,
       tour_type_text: '',
-      searchForm: new vform__WEBPACK_IMPORTED_MODULE_2__.Form({
+      searchForm: new vform__WEBPACK_IMPORTED_MODULE_2__.Form(_defineProperty({
         source: [],
         destination: [],
         tourtype: "",
-        noofday: "",
-        clientType: 'student'
-      })
+        clientType: "",
+        noofday: ""
+      }, "clientType", 'student'))
     };
   },
   computed: {
@@ -1672,6 +1685,15 @@ var ExploreSearchMixin = {
     selectFromParentComponent2: function selectFromParentComponent2() {
       // select option from parent component
       this.item2 = this.options2[0].value;
+    },
+    clientTypeOnChange: function clientTypeOnChange(event) {
+      this.clientType = event.target.value;
+
+      for (var i = 0; i < this.clientType_option.length; i++) {
+        if (this.clientType == this.clientType_option[i].id) {
+          this.clientType_text = this.clientType_option[i].name;
+        }
+      }
     },
     tourtypeOnChange: function tourtypeOnChange(event) {
       this.tourtype = event.target.value;

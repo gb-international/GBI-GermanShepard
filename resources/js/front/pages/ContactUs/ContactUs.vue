@@ -123,12 +123,58 @@
         </div>
       </div>
     </main>
+     <!-- Modal body -->
+          <div :class="showCount ? 'modal fade show' : 'modal fade' " aria-modal="true" style="padding-right: 17px; display: block;" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-div" role="document">
+              <div class="modal-content">
+                <div class="modal-head" style="margin: 10px !important;">
+                  <button type="button" class="close" @click="showCount = false">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <h5 class="counter-title" id="counterModal">We will be back soon</h5>
+                  <div class="CountDiv my-4">
+                  <div class="text-center CountDiv2">
+                   <span class="counterDigits">
+                      <p class="counter-style1" id="countDownD1"></p>
+                      <p class="counter-style1" id="countDownD2"></p>
+                   </span>
+                   <span class="counter-style2">Days</span> 
+                  </div>
+                  <div class="text-center CountDiv2">
+                   <span class="counterDigits">
+                      <p class="counter-style1" id="countDownH1"></p>
+                      <p class="counter-style1" id="countDownH2"></p>
+                   </span>
+                   <span class="counter-style2">Hours</span> 
+                  </div>
+                  <div class="text-center CountDiv2">
+                   <span class="counterDigits">
+                      <p class="counter-style1" id="countDownM1"></p>
+                      <p class="counter-style1" id="countDownM2"></p>
+                   </span>
+                   <span class="counter-style2">Minutes</span> 
+                  </div>
+                  <div class="text-center CountDiv2">
+                   <span class="counterDigits">
+                      <p class="counter-style1" id="countDownS1"></p>
+                      <p class="counter-style1" id="countDownS2"></p>
+                   </span>
+                   <span class="counter-style2">Seconds</span> 
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
   </div>
 </template>
 
 <script>
 import ContactusForm from "@/front/components/ContactusForm.vue";
 import Heading from '@/front/components/layout/Heading.vue';
+import counter from "@/front/pages/ContactUs/counter.js";
 export default {
   name: "ContactUs",
    metaInfo: {
@@ -141,7 +187,13 @@ export default {
   },
   components:{
     ContactusForm,
+    counter,
     Heading,
+  },
+  data() {
+    return {
+        showCount: true
+    };
   },
   beforeCreate(){
     var metaInfo = {
@@ -155,3 +207,84 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.counter-title{
+  font-size: 39px;
+  font-family: 'Nunito Sans';
+  font-weight: 700;
+  color: #212529;
+  text-align: center;
+  padding: 5px;
+  margin-right: 1.6vw;
+  margin-bottom: 15px;
+}
+.counterDigits{
+  display: flex;
+  justify-content: center;
+  margin-right: 1.6vw;
+}
+.counter-style1{
+  font-size: 28px;
+  font-family: 'Nunito Sans';
+  font-weight: 600;
+  color: white;
+  background: black;
+  text-align: center;
+  border: solid 1px;
+  border-radius: 5px;
+  margin-right: 1px;
+  padding: 5px 10px;
+}
+.counter-style2{
+  font-size: 15px;
+  font-family: 'Nunito Sans';
+  font-weight: 600;
+  color: black;
+  text-align: center;
+  margin-right: 1.6vw;
+  padding: 5px;
+  margin-top: -10px;
+}
+.CountDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.CountDiv2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.modal-div {
+    display: inline-block;
+    text-align: center;
+    width: 650px;
+}
+.modal-head {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: none !important;
+}
+@media (max-width: 665px) { 
+  .modal-div {
+    display: inline-block;
+    text-align: center;
+    width: 350px;
+ }
+ .counter-title{
+  font-size: 25px;
+}
+.counter-style1{
+  font-size: 17px;
+}
+.counter-style2{
+  font-size: 13px;
+}
+}
+</style>

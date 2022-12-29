@@ -78,4 +78,30 @@ class MapsController extends Controller
             
             return $data2;
     }
+
+    public function getPlaces(Request $request) {
+
+ 
+            /*$data = \GoogleMaps::load('nearbysearch')
+                    
+                    ->setParam([
+                    'location'  => '-33.8670522,151.1957362',
+                    'radius'    => '500',
+                    'name'      => 'sydney',
+                    'type'      => 'airport',
+                ])
+                ->getResponseByKey('results.photos');*/
+  
+                    
+            $data2 = \GoogleMaps::load('nearbysearch')           
+                    ->setParam([
+                        'location'  => $request->origin,
+                        'radius'    => $request->radius,
+                        'name'      => $request->name,
+                        'type'      => $request->type
+                ])
+                ->getResponseByKey('rows.elements');
+            
+            return $data2;
+    }
 }

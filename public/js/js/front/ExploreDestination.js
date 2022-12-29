@@ -1092,81 +1092,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -1311,7 +1236,7 @@ __webpack_require__.r(__webpack_exports__);
       // Submit form
       var vm = this;
 
-      if (vm.noofday == '' || vm.tourtype == '' || vm.noofday == 'No. of days' || vm.tourtype == 'In mood for') {
+      if (vm.noofday == '' || vm.tourtype == '' || vm.noofday == 'No. of days' || vm.tourtype == 'In mood for' || vm.clientType == 'Client Type') {
         return this.$swal.fire("Error", "Please select all the fields", "warning");
       }
 
@@ -1319,7 +1244,8 @@ __webpack_require__.r(__webpack_exports__);
       var source = [];
       var destination = [];
       vm.searchForm.noofday = vm.noofday;
-      vm.searchForm.tourtype = vm.tourtype; // if multicity search or simple search
+      vm.searchForm.tourtype = vm.tourtype;
+      vm.searchForm.clientType = vm.clientType; // if multicity search or simple search
 
       if (vm.tripType == 'multicity') {
         //Multiple city search
@@ -1405,6 +1331,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1426,6 +1354,16 @@ var ExploreSearchMixin = {
       region: "national",
       noofdays_option: 10,
       tourtype_option: [],
+      clientType_option: [{
+        name: "Student",
+        id: "1"
+      }, {
+        name: "Corporate",
+        id: "2"
+      }, {
+        name: "General",
+        id: "3"
+      }],
       options: [],
       optionsHotel: [],
       destinationCities: [],
@@ -1477,18 +1415,19 @@ var ExploreSearchMixin = {
       allSearchdata: [],
       noofday: "",
       tourtype: "",
+      clientType: "",
       loading: false,
       page: 1,
       items_list: [],
       modoals_show: false,
       tour_type_text: '',
-      searchForm: new vform__WEBPACK_IMPORTED_MODULE_2__.Form({
+      searchForm: new vform__WEBPACK_IMPORTED_MODULE_2__.Form(_defineProperty({
         source: [],
         destination: [],
         tourtype: "",
-        noofday: "",
-        clientType: 'student'
-      })
+        clientType: "",
+        noofday: ""
+      }, "clientType", 'student'))
     };
   },
   computed: {
@@ -1699,6 +1638,15 @@ var ExploreSearchMixin = {
     selectFromParentComponent2: function selectFromParentComponent2() {
       // select option from parent component
       this.item2 = this.options2[0].value;
+    },
+    clientTypeOnChange: function clientTypeOnChange(event) {
+      this.clientType = event.target.value;
+
+      for (var i = 0; i < this.clientType_option.length; i++) {
+        if (this.clientType == this.clientType_option[i].id) {
+          this.clientType_text = this.clientType_option[i].name;
+        }
+      }
     },
     tourtypeOnChange: function tourtypeOnChange(event) {
       this.tourtype = event.target.value;
@@ -13585,6 +13533,284 @@ var render = function () {
                                               "div",
                                               {
                                                 staticClass:
+                                                  "col-12 col-sm-6 col-lg-9",
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "col-sm-12 mt-1",
+                                                  },
+                                                  [
+                                                    _c("custLabel", [
+                                                      _vm._v(
+                                                        "Choose your transport"
+                                                      ),
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass: "row pb-2",
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-6 col-md-3 col-lg-2 mb-2",
+                                                            on: {
+                                                              click: function (
+                                                                $event
+                                                              ) {
+                                                                _vm.portType =
+                                                                  "car"
+                                                                _vm.getCities()
+                                                              },
+                                                            },
+                                                          },
+                                                          [
+                                                            _c("img", {
+                                                              staticClass:
+                                                                "cursor-pointer explore-icon-width",
+                                                              attrs: {
+                                                                src:
+                                                                  _vm.portType ==
+                                                                  "car"
+                                                                    ? _vm.$gbiAssets +
+                                                                      "/car_onclick_icon.png"
+                                                                    : _vm.$gbiAssets +
+                                                                      "/car_icon_src.png",
+                                                              },
+                                                            }),
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-6 col-md-3 col-lg-2 mb-2",
+                                                            on: {
+                                                              click: function (
+                                                                $event
+                                                              ) {
+                                                                _vm.portType =
+                                                                  "bus"
+                                                                _vm.getCities()
+                                                              },
+                                                            },
+                                                          },
+                                                          [
+                                                            _c("img", {
+                                                              staticClass:
+                                                                "cursor-pointer explore-icon-width",
+                                                              attrs: {
+                                                                src:
+                                                                  _vm.portType ==
+                                                                  "bus"
+                                                                    ? _vm.$gbiAssets +
+                                                                      "/bus_onclick_icon.png"
+                                                                    : _vm.$gbiAssets +
+                                                                      "/bus_icon_src.png",
+                                                              },
+                                                            }),
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-6 col-md-3 col-lg-2 mb-2",
+                                                            on: {
+                                                              click: function (
+                                                                $event
+                                                              ) {
+                                                                _vm.portType =
+                                                                  "train"
+                                                                _vm.getCities()
+                                                              },
+                                                            },
+                                                          },
+                                                          [
+                                                            _c("img", {
+                                                              staticClass:
+                                                                "cursor-pointer explore-icon-width",
+                                                              attrs: {
+                                                                src:
+                                                                  _vm.portType ==
+                                                                  "train"
+                                                                    ? _vm.$gbiAssets +
+                                                                      "/train_onclick_icon.png"
+                                                                    : _vm.$gbiAssets +
+                                                                      "/train_icon_src.png",
+                                                              },
+                                                            }),
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-6 col-md-3 col-lg-2 mb-2",
+                                                            on: {
+                                                              click: function (
+                                                                $event
+                                                              ) {
+                                                                _vm.portType =
+                                                                  "plane"
+                                                                _vm.getCities()
+                                                              },
+                                                            },
+                                                          },
+                                                          [
+                                                            _c("img", {
+                                                              staticClass:
+                                                                "cursor-pointer explore-icon-width",
+                                                              attrs: {
+                                                                src:
+                                                                  _vm.portType ==
+                                                                  "plane"
+                                                                    ? _vm.$gbiAssets +
+                                                                      "/flight_onclick_icon.png"
+                                                                    : _vm.$gbiAssets +
+                                                                      "/flight_icon_src.png",
+                                                              },
+                                                            }),
+                                                          ]
+                                                        ),
+                                                      ]
+                                                    ),
+                                                  ],
+                                                  1
+                                                ),
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "col-12 col-sm-6 col-lg-3 px-2",
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "row parent_padding",
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-12 input-p nopadding",
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "custLabel",
+                                                          {
+                                                            staticClass: "ml-2",
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "Customer Type"
+                                                            ),
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "select",
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "select",
+                                                              {
+                                                                staticClass:
+                                                                  "placeholder_color ui fluid search selection dropdown",
+                                                                attrs: {
+                                                                  name: "typetour",
+                                                                },
+                                                                on: {
+                                                                  change:
+                                                                    function (
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.clientTypeOnChange(
+                                                                        $event
+                                                                      )
+                                                                    },
+                                                                },
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "option",
+                                                                  {
+                                                                    attrs: {
+                                                                      selected:
+                                                                        "",
+                                                                      disabled:
+                                                                        "",
+                                                                    },
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "Client Type"
+                                                                    ),
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _vm._l(
+                                                                  _vm.clientType_option,
+                                                                  function (
+                                                                    index
+                                                                  ) {
+                                                                    return _c(
+                                                                      "option",
+                                                                      {
+                                                                        key: index.id,
+                                                                        domProps:
+                                                                          {
+                                                                            value:
+                                                                              index,
+                                                                          },
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "\n                                    " +
+                                                                            _vm._s(
+                                                                              index.name
+                                                                            ) +
+                                                                            "\n                                  "
+                                                                        ),
+                                                                      ]
+                                                                    )
+                                                                  }
+                                                                ),
+                                                              ],
+                                                              2
+                                                            ),
+                                                          ]
+                                                        ),
+                                                      ],
+                                                      1
+                                                    ),
+                                                  ]
+                                                ),
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
                                                   "col-6 col-sm-6 col-lg-3 input-p nopadding",
                                               },
                                               [
@@ -13779,468 +14005,6 @@ var render = function () {
                                                       2
                                                     ),
                                                   ]
-                                                ),
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "col-12 col-sm-6 col-lg-6 ml-2",
-                                              },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "row search-radio",
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "col-sm-12",
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "custLabel2",
-                                                          {
-                                                            staticClass: "pt-3",
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "Customer type"
-                                                            ),
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "row pb-3",
-                                                          },
-                                                          [
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "col-md-4 col-6",
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "custom-control custom-radio",
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "input",
-                                                                      {
-                                                                        directives:
-                                                                          [
-                                                                            {
-                                                                              name: "model",
-                                                                              rawName:
-                                                                                "v-model",
-                                                                              value:
-                                                                                _vm
-                                                                                  .searchForm
-                                                                                  .clientType,
-                                                                              expression:
-                                                                                "searchForm.clientType",
-                                                                            },
-                                                                          ],
-                                                                        staticClass:
-                                                                          "custom-control-input",
-                                                                        attrs: {
-                                                                          type: "radio",
-                                                                          id: "student",
-                                                                          name: "customRadio2",
-                                                                          value:
-                                                                            "student",
-                                                                        },
-                                                                        domProps:
-                                                                          {
-                                                                            checked:
-                                                                              _vm._q(
-                                                                                _vm
-                                                                                  .searchForm
-                                                                                  .clientType,
-                                                                                "student"
-                                                                              ),
-                                                                          },
-                                                                        on: {
-                                                                          change:
-                                                                            function (
-                                                                              $event
-                                                                            ) {
-                                                                              return _vm.$set(
-                                                                                _vm.searchForm,
-                                                                                "clientType",
-                                                                                "student"
-                                                                              )
-                                                                            },
-                                                                        },
-                                                                      }
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "label",
-                                                                      {
-                                                                        staticClass:
-                                                                          "custom-control-label",
-                                                                        attrs: {
-                                                                          for: "student",
-                                                                        },
-                                                                      },
-                                                                      [
-                                                                        _vm._v(
-                                                                          "Student"
-                                                                        ),
-                                                                      ]
-                                                                    ),
-                                                                  ]
-                                                                ),
-                                                              ]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "col-md-4 col-6",
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "custom-control custom-radio",
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "input",
-                                                                      {
-                                                                        directives:
-                                                                          [
-                                                                            {
-                                                                              name: "model",
-                                                                              rawName:
-                                                                                "v-model",
-                                                                              value:
-                                                                                _vm
-                                                                                  .searchForm
-                                                                                  .clientType,
-                                                                              expression:
-                                                                                "searchForm.clientType",
-                                                                            },
-                                                                          ],
-                                                                        staticClass:
-                                                                          "custom-control-input",
-                                                                        attrs: {
-                                                                          type: "radio",
-                                                                          id: "corporate",
-                                                                          name: "customRadio2",
-                                                                          value:
-                                                                            "corporate",
-                                                                        },
-                                                                        domProps:
-                                                                          {
-                                                                            checked:
-                                                                              _vm._q(
-                                                                                _vm
-                                                                                  .searchForm
-                                                                                  .clientType,
-                                                                                "corporate"
-                                                                              ),
-                                                                          },
-                                                                        on: {
-                                                                          change:
-                                                                            function (
-                                                                              $event
-                                                                            ) {
-                                                                              return _vm.$set(
-                                                                                _vm.searchForm,
-                                                                                "clientType",
-                                                                                "corporate"
-                                                                              )
-                                                                            },
-                                                                        },
-                                                                      }
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "label",
-                                                                      {
-                                                                        staticClass:
-                                                                          "custom-control-label",
-                                                                        attrs: {
-                                                                          for: "corporate",
-                                                                        },
-                                                                      },
-                                                                      [
-                                                                        _vm._v(
-                                                                          "Corporate"
-                                                                        ),
-                                                                      ]
-                                                                    ),
-                                                                  ]
-                                                                ),
-                                                              ]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "col-md-4 col-6",
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "custom-control custom-radio",
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "input",
-                                                                      {
-                                                                        directives:
-                                                                          [
-                                                                            {
-                                                                              name: "model",
-                                                                              rawName:
-                                                                                "v-model",
-                                                                              value:
-                                                                                _vm
-                                                                                  .searchForm
-                                                                                  .clientType,
-                                                                              expression:
-                                                                                "searchForm.clientType",
-                                                                            },
-                                                                          ],
-                                                                        staticClass:
-                                                                          "custom-control-input",
-                                                                        attrs: {
-                                                                          type: "radio",
-                                                                          id: "family",
-                                                                          name: "customRadio2",
-                                                                          value:
-                                                                            "family",
-                                                                        },
-                                                                        domProps:
-                                                                          {
-                                                                            checked:
-                                                                              _vm._q(
-                                                                                _vm
-                                                                                  .searchForm
-                                                                                  .clientType,
-                                                                                "family"
-                                                                              ),
-                                                                          },
-                                                                        on: {
-                                                                          change:
-                                                                            function (
-                                                                              $event
-                                                                            ) {
-                                                                              return _vm.$set(
-                                                                                _vm.searchForm,
-                                                                                "clientType",
-                                                                                "family"
-                                                                              )
-                                                                            },
-                                                                        },
-                                                                      }
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "label",
-                                                                      {
-                                                                        staticClass:
-                                                                          "custom-control-label",
-                                                                        attrs: {
-                                                                          for: "family",
-                                                                        },
-                                                                      },
-                                                                      [
-                                                                        _vm._v(
-                                                                          "Family"
-                                                                        ),
-                                                                      ]
-                                                                    ),
-                                                                  ]
-                                                                ),
-                                                              ]
-                                                            ),
-                                                          ]
-                                                        ),
-                                                      ],
-                                                      1
-                                                    ),
-                                                  ]
-                                                ),
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "col-12 col-sm-5 col-lg-5",
-                                              },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "col-sm-12" },
-                                                  [
-                                                    _c("custLabel", [
-                                                      _vm._v(
-                                                        "Choose your transport"
-                                                      ),
-                                                    ]),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass: "row pb-2",
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-6 col-md-2 mb-2",
-                                                            on: {
-                                                              click: function (
-                                                                $event
-                                                              ) {
-                                                                _vm.portType =
-                                                                  "car"
-                                                                _vm.getCities()
-                                                              },
-                                                            },
-                                                          },
-                                                          [
-                                                            _c("img", {
-                                                              staticClass:
-                                                                "cursor-pointer explore-icon-width",
-                                                              attrs: {
-                                                                src:
-                                                                  _vm.portType ==
-                                                                  "car"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/car_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/car_icon_src.png",
-                                                              },
-                                                            }),
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-6 col-md-2 mb-2",
-                                                            on: {
-                                                              click: function (
-                                                                $event
-                                                              ) {
-                                                                _vm.portType =
-                                                                  "bus"
-                                                                _vm.getCities()
-                                                              },
-                                                            },
-                                                          },
-                                                          [
-                                                            _c("img", {
-                                                              staticClass:
-                                                                "cursor-pointer explore-icon-width",
-                                                              attrs: {
-                                                                src:
-                                                                  _vm.portType ==
-                                                                  "bus"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/bus_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/bus_icon_src.png",
-                                                              },
-                                                            }),
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-6 col-md-2 mb-2",
-                                                            on: {
-                                                              click: function (
-                                                                $event
-                                                              ) {
-                                                                _vm.portType =
-                                                                  "train"
-                                                                _vm.getCities()
-                                                              },
-                                                            },
-                                                          },
-                                                          [
-                                                            _c("img", {
-                                                              staticClass:
-                                                                "cursor-pointer explore-icon-width",
-                                                              attrs: {
-                                                                src:
-                                                                  _vm.portType ==
-                                                                  "train"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/train_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/train_icon_src.png",
-                                                              },
-                                                            }),
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-6 col-md-2 mb-2",
-                                                            on: {
-                                                              click: function (
-                                                                $event
-                                                              ) {
-                                                                _vm.portType =
-                                                                  "plane"
-                                                                _vm.getCities()
-                                                              },
-                                                            },
-                                                          },
-                                                          [
-                                                            _c("img", {
-                                                              staticClass:
-                                                                "cursor-pointer explore-icon-width",
-                                                              attrs: {
-                                                                src:
-                                                                  _vm.portType ==
-                                                                  "plane"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/flight_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/flight_icon_src.png",
-                                                              },
-                                                            }),
-                                                          ]
-                                                        ),
-                                                      ]
-                                                    ),
-                                                  ],
-                                                  1
                                                 ),
                                               ]
                                             ),
@@ -14440,6 +14204,284 @@ var render = function () {
                                               "row p-0 parent_padding",
                                           },
                                           [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "col-12 col-sm-6 col-lg-6",
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "col-sm-12 mt-1",
+                                                  },
+                                                  [
+                                                    _c("custLabel", [
+                                                      _vm._v(
+                                                        "Choose your transport"
+                                                      ),
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass: "row pb-2",
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-6 col-md-3 mb-2",
+                                                            on: {
+                                                              click: function (
+                                                                $event
+                                                              ) {
+                                                                _vm.portType =
+                                                                  "car"
+                                                                _vm.getCities()
+                                                              },
+                                                            },
+                                                          },
+                                                          [
+                                                            _c("img", {
+                                                              staticClass:
+                                                                "cursor-pointer explore-icon-width",
+                                                              attrs: {
+                                                                src:
+                                                                  _vm.portType ==
+                                                                  "car"
+                                                                    ? _vm.$gbiAssets +
+                                                                      "/car_onclick_icon.png"
+                                                                    : _vm.$gbiAssets +
+                                                                      "/car_icon_src.png",
+                                                              },
+                                                            }),
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-6 col-md-3 mb-2",
+                                                            on: {
+                                                              click: function (
+                                                                $event
+                                                              ) {
+                                                                _vm.portType =
+                                                                  "bus"
+                                                                _vm.getCities()
+                                                              },
+                                                            },
+                                                          },
+                                                          [
+                                                            _c("img", {
+                                                              staticClass:
+                                                                "cursor-pointer explore-icon-width",
+                                                              attrs: {
+                                                                src:
+                                                                  _vm.portType ==
+                                                                  "bus"
+                                                                    ? _vm.$gbiAssets +
+                                                                      "/bus_onclick_icon.png"
+                                                                    : _vm.$gbiAssets +
+                                                                      "/bus_icon_src.png",
+                                                              },
+                                                            }),
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-6 col-md-3 mb-2",
+                                                            on: {
+                                                              click: function (
+                                                                $event
+                                                              ) {
+                                                                _vm.portType =
+                                                                  "train"
+                                                                _vm.getCities()
+                                                              },
+                                                            },
+                                                          },
+                                                          [
+                                                            _c("img", {
+                                                              staticClass:
+                                                                "cursor-pointer explore-icon-width",
+                                                              attrs: {
+                                                                src:
+                                                                  _vm.portType ==
+                                                                  "train"
+                                                                    ? _vm.$gbiAssets +
+                                                                      "/train_onclick_icon.png"
+                                                                    : _vm.$gbiAssets +
+                                                                      "/train_icon_src.png",
+                                                              },
+                                                            }),
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-6 col-md-3 mb-2",
+                                                            on: {
+                                                              click: function (
+                                                                $event
+                                                              ) {
+                                                                _vm.portType =
+                                                                  "plane"
+                                                                _vm.getCities()
+                                                              },
+                                                            },
+                                                          },
+                                                          [
+                                                            _c("img", {
+                                                              staticClass:
+                                                                "cursor-pointer explore-icon-width",
+                                                              attrs: {
+                                                                src:
+                                                                  _vm.portType ==
+                                                                  "plane"
+                                                                    ? _vm.$gbiAssets +
+                                                                      "/flight_onclick_icon.png"
+                                                                    : _vm.$gbiAssets +
+                                                                      "/flight_icon_src.png",
+                                                              },
+                                                            }),
+                                                          ]
+                                                        ),
+                                                      ]
+                                                    ),
+                                                  ],
+                                                  1
+                                                ),
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "col-12 col-sm-6 col-lg-6 px-2",
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "row parent_padding",
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-12 input-p nopadding",
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "custLabel",
+                                                          {
+                                                            staticClass: "ml-2",
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "Customer Type"
+                                                            ),
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "select",
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "select",
+                                                              {
+                                                                staticClass:
+                                                                  "placeholder_color ui fluid search selection dropdown",
+                                                                attrs: {
+                                                                  name: "typetour",
+                                                                },
+                                                                on: {
+                                                                  change:
+                                                                    function (
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.clientTypeOnChange(
+                                                                        $event
+                                                                      )
+                                                                    },
+                                                                },
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "option",
+                                                                  {
+                                                                    attrs: {
+                                                                      selected:
+                                                                        "",
+                                                                      disabled:
+                                                                        "",
+                                                                    },
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "Client Type"
+                                                                    ),
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _vm._l(
+                                                                  _vm.clientType_option,
+                                                                  function (
+                                                                    index
+                                                                  ) {
+                                                                    return _c(
+                                                                      "option",
+                                                                      {
+                                                                        key: index.id,
+                                                                        domProps:
+                                                                          {
+                                                                            value:
+                                                                              index,
+                                                                          },
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "\n                                    " +
+                                                                            _vm._s(
+                                                                              index.name
+                                                                            ) +
+                                                                            "\n                                  "
+                                                                        ),
+                                                                      ]
+                                                                    )
+                                                                  }
+                                                                ),
+                                                              ],
+                                                              2
+                                                            ),
+                                                          ]
+                                                        ),
+                                                      ],
+                                                      1
+                                                    ),
+                                                  ]
+                                                ),
+                                              ]
+                                            ),
+                                            _vm._v(" "),
                                             _c(
                                               "div",
                                               {
@@ -14827,468 +14869,6 @@ var render = function () {
                                                       2
                                                     ),
                                                   ]
-                                                ),
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "col-12 col-sm-6 col-lg-6 ml-2",
-                                              },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "row search-radio",
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "col-sm-12",
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "custLabel2",
-                                                          {
-                                                            staticClass: "pt-3",
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "Customer type"
-                                                            ),
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "row pb-3",
-                                                          },
-                                                          [
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "col-md-4 col-6",
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "custom-control custom-radio",
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "input",
-                                                                      {
-                                                                        directives:
-                                                                          [
-                                                                            {
-                                                                              name: "model",
-                                                                              rawName:
-                                                                                "v-model",
-                                                                              value:
-                                                                                _vm
-                                                                                  .searchForm
-                                                                                  .clientType,
-                                                                              expression:
-                                                                                "searchForm.clientType",
-                                                                            },
-                                                                          ],
-                                                                        staticClass:
-                                                                          "custom-control-input",
-                                                                        attrs: {
-                                                                          type: "radio",
-                                                                          id: "student",
-                                                                          name: "customRadio2",
-                                                                          value:
-                                                                            "student",
-                                                                        },
-                                                                        domProps:
-                                                                          {
-                                                                            checked:
-                                                                              _vm._q(
-                                                                                _vm
-                                                                                  .searchForm
-                                                                                  .clientType,
-                                                                                "student"
-                                                                              ),
-                                                                          },
-                                                                        on: {
-                                                                          change:
-                                                                            function (
-                                                                              $event
-                                                                            ) {
-                                                                              return _vm.$set(
-                                                                                _vm.searchForm,
-                                                                                "clientType",
-                                                                                "student"
-                                                                              )
-                                                                            },
-                                                                        },
-                                                                      }
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "label",
-                                                                      {
-                                                                        staticClass:
-                                                                          "custom-control-label",
-                                                                        attrs: {
-                                                                          for: "student",
-                                                                        },
-                                                                      },
-                                                                      [
-                                                                        _vm._v(
-                                                                          "Student"
-                                                                        ),
-                                                                      ]
-                                                                    ),
-                                                                  ]
-                                                                ),
-                                                              ]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "col-md-4 col-6",
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "custom-control custom-radio",
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "input",
-                                                                      {
-                                                                        directives:
-                                                                          [
-                                                                            {
-                                                                              name: "model",
-                                                                              rawName:
-                                                                                "v-model",
-                                                                              value:
-                                                                                _vm
-                                                                                  .searchForm
-                                                                                  .clientType,
-                                                                              expression:
-                                                                                "searchForm.clientType",
-                                                                            },
-                                                                          ],
-                                                                        staticClass:
-                                                                          "custom-control-input",
-                                                                        attrs: {
-                                                                          type: "radio",
-                                                                          id: "corporate",
-                                                                          name: "customRadio2",
-                                                                          value:
-                                                                            "corporate",
-                                                                        },
-                                                                        domProps:
-                                                                          {
-                                                                            checked:
-                                                                              _vm._q(
-                                                                                _vm
-                                                                                  .searchForm
-                                                                                  .clientType,
-                                                                                "corporate"
-                                                                              ),
-                                                                          },
-                                                                        on: {
-                                                                          change:
-                                                                            function (
-                                                                              $event
-                                                                            ) {
-                                                                              return _vm.$set(
-                                                                                _vm.searchForm,
-                                                                                "clientType",
-                                                                                "corporate"
-                                                                              )
-                                                                            },
-                                                                        },
-                                                                      }
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "label",
-                                                                      {
-                                                                        staticClass:
-                                                                          "custom-control-label",
-                                                                        attrs: {
-                                                                          for: "corporate",
-                                                                        },
-                                                                      },
-                                                                      [
-                                                                        _vm._v(
-                                                                          "Corporate"
-                                                                        ),
-                                                                      ]
-                                                                    ),
-                                                                  ]
-                                                                ),
-                                                              ]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "col-md-4 col-6",
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "custom-control custom-radio",
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "input",
-                                                                      {
-                                                                        directives:
-                                                                          [
-                                                                            {
-                                                                              name: "model",
-                                                                              rawName:
-                                                                                "v-model",
-                                                                              value:
-                                                                                _vm
-                                                                                  .searchForm
-                                                                                  .clientType,
-                                                                              expression:
-                                                                                "searchForm.clientType",
-                                                                            },
-                                                                          ],
-                                                                        staticClass:
-                                                                          "custom-control-input",
-                                                                        attrs: {
-                                                                          type: "radio",
-                                                                          id: "family",
-                                                                          name: "customRadio2",
-                                                                          value:
-                                                                            "family",
-                                                                        },
-                                                                        domProps:
-                                                                          {
-                                                                            checked:
-                                                                              _vm._q(
-                                                                                _vm
-                                                                                  .searchForm
-                                                                                  .clientType,
-                                                                                "family"
-                                                                              ),
-                                                                          },
-                                                                        on: {
-                                                                          change:
-                                                                            function (
-                                                                              $event
-                                                                            ) {
-                                                                              return _vm.$set(
-                                                                                _vm.searchForm,
-                                                                                "clientType",
-                                                                                "family"
-                                                                              )
-                                                                            },
-                                                                        },
-                                                                      }
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "label",
-                                                                      {
-                                                                        staticClass:
-                                                                          "custom-control-label",
-                                                                        attrs: {
-                                                                          for: "family",
-                                                                        },
-                                                                      },
-                                                                      [
-                                                                        _vm._v(
-                                                                          "Family"
-                                                                        ),
-                                                                      ]
-                                                                    ),
-                                                                  ]
-                                                                ),
-                                                              ]
-                                                            ),
-                                                          ]
-                                                        ),
-                                                      ],
-                                                      1
-                                                    ),
-                                                  ]
-                                                ),
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "col-12 col-sm-5 col-lg-5",
-                                              },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "col-sm-12" },
-                                                  [
-                                                    _c("custLabel", [
-                                                      _vm._v(
-                                                        "Choose your transport"
-                                                      ),
-                                                    ]),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass: "row pb-2",
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-6 col-md-2 mb-2",
-                                                            on: {
-                                                              click: function (
-                                                                $event
-                                                              ) {
-                                                                _vm.portType =
-                                                                  "car"
-                                                                _vm.getCities()
-                                                              },
-                                                            },
-                                                          },
-                                                          [
-                                                            _c("img", {
-                                                              staticClass:
-                                                                "cursor-pointer explore-icon-width",
-                                                              attrs: {
-                                                                src:
-                                                                  _vm.portType ==
-                                                                  "car"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/car_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/car_icon_src.png",
-                                                              },
-                                                            }),
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-6 col-md-2 mb-2",
-                                                            on: {
-                                                              click: function (
-                                                                $event
-                                                              ) {
-                                                                _vm.portType =
-                                                                  "bus"
-                                                                _vm.getCities()
-                                                              },
-                                                            },
-                                                          },
-                                                          [
-                                                            _c("img", {
-                                                              staticClass:
-                                                                "cursor-pointer explore-icon-width",
-                                                              attrs: {
-                                                                src:
-                                                                  _vm.portType ==
-                                                                  "bus"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/bus_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/bus_icon_src.png",
-                                                              },
-                                                            }),
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-6 col-md-2 mb-2",
-                                                            on: {
-                                                              click: function (
-                                                                $event
-                                                              ) {
-                                                                _vm.portType =
-                                                                  "train"
-                                                                _vm.getCities()
-                                                              },
-                                                            },
-                                                          },
-                                                          [
-                                                            _c("img", {
-                                                              staticClass:
-                                                                "cursor-pointer explore-icon-width",
-                                                              attrs: {
-                                                                src:
-                                                                  _vm.portType ==
-                                                                  "train"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/train_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/train_icon_src.png",
-                                                              },
-                                                            }),
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-6 col-md-2 mb-2",
-                                                            on: {
-                                                              click: function (
-                                                                $event
-                                                              ) {
-                                                                _vm.portType =
-                                                                  "plane"
-                                                                _vm.getCities()
-                                                              },
-                                                            },
-                                                          },
-                                                          [
-                                                            _c("img", {
-                                                              staticClass:
-                                                                "cursor-pointer explore-icon-width",
-                                                              attrs: {
-                                                                src:
-                                                                  _vm.portType ==
-                                                                  "plane"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/flight_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/flight_icon_src.png",
-                                                              },
-                                                            }),
-                                                          ]
-                                                        ),
-                                                      ]
-                                                    ),
-                                                  ],
-                                                  1
                                                 ),
                                               ]
                                             ),

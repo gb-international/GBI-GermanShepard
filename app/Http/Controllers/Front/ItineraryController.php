@@ -13,6 +13,7 @@ use App\Model\Season\Season;
 use App\Model\DefaultSet\DefaultSet;
 use DB;
 use Carbon\Carbon;
+use GoogleMaps as Map;
 use App\Jobs\SendItineraryRequestToGbiMailJob;
 class ItineraryController extends Controller
 {
@@ -219,6 +220,18 @@ class ItineraryController extends Controller
             'itinerarydays'
         ])->first();
         $data->count += 1;
+ 
+        /*$mapData = \GoogleMaps::load('nearbysearch')           
+        ->setParam([
+            //'location'  => $data->destination,
+            'radius'    => '500',
+            'name'      => $data->destination,
+            'type'      => 'airport'
+        ])
+        ->getResponseByKey('rows.elements');
+
+        $data->mapData = $mapData;*/
+        
         $data->save();
         return response()->json($data);
     }

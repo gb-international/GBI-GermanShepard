@@ -195,64 +195,75 @@
 
     <!-- Neightbourhood -->
      <div class="container mt-4" v-if="tabSelected == 'Neighbourhood' ">
-      <!-- <p class="heading2 mb-4" style="margin-top: 4vh">Explore Neighbourhood</p> -->
+       <p class="heading2 mb-4" style="margin-top: 4vh">Explore Neighbourhood</p>
 
-       <div style="background-color: #f77736; padding: 45px;"> 
+       <!-- <div style="background-color: #f77736; padding: 45px;"> 
             <div style="background-color: white; padding: 35px;">
               <p class="text-center" style="color: black; font-weight: bold; font-size: 20px; font-family: Raleway">Feature Under Development</p>
             </div>
-        </div>
+        </div>  -->
         <!-- Icons -->
-        <!-- <div class="icons-flex mt-2">
+        <div class="icons-flex mt-2">
           <div class="icons" :style="iconSelected == 'Communication' ? 'color: #f77736' : ''" @click="changeIcon('Communication')">
-            Communication
+            Commute
           </div>
           <div class="icons" :style="iconSelected == 'Movie' ? 'color: #f77736' : ''" @click="changeIcon('Movie')">
             Movie
           </div>
-          <div class="icons" :style="iconSelected == 'School' ? 'color: #f77736' : ''" @click="changeIcon('School')">
+          <!-- <div class="icons" :style="iconSelected == 'School' ? 'color: #f77736' : ''" @click="changeIcon('School')">
             School
           </div>
-          <div class="icons" :style="iconSelected == 'Bank' ? 'color: #f77736' : ''" @click="changeIcon('Bank')">
+         <div class="icons" :style="iconSelected == 'Bank' ? 'color: #f77736' : ''" @click="changeIcon('Bank')">
             Bank
-          </div>
+          </div> -->
           <div class="icons" :style="iconSelected == 'Food' ? 'color: #f77736' : ''" @click="changeIcon('Food')">
             Food
           </div>
           <div class="icons" :style="iconSelected == 'Sightseeing' ? 'color: #f77736' : ''" @click="changeIcon('Sightseeing')">
             Sightseeing
           </div>
-        </div> -->
+        </div>
 
-        <!-- Communication 
-        <div v-if="iconSelected == 'Communication'" style="margin-bottom: 22vh">
-          <p class="heading2 mb-4" style="margin-top: 4vh">Communication</p>
-        </div> -->
+        <!-- Commute -->
+        <div v-if="iconSelected == 'Communication'" style="margin-bottom: 1vh">
+          <p class="heading2 mb-4" style="margin-top: 4vh">Commute</p>
+        </div>
 
-        <!-- Movie 
-        <div v-if="iconSelected == 'Movie'" style="margin-bottom: 22vh">
+        <!-- Movie -->
+        <div v-if="iconSelected == 'Movie'" style="margin-bottom: 1vh">
           <p class="heading2 mb-4" style="margin-top: 4vh">Movie</p>
-        </div> -->
+        </div> 
 
         <!-- School 
-        <div v-if="iconSelected == 'School'" style="margin-bottom: 22vh">
+        <div v-if="iconSelected == 'School'" style="margin-bottom: 1vh">
           <p class="heading2 mb-4" style="margin-top: 4vh">School</p>
         </div> -->
 
-        <!-- Bank
-        <div v-if="iconSelected == 'Bank'" style="margin-bottom: 22vh">
+        <!-- Bank 
+        <div v-if="iconSelected == 'Bank'" style="margin-bottom: 1vh">
           <p class="heading2 mb-4" style="margin-top: 4vh">Bank</p>
-        </div>  -->
+        </div> -->
 
-        <!-- Food 
-        <div v-if="iconSelected == 'Food'" style="margin-bottom: 22vh">
+        <!-- Food -->
+        <div v-if="iconSelected == 'Food'" style="margin-bottom: 1vh">
           <p class="heading2 mb-4" style="margin-top: 4vh">Food</p>
-        </div> -->
+        </div> 
 
-        <!-- Sightseeing 
-        <div v-if="iconSelected == 'Sightseeing'" style="margin-bottom: 22vh">
+        <!-- Sightseeing -->
+        <div v-if="iconSelected == 'Sightseeing'" style="margin-bottom: 1vh">
           <p class="heading2 mb-4" style="margin-top: 4vh">Sightseeing</p>
-        </div> -->
+        </div> 
+
+
+        <div style="margin-bottom: 5vh">
+          <GmapMap style="width: 100%; height: 500px;" :zoom="1" :center="{lat: 0, lng: 0}"
+              ref="map">
+            <GmapMarker v-for="(marker, index) in markers"
+              :key="index"
+              :position="marker.latLng"
+              />
+          </GmapMap>
+        </div>
 
       </div>
 
@@ -293,6 +304,7 @@ export default {
   },
   data() {
     return {
+      markers: [],
       coupon_val: '',
       selectedPhoto: '',
       selectedDay: null,
@@ -350,6 +362,20 @@ export default {
     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
   },
   methods: {
+     generate() {
+      const spread = Math.random() + 0.001
+      this.center = {
+        lat: 1.38 + (Math.random() - 0.5) * spread,
+        lng: 103.8 + (Math.random() - 0.5) * spread,
+      }
+      this.markers = _.range(30)
+        .map(m => ({
+          latLng: {
+            lat: this.center.lat + (Math.random() - 0.5) * spread,
+            lng: this.center.lng + (Math.random() - 0.5) * spread,
+          }
+        }))
+    },
     couponsAlert(val){
       if(val){
         return this.$swal.fire("Error", "No Coupons Found", "warning");
@@ -633,14 +659,14 @@ export default {
 .priceSingleDiv p{
   font-size: 15.5px;
   font-weight: 500;
-  font-family: sans-serif;
+  font-family: 'Nunito Sans';
   color: #1d1b1b;
   margin-right: 3px;
 }
 .priceSingleDiv .p2{
   font-size: 16.2px;
   font-weight: 600;
-  font-family: sans-serif;
+  font-family: 'Nunito Sans' ;
   color: #1d1b1b;
 }
 .grandTotalDiv{
@@ -656,40 +682,40 @@ export default {
 .grandTotalMob p{
   font-size: 15px;
   font-weight: 600;
-  font-family: sans-serif;
+  font-family: 'Nunito Sans';
   color: #1d1b1b;
   margin-bottom: 0rem !important;
 }
 .grandTotalMob .smallP{
   font-size: 10px;
   font-weight: 500;
-  font-family: sans-serif;
+  font-family: 'Nunito Sans';
   color: #1d1b1b;
 }
 .grandTotalMob .p2{
   margin-top: 5px;
   font-size: 15.7px;
   font-weight: 600;
-  font-family: sans-serif;
+  font-family: 'Nunito Sans';
   color: black;
 }
 .grandTotalDiv p{
   font-size: 14px;
   font-weight: 500;
-  font-family: sans-serif;
+  font-family: 'Nunito Sans';
   color: #1d1b1b;
 }
 .grandTotalDiv .smallP{
   font-size: 11px;
   font-weight: 500;
-  font-family: sans-serif;
+  font-family: 'Nunito Sans';
   color: #1d1b1b;
 }
 .grandTotalDiv .p2{
   margin-top: 6px;
   font-size: 16.7px;
   font-weight: 600;
-  font-family: sans-serif;
+  font-family: 'Nunito Sans';
   color: #1d1b1b;
   color: black;
 }
@@ -703,14 +729,14 @@ export default {
 .couponDiv p{
   font-size: 15.5px;
   font-weight: 400;
-  font-family: sans-serif;
+  font-family: 'Nunito Sans';
   color: #3490dc;
   margin-right: 3px;
 }
 .couponDiv .p2{
   font-size: 16.2px;
   font-weight: 500;
-  font-family: sans-serif;
+  font-family: 'Nunito Sans';
   color: #3490dc;
 }
 .btnCpn{

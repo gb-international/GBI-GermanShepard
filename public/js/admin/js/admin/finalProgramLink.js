@@ -340,6 +340,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -369,6 +374,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {},
   methods: {
+    checkLen: function checkLen(val) {
+      if (val.length >= 30) {
+        this.$toast.fire({
+          icon: "warning",
+          title: "cannot exceed 30 characters"
+        });
+      }
+    },
     SendMsg: function SendMsg() {
       if (!this.form.ph_no || !this.form.it_name || !this.form.link || !this.form.start_date) {
         this.$toast.fire({
@@ -377,6 +390,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       } else {
         //this.Sending = true;
+        this.form.ph_no = this.form.ph_no.replace(/ /g, '');
         this.form.post("/api/finalprogram/send").then(function (res) {//this.Sending = false;
         })["catch"](function () {}); //this.$router.push('/');
 
@@ -433,7 +447,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* Chrome, Safari, Edge, Opera */\ninput[data-v-5bf59f64]::-webkit-outer-spin-button,\r\ninput[data-v-5bf59f64]::-webkit-inner-spin-button {\r\n  -webkit-appearance: none;\r\n  margin: 0;\n}\r\n\r\n/* Firefox */\ninput[type=number][data-v-5bf59f64] {\r\n  -moz-appearance: textfield;\n}\ninput[type=text][data-v-5bf59f64] {\r\n background: white !important;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* Chrome, Safari, Edge, Opera */\ninput[data-v-5bf59f64]::-webkit-outer-spin-button,\r\ninput[data-v-5bf59f64]::-webkit-inner-spin-button {\r\n  -webkit-appearance: none;\r\n  margin: 0;\n}\r\n\r\n/* Firefox */\ninput[type=number][data-v-5bf59f64] {\r\n  -moz-appearance: textfield;\n}\ninput[type=text][data-v-5bf59f64] {\r\n background: white !important;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1415,9 +1429,16 @@ var render = function () {
                                 },
                               ],
                               staticClass: "form-control",
-                              attrs: { type: "text", required: "" },
+                              attrs: {
+                                type: "text",
+                                maxlength: "30",
+                                required: "",
+                              },
                               domProps: { value: _vm.form.it_name },
                               on: {
+                                keyup: function ($event) {
+                                  return _vm.checkLen(_vm.form.it_name)
+                                },
                                 input: function ($event) {
                                   if ($event.target.composing) {
                                     return
@@ -1450,7 +1471,7 @@ var render = function () {
                               _vm._v("Customer Mobile Numbers"),
                             ]),
                             _vm._v(" "),
-                            _c("input", {
+                            _c("textarea", {
                               directives: [
                                 {
                                   name: "model",
@@ -1466,7 +1487,8 @@ var render = function () {
                               attrs: {
                                 type: "text",
                                 placeholder: "Mobile numbers",
-                                rows: "10",
+                                rows: "3",
+                                required: "",
                               },
                               domProps: { value: _vm.form.ph_no },
                               on: {
@@ -1568,9 +1590,13 @@ var render = function () {
                                 type: "text",
                                 placeholder: "Enter PDF Link",
                                 rows: "5",
+                                maxlength: "30",
                               },
                               domProps: { value: _vm.form.link },
                               on: {
+                                keyup: function ($event) {
+                                  return _vm.checkLen(_vm.form.link)
+                                },
                                 input: function ($event) {
                                   if ($event.target.composing) {
                                     return

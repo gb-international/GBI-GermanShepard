@@ -23,6 +23,8 @@ to submit the data we are using a function.
                 type="text"
                 class="form-control"
                 v-model="form.it_name"
+                maxlength="30"
+                @keyup="checkLen(form.it_name)"
                 required
               />
               <has-error :form="form" field="it_name"></has-error>
@@ -35,14 +37,15 @@ to submit the data we are using a function.
           <div class="col-sm-12">
             <div class="form-group">
               <label for="ph_no">Customer Mobile Numbers</label>
-              <input
+              <textarea
                 type="text"
                 class="form-control"
                 placeholder="Mobile numbers"
-                rows="10"
+                rows="3"
                 v-model="form.ph_no"
                 :class="{ 'is-invalid': form.errors.has('ph_no') }"
-              />
+                required
+              ></textarea>
               <has-error :form="form" field="ph_no"></has-error>
             </div>
           </div>
@@ -71,7 +74,9 @@ to submit the data we are using a function.
                 class="form-control"
                 placeholder="Enter PDF Link"
                 rows="5"
+                maxlength="30"
                 v-model="form.link"
+                @keyup="checkLen(form.link)"
                 :class="{ 'is-invalid': form.errors.has('link') }"
               />
               <has-error :form="form" field="link"></has-error>
@@ -116,6 +121,14 @@ export default {
   mounted() {
   },
   methods: {
+    checkLen(val){ 
+      if(val.length >= 30 ){
+        this.$toast.fire({
+                icon: "warning",
+                title: "cannot exceed 30 characters",
+              });
+      }
+    },
     SendMsg(){
       if(!this.form.ph_no  || !this.form.it_name  || !this.form.link || !this.form.start_date){
         this.$toast.fire({
@@ -125,6 +138,7 @@ export default {
       }
       else{
          //this.Sending = true;
+          this.form.ph_no = this.form.ph_no.replace(/ /g,'')
           this.form
             .post("/api/finalprogram/send")
             .then((res) => {

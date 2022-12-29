@@ -4,7 +4,7 @@ namespace App\Helpers;
 
 class SendSms{
     private $id = 'csrikhi@gbinternational.in';
-    private $pwd = 'Roger224225g32@';
+    private $pwd = 'BulandDarwaza26014@';
     
     public static function send($mobile,$template_id,$message){
         $phone = '91'.$mobile;

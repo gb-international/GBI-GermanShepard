@@ -19,6 +19,11 @@ const ExploreSearchMixin = {
             region: "national",
             noofdays_option: 10,
             tourtype_option: [],
+            clientType_option: [
+                { name: "Student", id: "1" },
+                { name: "Corporate", id: "2" },
+                { name: "General", id: "3" },
+            ],
             options: [],
             optionsHotel: [],
             destinationCities: [],
@@ -52,6 +57,7 @@ const ExploreSearchMixin = {
             allSearchdata: [],
             noofday: "",
             tourtype: "",
+            clientType: "",
             loading: false,
             page: 1,
             items_list: [],
@@ -61,6 +67,7 @@ const ExploreSearchMixin = {
                 source: [],
                 destination: [],
                 tourtype: "",
+                clientType: "",
                 noofday: "",
                 clientType: 'student',
             }),
@@ -236,6 +243,14 @@ const ExploreSearchMixin = {
         selectFromParentComponent2() {
             // select option from parent component
             this.item2 = this.options2[0].value;
+        },
+        clientTypeOnChange(event) {
+            this.clientType = event.target.value;
+            for (let i = 0; i < this.clientType_option.length;i++){
+                if(this.clientType == this.clientType_option[i].id){
+                    this.clientType_text = this.clientType_option[i].name;
+                }
+            }
         },
         tourtypeOnChange(event) {
             this.tourtype = event.target.value;

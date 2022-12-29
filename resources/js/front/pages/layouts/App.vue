@@ -9,12 +9,18 @@
       class="navbar navbar-expand-md bg-white navbar-light fixed-top z-index: 999"
       id="navbar"
     >
-      <div class="container">
+      <div class="container my-2">
         <router-link class="navbar-brand" :to="`/`">
           <img :src="$gbiAssets+'/assets/front/images/logo.png'" />
         </router-link>
 
-        <button
+        <div class="nav-item mr-10" v-if="login !== '1'">
+          <router-link class="nav-link" :to="`/contact-us`"
+                ><b style="color: #f77736">Contact Us</b></router-link
+              >
+        </div>
+
+        <!-- <button
           class="navbar-toggler collapsed"
           type="button"
           data-toggle="collapse"
@@ -268,9 +274,9 @@
             </li>
 
           </ul>
-        </div>
+        </div> -->
       </div>
-    </nav>
+    </nav> 
 
     <div class="modal" id="LoginForm">
       <div class="modal-dialog w-100">
@@ -298,10 +304,10 @@
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
-      <!-- Alert for cookies -->
-      <Cookies v-if="$route.name != 'TourForm'"/>
-      <!-- Intro modal -->
-      <intro v-if="$route.name != 'TourForm'"></intro>
+      <!-- Alert for cookies 
+      <Cookies v-if="$route.name != 'TourForm'"/> -->
+      <!-- Intro modal 
+      <intro v-if="$route.name != 'TourForm'"></intro> -->
     </div>
     <gbi-footer></gbi-footer>
     <chat> </chat>
