@@ -1062,81 +1062,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -1416,7 +1341,7 @@ var ExploreSearchMixin = {
       destinationCities: [],
       panel: "Itinerary",
       tripType: 'return',
-      portType: 'car',
+      portType: 'bus',
       sources: {
         value: "",
         text: "",
@@ -1875,6 +1800,30 @@ var ___CSS_LOADER_URL_REPLACEMENT_1___ = _laravel_mix_node_modules_css_loader_di
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = _laravel_mix_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()((_assets_img_ic_arrow_right_datepicker_regular_99ab0620_svg__WEBPACK_IMPORTED_MODULE_4___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".vhd__datepicker{position:absolute;top:3em;z-index:999;transition:all .2s ease-in-out;background-color:#fff;font-size:16px;font-family:Source Sans Pro,sans-serif,verdana,arial;line-height:.875em;overflow:hidden}.vhd__datepicker--right{right:0}.vhd__datepicker .vhd__square{position:relative;width:14.28571%;float:left}.vhd__datepicker .vhd__square:last-child{margin-bottom:1.5em}.vhd__datepicker button.next--mobile{border:1px solid #eaeaea;float:none;height:3.125em;width:100%;position:relative;-webkit-appearance:none;-moz-appearance:none;appearance:none;overflow:hidden;position:fixed;bottom:0;left:0;outline:none;box-shadow:0 5px 30px 10px rgba(0,0,0,.08);background:#fff}.vhd__datepicker button.next--mobile:after{background:transparent url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat 50%/8px;transform:rotate(90deg);content:\"\";position:absolute;width:200%;height:200%;top:-50%;left:-50%}.vhd__datepicker--closed{box-shadow:none;max-height:0}.vhd__datepicker--open{box-shadow:0 15px 30px 10px rgba(0,0,0,.08);max-height:56.25em}@media screen and (max-width:767px){.vhd__datepicker--open{box-shadow:none;height:100%;left:0;right:0;bottom:0;-webkit-overflow-scrolling:touch!important;position:fixed;top:0;width:100%}}.vhd__datepicker__header{text-align:left;position:absolute;top:0;left:0;right:0;padding:.5em}.vhd__datepicker__header-mobile{text-align:left;position:absolute;width:100%;z-index:1}.vhd__datepicker__wrapper{position:relative;display:inline-block;width:100%;height:3em;background:#fff url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") no-repeat 1em/1em}.vhd__datepicker__wrapper *,.vhd__datepicker__wrapper :after,.vhd__datepicker__wrapper :before{box-sizing:border-box}.vhd__datepicker__wrapper--grid .vhd__square .vhd__datepicker__month-day{border:1px solid #eaeaea;margin:-1px 0 0 -1px}.vhd__datepicker__wrapper--booking .vhd__datepicker__month-day-wrapper .day{display:inline;text-align:right;padding-top:.75em;padding-right:.75em;right:0;top:0;transform:none}.vhd__datepicker__wrapper--booking .vhd__datepicker__month-day:before{display:none}.vhd__datepicker__fullview{background:none;height:auto}.vhd__datepicker__fullview .vhd__datepicker__clear-button,.vhd__datepicker__fullview .vhd__datepicker__close-button,.vhd__datepicker__fullview .vhd__datepicker__dummy-wrapper,.vhd__datepicker__fullview .vhd__hide-on-desktop{display:none}.vhd__datepicker__fullview .vhd__datepicker{position:relative;top:0}.vhd__datepicker__fullview .vhd__hide-up-to-tablet{display:block}.vhd__datepicker__fullview .vhd__datepicker__month-button{display:inline-block}.vhd__datepicker__fullview .vhd__datepicker__months{position:static;margin:0;width:auto}.vhd__datepicker__fullview .vhd__datepicker__months:before{display:none}.vhd__datepicker__fullview .vhd__datepicker__months.vhd__datepicker__months--full{width:100%!important}.vhd__datepicker__dummy-wrapper{border:1px solid #eaeaea;cursor:pointer;display:flex;flex-wrap:wrap;justify-content:space-between;width:100%;height:100%}.vhd__datepicker__dummy-wrapper--no-border.vhd__datepicker__dummy-wrapper{border:0}.vhd__datepicker__dummy-wrapper--is-active{border:1px solid #0fb8ad}.vhd__datepicker__input{background:transparent;border:0;color:#35343d;font-size:14px;height:3.43em;line-height:3.43em;outline:none;padding:0 1.875em .125em;text-align:center;width:50%;word-spacing:.3125em}.vhd__datepicker__input:focus{outline:none}.vhd__datepicker__input:-moz-placeholder,.vhd__datepicker__input:-ms-input-placeholder,.vhd__datepicker__input::-moz-placeholder,.vhd__datepicker__input::-webkit-input-placeholder{color:#35343d}@media screen and (max-width:479px){.vhd__datepicker__input{text-indent:0;text-align:center}}.vhd__datepicker__input:first-child{background:transparent url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") no-repeat 100%/8px;width:50%}.vhd__datepicker__input--is-active{color:#35343d}.vhd__datepicker__input--is-active::-moz-placeholder{color:#35343d}.vhd__datepicker__input--is-active:-ms-input-placeholder{color:#35343d}.vhd__datepicker__input--is-active::placeholder{color:#35343d}.vhd__datepicker__input--is-active::-moz-placeholder{color:#35343d}.vhd__datepicker__input--is-active:-ms-input-placeholder{color:#35343d}.vhd__datepicker__input--is-active:-moz-placeholder{color:#35343d}.vhd__datepicker__input--single-date:first-child{width:100%;background:none;text-align:center}.vhd__datepicker__month-day-wrapper{height:0;padding-top:calc(100% - 1px)}.vhd__datepicker__month-day-wrapper span.day{z-index:1;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}.vhd__datepicker__month-day-wrapper .price{position:absolute;top:0;width:100%;text-align:center;font-weight:700;font-size:.75em}.vhd__datepicker__month-day{visibility:visible;text-align:center;color:#35343d;cursor:pointer}.vhd__datepicker__month-day:focus{outline:none}.vhd__datepicker__month-day--today{border:0}.vhd__datepicker__month-day--today .vhd__datepicker__month-day-wrapper{border:2px solid #0fb8ad;padding-top:calc(100% - 5px)}.vhd__datepicker__month-day--invalid-range{background-color:rgba(15,184,173,.3);color:#f3f5f8;cursor:not-allowed;position:relative}.vhd__datepicker__month-day--invalid{cursor:not-allowed;pointer-events:none}.vhd__datepicker__month-day--allowed-checkout:hover,.vhd__datepicker__month-day--valid:hover{background-color:#0fb8ad;color:#fff}.vhd__datepicker__month-day--disabled{opacity:1;background:#f5f7f8;color:#d8d8d8;cursor:not-allowed;pointer-events:none;font-weight:400}.vhd__datepicker__month-day--disabled span{text-decoration:line-through}.vhd__datepicker__month-day--not-allowed.vhd__currentDay,.vhd__datepicker__month-day--valid.vhd__datepicker__month-day--not-allowed,.vhd__datepicker__month-day--valid.vhd__datepicker__month-day--not-allowed:hover{color:#35343d;font-weight:400;cursor:default;background:transparent}.vhd__datepicker__month-day--not-allowed.vhd__currentDay span,.vhd__datepicker__month-day--valid.vhd__datepicker__month-day--not-allowed:hover span,.vhd__datepicker__month-day--valid.vhd__datepicker__month-day--not-allowed span{text-decoration:none}.vhd__datepicker__month-day--hovering.vhd__datepicker__month-day--not-allowed:hover{cursor:pointer}.vhd__datepicker__month-day--halfCheckIn,.vhd__datepicker__month-day--halfCheckOut{position:relative;overflow:hidden}.vhd__datepicker__month-day--halfCheckIn:before,.vhd__datepicker__month-day--halfCheckOut:before{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);content:\"\";z-index:-1;height:0;width:0;border-bottom:120px solid #f5f7f8;border-left:120px solid transparent}.vhd__datepicker__month-day--halfCheckOut:before{border-top:120px solid #f5f7f8;border-bottom:0;border-left:0;border-right:120px solid transparent}.vhd__datepicker__month-day--selected{background-color:rgba(15,184,173,.7);color:#fff}.vhd__datepicker__month-day--selected span{text-decoration:none}.vhd__datepicker__month-day--selected:hover{font-weight:700;background-color:#0fb8ad;color:#fff;z-index:1}.vhd__datepicker__month-day--hovering{background-color:rgba(15,184,173,.7);color:#fff;font-weight:700;cursor:pointer}.vhd__datepicker__month-day--hovering span{text-decoration:none}.vhd__datepicker__month-day--first-day-selected,.vhd__datepicker__month-day--last-day-selected{background:#0fb8ad;color:#fff;cursor:pointer;font-weight:700;pointer-events:auto}.vhd__datepicker__month-day--first-day-selected span,.vhd__datepicker__month-day--last-day-selected span{text-decoration:none}.vhd__datepicker__month-day--allowed-checkout{color:#424b53}.vhd__datepicker__month-day--out-of-range{color:#f3f5f8;cursor:not-allowed;font-weight:400;position:relative;pointer-events:none}.vhd__datepicker__month-day--out-of-range span{text-decoration:none}.vhd__datepicker__month-day--valid{cursor:pointer;font-weight:700}.vhd__datepicker__month-day--valid.vhd__datepicker__month-day--halfCheckIn.vhd__datepicker__month-day--last-day-selected{color:#fff}.vhd__datepicker__month-day--hidden{opacity:0;pointer-events:none}.vhd__datepicker__month-button{background:transparent url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat 50%/8px;width:2.5em;height:2.5em;border:1px solid #00ca9d;outline:none;text-align:center;cursor:pointer;opacity:1;transition:opacity .5s ease}.vhd__datepicker__month-button:hover{opacity:.65}.vhd__datepicker__month-button:focus{outline:none}.vhd__datepicker__month-button--prev{transform:rotateY(180deg)}.vhd__datepicker__month-button--next{float:right}.vhd__datepicker__month-button[disabled]{opacity:.2;cursor:not-allowed;pointer-events:none}.vhd__datepicker__inner{padding:0 2.5rem;position:relative;height:calc(100% - 3em)}@media screen and (max-width:767px){.vhd__datepicker__inner{padding:0}}.vhd__datepicker__months-wrapper{height:100%}.vhd__datepicker__months-wrapper .vhd__datepicker__months{margin-top:0;height:100%}.vhd__datepicker__months-wrapper .vhd__datepicker__months .vhd__datepicker__month .vhd__datepickerweek-name{font-size:1.25em}.vhd__datepicker .vhd__show-tooltip .vhd__datepicker__months{margin-top:10em;height:calc(100% - 10em)}.vhd__datepicker .vhd__show-tooltip .vhd__datepicker__tooltip--mobile{height:auto;opacity:1;padding:1em;visibility:visible}@media screen and (min-width:768px){.vhd__datepicker__months{display:flex;flex-wrap:wrap;width:40.625em;justify-content:space-between}.vhd__datepicker__months.vhd__datepicker__months--full{width:20.3125em!important}}@media screen and (max-width:767px){.vhd__datepicker__months{margin-top:5.625em;height:calc(100% - 5.625em);position:absolute;left:0;top:0;overflow-y:scroll;right:0;bottom:0;transition:all .2s ease}}.vhd__datepicker__months:before{content:\"\";background:#eaeaea;bottom:0;display:block;left:50%;position:absolute;top:0;width:1px}@media screen and (max-width:767px){.vhd__datepicker__months:before{display:none}}.vhd__datepicker__months--full .vhd__datepicker__month{width:100%!important;padding:0}.vhd__datepicker__months--full:before{display:none}.vhd__datepicker__month{font-size:.75em;width:50%;padding-right:.83334em}@media screen and (max-width:767px){.vhd__datepicker__month{width:100%;padding-right:0;padding-top:5em;height:30em}.vhd__datepicker__month:last-of-type{margin-bottom:5.416667em}}@media screen and (min-width:768px){.vhd__datepicker__month:last-of-type{padding-right:0;padding-left:.83334em}}.vhd__datepicker__month-caption{height:2.5em;vertical-align:middle}.vhd__datepicker__month-name{font-size:16px;font-weight:700;margin:0;padding:0 0 1.625em;pointer-events:none;text-align:center;line-height:2em;height:2.5em;padding-top:.5em}@media screen and (max-width:767px){.vhd__datepicker__month-name{margin-top:-3.125em;margin-bottom:0;position:absolute;width:100%}}.vhd__datepicker__week-days{height:2em;vertical-align:middle}.vhd__datepicker__week-row{height:2.5em;line-height:2.5em}@media screen and (max-width:767px){.vhd__datepicker__week-row{box-shadow:0 8px 12px 0 rgba(0,0,0,.1)}}.vhd__datepicker__week-name{width:14.28571%;float:left;font-size:1em;font-weight:400;color:#424b53;text-align:center}.vhd__datepicker__close-button{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:transparent;border:0;color:#35343d;cursor:pointer;font-size:1.3125em;font-weight:700;margin-top:0;outline:0;z-index:10000;position:fixed;right:.7143em;top:0;height:2.286em;line-height:2.286em}.vhd__datepicker__close-button i{display:block;font-style:inherit;transform:rotate(45deg)}.vhd__datepicker__clear-button{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:transparent;border:0;cursor:pointer;font-size:1.5625em;font-weight:700;height:100%;margin:0;padding:0;position:absolute;right:0;top:0;width:1.6em}.vhd__datepicker__clear-button svg{fill:none;stroke-linecap:round;stroke-width:.32em;stroke:#424b53;width:.56em;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}.vhd__datepicker__clear-button:focus{outline:none}.vhd__datepicker__tooltip{background-color:#2d3047;border-radius:2px;color:#fff;font-size:11px;padding:0,45em 0,91em;position:absolute;z-index:50;left:50%;bottom:100%;white-space:nowrap;transform:translateX(-50%);text-align:center}.vhd__datepicker__tooltip--mobile{height:0;opacity:0;visibility:hidden;padding:0 1.1em;border:1px solid #d7d9e2;font-size:14px;line-height:1.4;transition:all .2s ease}.vhd__datepicker__tooltip:after{border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid #2d3047;bottom:-.364em;content:\"\";left:50%;margin-left:-.364em;position:absolute}.-vhd__is-hidden{display:none}@media screen and (max-width:767px){.vhd__hide-up-to-tablet{display:none}}@media screen and (min-width:768px){.vhd__hide-on-desktop{display:none}}.vhd__parent-bullet{top:50%;height:100%;display:block;z-index:-1}.vhd__parent-bullet,.vhd__parent-bullet .vhd__bullet{position:absolute;left:50%;transform:translate(-50%,-50%);width:100%}.vhd__parent-bullet .vhd__bullet{top:60%;height:4px;transition:opacity .3s ease}@media screen and (min-width:768px){.vhd__parent-bullet .vhd__bullet{top:50%}}.vhd__parent-bullet .vhd__bullet.vhd__checkIn,.vhd__parent-bullet .vhd__bullet.vhd__checkInCheckOut,.vhd__parent-bullet .vhd__bullet.vhd__checkOut{width:.5em;height:1.125em;border-radius:.625em}.vhd__parent-bullet .vhd__bullet.vhd__checkIn.vhd__bullet--small,.vhd__parent-bullet .vhd__bullet.vhd__checkInCheckOut.vhd__bullet--small,.vhd__parent-bullet .vhd__bullet.vhd__checkOut.vhd__bullet--small{height:.375em;width:.875em}.vhd__parent-bullet .vhd__bullet.vhd__checkInCheckOut{left:calc(50% - 1em)}.vhd__parent-bullet .vhd__pipe{display:block;width:100%;height:4px;position:absolute;top:60%;transform:translateY(-50%);transition:opacity .3s ease}@media screen and (min-width:768px){.vhd__parent-bullet .vhd__pipe{top:50%}}.vhd__parent-bullet .vhd__pipe.pipe--small{height:3px}.vhd__parent-bullet .vhd__pipe.vhd__checkIn{left:calc(50% + 4px);width:calc(50% - 4px)}.vhd__parent-bullet .vhd__pipe.vhd__checkOut{left:0;width:calc(50% - 4px)}.vhd__parent-bullet .vhd__pipe.vhd__checkInCheckOut{width:calc(50% - 1.1875)}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.filter-gray[data-v-5a309514]{\n    filter: invert(25%) sepia(7%) saturate(497%) hue-rotate(314deg) brightness(94%) contrast(88%);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2740,6 +2689,36 @@ var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMP
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_vueHotelDatepicker_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_style_index_0_id_5a309514_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_style_index_0_id_5a309514_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_style_index_0_id_5a309514_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -12115,23 +12094,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ItineraryList_vue_vue_type_template_id_5a309514___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ItineraryList.vue?vue&type=template&id=5a309514& */ "./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&");
+/* harmony import */ var _ItineraryList_vue_vue_type_template_id_5a309514_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ItineraryList.vue?vue&type=template&id=5a309514&scoped=true& */ "./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&scoped=true&");
 /* harmony import */ var _ItineraryList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ItineraryList.vue?vue&type=script&lang=js& */ "./resources/js/front/components/ItineraryList.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _ItineraryList_vue_vue_type_style_index_0_id_5a309514_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css& */ "./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _ItineraryList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ItineraryList_vue_vue_type_template_id_5a309514___WEBPACK_IMPORTED_MODULE_0__.render,
-  _ItineraryList_vue_vue_type_template_id_5a309514___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _ItineraryList_vue_vue_type_template_id_5a309514_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ItineraryList_vue_vue_type_template_id_5a309514_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  null,
+  "5a309514",
   null
   
 )
@@ -12342,6 +12323,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css&":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css& ***!
+  \******************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_style_index_0_id_5a309514_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_style_index_0_id_5a309514_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/front/pages/Explore/ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css&":
 /*!*******************************************************************************************************************!*\
   !*** ./resources/js/front/pages/Explore/ExploreList.vue?vue&type=style&index=0&id=0f4046d6&scoped=true&lang=css& ***!
@@ -12375,19 +12372,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514& ***!
-  \****************************************************************************************/
+/***/ "./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&scoped=true& ***!
+  \****************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_template_id_5a309514___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_template_id_5a309514___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_template_id_5a309514_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_template_id_5a309514_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_template_id_5a309514___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ItineraryList.vue?vue&type=template&id=5a309514& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_template_id_5a309514_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ItineraryList.vue?vue&type=template&id=5a309514&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&scoped=true&");
 
 
 /***/ }),
@@ -12531,7 +12528,7 @@ var render = function () {
                         _c("div", { staticClass: "col" }, [
                           _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "tour_code" } }, [
-                              _vm._v(" No. of Days "),
+                              _vm._v("No. of Days"),
                             ]),
                             _vm._v(" "),
                             _c("p", { staticClass: "text-muted pl-4" }, [
@@ -12736,10 +12733,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&":
-/*!*******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514& ***!
-  \*******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -12799,17 +12796,17 @@ var render = function () {
                 _c(
                   "p",
                   {
-                    staticClass: "m-0 pl-10 font-weight-bold text-capitalize",
-                    class: itinerary.title.length <= 34 ? "cardPadding" : "",
+                    staticClass:
+                      "m-0 pl-10 font-weight-bold text-capitalize mt-2",
                     staticStyle: { "font-size": "18px" },
                   },
                   [
                     _vm._v(
                       _vm._s(
                         _vm._f("CapitalizeString")(
-                          _vm._f("sortlength")(itinerary.title, 50, "")
+                          _vm._f("sortlength")(itinerary.title, 30, "")
                         )
-                      )
+                      ) + _vm._s(itinerary.title.length > 30 ? "..." : "")
                     ),
                   ]
                 ),
@@ -12818,33 +12815,60 @@ var render = function () {
                   "p",
                   {
                     staticClass: "pl-10 mb-1",
-                    class: itinerary.title.length <= 34 ? "-mt-2" : "",
                     staticStyle: { "font-size": "16px" },
                   },
                   [_vm._v(_vm._s(itinerary.noofdays) + " Days Tour")]
                 ),
                 _vm._v(" "),
-                _vm._m(0, true),
+                _c("div", { staticClass: "d-flex flex-column pl-10" }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "priceText mt-2",
+                      staticStyle: {
+                        "font-size": "19.5px",
+                        "font-weight": "550",
+                        "margin-bottom": "0px !important",
+                        color: "#4a4343",
+                      },
+                    },
+                    [_vm._v("₹" + _vm._s(itinerary.price.toLocaleString()))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "personText",
+                      staticStyle: {
+                        "font-size": "15px",
+                        "font-weight": "400",
+                        color: "grey",
+                        "margin-top": "-6px",
+                      },
+                    },
+                    [_vm._v("per person")]
+                  ),
+                ]),
                 _vm._v(" "),
                 _c(
                   "div",
                   {
                     staticClass:
-                      "d-flex flex-row justify-content-between pb-2 mt-1",
+                      "d-flex flex-row justify-content-between pb-2 mt-2",
                   },
                   [
                     _c("div", { staticClass: "pl-10" }, [
                       itinerary.hotel_type != "0"
                         ? _c(
                             "div",
-                            { staticClass: "card-icon float-left p-0" },
+                            { staticClass: "card-icon float-left p-0 mr-1" },
                             [
                               _c("img", {
-                                staticClass: "explore-icon-width",
+                                staticClass: "explore-icon-width filter-gray",
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_hotel_icon.png",
+                                    "/images/icons/Itinerary_hotel_icon.svg",
                                 },
                               }),
                               _vm._v(" "),
@@ -12856,14 +12880,14 @@ var render = function () {
                       itinerary.train == 1
                         ? _c(
                             "div",
-                            { staticClass: "card-icon float-left p-0" },
+                            { staticClass: "card-icon float-left p-0 mr-1" },
                             [
                               _c("img", {
-                                staticClass: "explore-icon-width",
+                                staticClass: "explore-icon-width filter-gray",
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_bus_icon.png",
+                                    "/images/icons/Itinerary_train_icon.svg",
                                 },
                               }),
                               _vm._v(" "),
@@ -12875,14 +12899,14 @@ var render = function () {
                       itinerary.bus == "1"
                         ? _c(
                             "div",
-                            { staticClass: "card-icon float-left p-0" },
+                            { staticClass: "card-icon float-left p-0 mr-1" },
                             [
                               _c("img", {
-                                staticClass: "explore-icon-width",
+                                staticClass: "explore-icon-width filter-gray",
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_bus_icon.png",
+                                    "/images/icons/Itinerary_bus_icon.svg",
                                 },
                               }),
                               _vm._v(" "),
@@ -12897,11 +12921,11 @@ var render = function () {
                             { staticClass: "card-icon float-left p-0" },
                             [
                               _c("img", {
-                                staticClass: "explore-icon-width",
+                                staticClass: "explore-icon-width filter-gray",
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_flight_icon.png",
+                                    "/images/icons/Itinerary_flight_icon.svg",
                                 },
                               }),
                               _vm._v(" "),
@@ -12913,14 +12937,14 @@ var render = function () {
                       itinerary.food != "0"
                         ? _c(
                             "div",
-                            { staticClass: "card-icon float-left p-0" },
+                            { staticClass: "card-icon float-left p-0 mr-1" },
                             [
                               _c("img", {
-                                staticClass: "explore-icon-width",
+                                staticClass: "explore-icon-width filter-gray",
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_lunch_icon.png",
+                                    "/images/icons/Itinerary_lunch_icon.svg",
                                 },
                               }),
                               _vm._v(" "),
@@ -12930,7 +12954,7 @@ var render = function () {
                         : _vm._e(),
                     ]),
                     _vm._v(" "),
-                    _vm._m(1, true),
+                    _vm._m(0, true),
                   ]
                 ),
               ]),
@@ -12947,41 +12971,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex flex-column pl-10" }, [
-      _c(
-        "p",
-        {
-          staticClass: "priceText",
-          staticStyle: {
-            "font-size": "19.5px",
-            "font-weight": "550",
-            "margin-bottom": "0px !important",
-            color: "#4a4343",
-          },
-        },
-        [_vm._v("Rs. 10,000/-")]
-      ),
-      _vm._v(" "),
-      _c(
-        "p",
-        {
-          staticClass: "personText",
-          staticStyle: {
-            "font-size": "15px",
-            "font-weight": "400",
-            color: "grey",
-            "margin-top": "-6px",
-          },
-        },
-        [_vm._v("per person")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mr-10" }, [
+    return _c("div", { staticClass: "mr-10 mt-2" }, [
       _c(
         "button",
         { staticClass: "btn bookbtn-custom", attrs: { type: "button" } },
@@ -13125,22 +13115,6 @@ var render = function () {
                               [_vm._v("Itinerary")]
                             ),
                           ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "nav-item" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "nav-link border-none",
-                                attrs: { "data-toggle": "tab", href: "#menu1" },
-                                on: {
-                                  click: function ($event) {
-                                    _vm.panel = "Hotels"
-                                  },
-                                },
-                              },
-                              [_vm._v("Hotels")]
-                            ),
-                          ]),
                         ]
                       ),
                       _vm._v(" "),
@@ -13197,17 +13171,7 @@ var render = function () {
                                                     },
                                                   }),
                                                   _vm._v(" "),
-                                                  _c(
-                                                    "label",
-                                                    {
-                                                      staticClass:
-                                                        "custom-control-label",
-                                                      attrs: {
-                                                        for: "national",
-                                                      },
-                                                    },
-                                                    [_vm._v("Return")]
-                                                  ),
+                                                  _vm._m(0),
                                                 ]
                                               ),
                                             ]),
@@ -13253,17 +13217,7 @@ var render = function () {
                                                     },
                                                   }),
                                                   _vm._v(" "),
-                                                  _c(
-                                                    "label",
-                                                    {
-                                                      staticClass:
-                                                        "custom-control-label",
-                                                      attrs: {
-                                                        for: "international",
-                                                      },
-                                                    },
-                                                    [_vm._v("Multicity")]
-                                                  ),
+                                                  _vm._m(1),
                                                 ]
                                               ),
                                             ]),
@@ -13281,7 +13235,258 @@ var render = function () {
                                         "div",
                                         {
                                           staticClass:
-                                            "col-6 col-sm-6 col-lg-6 input-p nopadding",
+                                            "col-12 col-sm-6 col-lg-9",
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-sm-12 mt-1" },
+                                            [
+                                              _c("custLabel", [
+                                                _vm._v("Choose your transport"),
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "row pb-2" },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-3 col-lg-2 mb-2",
+                                                      on: {
+                                                        click: function (
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "plane"
+                                                          _vm.getCities()
+                                                        },
+                                                      },
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "plane"
+                                                              ? _vm.$gbiAssets +
+                                                                "/flight_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/flight_icon_src.png",
+                                                        },
+                                                      }),
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-3 col-lg-2 mb-2",
+                                                      on: {
+                                                        click: function (
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "train"
+                                                          _vm.getCities()
+                                                        },
+                                                      },
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "train"
+                                                              ? _vm.$gbiAssets +
+                                                                "/train_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/train_icon_src.png",
+                                                        },
+                                                      }),
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-3 col-lg-2 mb-2",
+                                                      on: {
+                                                        click: function (
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "car"
+                                                          _vm.getCities()
+                                                        },
+                                                      },
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "car"
+                                                              ? _vm.$gbiAssets +
+                                                                "/car_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/car_icon_src.png",
+                                                        },
+                                                      }),
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-3 col-lg-2 mb-2",
+                                                      on: {
+                                                        click: function (
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "bus"
+                                                          _vm.getCities()
+                                                        },
+                                                      },
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "bus"
+                                                              ? _vm.$gbiAssets +
+                                                                "/bus_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/bus_icon_src.png",
+                                                        },
+                                                      }),
+                                                    ]
+                                                  ),
+                                                ]
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-12 col-sm-6 col-lg-3 px-2",
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "row parent_padding",
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-12 input-p nopadding",
+                                                },
+                                                [
+                                                  _c(
+                                                    "custLabel",
+                                                    { staticClass: "ml-2" },
+                                                    [_vm._v("Customer Type")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    { staticClass: "select" },
+                                                    [
+                                                      _c(
+                                                        "select",
+                                                        {
+                                                          staticClass:
+                                                            "placeholder_color ui fluid search selection dropdown",
+                                                          attrs: {
+                                                            name: "typetour",
+                                                          },
+                                                          on: {
+                                                            change: function (
+                                                              $event
+                                                            ) {
+                                                              return _vm.clientTypeOnChange(
+                                                                $event
+                                                              )
+                                                            },
+                                                          },
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "option",
+                                                            {
+                                                              attrs: {
+                                                                selected: "",
+                                                                disabled: "",
+                                                              },
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "Client Type"
+                                                              ),
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _vm._l(
+                                                            _vm.clientType_option,
+                                                            function (index) {
+                                                              return _c(
+                                                                "option",
+                                                                {
+                                                                  key: index.id,
+                                                                  domProps: {
+                                                                    value:
+                                                                      index,
+                                                                  },
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "\n                                    " +
+                                                                      _vm._s(
+                                                                        index.name
+                                                                      ) +
+                                                                      "\n                                  "
+                                                                  ),
+                                                                ]
+                                                              )
+                                                            }
+                                                          ),
+                                                        ],
+                                                        2
+                                                      ),
+                                                    ]
+                                                  ),
+                                                ],
+                                                1
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-6 col-sm-6 col-lg-3 input-p nopadding",
                                         },
                                         [
                                           _c("model-select", {
@@ -13306,7 +13511,7 @@ var render = function () {
                                         "div",
                                         {
                                           staticClass:
-                                            "col-6 col-sm-6 col-lg-6 input-p nopadding",
+                                            "col-6 col-sm-6 col-lg-3 input-p nopadding",
                                         },
                                         [
                                           _c("model-select", {
@@ -13330,7 +13535,7 @@ var render = function () {
                                         "div",
                                         {
                                           staticClass:
-                                            "col-6 col-sm-6 col-lg-6 input-p nopadding",
+                                            "col-6 col-sm-6 col-lg-3 input-p nopadding",
                                         },
                                         [
                                           _c("div", { staticClass: "select" }, [
@@ -13392,7 +13597,7 @@ var render = function () {
                                         "div",
                                         {
                                           staticClass:
-                                            "col-6 col-sm-6 col-lg-6 input-p nopadding",
+                                            "col-6 col-sm-6 col-lg-3 input-p nopadding",
                                         },
                                         [
                                           _c("div", { staticClass: "select" }, [
@@ -13442,435 +13647,6 @@ var render = function () {
                                               2
                                             ),
                                           ]),
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "col-12 col-sm-6 col-lg-6 ml-2",
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            { staticClass: "row search-radio" },
-                                            [
-                                              _c(
-                                                "div",
-                                                { staticClass: "col-sm-12" },
-                                                [
-                                                  _c(
-                                                    "custLabel2",
-                                                    {
-                                                      staticClass: "pt-3",
-                                                      staticStyle: {
-                                                        "font-size": "13px",
-                                                      },
-                                                    },
-                                                    [_vm._v("Customer type")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    { staticClass: "row pb-3" },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "col-md-4 col-6",
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "custom-control custom-radio",
-                                                            },
-                                                            [
-                                                              _c("input", {
-                                                                directives: [
-                                                                  {
-                                                                    name: "model",
-                                                                    rawName:
-                                                                      "v-model",
-                                                                    value:
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                    expression:
-                                                                      "searchForm.clientType",
-                                                                  },
-                                                                ],
-                                                                staticClass:
-                                                                  "custom-control-input",
-                                                                attrs: {
-                                                                  type: "radio",
-                                                                  id: "student",
-                                                                  name: "customRadio2",
-                                                                  value:
-                                                                    "student",
-                                                                },
-                                                                domProps: {
-                                                                  checked:
-                                                                    _vm._q(
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                      "student"
-                                                                    ),
-                                                                },
-                                                                on: {
-                                                                  change:
-                                                                    function (
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.$set(
-                                                                        _vm.searchForm,
-                                                                        "clientType",
-                                                                        "student"
-                                                                      )
-                                                                    },
-                                                                },
-                                                              }),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "label",
-                                                                {
-                                                                  staticClass:
-                                                                    "custom-control-label",
-                                                                  attrs: {
-                                                                    for: "student",
-                                                                  },
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "Student"
-                                                                  ),
-                                                                ]
-                                                              ),
-                                                            ]
-                                                          ),
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "col-md-4 col-6",
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "custom-control custom-radio",
-                                                            },
-                                                            [
-                                                              _c("input", {
-                                                                directives: [
-                                                                  {
-                                                                    name: "model",
-                                                                    rawName:
-                                                                      "v-model",
-                                                                    value:
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                    expression:
-                                                                      "searchForm.clientType",
-                                                                  },
-                                                                ],
-                                                                staticClass:
-                                                                  "custom-control-input",
-                                                                attrs: {
-                                                                  type: "radio",
-                                                                  id: "corporate",
-                                                                  name: "customRadio2",
-                                                                  value:
-                                                                    "corporate",
-                                                                },
-                                                                domProps: {
-                                                                  checked:
-                                                                    _vm._q(
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                      "corporate"
-                                                                    ),
-                                                                },
-                                                                on: {
-                                                                  change:
-                                                                    function (
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.$set(
-                                                                        _vm.searchForm,
-                                                                        "clientType",
-                                                                        "corporate"
-                                                                      )
-                                                                    },
-                                                                },
-                                                              }),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "label",
-                                                                {
-                                                                  staticClass:
-                                                                    "custom-control-label",
-                                                                  attrs: {
-                                                                    for: "corporate",
-                                                                  },
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "Corporate"
-                                                                  ),
-                                                                ]
-                                                              ),
-                                                            ]
-                                                          ),
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "col-md-4 col-6",
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "custom-control custom-radio",
-                                                            },
-                                                            [
-                                                              _c("input", {
-                                                                directives: [
-                                                                  {
-                                                                    name: "model",
-                                                                    rawName:
-                                                                      "v-model",
-                                                                    value:
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                    expression:
-                                                                      "searchForm.clientType",
-                                                                  },
-                                                                ],
-                                                                staticClass:
-                                                                  "custom-control-input",
-                                                                attrs: {
-                                                                  type: "radio",
-                                                                  id: "family",
-                                                                  name: "customRadio2",
-                                                                  value:
-                                                                    "family",
-                                                                },
-                                                                domProps: {
-                                                                  checked:
-                                                                    _vm._q(
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                      "family"
-                                                                    ),
-                                                                },
-                                                                on: {
-                                                                  change:
-                                                                    function (
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.$set(
-                                                                        _vm.searchForm,
-                                                                        "clientType",
-                                                                        "family"
-                                                                      )
-                                                                    },
-                                                                },
-                                                              }),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "label",
-                                                                {
-                                                                  staticClass:
-                                                                    "custom-control-label",
-                                                                  attrs: {
-                                                                    for: "family",
-                                                                  },
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "Family"
-                                                                  ),
-                                                                ]
-                                                              ),
-                                                            ]
-                                                          ),
-                                                        ]
-                                                      ),
-                                                    ]
-                                                  ),
-                                                ],
-                                                1
-                                              ),
-                                            ]
-                                          ),
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "col-12 col-sm-5 col-lg-5",
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            { staticClass: "col-sm-12" },
-                                            [
-                                              _c("custLabel", [
-                                                _vm._v("Choose your transport"),
-                                              ]),
-                                              _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                { staticClass: "row pb-2" },
-                                                [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "col-6 col-md-2 mb-2",
-                                                      on: {
-                                                        click: function (
-                                                          $event
-                                                        ) {
-                                                          _vm.portType = "car"
-                                                          _vm.getCities()
-                                                        },
-                                                      },
-                                                    },
-                                                    [
-                                                      _c("img", {
-                                                        staticClass:
-                                                          "cursor-pointer explore-icon-width",
-                                                        attrs: {
-                                                          src:
-                                                            _vm.portType ==
-                                                            "car"
-                                                              ? _vm.$gbiAssets +
-                                                                "/car_onclick_icon.png"
-                                                              : _vm.$gbiAssets +
-                                                                "/car_icon_src.png",
-                                                        },
-                                                      }),
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "col-6 col-md-2 mb-2",
-                                                      on: {
-                                                        click: function (
-                                                          $event
-                                                        ) {
-                                                          _vm.portType = "bus"
-                                                          _vm.getCities()
-                                                        },
-                                                      },
-                                                    },
-                                                    [
-                                                      _c("img", {
-                                                        staticClass:
-                                                          "cursor-pointer explore-icon-width",
-                                                        attrs: {
-                                                          src:
-                                                            _vm.portType ==
-                                                            "bus"
-                                                              ? _vm.$gbiAssets +
-                                                                "/bus_onclick_icon.png"
-                                                              : _vm.$gbiAssets +
-                                                                "/bus_icon_src.png",
-                                                        },
-                                                      }),
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "col-6 col-md-2 mb-2",
-                                                      on: {
-                                                        click: function (
-                                                          $event
-                                                        ) {
-                                                          _vm.portType = "train"
-                                                          _vm.getCities()
-                                                        },
-                                                      },
-                                                    },
-                                                    [
-                                                      _c("img", {
-                                                        staticClass:
-                                                          "cursor-pointer explore-icon-width",
-                                                        attrs: {
-                                                          src:
-                                                            _vm.portType ==
-                                                            "train"
-                                                              ? _vm.$gbiAssets +
-                                                                "/train_onclick_icon.png"
-                                                              : _vm.$gbiAssets +
-                                                                "/train_icon_src.png",
-                                                        },
-                                                      }),
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "col-6 col-md-2 mb-2",
-                                                      on: {
-                                                        click: function (
-                                                          $event
-                                                        ) {
-                                                          _vm.portType = "plane"
-                                                          _vm.getCities()
-                                                        },
-                                                      },
-                                                    },
-                                                    [
-                                                      _c("img", {
-                                                        staticClass:
-                                                          "cursor-pointer explore-icon-width",
-                                                        attrs: {
-                                                          src:
-                                                            _vm.portType ==
-                                                            "plane"
-                                                              ? _vm.$gbiAssets +
-                                                                "/flight_onclick_icon.png"
-                                                              : _vm.$gbiAssets +
-                                                                "/flight_icon_src.png",
-                                                        },
-                                                      }),
-                                                    ]
-                                                  ),
-                                                ]
-                                              ),
-                                            ],
-                                            1
-                                          ),
                                         ]
                                       ),
                                     ]
@@ -13953,17 +13729,7 @@ var render = function () {
                                                     },
                                                   }),
                                                   _vm._v(" "),
-                                                  _c(
-                                                    "label",
-                                                    {
-                                                      staticClass:
-                                                        "custom-control-label",
-                                                      attrs: {
-                                                        for: "national",
-                                                      },
-                                                    },
-                                                    [_vm._v("Return")]
-                                                  ),
+                                                  _vm._m(2),
                                                 ]
                                               ),
                                             ]),
@@ -14009,17 +13775,7 @@ var render = function () {
                                                     },
                                                   }),
                                                   _vm._v(" "),
-                                                  _c(
-                                                    "label",
-                                                    {
-                                                      staticClass:
-                                                        "custom-control-label",
-                                                      attrs: {
-                                                        for: "international",
-                                                      },
-                                                    },
-                                                    [_vm._v("Multicity")]
-                                                  ),
+                                                  _vm._m(3),
                                                 ]
                                               ),
                                             ]),
@@ -14033,6 +13789,257 @@ var render = function () {
                                     "div",
                                     { staticClass: "row p-0 parent_padding" },
                                     [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-12 col-sm-6 col-lg-6",
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-sm-12 mt-1" },
+                                            [
+                                              _c("custLabel", [
+                                                _vm._v("Choose your transport"),
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "row pb-2" },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-3 mb-2",
+                                                      on: {
+                                                        click: function (
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "plane"
+                                                          _vm.getCities()
+                                                        },
+                                                      },
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "plane"
+                                                              ? _vm.$gbiAssets +
+                                                                "/flight_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/flight_icon_src.png",
+                                                        },
+                                                      }),
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-3 mb-2",
+                                                      on: {
+                                                        click: function (
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "train"
+                                                          _vm.getCities()
+                                                        },
+                                                      },
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "train"
+                                                              ? _vm.$gbiAssets +
+                                                                "/train_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/train_icon_src.png",
+                                                        },
+                                                      }),
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-3 mb-2",
+                                                      on: {
+                                                        click: function (
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "car"
+                                                          _vm.getCities()
+                                                        },
+                                                      },
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "car"
+                                                              ? _vm.$gbiAssets +
+                                                                "/car_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/car_icon_src.png",
+                                                        },
+                                                      }),
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-3 mb-2",
+                                                      on: {
+                                                        click: function (
+                                                          $event
+                                                        ) {
+                                                          _vm.portType = "bus"
+                                                          _vm.getCities()
+                                                        },
+                                                      },
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass:
+                                                          "cursor-pointer explore-icon-width",
+                                                        attrs: {
+                                                          src:
+                                                            _vm.portType ==
+                                                            "bus"
+                                                              ? _vm.$gbiAssets +
+                                                                "/bus_onclick_icon.png"
+                                                              : _vm.$gbiAssets +
+                                                                "/bus_icon_src.png",
+                                                        },
+                                                      }),
+                                                    ]
+                                                  ),
+                                                ]
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-12 col-sm-6 col-lg-6 px-2",
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "row parent_padding",
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-12 input-p nopadding",
+                                                },
+                                                [
+                                                  _c(
+                                                    "custLabel",
+                                                    { staticClass: "ml-2" },
+                                                    [_vm._v("Customer Type")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    { staticClass: "select" },
+                                                    [
+                                                      _c(
+                                                        "select",
+                                                        {
+                                                          staticClass:
+                                                            "placeholder_color ui fluid search selection dropdown",
+                                                          attrs: {
+                                                            name: "typetour",
+                                                          },
+                                                          on: {
+                                                            change: function (
+                                                              $event
+                                                            ) {
+                                                              return _vm.clientTypeOnChange(
+                                                                $event
+                                                              )
+                                                            },
+                                                          },
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "option",
+                                                            {
+                                                              attrs: {
+                                                                selected: "",
+                                                                disabled: "",
+                                                              },
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "Client Type"
+                                                              ),
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _vm._l(
+                                                            _vm.clientType_option,
+                                                            function (index) {
+                                                              return _c(
+                                                                "option",
+                                                                {
+                                                                  key: index.id,
+                                                                  domProps: {
+                                                                    value:
+                                                                      index,
+                                                                  },
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "\n                                    " +
+                                                                      _vm._s(
+                                                                        index.name
+                                                                      ) +
+                                                                      "\n                                  "
+                                                                  ),
+                                                                ]
+                                                              )
+                                                            }
+                                                          ),
+                                                        ],
+                                                        2
+                                                      ),
+                                                    ]
+                                                  ),
+                                                ],
+                                                1
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
                                       _c(
                                         "div",
                                         {
@@ -14352,435 +14359,6 @@ var render = function () {
                                               2
                                             ),
                                           ]),
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "col-12 col-sm-6 col-lg-6 ml-2",
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            { staticClass: "row search-radio" },
-                                            [
-                                              _c(
-                                                "div",
-                                                { staticClass: "col-sm-12" },
-                                                [
-                                                  _c(
-                                                    "custLabel2",
-                                                    {
-                                                      staticClass: "pt-3",
-                                                      staticStyle: {
-                                                        "font-size": "13px",
-                                                      },
-                                                    },
-                                                    [_vm._v("Customer type")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    { staticClass: "row pb-3" },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "col-md-4 col-6",
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "custom-control custom-radio",
-                                                            },
-                                                            [
-                                                              _c("input", {
-                                                                directives: [
-                                                                  {
-                                                                    name: "model",
-                                                                    rawName:
-                                                                      "v-model",
-                                                                    value:
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                    expression:
-                                                                      "searchForm.clientType",
-                                                                  },
-                                                                ],
-                                                                staticClass:
-                                                                  "custom-control-input",
-                                                                attrs: {
-                                                                  type: "radio",
-                                                                  id: "student",
-                                                                  name: "customRadio2",
-                                                                  value:
-                                                                    "student",
-                                                                },
-                                                                domProps: {
-                                                                  checked:
-                                                                    _vm._q(
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                      "student"
-                                                                    ),
-                                                                },
-                                                                on: {
-                                                                  change:
-                                                                    function (
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.$set(
-                                                                        _vm.searchForm,
-                                                                        "clientType",
-                                                                        "student"
-                                                                      )
-                                                                    },
-                                                                },
-                                                              }),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "label",
-                                                                {
-                                                                  staticClass:
-                                                                    "custom-control-label",
-                                                                  attrs: {
-                                                                    for: "student",
-                                                                  },
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "Student"
-                                                                  ),
-                                                                ]
-                                                              ),
-                                                            ]
-                                                          ),
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "col-md-4 col-6",
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "custom-control custom-radio",
-                                                            },
-                                                            [
-                                                              _c("input", {
-                                                                directives: [
-                                                                  {
-                                                                    name: "model",
-                                                                    rawName:
-                                                                      "v-model",
-                                                                    value:
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                    expression:
-                                                                      "searchForm.clientType",
-                                                                  },
-                                                                ],
-                                                                staticClass:
-                                                                  "custom-control-input",
-                                                                attrs: {
-                                                                  type: "radio",
-                                                                  id: "corporate",
-                                                                  name: "customRadio2",
-                                                                  value:
-                                                                    "corporate",
-                                                                },
-                                                                domProps: {
-                                                                  checked:
-                                                                    _vm._q(
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                      "corporate"
-                                                                    ),
-                                                                },
-                                                                on: {
-                                                                  change:
-                                                                    function (
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.$set(
-                                                                        _vm.searchForm,
-                                                                        "clientType",
-                                                                        "corporate"
-                                                                      )
-                                                                    },
-                                                                },
-                                                              }),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "label",
-                                                                {
-                                                                  staticClass:
-                                                                    "custom-control-label",
-                                                                  attrs: {
-                                                                    for: "corporate",
-                                                                  },
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "Corporate"
-                                                                  ),
-                                                                ]
-                                                              ),
-                                                            ]
-                                                          ),
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "col-md-4 col-6",
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "custom-control custom-radio",
-                                                            },
-                                                            [
-                                                              _c("input", {
-                                                                directives: [
-                                                                  {
-                                                                    name: "model",
-                                                                    rawName:
-                                                                      "v-model",
-                                                                    value:
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                    expression:
-                                                                      "searchForm.clientType",
-                                                                  },
-                                                                ],
-                                                                staticClass:
-                                                                  "custom-control-input",
-                                                                attrs: {
-                                                                  type: "radio",
-                                                                  id: "family",
-                                                                  name: "customRadio2",
-                                                                  value:
-                                                                    "family",
-                                                                },
-                                                                domProps: {
-                                                                  checked:
-                                                                    _vm._q(
-                                                                      _vm
-                                                                        .searchForm
-                                                                        .clientType,
-                                                                      "family"
-                                                                    ),
-                                                                },
-                                                                on: {
-                                                                  change:
-                                                                    function (
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.$set(
-                                                                        _vm.searchForm,
-                                                                        "clientType",
-                                                                        "family"
-                                                                      )
-                                                                    },
-                                                                },
-                                                              }),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "label",
-                                                                {
-                                                                  staticClass:
-                                                                    "custom-control-label",
-                                                                  attrs: {
-                                                                    for: "family",
-                                                                  },
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "Family"
-                                                                  ),
-                                                                ]
-                                                              ),
-                                                            ]
-                                                          ),
-                                                        ]
-                                                      ),
-                                                    ]
-                                                  ),
-                                                ],
-                                                1
-                                              ),
-                                            ]
-                                          ),
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "col-12 col-sm-5 col-lg-5",
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            { staticClass: "col-sm-12" },
-                                            [
-                                              _c("custLabel", [
-                                                _vm._v("Choose your transport"),
-                                              ]),
-                                              _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                { staticClass: "row pb-2" },
-                                                [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "col-6 col-md-2 mb-2",
-                                                      on: {
-                                                        click: function (
-                                                          $event
-                                                        ) {
-                                                          _vm.portType = "car"
-                                                          _vm.getCities()
-                                                        },
-                                                      },
-                                                    },
-                                                    [
-                                                      _c("img", {
-                                                        staticClass:
-                                                          "cursor-pointer explore-icon-width",
-                                                        attrs: {
-                                                          src:
-                                                            _vm.portType ==
-                                                            "car"
-                                                              ? _vm.$gbiAssets +
-                                                                "/car_onclick_icon.png"
-                                                              : _vm.$gbiAssets +
-                                                                "/car_icon_src.png",
-                                                        },
-                                                      }),
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "col-6 col-md-2 mb-2",
-                                                      on: {
-                                                        click: function (
-                                                          $event
-                                                        ) {
-                                                          _vm.portType = "bus"
-                                                          _vm.getCities()
-                                                        },
-                                                      },
-                                                    },
-                                                    [
-                                                      _c("img", {
-                                                        staticClass:
-                                                          "cursor-pointer explore-icon-width",
-                                                        attrs: {
-                                                          src:
-                                                            _vm.portType ==
-                                                            "bus"
-                                                              ? _vm.$gbiAssets +
-                                                                "/bus_onclick_icon.png"
-                                                              : _vm.$gbiAssets +
-                                                                "/bus_icon_src.png",
-                                                        },
-                                                      }),
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "col-6 col-md-2 mb-2",
-                                                      on: {
-                                                        click: function (
-                                                          $event
-                                                        ) {
-                                                          _vm.portType = "train"
-                                                          _vm.getCities()
-                                                        },
-                                                      },
-                                                    },
-                                                    [
-                                                      _c("img", {
-                                                        staticClass:
-                                                          "cursor-pointer explore-icon-width",
-                                                        attrs: {
-                                                          src:
-                                                            _vm.portType ==
-                                                            "train"
-                                                              ? _vm.$gbiAssets +
-                                                                "/train_onclick_icon.png"
-                                                              : _vm.$gbiAssets +
-                                                                "/train_icon_src.png",
-                                                        },
-                                                      }),
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "col-6 col-md-2 mb-2",
-                                                      on: {
-                                                        click: function (
-                                                          $event
-                                                        ) {
-                                                          _vm.portType = "plane"
-                                                          _vm.getCities()
-                                                        },
-                                                      },
-                                                    },
-                                                    [
-                                                      _c("img", {
-                                                        staticClass:
-                                                          "cursor-pointer explore-icon-width",
-                                                        attrs: {
-                                                          src:
-                                                            _vm.portType ==
-                                                            "plane"
-                                                              ? _vm.$gbiAssets +
-                                                                "/flight_onclick_icon.png"
-                                                              : _vm.$gbiAssets +
-                                                                "/flight_icon_src.png",
-                                                        },
-                                                      }),
-                                                    ]
-                                                  ),
-                                                ]
-                                              ),
-                                            ],
-                                            1
-                                          ),
                                         ]
                                       ),
                                     ]
@@ -16066,7 +15644,48 @@ var render = function () {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "custom-control-label", attrs: { for: "national" } },
+      [_c("b", [_vm._v("Return")])]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "custom-control-label", attrs: { for: "international" } },
+      [_c("b", [_vm._v("Multicity")])]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "custom-control-label", attrs: { for: "national" } },
+      [_c("b", [_vm._v("Return")])]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "custom-control-label", attrs: { for: "international" } },
+      [_c("b", [_vm._v("Multicity")])]
+    )
+  },
+]
 render._withStripped = true
 
 

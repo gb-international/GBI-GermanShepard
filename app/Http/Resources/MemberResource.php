@@ -21,6 +21,10 @@ class MemberResource extends JsonResource
         $role_name = 'N/A';
         $department_name = 'N/A';
         $parent_name = 'N/A';
+        $dob = "";
+        $phone_no = "";
+        $address = "N/A";
+        $gender = "";
 
         if($this->user_role_id){
             $userRole = UserRole::find($this->user_role_id);
@@ -33,18 +37,36 @@ class MemberResource extends JsonResource
         }
         if($this->parent_user){
             $parent = User::find($this->parent_user);
-            $parent_name = $parent->name;
+            if($parent){
+                $parent_name = $parent->name;
+            }
+        }
+
+        if($this->information){
+            if($this->information->dob){
+                $dob = $this->information->dob;
+            }
+            if($this->information->address){
+                $address = $this->information->address;
+            }
+            if($this->information->phone_no){
+                $phone_no =  $this->information->phone_no;
+            }
+            if($this->information->gender){
+                $gender =  $this->information->gender;
+            }
         }
         
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'dob' => $this->information->dob,
+            'dob' => $dob,
+            'gender' => $gender,
             'email' => $this->email,
             'department' => $department_id,
             'department_name' => $department_name,
-            'address' => $this->information->address,
-            'phone_no' => $this->information->phone_no,
+            'address' => $address,
+            'phone_no' => $phone_no,
             'role' => $role_id,
             'user_role_id' => $this->user_role_id,
             'role_name' => $role_name,

@@ -344,13 +344,13 @@
           </div>
 
           <div class="row mb-30">
-            <div class="col-sm-8">
+            <div class="col-sm-4">
               <div class="form-group">
-                <label for="titleId">Title</label>
+                <label for="titleId">Itinerary Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="Enter Title"
+                  placeholder="Enter Itinerary Name"
                   name="title"
                   v-model="form.title"
                   :class="{ 'is-invalid': form.errors.has('title') }"
@@ -358,6 +358,22 @@
                 <has-error :form="form" field="title"></has-error>
               </div>
             </div>
+
+            <div class="col-sm-4">
+            <div class="form-group">
+              <label for="priceId">Package Price/Person</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter Price"
+                name="price"
+                v-model="form.price"
+                :class="{ 'is-invalid': form.errors.has('price') }"
+              />
+              <has-error :form="form" field="price"></has-error>
+            </div>
+          </div>
 
             <div class="col-sm-4">
               <div class="form-group">
@@ -415,6 +431,9 @@
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
+                     <label class="label" for="input"
+                      >Thumbnail image</label>
+                    <br />
                     <input
                       @change="changePhoto($event)"
                       name="photo"
@@ -431,20 +450,18 @@
             </div>
 
             <div class="col-sm-6">
+              <label class="label" for="input"
+              >Banner image</label>
+              <br />
               <div class="row">
-                <div class="col-sm-5">
-                  <div class="form-group">
-                    <input
-                      @change="changeDetailPhoto($event)"
-                      type="file"
-                      class="overflow-hidden"
-                      :class="{ 'is-invalid': form.errors.has('detail_photo') }"
-                    />
+                  <div v-for="(img, index) in img_images" :key="index" class="mr-2 mb-2 shadow smallImages">
+                    <img :src="img" alt class="smallImages"/>
+                    <i class="fas fa-trash-alt delImgBtn" @click="delImg(index)"></i>
                   </div>
-                </div>
-                <div class="col-sm-7">
-                  <img v-if="detail_photo != ''" :src="detail_photo" alt width="80" height="80" class="detail_photo" />
-                </div>
+                  <div class="custom-card shadow ml-2 mb-2" @click="fileInput">
+                    <i class="fas fa-plus-circle" style="font-size: 35px;"></i>
+                  </div>
+                  <input type="file" ref="fileInput" style="display: none" @change="onFileInput" multiple accept=".png, .jpg, .jpeg, .pdf">
               </div>
             </div>
           </div>
@@ -528,23 +545,25 @@ export default {
       season_list: [],
       tags:[],
       meta_key: [],
+      img_images: [],
 
       selected: null,
       summeryWarn: false,
       meta_titleWarn: false,
       meta_keywordWarn: false,
       tagsWarn: false,
-      photo: "",
-      detail_photo: "",
+      photo: [],
+      detail_photo: [],
       form: new Form({
         meta_description: "",
         meta_title: "",
-        meta_keyword: "",
+        meta_keyword: [],
         tags: [],
         source: "",
         destination: "",
         noofdays: "",
         title: "",
+        price: "",
         description: "",
         tourtype: "",
         hotel_type: "",
@@ -560,6 +579,8 @@ export default {
         client_type:"",
         tourtypes: [],
         seasons: [],
+        delImages: [],
+        newImages: [],
         itinerarydays: [
           { day: 1, day_source: "", day_destination: "", day_description: "" },
         ],
@@ -604,14 +625,52 @@ export default {
           
       }*/
     },
+    fileInput(){
+      this.$refs.fileInput.click()
+    },
+    onFileInput(event){
+        for(let i=0; i<event.target.files.length; i++){
+          let file = event.target.files[i];
+          //this.detail_photo_alt[i] = file.name;
+          let reader = new FileReader();
+          reader.onload = (event) => {
+            //this.form.images.push(event.target.result);
+            this.img_images.push(event.target.result);
+            this.form.newImages.push(event.target.result);
+            //console.log(this.form.newImages);
+          };
+          reader.readAsDataURL(file);
+        }
+        //console.log(this.form.images[1])
+    },
+    delImg(index){
+       this.form.delImages.push(this.detail_photo[index]);
+       this.img_images = this.img_images.slice(0, index).concat(this.img_images.slice(index + 1));
+       this.detail_photo = this.detail_photo.slice(0, index).concat(this.detail_photo.slice(index + 1));
+       //this.form.detail_photo_alt = this.form.detail_photo_alt.slice(0, index).concat(this.form.detail_photo_alt.slice(index + 1));
+    },
     itineraryList() {
       axios
         .get(`/api/itinerary/${this.$route.params.itineraryid}/edit`)
         .then((response) => {
           setTimeout(() => $("#example").DataTable(), 1000);
           this.form.fill(response.data);
+          console.log(this.form);
           this.photo = response.data.photo;
-          this.detail_photo = response.data.detail_photo;
+          //this.detail_photo = response.data.detail_photo;
+          //this.form.detail_photo_alt = response.data.detail_photo_alt;
+
+          if(response.data.itineraryimages.length > 1){
+            for(let i = 0; i < response.data.itineraryimages.length; i++){
+              var imge = this.$gbiAssets+'/'+response.data.itineraryimages[i].image
+              this.img_images.push(imge);
+              this.detail_photo.push(response.data.itineraryimages[i].image);
+            }
+          }
+
+          this.form.newImages = [];
+          this.form.delImages = [];
+
           var day_data = response.data.itinerarydays;
           for (var i = 0; i < day_data.length; i++) {
             if (this.itinerarydays.length != day_data.length) {
@@ -705,6 +764,13 @@ export default {
       reader.readAsDataURL(file);
     },
     updateItinerary() {
+      /*if (this.img_images.length < 7) {
+        this.$toast.fire({
+            icon: "error",
+            title: "7 Banner Images Required!",
+        });
+        return false;
+      }*/
       if (!this.form.meta_keyword.length) {
         this.meta_keywordWarn = true
         this.$toast.fire({
@@ -766,6 +832,7 @@ export default {
         ];
       }
       this.form.tags = this.form.meta_keyword
+      console.log(this.form)
       // Submit the form via a itinerary request
       this.form
         .put(`/api/itinerary/${this.$route.params.itineraryid}`)
@@ -822,4 +889,27 @@ export default {
     font-size: 80%;
     color: #dc3545;
   }
+.smallImages{
+  width: 140px; 
+  height: 93px;
+  position: relative;
+}
+.delImgBtn{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 4px;
+  font-size: 16px;
+  color: #d12121;
+}
+.custom-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 93px;
+  width: 143px;
+  background: #e5e5e5;
+  border: solid 2px #e5e5e5;
+  border-radius: 5px;
+}
 </style>

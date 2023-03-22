@@ -719,6 +719,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -755,6 +762,11 @@ __webpack_require__.r(__webpack_exports__);
       categoryWarn: false,
       tagsWarn: false,
       clientTypeWarn: false,
+      titleWarn: false,
+      descriptionWarn: false,
+      summeryWarn: false,
+      meta_titleWarn: false,
+      meta_keywordWarn: false,
       status_list: [{
         name: "Draft",
         id: 0
@@ -783,6 +795,40 @@ __webpack_require__.r(__webpack_exports__);
     this.getTags();
   },
   methods: {
+    changeField: function changeField(field, input) {
+      if (field === 'title') {
+        if (input === '') {
+          this.titleWarn = true;
+        } else {
+          this.titleWarn = false;
+          this.form.title = input;
+        }
+      }
+
+      if (field === 'summery') {
+        if (input === '') {
+          this.summeryWarn = true;
+        } else {
+          this.summeryWarn = false;
+        }
+      }
+
+      if (field === 'meta_title') {
+        if (input === '') {
+          this.meta_titleWarn = true;
+        } else {
+          this.meta_titleWarn = false;
+        }
+      }
+
+      if (field === 'meta_keyword') {
+        if (input === '') {
+          this.meta_keywordWarn = true;
+        } else {
+          this.meta_keywordWarn = false;
+        }
+      }
+    },
     getCategories: function getCategories() {
       var _this = this;
 
@@ -835,33 +881,89 @@ __webpack_require__.r(__webpack_exports__);
     AddPost: function AddPost() {
       var _this3 = this;
 
-      if (!this.img_image) {
-        this.imageWarn = true;
+      if (!this.form.title) {
+        this.titleWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Title Required"
+        });
+        return false;
+      }
+
+      if (!this.form.description) {
+        this.descriptionWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Description Required"
+        });
+        return false;
+      }
+
+      if (!this.form.summery) {
+        this.summeryWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Summary Required"
+        });
+        return false;
+      }
+
+      if (!this.form.meta_title) {
+        this.meta_titleWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Meta Title Required"
+        });
+        return false;
+      }
+
+      if (this.form.meta_keyword.length < 1) {
+        this.tagsWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Meta Keywords Required"
+        });
         return false;
       }
 
       if (this.form.status === '') {
         this.statusWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Blog Status Required"
+        });
         return false;
       }
 
       if (this.form.category === '') {
         this.categoryWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Blog Category Required"
+        });
         return false;
       }
 
-      if (this.meta_key.length < 1) {
-        this.tagsWarn = true;
-        return false;
-      }
-
-      if (this.form.clientTypeWarn === '') {
+      if (this.form.client_type === '') {
         this.clientTypeWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Client Type Required"
+        });
         return false;
       }
 
-      this.loading = true;
-      this.form.tags = this.form.meta_keyword; //console.log(this.form.tags)
+      if (!this.img_image) {
+        this.imageWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Banner Image Required"
+        });
+        return false;
+      }
+
+      this.form.tags = this.form.meta_keyword;
+      this.loading = true; //console.log(this.form.tags)
 
       this.form.category_id = this.form.category.id;
       this.form.user_id = window.userId;
@@ -957,7 +1059,35 @@ var Vue2EditorMixin = {
       editorSettings: {
         modules: {
           imageDrop: true,
-          imageResize: {}
+          imageResize: {},
+          toolbar: [//[{ header: [false, 1, 2, 3, 4, 5, 6] }],
+          ["bold", "italic", "underline", "strike"], // toggled buttons
+          [{
+            align: ""
+          }, {
+            align: "center"
+          }, {
+            align: "right"
+          }, {
+            align: "justify"
+          }], ["blockquote", "code-block"], [{
+            list: "ordered"
+          }, {
+            list: "bullet"
+          }, {
+            list: "check"
+          }], [{
+            indent: "-1"
+          }, {
+            indent: "+1"
+          }], // outdent/indent
+          [{
+            color: []
+          }, {
+            background: []
+          }], // dropdown with defaults from theme
+          ["link", "image", "video"], ["clean"] // remove formatting button
+          ]
         }
       }
     };
@@ -17630,18 +17760,36 @@ var render = function () {
                             attrs: { type: "text", placeholder: "Enter title" },
                             domProps: { value: _vm.form.title },
                             on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(_vm.form, "title", $event.target.value)
-                              },
+                              input: [
+                                function ($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "title",
+                                    $event.target.value
+                                  )
+                                },
+                                function ($event) {
+                                  return _vm.changeField(
+                                    "title",
+                                    $event.target.value
+                                  )
+                                },
+                              ],
                             },
                           }),
                           _vm._v(" "),
                           _c("has-error", {
                             attrs: { form: _vm.form, field: "title" },
                           }),
+                          _vm._v(" "),
+                          _vm.titleWarn
+                            ? _c("p", { staticClass: "warn-error" }, [
+                                _vm._v(" Title can't be empty."),
+                              ])
+                            : _vm._e(),
                         ],
                         1
                       ),
@@ -17682,6 +17830,12 @@ var render = function () {
                           _c("has-error", {
                             attrs: { form: _vm.form, field: "description" },
                           }),
+                          _vm._v(" "),
+                          _vm.descriptionWarn && !_vm.form.description
+                            ? _c("p", { staticClass: "warn-error" }, [
+                                _vm._v(" Please input description."),
+                              ])
+                            : _vm._e(),
                         ],
                         1
                       ),
@@ -17716,6 +17870,12 @@ var render = function () {
                             },
                             domProps: { value: _vm.form.summery },
                             on: {
+                              change: function ($event) {
+                                return _vm.changeField(
+                                  "summery",
+                                  $event.target.value
+                                )
+                              },
                               input: function ($event) {
                                 if ($event.target.composing) {
                                   return
@@ -17732,6 +17892,12 @@ var render = function () {
                           _c("has-error", {
                             attrs: { form: _vm.form, field: "summery" },
                           }),
+                          _vm._v(" "),
+                          _vm.summeryWarn
+                            ? _c("p", { staticClass: "warn-error" }, [
+                                _vm._v(" Please input summary."),
+                              ])
+                            : _vm._e(),
                         ],
                         1
                       ),
@@ -17765,6 +17931,12 @@ var render = function () {
                             },
                             domProps: { value: _vm.form.meta_title },
                             on: {
+                              change: function ($event) {
+                                return _vm.changeField(
+                                  "meta_title",
+                                  $event.target.value
+                                )
+                              },
                               input: function ($event) {
                                 if ($event.target.composing) {
                                   return
@@ -17781,6 +17953,12 @@ var render = function () {
                           _c("has-error", {
                             attrs: { form: _vm.form, field: "meta_title" },
                           }),
+                          _vm._v(" "),
+                          _vm.meta_titleWarn
+                            ? _c("p", { staticClass: "warn-error" }, [
+                                _vm._v(" Please input Meta Title."),
+                              ])
+                            : _vm._e(),
                         ],
                         1
                       ),

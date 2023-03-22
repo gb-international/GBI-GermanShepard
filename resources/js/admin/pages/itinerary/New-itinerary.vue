@@ -156,7 +156,7 @@ to submit the data we are using a function.
             </div>
           </div>
         </div>
-        <!-- Adding toure type and transport, hotel type to the itinerary -->
+        <!-- Adding tour type and transport, hotel type to the itinerary -->
         <div class="row">
           <div class="col-sm-4">
             <div class="form-group">
@@ -367,18 +367,33 @@ to submit the data we are using a function.
         </div>
         <!-- Title and description for the itinerary -->
         <div class="row">
-          <div class="col-sm-8">
+          <div class="col-sm-4">
             <div class="form-group">
-              <label for="titleId">Title</label>
+              <label for="titleId">Itinerary Name</label>
               <input
                 type="text"
                 class="form-control"
-                placeholder="Enter Title"
+                placeholder="Enter Itinerary Name"
                 name="title"
                 v-model="form.title"
                 :class="{ 'is-invalid': form.errors.has('title') }"
               />
               <has-error :form="form" field="title"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="priceId">Package Price/Person</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter Price"
+                name="price"
+                v-model="form.price"
+                :class="{ 'is-invalid': form.errors.has('price') }"
+              />
+              <has-error :form="form" field="price"></has-error>
             </div>
           </div>
           <div class="col-sm-4">
@@ -468,17 +483,16 @@ to submit the data we are using a function.
                 >Please upload a Banner image !</label
               >
               <br />
-              <input
-                @change="changeDetailPhoto($event)"
-                name="detail_photo"
-                class="overflow-hiden"
-                type="file"
-                :class="{ 'is-invalid': form.errors.has('detail_photo') }"
-                required
-              />
-
-              <img v-if="form.detail_photo != ''" :src="form.detail_photo" alt class="detail_photo" />
-              <has-error :form="form" field="detail_photo"></has-error>
+              <div class="row">
+                <div v-for="(img, index) in img_images" :key="index" class="mr-2 mb-2 shadow smallImages">
+                  <img :src="img" alt class="smallImages"/>
+                  <i class="fas fa-trash-alt delImgBtn" @click="delImg(index)"></i>
+                </div>
+                <div class="custom-card shadow ml-2 mb-2" @click="fileInput">
+                  <i class="fas fa-plus-circle" style="font-size: 35px;"></i>
+                </div>
+                <input type="file" ref="fileInput" style="display: none" @change="onFileInput" multiple accept=".png, .jpg, .jpeg, .pdf">
+              </div>
             </div>
           </div>
         </div>
@@ -555,6 +569,7 @@ export default {
   mixins:[Vue2EditorMixin],
   data() {
     return {
+      img_images: [],
       options: [],
       cities:[],
       tour_type_list: [],
@@ -569,13 +584,14 @@ export default {
         destination:'',
         noofdays: 1,
         title: "",
+        price: "",
         description: "",
         tourtype: "",
         hoteltype: "0",
         photo: "",
-        detail_photo: "",
+        detail_photo: [],
         photo_alt:'',
-        detail_photo_alt:'',
+        detail_photo_alt:[],
         food: "",
         flight: "",
         bus: "",
@@ -608,6 +624,27 @@ export default {
   },
 
   methods: {
+    fileInput(){
+      this.$refs.fileInput.click()
+    },
+    onFileInput(event){
+        for(let i=0; i<event.target.files.length; i++){
+          let file = event.target.files[i];
+          this.form.detail_photo_alt[i] = file.name;
+          let reader = new FileReader();
+          reader.onload = (event) => {
+            this.form.detail_photo.push(event.target.result);
+            this.img_images.push(event.target.result);
+          };
+          reader.readAsDataURL(file);
+        }
+        //console.log(this.form.images[1])
+    },
+    delImg(index){
+       this.img_images = this.img_images.slice(0, index).concat(this.img_images.slice(index + 1));
+       this.form.detail_photo = this.form.detail_photo.slice(0, index).concat(this.form.detail_photo.slice(index + 1));
+       this.form.detail_photo_alt = this.form.detail_photo_alt.slice(0, index).concat(this.form.detail_photo_alt.slice(index + 1));
+    },
     cityList() {
       axios.get("/api/city").then((res) => {
         if (res.data) {
@@ -688,9 +725,20 @@ export default {
       }
     },
     addItinerary() {
+      /*if (this.img_images.length < 7) {
+        this.$toast.fire({
+            icon: "error",
+            title: "7 Banner Images Required!",
+        });
+        return false;
+      }*/
       if (this.form.meta_keyword.length < 1 ) {
         this.tagsWarn = true
-        return false;
+        this.$toast.fire({
+            icon: "error",
+            title: "Meta Keywords Required",
+          });
+          return false;
       }
       else if(this.form.meta_description == ''){
           this.$toast.fire({
@@ -789,6 +837,29 @@ export default {
     font-size: 80%;
     color: #dc3545;
   }
+.smallImages{
+  width: 140px; 
+  height: 93px;
+  position: relative;
+}
+.delImgBtn{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 4px;
+  font-size: 16px;
+  color: #d12121;
+}
+.custom-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 93px;
+  width: 143px;
+  background: #e5e5e5;
+  border: solid 2px #e5e5e5;
+  border-radius: 5px;
+}
 </style>
 
 

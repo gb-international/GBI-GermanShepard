@@ -750,6 +750,71 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -785,6 +850,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         slidesToScroll: 3,
         initialSlide: 0
       },
+      settings2: {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 0
+      },
       day: 0,
       description: "",
       itineraryData: [],
@@ -793,7 +866,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       login: false,
       loading: true,
       tabSelected: 'Itinerary',
-      iconSelected: 'Communication'
+      iconSelected: 'Communication',
+      citySelected: '',
+      encyData: null
     };
   },
   watch: {
@@ -861,6 +936,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     changeIcon: function changeIcon(val) {
       this.iconSelected = val;
     },
+    changeCity: function changeCity(val) {
+      this.citySelected = val; //this.encyData = '';
+      //if(this.itineraryData.Ency){
+      //this.encyData = this.itineraryData.Ency.find(({ state_name }) => state_name === val);
+      //}
+    },
     changeItDiv: function changeItDiv(id) {
       if (this.selectedDay == id) {
         this.selectedDay = null;
@@ -879,8 +960,20 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
         var searches = JSON.parse(localStorage.getItem("itSearches"));
         searches.push(_this2.itineraryData);
+        console.log(_this2.itineraryData);
         localStorage.setItem("itSearches", JSON.stringify(searches));
-        _this2.selectedPhoto = _this2.itineraryData.photo;
+        console.log(_this2.itineraryData.itineraryimages.length);
+
+        if (_this2.itineraryData.itineraryimages.length < 1) {
+          for (var i = 0; i < 7; i++) {
+            _this2.itineraryData.itineraryimages[i] = {
+              image: "itinerary_holder.png",
+              id: i + 1
+            };
+          }
+        }
+
+        _this2.selectedPhoto = _this2.itineraryData.itineraryimages[0].image;
 
         if (_this2.itineraryData.itinerarydays) {
           var data = _this2.itineraryData.itinerarydays;
@@ -890,13 +983,18 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           if (data) {
             _this2.selected_cities = [];
 
-            for (var i = 0; i < data.length; i++) {
-              selected.push(data[i].day_source);
-              selected.push(data[i].day_destination);
+            for (var _i = 0; _i < data.length; _i++) {
+              selected.push(data[_i].day_source);
+              selected.push(data[_i].day_destination);
             }
           }
 
           _this2.selected_cities = _toConsumableArray(new Set(selected));
+          _this2.citySelected = _this2.selected_cities[0]; //if(this.itineraryData.Ency.length > 1){
+          //this.encyData = this.itineraryData.Ency.find(({ state_name }) => state_name === this.selected_cities[0]);
+          //}
+
+          console.log(_this2.selected_cities);
         }
 
         _this2.getRelatedCities(_this2.itineraryData.destination);
@@ -906,7 +1004,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       var _this3 = this;
 
       this.$axios.get("/api/related-cities/".concat(destination)).then(function (res) {
-        _this3.city_list = res.data;
+        _this3.city_list = res.data; //setTimeout(this.loading = false, 1000)
+
         _this3.loading = false;
       });
     }
@@ -956,7 +1055,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.heading2[data-v-2bb87509]{\n font-size: 17px;\n font-weight: 500;\n color: black;\n}\n.mainRow1[data-v-2bb87509]{\n  margin-top: 20px;\n  margin-bottom: 21px;\n}\n.mainRow2[data-v-2bb87509]{\n  margin-bottom: 17px;\n}\n.mainRow3[data-v-2bb87509]{\n  margin-bottom: 21px;\n}\n.expDetailImg[data-v-2bb87509]{\n  width: 100%;\n  height: 170px;\n  margin-bottom: 10px;\n  margin-right: 15px;\n}\n.expDetailImgSmall[data-v-2bb87509]{\n  width:  45px;\n  height: 45px;\n}\n.expDetCol1[data-v-2bb87509]{\n  width: 100%;\n}\n.expDetCol2Main[data-v-2bb87509]{\n  display: none;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n}\n.expDetCol2[data-v-2bb87509]{\n  display: none;\n  width: 30%; \n  height: 423px; \n  border-radius: 5px;\n  background: white;\n}\n.icons[data-v-2bb87509]{\n  cursor: pointer;\n  font-size: 17px;\n  font-weight: 500;\n  padding: 6px 10px;\n}\n.icons-flex[data-v-2bb87509] {\n  display: flex;\n  align-content: center;\n  justify-content: space-around;\n  flex-direction: row;\n  font-size: 18px;\n  font-weight: 400;\n}\n.tabs[data-v-2bb87509]{\n  cursor: pointer;\n  font-size: 17px;\n  font-weight: 500;\n  padding: 5px 22px;\n}\n.custom-div[data-v-2bb87509]{\n  display: inline;\n  margin-top: 26px !important;\n  padding-top: 0.2vh !important;\n  margin-right: 20px;\n  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2px 7px 0 rgb(0 0 0 / 19%);\n}\n.custom-flex[data-v-2bb87509] {\n  display: flex;\n  align-content: center;\n  justify-content: flex-start;\n  flex-direction: row;\n  font-size: 18px;\n  font-weight: 400;\n}\n@media (min-width: 768px) {\n.expDetailImgSmall[data-v-2bb87509]{\n    width:  100px;\n    height: 100px;\n}\n.expDetailImg[data-v-2bb87509]{\n    height: 330px;\n    margin-bottom: 16.5px;\n}\n.mainRow1[data-v-2bb87509]{\n    margin-top: 35px;\n    margin-bottom: 35px;\n}\n.mainRow2[data-v-2bb87509]{\n    margin-bottom: 32px;\n}\n.mainRow3[data-v-2bb87509]{\n    margin-bottom: 35px;\n}\n.rowheadings[data-v-2bb87509]{\n    font-size: 25px !important;\n}\n.iconClass p[data-v-2bb87509]{\n    font-size: 19px !important;\n}\n.grandTotalMob[data-v-2bb87509]{\n    margin-bottom: 35px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\n    font-size: 18px !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\n    font-size: 12.5px !important;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\n    margin-top: 5px !important;\n    font-size: 20px !important;\n}\n.btnConfirm[data-v-2bb87509]{\n    font-size: 20px !important;\n    height: 55px !important;\n    width: 200px !important;\n}\n}\n@media (min-width: 1024px) {\n.grandTotalMob[data-v-2bb87509]{\n    display: none !important;\n}\n.expDetCol2Main[data-v-2bb87509]{\n    display: inline;\n}\n.expDetCol2[data-v-2bb87509]{\n    display: inline;\n}\n.expDetCol1[data-v-2bb87509]{\n    width: 70%;\n}\n.iconClass[data-v-2bb87509]{\n    width: 18% !important;\n}\n.mainRow1[data-v-2bb87509]{\n    margin-top: 55px;\n    margin-bottom: 55px;\n}\n.mainRow2[data-v-2bb87509]{\n    padding: 5px 65px;\n    margin-bottom: 55px;\n}\n.mainRow3[data-v-2bb87509]{\n    padding: 5px 65px;\n    margin-bottom: 55px;\n}\n}\n.iconMainDiv[data-v-2bb87509]{\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: row;\n  width: 100%;\n  justify-content: flex-start\n}\n.iconClass[data-v-2bb87509]{\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-content: center;\n  width: 45%;\n  margin-right: 15px;\n  margin-bottom: 50px;\n}\n.iconClass img[data-v-2bb87509]{\n  height: 40px;\n  width: 40px;\n  margin-right: 12px;\n}\n.iconClass p[data-v-2bb87509]{\n  margin-top: 8px;\n  font-size: 14.2px;\n  font-weight: 400;\n  color: #1d1b1b;\n}\n.rowheadings[data-v-2bb87509]{\n  font-size: 16px;\n  font-weight: 600;\n  text-transform: uppercase;\n  margin-bottom: 30px;\n  color: #101010;\n  font-family: sans-serif;\n}\n.itineraryDiv[data-v-2bb87509]{\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  justify-content: center;\n  align-content: space-between;\n}\n.singleItneraryDivMain[data-v-2bb87509]{\n}\n.singleItneraryDiv[data-v-2bb87509]{\n  height: 55px; \n  width: 100%; \n  padding: 14px 30px;\n  font-size: 18px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n  background: white;\n}\n.singleItneraryDiv2[data-v-2bb87509]{\n  height: auto; \n  width: 100%; \n  padding: 16px 30px;\n  font-size: 18px;\n  font-weight: 600;\n  margin-top: 15px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n  background: white;\n}\n.priceSingleDiv[data-v-2bb87509]{\n  padding: 12px 18px !important;\n  margin-top: 10px !important; \n  border-bottom: 1px solid #8080806b;\n}\n.priceSingleDiv p[data-v-2bb87509]{\n  font-size: 15.5px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n  margin-right: 3px;\n}\n.priceSingleDiv .p2[data-v-2bb87509]{\n  font-size: 16.2px;\n  font-weight: 600;\n  font-family: 'Nunito Sans' ;\n  color: #1d1b1b;\n}\n.grandTotalDiv[data-v-2bb87509]{\n  padding: 13px 18px !important;\n  border-bottom: 1px solid #8080806b;\n  background: #007bff2b\n}\n.grandTotalMob[data-v-2bb87509]{\n  padding: 18px !important;\n  background: #007bff2b;\n  margin-bottom: 26.9px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\n  font-size: 15px;\n  font-weight: 600;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n  margin-bottom: 0rem !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\n  font-size: 10px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\n  margin-top: 5px;\n  font-size: 15.7px;\n  font-weight: 600;\n  font-family: 'Nunito Sans';\n  color: black;\n}\n.grandTotalDiv p[data-v-2bb87509]{\n  font-size: 14px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n}\n.grandTotalDiv .smallP[data-v-2bb87509]{\n  font-size: 11px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n}\n.grandTotalDiv .p2[data-v-2bb87509]{\n  margin-top: 6px;\n  font-size: 16.7px;\n  font-weight: 600;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n  color: black;\n}\n.couponDivMain[data-v-2bb87509]{\n  padding: 12px 18px !important;\n  margin-top: 10px !important; \n  border-bottom: 1px solid #8080806b;\n}\n.couponDiv[data-v-2bb87509]{\n}\n.couponDiv p[data-v-2bb87509]{\n  font-size: 15.5px;\n  font-weight: 400;\n  font-family: 'Nunito Sans';\n  color: #3490dc;\n  margin-right: 3px;\n}\n.couponDiv .p2[data-v-2bb87509]{\n  font-size: 16.2px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #3490dc;\n}\n.btnCpn[data-v-2bb87509]{\n  color: #fff;\n  background-color: #f77736;\n  border-color: #f77736;\n  border-radius: 0px;\n}\n.btnPay[data-v-2bb87509]{\n  color: #fff;\n  background-color: #f77736;\n  border-color: #f77736;\n  height: 50px;\n  width: 100%;\n  margin-top: 5px;\n  border-radius: 0px;\n}\n.btnConfirm[data-v-2bb87509]{\n  color: #fff;\n  background-color: #f77736;\n  border-color: #f77736;\n  height: 45px;\n  width: 150px;\n  border-radius: 0px;\n}\n.verticalStep[data-v-2bb87509]{\n  height: 20px;\n  width: 1px; \n  background: gray; \n  margin-left: 45px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.row2-card[data-v-2bb87509]{\n  height: auto; \n  width: 100%; \n  padding: 16px 30px;\n  font-size: 18px;\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n  background: white;\n}\n.heading2[data-v-2bb87509]{\n font-size: 17px;\n font-weight: 500;\n color: black;\n}\n.mainRow1[data-v-2bb87509]{\n  margin-top: 20px;\n  margin-bottom: 21px;\n}\n.mainRow2[data-v-2bb87509]{\n  margin-bottom: 21px;\n}\n.mainRow3[data-v-2bb87509]{\n  margin-bottom: 21px;\n}\n.expDetailImg[data-v-2bb87509]{\n  width: 100%;\n  height: 260px;\n  margin-bottom: 10px;\n  margin-right: 15px;\n  background-size: cover;\n  background-position:50% 50%;\n  image-rendering: crisp-edges;\n  image-rendering: -moz-crisp-edges;          /* Firefox */\n  image-rendering: -o-crisp-edges;            /* Opera */\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.expDetailImg2[data-v-2bb87509]{\n  width: 100%;\n  height: 200px;\n  margin-bottom: 10px;\n  margin-right: 15px;\n  background-size: cover;\n  background-position:50% 50%;\n  image-rendering: crisp-edges;\n  image-rendering: -moz-crisp-edges;          /* Firefox */\n  image-rendering: -o-crisp-edges;            /* Opera */\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.expDetailImgSmall[data-v-2bb87509]{\n  width:  40px;\n  height: 40px;\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n  border-radius: 5px;\n  background-size: cover;\n  background-position:50% 50%;\n  image-rendering: crisp-edges;\n  image-rendering: -moz-crisp-edges;          /* Firefox */\n  image-rendering: -o-crisp-edges;            /* Opera */\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\n  -o-object-fit: cover;\n     object-fit: cover;\n  cursor: pointer;\n}\n.expDetCol1[data-v-2bb87509]{\n  width: 100%;\n}\n.expDetCol2Main[data-v-2bb87509]{\n  height: 537px;\n  width: 360px;\n  display: none;\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n  margin-top: 115px !important;\n}\n.expDetCol2[data-v-2bb87509]{\n  display: none;\n  width: 30%; \n  height: 423px; \n  border-radius: 5px;\n  background: white;\n}\n.icons[data-v-2bb87509]{\n  cursor: pointer;\n  font-size: 17px;\n  font-weight: 500;\n  padding: 6px 10px;\n  font-family:'Nunito Sans';\n}\n.e-icons[data-v-2bb87509]{\n  cursor: pointer;\n  font-size: 18px;\n  font-weight: 600;\n  padding: 3px 10px;\n  margin-right: 15px;\n  font-family:'Nunito Sans';\n}\n.icons-flex[data-v-2bb87509] {\n  display: flex;\n  align-content: center;\n  justify-content: space-around;\n  flex-direction: row;\n  font-size: 18px;\n  font-weight: 400;\n}\n.icons-flex-e[data-v-2bb87509]{\n  display: flex;\n  align-content: center;\n  justify-content: start;\n  flex-direction: row;\n  font-size: 18px;\n  font-weight: 400;\n}\n.tabs[data-v-2bb87509]{\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  margin-right: 15px;\n}\n.custom-div[data-v-2bb87509]{\n  display: inline;\n  margin-top: 26px !important;\n  padding-top: 0.2vh !important;\n  margin-right: 20px;\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n}\n.custom-flex[data-v-2bb87509] {\n  display: flex;\n  align-content: center;\n  justify-content: flex-start;\n  flex-direction: row;\n  font-size: 18px;\n  font-weight: 400;\n}\n@media (min-width: 500px) {\n.expDetailImgSmall[data-v-2bb87509]{\n  width:  30px;\n  height: 30px;\n}\n}\n@media (min-width: 600px) {\n.expDetailImgSmall[data-v-2bb87509]{\n    width:  70px;\n    height: 70px;\n}\n.tabs[data-v-2bb87509]{\n    font-size: 18px;\n    margin-right: 18px;\n}\n}\n@media (min-width: 768px) {\n.tabs[data-v-2bb87509]{\n    font-size: 20px;\n    margin-right: 22px;\n}\n.expDetailImgSmall[data-v-2bb87509]{\n    width:  80px;\n    height: 80px;\n}\n.expDetailImg[data-v-2bb87509]{\n    height: 412px;\n    margin-bottom: 16.5px;\n}\n.expDetailImg2[data-v-2bb87509]{\n    height: 300px;\n    margin-bottom: 16.5px;\n}\n.mainRow1[data-v-2bb87509]{\n    margin-top: 35px;\n    margin-bottom: 35px;\n}\n.mainRow2[data-v-2bb87509]{\n    margin-bottom: 35px;\n}\n.mainRow3[data-v-2bb87509]{\n    margin-bottom: 35px;\n}\n.rowheadings[data-v-2bb87509]{\n    font-size: 20px !important;\n}\n.rowheadingTop[data-v-2bb87509]{\n    font-size: 22px !important;\n}\n.iconClass p[data-v-2bb87509]{\n    font-size: 18px !important;\n}\n.grandTotalMob[data-v-2bb87509]{\n    margin-bottom: 2px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\n    font-size: 18px !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\n    font-size: 12.5px !important;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\n    margin-top: 5px !important;\n    font-size: 20px !important;\n}\n.btnConfirm[data-v-2bb87509]{\n    font-size: 20px !important;\n    height: 55px !important;\n    width: 200px !important;\n}\n}\n@media (min-width: 1024px) {\n.tabs[data-v-2bb87509]{\n    font-size: 20px;\n    margin-right: 26px;\n}\n.expDetailImgSmall[data-v-2bb87509]{\n    width:  100px;\n    height: 100px;\n}\n.grandTotalMob[data-v-2bb87509]{\n    display: none !important;\n}\n.expDetCol2Main[data-v-2bb87509]{\n    display: inline;\n}\n.expDetCol2[data-v-2bb87509]{\n    display: inline;\n}\n.expDetCol1[data-v-2bb87509]{\n    width: 70%;\n}\n.iconClass[data-v-2bb87509]{\n    width: 18% !important;\n}\n.mainRow1[data-v-2bb87509]{\n    margin-top: 55px;\n    margin-bottom: 35px;\n}\n.mainRow2[data-v-2bb87509]{\n    margin-bottom: 35px;\n}\n.mainRow3[data-v-2bb87509]{\n    margin-bottom: 35px;\n}\n.label_[data-v-2bb87509]{\n  margin-bottom: 10px;\n  font-size: 14px;\n  margin-left: 25px;\n}\n}\n.iconMainDiv[data-v-2bb87509]{\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: row;\n  width: 100%;\n  justify-content: flex-start\n}\n.iconClass[data-v-2bb87509]{\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-content: center;\n  width: 45%;\n  margin-right: 15px;\n  margin-bottom: 25px;\n}\n.iconClass img[data-v-2bb87509]{\n  height: 25px;\n  width: 25px;\n  margin-right: 12px;\n}\n.iconClass p[data-v-2bb87509]{\n  font-size: 14.2px;\n  font-weight: 400;\n  color: #1d1b1b;\n}\n.rowheadingTop[data-v-2bb87509]{\n  font-size: 22Spx;\n  font-weight: 600;\n  margin-bottom: 10px;\n  color: #101010;\n  font-family: 'Nunito Sans';\n}\n.rowheadings[data-v-2bb87509]{\n  font-size: 20px;\n  font-weight: 600;\n  margin-bottom: 30px;\n  color: #101010;\n  font-family: 'Nunito Sans';\n}\n.days_head[data-v-2bb87509]{\n  font-size: 16px;\n  font-weight: 600;\n  margin-bottom: 2px;\n  color: #101010;\n  font-family: 'Nunito Sans';\n}\n.days_head2[data-v-2bb87509]{\n  font-size: 14px;\n  font-weight: 600;\n  margin-bottom: 12px;\n  color: #101010;\n  font-family: 'Nunito Sans';\n}\n.itineraryDiv[data-v-2bb87509]{\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  justify-content: center;\n  align-content: space-between;\n}\n.ItneraryHeadDiv[data-v-2bb87509]{\n  height: auto; \n  width: 100%; \n  padding: 16px 30px;\n  font-size: 18px;\n  font-weight: 400;\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n  background: white;\n  margin-top: 35px;\n  font-family: 'Nunito Sans';\n}\n.singleItneraryDivMain[data-v-2bb87509]{\n}\n.singleItneraryDiv[data-v-2bb87509]{\n  height: 55px; \n  width: 100%; \n  padding: 14px 30px;\n  font-size: 18px;\n  font-weight: 600;\n box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n  background: white;\n  cursor: pointer;\n}\n.singleItneraryDiv2[data-v-2bb87509]{\n  height: auto; \n  width: 100%; \n  padding: 16px 30px;\n  font-size: 18px;\n  font-weight: 400;\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n  background: white;\n  font-family: 'Nunito Sans';\n}\n.priceSingleDiv[data-v-2bb87509]{\n  padding: 12px 18px !important;\n  margin: 20px 2px !important;\n}\n.priceBorder[data-v-2bb87509]{\n  border-bottom: 1px solid #8080806b;\n}\n.priceSingleDiv p[data-v-2bb87509]{\n  font-size: 15.5px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n  margin-right: 3px;\n}\n.priceSingleDiv .p2[data-v-2bb87509]{\n  font-size: 16.2px;\n  font-weight: 600;\n  font-family: 'Nunito Sans' ;\n  color: #1d1b1b;\n}\n.grandTotalDiv[data-v-2bb87509]{\n  padding: 13px 18px !important;\n  border-bottom: 1px solid #8080806b;\n  border-top: 1px solid #8080806b;\n  background: #007bff2b\n}\n.grandTotalMob[data-v-2bb87509]{\n  padding: 18px !important;\n  background: #007bff2b;\n  margin-bottom: 5px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\n  font-size: 15px;\n  font-weight: 600;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n  margin-bottom: 0rem !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\n  font-size: 10px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\n  margin-top: 5px;\n  font-size: 15.7px;\n  font-weight: 600;\n  font-family: 'Nunito Sans';\n  color: black;\n}\n.grandTotalDiv p[data-v-2bb87509]{\n  font-size: 14px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n}\n.grandTotalDiv .smallP[data-v-2bb87509]{\n  font-size: 11px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n}\n.grandTotalDiv .p2[data-v-2bb87509]{\n  margin-top: 6px;\n  font-size: 16.7px;\n  font-weight: 600;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n  color: black;\n}\n.couponDivMain[data-v-2bb87509]{\n  padding: 12px 18px !important;\n  margin-top: 10px !important; \n  border-bottom: 1px solid #8080806b;\n}\n.couponDiv[data-v-2bb87509]{\n}\n.couponDiv p[data-v-2bb87509]{\n  font-size: 15.5px;\n  font-weight: 400;\n  font-family: 'Nunito Sans';\n  color: #3490dc;\n  margin-right: 3px;\n}\n.couponDiv .p2[data-v-2bb87509]{\n  font-size: 16.2px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #3490dc;\n}\n.btnCpn[data-v-2bb87509]{\n  color: #fff;\n  background-color: #f77736;\n  border-color: #f77736;\n  border-radius: 0px;\n}\n.btnPay[data-v-2bb87509]{\n  color: #fff;\n  background-color: #f77736;\n  border-color: #f77736;\n  height: 52px;\n  width: 100%;\n  margin-top: 5px;\n  border-radius: 0px;\n  border-bottom-left-radius: 10px;\n  border-bottom-right-radius: 10px;\n  font-weight: 500;\n}\n.btnConfirm[data-v-2bb87509]{\n  color: #fff;\n  background-color: #f77736;\n  border-color: #f77736;\n  height: 45px;\n  width: 150px;\n  border-radius: 0px;\n}\n.verticalStep[data-v-2bb87509]{\n  height: 30px;\n  width: 1px;\n  margin-left: 45px;\n  border-left: 1px dashed #1C75BC;\n}\n.label_[data-v-2bb87509]{\n  padding: 5px 5px;\n  background-color: #f77736;\n  color: white;\n  font-size: 12px;\n  font-family: 'Nunito Sans';\n  font-weight: 600;\n  width: 100px;\n  text-align: center;\n  border-radius: 15px;\n  margin-bottom: 10px;\n  margin-left: 16px;\n}\n.overview[data-v-2bb87509]{\n   font-family: 'Nunito Sans';\n   font-weight: 600;\n   font-size: 20px;\n   color: #101010;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1786,39 +1885,6 @@ var render = function () {
                   "div",
                   { staticClass: "form-group" },
                   [
-                    _c("label", { attrs: { for: "sightseeing" } }, [
-                      _vm._v("Places(Sightseeing)"),
-                    ]),
-                    _vm._v(" "),
-                    _vm.sightseeing_list
-                      ? _c("multiselect", {
-                          attrs: {
-                            options: _vm.sightseeing_list,
-                            multiple: true,
-                            "track-by": "name",
-                            label: "name",
-                            "close-on-select": true,
-                            placeholder: "Select Sightseeing",
-                          },
-                          model: {
-                            value: _vm.form.sightseen,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form, "sightseen", $$v)
-                            },
-                            expression: "form.sightseen",
-                          },
-                        })
-                      : _vm._e(),
-                  ],
-                  1
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-12" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
                     _c("label", { attrs: { for: "transport" } }, [
                       _vm._v("Mode of Transport"),
                     ]),
@@ -2027,670 +2093,820 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    {
-      staticClass: "d-flex flex-column justify-content-center",
-      staticStyle: { background: "white !important" },
-    },
-    [
-      _c(
-        "div",
+  return !_vm.loading
+    ? _c(
+        "section",
         {
-          staticClass:
-            "d-flex justify-content-center align-items-center mainRow1 container",
+          staticClass: "d-flex flex-column justify-content-center",
           staticStyle: { background: "white !important" },
-        },
-        [
-          _c("div", { staticClass: "p-2 d-flex flex-column expDetCol1" }, [
-            _c("img", {
-              staticClass: "expDetailImg",
-              attrs: {
-                src: _vm.selectedPhoto,
-                loading: "lazy",
-                alt: "itinerary",
-              },
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "p-2" },
-              [
-                _c(
-                  "VueSlickCarousel",
-                  _vm._b(
-                    { attrs: { dots: true, arrows: false } },
-                    "VueSlickCarousel",
-                    _vm.settings,
-                    false
-                  ),
-                  _vm._l(10, function (index) {
-                    return _c(
-                      "div",
-                      {
-                        key: index,
-                        on: {
-                          click: function ($event) {
-                            return _vm.changePhoto(_vm.itineraryData.photo)
-                          },
-                        },
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "expDetailImgSmall",
-                          attrs: {
-                            src: _vm.itineraryData.photo,
-                            loading: "lazy",
-                            alt: "itinerary",
-                          },
-                        }),
-                      ]
-                    )
-                  }),
-                  0
-                ),
-              ],
-              1
-            ),
-          ]),
-          _vm._v(" "),
-          _vm.itineraryData.price
-            ? _c("div", { staticClass: "expDetCol2Main" }, [
-                _c("div", { staticClass: "expDetCol2" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "d-flex justify-content-start align-items-center priceSingleDiv",
-                    },
-                    [
-                      _c("p", [
-                        _c("b", [
-                          _vm._v(
-                            "₹" + _vm._s(_vm.itineraryData.price) + " x 1 Pax"
-                          ),
-                        ]),
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "ml-auto p2" }, [
-                        _vm._v("₹" + _vm._s(_vm.itineraryData.price)),
-                      ]),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "d-flex justify-content-start align-items-center priceSingleDiv",
-                    },
-                    [
-                      _c("p", [_vm._v("Total Basic Cost")]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "ml-auto p2" }, [
-                        _vm._v("₹" + _vm._s(_vm.itineraryData.price)),
-                      ]),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "d-flex flex-column justify-content-start couponDivMain",
-                    },
-                    [
-                      _vm._m(0),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "d-flex justify-content-start couponEnterDiv",
-                        },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.coupon_val,
-                                expression: "coupon_val",
-                              },
-                            ],
-                            attrs: { type: "text" },
-                            domProps: { value: _vm.coupon_val },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.coupon_val = $event.target.value
-                              },
-                            },
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btnCpn",
-                              on: {
-                                click: function ($event) {
-                                  return _vm.couponsAlert(_vm.coupon_val)
-                                },
-                              },
-                            },
-                            [_vm._v("Add")]
-                          ),
-                        ]
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "d-flex justify-content-start align-items-center priceSingleDiv",
-                    },
-                    [
-                      _c("p", [_vm._v("Taxes")]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "ml-auto p2" }, [
-                        _vm._v(
-                          "₹" + _vm._s((_vm.itineraryData.price * 5) / 100)
-                        ),
-                      ]),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm.itineraryData.price
-                    ? _c(
-                        "div",
-                        {
-                          staticClass:
-                            "d-flex justify-content-start align-items-center grandTotalDiv",
-                        },
-                        [
-                          _vm._m(1),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "ml-auto p2" }, [
-                            _vm._v(
-                              "₹" +
-                                _vm._s(
-                                  (_vm.itineraryData.price * 5) / 100 +
-                                    _vm.itineraryData.price
-                                ) +
-                                " "
-                            ),
-                          ]),
-                        ]
-                      )
-                    : _vm._e(),
-                ]),
-                _vm._v(" "),
-                _vm.login
-                  ? _c(
-                      "button",
-                      {
-                        staticClass: "btn btnPay",
-                        attrs: {
-                          "data-toggle": "modal",
-                          "data-target": "#bookModal",
-                        },
-                      },
-                      [_vm._v("\n          Book Now\n      ")]
-                    )
-                  : _c(
-                      "button",
-                      {
-                        staticClass: "btn btnPay",
-                        attrs: {
-                          id: "loginButton",
-                          "data-toggle": "modal",
-                          "data-target": "#LoginForm",
-                        },
-                      },
-                      [_vm._v("\n        Book Now\n      ")]
-                    ),
-              ])
-            : _vm._e(),
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "d-flex justify-content-between align-items-center grandTotalMob",
         },
         [
           _c(
             "div",
             {
               staticClass:
-                "d-flex flex-column justify-content-start align-items-start",
+                "d-flex mainRow1 container justify-content-left align-items-left",
+              staticStyle: { background: "white !important" },
             },
             [
-              _c("p", [_vm._v("Grand Total")]),
-              _vm._v(" "),
-              _c("span", { staticClass: "smallP" }, [
-                _vm._v("(Incl. all taxes)"),
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "p2" }, [
-                _vm._v(
-                  "₹" +
-                    _vm._s(
-                      (_vm.itineraryData.price * 5) / 100 +
-                        _vm.itineraryData.price
-                    )
-                ),
-              ]),
-            ]
-          ),
-          _vm._v(" "),
-          _vm.login
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn btnConfirm ml-auto",
-                  attrs: {
-                    "data-toggle": "modal",
-                    "data-target": "#bookModal",
-                  },
-                },
-                [_vm._v("\n        Book Now\n    ")]
-              )
-            : _c(
-                "button",
-                {
-                  staticClass: "btn btnConfirm ml-auto",
-                  attrs: {
-                    "data-toggle": "modal",
-                    "data-target": "#LoginForm",
-                    id: "loginButton",
-                  },
-                },
-                [_vm._v("Book Now\n    ")]
-              ),
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "container mt-4" }, [
-        _c("div", { staticClass: "custom-flex mt-2" }, [
-          _c(
-            "div",
-            {
-              staticClass: "tabs",
-              style:
-                _vm.tabSelected == "Itinerary"
-                  ? "border-bottom: 3px solid #f77736"
-                  : "",
-              on: {
-                click: function ($event) {
-                  return _vm.changeTab("Itinerary")
-                },
-              },
-            },
-            [_vm._v("\n            Itinerary\n          ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "tabs",
-              style:
-                _vm.tabSelected == "Neighbourhood"
-                  ? "border-bottom: 3px solid #f77736"
-                  : "",
-              on: {
-                click: function ($event) {
-                  return _vm.changeTab("Neighbourhood")
-                },
-              },
-            },
-            [_vm._v("\n            Your Neighbourhood\n          ")]
-          ),
-        ]),
-      ]),
-      _vm._v(" "),
-      _vm.tabSelected == "Itinerary"
-        ? _c(
-            "div",
-            {
-              staticClass: "mainRow2 container",
-              staticStyle: { "margin-top": "5vh" },
-            },
-            [
-              _c("p", { staticClass: "rowheadings" }, [
-                _vm._v("Your Experience Includes"),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "iconMainDiv" }, [
-                _c("div", { staticClass: "iconClass" }, [
-                  _c("img", {
-                    attrs: { src: _vm.$gbiAssets + "/hotel_icon.png" },
-                  }),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Hotel")]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "iconClass" }, [
-                  _c("img", {
-                    attrs: { src: _vm.$gbiAssets + "/flight_icon.png" },
-                  }),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Flight")]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "iconClass" }, [
-                  _c("img", {
-                    attrs: { src: _vm.$gbiAssets + "/passport_icon.png" },
-                  }),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Passport/Visa")]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "iconClass" }, [
-                  _c("img", {
-                    attrs: { src: _vm.$gbiAssets + "/transport_icon.png" },
-                  }),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Transfers")]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "iconClass" }, [
-                  _c("img", {
-                    attrs: { src: _vm.$gbiAssets + "/dinner_icon.png" },
-                  }),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Dinner")]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "iconClass" }, [
-                  _c("img", {
-                    attrs: { src: _vm.$gbiAssets + "/citytour_icon.png" },
-                  }),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("City Tour")]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "iconClass" }, [
-                  _c("img", {
-                    attrs: { src: _vm.$gbiAssets + "/taxes_icon.png" },
-                  }),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Taxes")]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "iconClass" }, [
-                  _c("img", {
-                    attrs: { src: _vm.$gbiAssets + "/sightseeing.png" },
-                  }),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Sightseeing")]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "iconClass" }, [
-                  _c("img", {
-                    attrs: { src: _vm.$gbiAssets + "/breakfast.png" },
-                  }),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Breakfast")]),
-                ]),
-              ]),
-            ]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.tabSelected == "Itinerary"
-        ? _c("div", { staticClass: "mainRow3 container" }, [
-            _c("p", { staticClass: "rowheadings" }, [_vm._v("ITINERARY")]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "itineraryDiv" },
-              _vm._l(_vm.itineraryData.itinerarydays, function (data, index) {
-                return _c(
-                  "div",
-                  {
-                    key: data.id,
-                    staticClass: "singleItneraryDivMain",
-                    on: {
-                      click: function ($event) {
-                        return _vm.changeItDiv(data.id)
-                      },
+              _c("div", { staticClass: "mr-2 d-flex flex-column expDetCol1" }, [
+                _c("div", [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "d-flex justify-content-start align-items-center",
                     },
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "singleItneraryDiv d-flex justify-content-between",
-                      },
-                      [
-                        _c("p", [
-                          _vm._v("Itinerary : Day " + _vm._s(data.day)),
-                        ]),
-                        _vm._v(" "),
-                        _c("i", {
-                          class:
-                            _vm.selectedDay == data.id
-                              ? "fas fa-sort-up mt-2"
-                              : "fas fa-sort-down",
-                        }),
-                      ]
+                    [
+                      _c("p", { staticClass: "rowheadingTop" }, [
+                        _vm._v(_vm._s(_vm.itineraryData.title)),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "label_" }, [
+                        _vm._v(_vm._s(_vm.itineraryData.tourtype)),
+                      ]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "days_head" }, [
+                    _vm._v("Trip Starting From "),
+                    _c("span", { staticStyle: { color: "#f77736" } }, [
+                      _vm._v(_vm._s(_vm.selected_cities[0])),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "days_head2" }, [
+                    _vm._v(
+                      _vm._s(_vm.itineraryData.itinerarydays.length) + " Days"
                     ),
-                    _vm._v(" "),
-                    _vm.selectedDay == data.id
-                      ? _c("div", { staticClass: "singleItneraryDiv2" }, [
-                          _c("div", {
-                            staticClass: "card-text card-text-ul py-2",
-                            domProps: {
-                              innerHTML: _vm._s(data.day_description),
-                            },
-                          }),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.itineraryData.itinerarydays.length - 1 !== index
-                      ? _c("div", { staticClass: "verticalStep" })
-                      : _vm._e(),
-                  ]
-                )
-              }),
-              0
-            ),
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "modal", attrs: { id: "bookModal" } }, [
-        _c("div", { staticClass: "modal-dialog" }, [
-          _c("div", { staticClass: "modal-content modal-color" }, [
-            _vm.itineraryData.itinerarydays
-              ? _c(
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "d-flex align-items-center bread_nav mb-3" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "bread_link br_grey",
+                          attrs: { to: "/explore-destination" },
+                        },
+                        [_vm._v("Explore Destination")]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c("br_cr", { staticClass: "br_actv" }, [
+                        _vm._v(_vm._s(_vm.itineraryData.title)),
+                      ]),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "expDetailImg",
+                    attrs: {
+                      src: _vm.$gbiAssets + "/" + _vm.selectedPhoto,
+                      loading: "lazy",
+                      alt: "itinerary",
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c(
                   "div",
-                  { staticClass: "modal-body" },
+                  { staticClass: "py-2" },
                   [
                     _c(
-                      "button",
-                      {
-                        staticClass: "close",
-                        attrs: { type: "button", "data-dismiss": "modal" },
-                      },
-                      [_vm._v("×")]
-                    ),
-                    _vm._v(" "),
-                    _vm.loading == false
-                      ? _c("booking", {
-                          attrs: {
-                            title: _vm.itineraryData.title,
-                            selected_cities: _vm.selected_cities,
-                            city_list: _vm.city_list,
+                      "VueSlickCarousel",
+                      _vm._b(
+                        { attrs: { dots: true, arrows: false } },
+                        "VueSlickCarousel",
+                        _vm.settings,
+                        false
+                      ),
+                      _vm._l(_vm.itineraryData.itineraryimages, function (img) {
+                        return _c(
+                          "div",
+                          {
+                            key: img.id,
+                            on: {
+                              click: function ($event) {
+                                return _vm.changePhoto(img.image)
+                              },
+                            },
                           },
-                        })
-                      : _vm._e(),
+                          [
+                            _c("img", {
+                              staticClass: "expDetailImgSmall",
+                              attrs: {
+                                src: _vm.$gbiAssets + "/" + img.image,
+                                loading: "lazy",
+                                alt: "itinerary",
+                              },
+                            }),
+                          ]
+                        )
+                      }),
+                      0
+                    ),
                   ],
                   1
-                )
-              : _vm._e(),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _vm.tabSelected == "Neighbourhood"
-        ? _c("div", { staticClass: "container mt-4" }, [
-            _c(
-              "p",
-              {
-                staticClass: "heading2 mb-4",
-                staticStyle: { "margin-top": "4vh" },
-              },
-              [_vm._v("Explore Neighbourhood")]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "icons-flex mt-2" }, [
+                ),
+              ]),
+              _vm._v(" "),
+              _vm.itineraryData.price
+                ? _c("div", { staticClass: "expDetCol2Main ml-2" }, [
+                    _c("div", { staticClass: "expDetCol2" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex justify-content-start align-items-center priceSingleDiv priceBorder",
+                        },
+                        [
+                          _c("p", [
+                            _c("b", [
+                              _vm._v(
+                                "₹" +
+                                  _vm._s(_vm.itineraryData.price) +
+                                  " x 1 Pax"
+                              ),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "ml-auto p2" }, [
+                            _vm._v(
+                              "₹" +
+                                _vm._s(_vm.itineraryData.price.toLocaleString())
+                            ),
+                          ]),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex justify-content-start align-items-center priceSingleDiv priceBorder",
+                        },
+                        [
+                          _c("p", [_vm._v("Total Basic Cost")]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "ml-auto p2" }, [
+                            _vm._v(
+                              "₹" +
+                                _vm._s(_vm.itineraryData.price.toLocaleString())
+                            ),
+                          ]),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex flex-column justify-content-start couponDivMain",
+                        },
+                        [
+                          _vm._m(1),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex justify-content-start couponEnterDiv",
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.coupon_val,
+                                    expression: "coupon_val",
+                                  },
+                                ],
+                                attrs: { type: "text" },
+                                domProps: { value: _vm.coupon_val },
+                                on: {
+                                  input: function ($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.coupon_val = $event.target.value
+                                  },
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btnCpn",
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.couponsAlert(_vm.coupon_val)
+                                    },
+                                  },
+                                },
+                                [_vm._v("Add")]
+                              ),
+                            ]
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex justify-content-start align-items-center priceSingleDiv",
+                        },
+                        [
+                          _c("p", [_vm._v("Taxes")]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "ml-auto p2" }, [
+                            _vm._v(
+                              "₹" +
+                                _vm._s(
+                                  (
+                                    (_vm.itineraryData.price * 5) /
+                                    100
+                                  ).toLocaleString()
+                                )
+                            ),
+                          ]),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm.itineraryData.price
+                        ? _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex justify-content-start align-items-center grandTotalDiv",
+                            },
+                            [
+                              _vm._m(2),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "ml-auto p2" }, [
+                                _vm._v(
+                                  "₹" +
+                                    _vm._s(
+                                      (
+                                        (_vm.itineraryData.price * 5) / 100 +
+                                        _vm.itineraryData.price
+                                      ).toLocaleString()
+                                    ) +
+                                    " "
+                                ),
+                              ]),
+                            ]
+                          )
+                        : _vm._e(),
+                    ]),
+                    _vm._v(" "),
+                    !_vm.login
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "btn btnPay",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#bookModal",
+                            },
+                          },
+                          [_vm._v("\n          Send Query\n      ")]
+                        )
+                      : _c(
+                          "button",
+                          {
+                            staticClass: "btn btnPay",
+                            attrs: {
+                              id: "loginButton",
+                              "data-toggle": "modal",
+                              "data-target": "#LoginForm",
+                            },
+                          },
+                          [_vm._v("\n          Send Query\n      ")]
+                        ),
+                  ])
+                : _vm._e(),
+            ]
+          ),
+          _vm._v(" "),
+          _vm.itineraryData.price
+            ? _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex justify-content-between align-items-center grandTotalMob",
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "d-flex flex-column justify-content-start align-items-start",
+                    },
+                    [
+                      _c("p", [_vm._v("Grand Total")]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "smallP" }, [
+                        _vm._v("(Incl. all taxes)"),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "p2" }, [
+                        _vm._v(
+                          "₹" +
+                            _vm._s(
+                              (
+                                (_vm.itineraryData.price * 5) / 100 +
+                                _vm.itineraryData.price
+                              ).toLocaleString()
+                            )
+                        ),
+                      ]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  !_vm.login
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btnConfirm ml-auto",
+                          attrs: {
+                            "data-toggle": "modal",
+                            "data-target": "#bookModal",
+                          },
+                        },
+                        [_vm._v("\n        Send Query\n    ")]
+                      )
+                    : _c(
+                        "button",
+                        {
+                          staticClass: "btn btnConfirm ml-auto",
+                          attrs: {
+                            "data-toggle": "modal",
+                            "data-target": "#LoginForm",
+                            id: "loginButton",
+                          },
+                        },
+                        [_vm._v("\n        Send Query\n    ")]
+                      ),
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "container mt-2" }, [
+            _c("div", { staticClass: "custom-flex mt-2" }, [
               _c(
                 "div",
                 {
-                  staticClass: "icons",
+                  staticClass: "tabs",
                   style:
-                    _vm.iconSelected == "Communication" ? "color: #f77736" : "",
+                    _vm.tabSelected == "Itinerary"
+                      ? "border-bottom: 3px solid #f77736"
+                      : "",
                   on: {
                     click: function ($event) {
-                      return _vm.changeIcon("Communication")
+                      return _vm.changeTab("Itinerary")
                     },
                   },
                 },
-                [_vm._v("\n            Commute\n          ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "icons",
-                  style: _vm.iconSelected == "Movie" ? "color: #f77736" : "",
-                  on: {
-                    click: function ($event) {
-                      return _vm.changeIcon("Movie")
-                    },
-                  },
-                },
-                [_vm._v("\n            Movie\n          ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "icons",
-                  style: _vm.iconSelected == "Food" ? "color: #f77736" : "",
-                  on: {
-                    click: function ($event) {
-                      return _vm.changeIcon("Food")
-                    },
-                  },
-                },
-                [_vm._v("\n            Food\n          ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "icons",
-                  style:
-                    _vm.iconSelected == "Sightseeing" ? "color: #f77736" : "",
-                  on: {
-                    click: function ($event) {
-                      return _vm.changeIcon("Sightseeing")
-                    },
-                  },
-                },
-                [_vm._v("\n            Sightseeing\n          ")]
+                [_vm._v("\n            Itinerary\n          ")]
               ),
             ]),
-            _vm._v(" "),
-            _vm.iconSelected == "Communication"
-              ? _c("div", { staticStyle: { "margin-bottom": "1vh" } }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass: "heading2 mb-4",
-                      staticStyle: { "margin-top": "4vh" },
-                    },
-                    [_vm._v("Commute")]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.iconSelected == "Movie"
-              ? _c("div", { staticStyle: { "margin-bottom": "1vh" } }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass: "heading2 mb-4",
-                      staticStyle: { "margin-top": "4vh" },
-                    },
-                    [_vm._v("Movie")]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.iconSelected == "Food"
-              ? _c("div", { staticStyle: { "margin-bottom": "1vh" } }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass: "heading2 mb-4",
-                      staticStyle: { "margin-top": "4vh" },
-                    },
-                    [_vm._v("Food")]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.iconSelected == "Sightseeing"
-              ? _c("div", { staticStyle: { "margin-bottom": "1vh" } }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass: "heading2 mb-4",
-                      staticStyle: { "margin-top": "4vh" },
-                    },
-                    [_vm._v("Sightseeing")]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticStyle: { "margin-bottom": "5vh" } },
-              [
+          ]),
+          _vm._v(" "),
+          _vm.tabSelected == "Itinerary"
+            ? _c(
+                "div",
+                {
+                  staticClass: "mainRow2 container",
+                  staticStyle: { "margin-top": "4vh" },
+                },
+                [
+                  _c("div", { staticClass: "row2-card" }, [
+                    _c("p", { staticClass: "rowheadings" }, [
+                      _vm._v("Your Experience Includes"),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "iconMainDiv" }, [
+                      _vm.itineraryData.hotel_type != "0"
+                        ? _c("div", { staticClass: "iconClass" }, [
+                            _c("img", {
+                              attrs: {
+                                src: _vm.$gbiAssets + "/hotel_icon.png",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Hotel")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.itineraryData.flight == "1"
+                        ? _c("div", { staticClass: "iconClass" }, [
+                            _c("img", {
+                              attrs: {
+                                src: _vm.$gbiAssets + "/flight_icon.png",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Flight")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.itineraryData.tourtype == "International"
+                        ? _c("div", { staticClass: "iconClass" }, [
+                            _c("img", {
+                              attrs: {
+                                src: _vm.$gbiAssets + "/passport_icon.png",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Passport/Visa")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.itineraryData.train == "1"
+                        ? _c("div", { staticClass: "iconClass" }, [
+                            _c("img", {
+                              attrs: {
+                                src: _vm.$gbiAssets + "/train_icon.png",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Train")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.itineraryData.bus == "1"
+                        ? _c("div", { staticClass: "iconClass" }, [
+                            _c("img", {
+                              attrs: {
+                                src: _vm.$gbiAssets + "/transport_icon.png",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Car/Bus")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.itineraryData.food == "1"
+                        ? _c("div", { staticClass: "iconClass" }, [
+                            _c("img", {
+                              attrs: {
+                                src: _vm.$gbiAssets + "/dinner_icon.png",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Food")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "iconClass" }, [
+                        _c("img", {
+                          attrs: { src: _vm.$gbiAssets + "/citytour_icon.png" },
+                        }),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("City Tour")]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "iconClass" }, [
+                        _c("img", {
+                          attrs: { src: _vm.$gbiAssets + "/taxes_icon.png" },
+                        }),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("GST")]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "iconClass" }, [
+                        _c("img", {
+                          attrs: { src: _vm.$gbiAssets + "/sightseeing.png" },
+                        }),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Sightseeing")]),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "ItneraryHeadDiv" }, [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "py-2",
+                      domProps: {
+                        innerHTML: _vm._s(_vm.itineraryData.description),
+                      },
+                    }),
+                  ]),
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tabSelected == "Itinerary"
+            ? _c("div", { staticClass: "mainRow3 container" }, [
+                _c("p", { staticClass: "rowheadings" }, [_vm._v("Itinerary")]),
+                _vm._v(" "),
                 _c(
-                  "GmapMap",
+                  "div",
+                  { staticClass: "itineraryDiv" },
+                  _vm._l(
+                    _vm.itineraryData.itinerarydays,
+                    function (data, index) {
+                      return _c(
+                        "div",
+                        { key: data.id, staticClass: "singleItneraryDivMain" },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "singleItneraryDiv d-flex justify-content-between",
+                              style:
+                                _vm.selectedDay == data.id
+                                  ? "background-color: #F5EFFF"
+                                  : "background-color: #F5F5F5",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.changeItDiv(data.id)
+                                },
+                              },
+                            },
+                            [
+                              _c("p", [
+                                _vm._v("Itinerary : Day " + _vm._s(data.day)),
+                              ]),
+                              _vm._v(" "),
+                              _c("i", {
+                                class:
+                                  _vm.selectedDay == data.id
+                                    ? "fas fa-chevron-up"
+                                    : "fas fa-chevron-down mt-1",
+                              }),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm.selectedDay == data.id
+                            ? _c("div", { staticClass: "singleItneraryDiv2" }, [
+                                _c("div", {
+                                  staticClass: "py-2",
+                                  domProps: {
+                                    innerHTML: _vm._s(data.day_description),
+                                  },
+                                }),
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.itineraryData.itinerarydays.length - 1 !== index
+                            ? _c("div", { staticClass: "verticalStep" })
+                            : _vm._e(),
+                        ]
+                      )
+                    }
+                  ),
+                  0
+                ),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tabSelected == "Encylopedia"
+            ? _c("div", { staticClass: "container mt-4" }, [
+                _c("p", { staticClass: "rowheadings" }, [
+                  _vm._v("Encylopedia"),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "encylopediaDiv" }, [
+                  _c(
+                    "div",
+                    { staticClass: "icons-flex-e mt-2" },
+                    _vm._l(_vm.selected_cities, function (data, index) {
+                      return _c(
+                        "div",
+                        {
+                          key: index,
+                          staticClass: "e-icons",
+                          style:
+                            _vm.citySelected == data
+                              ? "color: #f77736; border-bottom: 2px solid #f77736"
+                              : "",
+                          on: {
+                            click: function ($event) {
+                              return _vm.changeCity(data)
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n            " + _vm._s(data) + "\n          "
+                          ),
+                        ]
+                      )
+                    }),
+                    0
+                  ),
+                ]),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "modal", attrs: { id: "bookModal" } }, [
+            _c("div", { staticClass: "modal-dialog" }, [
+              _c("div", { staticClass: "modal-content modal-color" }, [
+                _vm.itineraryData.itinerarydays
+                  ? _c(
+                      "div",
+                      { staticClass: "modal-body" },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "close",
+                            attrs: { type: "button", "data-dismiss": "modal" },
+                          },
+                          [_vm._v("×")]
+                        ),
+                        _vm._v(" "),
+                        _vm.loading == false
+                          ? _c("booking", {
+                              attrs: {
+                                title: _vm.itineraryData.title,
+                                selected_cities: _vm.selected_cities,
+                                city_list: _vm.city_list,
+                              },
+                            })
+                          : _vm._e(),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _vm.tabSelected == "Neighbourhood"
+            ? _c("div", { staticClass: "container mt-4" }, [
+                _c(
+                  "p",
                   {
-                    ref: "map",
-                    staticStyle: { width: "100%", height: "500px" },
-                    attrs: { zoom: 1, center: { lat: 0, lng: 0 } },
+                    staticClass: "heading2 mb-4",
+                    staticStyle: { "margin-top": "4vh" },
                   },
-                  _vm._l(_vm.markers, function (marker, index) {
-                    return _c("GmapMarker", {
-                      key: index,
-                      attrs: { position: marker.latLng },
-                    })
-                  }),
+                  [_vm._v("Explore Neighbourhood")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "icons-flex mt-2" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "icons",
+                      style:
+                        _vm.iconSelected == "Communication"
+                          ? "color: #f77736"
+                          : "",
+                      on: {
+                        click: function ($event) {
+                          return _vm.changeIcon("Communication")
+                        },
+                      },
+                    },
+                    [_vm._v("\n            Commute\n          ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "icons",
+                      style:
+                        _vm.iconSelected == "Movie" ? "color: #f77736" : "",
+                      on: {
+                        click: function ($event) {
+                          return _vm.changeIcon("Movie")
+                        },
+                      },
+                    },
+                    [_vm._v("\n            Movie\n          ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "icons",
+                      style: _vm.iconSelected == "Food" ? "color: #f77736" : "",
+                      on: {
+                        click: function ($event) {
+                          return _vm.changeIcon("Food")
+                        },
+                      },
+                    },
+                    [_vm._v("\n            Food\n          ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "icons",
+                      style:
+                        _vm.iconSelected == "Sightseeing"
+                          ? "color: #f77736"
+                          : "",
+                      on: {
+                        click: function ($event) {
+                          return _vm.changeIcon("Sightseeing")
+                        },
+                      },
+                    },
+                    [_vm._v("\n            Sightseeing\n          ")]
+                  ),
+                ]),
+                _vm._v(" "),
+                _vm.iconSelected == "Communication"
+                  ? _c("div", { staticStyle: { "margin-bottom": "1vh" } }, [
+                      _c(
+                        "p",
+                        {
+                          staticClass: "heading2 mb-4",
+                          staticStyle: { "margin-top": "4vh" },
+                        },
+                        [_vm._v("Commute")]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.iconSelected == "Movie"
+                  ? _c("div", { staticStyle: { "margin-bottom": "1vh" } }, [
+                      _c(
+                        "p",
+                        {
+                          staticClass: "heading2 mb-4",
+                          staticStyle: { "margin-top": "4vh" },
+                        },
+                        [_vm._v("Movie")]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.iconSelected == "Food"
+                  ? _c("div", { staticStyle: { "margin-bottom": "1vh" } }, [
+                      _c(
+                        "p",
+                        {
+                          staticClass: "heading2 mb-4",
+                          staticStyle: { "margin-top": "4vh" },
+                        },
+                        [_vm._v("Food")]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.iconSelected == "Sightseeing"
+                  ? _c("div", { staticStyle: { "margin-bottom": "1vh" } }, [
+                      _c(
+                        "p",
+                        {
+                          staticClass: "heading2 mb-4",
+                          staticStyle: { "margin-top": "4vh" },
+                        },
+                        [_vm._v("Sightseeing")]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticStyle: { "margin-bottom": "5vh" } },
+                  [
+                    _c(
+                      "GmapMap",
+                      {
+                        ref: "map",
+                        staticStyle: { width: "100%", height: "500px" },
+                        attrs: { zoom: 1, center: { lat: 0, lng: 0 } },
+                      },
+                      _vm._l(_vm.markers, function (marker, index) {
+                        return _c("GmapMarker", {
+                          key: index,
+                          attrs: { position: marker.latLng },
+                        })
+                      }),
+                      1
+                    ),
+                  ],
                   1
                 ),
-              ],
-              1
-            ),
-          ])
-        : _vm._e(),
-    ]
-  )
+              ])
+            : _vm._e(),
+        ]
+      )
+    : _vm._e()
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [_c("i", { staticClass: "fas fa-chevron-right" })])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -2721,6 +2937,14 @@ var staticRenderFns = [
         _c("span", { staticClass: "smallP" }, [_vm._v("(Incl. all taxes)")]),
       ]
     )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "py-2 overview" }, [
+      _c("b", [_vm._v("Itinerary Overview")]),
+    ])
   },
 ]
 render._withStripped = true

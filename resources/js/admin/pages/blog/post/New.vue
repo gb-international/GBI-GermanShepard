@@ -31,10 +31,12 @@ to submit the data we are using a function.
                 type="text"
                 class="form-control"
                 v-model="form.title"
+                @input="changeField('title', $event.target.value)"
                 :class="{ 'is-invalid': form.errors.has('title') }"
                 placeholder="Enter title"
               />
               <has-error :form="form" field="title"></has-error>
+              <p v-if="titleWarn" class="warn-error"> Title can't be empty.</p>
             </div>
           </div>
 
@@ -52,6 +54,7 @@ to submit the data we are using a function.
                 @image-removed="handleImageRemoved"
               ></vue-editor>
               <has-error :form="form" field="description"></has-error>
+              <p v-if="descriptionWarn && !form.description" class="warn-error"> Please input description.</p>
             </div>
           </div>
 
@@ -63,10 +66,12 @@ to submit the data we are using a function.
                 type="text"
                 class="form-control"
                 v-model="form.summery"
+                @change="changeField('summery', $event.target.value)"
                 :class="{ 'is-invalid': form.errors.has('summery') }"
                 placeholder="Enter summary"
               ></textarea>
               <has-error :form="form" field="summery"></has-error>
+              <p v-if="summeryWarn" class="warn-error"> Please input summary.</p>
             </div>
           </div>
 
@@ -77,10 +82,12 @@ to submit the data we are using a function.
                 type="text"
                 class="form-control"
                 v-model="form.meta_title"
+                @change="changeField('meta_title', $event.target.value)"
                 :class="{ 'is-invalid': form.errors.has('meta_title') }"
                 placeholder="Enter meta title"
               />
               <has-error :form="form" field="meta_title"></has-error>
+              <p v-if="meta_titleWarn" class="warn-error"> Please input Meta Title.</p>
             </div>
           </div>
           <div class="col-sm-6">
@@ -235,6 +242,13 @@ export default {
       categoryWarn: false,
       tagsWarn: false,
       clientTypeWarn: false,
+
+      titleWarn: false,
+      descriptionWarn: false,
+      summeryWarn: false,
+      meta_titleWarn: false,
+      meta_keywordWarn: false,
+
       status_list:[
         {name:"Draft",id:0},
         //{name:"Public",id:1}
@@ -262,6 +276,41 @@ export default {
     this.getTags();
   },
   methods: {
+
+    changeField (field, input) {
+      if(field === 'title'){
+          if(input === ''){
+            this.titleWarn = true;
+          } else {
+            this.titleWarn = false;
+            this.form.title = input
+          }
+          
+      }
+      if(field === 'summery'){
+          if(input === ''){
+            this.summeryWarn = true;
+          } else {
+            this.summeryWarn = false;
+          }
+          
+      }
+      if(field === 'meta_title'){
+          if(input === ''){
+            this.meta_titleWarn = true;
+          } else {
+            this.meta_titleWarn = false;
+          }
+      }
+      if(field === 'meta_keyword'){
+          if(input === ''){
+            this.meta_keywordWarn = true;
+          } else {
+            this.meta_keywordWarn = false;
+          }
+          
+      }
+    },
     getCategories() {
       axios.get("/api/categories").then((res) => {
         if (res) {
@@ -309,28 +358,80 @@ export default {
     },*/
 
     AddPost() {
-      if (!this.img_image) {
-        this.imageWarn = true
+      if (!this.form.title) {
+        this.titleWarn = true;
+        this.$toast.fire({
+            icon: "error",
+            title: "Title Required",
+          });        
+        return false;
+      }
+      if (!this.form.description) {
+        this.descriptionWarn = true;
+         this.$toast.fire({
+            icon: "error",
+            title: "Description Required",
+          });
+        return false;
+      }
+      if (!this.form.summery) {
+         this.summeryWarn = true;
+         this.$toast.fire({
+            icon: "error",
+            title: "Summary Required",
+          });
+        return false;
+      }
+      if (!this.form.meta_title) {
+        this.meta_titleWarn = true;
+        this.$toast.fire({
+            icon: "error",
+            title: "Meta Title Required",
+          });
+        return false;
+      }
+      if (this.form.meta_keyword.length < 1 ) {
+        this.tagsWarn = true
+        this.$toast.fire({
+            icon: "error",
+            title: "Meta Keywords Required",
+          });
         return false;
       }
       if (this.form.status === '') {
         this.statusWarn = true
+        this.$toast.fire({
+            icon: "error",
+            title: "Blog Status Required",
+          });
         return false;
       }
       if (this.form.category === '') {
         this.categoryWarn = true
+        this.$toast.fire({
+            icon: "error",
+            title: "Blog Category Required",
+          });
         return false;
       }
-      if (this.meta_key.length < 1 ) {
-        this.tagsWarn = true
-        return false;
-      }
-      if (this.form.clientTypeWarn === '') {
+      if (this.form.client_type === '') {
         this.clientTypeWarn = true
+        this.$toast.fire({
+            icon: "error",
+            title: "Client Type Required",
+          });
         return false;
       }
-      this.loading = true
+      if (!this.img_image) {
+        this.imageWarn = true
+        this.$toast.fire({
+            icon: "error",
+            title: "Banner Image Required",
+          });
+        return false;
+      }
       this.form.tags = this.form.meta_keyword
+      this.loading = true
       //console.log(this.form.tags)
       this.form.category_id = this.form.category.id
       this.form.user_id = window.userId

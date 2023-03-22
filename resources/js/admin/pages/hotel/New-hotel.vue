@@ -528,14 +528,6 @@ export default {
   font-size: 16px;
   color: #d12121;
 }
-.btn-custom-indr {
-    color: #212529;
-    background-color: #dee2e6;
-    border-color: #dee2e6;
-    font-size: 15px !important;
-    font-weight: 400;
-    padding: 6px 15px;
-}
 .custom-card {
   display: flex;
   justify-content: center;
@@ -545,6 +537,14 @@ export default {
   background: #e5e5e5;
   border: solid 2px #e5e5e5;
   border-radius: 5px;
+}
+.btn-custom-indr {
+    color: #212529;
+    background-color: #dee2e6;
+    border-color: #dee2e6;
+    font-size: 15px !important;
+    font-weight: 400;
+    padding: 6px 15px;
 }
 .custom-div{
   margin-top: 26px !important;

@@ -568,6 +568,7 @@ __webpack_require__.r(__webpack_exports__);
         return false;
       }
 
+      console.log(this.form.gender);
       this.form.put("/api/members/".concat(this.$route.params.id)).then(function (res) {
         _this4.$router.push("/list-member");
 

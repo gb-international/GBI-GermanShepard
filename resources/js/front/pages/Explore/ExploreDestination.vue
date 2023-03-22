@@ -22,7 +22,7 @@
                         >Itinerary</a
                       >
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a
                         class="nav-link border-none"
                         data-toggle="tab"
@@ -30,7 +30,7 @@
                         v-on:click="panel = 'Hotels'"
                         >Hotels</a
                       >
-                    </li>
+                    </li> -->
                   </ul>
                   <!-- start single location Tab panes serach bar for source and destination-->
                   <div class="explor-content pb-1" v-if="panel == 'Itinerary'">
@@ -51,7 +51,7 @@
                                 <label
                                   class="custom-control-label"
                                   for="national"
-                                  >Return</label
+                                  ><b>Return</b></label
                                 >
                               </div>
                             </div>
@@ -69,7 +69,7 @@
                                 <label
                                   class="custom-control-label"
                                   for="international"
-                                  >Multicity</label
+                                  ><b>Multicity</b></label
                                 >
                               </div>
                             </div>
@@ -83,17 +83,21 @@
                             <div class="col-sm-12 mt-1">
                               <custLabel>Choose your transport</custLabel>
                                 <div class="row pb-2">
-                                  <div class="col-6 col-md-3 col-lg-2 mb-2" @click="portType = 'car'; getCities()">
-                                    <img :src=" portType == 'car' ? $gbiAssets + '/car_onclick_icon.png' : $gbiAssets + '/car_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'bus'; getCities()" :class=" portType == 'bus' ? 'filter-cl' : '' ">
+                                    <img :src="$gbiAssets + '/images/icons/bus_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-1">
+                                     Bus
                                   </div>
-                                  <div class="col-6 col-md-3 col-lg-2 mb-2" @click="portType = 'bus'; getCities()">
-                                   <img :src=" portType == 'bus' ? $gbiAssets + '/bus_onclick_icon.png' : $gbiAssets + '/bus_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'car'; getCities()" :class=" portType == 'car' ? 'filter-cl' : '' ">
+                                    <img :src="$gbiAssets + '/images/icons/car_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-2">
+                                     Car
                                   </div>
-                                  <div class="col-6 col-md-3 col-lg-2 mb-2" @click="portType = 'train'; getCities()">
-                                    <img :src=" portType == 'train' ? $gbiAssets + '/train_onclick_icon.png' : $gbiAssets + '/train_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'train'; getCities()" :class=" portType == 'train' ? 'filter-cl' : '' " >
+                                    <img :src="$gbiAssets + '/images/icons/train_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-1">
+                                     Train
                                   </div>
-                                  <div class="col-6 col-md-3 col-lg-2 mb-2" @click="portType = 'plane'; getCities()">
-                                    <img :src=" portType == 'plane' ? $gbiAssets + '/flight_onclick_icon.png' : $gbiAssets + '/flight_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                   <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'plane'; getCities()" :class=" portType == 'plane' ? 'filter-cl' : '' " >
+                                    <img :src="$gbiAssets + '/images/icons/flight_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-1">
+                                     Plane
                                   </div>
                                 </div>
                              </div>
@@ -208,7 +212,7 @@
                                 <label
                                   class="custom-control-label"
                                   for="national"
-                                  >Return</label
+                                  ><b>Return</b></label
                                 >
                               </div>
                             </div>
@@ -226,7 +230,7 @@
                                 <label
                                   class="custom-control-label"
                                   for="international"
-                                  >Multicity</label
+                                  ><b>Multicity</b></label
                                 >
                               </div>
                             </div>
@@ -236,31 +240,34 @@
                      
                       <div class="row p-0 parent_padding">
 
-                        <div class="col-12 col-sm-6 col-lg-6">
+                        <div class="col-12 col-sm-6 col-lg-9">
                             <div class="col-sm-12 mt-1">
                               <custLabel>Choose your transport</custLabel>
                                 <div class="row pb-2">
-                                  <div class="col-6 col-md-3 mb-2" @click="portType = 'car'; getCities()">
-                                    <img :src=" portType == 'car' ? $gbiAssets + '/car_onclick_icon.png' : $gbiAssets + '/car_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'bus'; getCities()" :class=" portType == 'bus' ? 'filter-cl' : '' ">
+                                    <img :src="$gbiAssets + '/images/icons/bus_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-1 ">
+                                     Bus
                                   </div>
-                                  <div class="col-6 col-md-3 mb-2" @click="portType = 'bus'; getCities()">
-                                   <img :src=" portType == 'bus' ? $gbiAssets + '/bus_onclick_icon.png' : $gbiAssets + '/bus_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'car'; getCities()" :class=" portType == 'car' ? 'filter-cl' : '' ">
+                                    <img :src="$gbiAssets + '/images/icons/car_explore_icon.svg' " class="cursor-pointer exp-icon-wd-width mr-2">
+                                     Car
                                   </div>
-                                  <div class="col-6 col-md-3 mb-2" @click="portType = 'train'; getCities()">
-                                    <img :src=" portType == 'train' ? $gbiAssets + '/train_onclick_icon.png' : $gbiAssets + '/train_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'train'; getCities()" :class=" portType == 'train' ? 'filter-cl' : '' " >
+                                    <img :src="$gbiAssets + '/images/icons/train_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-1">
+                                     Train
                                   </div>
-                                  <div class="col-6 col-md-3 mb-2" @click="portType = 'plane'; getCities()">
-                                    <img :src=" portType == 'plane' ? $gbiAssets + '/flight_onclick_icon.png' : $gbiAssets + '/flight_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                   <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'plane'; getCities()" :class=" portType == 'plane' ? 'filter-cl' : '' " >
+                                    <img :src="$gbiAssets + '/images/icons/flight_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-1">
+                                     Plane
                                   </div>
                                 </div>
                              </div>
                         </div>
 
 
-                         <div class="col-12 col-sm-6 col-lg-6 px-2">
+                         <div class="col-12 col-sm-6 col-lg-3 px-2">
                             <div class="row parent_padding">
                               <div class="col-12 input-p nopadding">
-                                <custLabel class="ml-2">Customer Type</custLabel>
                                 <div class="select">
                                   <select
                                     class="placeholder_color ui fluid search selection dropdown"
@@ -337,7 +344,7 @@
                         </div>
                       </div>
 
-                      <!-- tyype of tour and no of days -->
+                      <!-- type of tour and no of days -->
                       <div class="row parent_padding">
                         <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
                           <div class="select">
@@ -613,7 +620,7 @@
 
     <main class="pl-2 pr-2">
       <div class="container">
-        <div v-if="!upcoming_data && !popular_data">
+        <!-- <div v-if="!upcoming_data && !popular_data">
 
           <heading class="text-center mt-5" text="Upcoming Tour" />
           <div class="row card-titles">
@@ -629,9 +636,16 @@
             </div>
           </div>
 
-        </div>
-        <div class="p-0" v-else-if="allSearchdata == ''">
-          <heading class="text-center" text="Upcoming Tour" />
+        </div> -->
+
+        <div class="p-0" v-if="allSearchdata == ''">
+          <heading class="text-center mt-2" text="All Tours" />
+          <itinerary-list :list="items_list"></itinerary-list>
+          <Observer @intersect="intersected" />
+          <div class="loading-img-parent text-center mt-5 w-100 mb-4" v-if="loading">
+            <img class="loading-img" :src="$gbiAssets+'/images/icons/loader.gif'" />
+          </div>
+          <!-- <heading class="text-center" text="Upcoming Tour" />
           <itinerary-list :list="upcoming_data" />
           <div class="nopadding m-b-15">
             <router-link to="/explore-list" class="listexplore"
@@ -644,7 +658,7 @@
             <router-link to="/explore-list" class="listexplore"
               >View More</router-link
             >
-          </div>
+          </div> -->
         </div>
         <div v-else>
           <itinerary-list :list="allSearchdata"></itinerary-list>
@@ -671,6 +685,7 @@ import AlertModals from '@/front/components/Explore/AlertModals.vue';
 import HotelDatePicker from 'vue-hotel-datepicker'
 import 'vue-hotel-datepicker/dist/vueHotelDatepicker.css';
 import cardLoader from '@/front/components/loaders/cardLoaderExplore.vue';
+import Observer from "@/front/components/Observer";
 
 export default {
   name: "exploreDestination",
@@ -696,6 +711,7 @@ export default {
   },
 
   components: {
+    Observer,
     Heading,
     SubHeading,
     HotelDatePicker,
@@ -706,6 +722,7 @@ export default {
     return {
       upcoming_data: null,
       popular_data: null,
+      allTour_data: null,
       CheckInOut: [],
       room_options: [],
       room_types: ["Single", "Double", "Triple", "Quad"],
@@ -735,10 +752,27 @@ export default {
   },
 
   created() {
-    this.UpcomingData();
-    this.popularTour();
+    //this.UpcomingData();
+    //this.popularTour();
+    //this.AllTours();
   },
   methods: {
+    async intersected() {
+      if (this.loading == false) {
+        this.loading = true;
+
+        var url = `/api/itinerary-list?page=` + this.page;
+        const res = await fetch(url);
+
+        this.page++;
+        var items = await res.json();
+        if (items.data.length > 0) {
+          this.items_list = [...this.items_list, ...items.data];
+        }
+        items = [];
+        this.loading = false;
+      }
+    },
     incrVal(data){
         if(data == 'adults'){
           this.adults += 1
@@ -794,6 +828,15 @@ export default {
           this.apiFailed = true
         }
         this.upcoming_data = response.data;
+        console.log(response.data)
+      });
+    },
+    AllTours() {
+      this.$axios.get("/api/travel-program/upcoming-tour").then((response) => {
+        if(!response.data){
+          this.apiFailed = true
+        }
+        this.allTour_data = response.data;
         console.log(response.data)
       });
     },
@@ -919,4 +962,28 @@ input[type="passengers"] {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+.filter-cl{
+    /*filter: invert(54%) sepia(71%) saturate(1853%) hue-rotate(338deg) brightness(101%) contrast(94%);*/
+    background: #f77736;
+    border-color: #f77736 !important;
+}
+.exp-icon{
+  border: 1px solid white;
+  border-radius: 25px;
+  padding: 8px 8px;
+  text-align: center;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  font-family: 'Nunito Sans';
+  font-size: 14px;
+  cursor: pointer;
+}
+.exp-icon-wd{
+  width: 25px !important;
+}
+
 </style> 

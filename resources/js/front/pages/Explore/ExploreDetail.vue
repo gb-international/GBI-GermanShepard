@@ -2,21 +2,33 @@
   <!--************************************************
       Author: @Manas
   ****************************************************-->
-<section class="d-flex flex-column justify-content-center" style="background: white !important">
+<section class="d-flex flex-column justify-content-center" style="background: white !important" v-if="!loading">
   <!-- Row 1 -->
-  <div class="d-flex justify-content-center align-items-center mainRow1 container" style="background: white !important">
-    <div class="p-2 d-flex flex-column expDetCol1">
-        <img 
-          :src="selectedPhoto"
-          loading="lazy"
-          alt="itinerary"
-          class="expDetailImg"
-        >
-        <div class="p-2">
+  <div class="d-flex mainRow1 container justify-content-left align-items-left" style="background: white !important;">
+    <div class="mr-2 d-flex flex-column expDetCol1">
+        <div>
+          <div class="d-flex justify-content-start align-items-center">
+            <p class="rowheadingTop">{{itineraryData.title}}</p> <p class="label_">{{itineraryData.tourtype}}</p> 
+          </div>
+          <p class="days_head">Trip Starting From <span style="color: #f77736">{{selected_cities[0]}}</span> </p>
+          <p class="days_head2">{{itineraryData.itinerarydays.length}} Days</p>
+          <div class="d-flex align-items-center bread_nav mb-3">
+            <router-link :to="`/explore-destination`" class="bread_link br_grey" >Explore Destination</router-link>
+            <span><i class="fas fa-chevron-right"></i></span>
+            <br_cr class="br_actv">{{itineraryData.title}}</br_cr>
+          </div>
+          <img 
+            :src="$gbiAssets+'/'+selectedPhoto"
+            loading="lazy"
+            alt="itinerary"
+            class="expDetailImg"
+          >
+        </div>
+        <div class="py-2">
           <VueSlickCarousel v-bind="settings" :dots="true" :arrows="false">
-            <div v-for="index in 10" :key="index" @click="changePhoto(itineraryData.photo)">
+            <div v-for="img in itineraryData.itineraryimages" :key="img.id" @click="changePhoto(img.image)">
               <img 
-                :src="itineraryData.photo"
+                :src="$gbiAssets+'/'+img.image"
                 loading="lazy"
                 alt="itinerary"
                 class="expDetailImgSmall"
@@ -25,15 +37,15 @@
           </VueSlickCarousel>
         </div>
     </div>
-    <div class="expDetCol2Main" v-if="itineraryData.price">
+    <div class="expDetCol2Main ml-2" v-if="itineraryData.price">
       <div class="expDetCol2">
-        <div class="d-flex justify-content-start align-items-center priceSingleDiv">
+        <div class="d-flex justify-content-start align-items-center priceSingleDiv priceBorder">
           <p><b>₹{{itineraryData.price}} x 1 Pax</b></p>
-          <p class="ml-auto p2">₹{{itineraryData.price}}</p>
+          <p class="ml-auto p2">₹{{(itineraryData.price).toLocaleString()}}</p>
         </div>
-        <div class="d-flex justify-content-start align-items-center priceSingleDiv">
+        <div class="d-flex justify-content-start align-items-center priceSingleDiv priceBorder">
           <p>Total Basic Cost</p>
-          <p class="ml-auto p2">₹{{itineraryData.price}}</p>
+          <p class="ml-auto p2">₹{{(itineraryData.price).toLocaleString()}}</p>
         </div>
 
         <!-- Coupon Div -->
@@ -51,7 +63,7 @@
 
         <div class="d-flex justify-content-start align-items-center priceSingleDiv">
           <p>Taxes</p>
-          <p class="ml-auto p2">₹{{itineraryData.price * 5/100}}</p>
+          <p class="ml-auto p2">₹{{(itineraryData.price * 5/100).toLocaleString()}}</p>
         </div>
         <!-- <div class="d-flex justify-content-start align-items-center priceSingleDiv">
           <p>TCS(0%)</p>
@@ -61,83 +73,93 @@
           <p class="d-flex flex-column justify-content-start align-items-center" style=" margin-top: 5px; margin-right: 3px;">Grand Total
             <span class="smallP">(Incl. all taxes)</span>
           </p>
-          <p class="ml-auto p2">₹{{itineraryData.price * 5/100 + itineraryData.price}} </p>
+          <p class="ml-auto p2">₹{{(itineraryData.price * 5/100 + itineraryData.price).toLocaleString()}} </p>
         </div>
       </div>
 
-      <button v-if="login" 
+      <button v-if="!login"
         class="btn btnPay" 
         data-toggle="modal"
         data-target="#bookModal">
-          Book Now
+          Send Query
       </button>
       <button v-else class="btn btnPay" id="loginButton"
         data-toggle="modal"
         data-target="#LoginForm">
-        Book Now
+          Send Query
       </button>
     </div>
   </div>
 
   <!-- Mob Grand Total -->
-  <div class="d-flex justify-content-between align-items-center grandTotalMob">
+  <div v-if="itineraryData.price" class="d-flex justify-content-between align-items-center grandTotalMob">
     <div class="d-flex flex-column justify-content-start align-items-start">  
       <p>Grand Total</p>
       <span class="smallP">(Incl. all taxes)</span>
-      <p class="p2">₹{{itineraryData.price * 5/100 + itineraryData.price}}</p>
+      <p class="p2">₹{{(itineraryData.price * 5/100 + itineraryData.price).toLocaleString()}}</p>
     </div>
-    <button v-if="login" 
+    <button v-if="!login"
       class="btn btnConfirm ml-auto" 
       data-toggle="modal"
       data-target="#bookModal">
-        Book Now
+        Send Query
     </button>
     <button v-else
       class="btn btnConfirm ml-auto"
       data-toggle="modal"
       data-target="#LoginForm"
       id="loginButton"
-    >Book Now
+    >
+        Send Query
     </button>
   </div>
 
-      <div class="container mt-4">
+      <div class="container mt-2">
         <div class="custom-flex mt-2">
           <div class="tabs" :style="tabSelected == 'Itinerary' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Itinerary')">
             Itinerary
           </div>
-          <div class="tabs" :style="tabSelected == 'Neighbourhood' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Neighbourhood')">
+          <!-- <div class="tabs" :style="tabSelected == 'Neighbourhood' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Neighbourhood')">
             Your Neighbourhood
           </div>
-          <!-- <div class="tabs" :style="tabSelected == 'Encylopedia' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Encylopedia')">
+          <div class="tabs" :style="tabSelected == 'Encylopedia' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Encylopedia')">
             Encylopedia
+          </div>
+          <div class="tabs" :style="tabSelected == 'Policy' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Policy')">
+            Policy
           </div> -->
         </div>
       </div>
 
   <!-- Row 2 -->
-  <div class="mainRow2 container" v-if="tabSelected == 'Itinerary' " style="margin-top: 5vh">
+  <div class="mainRow2 container" v-if="tabSelected == 'Itinerary' " style="margin-top: 4vh">
+    
+    <div class="row2-card">
     <p class="rowheadings">Your Experience Includes</p>
     <div class="iconMainDiv">
-      <div class="iconClass">
+      <div class="iconClass" v-if="itineraryData.hotel_type != '0'">
         <img :src="$gbiAssets + '/hotel_icon.png'">
         <p>Hotel</p>
       </div>
-      <div class="iconClass">
+      <div class="iconClass" v-if="itineraryData.flight == '1'">
         <img :src="$gbiAssets + '/flight_icon.png'">
         <p>Flight</p>
       </div>
-      <div class="iconClass">
+      <div class="iconClass" v-if="itineraryData.tourtype == 'International'">
         <img :src="$gbiAssets + '/passport_icon.png'">
         <p>Passport/Visa</p>
       </div>
-      <div class="iconClass">
-        <img :src="$gbiAssets + '/transport_icon.png'">
-        <p>Transfers</p>
+      <div class="iconClass" v-if="itineraryData.train == '1'">
+        <img :src="$gbiAssets + '/train_icon.png'">
+        <p>Train</p>
       </div>
-      <div class="iconClass">
+      <div class="iconClass" v-if="itineraryData.bus == '1'">
+        <img :src="$gbiAssets + '/transport_icon.png'">
+        <p>Car/Bus</p>
+      </div>
+      <div class="iconClass" v-if="itineraryData.food == '1'">
         <img :src="$gbiAssets + '/dinner_icon.png'">
-        <p>Dinner</p>
+        <p>Food</p>
       </div>
       <div class="iconClass">
         <img :src="$gbiAssets + '/citytour_icon.png'">
@@ -145,34 +167,77 @@
       </div>
       <div class="iconClass">
         <img :src="$gbiAssets + '/taxes_icon.png'">
-        <p>Taxes</p>
+        <p>GST</p>
       </div>
       <div class="iconClass">
         <img :src="$gbiAssets + '/sightseeing.png'">
         <p>Sightseeing</p>
       </div>
-      <div class="iconClass">
+      <!-- <div class="iconClass">
         <img :src="$gbiAssets + '/breakfast.png'">
         <p>Breakfast</p>
-      </div>
+      </div> -->
     </div>
+    </div>
+
+    <div class="ItneraryHeadDiv">
+      <div class="py-2 overview"><b>Itinerary Overview</b></div>
+      <div class="py-2" v-html="itineraryData.description"></div>
+    </div>
+    
   </div>
 
   <div class="mainRow3 container" v-if="tabSelected == 'Itinerary' ">
-    <p class="rowheadings">ITINERARY</p>
+
+    <p class="rowheadings">Itinerary</p>
     <div class="itineraryDiv">
-      <div class="singleItneraryDivMain" v-for="(data, index) in itineraryData.itinerarydays" :key="data.id" @click="changeItDiv(data.id)">
-        <div class="singleItneraryDiv d-flex justify-content-between">
+      <div class="singleItneraryDivMain" v-for="(data, index) in itineraryData.itinerarydays" :key="data.id">
+        <div class="singleItneraryDiv d-flex justify-content-between"  @click="changeItDiv(data.id)" :style="selectedDay == data.id ? 'background-color: #F5EFFF' : 'background-color: #F5F5F5' ">
           <p>Itinerary : Day {{ data.day}}</p>
-          <i :class="selectedDay == data.id ? 'fas fa-sort-up mt-2' : 'fas fa-sort-down' "></i>
+          <i :class="selectedDay == data.id ? 'fas fa-chevron-up' : 'fas fa-chevron-down mt-1' "></i>
         </div>
         <div v-if="selectedDay == data.id" class="singleItneraryDiv2">
-          <div class="card-text card-text-ul py-2" v-html="data.day_description"></div>
+          <div class="py-2" v-html="data.day_description"></div>
+           <!-- <div class="row">
+            <div class="py-2 col-sm-7" v-html="data.day_description"></div>
+             <div class="py-2 col-sm-5">
+                <VueSlickCarousel v-bind="settings2" :dots="false" :arrows="false">
+                  <div v-for="img in itineraryData.itineraryimages" :key="img.id">
+                    <img 
+                      :src="$gbiAssets+'/'+img.image"
+                      loading="lazy"
+                      alt="itinerary"
+                      class="expDetailImg2"
+                      >
+                  </div>
+                </VueSlickCarousel>
+              </div>
+           </div> -->
         </div>
         <div v-if="(itineraryData.itinerarydays.length - 1) !== index" class="verticalStep"></div>
       </div>
     </div>
+    
   </div>
+
+  <div class="container mt-4" v-if="tabSelected == 'Encylopedia' ">
+
+      <p class="rowheadings">Encylopedia</p>
+      <div class="encylopediaDiv">
+
+        <!-- Icons -->
+        <div class="icons-flex-e mt-2">
+          <div v-for="(data, index) in selected_cities" :key="index" class="e-icons" :style="citySelected == data ? 'color: #f77736; border-bottom: 2px solid #f77736' : ''" @click="changeCity(data)">
+            {{data}}
+          </div>
+        </div>
+
+        <!-- <div v-if="encyData" class="mt-4" style="margin-bottom: 5vh" v-html='encyData.description'>
+        </div> -->
+
+      </div>
+        
+    </div>
 
   <!-- Booking Modal -->
     <div class="modal" id="bookModal">
@@ -182,7 +247,7 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
 
             <booking 
-              v-if="loading== false"
+              v-if="loading == false"
               :title="itineraryData.title"
               :selected_cities="selected_cities"
               :city_list="city_list"
@@ -193,7 +258,7 @@
       </div>
     </div>
 
-    <!-- Neightbourhood -->
+    <!-- Neighbourhood -->
      <div class="container mt-4" v-if="tabSelected == 'Neighbourhood' ">
        <p class="heading2 mb-4" style="margin-top: 4vh">Explore Neighbourhood</p>
 
@@ -316,6 +381,14 @@ export default {
         slidesToScroll: 3,
         initialSlide: 0,
       },
+      settings2: {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 0,
+      },
       day: 0,
       description: "",
       itineraryData: [],
@@ -325,6 +398,8 @@ export default {
       loading:true,
       tabSelected: 'Itinerary',
       iconSelected: 'Communication',
+      citySelected: '',
+      encyData: null,
     };
   },   
   watch: {
@@ -389,6 +464,13 @@ export default {
     changeIcon(val){
       this.iconSelected = val;
     },
+    changeCity(val){
+      this.citySelected = val;
+      //this.encyData = '';
+      //if(this.itineraryData.Ency){
+        //this.encyData = this.itineraryData.Ency.find(({ state_name }) => state_name === val);
+      //}
+    },
     changeItDiv(id){
       if(this.selectedDay == id){
         this.selectedDay = null
@@ -405,9 +487,15 @@ export default {
         //Save search
         let searches = JSON.parse(localStorage.getItem("itSearches"));
         searches.push(this.itineraryData)
+        console.log(this.itineraryData)
         localStorage.setItem("itSearches", JSON.stringify(searches));
-
-        this.selectedPhoto = this.itineraryData.photo;
+        console.log(this.itineraryData.itineraryimages.length)
+        if(this.itineraryData.itineraryimages.length<1){
+           for(let i=0; i< 7; i++){
+              this.itineraryData.itineraryimages[i] = {image: "itinerary_holder.png", id: i+1}
+            }
+        }
+        this.selectedPhoto = this.itineraryData.itineraryimages[0].image;
         if(this.itineraryData.itinerarydays){
           var data = this.itineraryData.itinerarydays;
           let selected=[];
@@ -420,6 +508,11 @@ export default {
             }
           }
           this.selected_cities = [...new Set(selected)];
+          this.citySelected = this.selected_cities[0];
+          //if(this.itineraryData.Ency.length > 1){
+            //this.encyData = this.itineraryData.Ency.find(({ state_name }) => state_name === this.selected_cities[0]);
+          //}
+          console.log(this.selected_cities)
         }
         this.getRelatedCities(this.itineraryData.destination);
       });
@@ -427,7 +520,9 @@ export default {
     getRelatedCities(destination){
       this.$axios.get(`/api/related-cities/${destination}`).then((res)=>{
         this.city_list = res.data;
+        //setTimeout(this.loading = false, 1000)
         this.loading = false;
+        
       });
     }
   }
@@ -436,6 +531,15 @@ export default {
 
 <style scoped>
 
+.row2-card{
+  height: auto; 
+  width: 100%; 
+  padding: 16px 30px;
+  font-size: 18px;
+  -webkit-box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
+        box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
+  background: white;
+}
 .heading2{
  font-size: 17px;
  font-weight: 500;
@@ -446,27 +550,67 @@ export default {
   margin-bottom: 21px;
 }
 .mainRow2{
-  margin-bottom: 17px;
+  margin-bottom: 21px;
 }
 .mainRow3{
   margin-bottom: 21px;
 }
 .expDetailImg{
   width: 100%;
-  height: 170px;
+  height: 260px;
   margin-bottom: 10px;
   margin-right: 15px;
+  background-size: cover;
+  background-position:50% 50%;
+  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;          /* Firefox */
+  image-rendering: -o-crisp-edges;            /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
+ -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */
+  object-fit: cover;
+  
+}
+.expDetailImg2{
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+  margin-right: 15px;
+  background-size: cover;
+  background-position:50% 50%;
+  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;          /* Firefox */
+  image-rendering: -o-crisp-edges;            /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
+ -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */
+  object-fit: cover;
+  
 }
 .expDetailImgSmall{
-  width:  45px;
-  height: 45px;
+  width:  40px;
+  height: 40px;
+  -webkit-box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
+        box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
+  border-radius: 5px;
+  background-size: cover;
+  background-position:50% 50%;
+  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;          /* Firefox */
+  image-rendering: -o-crisp-edges;            /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
+ -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */
+  object-fit: cover;
+  cursor: pointer;
 }
 .expDetCol1{
   width: 100%;
 }
 .expDetCol2Main{
+  height: 537px;
+  width: 360px;
   display: none;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
+        box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
+  margin-top: 115px !important;
 }
 .expDetCol2{
   display: none;
@@ -481,6 +625,16 @@ export default {
   font-size: 17px;
   font-weight: 500;
   padding: 6px 10px;
+  font-family:'Nunito Sans';
+}
+
+.e-icons{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 3px 10px;
+  margin-right: 15px;
+  font-family:'Nunito Sans';
 }
 
 .icons-flex {
@@ -492,11 +646,20 @@ export default {
   font-weight: 400;
 }
 
+.icons-flex-e{
+  display: flex;
+  align-content: center;
+  justify-content: start;
+  flex-direction: row;
+  font-size: 18px;
+  font-weight: 400;
+}
+
 .tabs{
   cursor: pointer;
-  font-size: 17px;
-  font-weight: 500;
-  padding: 5px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 15px;
 }
 
 .custom-div{
@@ -504,7 +667,8 @@ export default {
   margin-top: 26px !important;
   padding-top: 0.2vh !important;
   margin-right: 20px;
-  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2px 7px 0 rgb(0 0 0 / 19%);
+  -webkit-box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
+        box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
 }
 .custom-flex {
   display: flex;
@@ -515,13 +679,39 @@ export default {
   font-weight: 400;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .expDetailImgSmall{
-    width:  100px;
-    height: 100px;
+  width:  30px;
+  height: 30px;
+}
+}
+
+@media (min-width: 600px) {
+  .expDetailImgSmall{
+    width:  70px;
+    height: 70px;
+  }
+  .tabs{
+    font-size: 18px;
+    margin-right: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  .tabs{
+    font-size: 20px;
+    margin-right: 22px;
+  }
+  .expDetailImgSmall{
+    width:  80px;
+    height: 80px;
   }
   .expDetailImg{
-    height: 330px;
+    height: 412px;
+    margin-bottom: 16.5px;
+  }
+  .expDetailImg2{
+    height: 300px;
     margin-bottom: 16.5px;
   }
   .mainRow1{
@@ -529,19 +719,22 @@ export default {
     margin-bottom: 35px;
   }
   .mainRow2{
-    margin-bottom: 32px;
+    margin-bottom: 35px;
   }
   .mainRow3{
     margin-bottom: 35px;
   }
   .rowheadings{
-    font-size: 25px !important;
+    font-size: 20px !important;
+  }
+  .rowheadingTop{
+    font-size: 22px !important;
   }
   .iconClass p{
-    font-size: 19px !important;;
+    font-size: 18px !important;
   }
   .grandTotalMob{
-    margin-bottom: 35px !important;
+    margin-bottom: 2px !important;
   }
   .grandTotalMob p{
     font-size: 18px !important;
@@ -560,6 +753,14 @@ export default {
   }
 }
 @media (min-width: 1024px) {
+  .tabs{
+    font-size: 20px;
+    margin-right: 26px;
+  }
+  .expDetailImgSmall{
+    width:  100px;
+    height: 100px;
+  }
   .grandTotalMob{
     display: none !important;
   }
@@ -577,16 +778,19 @@ export default {
   }
   .mainRow1{
     margin-top: 55px;
-    margin-bottom: 55px;
+    margin-bottom: 35px;
   }
   .mainRow2{
-    padding: 5px 65px;
-    margin-bottom: 55px;
+    margin-bottom: 35px;
   }
   .mainRow3{
-    padding: 5px 65px;
-    margin-bottom: 55px;
+    margin-bottom: 35px;
   }
+  .label_{
+  margin-bottom: 10px;
+  font-size: 14px;
+  margin-left: 25px;
+ }
 }
 .iconMainDiv{
   display: flex;
@@ -602,26 +806,45 @@ export default {
   align-content: center;
   width: 45%;
   margin-right: 15px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 .iconClass img{
-  height: 40px;
-  width: 40px;
+  height: 25px;
+  width: 25px;
   margin-right: 12px;
 }
 .iconClass p{
-  margin-top: 8px;
   font-size: 14.2px;
   font-weight: 400;
   color: #1d1b1b;
 }
-.rowheadings{
-  font-size: 16px;
+.rowheadingTop{
+  font-size: 22Spx;
   font-weight: 600;
-  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #101010;
+  font-family: 'Nunito Sans';
+}
+.rowheadings{
+  font-size: 20px;
+  font-weight: 600;
   margin-bottom: 30px;
   color: #101010;
-  font-family: sans-serif;
+  font-family: 'Nunito Sans';
+}
+.days_head{
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  color: #101010;
+  font-family: 'Nunito Sans';
+}
+.days_head2{
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #101010;
+  font-family: 'Nunito Sans';
 }
 .itineraryDiv{
   display: flex;
@@ -629,6 +852,18 @@ export default {
   width: 100%;
   justify-content: center;
   align-content: space-between;
+}
+.ItneraryHeadDiv{
+  height: auto; 
+  width: 100%; 
+  padding: 16px 30px;
+  font-size: 18px;
+  font-weight: 400;
+  -webkit-box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
+        box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
+  background: white;
+  margin-top: 35px;
+  font-family: 'Nunito Sans';
 }
 .singleItneraryDivMain{
 }
@@ -638,22 +873,27 @@ export default {
   padding: 14px 30px;
   font-size: 18px;
   font-weight: 600;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);
+ -webkit-box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
+        box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
   background: white;
+  cursor: pointer;
 }
 .singleItneraryDiv2{
   height: auto; 
   width: 100%; 
   padding: 16px 30px;
   font-size: 18px;
-  font-weight: 600;
-  margin-top: 15px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);
+  font-weight: 400;
+  -webkit-box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
+        box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);
   background: white;
+  font-family: 'Nunito Sans';
 }
 .priceSingleDiv{
   padding: 12px 18px !important;
-  margin-top: 10px !important; 
+  margin: 20px 2px !important; 
+}
+.priceBorder{
   border-bottom: 1px solid #8080806b;
 }
 .priceSingleDiv p{
@@ -672,12 +912,13 @@ export default {
 .grandTotalDiv{
   padding: 13px 18px !important;
   border-bottom: 1px solid #8080806b;
+  border-top: 1px solid #8080806b;
   background: #007bff2b
 }
 .grandTotalMob{
   padding: 18px !important;
   background: #007bff2b;
-  margin-bottom: 26.9px !important;
+  margin-bottom: 5px !important;
 }
 .grandTotalMob p{
   font-size: 15px;
@@ -749,10 +990,13 @@ export default {
   color: #fff;
   background-color: #f77736;
   border-color: #f77736;
-  height: 50px;
+  height: 52px;
   width: 100%;
   margin-top: 5px;
   border-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-weight: 500;
 }
 .btnConfirm{
   color: #fff;
@@ -763,9 +1007,28 @@ export default {
   border-radius: 0px;
 }
 .verticalStep{
-  height: 20px;
-  width: 1px; 
-  background: gray; 
+  height: 30px;
+  width: 1px;
   margin-left: 45px;
+  border-left: 1px dashed #1C75BC;
+}
+.label_{
+  padding: 5px 5px;
+  background-color: #f77736;
+  color: white;
+  font-size: 12px;
+  font-family: 'Nunito Sans';
+  font-weight: 600;
+  width: 100px;
+  text-align: center;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  margin-left: 16px;
+}
+.overview{
+   font-family: 'Nunito Sans';
+   font-weight: 600;
+   font-size: 20px;
+   color: #101010;
 }
 </style>

@@ -1914,39 +1914,6 @@ var render = function () {
                   "div",
                   { staticClass: "form-group" },
                   [
-                    _c("label", { attrs: { for: "sightseeing" } }, [
-                      _vm._v("Places(Sightseeing)"),
-                    ]),
-                    _vm._v(" "),
-                    _vm.sightseeing_list
-                      ? _c("multiselect", {
-                          attrs: {
-                            options: _vm.sightseeing_list,
-                            multiple: true,
-                            "track-by": "name",
-                            label: "name",
-                            "close-on-select": true,
-                            placeholder: "Select Sightseeing",
-                          },
-                          model: {
-                            value: _vm.form.sightseen,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form, "sightseen", $$v)
-                            },
-                            expression: "form.sightseen",
-                          },
-                        })
-                      : _vm._e(),
-                  ],
-                  1
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-12" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
                     _c("label", { attrs: { for: "transport" } }, [
                       _vm._v("Mode of Transport"),
                     ]),

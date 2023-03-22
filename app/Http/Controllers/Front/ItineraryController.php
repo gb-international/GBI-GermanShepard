@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Itinerary\Itinerary;
+use App\Model\Encyclopedia\Encyclopedia;
 use App\Model\Itinerary\Itineraryrequest;
 use App\Model\Tour\Tourprogram;
 use App\Rules\EmailValidate;
@@ -34,7 +35,7 @@ class ItineraryController extends Controller
         }
     }
 
-     // explore destination searchbar get data 
+    // explore destination searchbar get data 
 
     public function searchItinerary(Request $request)
     {
@@ -94,21 +95,22 @@ class ItineraryController extends Controller
     public function travelProgram($slug){
         $tour = Tourprogram::with('itinerary')->where('slug',$slug)->first();
         $tour_data = [];
-        foreach($tour->itinerary as $itinerary){
-            $data = [];
-            $data['id'] = $itinerary->id;
-            $data['title'] = $itinerary->title;
-            $data['noofdays'] = $itinerary->noofdays;
-            $data['hotel_type'] = $itinerary->hotel_type;
-            $data['train'] = $itinerary->train;
-            $data['bus'] = $itinerary->bus;
-            $data['flight'] = $itinerary->flight;
-            $data['food'] = $itinerary->food;
-            $data['photo'] = $itinerary->photo;
-            $data['price'] = $itinerary->price;
-            array_push($tour_data,$data);
+        if($tour){
+            foreach($tour->itinerary as $itinerary){
+                $data = [];
+                $data['id'] = $itinerary->id;
+                $data['title'] = $itinerary->title;
+                $data['noofdays'] = $itinerary->noofdays;
+                $data['hotel_type'] = $itinerary->hotel_type;
+                $data['train'] = $itinerary->train;
+                $data['bus'] = $itinerary->bus;
+                $data['flight'] = $itinerary->flight;
+                $data['food'] = $itinerary->food;
+                $data['photo'] = $itinerary->photo;
+                $data['price'] = $itinerary->price;
+                array_push($tour_data,$data);
+            }
         }
-        
         return response()->json($tour_data);
     }
 
@@ -193,7 +195,7 @@ class ItineraryController extends Controller
         return response()->json($tour_data);
     }
     
-    public function list($count=8)
+    public function list($count=6)
     {
         return response()->json(Itinerary::simplePaginate($count));
     }
@@ -217,10 +219,11 @@ class ItineraryController extends Controller
     public function view($id){
         $data = Itinerary::where('id',$id)->with([
             'tourtypes',
-            'itinerarydays'
+            'itinerarydays',
+            'itineraryimages'
         ])->first();
+       
         $data->count += 1;
- 
         /*$mapData = \GoogleMaps::load('nearbysearch')           
         ->setParam([
             //'location'  => $data->destination,
@@ -233,6 +236,25 @@ class ItineraryController extends Controller
         $data->mapData = $mapData;*/
         
         $data->save();
+        if($data->itinerarydays){
+            $iTcities = array();
+            $itDays = $data->itinerarydays;
+            $iTencyclopedia = array();
+            foreach($itDays as $iday){
+                array_push($iTcities, $iday->day_source);
+                array_push($iTcities, $iday->day_destination);
+            }
+            $iTcities = array_unique($iTcities);
+            foreach($iTcities as $iCity){
+                $encyData = Encyclopedia::where('state_name',$iCity)->first();
+                if($encyData){
+                    array_push($iTencyclopedia, $encyData);
+                }
+                
+            }
+        }
+        //$data->iTcities = $iTcities
+        $data->Ency = $iTencyclopedia;
         return response()->json($data);
     }
 }

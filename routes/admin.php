@@ -281,7 +281,7 @@ Route::namespace('Admin')->group(function (){
 	Route::namespace('Notification')->group(function(){
 		Route::get('notification/all/{timeSpan}/{category}/{status}/{service}','NotificationController@index');
 		Route::get('notification/chart/{timeSpan}/{category}/{status}/{service}','NotificationController@chartIndex');
-		//Route::post('notification/store','NotificationController@store');
+		Route::post('notification/store','NotificationController@store');
 	});
 
 	//User Details

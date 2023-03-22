@@ -6,21 +6,21 @@
   <!-- Edits: Added dropdowns to Travel Encyclopedia, Added Dropdown to Profile  -->
   <div id="app" class="relative" style="background: white !important;">
     <nav
-      class="navbar navbar-expand-md bg-white navbar-light fixed-top z-index: 999"
+      class="navbar navbar-expand-md bg-white navbar-light fixed-top"
       id="navbar"
     >
+
       <div class="container my-2">
-        <router-link class="navbar-brand" :to="`/`">
+        <router-link v-if="!toggleOpen" class="navbar-brand" :to="`/`">
           <img :src="$gbiAssets+'/assets/front/images/logo.png'" />
         </router-link>
-
-        <div class="nav-item mr-10" v-if="login !== '1'">
-          <router-link class="nav-link" :to="`/contact-us`"
-                ><b style="color: #f77736">Contact Us</b></router-link
+        <!-- <div class="nav-item mr-10">
+            <router-link class="nav-link" :to="`/`" style="color: #f77736 !important"
+              >Contact Us</router-link
               >
-        </div>
+        </div> -->
 
-        <!-- <button
+        <button
           class="navbar-toggler collapsed"
           type="button"
           data-toggle="collapse"
@@ -28,6 +28,7 @@
           aria-controls="collapsibleNavbar"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          @click="toggleOpen = !toggleOpen"
         >
           <span class="icon-bar top-bar"></span>
           <span class="icon-bar middle-bar"></span>
@@ -58,12 +59,21 @@
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
+
+                <router-link class="dropdown-item mt-10" 
+                  :to="`/blog`"
+                  >GBI Travel Blog
+                </router-link>
+
                 <router-link
                   class="dropdown-item mt-10"
                   :to="`/resources/travel-education`"
-                  >Travel & Education</router-link
-                >
-                <router-link
+                  >Travel & Education
+                </router-link>
+                 
+              
+
+              <router-link
                   class="dropdown-item mt-10"
                   :to="`/resources/safety-security`"
                   >Safety & Security</router-link
@@ -92,11 +102,6 @@
                   >
                 </div>
               </div>
-            </li>
-            <li class="nav-item mr-10">
-              <router-link class="nav-link" :to="`/blog`"
-                >GBI Travel Blog</router-link
-              >
             </li>
             <li class="nav-item mr-10 dropdown dropdown-submenu">
               <a
@@ -274,7 +279,7 @@
             </li>
 
           </ul>
-        </div> -->
+        </div>
       </div>
     </nav> 
 
@@ -319,7 +324,8 @@ import Intro from "@/front/components/Intro.vue";
 import Cookies from "@/front/components/Cookies.vue";
 //import Review from "@/front/components/Reviews.vue";
 import chat from "@/front/components/chat.vue";
-import io from 'socket.io-client';
+//import io from 'socket.io-client';
+import { notifsCollection } from '@/firebase';
 
 export default {
   name: "App",
@@ -333,6 +339,7 @@ export default {
     return {
       login: 1,
       isLogged: 1,
+      toggleOpen: false,
       dashboard: false,
       token: this.$store.token,
       showModal: false,
@@ -340,7 +347,7 @@ export default {
       isnav_active: false,
       user: { name: "", photo: "" },
       cookies_alert: false,
-      socket : io(this.$hostName)
+      //socket : io(this.$hostName)
     };
   },
 
@@ -377,10 +384,17 @@ export default {
             this.$store.dispatch('getNotifCount', userData.subscription_id), 2000)
         });*/
 
-        this.socket.on('sendToClient', (message) => {
+        /*this.socket.on('sendToClient', (message) => {
             //alert(message)
             setTimeout(() =>
             this.$store.dispatch('getNotifCount', userData.subscription_id), 2000)
+        });*/
+
+        notifsCollection.doc("New_Notif")
+        .onSnapshot((doc) => {
+            console.log("Current data: ", doc.data());
+            setTimeout(() =>
+            this.$store.dispatch('getNotifCount', userData.subscription_id), 2000);
         });
       
     }    

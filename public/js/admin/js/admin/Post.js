@@ -569,8 +569,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_icons_ViewIcon_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/admin/components/icons/ViewIcon.vue */ "./resources/js/admin/components/icons/ViewIcon.vue");
 /* harmony import */ var _admin_components_icons_DraftIcon_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/admin/components/icons/DraftIcon.vue */ "./resources/js/admin/components/icons/DraftIcon.vue");
 /* harmony import */ var _admin_components_TableLoader_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/admin/components/TableLoader.vue */ "./resources/js/admin/components/TableLoader.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/build/esm/index.js");
+/* harmony import */ var _firebase__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/firebase */ "./resources/js/firebase.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -669,6 +670,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ListPost",
   components: {
@@ -714,7 +716,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.getitems();
   },
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_9__.mapState)(['items'])),
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_10__.mapState)(['items'])),
   watch: {
     perPage: function perPage() {
       this.getitems(1, this.perPage);
@@ -743,6 +745,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       setTimeout(function () {
         return _this.socket.emit('sendToServer', 'NA');
       }, 3000);
+      _firebase__WEBPACK_IMPORTED_MODULE_9__.notifsCollection.doc('New_Notif').set({
+        type: "SiteNotif"
+      });
       this.getitems();
     },
     draftItem: function draftItem(id, user_id) {
@@ -751,6 +756,39 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/firebase.js":
+/*!**********************************!*\
+  !*** ./resources/js/firebase.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "db": () => (/* binding */ db),
+/* harmony export */   "notifsCollection": () => (/* binding */ notifsCollection)
+/* harmony export */ });
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.esm.js");
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/index.esm.js");
+
+
+var firebaseConfig = {
+  apiKey: "AIzaSyCIYbcOft31PqMC9S1miZcaunSh--KPVok",
+  authDomain: "gbitest-526b7.firebaseapp.com",
+  projectId: "gbitest-526b7",
+  storageBucket: "gbitest-526b7.appspot.com",
+  messagingSenderId: "298969097550",
+  appId: "1:298969097550:web:bcd5c70107b16fd4d1ea1f",
+  measurementId: "G-LSKV1BNDP1"
+}; // Initialize Firebase
+
+firebase__WEBPACK_IMPORTED_MODULE_0__["default"].initializeApp(firebaseConfig);
+var db = firebase__WEBPACK_IMPORTED_MODULE_0__["default"].firestore();
+var notifsCollection = db.collection('notifs');
+
 
 /***/ }),
 
@@ -2810,6 +2848,21 @@ function isnan (val) {
 
 /***/ }),
 
+/***/ "./node_modules/firebase/firestore/dist/index.esm.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/firebase/firestore/dist/index.esm.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _firebase_firestore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @firebase/firestore */ "./node_modules/@firebase/firestore/dist/esm5/index.js");
+
+//# sourceMappingURL=index.esm.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/has-cors/index.js":
 /*!****************************************!*\
   !*** ./node_modules/has-cors/index.js ***!
@@ -4647,7 +4700,7 @@ var render = function () {
             _vm._v(" "),
             _c(
               "b-row",
-              { staticClass: "text-capitalize" },
+              { staticClass: "text-capitalize h-100" },
               [
                 _vm._t("table"),
                 _vm._v(" "),

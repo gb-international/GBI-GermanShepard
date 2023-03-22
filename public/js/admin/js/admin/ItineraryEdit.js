@@ -853,6 +853,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -884,22 +901,24 @@ __webpack_require__.r(__webpack_exports__);
       season_list: [],
       tags: [],
       meta_key: [],
+      img_images: [],
       selected: null,
       summeryWarn: false,
       meta_titleWarn: false,
       meta_keywordWarn: false,
       tagsWarn: false,
-      photo: "",
-      detail_photo: "",
+      photo: [],
+      detail_photo: [],
       form: new vform__WEBPACK_IMPORTED_MODULE_2__.Form({
         meta_description: "",
         meta_title: "",
-        meta_keyword: "",
+        meta_keyword: [],
         tags: [],
         source: "",
         destination: "",
         noofdays: "",
         title: "",
+        price: "",
         description: "",
         tourtype: "",
         hotel_type: "",
@@ -915,6 +934,8 @@ __webpack_require__.r(__webpack_exports__);
         client_type: "",
         tourtypes: [],
         seasons: [],
+        delImages: [],
+        newImages: [],
         itinerarydays: [{
           day: 1,
           day_source: "",
@@ -960,23 +981,65 @@ __webpack_require__.r(__webpack_exports__);
       }*/
 
     },
-    itineraryList: function itineraryList() {
+    fileInput: function fileInput() {
+      this.$refs.fileInput.click();
+    },
+    onFileInput: function onFileInput(event) {
       var _this = this;
+
+      for (var i = 0; i < event.target.files.length; i++) {
+        var file = event.target.files[i]; //this.detail_photo_alt[i] = file.name;
+
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+          //this.form.images.push(event.target.result);
+          _this.img_images.push(event.target.result);
+
+          _this.form.newImages.push(event.target.result); //console.log(this.form.newImages);
+
+        };
+
+        reader.readAsDataURL(file);
+      } //console.log(this.form.images[1])
+
+    },
+    delImg: function delImg(index) {
+      this.form.delImages.push(this.detail_photo[index]);
+      this.img_images = this.img_images.slice(0, index).concat(this.img_images.slice(index + 1));
+      this.detail_photo = this.detail_photo.slice(0, index).concat(this.detail_photo.slice(index + 1)); //this.form.detail_photo_alt = this.form.detail_photo_alt.slice(0, index).concat(this.form.detail_photo_alt.slice(index + 1));
+    },
+    itineraryList: function itineraryList() {
+      var _this2 = this;
 
       axios.get("/api/itinerary/".concat(this.$route.params.itineraryid, "/edit")).then(function (response) {
         setTimeout(function () {
           return $("#example").DataTable();
         }, 1000);
 
-        _this.form.fill(response.data);
+        _this2.form.fill(response.data);
 
-        _this.photo = response.data.photo;
-        _this.detail_photo = response.data.detail_photo;
+        console.log(_this2.form);
+        _this2.photo = response.data.photo; //this.detail_photo = response.data.detail_photo;
+        //this.form.detail_photo_alt = response.data.detail_photo_alt;
+
+        if (response.data.itineraryimages.length > 1) {
+          for (var _i = 0; _i < response.data.itineraryimages.length; _i++) {
+            var imge = _this2.$gbiAssets + '/' + response.data.itineraryimages[_i].image;
+
+            _this2.img_images.push(imge);
+
+            _this2.detail_photo.push(response.data.itineraryimages[_i].image);
+          }
+        }
+
+        _this2.form.newImages = [];
+        _this2.form.delImages = [];
         var day_data = response.data.itinerarydays;
 
         for (var i = 0; i < day_data.length; i++) {
-          if (_this.itinerarydays.length != day_data.length) {
-            _this.itinerarydays.push({
+          if (_this2.itinerarydays.length != day_data.length) {
+            _this2.itinerarydays.push({
               day: day_data[i].day,
               day_source: day_data[i].day_source,
               day_destination: day_data[i].day_destination,
@@ -985,15 +1048,15 @@ __webpack_require__.r(__webpack_exports__);
           }
         }
 
-        for (var _i = 0; _i < response.data.tags.length; _i++) {
-          _this.meta_key.push({
-            value: response.data.tags[_i].title,
-            key: response.data.tags[_i].id
+        for (var _i2 = 0; _i2 < response.data.tags.length; _i2++) {
+          _this2.meta_key.push({
+            value: response.data.tags[_i2].title,
+            key: response.data.tags[_i2].id
           });
         }
 
-        _this.img_photo = _this.form.photo;
-        _this.img_detail_photo = _this.form.detail_photo;
+        _this2.img_photo = _this2.form.photo;
+        _this2.img_detail_photo = _this2.form.detail_photo;
       });
     },
     updateTags: function updateTags() {
@@ -1007,13 +1070,13 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     getTags: function getTags() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get("/api/tags").then(function (res) {
         //this.tags = response.data;
         if (res) {
           for (var i = 0; i < res.data.length; i++) {
-            _this2.tags.push({
+            _this3.tags.push({
               value: res.data[i].title,
               key: res.data[i].id
             });
@@ -1023,12 +1086,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     cityList: function cityList() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get("/api/city").then(function (res) {
         if (res.data) {
           for (var i = 0; i < res.data.data.length; i++) {
-            _this3.cities.push({
+            _this4.cities.push({
               name: res.data.data[i].name,
               id: res.data.data[i].name
             });
@@ -1037,50 +1100,57 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     tourTypeData: function tourTypeData() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.get("/api/tourtype").then(function (response) {
-        _this4.tour_type_list = response.data;
+        _this5.tour_type_list = response.data;
       });
     },
     seasonsData: function seasonsData() {
-      var _this5 = this;
+      var _this6 = this;
 
       axios.get("/api/season").then(function (response) {
-        _this5.season_list = response.data;
+        _this6.season_list = response.data;
       });
     },
     changePhoto: function changePhoto(event) {
-      var _this6 = this;
-
-      var file = event.target.files[0];
-      var reader = new FileReader();
-
-      reader.onload = function (event) {
-        _this6.form.photo = event.target.result;
-        _this6.form.photo_alt = file.name;
-        _this6.photo = event.target.result;
-      };
-
-      reader.readAsDataURL(file);
-    },
-    changeDetailPhoto: function changeDetailPhoto(event) {
       var _this7 = this;
 
       var file = event.target.files[0];
       var reader = new FileReader();
 
       reader.onload = function (event) {
-        _this7.form.detail_photo = event.target.result;
-        _this7.form.detail_photo_alt = file.name;
-        _this7.detail_photo = event.target.result;
+        _this7.form.photo = event.target.result;
+        _this7.form.photo_alt = file.name;
+        _this7.photo = event.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+    changeDetailPhoto: function changeDetailPhoto(event) {
+      var _this8 = this;
+
+      var file = event.target.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function (event) {
+        _this8.form.detail_photo = event.target.result;
+        _this8.form.detail_photo_alt = file.name;
+        _this8.detail_photo = event.target.result;
       };
 
       reader.readAsDataURL(file);
     },
     updateItinerary: function updateItinerary() {
-      var _this8 = this;
+      var _this9 = this;
 
+      /*if (this.img_images.length < 7) {
+        this.$toast.fire({
+            icon: "error",
+            title: "7 Banner Images Required!",
+        });
+        return false;
+      }*/
       if (!this.form.meta_keyword.length) {
         this.meta_keywordWarn = true;
         this.$toast.fire({
@@ -1132,15 +1202,16 @@ __webpack_require__.r(__webpack_exports__);
         this.form.itinerarydays[i]["day_description"] = this.itinerarydays[i]["day_description"];
       }
 
-      this.form.tags = this.form.meta_keyword; // Submit the form via a itinerary request
+      this.form.tags = this.form.meta_keyword;
+      console.log(this.form); // Submit the form via a itinerary request
 
       this.form.put("/api/itinerary/".concat(this.$route.params.itineraryid)).then(function (response) {
-        _this8.$toast.fire({
+        _this9.$toast.fire({
           icon: "success",
           title: "Itinerary Updated successfully"
         });
 
-        _this8.loading = false;
+        _this9.loading = false;
       })["catch"](function () {});
     },
     addRow: function addRow() {
@@ -1234,7 +1305,35 @@ var Vue2EditorMixin = {
       editorSettings: {
         modules: {
           imageDrop: true,
-          imageResize: {}
+          imageResize: {},
+          toolbar: [//[{ header: [false, 1, 2, 3, 4, 5, 6] }],
+          ["bold", "italic", "underline", "strike"], // toggled buttons
+          [{
+            align: ""
+          }, {
+            align: "center"
+          }, {
+            align: "right"
+          }, {
+            align: "justify"
+          }], ["blockquote", "code-block"], [{
+            list: "ordered"
+          }, {
+            list: "bullet"
+          }, {
+            list: "check"
+          }], [{
+            indent: "-1"
+          }, {
+            indent: "+1"
+          }], // outdent/indent
+          [{
+            color: []
+          }, {
+            background: []
+          }], // dropdown with defaults from theme
+          ["link", "image", "video"], ["clean"] // remove formatting button
+          ]
         }
       }
     };
@@ -3366,7 +3465,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.customSelect[data-v-0a775956]{\n    min-height: 53px !important;\n    font-size: 17px !important;\n    padding: 0px 40px 0 8px !important;\n    color: #737879 !important;\n    background: #fff !important;\n    font-weight: 600;\n}\n.warn-error[data-v-0a775956] {\n    width: 100%;\n    margin-top: 0.25rem;\n    font-size: 80%;\n    color: #dc3545;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.customSelect[data-v-0a775956]{\n    min-height: 53px !important;\n    font-size: 17px !important;\n    padding: 0px 40px 0 8px !important;\n    color: #737879 !important;\n    background: #fff !important;\n    font-weight: 600;\n}\n.warn-error[data-v-0a775956] {\n    width: 100%;\n    margin-top: 0.25rem;\n    font-size: 80%;\n    color: #dc3545;\n}\n.smallImages[data-v-0a775956]{\n  width: 140px; \n  height: 93px;\n  position: relative;\n}\n.delImgBtn[data-v-0a775956]{\n  position: absolute;\n  top: 0px;\n  right: 0px;\n  margin: 4px;\n  font-size: 16px;\n  color: #d12121;\n}\n.custom-card[data-v-0a775956] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 93px;\n  width: 143px;\n  background: #e5e5e5;\n  border: solid 2px #e5e5e5;\n  border-radius: 5px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -18672,13 +18771,13 @@ var render = function () {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row mb-30" }, [
-                      _c("div", { staticClass: "col-sm-8" }, [
+                      _c("div", { staticClass: "col-sm-4" }, [
                         _c(
                           "div",
                           { staticClass: "form-group" },
                           [
                             _c("label", { attrs: { for: "titleId" } }, [
-                              _vm._v("Title"),
+                              _vm._v("Itinerary Name"),
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -18696,7 +18795,7 @@ var render = function () {
                               },
                               attrs: {
                                 type: "text",
-                                placeholder: "Enter Title",
+                                placeholder: "Enter Itinerary Name",
                                 name: "title",
                               },
                               domProps: { value: _vm.form.title },
@@ -18716,6 +18815,57 @@ var render = function () {
                             _vm._v(" "),
                             _c("has-error", {
                               attrs: { form: _vm.form, field: "title" },
+                            }),
+                          ],
+                          1
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-4" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", { attrs: { for: "priceId" } }, [
+                              _vm._v("Package Price/Person"),
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.price,
+                                  expression: "form.price",
+                                },
+                              ],
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.form.errors.has("price"),
+                              },
+                              attrs: {
+                                type: "number",
+                                min: "0",
+                                placeholder: "Enter Price",
+                                name: "price",
+                              },
+                              domProps: { value: _vm.form.price },
+                              on: {
+                                input: function ($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "price",
+                                    $event.target.value
+                                  )
+                                },
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "price" },
                             }),
                           ],
                           1
@@ -18874,6 +19024,17 @@ var render = function () {
                         _c("div", { staticClass: "row" }, [
                           _c("div", { staticClass: "col-sm-6" }, [
                             _c("div", { staticClass: "form-group" }, [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "label",
+                                  attrs: { for: "input" },
+                                },
+                                [_vm._v("Thumbnail image")]
+                              ),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
                               _c("input", {
                                 staticClass: "overflow-hidden",
                                 class: {
@@ -18905,39 +19066,70 @@ var render = function () {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-6" }, [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-sm-5" }, [
-                            _c("div", { staticClass: "form-group" }, [
-                              _c("input", {
-                                staticClass: "overflow-hidden",
-                                class: {
-                                  "is-invalid":
-                                    _vm.form.errors.has("detail_photo"),
+                        _c(
+                          "label",
+                          { staticClass: "label", attrs: { for: "input" } },
+                          [_vm._v("Banner image")]
+                        ),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "row" },
+                          [
+                            _vm._l(_vm.img_images, function (img, index) {
+                              return _c(
+                                "div",
+                                {
+                                  key: index,
+                                  staticClass: "mr-2 mb-2 shadow smallImages",
                                 },
-                                attrs: { type: "file" },
-                                on: {
-                                  change: function ($event) {
-                                    return _vm.changeDetailPhoto($event)
-                                  },
-                                },
-                              }),
-                            ]),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-7" }, [
-                            _vm.detail_photo != ""
-                              ? _c("img", {
-                                  staticClass: "detail_photo",
-                                  attrs: {
-                                    src: _vm.detail_photo,
-                                    alt: "",
-                                    width: "80",
-                                    height: "80",
-                                  },
-                                })
-                              : _vm._e(),
-                          ]),
-                        ]),
+                                [
+                                  _c("img", {
+                                    staticClass: "smallImages",
+                                    attrs: { src: img, alt: "" },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass: "fas fa-trash-alt delImgBtn",
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.delImg(index)
+                                      },
+                                    },
+                                  }),
+                                ]
+                              )
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "custom-card shadow ml-2 mb-2",
+                                on: { click: _vm.fileInput },
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fas fa-plus-circle",
+                                  staticStyle: { "font-size": "35px" },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              ref: "fileInput",
+                              staticStyle: { display: "none" },
+                              attrs: {
+                                type: "file",
+                                multiple: "",
+                                accept: ".png, .jpg, .jpeg, .pdf",
+                              },
+                              on: { change: _vm.onFileInput },
+                            }),
+                          ],
+                          2
+                        ),
                       ]),
                     ]),
                     _vm._v(" "),

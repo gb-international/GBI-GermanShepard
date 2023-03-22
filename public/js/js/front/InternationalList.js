@@ -436,7 +436,7 @@ var render = function () {
                     _c("div", { staticClass: "search-p-top" }, [
                       _c(
                         "div",
-                        { staticClass: "input-group p-2 bg-blue" },
+                        { staticClass: "input-group p-2 bg-light-orange" },
                         [
                           _c("model-select", {
                             attrs: {

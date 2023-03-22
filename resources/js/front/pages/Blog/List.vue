@@ -8,6 +8,7 @@
         <div class="search-blog-form" style="padding-top: 35px !important;">
           <form method="post" novalidate="novalidate">
             <div class="col-lg-12">
+              
               <div class="row justify-content-center">
 
                 <div class="col-lg-12 col-md-12 col-sm-12 p-0">

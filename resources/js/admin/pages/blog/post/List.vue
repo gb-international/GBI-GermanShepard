@@ -91,6 +91,7 @@ import DraftIcon from '@/admin/components/icons/DraftIcon.vue';
 import TableLoader from '@/admin/components/TableLoader.vue';
 import { mapState } from 'vuex';
 import io from 'socket.io-client';
+import { notifsCollection } from '@/firebase';
 
 export default {
   name: "ListPost",
@@ -145,6 +146,11 @@ export default {
       setTimeout(() =>
         this.socket.emit('sendToServer', 'NA'), 
       3000);
+
+      notifsCollection.doc('New_Notif').set({
+          type: "SiteNotif",
+      })
+
       this.getitems();
     },
     draftItem(id, user_id){

@@ -30,7 +30,7 @@ mix.webpackConfig({
 //    });
 // }
 //front
- mix.js('resources/js/front/app.js', 'public/js').vue()
+  mix.js('resources/js/front/app.js', 'public/js').vue()
    .sass('resources/sass/front/app.scss', 'public/css')
 
 //Front with SSR

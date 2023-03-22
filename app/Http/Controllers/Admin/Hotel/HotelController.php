@@ -95,12 +95,12 @@ class HotelController extends Controller
      */
     public function show(Hotel $hotel)
     {
-        $d->images = unserialize($d->images);
-        $d->banquet_categories = unserialize($d->banquet_categories);
-        $d->amenities = unserialize($d->amenities);
-        $d->alt = unserialize($d->alt);
-        $d->meta_keywords = unserialize($d->meta_keywords);
-        $d->room_categories = unserialize($d->room_categories);
+        $hotel->images = unserialize($hotel->images);
+        $hotel->banquet_categories = unserialize($hotel->banquet_categories);
+        $hotel->amenities = unserialize($hotel->amenities);
+        $hotel->alt = unserialize($hotel->alt);
+        $hotel->meta_keywords = unserialize($hotel->meta_keywords);
+        $hotel->room_categories = unserialize($hotel->room_categories);
         return response()->json($hotel);
     }
 
@@ -133,21 +133,37 @@ class HotelController extends Controller
 
         //$data = $this->validateHotel($request);
         $data = $request->all();
-        $data->meta_keywords = serialize($data->meta_keywords);
-        $data->room_categories = serialize($data->room_categories);
-        $data->banquet_categories = serialize($data->banquet_categories);
-        $data->amenities = serialize($data->amenities);
+        $data['meta_keywords'] = serialize($data['meta_keywords']);
+        $data['room_categories'] = serialize($data['room_categories']);
+        $data['banquet_categories'] = serialize($data['banquet_categories']);
+        $data['amenities'] = serialize($data['amenities']);
 
-        if($request->images){
+       $newImages = array();
+       $newAlts = array();
+        if($data['newImages']){
             $count = 0;
-            foreach($request->images as $img){
-             if($img != $hotel->images[$count]){
-                $data['images'][$count] = $this->AwsFileUpload($img,config('gbi.hotel_image'),$request->alt[$count]);
-                $this->AwsDeleteImage($hotel->images[$count]);
-             }
-             $count++;
+            foreach($data['newImages'] as $img){
+              $newImages[$count] = $this->AwsFileUpload($img,config('gbi.hotel_image'),'hotel_image_'.uniqid());
+              $newAlts[$count] = 'hotel_image_'.uniqid();
+              $count++;
+            }
+            array_push($data['images'], $newImages);
+            array_push($data['alt'], $newAlts);
+        }
+
+        if($data['delImages']){
+            $count = 0;
+            foreach($data['delImages'] as $img){
+               // $this->AwsDeleteImage($img);
+                $count++;
             }
         }
+
+        unset($data['newImages'], $data['delImages']);
+
+        $data['images'] = serialize($data['images']);
+        $data['alt'] = serialize($data['alt']);
+
         $hotel->update($data);
         return response()->json(['message'=>$data]);
     }

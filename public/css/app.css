@@ -1863,7 +1863,7 @@ section {
   height: auto;
   padding-bottom: 20px;
   float: left;
-  background-color: #1c1650;
+  background-color: #f5f5f5;
 }
 
 .contact-form form {
@@ -1880,7 +1880,7 @@ section {
   width: 100%;
   height: 25px;
   margin: 0 auto;
-  background-color: #1c1650;
+  background-color: #f5f5f5;
 }
 
 .contact-form h2 {
@@ -2033,7 +2033,7 @@ input[type=submit]:hover {
     margin: 0 auto;
     height: 510px;
     float: left;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form form {
@@ -2049,7 +2049,7 @@ input[type=submit]:hover {
     width: 100%;
     height: 25px;
     margin: 0 auto;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form h2 {
@@ -2147,7 +2147,7 @@ input[type=submit]:hover {
     margin: 0 auto;
     height: 563px;
     float: left;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form form {
@@ -2163,7 +2163,7 @@ input[type=submit]:hover {
     width: 100%;
     height: 25px;
     margin: 0 auto;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form h2 {
@@ -2261,7 +2261,7 @@ input[type=submit]:hover {
     margin: 0 auto;
     height: 563px;
     float: left;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form form {
@@ -2277,7 +2277,7 @@ input[type=submit]:hover {
     width: 100%;
     height: 25px;
     margin: 0 auto;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form h2 {
@@ -2382,7 +2382,7 @@ input[type=submit]:hover {
     margin: 0 auto;
     height: 563px;
     float: left;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form form {
@@ -2398,7 +2398,7 @@ input[type=submit]:hover {
     width: 100%;
     height: 25px;
     margin: 0 auto;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form h2 {
@@ -2504,7 +2504,7 @@ input[type=submit]:hover {
     margin: 0 auto;
     height: 505px;
     float: left;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form form {
@@ -2520,7 +2520,7 @@ input[type=submit]:hover {
     width: 100%;
     height: 25px;
     margin: 0 auto;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form h2 {
@@ -2630,7 +2630,7 @@ input[type=submit]:hover {
     margin: 0 auto;
     height: 645px;
     float: left;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form form {
@@ -2647,7 +2647,7 @@ input[type=submit]:hover {
     width: 100%;
     height: 25px;
     margin: 0 auto;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form h2 {
@@ -2745,7 +2745,7 @@ input[type=submit]:hover {
   }
 
   input[type=submit]:hover {
-    background-color: #1c1650;
+    background-color: #f5f5f5;
     color: #ffffff;
     padding: 12px 35px;
     border: none;
@@ -2772,7 +2772,7 @@ input[type=submit]:hover {
     margin: 0 auto;
     height: 645px;
     float: left;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form form {
@@ -2789,7 +2789,7 @@ input[type=submit]:hover {
     width: 100%;
     height: 25px;
     margin: 0 auto;
-    background-color: #1c1650;
+    background-color: #f5f5f5;
   }
 
   .contact-form h2 {
@@ -2887,7 +2887,7 @@ input[type=submit]:hover {
   }
 
   input[type=submit]:hover {
-    background-color: #1c1650;
+    background-color: #f5f5f5;
     color: #ffffff;
     padding: 12px 35px;
     border: none;
@@ -4447,7 +4447,7 @@ article {
 }
 
 .explore-icon-width {
-  width: 40px;
+  width: 45px;
   cursor: pointer;
 }
 
@@ -4602,6 +4602,7 @@ custLabel2 {
   font-size: 18px;
   border-radius: 0px;
   margin-top: 3.2vh;
+  font-family: "Nunito Sans";
 }
 
 .explore_custom_button:hover {
@@ -4679,15 +4680,15 @@ custLabel2 {
 
 .serch-explo-menu .active {
   color: #ffffff !important;
-  background-color: #292548a6 !important;
-  border-color: #292548a6 !important;
+  background-color: #001041c7 !important;
+  border-color: #001041c7 !important;
   border-radius: 0px 0px 0 0 !important;
 }
 
 .serch-explo-menu a:hover {
-  background-color: #292548a6 !important;
+  background-color: #001041c7 !important;
   color: #ffffff !important;
-  border-color: #292548a6 !important;
+  border-color: #001041c7 !important;
   border-radius: 0px !important;
 }
 
@@ -4755,7 +4756,7 @@ custLabel2 {
 }
 
 .explor-content {
-  background-color: #292548a6;
+  background-color: #001041c7;
   border-radius: 0px 0px 5px 5px;
 }
 
@@ -7243,7 +7244,7 @@ a:hover {
 #imagegallery .gallery-search .outer {
   padding: 5px;
   padding: 9px;
-  background: #292548eb;
+  background: #f77736bf;
 }
 
 #imagegallery .gallery-search .outer .search-field {
@@ -7592,6 +7593,10 @@ a:hover {
 
 .bg-skyblue {
   background-color: rgba(43, 188, 255, 0.8);
+}
+
+.bg-light-orange {
+  background-color: #f77736bf;
 }
 
 .display-none {

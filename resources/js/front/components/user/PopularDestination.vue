@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-body-part-two-2" v-if="upcoming_list.length>=0">
-    <VueSlickCarousel :dots="true" v-bind="settings">
+    <VueSlickCarousel :dots="false" v-bind="settings">
       <div
         class="states_card card_scroll"
         v-for="state in upcoming_list"
@@ -13,7 +13,7 @@
               <h5 class="card-text">{{state.title}}</h5>
               <p class="card-text">
               {{state.noofdays}} Days<br/>
-              Rs. {{state.price}} /Person
+              Rs. {{(state.price).toLocaleString()}} /Person
               </p>
             </div>
             <div class="btn-div">
@@ -45,7 +45,7 @@ export default {
   data() {
     return {
       settings: {
-        dots: true,
+        dots: false,
         infinite: false,
         speed: 500,
         slidesToShow: 3,
@@ -57,8 +57,8 @@ export default {
             settings: {
               slidesToShow: 2,
               slidesToScroll: 2,
-              infinite: true,
-              dots: true,
+              infinite: false,
+              dots: false,
             },
           },
           {

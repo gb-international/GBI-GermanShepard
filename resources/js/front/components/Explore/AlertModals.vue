@@ -68,7 +68,7 @@
                     </div>
                     <div class="col">
                       <div class="form-group">
-                        <label for="tour_code"> No. of Days </label>
+                        <label for="tour_code">No. of Days</label>
                         <p class="text-muted pl-4">{{ noofdays }}</p>
                       </div>
                     </div>

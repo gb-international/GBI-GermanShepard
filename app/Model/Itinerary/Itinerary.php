@@ -42,6 +42,11 @@ class Itinerary extends Model
 		return $this->hasMany('App\Model\Event\Event');
 	}
 
+	public function itineraryimages()
+	{
+		return $this->hasMany('App\Model\Itinerary\ItineraryImages');
+	}
+
 	public function popular()
 	{
 		return $this->hasMany('App\Model\Itinerary\Popular');

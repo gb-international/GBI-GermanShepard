@@ -112,7 +112,7 @@
               <div class="col-lg-6">
                 <article class="contact-form">
                   <div class="title-contact">
-                    <h2>Contact Us</h2>
+                    <h2 class="contact-h2">Contact Us</h2>
                   </div>
                   <!--form contact us-->
                   <ContactusForm />
@@ -124,17 +124,18 @@
       </div>
     </main>
      <!-- Modal body -->
-          <div :class="showCount ? 'modal fade show' : 'modal fade' " aria-modal="true" style="padding-right: 17px; display: block;" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+         <!-- <div :class="showCount ? 'modal fade show' : 'modal fade d-none' " aria-modal="true" style="padding-right: 17px; display: block;" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-div" role="document">
               <div class="modal-content">
-                <div class="modal-head" style="margin: 10px !important;">
+                <div class="" style="margin: 2px 10px !important;">
                   <button type="button" class="close" @click="showCount = false">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  <h5 class="counter-title" id="counterModal">We will be back soon</h5>
-                  <div class="CountDiv my-4">
+                  <h5 class="counter-title" id="counterModal">We are under development</h5>
+                  <h5 class="counter-text my-4" id="counterModal">We are currently improving the web app to serve our customers better, we will be back soon with more enhanched features.</h5>
+                 <div class="CountDiv my-4">
                   <div class="text-center CountDiv2">
                    <span class="counterDigits">
                       <p class="counter-style1" id="countDownD1"></p>
@@ -163,11 +164,11 @@
                    </span>
                    <span class="counter-style2">Seconds</span> 
                   </div>
-                </div>
-                </div>
+                </div>  -->
+               <!-- </div>
               </div>
             </div>
-          </div>
+          </div> -->
   </div>
 </template>
 
@@ -209,6 +210,14 @@ export default {
 </script>
 
 <style scoped>
+.contact-h2 {
+    font-size: 21px;
+    padding-top: 26px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    color: black;
+}
 .counter-title{
   font-size: 39px;
   font-family: 'Nunito Sans';
@@ -218,6 +227,16 @@ export default {
   padding: 5px;
   margin-right: 1.6vw;
   margin-bottom: 15px;
+}
+.counter-text{
+  font-size: 18px;
+  font-family: 'Nunito Sans';
+  font-weight: 600;
+  color: #212529;
+  text-align: center;
+  padding: 5px;
+  margin-right: 1.6vw;
+  margin-bottom: 50px;
 }
 .counterDigits{
   display: flex;
@@ -271,6 +290,7 @@ export default {
     padding: 1rem 1rem;
     border-bottom: none !important;
 }
+
 @media (max-width: 665px) { 
   .modal-div {
     display: inline-block;
@@ -278,7 +298,12 @@ export default {
     width: 350px;
  }
  .counter-title{
-  font-size: 25px;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+.counter-text{
+  font-size: 14px;
+  margin-bottom: 30px;
 }
 .counter-style1{
   font-size: 17px;

@@ -20,7 +20,7 @@
                         >Itinerary</a
                       >
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a
                         class="nav-link border-none"
                         data-toggle="tab"
@@ -28,7 +28,7 @@
                         v-on:click="panel = 'Hotels'"
                         >Hotels</a
                       >
-                    </li>
+                    </li> -->
                   </ul>
                   <!-- start single location Tab panes serach bar for source and destination-->
                   <div class="explor-content pb-1" v-if="panel == 'Itinerary'">
@@ -49,7 +49,7 @@
                                 <label
                                   class="custom-control-label"
                                   for="national"
-                                  >Return</label
+                                  ><b>Return</b></label
                                 >
                               </div>
                             </div>
@@ -67,15 +67,61 @@
                                 <label
                                   class="custom-control-label"
                                   for="international"
-                                  >Multicity</label
+                                  ><b>Multicity</b></label
                                 >
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+
                       <div class="row p-0 parent_padding">
-                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
+
+                        <div class="col-12 col-sm-6 col-lg-9">
+                            <div class="col-sm-12 mt-1">
+                              <custLabel>Choose your transport</custLabel>
+                                <div class="row pb-2">
+                                  <div class="col-6 col-md-3 col-lg-2 mb-2" @click="portType = 'plane'; getCities()">
+                                    <img :src=" portType == 'plane' ? $gbiAssets + '/flight_onclick_icon.png' : $gbiAssets + '/flight_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                  <div class="col-6 col-md-3 col-lg-2 mb-2" @click="portType = 'train'; getCities()">
+                                    <img :src=" portType == 'train' ? $gbiAssets + '/train_onclick_icon.png' : $gbiAssets + '/train_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                  <div class="col-6 col-md-3 col-lg-2 mb-2" @click="portType = 'car'; getCities()">
+                                    <img :src=" portType == 'car' ? $gbiAssets + '/car_onclick_icon.png' : $gbiAssets + '/car_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                  <div class="col-6 col-md-3 col-lg-2 mb-2" @click="portType = 'bus'; getCities()">
+                                   <img :src=" portType == 'bus' ? $gbiAssets + '/bus_onclick_icon.png' : $gbiAssets + '/bus_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                </div>
+                             </div>
+                        </div>
+
+                         <div class="col-12 col-sm-6 col-lg-3 px-2">
+                            <div class="row parent_padding">
+                              <div class="col-12 input-p nopadding">
+                                <custLabel class="ml-2">Customer Type</custLabel>
+                                <div class="select">
+                                  <select
+                                    class="placeholder_color ui fluid search selection dropdown"
+                                    name="typetour"
+                                    @change="clientTypeOnChange($event)"
+                                  >
+                                    <option selected disabled>Client Type</option>
+                                    <option
+                                      v-for="index in clientType_option"
+                                      :key="index.id"
+                                      :value="index"
+                                    >
+                                      {{ index.name }}
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+     
+                        <div class="col-6 col-sm-6 col-lg-3 input-p nopadding">
                           <model-select
                             :options="options"
                             v-model="sources"
@@ -83,7 +129,7 @@
                             autocomplete="off"
                           ></model-select>
                         </div>
-                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-3 input-p nopadding">
                           <model-select
                             :options="destinationCities"
                             v-model="destinations"
@@ -91,7 +137,7 @@
                           ></model-select>
                         </div>
 
-                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-3 input-p nopadding">
                           <div class="select">
                             <select
                               class="placeholder_color ui fluid search selection dropdown"
@@ -109,7 +155,7 @@
                             </select>
                           </div>
                         </div>
-                        <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
+                        <div class="col-6 col-sm-6 col-lg-3 input-p nopadding">
                           <div class="select">
                             <select
                               class="selectpicker ui selection dropdown"
@@ -127,90 +173,7 @@
                             </select>
                           </div>
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-6 ml-2">
-                          <div class="row search-radio">
-                            <div class="col-sm-12">
-                              <custLabel2 class="pt-3" style="font-size: 13px;">Customer type</custLabel2>
-                              <div class="row pb-3">
-                                <div class="col-md-4 col-6">
-                                  <div class="custom-control custom-radio">
-                                    <input
-                                      type="radio"
-                                      id="student"
-                                      name="customRadio2"
-                                      value="student"
-                                      class="custom-control-input"
-                                      v-model="searchForm.clientType"
-                                    />
-                                    <label
-                                      class="custom-control-label"
-                                      for="student"
-                                      >Student</label
-                                    >
-                                  </div>
-                                </div>
-
-                                <div class="col-md-4 col-6">
-                                  <div class="custom-control custom-radio">
-                                    <input
-                                      type="radio"
-                                      id="corporate"
-                                      name="customRadio2"
-                                      value="corporate"
-                                      class="custom-control-input"
-                                      v-model="searchForm.clientType"
-                                    />
-                                    <label
-                                      class="custom-control-label"
-                                      for="corporate"
-                                      >Corporate</label
-                                    >
-                                  </div>
-                                </div>
-
-                                <div class="col-md-4 col-6">
-                                  <div class="custom-control custom-radio">
-                                    <input
-                                      type="radio"
-                                      id="family"
-                                      name="customRadio2"
-                                      value="family"
-                                      class="custom-control-input"
-                                      v-model="searchForm.clientType"
-                                    />
-                                    <label
-                                      class="custom-control-label"
-                                      for="family"
-                                      >Family</label
-                                    >
-                                  </div>
-                                </div>
-
-                              </div>
-
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-12 col-sm-5 col-lg-5">
-                            <div class="col-sm-12">
-                              <custLabel>Choose your transport</custLabel>
-                                <div class="row pb-2">
-                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'car'; getCities()">
-                                    <img :src=" portType == 'car' ? $gbiAssets + '/car_onclick_icon.png' : $gbiAssets + '/car_icon_src.png' " class="cursor-pointer explore-icon-width">
-                                  </div>
-                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'bus'; getCities()">
-                                   <img :src=" portType == 'bus' ? $gbiAssets + '/bus_onclick_icon.png' : $gbiAssets + '/bus_icon_src.png' " class="cursor-pointer explore-icon-width">
-                                  </div>
-                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'train'; getCities()">
-                                    <img :src=" portType == 'train' ? $gbiAssets + '/train_onclick_icon.png' : $gbiAssets + '/train_icon_src.png' " class="cursor-pointer explore-icon-width">
-                                  </div>
-                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'plane'; getCities()">
-                                    <img :src=" portType == 'plane' ? $gbiAssets + '/flight_onclick_icon.png' : $gbiAssets + '/flight_icon_src.png' " class="cursor-pointer explore-icon-width">
-                                  </div>
-                                </div>
-                             </div>
-                        </div>
+                        
                       </div>
                       <p class="text-center">
                         <button
@@ -243,7 +206,7 @@
                                 <label
                                   class="custom-control-label"
                                   for="national"
-                                  >Return</label
+                                  ><b>Return</b></label
                                 >
                               </div>
                             </div>
@@ -261,14 +224,61 @@
                                 <label
                                   class="custom-control-label"
                                   for="international"
-                                  >Multicity</label
+                                  ><b>Multicity</b></label
                                 >
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+                     
                       <div class="row p-0 parent_padding">
+
+                        <div class="col-12 col-sm-6 col-lg-6">
+                            <div class="col-sm-12 mt-1">
+                              <custLabel>Choose your transport</custLabel>
+                                <div class="row pb-2">
+                                   <div class="col-6 col-md-3 mb-2" @click="portType = 'plane'; getCities()">
+                                    <img :src=" portType == 'plane' ? $gbiAssets + '/flight_onclick_icon.png' : $gbiAssets + '/flight_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                  <div class="col-6 col-md-3 mb-2" @click="portType = 'train'; getCities()">
+                                    <img :src=" portType == 'train' ? $gbiAssets + '/train_onclick_icon.png' : $gbiAssets + '/train_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                  <div class="col-6 col-md-3 mb-2" @click="portType = 'car'; getCities()">
+                                    <img :src=" portType == 'car' ? $gbiAssets + '/car_onclick_icon.png' : $gbiAssets + '/car_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                  <div class="col-6 col-md-3 mb-2" @click="portType = 'bus'; getCities()">
+                                   <img :src=" portType == 'bus' ? $gbiAssets + '/bus_onclick_icon.png' : $gbiAssets + '/bus_icon_src.png' " class="cursor-pointer explore-icon-width">
+                                  </div>
+                                </div>
+                             </div>
+                        </div>
+
+
+                         <div class="col-12 col-sm-6 col-lg-6 px-2">
+                            <div class="row parent_padding">
+                              <div class="col-12 input-p nopadding">
+                                <custLabel class="ml-2">Customer Type</custLabel>
+                                <div class="select">
+                                  <select
+                                    class="placeholder_color ui fluid search selection dropdown"
+                                    name="typetour"
+                                    @change="clientTypeOnChange($event)"
+                                  >
+                                    <option selected disabled>Client Type</option>
+                                    <option
+                                      v-for="index in clientType_option"
+                                      :key="index.id"
+                                      :value="index"
+                                    >
+                                      {{ index.name }}
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+
                         <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
                           <model-select
                             :options="options"
@@ -325,7 +335,7 @@
                         </div>
                       </div>
 
-                      <!-- tyype of tour and no of days -->
+                      <!-- type of tour and no of days -->
                       <div class="row parent_padding">
                         <div class="col-6 col-sm-6 col-lg-6 input-p nopadding">
                           <div class="select">
@@ -364,91 +374,6 @@
                           </div>
                         </div>
 
-                        <div class="col-12 col-sm-6 col-lg-6 ml-2">
-                          <div class="row search-radio">
-                            <div class="col-sm-12">
-                              <custLabel2 class="pt-3" style="font-size: 13px;">Customer type</custLabel2>
-                              <div class="row pb-3">
-
-                                <div class="col-md-4 col-6">
-                                  <div class="custom-control custom-radio">
-                                    <input
-                                      type="radio"
-                                      id="student"
-                                      name="customRadio2"
-                                      value="student"
-                                      class="custom-control-input"
-                                      v-model="searchForm.clientType"
-                                    />
-                                    <label
-                                      class="custom-control-label"
-                                      for="student"
-                                      >Student</label
-                                    >
-                                  </div>
-                                </div>
-
-                                <div class="col-md-4 col-6">
-                                  <div class="custom-control custom-radio">
-                                    <input
-                                      type="radio"
-                                      id="corporate"
-                                      name="customRadio2"
-                                      value="corporate"
-                                      class="custom-control-input"
-                                      v-model="searchForm.clientType"
-                                    />
-                                    <label
-                                      class="custom-control-label"
-                                      for="corporate"
-                                      >Corporate</label
-                                    >
-                                  </div>
-                                </div>
-
-                                <div class="col-md-4 col-6">
-                                  <div class="custom-control custom-radio">
-                                    <input
-                                      type="radio"
-                                      id="family"
-                                      name="customRadio2"
-                                      value="family"
-                                      class="custom-control-input"
-                                      v-model="searchForm.clientType"
-                                    />
-                                    <label
-                                      class="custom-control-label"
-                                      for="family"
-                                      >Family</label
-                                    >
-                                  </div>
-                                </div>
-
-                              </div>
-
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-12 col-sm-5 col-lg-5">
-                            <div class="col-sm-12">
-                              <custLabel>Choose your transport</custLabel>
-                                <div class="row pb-2">
-                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'car'; getCities()">
-                                    <img :src=" portType == 'car' ? $gbiAssets + '/car_onclick_icon.png' : $gbiAssets + '/car_icon_src.png' " class="cursor-pointer explore-icon-width">
-                                  </div>
-                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'bus'; getCities()">
-                                   <img :src=" portType == 'bus' ? $gbiAssets + '/bus_onclick_icon.png' : $gbiAssets + '/bus_icon_src.png' " class="cursor-pointer explore-icon-width">
-                                  </div>
-                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'train'; getCities()">
-                                    <img :src=" portType == 'train' ? $gbiAssets + '/train_onclick_icon.png' : $gbiAssets + '/train_icon_src.png' " class="cursor-pointer explore-icon-width">
-                                  </div>
-                                  <div class="col-6 col-md-2 mb-2" @click="portType = 'plane'; getCities()">
-                                    <img :src=" portType == 'plane' ? $gbiAssets + '/flight_onclick_icon.png' : $gbiAssets + '/flight_icon_src.png' " class="cursor-pointer explore-icon-width">
-                                  </div>
-                                </div>
-                             </div>
-                        </div>
                       </div>
                       <p class="text-center">
                         <button

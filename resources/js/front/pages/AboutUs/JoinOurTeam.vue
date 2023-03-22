@@ -287,10 +287,10 @@ export default {
   height: 42px;
   width: 95px;
   padding: 0px 15px 0px 15px;
-  border: 1px solid #00c4c4;
+  border: 1px solid #f77736;
   font-size: 14px !important;
   font-weight: 400 !important;
-  color: #00c4c4;
+  color: #f77736;
   display: block;
   margin: 0 auto;
 }

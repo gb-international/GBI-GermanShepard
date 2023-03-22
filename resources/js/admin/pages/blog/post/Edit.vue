@@ -47,7 +47,7 @@ to submit the data we are using a function.
                 :class="{ 'is-invalid': form.errors.has('description') }"
               ></vue-editor>
               <has-error :form="form" field="description"></has-error>
-              <p v-if="descriptionWarn" class="warn-error"> Please input description.</p>
+              <p v-if="descriptionWarn && !form.description" class="warn-error"> Please input description.</p>
             </div>
           </div>
 
@@ -224,7 +224,7 @@ export default {
         summery: "",
         image: [],
         meta_title: "",
-        meta_keyword: "",
+        meta_keyword: [],
         status: "",
         tags: [],
         category_id: "",
@@ -332,24 +332,92 @@ export default {
       });
     },
     UpdatePost() {
-      if(!this.form.description){
-         this.descriptionWarn = true;
-         return false;
-      } else {
-        this.descriptionWarn = false;
+      console.log('start')
+      if (!this.form.title) {
+        this.titleWarn = true;
+        this.$toast.fire({
+            icon: "error",
+            title: "Title Required",
+          });        
+        return false;
       }
-
-      if (this.form.tags.length < 1 ) {
+      console.log('title')
+      if (!this.form.description) {
+        this.descriptionWarn = true;
+         this.$toast.fire({
+            icon: "error",
+            title: "Description Required",
+          });
+        return false;
+      }
+      console.log('description')
+      if (!this.form.summery) {
+        this.summeryWarn = true;
+         this.$toast.fire({
+            icon: "error",
+            title: "Summary Required",
+          });
+        return false;
+      }
+      console.log('summery')
+      if (!this.form.meta_title) {
+        this.meta_titleWarn = true;
+        this.$toast.fire({
+            icon: "error",
+            title: "Meta Title Required",
+          });
+        return false;
+      }
+       console.log('meta_title')
+      if (this.form.meta_keyword.length < 1 ) {
         this.tagsWarn = true
+        this.$toast.fire({
+            icon: "error",
+            title: "Meta Keywords Required",
+          });
         return false;
       }
-      if (this.form.clientTypeWarn === '') {
+       console.log('meta_keyword')
+      if (this.form.status === '') {
+        this.statusWarn = true
+        this.$toast.fire({
+            icon: "error",
+            title: "Blog Status Required",
+          });
+        return false;
+      }
+      console.log('status')
+      if (this.form.category === '') {
+        this.categoryWarn = true
+        this.$toast.fire({
+            icon: "error",
+            title: "Blog Category Required",
+          });
+        return false;
+      }
+      console.log('category')
+      if (this.form.client_type === '') {
         this.clientTypeWarn = true
+        this.$toast.fire({
+            icon: "error",
+            title: "Client Type Required",
+          });
         return false;
       }
+      console.log('client_type')
+      if (!this.img_image) {
+        this.imageWarn = true
+        this.$toast.fire({
+            icon: "error",
+            title: "Banner Image Required",
+          });
+        return false;
+      }
+      console.log('img_image')
+      this.form.tags = this.form.meta_keyword
       this.loading = true
       if(this.titleWarn !== true && this.form.tags.length !== 0 ){
-        this.form.tags = this.form.meta_keyword
+        //this.form.tags = this.form.meta_keyword
         this.form.user_id = window.userId
         this.form
         .put(`/api/posts/${this.$route.params.id}`)

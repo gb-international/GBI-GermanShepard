@@ -100,7 +100,7 @@
 }
 
 .explore-icon-width {
-    width: 40px;
+    width: 45px;
     cursor: pointer;
 }
 
@@ -247,6 +247,7 @@
 	    font-size: 18px;
 	    border-radius: 0px;
 	    margin-top: 3.2vh;
+		font-family: 'Nunito Sans';
 	}
 
 	.explore_custom_button:hover {
@@ -331,15 +332,15 @@
 	.active
 	{
 		color: #ffffff !important;
-		background-color: #292548a6 !important;
-		border-color: #292548a6 !important;
+		background-color: #001041c7 !important;
+		border-color: #001041c7 !important;
 		border-radius: 0px 0px 0 0 !important;
 	}
 	a:hover
 	{
-		background-color: #292548a6 !important;
+		background-color: #001041c7 !important;
 		color: #ffffff !important;
-		border-color: #292548a6 !important;
+		border-color: #001041c7 !important;
 		border-radius: 0px !important;
 	}
 }
@@ -425,7 +426,7 @@
 .explor-content
 {
 	// padding: 0px 10px 10px;
-	background-color: #292548a6;
+	background-color: #001041c7;
 	border-radius: 0px 0px 5px 5px;
 }
 .button-explo

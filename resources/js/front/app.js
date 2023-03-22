@@ -22,6 +22,22 @@ import * as VueGoogleMaps from 'vue2-google-maps'
 import api from '@/front/helpers/api';
 import JsonExcel from 'vue-json-excel';
 
+/*import "firebase/firestore";
+
+var firebaseConfig = {
+  apiKey: "AIzaSyCIYbcOft31PqMC9S1miZcaunSh--KPVok",
+  authDomain: "gbitest-526b7.firebaseapp.com",
+  projectId: "gbitest-526b7",
+  storageBucket: "gbitest-526b7.appspot.com",
+  messagingSenderId: "298969097550",
+  appId: "1:298969097550:web:bcd5c70107b16fd4d1ea1f",
+  measurementId: "G-LSKV1BNDP1"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const notifsCollection = db.collection('notifs');*/
+
 
 Object.defineProperty(Vue.prototype, '$api', { value: api })
 
@@ -60,11 +76,11 @@ if (process.window == 'undefined') {
 
 Vue.config.productionTip = false;
 
-//Dsiabled Console messages
+//Disabled Console messages
 Vue.config.devtools = false;
 Vue.config.debug = false;
 Vue.config.silent = true;
-//console.log = function() {};
+console.log = function() {};
 // End
 
 

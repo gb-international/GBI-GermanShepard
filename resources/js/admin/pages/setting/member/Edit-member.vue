@@ -234,6 +234,7 @@ export default {
           });
         return false
       }
+        console.log(this.form.gender);
         this.form
         .put(`/api/members/${this.$route.params.id}`)
         .then((res) => {

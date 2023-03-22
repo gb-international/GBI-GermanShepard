@@ -14,6 +14,7 @@ class Information extends Model
         'institution_code',
         'phone_no',
         'dob',
+        'gender',
         'address',
         'user_id',
         'docType',

@@ -1293,357 +1293,102 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "fronthome" } },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "container" },
-        [
-          _c("heading", {
-            staticClass: "text-start mt-4",
-            attrs: { text: "Our Travel Programs" },
-          }),
-          _vm._v(" "),
-          _c("sub-heading", {
-            staticClass: "text-start mb-4",
-            attrs: { text: "Immerge in a Riveting Journey" },
-          }),
-          _vm._v(" "),
-          _vm.travel_Loaded
-            ? _c(
-                "div",
-                { staticClass: "row card-titles" },
-                _vm._l(_vm.travel_programs, function (program) {
-                  return _c(
+  return _c("div", { attrs: { id: "fronthome" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "container" },
+      [
+        _c("heading", {
+          staticClass: "text-start mt-4",
+          attrs: { text: "Our Travel Programs" },
+        }),
+        _vm._v(" "),
+        _c("sub-heading", {
+          staticClass: "text-start mb-4",
+          attrs: { text: "Immerge in a Riveting Journey" },
+        }),
+        _vm._v(" "),
+        _vm.travel_Loaded
+          ? _c(
+              "div",
+              { staticClass: "row card-titles" },
+              _vm._l(_vm.travel_programs, function (program) {
+                return _c("div", { key: program.id, staticClass: "col-sm-4" }, [
+                  _c(
                     "div",
-                    { key: program.id, staticClass: "col-sm-4" },
+                    { staticClass: "card card-1 mb-15" },
                     [
                       _c(
-                        "div",
-                        { staticClass: "card card-1 mb-15" },
+                        "router-link",
+                        { attrs: { to: "/explore-destination" } },
                         [
                           _c(
-                            "router-link",
-                            { attrs: { to: "/explore-destination" } },
+                            "figure",
+                            {
+                              directives: [
+                                { name: "lazyload", rawName: "v-lazyload" },
+                              ],
+                              staticClass: "image__wrapper",
+                            },
                             [
-                              _c(
-                                "figure",
-                                {
-                                  directives: [
-                                    { name: "lazyload", rawName: "v-lazyload" },
-                                  ],
-                                  staticClass: "image__wrapper",
-                                },
-                                [
-                                  _c("ImageSpinner", {
-                                    staticClass: "image__spinner",
-                                  }),
-                                  _vm._v(" "),
-                                  _c("img", {
-                                    staticClass:
-                                      "image__item border-radius-travel",
-                                    attrs: {
-                                      "data-url": program.image,
-                                      alt: program.title,
-                                    },
-                                  }),
-                                ],
-                                1
-                              ),
+                              _c("ImageSpinner", {
+                                staticClass: "image__spinner",
+                              }),
                               _vm._v(" "),
-                              _c("div", { staticClass: "card-body" }, [
-                                _c("h5", { staticClass: "card-title" }, [
-                                  _vm._v(_vm._s(program.title)),
-                                ]),
-                                _vm._v(" "),
-                                _c("p", {
-                                  staticClass: "card-text",
-                                  domProps: {
-                                    innerHTML: _vm._s(program.description),
-                                  },
-                                }),
-                              ]),
-                            ]
+                              _c("img", {
+                                staticClass: "image__item border-radius-travel",
+                                attrs: {
+                                  "data-url": program.image,
+                                  alt: program.title,
+                                },
+                              }),
+                            ],
+                            1
                           ),
-                        ],
-                        1
-                      ),
-                    ]
-                  )
-                }),
-                0
-              )
-            : _c(
-                "div",
-                {
-                  staticClass: "row card-titles",
-                  attrs: { "my-2": "", "mb-4": "" },
-                },
-                _vm._l(6, function (index) {
-                  return _c(
-                    "div",
-                    { key: index, staticClass: "col-sm-4" },
-                    [_c("cardLoader")],
-                    1
-                  )
-                }),
-                0
-              ),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "container" },
-        [
-          _c("heading", {
-            staticClass: "text-start mt-4",
-            attrs: { text: "Virtual Tourism" },
-          }),
-          _vm._v(" "),
-          _c("sub-heading", {
-            staticClass: "text-start mb-4",
-            attrs: { text: "Lorem ipsum dolor sit amet" },
-          }),
-          _vm._v(" "),
-          _vm.travel_Loaded
-            ? _c("div", { staticClass: "row card-titles" }, [
-                _c("div", { staticClass: "col-sm-4" }, [
-                  _c("div", { staticClass: "card" }, [
-                    _c("div", { staticClass: "card-horizontal" }, [
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "card-body",
-                          staticStyle: { width: "50% !important" },
-                        },
-                        [
-                          _c("h5", { staticClass: "card-title" }, [
-                            _vm._v("Lorem ipsum"),
-                          ]),
                           _vm._v(" "),
-                          _c("p", {
-                            staticClass: "card-text",
-                            domProps: {
-                              innerHTML: _vm._s(
-                                "Lorem ipsum dolor sit amet, consectetur.."
-                              ),
-                            },
-                          }),
+                          _c("div", { staticClass: "card-body" }, [
+                            _c("h5", { staticClass: "card-title" }, [
+                              _vm._v(_vm._s(program.title)),
+                            ]),
+                            _vm._v(" "),
+                            _c("p", {
+                              staticClass: "card-text",
+                              domProps: {
+                                innerHTML: _vm._s(program.description),
+                              },
+                            }),
+                          ]),
                         ]
                       ),
-                    ]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-4" }, [
-                  _c("div", { staticClass: "card" }, [
-                    _c("div", { staticClass: "card-horizontal" }, [
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "card-body",
-                          staticStyle: { width: "50% !important" },
-                        },
-                        [
-                          _c("h5", { staticClass: "card-title" }, [
-                            _vm._v("Lorem ipsum"),
-                          ]),
-                          _vm._v(" "),
-                          _c("p", {
-                            staticClass: "card-text",
-                            domProps: {
-                              innerHTML: _vm._s(
-                                "Lorem ipsum dolor sit amet, consectetur.."
-                              ),
-                            },
-                          }),
-                        ]
-                      ),
-                    ]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-4" }, [
-                  _c("div", { staticClass: "card" }, [
-                    _c("div", { staticClass: "card-horizontal" }, [
-                      _vm._m(3),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "card-body",
-                          staticStyle: { width: "50% !important" },
-                        },
-                        [
-                          _c("h5", { staticClass: "card-title" }, [
-                            _vm._v("Lorem ipsum"),
-                          ]),
-                          _vm._v(" "),
-                          _c("p", {
-                            staticClass: "card-text",
-                            domProps: {
-                              innerHTML: _vm._s(
-                                "Lorem ipsum dolor sit amet, consectetur.."
-                              ),
-                            },
-                          }),
-                        ]
-                      ),
-                    ]),
-                  ]),
-                ]),
-              ])
-            : _c(
-                "div",
-                {
-                  staticClass: "row card-titles",
-                  attrs: { "my-2": "", "mb-4": "" },
-                },
-                _vm._l(3, function (index) {
-                  return _c(
-                    "div",
-                    { key: index, staticClass: "col-sm-4" },
-                    [_c("cardLoader")],
+                    ],
                     1
-                  )
-                }),
-                0
-              ),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "container" },
-        [
-          _c("heading", {
-            staticClass: "text-start mt-4",
-            attrs: { text: "Offers And Coupons" },
-          }),
-          _vm._v(" "),
-          _c("sub-heading", {
-            staticClass: "text-start mb-4",
-            attrs: { text: "Lorem ipsum dolor sit amet" },
-          }),
-          _vm._v(" "),
-          _vm.travel_Loaded
-            ? _c("div", { staticClass: "row card-titles" }, [
-                _c("div", { staticClass: "col-sm-4" }, [
-                  _c("div", { staticClass: "card" }, [
-                    _c(
-                      "figure",
-                      {
-                        directives: [
-                          { name: "lazyload", rawName: "v-lazyload" },
-                        ],
-                        staticClass: "image__wrapper",
-                      },
-                      [
-                        _c("ImageSpinner", { staticClass: "image__spinner" }),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "image__item card-img-top",
-                          attrs: {
-                            "data-url":
-                              "https://cdn.pixabay.com/photo/2015/08/11/08/21/coupon-883641_960_720.jpg",
-                            alt: "image",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-4" }, [
-                  _c("div", { staticClass: "card" }, [
-                    _c(
-                      "figure",
-                      {
-                        directives: [
-                          { name: "lazyload", rawName: "v-lazyload" },
-                        ],
-                        staticClass: "image__wrapper",
-                      },
-                      [
-                        _c("ImageSpinner", { staticClass: "image__spinner" }),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "image__item card-img-top",
-                          attrs: {
-                            "data-url":
-                              "https://cdn.pixabay.com/photo/2015/08/11/08/21/coupon-883641_960_720.jpg",
-                            alt: "image",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-4" }, [
-                  _c("div", { staticClass: "card" }, [
-                    _c(
-                      "figure",
-                      {
-                        directives: [
-                          { name: "lazyload", rawName: "v-lazyload" },
-                        ],
-                        staticClass: "image__wrapper",
-                      },
-                      [
-                        _c("ImageSpinner", { staticClass: "image__spinner" }),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "image__item card-img-top",
-                          attrs: {
-                            "data-url":
-                              "https://cdn.pixabay.com/photo/2015/08/11/08/21/coupon-883641_960_720.jpg",
-                            alt: "image",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                  ]),
-                ]),
-              ])
-            : _c(
-                "div",
-                {
-                  staticClass: "row card-titles",
-                  attrs: { "my-2": "", "mb-4": "" },
-                },
-                _vm._l(6, function (index) {
-                  return _c(
-                    "div",
-                    { key: index, staticClass: "col-sm-4" },
-                    [_c("cardLoader")],
-                    1
-                  )
-                }),
-                0
-              ),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("Review"),
-    ],
-    1
-  )
+                  ),
+                ])
+              }),
+              0
+            )
+          : _c(
+              "div",
+              {
+                staticClass: "row card-titles",
+                attrs: { "my-2": "", "mb-4": "" },
+              },
+              _vm._l(6, function (index) {
+                return _c(
+                  "div",
+                  { key: index, staticClass: "col-sm-4" },
+                  [_c("cardLoader")],
+                  1
+                )
+              }),
+              0
+            ),
+      ],
+      1
+    ),
+  ])
 }
 var staticRenderFns = [
   function () {
@@ -1709,69 +1454,6 @@ var staticRenderFns = [
         ]
       ),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "mt-3",
-        staticStyle: { width: "50% !important", height: "100% !important" },
-      },
-      [
-        _c("img", {
-          staticStyle: { width: "100% !important", height: "100% !important" },
-          attrs: {
-            src: "https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_960_720.jpg",
-            alt: "Card image cap",
-          },
-        }),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "mt-3",
-        staticStyle: { width: "50% !important", height: "100% !important" },
-      },
-      [
-        _c("img", {
-          staticStyle: { width: "100% !important", height: "100% !important" },
-          attrs: {
-            src: "https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_960_720.jpg",
-            alt: "Card image cap",
-          },
-        }),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "mt-3",
-        staticStyle: { width: "50% !important", height: "100% !important" },
-      },
-      [
-        _c("img", {
-          staticStyle: { width: "100% !important", height: "100% !important" },
-          attrs: {
-            src: "https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_960_720.jpg",
-            alt: "Card image cap",
-          },
-        }),
-      ]
-    )
   },
 ]
 render._withStripped = true

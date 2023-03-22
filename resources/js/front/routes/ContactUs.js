@@ -3,5 +3,5 @@ const ContactUs = () => import(/* webpackChunkName: "js/front/ContactUs" */ '@/f
 
 export default [
     { path: '/contact-us', component: ContactUs },
-    { path: '/', component: ContactUs }, /*temporary*/
+    /*{ path: '/', component: ContactUs }, temporary*/
 ]

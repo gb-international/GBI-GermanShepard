@@ -208,7 +208,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       settings: {
-        dots: true,
+        dots: false,
         infinite: false,
         speed: 500,
         slidesToShow: 3,
@@ -219,8 +219,8 @@ __webpack_require__.r(__webpack_exports__);
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
-            infinite: true,
-            dots: true
+            infinite: false,
+            dots: false
           }
         }, {
           breakpoint: 600,
@@ -1668,7 +1668,7 @@ var render = function () {
           _c(
             "VueSlickCarousel",
             _vm._b(
-              { attrs: { dots: true } },
+              { attrs: { dots: false } },
               "VueSlickCarousel",
               _vm.settings,
               false
@@ -1702,7 +1702,7 @@ var render = function () {
                             _c("br"),
                             _vm._v(
                               "\n            Rs. " +
-                                _vm._s(state.price) +
+                                _vm._s(state.price.toLocaleString()) +
                                 " /Person\n            "
                             ),
                           ]),

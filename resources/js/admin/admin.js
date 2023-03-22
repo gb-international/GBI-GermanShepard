@@ -14,6 +14,7 @@ import { Form, HasError, AlertError } from 'vform'
 import DisableAutocomplete from 'vue-disable-autocomplete';
 import { BootstrapVue,TablePlugin } from 'bootstrap-vue';
 import vuecookies from 'vue-cookies';
+import  'firebase'
 
 Vue.use(VueSession);
 Vue.mixin(Permissions);
@@ -24,7 +25,7 @@ Vue.config.productionTip = false;
 Vue.config.devtools = false;
 Vue.config.debug = false;
 Vue.config.silent = true;
-//console.log = function() {};
+console.log = function() {};
 // End
 
 Vue.use(responsive)

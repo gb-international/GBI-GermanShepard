@@ -286,6 +286,64 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Observer.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Observer.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["options"],
+  data: function data() {
+    return {
+      observer: null
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    var options = this.options || {};
+    this.observer = new IntersectionObserver(function (_ref) {
+      var _ref2 = _slicedToArray(_ref, 1),
+          entry = _ref2[0];
+
+      if (entry && entry.isIntersecting) {
+        _this.$emit("intersect");
+      }
+    }, options);
+    this.observer.observe(this.$el);
+  },
+  destroyed: function destroyed() {
+    this.observer.disconnect();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/SearchExplor.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/SearchExplor.vue?vue&type=script&lang=js& ***!
@@ -419,14 +477,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _front_components_layout_Heading_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/front/components/layout/Heading.vue */ "./resources/js/front/components/layout/Heading.vue");
-/* harmony import */ var _front_components_layout_SubHeading_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/front/components/layout/SubHeading.vue */ "./resources/js/front/components/layout/SubHeading.vue");
-/* harmony import */ var _front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/front/mixins/user/ExploreSearchMixin */ "./resources/js/front/mixins/user/ExploreSearchMixin.js");
-/* harmony import */ var _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/front/components/Explore/AlertModals.vue */ "./resources/js/front/components/Explore/AlertModals.vue");
-/* harmony import */ var vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-hotel-datepicker */ "./node_modules/vue-hotel-datepicker/dist/vueHotelDatepicker.common.js");
-/* harmony import */ var vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var vue_hotel_datepicker_dist_vueHotelDatepicker_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-hotel-datepicker/dist/vueHotelDatepicker.css */ "./node_modules/vue-hotel-datepicker/dist/vueHotelDatepicker.css");
-/* harmony import */ var _front_components_loaders_cardLoaderExplore_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/front/components/loaders/cardLoaderExplore.vue */ "./resources/js/front/components/loaders/cardLoaderExplore.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _front_components_layout_Heading_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/front/components/layout/Heading.vue */ "./resources/js/front/components/layout/Heading.vue");
+/* harmony import */ var _front_components_layout_SubHeading_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/front/components/layout/SubHeading.vue */ "./resources/js/front/components/layout/SubHeading.vue");
+/* harmony import */ var _front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/front/mixins/user/ExploreSearchMixin */ "./resources/js/front/mixins/user/ExploreSearchMixin.js");
+/* harmony import */ var _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/front/components/Explore/AlertModals.vue */ "./resources/js/front/components/Explore/AlertModals.vue");
+/* harmony import */ var vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-hotel-datepicker */ "./node_modules/vue-hotel-datepicker/dist/vueHotelDatepicker.common.js");
+/* harmony import */ var vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_hotel_datepicker_dist_vueHotelDatepicker_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-hotel-datepicker/dist/vueHotelDatepicker.css */ "./node_modules/vue-hotel-datepicker/dist/vueHotelDatepicker.css");
+/* harmony import */ var _front_components_loaders_cardLoaderExplore_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/front/components/loaders/cardLoaderExplore.vue */ "./resources/js/front/components/loaders/cardLoaderExplore.vue");
+/* harmony import */ var _front_components_Observer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/front/components/Observer */ "./resources/js/front/components/Observer.vue");
+
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -1092,6 +1171,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -1101,7 +1195,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "exploreDestination",
-  mixins: [_front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_2__["default"]],
+  mixins: [_front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_3__["default"]],
   metaInfo: {
     title: "GBI Explore Destination",
     meta: [{
@@ -1116,16 +1210,18 @@ __webpack_require__.r(__webpack_exports__);
     }]
   },
   components: {
-    Heading: _front_components_layout_Heading_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    SubHeading: _front_components_layout_SubHeading_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    HotelDatePicker: (vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_4___default()),
-    cardLoader: _front_components_loaders_cardLoaderExplore_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    'alert-modals': _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    Observer: _front_components_Observer__WEBPACK_IMPORTED_MODULE_8__["default"],
+    Heading: _front_components_layout_Heading_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    SubHeading: _front_components_layout_SubHeading_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    HotelDatePicker: (vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_5___default()),
+    cardLoader: _front_components_loaders_cardLoaderExplore_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    'alert-modals': _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
       upcoming_data: null,
       popular_data: null,
+      allTour_data: null,
       CheckInOut: [],
       room_options: [],
       room_types: ["Single", "Double", "Triple", "Quad"],
@@ -1152,11 +1248,54 @@ __webpack_require__.r(__webpack_exports__);
     };
     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
   },
-  created: function created() {
-    this.UpcomingData();
-    this.popularTour();
+  created: function created() {//this.UpcomingData();
+    //this.popularTour();
+    //this.AllTours();
   },
   methods: {
+    intersected: function intersected() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var url, res, items;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (!(_this.loading == false)) {
+                  _context.next = 13;
+                  break;
+                }
+
+                _this.loading = true;
+                url = "/api/itinerary-list?page=" + _this.page;
+                _context.next = 5;
+                return fetch(url);
+
+              case 5:
+                res = _context.sent;
+                _this.page++;
+                _context.next = 9;
+                return res.json();
+
+              case 9:
+                items = _context.sent;
+
+                if (items.data.length > 0) {
+                  _this.items_list = [].concat(_toConsumableArray(_this.items_list), _toConsumableArray(items.data));
+                }
+
+                items = [];
+                _this.loading = false;
+
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
     incrVal: function incrVal(data) {
       if (data == 'adults') {
         this.adults += 1;
@@ -1201,25 +1340,37 @@ __webpack_require__.r(__webpack_exports__);
       this.showRoomModal = false;
     },
     popularTour: function popularTour() {
-      var _this = this;
-
-      this.$axios.get("/api/travel-program/popular-tour").then(function (response) {
-        if (!response.data) {
-          _this.apiFailed = true;
-        }
-
-        _this.popular_data = response.data;
-      });
-    },
-    UpcomingData: function UpcomingData() {
       var _this2 = this;
 
-      this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
+      this.$axios.get("/api/travel-program/popular-tour").then(function (response) {
         if (!response.data) {
           _this2.apiFailed = true;
         }
 
-        _this2.upcoming_data = response.data;
+        _this2.popular_data = response.data;
+      });
+    },
+    UpcomingData: function UpcomingData() {
+      var _this3 = this;
+
+      this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
+        if (!response.data) {
+          _this3.apiFailed = true;
+        }
+
+        _this3.upcoming_data = response.data;
+        console.log(response.data);
+      });
+    },
+    AllTours: function AllTours() {
+      var _this4 = this;
+
+      this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
+        if (!response.data) {
+          _this4.apiFailed = true;
+        }
+
+        _this4.allTour_data = response.data;
         console.log(response.data);
       });
     },
@@ -1231,7 +1382,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push('/hotel-search');
     },
     searchAll: function searchAll() {
-      var _this3 = this;
+      var _this5 = this;
 
       // Submit form
       var vm = this;
@@ -1276,12 +1427,12 @@ __webpack_require__.r(__webpack_exports__);
           vm.allSearchdata = res.data.data;
 
           if (vm.allSearchdata.length == 0) {
-            _this3.modoals_show = true;
+            _this5.modoals_show = true;
             $("#AlertModalForExplore").modal('show');
           }
         })["catch"](function (error) {
           //console.log(error)
-          _this3.$swal.fire("Sorry", "No results found.", "info");
+          _this5.$swal.fire("Sorry", "No results found.", "info");
         });
       } else {
         this.$swal.fire("Alert", "please select locations", "error");
@@ -1369,7 +1520,7 @@ var ExploreSearchMixin = {
       destinationCities: [],
       panel: "Itinerary",
       tripType: 'return',
-      portType: 'car',
+      portType: 'bus',
       sources: {
         value: "",
         text: "",
@@ -1834,6 +1985,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".vhd__datepicker{position:absolute;top
 
 /***/ }),
 
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.filter-gray[data-v-5a309514]{\n    filter: invert(25%) sepia(7%) saturate(497%) hue-rotate(314deg) brightness(94%) contrast(88%);\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/pages/Explore/ExploreDestination.vue?vue&type=style&index=0&id=002da906&scoped=true&lang=css&":
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/pages/Explore/ExploreDestination.vue?vue&type=style&index=0&id=002da906&scoped=true&lang=css& ***!
@@ -1851,7 +2026,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.explor-content input[type=\"text\"][data-v-002da906], .explor-content select[data-v-002da906], .explor-content textarea[data-v-002da906] {\n    border: 0px solid #ccc !important;\n    width: 100%;\n    height: 46.2px;\n    border-radius: 4px;\n    padding-left: 15px;\n    font-size: 15px;\n}\n.marginT[data-v-002da906] {\n  margin-top: 10px !important;\n}\nlegend[data-v-002da906] {\n    padding-bottom: 14px;\n    text-align: left;\n}\nfieldset[data-v-002da906] {\n    margin-bottom: 14px;\n    padding-bottom: 14px;\n}\nfieldset[data-v-002da906], input[type=\"button\"][data-v-002da906] {\n    border: 0;\n}\ninput[type=\"button\"][data-v-002da906] {\n    background-color: #3490dc;\n    color: #fff;\n    cursor: pointer;\n    width: 35px;\n    height: 35px;\n    font-size: 17px;\n    border-radius: 20px;\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-002da906] {\n    border: 1px solid #F4F3F3;\n    height: 40px;\n    width: 60%;\n    text-align: center;\n    outline: 2px solid transparent;\n    outline-offset: 2px;\n}\n.personLables[data-v-002da906]{\n  color: grey;\n  text-align: center;\n  font-weight: 600;\n}\n.btn-primary[data-v-002da906]{\n  background-color: #3490dc !important;\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.explor-content input[type=\"text\"][data-v-002da906], .explor-content select[data-v-002da906], .explor-content textarea[data-v-002da906] {\n    border: 0px solid #ccc !important;\n    width: 100%;\n    height: 46.2px;\n    border-radius: 4px;\n    padding-left: 15px;\n    font-size: 15px;\n}\n.marginT[data-v-002da906] {\n  margin-top: 10px !important;\n}\nlegend[data-v-002da906] {\n    padding-bottom: 14px;\n    text-align: left;\n}\nfieldset[data-v-002da906] {\n    margin-bottom: 14px;\n    padding-bottom: 14px;\n}\nfieldset[data-v-002da906], input[type=\"button\"][data-v-002da906] {\n    border: 0;\n}\ninput[type=\"button\"][data-v-002da906] {\n    background-color: #3490dc;\n    color: #fff;\n    cursor: pointer;\n    width: 35px;\n    height: 35px;\n    font-size: 17px;\n    border-radius: 20px;\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-002da906] {\n    border: 1px solid #F4F3F3;\n    height: 40px;\n    width: 60%;\n    text-align: center;\n    outline: 2px solid transparent;\n    outline-offset: 2px;\n}\n.personLables[data-v-002da906]{\n  color: grey;\n  text-align: center;\n  font-weight: 600;\n}\n.btn-primary[data-v-002da906]{\n  background-color: #3490dc !important;\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.filter-cl[data-v-002da906]{\n    /*filter: invert(54%) sepia(71%) saturate(1853%) hue-rotate(338deg) brightness(101%) contrast(94%);*/\n    background: #f77736;\n    border-color: #f77736 !important;\n}\n.exp-icon[data-v-002da906]{\n  border: 1px solid white;\n  border-radius: 25px;\n  padding: 8px 8px;\n  text-align: center;\n  margin-right: 15px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  justify-items: center;\n  font-family: 'Nunito Sans';\n  font-size: 14px;\n  cursor: pointer;\n}\n.exp-icon-wd[data-v-002da906]{\n  width: 25px !important;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2693,6 +2868,36 @@ var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMP
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_vueHotelDatepicker_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_style_index_0_id_5a309514_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_style_index_0_id_5a309514_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_style_index_0_id_5a309514_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -12079,8 +12284,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ItineraryList_vue_vue_type_template_id_5a309514___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ItineraryList.vue?vue&type=template&id=5a309514& */ "./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&");
+/* harmony import */ var _ItineraryList_vue_vue_type_template_id_5a309514_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ItineraryList.vue?vue&type=template&id=5a309514&scoped=true& */ "./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&scoped=true&");
 /* harmony import */ var _ItineraryList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ItineraryList.vue?vue&type=script&lang=js& */ "./resources/js/front/components/ItineraryList.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ItineraryList_vue_vue_type_style_index_0_id_5a309514_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css& */ "./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ItineraryList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ItineraryList_vue_vue_type_template_id_5a309514_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ItineraryList_vue_vue_type_template_id_5a309514_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "5a309514",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/front/components/ItineraryList.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/front/components/Observer.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/front/components/Observer.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Observer_vue_vue_type_template_id_756b4fdb___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Observer.vue?vue&type=template&id=756b4fdb& */ "./resources/js/front/components/Observer.vue?vue&type=template&id=756b4fdb&");
+/* harmony import */ var _Observer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Observer.vue?vue&type=script&lang=js& */ "./resources/js/front/components/Observer.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -12090,9 +12336,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ItineraryList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ItineraryList_vue_vue_type_template_id_5a309514___WEBPACK_IMPORTED_MODULE_0__.render,
-  _ItineraryList_vue_vue_type_template_id_5a309514___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _Observer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Observer_vue_vue_type_template_id_756b4fdb___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Observer_vue_vue_type_template_id_756b4fdb___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -12102,7 +12348,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/front/components/ItineraryList.vue"
+component.options.__file = "resources/js/front/components/Observer.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -12336,6 +12582,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/front/components/Observer.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/front/components/Observer.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Observer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Observer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Observer.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Observer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/front/components/SearchExplor.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************!*\
   !*** ./resources/js/front/components/SearchExplor.vue?vue&type=script&lang=js& ***!
@@ -12416,6 +12678,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css&":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css& ***!
+  \******************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_style_index_0_id_5a309514_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=style&index=0&id=5a309514&scoped=true&lang=css&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_style_index_0_id_5a309514_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/front/pages/Explore/ExploreDestination.vue?vue&type=style&index=0&id=002da906&scoped=true&lang=css&":
 /*!**************************************************************************************************************************!*\
   !*** ./resources/js/front/pages/Explore/ExploreDestination.vue?vue&type=style&index=0&id=002da906&scoped=true&lang=css& ***!
@@ -12449,19 +12727,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514& ***!
-  \****************************************************************************************/
+/***/ "./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&scoped=true& ***!
+  \****************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_template_id_5a309514___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_template_id_5a309514___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_template_id_5a309514_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_template_id_5a309514_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_template_id_5a309514___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ItineraryList.vue?vue&type=template&id=5a309514& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItineraryList_vue_vue_type_template_id_5a309514_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ItineraryList.vue?vue&type=template&id=5a309514&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/front/components/Observer.vue?vue&type=template&id=756b4fdb&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/front/components/Observer.vue?vue&type=template&id=756b4fdb& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Observer_vue_vue_type_template_id_756b4fdb___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Observer_vue_vue_type_template_id_756b4fdb___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Observer_vue_vue_type_template_id_756b4fdb___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Observer.vue?vue&type=template&id=756b4fdb& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Observer.vue?vue&type=template&id=756b4fdb&");
 
 
 /***/ }),
@@ -12639,7 +12934,7 @@ var render = function () {
                         _c("div", { staticClass: "col" }, [
                           _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "tour_code" } }, [
-                              _vm._v(" No. of Days "),
+                              _vm._v("No. of Days"),
                             ]),
                             _vm._v(" "),
                             _c("p", { staticClass: "text-muted pl-4" }, [
@@ -12844,10 +13139,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&":
-/*!*******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514& ***!
-  \*******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ItineraryList.vue?vue&type=template&id=5a309514&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -12907,17 +13202,17 @@ var render = function () {
                 _c(
                   "p",
                   {
-                    staticClass: "m-0 pl-10 font-weight-bold text-capitalize",
-                    class: itinerary.title.length <= 34 ? "cardPadding" : "",
+                    staticClass:
+                      "m-0 pl-10 font-weight-bold text-capitalize mt-2",
                     staticStyle: { "font-size": "18px" },
                   },
                   [
                     _vm._v(
                       _vm._s(
                         _vm._f("CapitalizeString")(
-                          _vm._f("sortlength")(itinerary.title, 50, "")
+                          _vm._f("sortlength")(itinerary.title, 30, "")
                         )
-                      )
+                      ) + _vm._s(itinerary.title.length > 30 ? "..." : "")
                     ),
                   ]
                 ),
@@ -12926,33 +13221,60 @@ var render = function () {
                   "p",
                   {
                     staticClass: "pl-10 mb-1",
-                    class: itinerary.title.length <= 34 ? "-mt-2" : "",
                     staticStyle: { "font-size": "16px" },
                   },
                   [_vm._v(_vm._s(itinerary.noofdays) + " Days Tour")]
                 ),
                 _vm._v(" "),
-                _vm._m(0, true),
+                _c("div", { staticClass: "d-flex flex-column pl-10" }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "priceText mt-2",
+                      staticStyle: {
+                        "font-size": "19.5px",
+                        "font-weight": "550",
+                        "margin-bottom": "0px !important",
+                        color: "#4a4343",
+                      },
+                    },
+                    [_vm._v("₹" + _vm._s(itinerary.price.toLocaleString()))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "personText",
+                      staticStyle: {
+                        "font-size": "15px",
+                        "font-weight": "400",
+                        color: "grey",
+                        "margin-top": "-6px",
+                      },
+                    },
+                    [_vm._v("per person")]
+                  ),
+                ]),
                 _vm._v(" "),
                 _c(
                   "div",
                   {
                     staticClass:
-                      "d-flex flex-row justify-content-between pb-2 mt-1",
+                      "d-flex flex-row justify-content-between pb-2 mt-2",
                   },
                   [
                     _c("div", { staticClass: "pl-10" }, [
                       itinerary.hotel_type != "0"
                         ? _c(
                             "div",
-                            { staticClass: "card-icon float-left p-0" },
+                            { staticClass: "card-icon float-left p-0 mr-1" },
                             [
                               _c("img", {
-                                staticClass: "explore-icon-width",
+                                staticClass: "explore-icon-width filter-gray",
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_hotel_icon.png",
+                                    "/images/icons/Itinerary_hotel_icon.svg",
                                 },
                               }),
                               _vm._v(" "),
@@ -12964,14 +13286,14 @@ var render = function () {
                       itinerary.train == 1
                         ? _c(
                             "div",
-                            { staticClass: "card-icon float-left p-0" },
+                            { staticClass: "card-icon float-left p-0 mr-1" },
                             [
                               _c("img", {
-                                staticClass: "explore-icon-width",
+                                staticClass: "explore-icon-width filter-gray",
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_bus_icon.png",
+                                    "/images/icons/Itinerary_train_icon.svg",
                                 },
                               }),
                               _vm._v(" "),
@@ -12983,14 +13305,14 @@ var render = function () {
                       itinerary.bus == "1"
                         ? _c(
                             "div",
-                            { staticClass: "card-icon float-left p-0" },
+                            { staticClass: "card-icon float-left p-0 mr-1" },
                             [
                               _c("img", {
-                                staticClass: "explore-icon-width",
+                                staticClass: "explore-icon-width filter-gray",
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_bus_icon.png",
+                                    "/images/icons/Itinerary_bus_icon.svg",
                                 },
                               }),
                               _vm._v(" "),
@@ -13005,11 +13327,11 @@ var render = function () {
                             { staticClass: "card-icon float-left p-0" },
                             [
                               _c("img", {
-                                staticClass: "explore-icon-width",
+                                staticClass: "explore-icon-width filter-gray",
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_flight_icon.png",
+                                    "/images/icons/Itinerary_flight_icon.svg",
                                 },
                               }),
                               _vm._v(" "),
@@ -13021,14 +13343,14 @@ var render = function () {
                       itinerary.food != "0"
                         ? _c(
                             "div",
-                            { staticClass: "card-icon float-left p-0" },
+                            { staticClass: "card-icon float-left p-0 mr-1" },
                             [
                               _c("img", {
-                                staticClass: "explore-icon-width",
+                                staticClass: "explore-icon-width filter-gray",
                                 attrs: {
                                   src:
                                     _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_lunch_icon.png",
+                                    "/images/icons/Itinerary_lunch_icon.svg",
                                 },
                               }),
                               _vm._v(" "),
@@ -13038,7 +13360,7 @@ var render = function () {
                         : _vm._e(),
                     ]),
                     _vm._v(" "),
-                    _vm._m(1, true),
+                    _vm._m(0, true),
                   ]
                 ),
               ]),
@@ -13055,41 +13377,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex flex-column pl-10" }, [
-      _c(
-        "p",
-        {
-          staticClass: "priceText",
-          staticStyle: {
-            "font-size": "19.5px",
-            "font-weight": "550",
-            "margin-bottom": "0px !important",
-            color: "#4a4343",
-          },
-        },
-        [_vm._v("Rs. 10,000/-")]
-      ),
-      _vm._v(" "),
-      _c(
-        "p",
-        {
-          staticClass: "personText",
-          staticStyle: {
-            "font-size": "15px",
-            "font-weight": "400",
-            color: "grey",
-            "margin-top": "-6px",
-          },
-        },
-        [_vm._v("per person")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mr-10" }, [
+    return _c("div", { staticClass: "mr-10 mt-2" }, [
       _c(
         "button",
         { staticClass: "btn bookbtn-custom", attrs: { type: "button" } },
@@ -13098,6 +13386,31 @@ var staticRenderFns = [
     ])
   },
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Observer.vue?vue&type=template&id=756b4fdb&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Observer.vue?vue&type=template&id=756b4fdb& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "observer" })
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -13339,25 +13652,6 @@ var render = function () {
                                   [_vm._v("Itinerary")]
                                 ),
                               ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "nav-item" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "nav-link border-none",
-                                    attrs: {
-                                      "data-toggle": "tab",
-                                      href: "#menu1",
-                                    },
-                                    on: {
-                                      click: function ($event) {
-                                        _vm.panel = "Hotels"
-                                      },
-                                    },
-                                  },
-                                  [_vm._v("Hotels")]
-                                ),
-                              ]),
                             ]
                           ),
                           _vm._v(" "),
@@ -13440,7 +13734,13 @@ var render = function () {
                                                                   for: "national",
                                                                 },
                                                               },
-                                                              [_vm._v("Return")]
+                                                              [
+                                                                _c("b", [
+                                                                  _vm._v(
+                                                                    "Return"
+                                                                  ),
+                                                                ]),
+                                                              ]
                                                             ),
                                                           ]
                                                         ),
@@ -13506,9 +13806,11 @@ var render = function () {
                                                                 },
                                                               },
                                                               [
-                                                                _vm._v(
-                                                                  "Multicity"
-                                                                ),
+                                                                _c("b", [
+                                                                  _vm._v(
+                                                                    "Multicity"
+                                                                  ),
+                                                                ]),
                                                               ]
                                                             ),
                                                           ]
@@ -13559,39 +13861,12 @@ var render = function () {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "col-6 col-md-3 col-lg-2 mb-2",
-                                                            on: {
-                                                              click: function (
-                                                                $event
-                                                              ) {
-                                                                _vm.portType =
-                                                                  "car"
-                                                                _vm.getCities()
-                                                              },
-                                                            },
-                                                          },
-                                                          [
-                                                            _c("img", {
-                                                              staticClass:
-                                                                "cursor-pointer explore-icon-width",
-                                                              attrs: {
-                                                                src:
-                                                                  _vm.portType ==
-                                                                  "car"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/car_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/car_icon_src.png",
-                                                              },
-                                                            }),
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-6 col-md-3 col-lg-2 mb-2",
+                                                              "col-5 col-md-4 col-lg-2 mb-2 exp-icon",
+                                                            class:
+                                                              _vm.portType ==
+                                                              "bus"
+                                                                ? "filter-cl"
+                                                                : "",
                                                             on: {
                                                               click: function (
                                                                 $event
@@ -13605,17 +13880,16 @@ var render = function () {
                                                           [
                                                             _c("img", {
                                                               staticClass:
-                                                                "cursor-pointer explore-icon-width",
+                                                                "cursor-pointer exp-icon-wd mr-1",
                                                               attrs: {
                                                                 src:
-                                                                  _vm.portType ==
-                                                                  "bus"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/bus_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/bus_icon_src.png",
+                                                                  _vm.$gbiAssets +
+                                                                  "/images/icons/bus_explore_icon.svg",
                                                               },
                                                             }),
+                                                            _vm._v(
+                                                              "\n                                   Bus\n                                "
+                                                            ),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -13623,7 +13897,48 @@ var render = function () {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "col-6 col-md-3 col-lg-2 mb-2",
+                                                              "col-5 col-md-4 col-lg-2 mb-2 exp-icon",
+                                                            class:
+                                                              _vm.portType ==
+                                                              "car"
+                                                                ? "filter-cl"
+                                                                : "",
+                                                            on: {
+                                                              click: function (
+                                                                $event
+                                                              ) {
+                                                                _vm.portType =
+                                                                  "car"
+                                                                _vm.getCities()
+                                                              },
+                                                            },
+                                                          },
+                                                          [
+                                                            _c("img", {
+                                                              staticClass:
+                                                                "cursor-pointer exp-icon-wd mr-2",
+                                                              attrs: {
+                                                                src:
+                                                                  _vm.$gbiAssets +
+                                                                  "/images/icons/car_explore_icon.svg",
+                                                              },
+                                                            }),
+                                                            _vm._v(
+                                                              "\n                                   Car\n                                "
+                                                            ),
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-5 col-md-4 col-lg-2 mb-2 exp-icon",
+                                                            class:
+                                                              _vm.portType ==
+                                                              "train"
+                                                                ? "filter-cl"
+                                                                : "",
                                                             on: {
                                                               click: function (
                                                                 $event
@@ -13637,17 +13952,16 @@ var render = function () {
                                                           [
                                                             _c("img", {
                                                               staticClass:
-                                                                "cursor-pointer explore-icon-width",
+                                                                "cursor-pointer exp-icon-wd mr-1",
                                                               attrs: {
                                                                 src:
-                                                                  _vm.portType ==
-                                                                  "train"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/train_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/train_icon_src.png",
+                                                                  _vm.$gbiAssets +
+                                                                  "/images/icons/train_explore_icon.svg",
                                                               },
                                                             }),
+                                                            _vm._v(
+                                                              "\n                                   Train\n                                "
+                                                            ),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -13655,7 +13969,12 @@ var render = function () {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "col-6 col-md-3 col-lg-2 mb-2",
+                                                              "col-5 col-md-4 col-lg-2 mb-2 exp-icon",
+                                                            class:
+                                                              _vm.portType ==
+                                                              "plane"
+                                                                ? "filter-cl"
+                                                                : "",
                                                             on: {
                                                               click: function (
                                                                 $event
@@ -13669,17 +13988,16 @@ var render = function () {
                                                           [
                                                             _c("img", {
                                                               staticClass:
-                                                                "cursor-pointer explore-icon-width",
+                                                                "cursor-pointer exp-icon-wd mr-1",
                                                               attrs: {
                                                                 src:
-                                                                  _vm.portType ==
-                                                                  "plane"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/flight_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/flight_icon_src.png",
+                                                                  _vm.$gbiAssets +
+                                                                  "/images/icons/flight_explore_icon.svg",
                                                               },
                                                             }),
+                                                            _vm._v(
+                                                              "\n                                   Plane\n                                "
+                                                            ),
                                                           ]
                                                         ),
                                                       ]
@@ -14115,7 +14433,13 @@ var render = function () {
                                                                   for: "national",
                                                                 },
                                                               },
-                                                              [_vm._v("Return")]
+                                                              [
+                                                                _c("b", [
+                                                                  _vm._v(
+                                                                    "Return"
+                                                                  ),
+                                                                ]),
+                                                              ]
                                                             ),
                                                           ]
                                                         ),
@@ -14181,9 +14505,11 @@ var render = function () {
                                                                 },
                                                               },
                                                               [
-                                                                _vm._v(
-                                                                  "Multicity"
-                                                                ),
+                                                                _c("b", [
+                                                                  _vm._v(
+                                                                    "Multicity"
+                                                                  ),
+                                                                ]),
                                                               ]
                                                             ),
                                                           ]
@@ -14208,7 +14534,7 @@ var render = function () {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-12 col-sm-6 col-lg-6",
+                                                  "col-12 col-sm-6 col-lg-9",
                                               },
                                               [
                                                 _c(
@@ -14234,39 +14560,12 @@ var render = function () {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "col-6 col-md-3 mb-2",
-                                                            on: {
-                                                              click: function (
-                                                                $event
-                                                              ) {
-                                                                _vm.portType =
-                                                                  "car"
-                                                                _vm.getCities()
-                                                              },
-                                                            },
-                                                          },
-                                                          [
-                                                            _c("img", {
-                                                              staticClass:
-                                                                "cursor-pointer explore-icon-width",
-                                                              attrs: {
-                                                                src:
-                                                                  _vm.portType ==
-                                                                  "car"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/car_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/car_icon_src.png",
-                                                              },
-                                                            }),
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-6 col-md-3 mb-2",
+                                                              "col-5 col-md-4 col-lg-2 mb-2 exp-icon",
+                                                            class:
+                                                              _vm.portType ==
+                                                              "bus"
+                                                                ? "filter-cl"
+                                                                : "",
                                                             on: {
                                                               click: function (
                                                                 $event
@@ -14280,17 +14579,16 @@ var render = function () {
                                                           [
                                                             _c("img", {
                                                               staticClass:
-                                                                "cursor-pointer explore-icon-width",
+                                                                "cursor-pointer exp-icon-wd mr-1 ",
                                                               attrs: {
                                                                 src:
-                                                                  _vm.portType ==
-                                                                  "bus"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/bus_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/bus_icon_src.png",
+                                                                  _vm.$gbiAssets +
+                                                                  "/images/icons/bus_explore_icon.svg",
                                                               },
                                                             }),
+                                                            _vm._v(
+                                                              "\n                                   Bus\n                                "
+                                                            ),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -14298,7 +14596,48 @@ var render = function () {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "col-6 col-md-3 mb-2",
+                                                              "col-5 col-md-4 col-lg-2 mb-2 exp-icon",
+                                                            class:
+                                                              _vm.portType ==
+                                                              "car"
+                                                                ? "filter-cl"
+                                                                : "",
+                                                            on: {
+                                                              click: function (
+                                                                $event
+                                                              ) {
+                                                                _vm.portType =
+                                                                  "car"
+                                                                _vm.getCities()
+                                                              },
+                                                            },
+                                                          },
+                                                          [
+                                                            _c("img", {
+                                                              staticClass:
+                                                                "cursor-pointer exp-icon-wd-width mr-2",
+                                                              attrs: {
+                                                                src:
+                                                                  _vm.$gbiAssets +
+                                                                  "/images/icons/car_explore_icon.svg",
+                                                              },
+                                                            }),
+                                                            _vm._v(
+                                                              "\n                                   Car\n                                "
+                                                            ),
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-5 col-md-4 col-lg-2 mb-2 exp-icon",
+                                                            class:
+                                                              _vm.portType ==
+                                                              "train"
+                                                                ? "filter-cl"
+                                                                : "",
                                                             on: {
                                                               click: function (
                                                                 $event
@@ -14312,17 +14651,16 @@ var render = function () {
                                                           [
                                                             _c("img", {
                                                               staticClass:
-                                                                "cursor-pointer explore-icon-width",
+                                                                "cursor-pointer exp-icon-wd mr-1",
                                                               attrs: {
                                                                 src:
-                                                                  _vm.portType ==
-                                                                  "train"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/train_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/train_icon_src.png",
+                                                                  _vm.$gbiAssets +
+                                                                  "/images/icons/train_explore_icon.svg",
                                                               },
                                                             }),
+                                                            _vm._v(
+                                                              "\n                                   Train\n                                "
+                                                            ),
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -14330,7 +14668,12 @@ var render = function () {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "col-6 col-md-3 mb-2",
+                                                              "col-5 col-md-4 col-lg-2 mb-2 exp-icon",
+                                                            class:
+                                                              _vm.portType ==
+                                                              "plane"
+                                                                ? "filter-cl"
+                                                                : "",
                                                             on: {
                                                               click: function (
                                                                 $event
@@ -14344,17 +14687,16 @@ var render = function () {
                                                           [
                                                             _c("img", {
                                                               staticClass:
-                                                                "cursor-pointer explore-icon-width",
+                                                                "cursor-pointer exp-icon-wd mr-1",
                                                               attrs: {
                                                                 src:
-                                                                  _vm.portType ==
-                                                                  "plane"
-                                                                    ? _vm.$gbiAssets +
-                                                                      "/flight_onclick_icon.png"
-                                                                    : _vm.$gbiAssets +
-                                                                      "/flight_icon_src.png",
+                                                                  _vm.$gbiAssets +
+                                                                  "/images/icons/flight_explore_icon.svg",
                                                               },
                                                             }),
+                                                            _vm._v(
+                                                              "\n                                   Plane\n                                "
+                                                            ),
                                                           ]
                                                         ),
                                                       ]
@@ -14369,7 +14711,7 @@ var render = function () {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-12 col-sm-6 col-lg-6 px-2",
+                                                  "col-12 col-sm-6 col-lg-3 px-2",
                                               },
                                               [
                                                 _c(
@@ -14386,18 +14728,6 @@ var render = function () {
                                                           "col-12 input-p nopadding",
                                                       },
                                                       [
-                                                        _c(
-                                                          "custLabel",
-                                                          {
-                                                            staticClass: "ml-2",
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "Customer Type"
-                                                            ),
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
                                                         _c(
                                                           "div",
                                                           {
@@ -14474,8 +14804,7 @@ var render = function () {
                                                             ),
                                                           ]
                                                         ),
-                                                      ],
-                                                      1
+                                                      ]
                                                     ),
                                                   ]
                                                 ),
@@ -14958,104 +15287,38 @@ var render = function () {
             "div",
             { staticClass: "container" },
             [
-              !_vm.upcoming_data && !_vm.popular_data
-                ? _c(
-                    "div",
-                    [
-                      _c("heading", {
-                        staticClass: "text-center mt-5",
-                        attrs: { text: "Upcoming Tour" },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "row card-titles" },
-                        _vm._l(6, function (index) {
-                          return _c(
-                            "div",
-                            { key: index, staticClass: "col-sm-4" },
-                            [_c("cardLoader")],
-                            1
-                          )
-                        }),
-                        0
-                      ),
-                      _vm._v(" "),
-                      _c("heading", {
-                        staticClass: "text-center mt-5",
-                        attrs: { text: "Popular Tour" },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "row card-titles" },
-                        _vm._l(6, function (index) {
-                          return _c(
-                            "div",
-                            { key: index, staticClass: "col-sm-4" },
-                            [_c("cardLoader")],
-                            1
-                          )
-                        }),
-                        0
-                      ),
-                    ],
-                    1
-                  )
-                : _vm.allSearchdata == ""
+              _vm.allSearchdata == ""
                 ? _c(
                     "div",
                     { staticClass: "p-0" },
                     [
                       _c("heading", {
-                        staticClass: "text-center",
-                        attrs: { text: "Upcoming Tour" },
+                        staticClass: "text-center mt-2",
+                        attrs: { text: "All Tours" },
                       }),
                       _vm._v(" "),
-                      _c("itinerary-list", {
-                        attrs: { list: _vm.upcoming_data },
-                      }),
+                      _c("itinerary-list", { attrs: { list: _vm.items_list } }),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "nopadding m-b-15" },
-                        [
-                          _c(
-                            "router-link",
+                      _c("Observer", { on: { intersect: _vm.intersected } }),
+                      _vm._v(" "),
+                      _vm.loading
+                        ? _c(
+                            "div",
                             {
-                              staticClass: "listexplore",
-                              attrs: { to: "/explore-list" },
+                              staticClass:
+                                "loading-img-parent text-center mt-5 w-100 mb-4",
                             },
-                            [_vm._v("View More")]
-                          ),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("heading", {
-                        staticClass: "text-center",
-                        attrs: { text: "Popular Tour" },
-                      }),
-                      _vm._v(" "),
-                      _c("itinerary-list", {
-                        attrs: { list: _vm.popular_data },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "nopadding m-b-15" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "listexplore",
-                              attrs: { to: "/explore-list" },
-                            },
-                            [_vm._v("View More")]
-                          ),
-                        ],
-                        1
-                      ),
+                            [
+                              _c("img", {
+                                staticClass: "loading-img",
+                                attrs: {
+                                  src:
+                                    _vm.$gbiAssets + "/images/icons/loader.gif",
+                                },
+                              }),
+                            ]
+                          )
+                        : _vm._e(),
                     ],
                     1
                   )

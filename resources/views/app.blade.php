@@ -89,6 +89,74 @@
         });
     </script> --}}
     <style>
+      .bread_nav{
+          font-family: 'Nunito Sans';
+          font-weight: 600;
+          text-align: center;
+          margin: 7px 0px;
+        }
+        strong{
+          font-weight: bold;
+        }
+        .br_bgcl{
+          background-color: #001041c7;
+          border-radius: 5px;
+          padding: 5px 15px;
+        }
+        .br_actv{
+          color: #101010 !important;
+        }
+        .br_orange{
+          color: #f77736 !important;
+        }
+        .br_grey{
+          color: #858585d9 !important;
+        }
+        .br_white{
+          color: white !important;
+        }
+        .bread_nav span{
+          margin-right: 5px;
+          font-size: 12px;
+          margin-top: 3px;
+        }
+        .bread_nav br_cr{
+          margin-right: 5px;
+          font-size: 14px;
+        }
+        .bread_link:hover{
+          text-decoration: underline;
+        }
+        .bread_nav p{
+          margin-right: 5px;
+          font-size: 14px;
+        }
+        .bread_link {
+          margin-right: 5px;
+          font-size: 14px;
+        }
+      /*.navbar .container, .navbar .container-fluid, .navbar .container-lg, .navbar .container-md, .navbar .container-sm, .navbar .container-xl {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+             flex-wrap: nowrap;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+        .navbar{
+          padding: 0px !important;
+        }
+        .container {
+          max-width: 1140px !important;
+        }
+        #navbar {
+            height: 133px;
+            width: 100%;
+            font-family: "Nunito Sans";
+            font-size: 16px;
+        }*/
         .jexcel_container td tr{
           z-index: 10 !important;
           }
@@ -123,7 +191,16 @@
         .qkb-bubble-btn {
           margin-bottom: 56px;
         }
+      
     }
+
+    /* @media only screen and (max-width: 345px){
+      #navbar img {
+          height: 60px;
+          width: 125px;
+      }
+    } */
+      
 
     </style>
 </body>

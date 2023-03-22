@@ -29,7 +29,7 @@ const ExploreSearchMixin = {
             destinationCities: [],
             panel: "Itinerary",
             tripType: 'return',
-            portType: 'car',
+            portType: 'bus',
             sources: { value: "", text: "", city: "" },
             destinations: { value: "", text: "", city: "" },
             room_type: '',

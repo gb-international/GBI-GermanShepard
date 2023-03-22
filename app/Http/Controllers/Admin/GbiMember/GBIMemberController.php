@@ -160,7 +160,7 @@ class GBIMemberController extends Controller
         $more->address = $request->address;
         $more->varified = '1';
         $more->photo = 'user.png';
-        $more->gender = '';
+        $more->gender = $request->gender;
         $more->save();
         // send mail 
         $data = ['name'=>$user->name,'email'=>$user->email ];
@@ -236,7 +236,7 @@ class GBIMemberController extends Controller
         
         $user->update([
             'name' => $request->name,
-            'gender' => $request->gender,
+            //'gender' => $request->gender,
             'email' => $request->email,
             'department_id' => $request->department_id,
             'user_role' => $request->role_id
@@ -254,7 +254,8 @@ class GBIMemberController extends Controller
             'user_id' => $user->id,
             'phone_no' => $request->phone_no,
             'address' => $request->address,
-            'dob' => $request->dob
+            'dob' => $request->dob,
+            'gender' => $request->gender
         ];
         $userRole = [
             'user_id' => $user->id,

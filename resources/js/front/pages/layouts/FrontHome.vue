@@ -94,12 +94,12 @@
       </section> -->
     </div>
     
-    <!-- VTour Section -->
+    <!-- VTour Section 
     <div class="container">
       <heading class="text-start mt-4" text="Virtual Tourism" />
-      <sub-heading class="text-start mb-4" text="Lorem ipsum dolor sit amet" />
+      <sub-heading class="text-start mb-4" text="Lorem ipsum dolor sit amet" />  -->
       
-      <!-- If Loaded -->
+      <!-- If Loaded 
       <div class="row card-titles" v-if="travel_Loaded">
         <div class="col-sm-4">
           <div class="card">
@@ -113,7 +113,7 @@
                   </div>
               </div>
           </div>
-        </div>
+        </div> 
 
         <div class="col-sm-4">
           <div class="card">
@@ -127,7 +127,7 @@
                   </div>
               </div>
           </div>
-        </div>
+        </div> 
 
         <div class="col-sm-4">
           <div class="card">
@@ -141,22 +141,22 @@
                   </div>
               </div>
           </div>
-        </div>
-      </div>
-      <!-- If Loading -->
+        </div> 
+      </div> -->
+      <!-- If Loading 
       <div class="row card-titles" my-2 mb-4 v-else>
         <div class="col-sm-4"  v-for="(index) in 3" :key="index">
          <cardLoader />
         </div>
       </div>     
-    </div>
+    </div> -->
 
-    <!-- VTour Section -->
+    <!-- Offers Section 
     <div class="container">
       <heading class="text-start mt-4" text="Offers And Coupons" />
-      <sub-heading class="text-start mb-4" text="Lorem ipsum dolor sit amet" />
+      <sub-heading class="text-start mb-4" text="Lorem ipsum dolor sit amet" /> -->
       
-      <!-- If Loaded -->
+      <!-- If Loaded 
       <div class="row card-titles" v-if="travel_Loaded">
         <div class="col-sm-4">
           <div class="card">
@@ -169,7 +169,7 @@
               />
             </figure>
           </div>
-        </div>
+        </div> 
 
         <div class="col-sm-4">
           <div class="card">
@@ -182,7 +182,7 @@
               />
             </figure>
           </div>
-        </div>
+        </div> 
 
         <div class="col-sm-4">
           <div class="card">
@@ -195,18 +195,18 @@
               />
             </figure>
           </div>
-        </div>
+        </div> 
 
-      </div>
-      <!-- If Loading -->
+      </div> -->
+      <!-- If Loading 
       <div class="row card-titles" my-2 mb-4 v-else>
         <div class="col-sm-4"  v-for="(index) in 6" :key="index">
          <cardLoader />
         </div>
       </div>     
-    </div>
+    </div> -->
 
-    <Review />
+    <!-- <Review /> -->
   </div>
 </template>
 

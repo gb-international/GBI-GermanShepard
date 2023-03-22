@@ -332,6 +332,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -381,7 +382,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (() => {
 
 // Set the date we're counting down to
-var countDownDate = new Date("Jan 2, 2023 15:00:00").getTime(); // Update the count down every 1 second
+var countDownDate = new Date("Jan 15, 2023 15:00:00").getTime(); // Update the count down every 1 second
 
 var x = setInterval(function () {
   // Get today's date and time
@@ -411,6 +412,30 @@ var x = setInterval(function () {
 
 /***/ }),
 
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ContactusForm.vue?vue&type=style&index=0&id=29a4e4ed&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ContactusForm.vue?vue&type=style&index=0&id=29a4e4ed&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.contact-btn[data-v-29a4e4ed] {\n    padding: 12px 35px;\n    border: none;\n    border-radius: 4px;\n    background: #f77736;\n    color: white;\n}\n.contact-btn[data-v-29a4e4ed]:hover{\n  background: white;\n  border: 1px solid #f77736;\n  color: #f77736;\n}\n.contact-title[data-v-29a4e4ed]{\n    color: black;\n    margin-top: 10px;\n    margin-bottom: 10px;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/pages/ContactUs/ContactUs.vue?vue&type=style&index=0&id=b108d124&scoped=true&lang=css&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/pages/ContactUs/ContactUs.vue?vue&type=style&index=0&id=b108d124&scoped=true&lang=css& ***!
@@ -428,10 +453,40 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.counter-title[data-v-b108d124]{\n  font-size: 39px;\n  font-family: 'Nunito Sans';\n  font-weight: 700;\n  color: #212529;\n  text-align: center;\n  padding: 5px;\n  margin-right: 1.6vw;\n  margin-bottom: 15px;\n}\n.counterDigits[data-v-b108d124]{\n  display: flex;\n  justify-content: center;\n  margin-right: 1.6vw;\n}\n.counter-style1[data-v-b108d124]{\n  font-size: 28px;\n  font-family: 'Nunito Sans';\n  font-weight: 600;\n  color: white;\n  background: black;\n  text-align: center;\n  border: solid 1px;\n  border-radius: 5px;\n  margin-right: 1px;\n  padding: 5px 10px;\n}\n.counter-style2[data-v-b108d124]{\n  font-size: 15px;\n  font-family: 'Nunito Sans';\n  font-weight: 600;\n  color: black;\n  text-align: center;\n  margin-right: 1.6vw;\n  padding: 5px;\n  margin-top: -10px;\n}\n.CountDiv[data-v-b108d124]{\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n}\n.CountDiv2[data-v-b108d124]{\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.modal-div[data-v-b108d124] {\n    display: inline-block;\n    text-align: center;\n    width: 650px;\n}\n.modal-head[data-v-b108d124] {\n    display: flex;\n    align-items: flex-start;\n    justify-content: space-between;\n    padding: 1rem 1rem;\n    border-bottom: none !important;\n}\n@media (max-width: 665px) {\n.modal-div[data-v-b108d124] {\n    display: inline-block;\n    text-align: center;\n    width: 350px;\n}\n.counter-title[data-v-b108d124]{\n  font-size: 25px;\n}\n.counter-style1[data-v-b108d124]{\n  font-size: 17px;\n}\n.counter-style2[data-v-b108d124]{\n  font-size: 13px;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.contact-h2[data-v-b108d124] {\n    font-size: 21px;\n    padding-top: 26px;\n    width: 100%;\n    margin: 0 auto;\n    text-align: center;\n    color: black;\n}\n.counter-title[data-v-b108d124]{\n  font-size: 39px;\n  font-family: 'Nunito Sans';\n  font-weight: 700;\n  color: #212529;\n  text-align: center;\n  padding: 5px;\n  margin-right: 1.6vw;\n  margin-bottom: 15px;\n}\n.counter-text[data-v-b108d124]{\n  font-size: 18px;\n  font-family: 'Nunito Sans';\n  font-weight: 600;\n  color: #212529;\n  text-align: center;\n  padding: 5px;\n  margin-right: 1.6vw;\n  margin-bottom: 50px;\n}\n.counterDigits[data-v-b108d124]{\n  display: flex;\n  justify-content: center;\n  margin-right: 1.6vw;\n}\n.counter-style1[data-v-b108d124]{\n  font-size: 28px;\n  font-family: 'Nunito Sans';\n  font-weight: 600;\n  color: white;\n  background: black;\n  text-align: center;\n  border: solid 1px;\n  border-radius: 5px;\n  margin-right: 1px;\n  padding: 5px 10px;\n}\n.counter-style2[data-v-b108d124]{\n  font-size: 15px;\n  font-family: 'Nunito Sans';\n  font-weight: 600;\n  color: black;\n  text-align: center;\n  margin-right: 1.6vw;\n  padding: 5px;\n  margin-top: -10px;\n}\n.CountDiv[data-v-b108d124]{\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n}\n.CountDiv2[data-v-b108d124]{\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.modal-div[data-v-b108d124] {\n    display: inline-block;\n    text-align: center;\n    width: 650px;\n}\n.modal-head[data-v-b108d124] {\n    display: flex;\n    align-items: flex-start;\n    justify-content: space-between;\n    padding: 1rem 1rem;\n    border-bottom: none !important;\n}\n@media (max-width: 665px) {\n.modal-div[data-v-b108d124] {\n    display: inline-block;\n    text-align: center;\n    width: 350px;\n}\n.counter-title[data-v-b108d124]{\n  font-size: 22px;\n  margin-bottom: 5px;\n}\n.counter-text[data-v-b108d124]{\n  font-size: 14px;\n  margin-bottom: 30px;\n}\n.counter-style1[data-v-b108d124]{\n  font-size: 17px;\n}\n.counter-style2[data-v-b108d124]{\n  font-size: 13px;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ContactusForm.vue?vue&type=style&index=0&id=29a4e4ed&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ContactusForm.vue?vue&type=style&index=0&id=29a4e4ed&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_style_index_0_id_29a4e4ed_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ContactusForm.vue?vue&type=style&index=0&id=29a4e4ed&scoped=true&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ContactusForm.vue?vue&type=style&index=0&id=29a4e4ed&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_style_index_0_id_29a4e4ed_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_style_index_0_id_29a4e4ed_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -476,23 +531,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ContactusForm_vue_vue_type_template_id_29a4e4ed___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactusForm.vue?vue&type=template&id=29a4e4ed& */ "./resources/js/front/components/ContactusForm.vue?vue&type=template&id=29a4e4ed&");
+/* harmony import */ var _ContactusForm_vue_vue_type_template_id_29a4e4ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactusForm.vue?vue&type=template&id=29a4e4ed&scoped=true& */ "./resources/js/front/components/ContactusForm.vue?vue&type=template&id=29a4e4ed&scoped=true&");
 /* harmony import */ var _ContactusForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContactusForm.vue?vue&type=script&lang=js& */ "./resources/js/front/components/ContactusForm.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _ContactusForm_vue_vue_type_style_index_0_id_29a4e4ed_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ContactusForm.vue?vue&type=style&index=0&id=29a4e4ed&scoped=true&lang=css& */ "./resources/js/front/components/ContactusForm.vue?vue&type=style&index=0&id=29a4e4ed&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _ContactusForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ContactusForm_vue_vue_type_template_id_29a4e4ed___WEBPACK_IMPORTED_MODULE_0__.render,
-  _ContactusForm_vue_vue_type_template_id_29a4e4ed___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _ContactusForm_vue_vue_type_template_id_29a4e4ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ContactusForm_vue_vue_type_template_id_29a4e4ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  null,
+  "29a4e4ed",
   null
   
 )
@@ -632,6 +689,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/front/components/ContactusForm.vue?vue&type=style&index=0&id=29a4e4ed&scoped=true&lang=css&":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/front/components/ContactusForm.vue?vue&type=style&index=0&id=29a4e4ed&scoped=true&lang=css& ***!
+  \******************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_style_index_0_id_29a4e4ed_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ContactusForm.vue?vue&type=style&index=0&id=29a4e4ed&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ContactusForm.vue?vue&type=style&index=0&id=29a4e4ed&scoped=true&lang=css&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_style_index_0_id_29a4e4ed_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/front/pages/ContactUs/ContactUs.vue?vue&type=style&index=0&id=b108d124&scoped=true&lang=css&":
 /*!*******************************************************************************************************************!*\
   !*** ./resources/js/front/pages/ContactUs/ContactUs.vue?vue&type=style&index=0&id=b108d124&scoped=true&lang=css& ***!
@@ -648,19 +721,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/front/components/ContactusForm.vue?vue&type=template&id=29a4e4ed&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/front/components/ContactusForm.vue?vue&type=template&id=29a4e4ed& ***!
-  \****************************************************************************************/
+/***/ "./resources/js/front/components/ContactusForm.vue?vue&type=template&id=29a4e4ed&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/front/components/ContactusForm.vue?vue&type=template&id=29a4e4ed&scoped=true& ***!
+  \****************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_template_id_29a4e4ed___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_template_id_29a4e4ed___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_template_id_29a4e4ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_template_id_29a4e4ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_template_id_29a4e4ed___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ContactusForm.vue?vue&type=template&id=29a4e4ed& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ContactusForm.vue?vue&type=template&id=29a4e4ed&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_template_id_29a4e4ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ContactusForm.vue?vue&type=template&id=29a4e4ed&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ContactusForm.vue?vue&type=template&id=29a4e4ed&scoped=true&");
 
 
 /***/ }),
@@ -699,10 +772,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ContactusForm.vue?vue&type=template&id=29a4e4ed&":
-/*!*******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ContactusForm.vue?vue&type=template&id=29a4e4ed& ***!
-  \*******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ContactusForm.vue?vue&type=template&id=29a4e4ed&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ContactusForm.vue?vue&type=template&id=29a4e4ed&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -732,7 +805,7 @@ var render = function () {
           "div",
           { staticClass: "form-fullwidth" },
           [
-            _c("label", { staticClass: "lable-title" }, [_vm._v("Name")]),
+            _c("label", { staticClass: "contact-title" }, [_vm._v("Name")]),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -771,7 +844,7 @@ var render = function () {
           "div",
           { staticClass: "form-fullwidth" },
           [
-            _c("label", { staticClass: "lable-title" }, [_vm._v("E-Mail")]),
+            _c("label", { staticClass: "contact-title" }, [_vm._v("E-Mail")]),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -810,7 +883,7 @@ var render = function () {
           "div",
           { staticClass: "form-fullwidth" },
           [
-            _c("label", { staticClass: "lable-title" }, [_vm._v("Mobile")]),
+            _c("label", { staticClass: "contact-title" }, [_vm._v("Mobile")]),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -849,7 +922,7 @@ var render = function () {
           "div",
           { staticClass: "form-fullwidth" },
           [
-            _c("label", { staticClass: "lable-title" }, [_vm._v("Message")]),
+            _c("label", { staticClass: "contact-title" }, [_vm._v("Message")]),
             _vm._v(" "),
             _c("textarea", {
               directives: [
@@ -890,9 +963,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-fullwidth alignbtn" }, [
-      _c("input", {
-        attrs: { type: "submit", value: "Submit", name: "submit" },
-      }),
+      _c("button", { staticClass: "contact-btn" }, [_vm._v("Submit")]),
     ])
   },
 ]
@@ -1152,56 +1223,6 @@ var render = function () {
         ]),
       ]),
     ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        class: _vm.showCount ? "modal fade show" : "modal fade",
-        staticStyle: { "padding-right": "17px", display: "block" },
-        attrs: {
-          "aria-modal": "true",
-          id: "counterModal",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "exampleModalLongTitle",
-          "aria-hidden": "true",
-        },
-      },
-      [
-        _c("div", { staticClass: "modal-div", attrs: { role: "document" } }, [
-          _c("div", { staticClass: "modal-content" }, [
-            _c(
-              "div",
-              {
-                staticClass: "modal-head",
-                staticStyle: { margin: "10px !important" },
-              },
-              [
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        _vm.showCount = false
-                      },
-                    },
-                  },
-                  [
-                    _c("span", { attrs: { "aria-hidden": "true" } }, [
-                      _vm._v("×"),
-                    ]),
-                  ]
-                ),
-              ]
-            ),
-            _vm._v(" "),
-            _vm._m(6),
-          ]),
-        ]),
-      ]
-    ),
   ])
 }
 var staticRenderFns = [
@@ -1272,85 +1293,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "title-contact" }, [
-      _c("h2", [_vm._v("Contact Us")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-body" }, [
-      _c(
-        "h5",
-        { staticClass: "counter-title", attrs: { id: "counterModal" } },
-        [_vm._v("We will be back soon")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "CountDiv my-4" }, [
-        _c("div", { staticClass: "text-center CountDiv2" }, [
-          _c("span", { staticClass: "counterDigits" }, [
-            _c("p", {
-              staticClass: "counter-style1",
-              attrs: { id: "countDownD1" },
-            }),
-            _vm._v(" "),
-            _c("p", {
-              staticClass: "counter-style1",
-              attrs: { id: "countDownD2" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "counter-style2" }, [_vm._v("Days")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "text-center CountDiv2" }, [
-          _c("span", { staticClass: "counterDigits" }, [
-            _c("p", {
-              staticClass: "counter-style1",
-              attrs: { id: "countDownH1" },
-            }),
-            _vm._v(" "),
-            _c("p", {
-              staticClass: "counter-style1",
-              attrs: { id: "countDownH2" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "counter-style2" }, [_vm._v("Hours")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "text-center CountDiv2" }, [
-          _c("span", { staticClass: "counterDigits" }, [
-            _c("p", {
-              staticClass: "counter-style1",
-              attrs: { id: "countDownM1" },
-            }),
-            _vm._v(" "),
-            _c("p", {
-              staticClass: "counter-style1",
-              attrs: { id: "countDownM2" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "counter-style2" }, [_vm._v("Minutes")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "text-center CountDiv2" }, [
-          _c("span", { staticClass: "counterDigits" }, [
-            _c("p", {
-              staticClass: "counter-style1",
-              attrs: { id: "countDownS1" },
-            }),
-            _vm._v(" "),
-            _c("p", {
-              staticClass: "counter-style1",
-              attrs: { id: "countDownS2" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "counter-style2" }, [_vm._v("Seconds")]),
-        ]),
-      ]),
+      _c("h2", { staticClass: "contact-h2" }, [_vm._v("Contact Us")]),
     ])
   },
 ]

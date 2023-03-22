@@ -888,6 +888,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -911,6 +925,7 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_4__["default"]],
   data: function data() {
     return {
+      img_images: [],
       options: [],
       cities: [],
       tour_type_list: [],
@@ -924,13 +939,14 @@ __webpack_require__.r(__webpack_exports__);
         destination: '',
         noofdays: 1,
         title: "",
+        price: "",
         description: "",
         tourtype: "",
         hoteltype: "0",
         photo: "",
-        detail_photo: "",
+        detail_photo: [],
         photo_alt: '',
-        detail_photo_alt: '',
+        detail_photo_alt: [],
         food: "",
         flight: "",
         bus: "",
@@ -960,13 +976,39 @@ __webpack_require__.r(__webpack_exports__);
     this.seasonsData();
   },
   methods: {
-    cityList: function cityList() {
+    fileInput: function fileInput() {
+      this.$refs.fileInput.click();
+    },
+    onFileInput: function onFileInput(event) {
       var _this = this;
+
+      for (var i = 0; i < event.target.files.length; i++) {
+        var file = event.target.files[i];
+        this.form.detail_photo_alt[i] = file.name;
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+          _this.form.detail_photo.push(event.target.result);
+
+          _this.img_images.push(event.target.result);
+        };
+
+        reader.readAsDataURL(file);
+      } //console.log(this.form.images[1])
+
+    },
+    delImg: function delImg(index) {
+      this.img_images = this.img_images.slice(0, index).concat(this.img_images.slice(index + 1));
+      this.form.detail_photo = this.form.detail_photo.slice(0, index).concat(this.form.detail_photo.slice(index + 1));
+      this.form.detail_photo_alt = this.form.detail_photo_alt.slice(0, index).concat(this.form.detail_photo_alt.slice(index + 1));
+    },
+    cityList: function cityList() {
+      var _this2 = this;
 
       axios.get("/api/city").then(function (res) {
         if (res.data) {
           for (var i = 0; i < res.data.data.length; i++) {
-            _this.options.push({
+            _this2.options.push({
               name: res.data.data[i].name,
               id: res.data.data[i].name
             });
@@ -975,21 +1017,21 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     tourTypeData: function tourTypeData() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get("/api/tourtype").then(function (response) {
-        _this2.tour_type_list = response.data;
+        _this3.tour_type_list = response.data;
       });
     },
     seasonsData: function seasonsData() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get("/api/season").then(function (response) {
-        _this3.season_list = response.data;
+        _this4.season_list = response.data;
       });
     },
     changePhoto: function changePhoto(event) {
-      var _this4 = this;
+      var _this5 = this;
 
       var file = event.target.files[0];
 
@@ -1003,21 +1045,21 @@ __webpack_require__.r(__webpack_exports__);
         var reader = new FileReader();
 
         reader.onload = function (event) {
-          _this4.form.photo = event.target.result;
-          _this4.form.photo_alt = file.name;
+          _this5.form.photo = event.target.result;
+          _this5.form.photo_alt = file.name;
         };
 
         reader.readAsDataURL(file);
       }
     },
     getTags: function getTags() {
-      var _this5 = this;
+      var _this6 = this;
 
       axios.get("/api/tags").then(function (res) {
         //this.tags = response.data;
         if (res) {
           for (var i = 0; i < res.data.length; i++) {
-            _this5.tags.push({
+            _this6.tags.push({
               value: res.data[i].title,
               key: res.data[i].id
             });
@@ -1037,7 +1079,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     changeDetailPhoto: function changeDetailPhoto(event) {
-      var _this6 = this;
+      var _this7 = this;
 
       var file = event.target.files[0];
 
@@ -1051,18 +1093,29 @@ __webpack_require__.r(__webpack_exports__);
         var reader = new FileReader();
 
         reader.onload = function (event) {
-          _this6.form.detail_photo = event.target.result;
-          _this6.form.detail_photo_alt = file.name;
+          _this7.form.detail_photo = event.target.result;
+          _this7.form.detail_photo_alt = file.name;
         };
 
         reader.readAsDataURL(file);
       }
     },
     addItinerary: function addItinerary() {
-      var _this7 = this;
+      var _this8 = this;
 
+      /*if (this.img_images.length < 7) {
+        this.$toast.fire({
+            icon: "error",
+            title: "7 Banner Images Required!",
+        });
+        return false;
+      }*/
       if (this.form.meta_keyword.length < 1) {
         this.tagsWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Meta Keywords Required"
+        });
         return false;
       } else if (this.form.meta_description == '') {
         this.$toast.fire({
@@ -1104,14 +1157,14 @@ __webpack_require__.r(__webpack_exports__);
       this.loading = true;
       this.form.tags = this.form.meta_keyword;
       this.form.post("/api/itinerary").then(function (response) {
-        _this7.$router.push("/itinerary-list");
+        _this8.$router.push("/itinerary-list");
 
-        _this7.$toast.fire({
+        _this8.$toast.fire({
           icon: "success",
           title: "Itinerary Added successfully"
         });
 
-        _this7.loading = false;
+        _this8.loading = false;
       })["catch"](function () {});
     },
     addRow: function addRow() {
@@ -1202,7 +1255,35 @@ var Vue2EditorMixin = {
       editorSettings: {
         modules: {
           imageDrop: true,
-          imageResize: {}
+          imageResize: {},
+          toolbar: [//[{ header: [false, 1, 2, 3, 4, 5, 6] }],
+          ["bold", "italic", "underline", "strike"], // toggled buttons
+          [{
+            align: ""
+          }, {
+            align: "center"
+          }, {
+            align: "right"
+          }, {
+            align: "justify"
+          }], ["blockquote", "code-block"], [{
+            list: "ordered"
+          }, {
+            list: "bullet"
+          }, {
+            list: "check"
+          }], [{
+            indent: "-1"
+          }, {
+            indent: "+1"
+          }], // outdent/indent
+          [{
+            color: []
+          }, {
+            background: []
+          }], // dropdown with defaults from theme
+          ["link", "image", "video"], ["clean"] // remove formatting button
+          ]
         }
       }
     };
@@ -3334,7 +3415,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.customSelect[data-v-b62c933e]{\n    min-height: 53px !important;\n    font-size: 17px !important;\n    padding: 0px 40px 0 8px !important;\n    color: #737879 !important;\n    background: #fff !important;\n    font-weight: 600;\n}\n.warn-error[data-v-b62c933e] {\n    width: 100%;\n    margin-top: 0.25rem;\n    font-size: 80%;\n    color: #dc3545;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.customSelect[data-v-b62c933e]{\n    min-height: 53px !important;\n    font-size: 17px !important;\n    padding: 0px 40px 0 8px !important;\n    color: #737879 !important;\n    background: #fff !important;\n    font-weight: 600;\n}\n.warn-error[data-v-b62c933e] {\n    width: 100%;\n    margin-top: 0.25rem;\n    font-size: 80%;\n    color: #dc3545;\n}\n.smallImages[data-v-b62c933e]{\n  width: 140px; \n  height: 93px;\n  position: relative;\n}\n.delImgBtn[data-v-b62c933e]{\n  position: absolute;\n  top: 0px;\n  right: 0px;\n  margin: 4px;\n  font-size: 16px;\n  color: #d12121;\n}\n.custom-card[data-v-b62c933e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 93px;\n  width: 143px;\n  background: #e5e5e5;\n  border: solid 2px #e5e5e5;\n  border-radius: 5px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -18574,13 +18655,13 @@ var render = function () {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-sm-8" }, [
+                    _c("div", { staticClass: "col-sm-4" }, [
                       _c(
                         "div",
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "titleId" } }, [
-                            _vm._v("Title"),
+                            _vm._v("Itinerary Name"),
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -18598,7 +18679,7 @@ var render = function () {
                             },
                             attrs: {
                               type: "text",
-                              placeholder: "Enter Title",
+                              placeholder: "Enter Itinerary Name",
                               name: "title",
                             },
                             domProps: { value: _vm.form.title },
@@ -18614,6 +18695,53 @@ var render = function () {
                           _vm._v(" "),
                           _c("has-error", {
                             attrs: { form: _vm.form, field: "title" },
+                          }),
+                        ],
+                        1
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "priceId" } }, [
+                            _vm._v("Package Price/Person"),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.price,
+                                expression: "form.price",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("price"),
+                            },
+                            attrs: {
+                              type: "number",
+                              min: "0",
+                              placeholder: "Enter Price",
+                              name: "price",
+                            },
+                            domProps: { value: _vm.form.price },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "price", $event.target.value)
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "price" },
                           }),
                         ],
                         1
@@ -18828,48 +18956,72 @@ var render = function () {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-6" }, [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _c(
-                            "label",
-                            { staticClass: "label", attrs: { for: "input" } },
-                            [_vm._v("Please upload a Banner image !")]
-                          ),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c("input", {
-                            staticClass: "overflow-hiden",
-                            class: {
-                              "is-invalid": _vm.form.errors.has("detail_photo"),
-                            },
-                            attrs: {
-                              name: "detail_photo",
-                              type: "file",
-                              required: "",
-                            },
-                            on: {
-                              change: function ($event) {
-                                return _vm.changeDetailPhoto($event)
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          { staticClass: "label", attrs: { for: "input" } },
+                          [_vm._v("Please upload a Banner image !")]
+                        ),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "row" },
+                          [
+                            _vm._l(_vm.img_images, function (img, index) {
+                              return _c(
+                                "div",
+                                {
+                                  key: index,
+                                  staticClass: "mr-2 mb-2 shadow smallImages",
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "smallImages",
+                                    attrs: { src: img, alt: "" },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass: "fas fa-trash-alt delImgBtn",
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.delImg(index)
+                                      },
+                                    },
+                                  }),
+                                ]
+                              )
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "custom-card shadow ml-2 mb-2",
+                                on: { click: _vm.fileInput },
                               },
-                            },
-                          }),
-                          _vm._v(" "),
-                          _vm.form.detail_photo != ""
-                            ? _c("img", {
-                                staticClass: "detail_photo",
-                                attrs: { src: _vm.form.detail_photo, alt: "" },
-                              })
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c("has-error", {
-                            attrs: { form: _vm.form, field: "detail_photo" },
-                          }),
-                        ],
-                        1
-                      ),
+                              [
+                                _c("i", {
+                                  staticClass: "fas fa-plus-circle",
+                                  staticStyle: { "font-size": "35px" },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              ref: "fileInput",
+                              staticStyle: { display: "none" },
+                              attrs: {
+                                type: "file",
+                                multiple: "",
+                                accept: ".png, .jpg, .jpeg, .pdf",
+                              },
+                              on: { change: _vm.onFileInput },
+                            }),
+                          ],
+                          2
+                        ),
+                      ]),
                     ]),
                   ]),
                   _vm._v(" "),

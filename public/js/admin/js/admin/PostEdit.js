@@ -945,7 +945,7 @@ __webpack_require__.r(__webpack_exports__);
         summery: "",
         image: [],
         meta_title: "",
-        meta_keyword: "",
+        meta_keyword: [],
         status: "",
         tags: [],
         category_id: "",
@@ -1068,27 +1068,111 @@ __webpack_require__.r(__webpack_exports__);
     UpdatePost: function UpdatePost() {
       var _this4 = this;
 
+      console.log('start');
+
+      if (!this.form.title) {
+        this.titleWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Title Required"
+        });
+        return false;
+      }
+
+      console.log('title');
+
       if (!this.form.description) {
         this.descriptionWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Description Required"
+        });
         return false;
-      } else {
-        this.descriptionWarn = false;
       }
 
-      if (this.form.tags.length < 1) {
+      console.log('description');
+
+      if (!this.form.summery) {
+        this.summeryWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Summary Required"
+        });
+        return false;
+      }
+
+      console.log('summery');
+
+      if (!this.form.meta_title) {
+        this.meta_titleWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Meta Title Required"
+        });
+        return false;
+      }
+
+      console.log('meta_title');
+
+      if (this.form.meta_keyword.length < 1) {
         this.tagsWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Meta Keywords Required"
+        });
         return false;
       }
 
-      if (this.form.clientTypeWarn === '') {
+      console.log('meta_keyword');
+
+      if (this.form.status === '') {
+        this.statusWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Blog Status Required"
+        });
+        return false;
+      }
+
+      console.log('status');
+
+      if (this.form.category === '') {
+        this.categoryWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Blog Category Required"
+        });
+        return false;
+      }
+
+      console.log('category');
+
+      if (this.form.client_type === '') {
         this.clientTypeWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Client Type Required"
+        });
         return false;
       }
 
+      console.log('client_type');
+
+      if (!this.img_image) {
+        this.imageWarn = true;
+        this.$toast.fire({
+          icon: "error",
+          title: "Banner Image Required"
+        });
+        return false;
+      }
+
+      console.log('img_image');
+      this.form.tags = this.form.meta_keyword;
       this.loading = true;
 
       if (this.titleWarn !== true && this.form.tags.length !== 0) {
-        this.form.tags = this.form.meta_keyword;
+        //this.form.tags = this.form.meta_keyword
         this.form.user_id = window.userId;
         this.form.put("/api/posts/".concat(this.$route.params.id)).then(function (response) {
           _this4.$swal.fire("Updated!", "Item Updated successfully", "success"); //this.emitSock()
@@ -1188,7 +1272,35 @@ var Vue2EditorMixin = {
       editorSettings: {
         modules: {
           imageDrop: true,
-          imageResize: {}
+          imageResize: {},
+          toolbar: [//[{ header: [false, 1, 2, 3, 4, 5, 6] }],
+          ["bold", "italic", "underline", "strike"], // toggled buttons
+          [{
+            align: ""
+          }, {
+            align: "center"
+          }, {
+            align: "right"
+          }, {
+            align: "justify"
+          }], ["blockquote", "code-block"], [{
+            list: "ordered"
+          }, {
+            list: "bullet"
+          }, {
+            list: "check"
+          }], [{
+            indent: "-1"
+          }, {
+            indent: "+1"
+          }], // outdent/indent
+          [{
+            color: []
+          }, {
+            background: []
+          }], // dropdown with defaults from theme
+          ["link", "image", "video"], ["clean"] // remove formatting button
+          ]
         }
       }
     };
@@ -18174,7 +18286,7 @@ var render = function () {
                                 attrs: { form: _vm.form, field: "description" },
                               }),
                               _vm._v(" "),
-                              _vm.descriptionWarn
+                              _vm.descriptionWarn && !_vm.form.description
                                 ? _c("p", { staticClass: "warn-error" }, [
                                     _vm._v(" Please input description."),
                                   ])

@@ -44,6 +44,13 @@ class TourController extends Controller
             ->paginate($size));
     }
 
+    public function general($size)
+    {
+        return response()->json(Tour::where('customer_type', 'general')->with('family:id,family_name')
+            ->latest('updated_at')
+            ->paginate($size));
+    }
+
     public function index()
     {
         return new TourCollection(Tour::with('school')->get());
@@ -96,6 +103,9 @@ class TourController extends Controller
         else if($tour->customer_type == 'corporate'){
             $data = ['itinerary'=>$tour->itinerary,'entity'=>$tour->company,'tour'=>$tour,'escort'=>$escorts,'train'=>$trains,'flight'=>$flights,'hotel'=>$hotels,'restaurant'=>$restaurant,'bus'=>$buses,'sightseeing'=>$sightseeing];
         }
+        else if($tour->customer_type == 'general'){
+            $data = ['itinerary'=>$tour->itinerary,'entity'=>$tour->family,'tour'=>$tour,'escort'=>$escorts,'train'=>$trains,'flight'=>$flights,'hotel'=>$hotels,'restaurant'=>$restaurant,'bus'=>$buses,'sightseeing'=>$sightseeing];
+        }
         
         
         return response()->json($data);
@@ -143,6 +153,7 @@ class TourController extends Controller
       return $this->validate($request, [
             'school_id' => '',
             'company_id' => '',
+            'family_id' => '',
             'customer_type' => 'required',
             'itinerary_id' => 'required',
             'tour_id' => 'required',

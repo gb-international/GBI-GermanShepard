@@ -929,7 +929,35 @@ var Vue2EditorMixin = {
       editorSettings: {
         modules: {
           imageDrop: true,
-          imageResize: {}
+          imageResize: {},
+          toolbar: [//[{ header: [false, 1, 2, 3, 4, 5, 6] }],
+          ["bold", "italic", "underline", "strike"], // toggled buttons
+          [{
+            align: ""
+          }, {
+            align: "center"
+          }, {
+            align: "right"
+          }, {
+            align: "justify"
+          }], ["blockquote", "code-block"], [{
+            list: "ordered"
+          }, {
+            list: "bullet"
+          }, {
+            list: "check"
+          }], [{
+            indent: "-1"
+          }, {
+            indent: "+1"
+          }], // outdent/indent
+          [{
+            color: []
+          }, {
+            background: []
+          }], // dropdown with defaults from theme
+          ["link", "image", "video"], ["clean"] // remove formatting button
+          ]
         }
       }
     };
@@ -3061,7 +3089,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.smallImages[data-v-3871e41a]{\n  width: 140px; \n  height: 93px;\n  position: relative;\n}\n.delImgBtn[data-v-3871e41a]{\n  position: absolute;\n  top: 0px;\n  right: 0px;\n  margin: 4px;\n  font-size: 16px;\n  color: #d12121;\n}\n.btn-custom-indr[data-v-3871e41a] {\n    color: #212529;\n    background-color: #dee2e6;\n    border-color: #dee2e6;\n    font-size: 15px !important;\n    font-weight: 400;\n    padding: 6px 15px;\n}\n.custom-card[data-v-3871e41a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 93px;\n  width: 143px;\n  background: #e5e5e5;\n  border: solid 2px #e5e5e5;\n  border-radius: 5px;\n}\n.custom-div[data-v-3871e41a]{\n  margin-top: 26px !important;\n  padding-top: 0.2vh !important;\n  margin-right: 20px;\n  margin-bottom: 10px;\n}\n.custom-flex[data-v-3871e41a] {\n  display: flex;\n  align-content: center;\n  justify-content: space-around;\n  flex-direction: row;\n  font-weight: 470;\n  color: grey;\n}\n.icons[data-v-3871e41a]{\n  cursor: pointer;\n  font-size: 17px;\n  font-weight: 500;\n  padding: 2px 2px 10px 2px;\n  text-align: center;\n  width: 20%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.smallImages[data-v-3871e41a]{\n  width: 140px; \n  height: 93px;\n  position: relative;\n}\n.delImgBtn[data-v-3871e41a]{\n  position: absolute;\n  top: 0px;\n  right: 0px;\n  margin: 4px;\n  font-size: 16px;\n  color: #d12121;\n}\n.custom-card[data-v-3871e41a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 93px;\n  width: 143px;\n  background: #e5e5e5;\n  border: solid 2px #e5e5e5;\n  border-radius: 5px;\n}\n.btn-custom-indr[data-v-3871e41a] {\n    color: #212529;\n    background-color: #dee2e6;\n    border-color: #dee2e6;\n    font-size: 15px !important;\n    font-weight: 400;\n    padding: 6px 15px;\n}\n.custom-div[data-v-3871e41a]{\n  margin-top: 26px !important;\n  padding-top: 0.2vh !important;\n  margin-right: 20px;\n  margin-bottom: 10px;\n}\n.custom-flex[data-v-3871e41a] {\n  display: flex;\n  align-content: center;\n  justify-content: space-around;\n  flex-direction: row;\n  font-weight: 470;\n  color: grey;\n}\n.icons[data-v-3871e41a]{\n  cursor: pointer;\n  font-size: 17px;\n  font-weight: 500;\n  padding: 2px 2px 10px 2px;\n  text-align: center;\n  width: 20%;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

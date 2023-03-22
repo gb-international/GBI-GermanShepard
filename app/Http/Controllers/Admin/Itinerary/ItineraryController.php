@@ -10,11 +10,13 @@ namespace App\Http\Controllers\Admin\Itinerary;
 use App\Model\Itinerary\Itinerary;
 use App\Model\Post\Tag;
 use App\Model\Itinerary\Itineraryday;
+use App\Model\Itinerary\ItineraryImages;
 use App\Model\Tour\Tourtype;
 use App\Model\Season\Season;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Traits\ImageTrait;
+use Image;
 use App\Jobs\Notifications;
 
 
@@ -81,12 +83,26 @@ class ItineraryController extends Controller
                 $meta_keyword = $meta_keyword .' '. $tag['title'];
             }
         }
+       /* $data['detail_photo_alt'] = serialize($request->detail_photo_alt);
+        $images = array();
+        if($request->detail_photo){
+            $count = 0;
+            foreach($request->detail_photo as $img){
+              $images[$count] = $this->AwsFileUpload($img,config('gbi.detail_photo'),$request->detail_photo_alt[$count]);
+              $count++;
+            }
+        }
+        $data['detail_photo'] = serialize($images);*/
+
+        $data['detail_photo_alt'] = 'itinerary_image_'.uniqid();
+        $data['detail_photo'] = 'itinerary_image_'.uniqid();
+       
         if($request->photo){
             $data['photo'] = $this->AwsFileUpload($request->photo,config('gbi.itinerary_image'),$request->photo_alt);
         }
-        if($request->detail_photo){
-            $data['detail_photo'] = $this->AwsFileUpload($request->detail_photo,config('gbi.itinerary_image'),$request->detail_photo_alt);
-        }
+        /*if($request->detail_photo){
+            $data['detail_photo'] = $this->AwsFileUpload($request->detail_photo,config('gbi.detail_photo'),$request->detail_photo_alt);
+        }*/
 
         $itinerary = new Itinerary();
         $id = $itinerary->insertGetId($data);
@@ -116,6 +132,19 @@ class ItineraryController extends Controller
 
         $itinerary->meta_keyword = $meta_keyword;
         $itinerary->save();
+
+        // Itinerary Banner Images
+        if($request->detail_photo){
+            foreach ($request->detail_photo as $img) {
+                //$itineraryimagesModels[] = $img;
+                $imge = $this->AwsFileUpload($img,config('gbi.detail_photo'),'itinerary_image_'.uniqid());
+                $images = new ItineraryImages;
+                $images->itinerary_id = $itinerary->id;
+                $images->image = $imge;
+                $images->save();
+            }
+            //$itinerary->itineraryimages()->saveMany($itineraryimagesModels);
+        }
         $itinerary->tags()->sync($tag_id);
 
         $notifData = [
@@ -158,6 +187,7 @@ class ItineraryController extends Controller
         $itinerary->tourtypes;
         $itinerary->seasons;
         $itinerary->tags;
+        $itinerary->itineraryimages;
         return response()->json($itinerary);
     }
 
@@ -169,6 +199,7 @@ class ItineraryController extends Controller
      */
     public function edit(Itinerary $itinerary)
     {
+        $itinerary->itineraryimages;
         $itinerary->itinerarydays;
         $itinerary->tourtypes;
         $itinerary->seasons;
@@ -186,6 +217,7 @@ class ItineraryController extends Controller
     public function update(Request $request, Itinerary $itinerary)
     {
         $data = $this->validateItinerary($request);
+        //$data = $request->all();
         $tag_id= [];
         $meta_keyword="";   
         foreach ($request->tags as $tag) {
@@ -208,14 +240,49 @@ class ItineraryController extends Controller
             unset($data['photo_alt']);
         }
         // detail photo upload
-        if($request->detail_photo != $itinerary->detail_photo){
+        /*if($request->detail_photo != $itinerary->detail_photo){
             $data['detail_photo'] = $this->AwsFileUpload($request->detail_photo,config('gbi.itinerary_image'),$request->detail_photo_alt);
             $this->AwsDeleteImage($itinerary->detail_photo);
         }else{
             unset($data['detail_photo']);
             unset($data['detail_photo_alt']);
-        }
-        $itinerary->update($data);
+        }*/
+
+        $newImages = array();
+        $newAlts = array();
+
+         if($request->newImages){
+             $count = 0;
+             foreach($request->newImages as $img){
+                $newImages[$count] = $this->AwsFileUpload($img,config('gbi.detail_photo'),'itinerary_image_'.uniqid());
+                $ItImages = new ItineraryImages;
+                $ItImages->itinerary_id = $itinerary->id;
+                $ItImages->image = $newImages[$count];
+                $ItImages->save();
+
+               //$newAlts[$count] = 'itinerary_image'.uniqid();
+               $count++;
+             }
+             //array_push($data['detail_photo'], $newImages);
+             //array_push($data['detail_photo_alt'], $newAlts);
+         }
+ 
+         if($request->delImages){
+             $count = 0;
+             foreach($request->delImages as $img){
+                 //$this->AwsDeleteImage($img);
+                 $delItImg = ItineraryImages::where('image',$img)->first();
+                 $delItImg->delete();
+                 $count++;
+             }
+         }
+ 
+         //$data['detail_photo'] = serialize($data['detail_photo']);
+         //$data['detail_photo_alt'] = serialize($data['detail_photo_alt']);
+
+         unset($data['newImages'], $data['delImages']);
+
+         $itinerary->update($data);
         
         // Itinerary Day 
         $itinerary->itinerarydays()->delete();

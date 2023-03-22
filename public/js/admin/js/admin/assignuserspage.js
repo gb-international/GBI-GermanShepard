@@ -1540,7 +1540,7 @@ var render = function () {
             _vm._v(" "),
             _c(
               "b-row",
-              { staticClass: "text-capitalize" },
+              { staticClass: "text-capitalize h-100" },
               [
                 _vm._t("table"),
                 _vm._v(" "),

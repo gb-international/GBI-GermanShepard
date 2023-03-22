@@ -32,7 +32,7 @@
       <heading class="text-center" text="Your Experience Includes" />
       <div class="container">
         <div class="row">
-          <div class="col-md-6 col-lg-4">
+          <div class="col-sm-6 col-md-6 col-lg-4">
             <div class="card-container">
               <figure v-lazyload class="image__wrapper">
                 <ImageSpinner class="image__spinner" />
@@ -51,7 +51,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
+          <div class="col-sm-6 col-md-6 col-lg-4">
             <div class="card-container">
               <figure v-lazyload class="image__wrapper">
                 <ImageSpinner class="image__spinner" />
@@ -68,7 +68,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
+          <div class="col-sm-6 col-md-6 col-lg-4">
             <div class="card-container">
               <figure v-lazyload class="image__wrapper">
                 <ImageSpinner class="image__spinner" />
@@ -84,7 +84,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
+          <div class="col-sm-6 col-md-6 col-lg-4">
             <div class="card-container">
               <figure v-lazyload class="image__wrapper">
                 <ImageSpinner class="image__spinner" />
@@ -101,7 +101,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
+          <div class="col-sm-6 col-md-6 col-lg-4">
             <div class="card-container">
               <figure v-lazyload class="image__wrapper">
                 <ImageSpinner class="image__spinner" />
@@ -120,7 +120,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
+          <div class="col-sm-6 col-md-6 col-lg-4">
             <div class="card-container">
               <figure v-lazyload class="image__wrapper">
                 <ImageSpinner class="image__spinner" />
@@ -137,7 +137,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
+          <div class="col-sm-6 col-md-6 col-lg-4">
             <div class="card-container">
               <figure v-lazyload class="image__wrapper">
                 <ImageSpinner class="image__spinner" />
@@ -154,7 +154,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
+          <div class="col-sm-6 col-md-6 col-lg-4">
             <div class="card-container">
               <figure v-lazyload class="image__wrapper">
                 <ImageSpinner class="image__spinner" />
@@ -173,7 +173,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
+          <div class="col-sm-6 col-md-6 col-lg-4">
             <div class="card-container">
               <figure v-lazyload class="image__wrapper">
                 <ImageSpinner class="image__spinner" />
@@ -237,3 +237,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.card-title {
+    font-family: 'Nunito Sans' !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+}
+</style>
